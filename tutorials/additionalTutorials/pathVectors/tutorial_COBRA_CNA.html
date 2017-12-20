@@ -1,0 +1,1404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="MATLAB R2016a"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><title>Interfacing COBRA and CellNetAnalyzer</title><style type="text/css">
+* {margin: 0; padding: 0;}
+body {text-align: start; line-height: 17.234001159668px; min-height: 0px; white-space: normal; color: rgb(0, 0, 0); font-family: Consolas, Inconsolata, Menlo, monospace; font-style: normal; font-size: 14px; font-weight: normal; text-decoration: none; white-space: normal; }
+h1, h2 {font-weight: normal;}
+.content { padding: 30px; }
+
+.S0 { margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S1 { line-height: 26.3999996185303px; min-height: 24px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-size: 22px; white-space: pre-wrap; margin-left: 4px; margin-top: 3px; margin-bottom: 15px; margin-right: 10px;  }
+.S2 { min-height: 0px; font-weight: bold; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S3 { min-height: 0px; font-style: italic; font-weight: bold; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S4 { line-height: 20.576000213623px; min-height: 20px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; white-space: pre-wrap; margin-left: 4px; margin-top: 15px; margin-bottom: 9px; margin-right: 10px;  }
+.S5 { min-height: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S6 { line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S7 { min-height: 0px; font-style: italic; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S8 { min-height: 0px; color: rgb(0, 95, 206); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S9 { line-height: 20.576000213623px; min-height: 20px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; white-space: pre-wrap; margin-left: 4px; margin-top: 3px; margin-bottom: 9px; margin-right: 10px;  }
+.S10 { font-family: Helvetica, Arial, sans-serif; margin-left: 0px; margin-top: 10px; margin-bottom: 20px; margin-right: 0px;  }
+.S11 { text-align: left; line-height: 21px; white-space: pre-wrap; white-space: pre-wrap; margin-left: 56px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S12 { font-style: italic; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S13 { color: rgb(0, 95, 206); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S14 { margin-left: 3px; margin-top: 10px; margin-bottom: 4px; margin-right: 3px;  }
+.S15 { line-height: 15.5926675796509px; min-height: 18px; white-space: nowrap; font-size: 12.6666669845581px; white-space: nowrap; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S16 { line-height: 15.5926685333252px; min-height: 0px; white-space: pre; font-size: 12.6666679382324px; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S17 { margin-left: 3px; margin-top: 4px; margin-bottom: 4px; margin-right: 3px;  }
+.S18 { line-height: 15.5926685333252px; min-height: 0px; white-space: pre; color: rgb(34, 139, 34); font-size: 12.6666679382324px; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S19 { line-height: 15.5926685333252px; min-height: 0px; white-space: pre; font-size: 12.6666679382324px; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S20 { line-height: 15.5926685333252px; min-height: 0px; white-space: pre; color: rgb(160, 32, 240); font-size: 12.6666679382324px; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S21 { line-height: 15.5926685333252px; min-height: 0px; white-space: pre; color: rgb(0, 0, 255); font-size: 12.6666679382324px; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S22 { margin-left: 3px; margin-top: 10px; margin-bottom: 10px; margin-right: 3px;  }
+.S23 { color: rgb(64, 64, 64); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S24 { line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 10px; margin-bottom: 9px; margin-right: 10px;  }
+.S25 { min-height: 0px; font-family: monospace; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S26 { min-height: 0px; font-family: monospace; font-weight: bold; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S27 { font-weight: bold; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S28 { text-align: center; line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S29 { line-height: 15.5926685333252px; min-height: 0px; white-space: pre; color: rgb(160, 32, 240); font-size: 12.6666679382324px; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S30 { font-family: monospace; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+
+.LineNodeBlock {margin: 10px 0 10px 0;}
+.LineNodeBlock+.paragraphNode {margin-top: 10px;}
+.lineNode {padding-left: 10px; background-color: #F7F7F7; border-left: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.inlineWrapper:first-child .lineNode,.inlineWrapper.outputs+.inlineWrapper .lineNode {padding-top: 5px; border-top: 1px solid #E9E9E9;}
+.inlineWrapper:last-child .lineNode,.inlineWrapper.outputs .lineNode {padding-bottom: 5px; border-bottom: 1px solid #E9E9E9;}
+.lineNode .textBox {white-space: pre;}
+.outputGroup {margin: 2px 0 2px 0; padding: 2px 2px 2px 4px;}
+.outputRegion {}
+.outputParagraph {color: rgba(64, 64, 64, 1); padding: 10px 0 6px 17px; background: white; overflow-x: hidden;}
+.inlineWrapper:last-child .outputParagraph {border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;}
+.outputParagraph:empty {margin: 0;}
+.inlineElement .symbolicElement {margin-top: 1px; margin-bottom: 1px;}
+.embeddedOutputsSymbolicElement .MathEquation {margin-top: 4px; margin-bottom: 4px;}
+.embeddedOutputsSymbolicElement .MathEquation.displaySymbolicElement {margin-left: 15px;}
+.embeddedOutputsSymbolicElement .MathEquation.inlineSymbolicElement {margin-left: 5px;}
+.embeddedOutputsSymbolicElement {overflow-x: auto; overflow-y: hidden;}
+.embeddedOutputsSymbolicElement { overflow: initial !important;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {font-family: Consolas, Inconsolata, Menlo, monospace; font-size: 12px; white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement { max-height: none !important; overflow: initial !important;}
+.veSpecifier {}
+.veContainer {}
+.veSpecifierBox {height: 400px; width: 500px;}
+.veSpecifier .veTable {padding-top: 3px; padding-bottom: 4px;}
+.veSpecifierBox .veSpecifier .veContainer {position: relative; width: 100%; height: 370px;}
+.veSpecifierBox .dijitDialogPaneContent {width: 97% !important; height: 88% !important;}
+.veSpecifier .veTable .rowHeadersWrapper {padding-bottom: 0;}
+.veSpecifier .veTable .scroller .variableEditorRenderers {padding-right: 3px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.veVariableValueSummary {display: inline-block;}
+.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {visibility: hidden; z-index: 0;}
+.veMetaSummary {font-style: italic;}
+.veSpecifier .veTable .scroller {overflow: hidden;}
+.veSpecifier .veTable:hover .scroller {overflow: auto;}
+.veSpecifier .veVariableName,.veSpecifier .veDimensionFont {font-family: Consolas, Inconsolata, Menlo, monospace; font-size: 12px;}
+.veSpecifier .veVariableName {padding-top: 2px;}
+.veSpecifier .veDimensionFont {font-style: italic; color: #9A9A9A;}
+.veSpecifier .scroller::-webkit-scrollbar-track {background-color: white;}
+.veSpecifier .scroller::-webkit-scrollbar-corner {background-color: white;}
+.veSpecifier .veTable .topRowHeaderWrapper {border: none; background-color: #F8F9FA;}
+.veSpecifier .mw_type_ListBase.showCellBorders,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper,.veSpecifier .veTable .verticalScrollSpacer,.veSpecifier .veTable .horizontalScrollSpacer {border: none;}
+.veSpecifier .veTable .dataScrollerNode {border: 1px solid #BFBFBF;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode,.veSpecifier .veTable .dataBody {font-family: Arial; font-size: 13px;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode {color: #7F7F7F;}
+.veSpecifier .veTable .dataBody {color: #000000;}
+.veSpecifier .veTable .columnHeaderNode .cell .drag,.veSpecifier .veTable .columnHeaderNode .cell .header,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {background-color: #F8F9FA;}
+.veSpecifier .veTable .columnHeaderNode .cell .dragBorder {border-right: 1px solid #F8F9FA;}
+.veSpecifier .veTable .rowHeaderNode .cell {padding-top: 3px; text-align: center; border-bottom: 1px solid #F8F9FA;}
+.veSpecifier .veTable .dataBody .cell .plainText {text-align: right;}
+.veSpecifier .veTable .dataBody .row .cell {border-bottom: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.embeddedOutputsVariableElement {font-family: Consolas, Inconsolata, Menlo, monospace; font-size: 12px; white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement {min-height: 18px; box-sizing: border-box; font-family: Consolas, Inconsolata, Menlo, monospace; font-size: 12px;}
+.embeddedOutputsMatrixElement .matrixElement{position: relative;}
+.matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.embeddedOutputsMatrixElement.inlineElement .veVariableName {padding-top: 0;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer {white-space: nowrap; padding-top: 10px; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.matrixElement { max-height: none !important; }
+.dijitTooltipDialog .dijitTooltipContainer .dijitTooltipContents .alertPlugin-alertMessage {min-width: 12px; max-width: 400px; max-height: 300px; overflow: auto;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar {width: 11px; height: 11px;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-track {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-corner {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {border-radius: 7px; background-color: rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0); background-clip: padding-box;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.1);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.alertPlugin-alertLine {position: absolute; display: initial; width: 40px; text-align: right; cursor: text;}
+.alertPlugin-onTextLine {visibility: hidden;}
+.alertPlugin-hasTooltip .alertPlugin-warningImg,.alertPlugin-hasTooltip .alertPlugin-errorImg {cursor: pointer;}
+.alertPlugin-alertLine .alertPlugin-warningElement,.alertPlugin-alertLine .alertPlugin-errorElement {display: inline-block; margin-right: 4px;}
+.alertPlugin-isStale {-webkit-filter: opacity(0.4) grayscale(80%); filter: opacity(0.4) grayscale(80%);}
+.diagnosticMessage-wrapper {font-family: Consolas, Inconsolata, Menlo, monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+</style></head><body><div class = "content"><div class = 'SectionBlock containment active'><h1 class = "S1"><span class = "S2">Interfacing COBRA and </span><span class = "S3">CellNetAnalyzer</span></h1><h2 class = "S4"><span class = "S5">Author:  </span><span style="vertical-align:-5"><img src="data:image/png;base64,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" width="145" height="29" /></span><span class = "S5"> and </span><span style="vertical-align:-5"><img src="data:image/png;base64,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" width="152" height="29" /></span><span class = "S5">: </span><span style="vertical-align:-5"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA6CAYAAADybArcAAABpUlEQVRoQ+2XwUoCYRSFz2VEf1sFQuiiReAi3CQJ4sRotKjXaN+i1wiCVtFD1Eu48V8MMS8QUi16gQRBGOKKrQaRrrm4zsid7ZyfO+d8Z+C/hB15aEd8wIzkjaQRMSL/SKDZbFZqtVoljuOJdCyX1er3+w1mvgZwx8yv3vsQwM9fZnJlpNfrnQZBcEtECxO/DzMPvfeXuTeyqE+9Xr9i5nsiOl5OvShEKIqiIYBzZn4GcLJspihGMBgMDqfT6SRJku9ut3tULpffs1QKYyT70Z1OZ69arY4BNDL/SPF+djMC5OvSaESMiHTx2fC9VcuqtWF1pGNWLauW1JEN3y+q5Zz7IKKDwu0jWc9hGJ4FQeCXbr/j2WzWSpIkzfWG2G63951zjVKpdAHgAYBbsVy9ENFjmqafcRx/rTK09VU3iqIbAE9rtvFtNBq1Vq29WzeypgFRZkbEiJQFRkQ5cHGcEREjUhYYEeXAxXFGRIxIWWBElAMXxxkRMSJlgRFRDlwcZ0TEiJQFRkQ5cHGcEREjUhYYEeXAxXFGRIxIWWBElAMXx+0MkTmuJ9c7r7AUMwAAAABJRU5ErkJggg==" width="25" height="29" /></span><span class = "S5"> Max Planck Institute for Dynamics of Comple Technical Systems, Magdeburg; </span><span style="vertical-align:-5"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA6CAYAAADybArcAAACwElEQVRoQ+1XMWsUQRh93x3JHSgRRUQRQUNQiBDEeJG7nYQUgjZBrRTBHyHYGVGENNr7A2zEUojp0sg3u7gWkUAQhRgQLC2MSsImOyMDe+E4LzdbzQ1htn1zfN9773vfzBEOyEcHhAcCEd+cDI4ER+wKVKenp4/leU5EtCWl/G3/CfwJ+8TExKGRkZGHAJ52Nq61fqO1fhTH8Xo/Ql5kRAhxHkAK4EifZueYeXE/fOBEhBBHAWxYSJj+twFcYObvvcgMnEgURS+IyIyU+d4ByADc3kf5eWZe8I5Io9E4WavVNrTWn5VSc0mS/DBNzszMnFFKfQBwqqvpRWa+CUB1kxmoI1EUPSCiJ5ubm6dXV1f/djZX5OZLV/A/SimbAHKviLRarUuVSqXGzEb9/3oTQiwBuNEBLDPzde+IWO4HiqLoNRHd6TjnZ0YsRCpCCBP+PUfyPL+WJMmyd2HvR6S9CADUzTlzMUop7/UKusEHGvZ+RKIoekZEj4szf7IsO5um6U9vL8RejU1NTZ0bHh7+1sbyPL+cJMlKP+I+OmKyEQO4CmBXKdWI4/iTJU/ejZbZVM+Lm35ba31FSrlmI+FdRoQQ9wG8Mu+qLMvG0zQ1b7C9z4zc0NDQklLKjNpWJ+bNaDWbzVa1WpXmAZllWaNHsNvreJSZx7svRS+ICCFGAZgRMqv2pdb6fXvtFqt3jIjuEtEYgAVmnvfqiWKamZycPF6v19eI6ESZLCilbsVx/NYrIrOzs4d3dnZWCqXL8NgFcJGZv/pEpHPNliFhzvzq9VIe6NYq3FgvO1IFUz//j5S1ocw5L7ZWmUZtZwIRm0Ku8eCIa8Vt9YIjNoVc48ER14rb6gVHbAq5xoMjrhW31QuO2BRyjQdHXCtuqxccsSnkGg+OuFbcVi84YlPINR4cca24rV5wxKaQazw44lpxW71/BaLeO9r8lxAAAAAASUVORK5CYII=" width="25" height="29" /></span><span class = "S5"> Systems Biochemistry Group, Luxembourg Centre for Systems Biomedicine </span></h2><h2 class = "S4"><span class = "S5">Reviewers:</span></h2><h2 class = "S4"><span class = "S5">INTRODUCTION</span></h2><p class = "S6"><span class = "S7">CellNetAnalyzer</span><span class = "S5"> (CNA) is a MATLAB toolbox for exploring structural and functional pro­per­ties of metabolic, signaling, and regulatory networks. Metabolic networks can be analyzed with stoichiometric and constraint-based modeling techniques, including flux balance analysis (FBA), metabolic flux analysis, elementary-modes analysis, computational strain design (based on minimal cut sets) and others. Signal transduction and (gene) regulatory networks are represented and analyzed as logical networks or interaction graphs but will not be considered herein. CNA can be used either via graphical user interface (GUI) or from command line via an application programming interface (API). In the following we will focus on CNA’s API functions for constrained based modeling of metabolic networks which can easily be interfaced with the COBRA toolbox.</span><span class = "S5">  </span></p><p class = "S6"><span class = "S5"> </span></p><p class = "S6"><span class = "S5">CNA and the COBRA toolbox have some overlap in their functionality for constraint-based modeling of metabolic networks (e.g., FBA, FVA, etc), however, each tool provides also methods not supported by the other. For example, unique functions of CNA are related to metabolic pathways analysis (calculation of elementary flux modes, elementary flux vectors, convex basis) and computational strain/network design via minimal cut sets. Here we will show how a COBRA model can be converted to a CNA model which can then be analyzed with CNA’s API functions. </span></p><p class = "S6"><span class = "S5"> </span></p><p class = "S6"><span class = "S5">CNA can be downloaded at </span><a href = 'http://www.mpi-magdeburg.mpg.de/projects/cna/cna.html'><span class = "S0">http://www.mpi-magdeburg.mpg.de/projects/cna/cna.html</span></a><span class = "S2">. </span><span class = "S5">Follow the instructions for installation and path settings as described in the manual which is distributed along with the software package. An online version of the manual as well as a tutorial can also be found at the CNA web site given above (see links at the end of this document).</span></p><p class = "S6"><span class = "S5">In general, interfacing COBRA and CNA is rather simple as they both run under MATLAB and use partially similar model structures. If you have a COBRA model and you would like to use a function of CNA you first have to convert your COBRA model to a CNA model before you can apply API functions of CNA.</span></p><p class = "S6"><span class = "S5"> </span></p></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">MATERIALS</span></h2><ul class = "S10"><li class = "S11"><span class = "S12">Please ensure that the COBRA Toolbox has been properly installed and initialised. </span></li><li class = "S11"><span class = "S12">Also, you should install CNA (CellNetAnalyzer) software and initialise it. CNA web site (with manual): </span><a href = 'https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html'><span class = "S0">https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html</span></a><span class = "S12"> </span></li></ul><h2 class = "S4"><span class = "S5">EQUIPMENT SETUP</span></h2><p class = "S6"><span class = "S5">Requirements for using CellNetAnalyzer are:</span></p><ul class = "S10"><li class = "S11"><span class = "S0">MATLAB Version 7.5 (Release 18) or higher.</span></li><li class = "S11"><span class = "S0">some functions require an LP or (M)ILP solver; CNA supports the optimization toolbox of MATLAB, GLPKMEX, and CPLEX).</span></li><li class = "S11"><span class = "S0">More information can be found on: </span><a href = 'https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html'><span class = "S0">https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html</span></a><span class = "S0"> where also a how-to tutorial on CellNetAnalyzer is provided.</span></li></ul></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">PROCEDURE </span></h2><p class = "S6"><span class = "S5">Before you start with</span><span class = "S7"> </span><span class = "S5">CNA </span><span class = "S7">codes</span><span class = "S5">, you should initialise</span><span class = "S7"> the </span><span class = "S5">COBRA Toolbox and CNA software by the following commands</span></p><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S16">initCobraToolbox;</span></p></div></div></div><p class = "S0"></p><div class = 'SectionBlock containment'><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S18">% Add path to Cell Net Analyzer</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S19">CNAPath = </span><span class = "S20">'~/work/CellNetAnalyzer'</span><span class = "S16">;</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S16">addpath(genpath(CNAPath));</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S16">startcna(1)</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S16"></span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S18">% Define the COBRA model</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S21">global </span><span class = "S16">CBTDIR</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S19">addpath([CBTDIR filesep </span><span class = "S20">'tutorials' </span><span class = "S19">filesep </span><span class = "S20">'additionalTutorials' </span><span class = "S19">filesep </span><span class = "S20">'pathVectors'</span><span class = "S16">])</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S19">load(</span><span class = "S20">'COBRAmodel.mat'</span><span class = "S19">)</span><span class = "S18">% a simple MATLAB struct with fields defined in the Documentation.</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S18">% Define the directory (the place that CNA model will be saved there)</span></p></div><div class = 'inlineWrapper'><p class = "S15 lineNode"><span class = "S19">directory = </span><span class = "S20">'Pathwaysvector'</span><span class = "S16">;</span></p></div></div></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">Converting a COBRA model to a CNA model</span></h2><p class = "S6"><span class = "S5">The next step is the conversion of the COBRA model ‘COBRAmodel’ to a CNA model (project) “cnap” which is achieved by the CNA function “cobra2cna”:</span></p><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper outputs'><p class = "S15 lineNode"><span class = "S16">cnap =  CNAcobra2cna(COBRAmodel);</span></p><div class="outputParagraph"><div class="inlineElement embeddedOutputsTextElement scrollableOutput" uid="4576524B" data-testid="output_0" data-width="788" style="width: 818px;"><div class="textElement">Field 'type' not defined. Initialized with '1' (for mass-flow).<br>Field 'nums' not defined. Initialized with 6.<br>Field 'numr' not defined. Initialized with 10.<br>Field 'specNotes' not defined. Initialized empty 'specNotes'.<br>Field 'specExternal' not defined. Initialized with zero vector (i.e. all species are configured as internal).<br>Field 'reacNotes' not defined. Initialized empty 'reacNotes'.<br>Field 'reacVariance' not defined. Initialized for all reactions a variance level of 0.01.<br>Field 'reacDefault' not defined. Initialized with NaN vector (empty default values).<br>Field 'mue' not defined. Initialized according to existence of string 'mue' in 'reacID'.<br>Field 'reacBoxes' not defined. Initialized with default values.<br>Field 'macroComposition' not defined. Initialized as empty matrix (no macromolecules defined; other fields related to macromolecules adapted/initialized accordingly).<br>Field 'epsilon' not defined. Initialized with '1e-10'.<br>Field 'has_gui' not defined. Initialized with 'false'.</div></div></div></div></div><p class = "S24"><span class = "S5">That’s all. With the CNA project variable ‘cnap’ you can now call the API functions of CNA. </span></p><p class = "S6"><span class = "S5">Most fields of the COBRA model have an associated field in the CNA model (e.g. </span><span class = "S25">S </span><span class = "S26">-&gt; </span><span class = "S25">stoichMat; lb</span><span class = "S26"> -&gt; </span><span class = "S25">reacMin; ub</span><span class = "S26">-&gt;</span><span class = "S25">reacMax, rxns</span><span class = "S26">-&gt;</span><span class = "S25">reacID, mets</span><span class = "S26"> -&gt; </span><span class = "S25">specID; metNames</span><span class = "S26"> -&gt; </span><span class = "S25">specLongName</span><span class = "S5"> etc.)</span></p></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">Relevant API functions of CNA</span></h2><p class = "S6"><span class = "S5">Here is a list of most relevant CNA functions for stoichiometric and constraint-based network analysis (the complete set of CNA’s API functions can be found in the directory ../CellNetAnalyzer/code/api and a detailed description is given in the CNA manual):</span></p><ul class = "S10"><li class = "S11"><span class = "S27">CNAcomputeEFM: </span><span class = "S0">Computes elementary (flux) modes (or, alternatively, a convex basis or elementary flux vectors) from a metabolic network model.</span></li><li class = "S11"><span class = "S27">CNAcomputeCutsets:</span><span class = "S0"> Computes minimal cut sets from given sets of target modes and protected modes.</span></li><li class = "S11"><span class = "S27">CNAMCSEnumerator:</span><span class = "S27"> </span><span class = "S0">Computes minimal cut sets via the “dual approach” directly from the network (elementary modes are not needed; can deal with genome-scale networks). See ref [3].</span></li><li class = "S11"><span class = "S27">CNAregMCSEnumerator: </span><span class = "S0">Similar to CNAMCSEnumerator, computes minimal cut sets via the “dual approach” directly from the network. As an additional feature, up- and downregulation of fluxes is allowed as additional intervention to cuts (knockouts) then yielding </span><span class = "S12">regulatory cut sets</span><span class = "S0"> (see ref [4]).</span></li><li class = "S11"><span class = "S27">CNAgeneMCSEnumerator:</span><span class = "S27"> </span><span class = "S0">Computes minimal cut sets via the “dual approach” directly from the network similar to CNAMCSEnumerator. But here, true “gene cut sets” (instead of “reaction cut sets) can be calculated (for this purpose, gene-enzyme-reaction associations must be provided).</span></li><li class = "S11"><span class = "S27">CNAfindRegMCS: </span><span class = "S0">Computes minimal (regulatory) cut sets via the “dual approach” directly from the network similar to CNAregMCSEnumerator. But here only a single cut set is calculated (no enumeration).</span></li><li class = "S11"><span class = "S27">CNAfluxVariability: </span><span class = "S0">Flux variability analysis.</span></li><li class = "S11"><span class = "S27">CNAoptimizeFlux:</span><span class = "S27">  </span><span class = "S0">Flux balance analysis (optimization of fluxes with respect to a linear objective function).</span><span class = "S27">          </span></li><li class = "S11"><span class = "S27">CNAoptimizeYield:</span><span class = "S27">  </span><span class = "S0">Calculates a yield-optimal flux vector maximizing a given yield function (uses linear-fractional programming).</span><span class = "S27"> </span></li><li class = "S11"><span class = "S27">CNAplotPhasePlane:</span><span class = "S27">  </span><span class = "S0">Calculates and plots phase planes (or production envelops).</span><span class = "S27">  </span></li><li class = "S11"><span class = "S27">CNAplotYieldSpace:</span><span class = "S27">  </span><span class = "S0">Calculates and plots yield spaces.</span></li><li class = "S11"><span class = "S27">CNAapplyCASOP: </span><span class = "S0">Applies the CASOP strain design method (see ref [1]). </span></li><li class = "S11"><span class = "S27">CNAremoveConsRel: </span><span class = "S0">Detects and helps to remove conservation relations from the network (useful for certain calculations).</span></li><li class = "S11"><span class = "S27">CNAcompressMFNetwork:</span><span class = "S27">  </span><span class = "S0">Loss-free compression of a stoichiometric network to a smaller one yielding, for example, the same set of elementary modes.</span></li><li class = "S11"><span class = "S27">CNAreduceMFNetwork: </span><span class = "S0">Reduction of network to a smaller subnetwork where specified protected functions are maintained (see ref [2]).</span></li><li class = "S11"><span class = "S27">CNAcna2cobra:</span><span class = "S27">  </span><span class = "S0">Converts a (mass-flow) CNA model to a COBRA model.</span></li><li class = "S11"><span class = "S27">CNAcobra2cna:</span><span class = "S27"> </span><span class = "S0">Converts a COBRA model to a CNA (mass-flow) model.</span></li></ul></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">Example: calculating elementary flux modes of a COBRA model with </span><span class = "S7">CellNetAnalyzer</span></h2><p class = "S6"><span class = "S5">Here we show an example how to calculate elementary flux modes (EFMs) for a COBRA model using an API function of CNA. The metabolic network of COBRAmodel with 10 metabolite (6 internal and four external) and 10 reactions (6 internal and four exchange) looks as follows:</span></p><p class = "S28"><img class="imageNode" style="vertical-align: baseline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAikAAAHOAQAAAAB1QaQUAAAM3klEQVR42u3dPW/jyBkAYAoKwm6Z
+MoXjOeCK1MEVMRCfp7y/kDa4Iq0PV9wuYmhkOIiaAMR2WyyWf+SAlaGCSaV/cCahICpNHQsO4fFM
++CVxOJwhZ2jurvci4bDn1a4fc+Z95+uVqLXYGI+5NQpjWc/pao7M/y2DuF/LxyP3qxZDUf5f/gDV
+85Fls7T4iiATpvqh6+p56lyzpPwS6jOQPZS/3+7/wAnYffmVJ7SSKhkCWVz89i45MBEqrwzdVX9z
+UrWSQiUDqsvw4gODkVe2t2pnEMFEvDyBwYD5ZQ+nHAPKHq7aGRFw3+y/u/rXknlwyj+jDaa4eHxg
+KKhamWvLLJLlVfk1EzvMZXbwm/MprpkZJGD5xaWzqRjmVK3M3Qj5VY7FHOMyl4T4JQM1E1EYL6Id
+QTVTtTIuL7KKWFoz2wVz0gi/YoAcmJDA7SqKy+8qmaqVJZOUfzV5bDAgjsifMmafs9aUoPUK/0DQ
+bs+8gNTJW7krmbIbt6Rm7lcZg2df8YydMSH5a4NJV3krS4aVz/vFKCqZdcZs8MzmGOeaIDckTs3Q
+ExiHeSvTkikbu+CZkIHAQg7PRATNJxTUDDlH2zBvJS6Yuw27xb9yrCKpS8bLmCwgLs/gK+QyxjHR
+FdpGeSsPzNnsFPock/2aM4sGc54zXKMsgvwob2XJeCt6dXGapU/NwKhgbniGFIzNdTFBSytvZckA
+nxD4IktiwDEoZ75sMfSbBuMXrSwYK2Mo+CfPUJThIbv4i8AsCFmJTN0oH1NwLWFmkdA3i8fHUGRs
+jrHAqskQ6EZXJGMw4obmbZxmTMgzeSurSPnZ/zc8QwrGSjH6XT00AwqX02yE/LCpmSw4qwYT8gxG
+BLh4kmI4wfWUTmFgx9GV3WDyVpYMy5mAZyIQ2GtqB5Gz2E9bOJuWIAa3wSnYT1vZJBykeSujmvlX
+I+D1kpByE6zX+JOCmeStLIdm6mO0foPkTNxm9lM6ojCa5q2smbsfocDEwjpVf3+lzQGDxMlbWU5b
+8YYAeJ6NqQZTLXf3HFN9/V68vJLZbIh1MQP+DPIM4ReNxgUiWWdF8GZDrdnMWTaZaivAr4gp73Ot
+XBcLzDRm1/h8GnLTlubG5L5xxSn38422SXGjs1KuN4yYlG/+vrWpMdPcmFAuxE/Z+5XhSJ7KeHX4
+uhjaw7Q2JvIHGWdf/LwYjD535kHCQFWQjZjowzHeOIwrv7QuJgCjMLIx5cpbaMrYcvM5MM5Qho7E
+TOWX9mmYxmCgIzHT58Q8YTAcmSNzZI7MkTkyR+bI/NKYnyxU7viiKfOecDVvz78tz7MhA20m0WW8
+r8u6CUmpyFAL+SKzdAI5Aw9Mq1Fv4UJk4sVyJmeSinlsMR7ctpjtjxcy5h0sa0pkl+ox76XMW1S+
+WkM2sR7DpMyc3ZSMnbSYdxLGlzOvq9cXiHvf7mLUZlwq7eI3+zqev24xc9ZiIkDl6YcqZrO0ReZ1
+m/kZPlJ5pCpm1x4Mb9pMDFJF+j1UecP0+kYxGE6qLMZMM1LSEW7/vTyoRudQM29+Mp1vPNBmNstT
+Q4bai0lrhEfzi+OUzqLLl2dnvz05ffHCtu2bm+vb2yAILvMnT1pP/ln25A/jXE0yJpP8shj2DJnn
+ksXHvPm80u+YN8e8+ZzTL/kYzNweJVIjMUvns2S680b2MteAvPnYTPK0FyT1uvh5MbLXfD8kw8Zk
+VJEiIzHjzDfkk8x+qi5mnyfDniHDPhCzdBqDG08oGJI38SLgxwG9TNdDIhVv1400vIq3n5S5FZjN
+IMafN5iXPYwib2K3MWPR77SYVqQikL8xNrCqxZdOd4OYn2HOEFC9+k6/Sf1BeQPyd4hRUHU0/Zb8
+flAXuyUT7PuG+cMiVTLRPlJsYBbnb8armav6LTJGzOYtazAIDsmbZXSdcgw+PUEDpy0MMiZkrTAa
+Tlt4mjErFom3IhmuU4GFqGWzAM4tMJxZWtnVlIMhmgxeYIhd9M20GmFDmWX+VuRDF08HMqQ4LBwC
+zs/vJkw5oWdMlS72sOWunGfo4W3hwaB1ikCBIXAIs58fuDepD8mbxZ7Z9w1bDeji/Up7iFR+u4o5
+s/+ewyRayybMfhU4TOl1O02Y/dvvIqvu2dA4b6jkFMWwccClN4Ed7pnSZnbSXRYwzZuVlPFNGVfK
+bAwjJe3h/DYEM0Zxm93+aV1G3sOHUOnmzUaxIXbNGF/B+GZ54yqY2IyBCiY1yhvKBSqRnBg1I4Xb
+7WiESpPZqZhqVGkyGyXjmjB8vENJxDXzxlMyG5OAQyWzM2D4eLNbyTyqlzeNesJSMsb1uhirmTJx
+9JidmikTR49ppMpcMlXoMfztU80xVd2popc36w5mq894HUysnzdwECPmDe1iUm2mubokklKXVqSa
+RTGBKQaKFpOOw8RdTNH/IzCebt5sOxlXN29qhlhsKjJrXYYbC2ez70Rmq5s33Fi4uEoTyfqr1cUj
+MZBnvk8ky7gOww+p89kfBzPckDpjTiKpH+vkDT+kJmxhyDAZ8yX7VmTyi9Vh+JH5B/qdNiPkDX9s
+PSOtgOeB1GH4kXl+ZcokMkaSfnl26jD8AL+4+NsIDHEcu8Ws9fJmzTrnm7GYrV7e3I3DeD1MrJc3
+T2MOfQN7mIdxmFSPaZ4PqQUGMbSPedTKG4FhFmzPW30BX6LWi2xtBozCRKA3b4L2+dsSn8Kgt4sl
+zHwIw/oZ0s9EEoaNwixbFQbQmze7D8bcSmpKfXmTto/zIWvP6X15U348AMDsaUy593NiSSGK/76+
+SJWT7XqrPM7r1Sgqxu9hmB6zHoVx54jpPyR5UzLgH3Aww5W/oQdGYP6DPG8AkwjMf+ETGL5vxmFc
+dxRmvX4/BuP7nQGPmouFKm+uw6Az/ciprRPwvgcFN30MRTrMqi9vmkyqYMJeptF7GBoz1U0/TWY6
+lAEssLgHYsGvkTmDG2MbTxibLjUZPm8eHGHV514t64kUz8SOUHMkkLSZRV/exGIVHaNWKtFTp4/Z
+LsQB1M5IKn8dOTFlQO8Iv1+1GDaAWYtMKEu/fiYchfGGM3zetGYeU6Y6ZEcjMehpfVPNWhiN0MVt
+RrLhJk4/Q2AvE037GNJioiHLXf5ZbQKDdBkub/LPahMnCoaG7baa/QmpEaNa2xxi1Deqx3QzCrN0
+elql2pgwSW1tBKbnc1a1mffjMF5nI7XyhrXLVASZ542EwWwYs+0crXp502aCgV0cdx6ptRnhWH09
+kBF2kpOBDNFievNGyLfVwIALnw58M5ARxiYcmDfNQSXOG/rMumNIKSIlm3r9jiFlwGy6ziNyRjZl
+7jqGhiJvZAxWtlCdfpKZt9Grrt5yB3vyD+gxsgkcKFNamTded+K0TiKKEX7XHXGsucCsuyeuzRMY
+rI63itl2TxWu5jZJxtShan8yuSLg0tLaQhkoIyZUrBLqvJFWFLBiIlZ3cdo5HTu6jHzL6DBJ8UG5
+2beuJnImVG7aZVfz9nwi3+pVxZMbve2193Uq3+pRp6qE6DHwQbFjXEo2E8q8yRl50Q/b+/dRa+TN
+OxhLx2b+s2xsIU3mLUpUDLEsoLuhnWcjc6va9ltTXeZ1hijK3ti6sqAm84bdq5i5+PGUXemH1opq
+X3HelVU5ZXnzDq7bk3a9jaWObt7cKcbmQjFPyBngyc9P1TCQHIRlxQV74cnPT5G0sNC5ofVUCx6S
+vZ9Vycje+uqywCbIlr5ApGB8aZUkXeHZ95J5S8lspDucNKZXr3oXmKRzicnWlZx52d7eqLfXqbSH
+c4b0Lr7qo0bVXemmYHztqoAk/7IcSP2C2ekXF6BstcNOwWDtSLW7MY9PCgpGd9Mmy7+801O3YBjU
+ZnzZpq3qm54NbdK1N8kTMo/Uq97tddKVOPnlZXkze9W72e86MhVXkO7o7CvJUFEzrQ1e3h/By0tg
+S/ZbHac70HHYxNqREruxkdZEn9l2nOcp0mbirooN1GZwV5ECahcXhIjHXaWujqqAsI40U+Xf+sUF
+t6OcdKtfFdh01MgMykC7jt4wYJp97IkbHV2m2cfvB5fIXHWmBAZFqX0fF3dzIWFzEfCbyU4mOrRu
+Ko4inB0gNppFqf2JJ7/Pl4qTGoGxbjXJ3jMYEXHaIPBBlwn3DIHiDNPFiHW/6jWdjAGpqsUaTJU5
+FEi2ewZMtYPNGEfC3Gsz5d5Vn1HURGl1LyuTMWv9YuYy/0fFFIyrzxAnVDHc/Y79xczlF9CgUcqy
+M85+6AgMCyYq5t6EWdpPz5tyDdDP4s5auinDVIyk1lIM+v07NsDTGPGRdDOST64hMFUxyr6RvXgM
+d4YMf7twnZfg1pCJZPWNwJoYMiaP58ewZ8IkYzLJkTnmzTHgx7z5SHlzTL/PJf3oC8e2pzc3t7fL
+IIguL8/Ozk9OXpg8efynto/Mp2W8UZj/AftLvugGoY9DAAAAAElFTkSuQmCC"></p><p class = "S6"><span class = "S5"></span></p><p class = "S6"><span class = "S5">The API function of CNA to calculate elementary flux modes (or, alternatively, elementary flux vectors or convex basis vectors; for a general introduction see [5]) is </span><span class = "S25">CNAcomputeEFM</span><span class = "S5">. </span></p><h2 class = "S4"><span class = "S5">Input</span></h2><p class = "S6"><span class = "S5">Based on computing computing elementary modes and extreme pathways, the inputs can be different. You can see the optional inputs by the command</span></p><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper outputs'><p class = "S15 lineNode"><span class = "S19">help </span><span class = "S29">CNAcomputeEFM</span></p><div class="outputParagraph"><div class="inlineElement embeddedOutputsTextElement scrollableOutput" uid="17C32D8D" data-testid="output_1" data-width="788" style="width: 818px;"><div class="textElement">&nbsp;&nbsp;CellNetAnalyzer API function '<strong>CNAcomputeEFM</strong>'<br>&nbsp;&nbsp;---------------------------------------------<br> <br>&nbsp;&nbsp;--&gt; Computes elementary (flux) modes / elementary (flux) vectors or a minimal generating set <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(convex basis) of flux cones or flux polyhedra associated with mass-flow networks. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Two different scenarios can be considered: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i) In the homogeneous case, the solution space defined by the steady state assumption and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reversibility constraints form a polyhedral (flux) cone. Here, elementary modes can be<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;computed which are particular flux vectors of this cone with minimal support <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(= irreducible set of reactions with non-zero rate). <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The set of elementary modes includes all extreme rays of the flux cone, but usally many <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more (support-minimal) vectors. <strong>CNAcomputeEFM</strong> can also compute a convex basis of the flux cone.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In contrast to elementary modes, the convex basis is a minimal set of vectors sufficient <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to generate all flux vectors within the flux cone by non-negative linear combinations<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of convex basis vactors. As implemented herein, the convex basis will always represent <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a subset of the elementary modes. Note that the convex basis is only unique if there <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is no reversible flux vector.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) Specifying inhomogeneous constraints (e.g., fixing a reaction rate to a non-zero <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value or introducing non-zero upper and/or lower boundaries for the reaction rates) leads<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the inhomogeneous case where the solution space becomes a more general flux polyhedron. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>CNAcomputeEFM</strong> computes then either the elementary vectors of the flux polyhedron <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a generalization of elementary modes; the set of elementary vectors&nbsp;&nbsp;will, for example, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include all extreme rays and extreme points (if existent) of the resulting solution space). <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Again, alternatively, a convex basis&nbsp;&nbsp;(= minimal set of generators spanning the resulting <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flux polyhedron) of the flux polyhedron can also be calculated. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note that the zero point will not be delivered, even if it is an extreme point of <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the flux polyhedron. <br> <br>&nbsp;&nbsp;Usage: [efm,irrev,idx,ray,efv_with_zero] = <strong>CNAcomputeEFM</strong>(cnap, constraints,...<br> 	solver, irrev_flag, convbasis_flag, iso_flag, c_macro, display, efmtool_options)<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp; cnap is a CellNetAnalyzer (mass-flow) project variable and mandatory argument. <br> <br>&nbsp;&nbsp;&nbsp;&nbsp;All other arguments are optional:&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;constraints: is either empty (=default) or a column vector or a struct specifying <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(homogeneous or inhomogeneous) constraints to be added to the standard (steady state <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and reversibility) constraints of the flux cone. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If constraints is a COLUMN vector it must have dimension (cnap.numr x 1) and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifies excluded/enforced reactions: if(constraints(i)==0) then only those <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elementary modes/vectors will be computed that do not include reaction i.&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If constraints(i)~=0 and constraints(i)~=NaN then reaction i is enforced, i.e. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only those elementary modes / vectors will be computed that involve reaction i <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(with a non-zero rate). For all other reactions choose constraint(i)=NaN. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Several reactions may be suppressed/enforced simultaneously<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If constraints is a struct it may contain the following fields (all optional): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- constraints.reaconoff: a column vector with dimension (cnap.numr x 1) which<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifies excluded/enforced reactions: if(constraints.reaconoff)==0) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then only those&nbsp;&nbsp;elementary modes/vectors will be computed that do not <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include reaction i; if constraints.reaconoff(i)~=0 and constraints.reaconoff(i)~=NaN&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then reaction i is enforced, i.e. only those elementary modes / vectors will <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be computed that involve reaction i (with a non-zero rate); for all other <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reactions choose constraint(i)=NaN. Several reactions may be suppressed/enforced <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simultaneously.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- constraints.lb: a column vector with dimension (cnap.numr x 1) which specifies lower <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boundaries for the reaction rates (choose constraints.lb(i)=NaN if there <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is no lower bound). Note that a lower bound of zero (irreversibilities) set <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in cnap.reacMin will be considered in any case and need not be specified via <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints.lb (but note that no other bound of cnap.reacMin will be considered!).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- constraints.ub: a column vector with dimension (cnap.numr x 1) which specifies upper <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boundaries for the reaction rates (choose constraints.ub(i)=NaN if there <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is no upper bound). Note that no upper bound possibly defined in cnap.reacMax <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will be considered!.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- constraints.eqto: a column vector with dimension (cnap.numr x 1) which specifies equalities <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints for the reaction rates (choose constraints.eqto(i) NaN if none is active <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for reaction i). <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- constraints.A (an h x cnap.numr matrix) and constraints.b (an h x 1 column vector) specify<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inequalities of the type A*r&lt;=b (r: flux vector of the network). Note that <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints.lb, constraints.ub and constraints.eqto could also be formulated via <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints.A and constrainbts.b.<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One should be careful to not define inconsistent constraints, such as constraints.lb=3 and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints.ub=2. Again note that cnap.reacMin and cnap.reacMax will not be considered for <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inhomogeneous constraints (cnap.reacMin is only used for marking reaction reversible (cnap.reacMin&lt;0) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and irreversible). However, you could, easily enforce those constraints&nbsp;&nbsp;by setting <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints.lb=cnap.reacMin and constraints.ub=cnap.reacMax (Inf and 0 values in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraints(:2,) and constraints(:,3) should afterwards be set to NaN as they represent <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;homogeneous constraints).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If columns constraints.lb, constraints.ub, constraints.eqto and constraints.A / constraints.b <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are not specified or contain only zeros/NaN then elementary modes (if convbasis_flag=0; see below) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or minimal generating sets (if convbasis_flag=1) of the flux cone will be computed (homogeneous <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;problem). Any non-zero non-NaN value in in these vectors/matrix renders the problem inhomogeneous <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and the solution space to be a (flux) polyhedron. This function will then compute the elementary <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vectors of the flux polyhedron (if convbasis_flag=0) OR, again (if convbasis_flag=0), only a <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimal set of unbounded&nbsp;&nbsp;and bounded generators spanning the resulting flux polyhedron. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The returned vector 'ray' indicates whether the i-th vector in 'efm' is unbounded (ray(i)==1) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or bounded (e.g. an extreme point; ray(i)==0) (see also below). In case of the flux cone <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(elementary modes) they are always unbounded. The returned vector 'irrev' indicates whether an <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elementary mode/vector is reversible or not (see below). <br> <br>&nbsp;&nbsp;&nbsp;&nbsp;solver: [0|1|3|4] 0: pure Matlab CNA function; 1: CNA mex files; 3: Metatool mex files; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4: Marco Terzer's EFMtool (see http://www.csb.ethz.ch/tools/index). <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default:4.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note that EFMtool cannot be used if some reactions are enforced (see constraints)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and it cannot be used for calculating the convex basis.<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;irrev_flag: [0|1] whether (1) or not (0) to consider reversibilities of reactions <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0: all reactions are reversible (default: 1)<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;convbasis_flag: [0|1] whether only a minimal generating set (convex basis) [1] is to be calculated <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or all elementary modes/vectors [0].&nbsp;&nbsp;Default: 0.<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;iso_flag: [0|1] whether parallel reactions should be considered only once (default: 0)<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;c_macro: vector containing the concentrations (g/gDW) of the macromolecules <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if a variable biomass composition has been defined (cnap.mue not empty).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can be empty when cnap.mue or cnap.macroComposition is empty. If it<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is empty and cnap.mue is not empty then cnap.macroDefault is used.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default: cnap.macroDefault)<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;display: controls the detail of console output; choose one of <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'None', 'Iteration', 'All', 'Details'}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: 'All'<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;efmtool_options: cell array with input for the CreateFluxModeOpts function.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default: {} (some options will be set by default; cf. console output for the actual options used.<br> <br> <br>&nbsp;&nbsp;The following results are returned:<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;efm: matrix that contains (row-wise) the elementary modes (or elemenatry vectors) or a minimal set of <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generators depending on the chosen scenario. The columns correspond to the reactions; the column <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indices of efms (with respect to the columns in cnap.stoichMat) are stored in the returned variable <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idx (see below; note that columns are removed in efms if the corresponding reactions are not <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contained in any mode) <br> <br>&nbsp;&nbsp;&nbsp;&nbsp;irrev: vector indicating for each elementary mode/vector whether it is reversible(0)/irreversible (1)<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;idx:&nbsp;&nbsp; maps the columns in efm onto the column indices in cnap.stoichmat, <br> 	&nbsp;&nbsp; i.e. idx(i) refers to the column number in cnap.stoichmat (and to<br> 	&nbsp;&nbsp; the row number in cnap.reacID)<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;ray: indicates whether the i-th row (vector) in efm is an unbounded (1) or bounded (0) direction <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of the flux cone / flux polyhedron. Bounded directions (such as extreme points) can only arise <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if an inhomogeneous problem was defined (see also above for 'constraints').<br> <div class="verticalEllipsis"></div></div></div></div></div></div><p class = "S24"><span class = "S5"> So there are quite a number of different options and arguments. For example, </span><span class = "S25">CNAsolver</span><span class = "S5"> can be 0, 1, 3 or 4, which </span></p><ul class = "S10"><li class = "S11"><span class = "S0">0: pure Matlab CNA function;</span></li><li class = "S11"><span class = "S0"> 1: CNA mex files; </span></li><li class = "S11"><span class = "S0">3: Metatool mex files; </span></li><li class = "S11"><span class = "S0">4: Marco Terzer's EFMtool (see http://www.csb.ethz.ch/tools/index). </span></li></ul><p class = "S6"><span class = "S5">The Default is 4. Note that EFMtool cannot be used if some reactions are enforced (see constraints) and it cannot be used for calculating the convex basis. </span></p><p class = "S6"><span class = "S5"> However, for a standard calculation of elementary flux modes you just need to call the function with the CNA model (project) variable (which enforces default parameter setting). Hence, enter:</span></p><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper outputs'><p class = "S15 lineNode"><span class = "S19"> [</span><span class = "S19">efm</span><span class = "S19">,</span><span class = "S19">rev</span><span class = "S19">,</span><span class = "S19">idx</span><span class = "S19">,</span><span class = "S19">ray</span><span class = "S19">,</span><span class = "S19">efv_with_zero</span><span class = "S16">] = CNAcomputeEFM(cnap)</span></p><div class="outputParagraph"><div class="inlineElement embeddedOutputsTextElement" uid="25913FFA" data-testid="output_2" data-width="788" style="width: 818px;"><div class="textElement"> <br> <br> <br>Network compression ...</div></div><div class="inlineElement embeddedOutputsTextElement scrollableOutput" uid="DCC82D49" data-testid="output_3" data-width="788" style="width: 818px;"><div class="textElement">Can't load log handler "ch.javasoft.util.logging.StandardOutHandler"<br>java.lang.ClassNotFoundException: ch.javasoft.util.logging.StandardOutHandler<br>java.lang.ClassNotFoundException: ch.javasoft.util.logging.StandardOutHandler<br>	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)<br>	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)<br>	at java.security.AccessController.doPrivileged(Native Method)<br>	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)<br>	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)<br>	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)<br>	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)<br>	at java.util.logging.LogManager$4.run(LogManager.java:808)<br>	at java.security.AccessController.doPrivileged(Native Method)<br>	at java.util.logging.LogManager.loadLoggerHandlers(LogManager.java:802)<br>	at java.util.logging.LogManager.initializeGlobalHandlers(LogManager.java:1406)<br>	at java.util.logging.LogManager.access$1500(LogManager.java:148)<br>	at java.util.logging.LogManager$RootLogger.accessCheckedHandlers(LogManager.java:1493)<br>	at java.util.logging.Logger.getHandlers(Logger.java:1350)<br>	at java.util.logging.Logger.log(Logger.java:612)<br>	at java.util.logging.Logger.doLog(Logger.java:641)<br>	at java.util.logging.Logger.log(Logger.java:664)<br>	at ch.javasoft.metabolic.compress.CompressionMethod.logUnsupported(CompressionMethod.java:125)<br>	at ch.javasoft.metabolic.compress.StoichMatrixCompressor.&lt;init&gt;(StoichMatrixCompressor.java:92)<br>Can't load log handler "ch.javasoft.util.logging.StandardErrHandler"<br>java.lang.ClassNotFoundException: ch.javasoft.util.logging.StandardErrHandler<br>java.lang.ClassNotFoundException: ch.javasoft.util.logging.StandardErrHandler<br>	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)<br>	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)<br>	at java.security.AccessController.doPrivileged(Native Method)<br>	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)<br>	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)<br>	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)<br>	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)<br>	at java.util.logging.LogManager$4.run(LogManager.java:808)<br>	at java.security.AccessController.doPrivileged(Native Method)<br>	at java.util.logging.LogManager.loadLoggerHandlers(LogManager.java:802)<br>	at java.util.logging.LogManager.initializeGlobalHandlers(LogManager.java:1406)<br>	at java.util.logging.LogManager.access$1500(LogManager.java:148)<br>	at java.util.logging.LogManager$RootLogger.accessCheckedHandlers(LogManager.java:1493)<br>	at java.util.logging.Logger.getHandlers(Logger.java:1350)<br>	at java.util.logging.Logger.log(Logger.java:612)<br>	at java.util.logging.Logger.doLog(Logger.java:641)<br>	at java.util.logging.Logger.log(Logger.java:664)<br>	at ch.javasoft.metabolic.compress.CompressionMethod.logUnsupported(CompressionMethod.java:125)<br>	at ch.javasoft.metabolic.compress.StoichMatrixCompressor.&lt;init&gt;(StoichMatrixCompressor.java:92)</div></div><div class="inlineElement embeddedOutputsTextElement scrollableOutput" uid="716CD575" data-testid="output_4" data-width="788" style="width: 818px;"><div class="textElement"> <br>Matrix size before network compression: 6&nbsp;&nbsp;10<br>Matrix size after network compression: 2&nbsp;&nbsp;6<br> <br>Using 'CalculateFluxModes'<br>'/Applications/MATLAB_R2016b.app/sys/java/jre/maci64/jre/bin/java' -Xms1024m -Xmx1024m -XX:+UseParallelGC -XX:+UseAdaptiveSizePolicy -XX:+UseAdaptiveGCBoundary -XX:+UseTLAB -XX:+ResizeTLAB -XX:MaxPermSize=20m -cp patch.jar:lib/metabolic-efm-all.jar:lib/dom4j-1.6.1.jar:lib/junit-3.8.1.jar ch.javasoft.metabolic.efm.main.CalculateFluxModes -kind stoichiometry -stoich tmp/stoich.txt -rev tmp/revs.txt -meta tmp/mnames.txt -reac tmp/rnames.txt -arithmetic double -zero 1e-10 -out matlab tmp/efms.mat -compression off -log console -level INFO -tmpdir /Users/susan.ghaderi/work/CellNetAnalyzer/code/ext/efmtool/tmp -maxthreads -1 -normalize min -adjacency-method pattern-tree-minzero -rowordering MostZerosOrAbsLexMin -enforce <br><br>2017-12-20&nbsp;&nbsp;15:34:34.758&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | =====================================================<br>2017-12-20&nbsp;&nbsp;15:34:34.761&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | efmtool version 4.7.1, 2009-12-04 18:30:05<br>2017-12-20&nbsp;&nbsp;15:34:34.761&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | Copyright (c) 2009, Marco Terzer, Zurich, Switzerland<br>2017-12-20&nbsp;&nbsp;15:34:34.761&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | This is free software, !!! NO WARRANTY !!!<br>2017-12-20&nbsp;&nbsp;15:34:34.761&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | See LICENCE.txt for redistribution conditions<br>2017-12-20&nbsp;&nbsp;15:34:34.762&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | =====================================================<br>2017-12-20&nbsp;&nbsp;15:34:35.316&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.output.mat&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | estimated efms-per-file: 44000000<br>2017-12-20&nbsp;&nbsp;15:34:35.346&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | Elemetary flux mode computation<br>2017-12-20&nbsp;&nbsp;15:34:35.347&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | Implementation:<br>2017-12-20&nbsp;&nbsp;15:34:35.349&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..algorithm name&nbsp;&nbsp; : SequentialDoubleDescriptionImpl<br>2017-12-20&nbsp;&nbsp;15:34:35.349&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..model type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : NullspaceEfmModel<br>2017-12-20&nbsp;&nbsp;15:34:35.350&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..memory type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: InCoreMemory<br>2017-12-20&nbsp;&nbsp;15:34:35.350&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..output type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: MatFile<br>2017-12-20&nbsp;&nbsp;15:34:35.350&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | System:<br>2017-12-20&nbsp;&nbsp;15:34:35.540&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..hostname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : bmp00191.local<br>2017-12-20&nbsp;&nbsp;15:34:35.540&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..operating system : x86_64/Mac OS X/10.12.6<br>2017-12-20&nbsp;&nbsp;15:34:35.541&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..processors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 4<br>2017-12-20&nbsp;&nbsp;15:34:35.541&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..vm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/24.75-b04<br>2017-12-20&nbsp;&nbsp;15:34:35.541&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..vm-spec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Oracle Corporation/Java Virtual Machine Specification/1.7<br>2017-12-20&nbsp;&nbsp;15:34:35.543&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..vm arguments&nbsp;&nbsp;&nbsp;&nbsp; : [-Xms1024m, -Xmx1024m, -XX:+UseParallelGC, -XX:+UseAdaptiveSizePolicy, -XX:+UseAdaptiveGCBoundary, -XX:+UseTLAB, -XX:+ResizeTLAB, -XX:MaxPermSize=20m]<br>2017-12-20&nbsp;&nbsp;15:34:35.545&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..memory, commited : 1029M<br>2017-12-20&nbsp;&nbsp;15:34:35.545&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..memory, used&nbsp;&nbsp;&nbsp;&nbsp; : 21M<br>2017-12-20&nbsp;&nbsp;15:34:35.545&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | Config:<br>2017-12-20&nbsp;&nbsp;15:34:35.545&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..generator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Efm<br>2017-12-20&nbsp;&nbsp;15:34:35.545&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..adj method&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : pattern-tree-minzero<br>2017-12-20&nbsp;&nbsp;15:34:35.545&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..row ordering&nbsp;&nbsp;&nbsp;&nbsp; : MostZerosOrAbsLexMin<br>2017-12-20&nbsp;&nbsp;15:34:35.548&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..arithmetic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : double (prec: -1 / zero: 1.0E-10)<br>2017-12-20&nbsp;&nbsp;15:34:35.548&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..compression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: off<br>2017-12-20&nbsp;&nbsp;15:34:35.548&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..compr. methods&nbsp;&nbsp; : []<br>2017-12-20&nbsp;&nbsp;15:34:35.549&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..normalize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: min<br>2017-12-20&nbsp;&nbsp;15:34:35.549&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..max threads&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 4<br>2017-12-20&nbsp;&nbsp;15:34:35.549&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..self test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: off<br>2017-12-20&nbsp;&nbsp;15:34:35.549&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..progress type&nbsp;&nbsp;&nbsp;&nbsp;: None<br>2017-12-20&nbsp;&nbsp;15:34:35.549&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..progress part.&nbsp;&nbsp; : 100<br>2017-12-20&nbsp;&nbsp;15:34:35.550&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..suppress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : []<br>2017-12-20&nbsp;&nbsp;15:34:35.550&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..enforce&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: []<br>2017-12-20&nbsp;&nbsp;15:34:35.550&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..nosplit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: []<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..temp dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : /Users/susan.ghaderi/work/CellNetAnalyzer/code/ext/efmtool/tmp/???<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..flag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : (none)<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | Distributed Config:<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..node count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 2<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..nodes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: [localhost, localhost]<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..vmargs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : [-Xmx800M, -Xmx500M]<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: /usr/bin/java [vmargs] -cp [classpath] [class] [args]<br>2017-12-20&nbsp;&nbsp;15:34:35.551&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..partition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 256<br>2017-12-20&nbsp;&nbsp;15:34:35.552&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | ..cand. threshold&nbsp;&nbsp;: 100000<br>2017-12-20&nbsp;&nbsp;15:34:35.556&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | original network: 2 metabolites, 6 reactions (2 reversible)<br>2017-12-20&nbsp;&nbsp;15:34:35.688&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | stoich expanded has dimensions 2x8<br>2017-12-20&nbsp;&nbsp;15:34:35.688&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | kernel matrix has dimensions 8x6<br>2017-12-20&nbsp;&nbsp;15:34:35.689&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | TIME preprocessing: 354ms<br>2017-12-20&nbsp;&nbsp;15:34:35.713&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | iteration 0/2: 6 modes, dt=0ms.	{ next 1/2: 2 adj candidates, [+/0/-] = [2/3/1] }<br>2017-12-20&nbsp;&nbsp;15:34:35.762&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | iteration 1/2: 7 modes, dt=49ms.	{ next 2/2: 6 adj candidates, [+/0/-] = [3/2/2] }<br>2017-12-20&nbsp;&nbsp;15:34:35.776&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | iteration 2/2: 10 modes, dt=13ms.<br>2017-12-20&nbsp;&nbsp;15:34:35.776&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | TIME iterate: 69ms<br>2017-12-20&nbsp;&nbsp;15:34:35.776&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | efm count before postprocessing: 10<br>2017-12-20&nbsp;&nbsp;15:34:35.779&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | efm count after filtering/consolidation: 8<br>2017-12-20&nbsp;&nbsp;15:34:35.779&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | uncompressing modes (can take a while)<br>2017-12-20&nbsp;&nbsp;15:34:35.803&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.output.mat&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | estimated efms-per-file: 44000000<br>2017-12-20&nbsp;&nbsp;15:34:35.865&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.output.mat&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | estimated efms-per-file: 44000000<br>2017-12-20&nbsp;&nbsp;15:34:35.878&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.output.mat&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | estimated efms-per-file: 44000000<br>2017-12-20&nbsp;&nbsp;15:34:35.902&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.output.mat&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | estimated efms-per-file: 44000000<br>2017-12-20&nbsp;&nbsp;15:34:35.943&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | TIME postprocessing: 167ms<br>2017-12-20&nbsp;&nbsp;15:34:35.943&nbsp;&nbsp;main&nbsp;&nbsp;&nbsp;&nbsp;efm.impl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFO&nbsp;&nbsp;&nbsp;&nbsp; | overall computation time: 608ms<br> <br>Don't forget to delete temporary files in the CellNetAnalyzer/code/ext/efmtool/tmp directory!<br> <br> <br>Final number of elementary modes: 8<br> </div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="D2E897F0" data-testid="output_5" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>efm = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;10&quot;,&quot;totalRows&quot;:&quot;8&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     1    -1     0     0     0     1     0    -1     0     0
+     1     0     1     0     1     0     0     0     1     0
+     1     0     1     0     0     1     0    -1     1     0
+     1     1     1     1     0     0     1     1     0     1
+     1    -1     0     0     1     0     0     0     0     0
+     0     1     1     0     0     0     0     0     1     0
+     2     0     1     1     1     0     1     1     0     1
+     2     0     1     1     0     1     1     0     0     1
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsVariableStringElement" uid="553D4D19" data-testid="output_6" data-width="788" style="width: 818px;"><div class="textElement"><div>rev = </div><div>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br>&nbsp;&nbsp; 1<br><br></div></div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="4F1B450C" data-testid="output_7" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>idx = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;10&quot;,&quot;totalRows&quot;:&quot;1&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     1     2     3     4     5     6     7     8     9    10
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="6F4E86E0" data-testid="output_8" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>ray = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;8&quot;,&quot;totalRows&quot;:&quot;1&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     1     1     1     1     1     1     1     1
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsVariableElement" uid="E00E77E6" data-testid="output_9" style="width: 818px;"><div class="variableElement">efv_with_zero = 1</div></div></div></div></div><p class = "S24"><span class = "S5"> In this (standard) case, the EFMs are calculated with efmtool (without inhomogeneous constraints). </span></p><h2 class = "S4"><span class = "S5">Outpu</span><span class = "S5">t</span></h2><p class = "S6"><span class = "S5">The output of </span><span class = "S25">pathVectors.m is</span></p><ul class = "S10"><li class = "S11"><span class = "S0"> </span><span class = "S30">efm</span><span class = "S0">:  contains the elementary flux modes in the rows. The columns contain the stoichiometric coefficients of the reactions - but note that the columns do not necessarily have the same order as in the stoichiometric matrix;</span></li><li class = "S11"><span class = "S30">idx: </span><span class = "S0">maps the columns in </span><span class = "S30">efm </span><span class = "S0">onto the original columns/reactions, i.e. </span><span class = "S30">idx(i)</span><span class = "S0"> maps the </span><span class = "S30">i</span><span class = "S0">-th column (reaction) in </span><span class = "S30">efm</span><span class = "S0"> to the column (reaction) number in the stoichiometric matrix (</span><span class = "S30">cnap.stoichmat</span><span class = "S0">). In our example, </span><span class = "S30">idx </span><span class = "S0">exhibits a 1:1 mapping. The vector </span><span class = "S30">rev </span><span class = "S0">indicates the reversibility of the calculated modes (0: reversible; 1: irreversible; hence, in this example, all modes are irreversible);</span></li><li class = "S11"><span class = "S0"> </span><span class = "S30">rev</span><span class = "S0"> :  indicates the reversibility of the calculated modes (0: reversible; 1: irreversible; hence, in this example, all modes are irreversible). </span></li><li class = "S11"><span class = "S30">ray</span><span class = "S0">:   indicates which of the calculated modes is unbounded (always true for EFMs);</span></li><li class = "S11"><span class = "S0"> </span><span class = "S30">efv_with_zero:</span><span class = "S0"> indicates whether the zero vector is part of the solution space (always true for EFMs).</span></li></ul><p class = "S6"><span class = "S5">These eoght elementary modes are shown in figuers 2:</span></p><p class = "S28"><img class="imageNode" width="945" style="vertical-align: baseline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAJRCAMAAABiN77gAAADAFBMVEUAAAAAADMAAGYAAJkAAMwA
+AP8AMwAAMzMAM2YAM5kAM8wAM/8AZgAAZjMAZmYAZpkAZswAZv8AmQAAmTMAmWYAmZkAmcwAmf8A
+zAAAzDMAzGYAzJkAzMwAzP8A/wAA/zMA/2YA/5kA/8wA//8zAAAzADMzAGYzAJkzAMwzAP8zMwAz
+MzMzM2YzM5kzM8wzM/8zZgAzZjMzZmYzZpkzZswzZv8zmQAzmTMzmWYzmZkzmcwzmf8zzAAzzDMz
+zGYzzJkzzMwzzP8z/wAz/zMz/2Yz/5kz/8wz//9mAABmADNmAGZmAJlmAMxmAP9mMwBmMzNmM2Zm
+M5lmM8xmM/9mZgBmZjNmZmZmZplmZsxmZv9mmQBmmTNmmWZmmZlmmcxmmf9mzABmzDNmzGZmzJlm
+zMxmzP9m/wBm/zNm/2Zm/5lm/8xm//+ZAACZADOZAGaZAJmZAMyZAP+ZMwCZMzOZM2aZM5mZM8yZ
+M/+ZZgCZZjOZZmaZZpmZZsyZZv+ZmQCZmTOZmWaZmZmZmcyZmf+ZzACZzDOZzGaZzJmZzMyZzP+Z
+/wCZ/zOZ/2aZ/5mZ/8yZ///MAADMADPMAGbMAJnMAMzMAP/MMwDMMzPMM2bMM5nMM8zMM//MZgDM
+ZjPMZmbMZpnMZszMZv/MmQDMmTPMmWbMmZnMmczMmf/MzADMzDPMzGbMzJnMzMzMzP/M/wDM/zPM
+/2bM/5nM/8zM////AAD/ADP/AGb/AJn/AMz/AP//MwD/MzP/M2b/M5n/M8z/M///ZgD/ZjP/Zmb/
+Zpn/Zsz/Zv//mQD/mTP/mWb/mZn/mcz/mf//zAD/zDP/zGb/zJn/zMz/zP///wD//zP//2b//5n/
+/8z///8SEhIYGBgeHh4kJCQqKiowMDA2NjY8PDxCQkJISEhOTk5UVFRaWlpgYGBmZmZsbGxycnJ4
+eHh+fn6EhISKioqQkJCWlpacnJyioqKoqKiurq60tLS6urrAwMDGxsbMzMzS0tLY2Nje3t7k5OTq
+6urw8PD29vb8/PwgKWLDAACAAElEQVR42uy9TW8lyXku+EZUFnFYKFIwBI1kGbYFg8NOyJvazI8o
+EDQMaCXJhveeu7hLuVulJvtDLeDe3S1c3PUIhlc9wPWBUX+jZqFGFk1dyB64f0CxUOSwkhET3xn5
+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
+"></p><p class = "S6"><span class = "S5"></span></p><p class = "S6"><span class = "S5">If you now want to calculate the convex basis vectors (a subset of EFMs that are sufficient to span the flux cone; e.g. useful for calculation of extreme pathways) we have to set the </span><span class = "S25">conbasis_flag</span><span class = "S5"> argument (the 5-th argument) to </span><span class = "S25">1</span><span class = "S5">. We also choose now the Metatool routine for calculating the convex basis (efmtool cannot be used for calculating convex bases). For the other arguments we chose the standard values:</span></p><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper outputs'><p class = "S15 lineNode"><span class = "S16">[efm,rev,idx,ray,efv_with_zero] = CNAcomputeEFM(cnap,[ ],3,1,1)</span></p><div class="outputParagraph"><div class="inlineElement embeddedOutputsTextElement" uid="889EFD8C" data-testid="output_10" data-width="788" style="width: 818px;"><div class="textElement"> </div></div><div class="inlineElement embeddedOutputsTextElement" uid="237B2B4A" data-testid="output_11" data-width="788" style="width: 818px;"><div class="textElement"> <br>Cannot use METATOOL MEX version: no executable MEX file found<br>Flux cone is pointed - reversible modes do not exist<br> <br>Remaining metabolites: 2<br>Remaining reactions: 6 (4 reactions are irreversible)<br> <br>column 1/2: C (6 preliminary vectors, 20-Dec-2017 15:34:36 cput: 0.04<br>column 2/2: B (5 preliminary vectors, 20-Dec-2017 15:34:36 cput: 0.08<br>4 convex basis vectors found&nbsp;&nbsp;20-Dec-2017 15:34:36 cput: 0.09<br> <br>Final number of convex basis vectors: 4<br> </div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="3999F04B" data-testid="output_12" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>efm = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;10&quot;,&quot;totalRows&quot;:&quot;4&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     0     1     1     0     0     0     0     0     1     0
+     1    -1     0     0     1     0     0     0     0     0
+     1     1     1     1     0     0     1     1     0     1
+     1    -1     0     0     0     1     0    -1     0     0
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="CF51C08A" data-testid="output_13" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>rev = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;1&quot;,&quot;totalRows&quot;:&quot;4&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     1
+     1
+     1
+     1
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="C6012AAE" data-testid="output_14" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>idx = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;10&quot;,&quot;totalRows&quot;:&quot;1&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     1     2     3     4     5     6     7     8     9    10
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsMatrixElement" uid="EFA839BA" data-testid="output_15" style="width: 818px;"><div class="matrixElement veSpecifier"><div class="veVariableName"><span>ray = </span><span class="veVariableValueSummary veMetaSummary"></span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:43.5,&quot;totalColumns&quot;:&quot;4&quot;,&quot;totalRows&quot;:&quot;1&quot;,&quot;charsPerColumn&quot;:6}"><div class="variableValue">     1     1     1     1
+</div><div class="horizontalEllipsis hide"></div><div class="verticalEllipsis hide"></div></div></div></div><div class="inlineElement embeddedOutputsVariableElement" uid="D4465DB7" data-testid="output_16" style="width: 818px;"><div class="variableElement">efv_with_zero = 1</div></div></div></div></div><h2 class = "S4"><span class = "S5"></span></h2></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">Converting a CNA model to a COBRA model</span></h2><p class = "S6"><span class = "S5">A CNA model ‘cnap’ can also be converted to a COBRA model by </span></p><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper outputs'><p class = "S15 lineNode"><span class = "S16"> cbmodel =  CNAcna2cobra(cnap);</span></p><div class="outputParagraph"><div class="inlineElement embeddedOutputsTextElement" uid="9E6A8C64" data-testid="output_17" data-width="788" style="width: 818px;"><div class="textElement">Removing 0 external metabolites</div></div></div></div></div><p class = "S24"><span class = "S5">Then, COBRA functions can be applied to a (former) CNA model as well.</span></p><p class = "S6"><span class = "S5"> </span></p><p class = "S6"><span class = "S5">Note that if you convert a COBRA model to CNA and then back to a COBRA model, some model information can be lost since a CNA model does not capture all (potential) fields of a COBRA model. The following fields will definitely be maintained when converting a COBRA model to a CNA model and back:</span></p><ul class = "S10"><li class = "S11"><span class = "S0">cbmodel.rxns </span></li><li class = "S11"><span class = "S0">cbmodel.mets</span></li><li class = "S11"><span class = "S0">cbmodel.S</span></li><li class = "S11"><span class = "S0">cbmodel.lb</span></li><li class = "S11"><span class = "S0">cbmodel.ub</span></li><li class = "S11"><span class = "S0">cbmodel.rev</span></li><li class = "S11"><span class = "S0">cbmodel.c</span></li><li class = "S11"><span class = "S0">cbmodel.b</span></li><li class = "S11"><span class = "S0">cbmodel.metNames</span></li></ul></div><p class = "S0"></p><div class = 'SectionBlock containment'><h2 class = "S9"><span class = "S5">References</span></h2><p class = "S6"><span class = "S5">[1] Hädicke O and Klamt S. (2010) CASOP: A Computational Approach for Strain Optimization aiming at high Productivity. </span><span class = "S2">Journal of Biotechnology,</span><span class = "S5"> 147, 88-101. </span></p><p class = "S6"><span class = "S5">[2] Erdrich P, Steuer R, Klamt S. (2015) An algorithm for the reduction of genome-scale metabolic network models to meaningful core models. </span><span class = "S2">BMC Systems Biology</span><span class = "S5"> 9:48.</span></p><p class = "S6"><span class = "S5">[3] von Kamp A, Klamt S (2014) Enumeration of smallest intervention strategies in genome-scale metabolic networks. </span><span class = "S2">PLoS Computational Biology</span><span class = "S5">, 10:e1003378.</span></p><p class = "S6"><span class = "S5">[4] Mahadevan R, von Kamp A, Klamt S. (2015) Genome-scale strain designs based on regulatory minimal cut sets. </span><span class = "S2">Bioinformatics</span><span class = "S5"> 31:2844-2851.</span></p><p class = "S6"><span class = "S5">[5] Klamt S, Regensburger G, Gerstl MP, Jungreuthmayer C, Schuster S, Mahadevan R, Zanghellini J, Müller S. (2017) From elementary flux modes to elementary flux vectors: Metabolic pathway analysis with arbitrary linear flux constraints. </span><span class = "S2">PLoS Comput Biol</span><span class = "S5"> 13:e1005409.</span></p></div></div>
+<!-- 
+##### SOURCE BEGIN #####
+%% *Interfacing COBRA and _CellNetAnalyzer*_
+%% Author:  $$* and *$$*: *$$ Max Planck Institute for Dynamics of Comple Technical Systems, Magdeburg; $$ Systems Biochemistry Group, Luxembourg Centre for Systems Biomedicine 
+%% Reviewers:
+%% INTRODUCTION
+% _CellNetAnalyzer_ (CNA) is a MATLAB toolbox for exploring structural and functional 
+% pro­per­ties of metabolic, signaling, and regulatory networks. Metabolic networks 
+% can be analyzed with stoichiometric and constraint-based modeling techniques, 
+% including flux balance analysis (FBA), metabolic flux analysis, elementary-modes 
+% analysis, computational strain design (based on minimal cut sets) and others. 
+% Signal transduction and (gene) regulatory networks are represented and analyzed 
+% as logical networks or interaction graphs but will not be considered herein. 
+% CNA can be used either via graphical user interface (GUI) or from command line 
+% via an application programming interface (API). In the following we will focus 
+% on CNA’s API functions for constrained based modeling of metabolic networks 
+% which can easily be interfaced with the COBRA toolbox.  
+% 
+%  
+% 
+% CNA and the COBRA toolbox have some overlap in their functionality for 
+% constraint-based modeling of metabolic networks (e.g., FBA, FVA, etc), however, 
+% each tool provides also methods not supported by the other. For example, unique 
+% functions of CNA are related to metabolic pathways analysis (calculation of 
+% elementary flux modes, elementary flux vectors, convex basis) and computational 
+% strain/network design via minimal cut sets. Here we will show how a COBRA model 
+% can be converted to a CNA model which can then be analyzed with CNA’s API functions. 
+% 
+%  
+% 
+% CNA can be downloaded at <http://www.mpi-magdeburg.mpg.de/projects/cna/cna.html 
+% http://www.mpi-magdeburg.mpg.de/projects/cna/cna.html>*. *Follow the instructions 
+% for installation and path settings as described in the manual which is distributed 
+% along with the software package. An online version of the manual as well as 
+% a tutorial can also be found at the CNA web site given above (see links at the 
+% end of this document).
+% 
+% In general, interfacing COBRA and CNA is rather simple as they both run 
+% under MATLAB and use partially similar model structures. If you have a COBRA 
+% model and you would like to use a function of CNA you first have to convert 
+% your COBRA model to a CNA model before you can apply API functions of CNA.
+% 
+%  
+%% MATERIALS
+% * _Please ensure that the COBRA Toolbox has been properly installed and initialised. 
+% _
+% * _Also, you should install CNA (CellNetAnalyzer) software and initialise 
+% it. CNA web site (with manual): _<https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html 
+% https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html>_ _
+%% EQUIPMENT SETUP
+% Requirements for using CellNetAnalyzer are:
+% 
+% * MATLAB Version 7.5 (Release 18) or higher.
+% * some functions require an LP or (M)ILP solver; CNA supports the optimization 
+% toolbox of MATLAB, GLPKMEX, and CPLEX).
+% * More information can be found on: <https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html 
+% https://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html> where also a how-to 
+% tutorial on CellNetAnalyzer is provided.
+%% PROCEDURE 
+% Before you start with_ _CNA _codes_, you should initialise_ the _COBRA Toolbox 
+% and CNA software by the following commands
+
+initCobraToolbox;
+% Add path to Cell Net Analyzer
+CNAPath = '~/work/CellNetAnalyzer';
+addpath(genpath(CNAPath));
+startcna(1)
+
+% Define the COBRA model
+global CBTDIR
+addpath([CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep 'pathVectors'])
+load('COBRAmodel.mat')% a simple MATLAB struct with fields defined in the Documentation.
+% Define the directory (the place that CNA model will be saved there)
+directory = 'Pathwaysvector';
+%% *Converting a COBRA model to a CNA model*
+% The next step is the conversion of the COBRA model ‘COBRAmodel’ to a CNA model 
+% (project) “cnap” which is achieved by the CNA function “cobra2cna”:
+
+cnap =  CNAcobra2cna(COBRAmodel);
+%% 
+% That’s all. With the CNA project variable ‘cnap’ you can now call the 
+% API functions of CNA. 
+% 
+% Most fields of the COBRA model have an associated field in the CNA model 
+% (e.g. |S *-> *stoichMat; lb* -> *reacMin; ub*->*reacMax, rxns*->*reacID, mets* 
+% -> *specID; metNames* -> *specLongName| etc.)
+%% *Relevant API functions of CNA*
+% Here is a list of most relevant CNA functions for stoichiometric and constraint-based 
+% network analysis (the complete set of CNA’s API functions can be found in the 
+% directory ../CellNetAnalyzer/code/api and a detailed description is given in 
+% the CNA manual):
+% 
+% * *CNAcomputeEFM: *Computes elementary (flux) modes (or, alternatively, a 
+% convex basis or elementary flux vectors) from a metabolic network model.
+% * *CNAcomputeCutsets:* Computes minimal cut sets from given sets of target 
+% modes and protected modes.
+% * *CNAMCSEnumerator: *Computes minimal cut sets via the “dual approach” directly 
+% from the network (elementary modes are not needed; can deal with genome-scale 
+% networks). See ref [3].
+% * *CNAregMCSEnumerator: *Similar to CNAMCSEnumerator, computes minimal cut 
+% sets via the “dual approach” directly from the network. As an additional feature, 
+% up- and downregulation of fluxes is allowed as additional intervention to cuts 
+% (knockouts) then yielding _regulatory cut sets_ (see ref [4]).
+% * *CNAgeneMCSEnumerator: *Computes minimal cut sets via the “dual approach” 
+% directly from the network similar to CNAMCSEnumerator. But here, true “gene 
+% cut sets” (instead of “reaction cut sets) can be calculated (for this purpose, 
+% gene-enzyme-reaction associations must be provided).
+% * *CNAfindRegMCS: *Computes minimal (regulatory) cut sets via the “dual approach” 
+% directly from the network similar to CNAregMCSEnumerator. But here only a single 
+% cut set is calculated (no enumeration).
+% * *CNAfluxVariability: *Flux variability analysis.
+% * *CNAoptimizeFlux:  *Flux balance analysis (optimization of fluxes with respect 
+% to a linear objective function).*          *
+% * *CNAoptimizeYield:  *Calculates a yield-optimal flux vector maximizing a 
+% given yield function (uses linear-fractional programming).* *
+% * *CNAplotPhasePlane:  *Calculates and plots phase planes (or production envelops).*  
+% *
+% * *CNAplotYieldSpace:  *Calculates and plots yield spaces.
+% * *CNAapplyCASOP: *Applies the CASOP strain design method (see ref [1]). 
+% * *CNAremoveConsRel: *Detects and helps to remove conservation relations from 
+% the network (useful for certain calculations).
+% * *CNAcompressMFNetwork:  *Loss-free compression of a stoichiometric network 
+% to a smaller one yielding, for example, the same set of elementary modes.
+% * *CNAreduceMFNetwork: *Reduction of network to a smaller subnetwork where 
+% specified protected functions are maintained (see ref [2]).
+% * *CNAcna2cobra:  *Converts a (mass-flow) CNA model to a COBRA model.
+% * *CNAcobra2cna: *Converts a COBRA model to a CNA (mass-flow) model.
+%% *Example: calculating elementary flux modes of a COBRA model with _CellNetAnalyzer*_
+% Here we show an example how to calculate elementary flux modes (EFMs) for 
+% a COBRA model using an API function of CNA. The metabolic network of COBRAmodel 
+% with 10 metabolite (6 internal and four external) and 10 reactions (6 internal 
+% and four exchange) looks as follows:
+% 
+% 
+% 
+% 
+% 
+% The API function of CNA to calculate elementary flux modes (or, alternatively, 
+% elementary flux vectors or convex basis vectors; for a general introduction 
+% see [5]) is |CNAcomputeEFM|. 
+%% Input
+% Based on computing computing elementary modes and extreme pathways, the inputs 
+% can be different. You can see the optional inputs by the command
+
+help CNAcomputeEFM
+%% 
+%  So there are quite a number of different options and arguments. For example, 
+% |CNAsolver| can be 0, 1, 3 or 4, which 
+% 
+% * 0: pure Matlab CNA function;
+% *  1: CNA mex files; 
+% * 3: Metatool mex files; 
+% * 4: Marco Terzer's EFMtool (see http://www.csb.ethz.ch/tools/index). 
+% 
+% The Default is 4. Note that EFMtool cannot be used if some reactions are 
+% enforced (see constraints) and it cannot be used for calculating the convex 
+% basis. 
+% 
+%  However, for a standard calculation of elementary flux modes you just 
+% need to call the function with the CNA model (project) variable (which enforces 
+% default parameter setting). Hence, enter:
+
+ [efm,rev,idx,ray,efv_with_zero] = CNAcomputeEFM(cnap)
+%% 
+%  In this (standard) case, the EFMs are calculated with efmtool (without 
+% inhomogeneous constraints). 
+%% Output
+% The output of |pathVectors.m is|
+% 
+% *  |efm|:  contains the elementary flux modes in the rows. The columns contain 
+% the stoichiometric coefficients of the reactions - but note that the columns 
+% do not necessarily have the same order as in the stoichiometric matrix;
+% * |idx: |maps the columns in |efm |onto the original columns/reactions, i.e. 
+% |idx(i)| maps the |i|-th column (reaction) in |efm| to the column (reaction) 
+% number in the stoichiometric matrix (|cnap.stoichmat|). In our example, |idx 
+% |exhibits a 1:1 mapping. The vector |rev |indicates the reversibility of the 
+% calculated modes (0: reversible; 1: irreversible; hence, in this example, all 
+% modes are irreversible);
+% *  |rev| :  indicates the reversibility of the calculated modes (0: reversible; 
+% 1: irreversible; hence, in this example, all modes are irreversible). 
+% * |ray|:   indicates which of the calculated modes is unbounded (always true 
+% for EFMs);
+% *  |efv_with_zero:| indicates whether the zero vector is part of the solution 
+% space (always true for EFMs).
+% 
+% These eoght elementary modes are shown in figuers 2:
+% 
+% 
+% 
+% 
+% 
+% If you now want to calculate the convex basis vectors (a subset of EFMs 
+% that are sufficient to span the flux cone; e.g. useful for calculation of extreme 
+% pathways) we have to set the |conbasis_flag| argument (the 5-th argument) to 
+% |1|. We also choose now the Metatool routine for calculating the convex basis 
+% (efmtool cannot be used for calculating convex bases). For the other arguments 
+% we chose the standard values:
+
+[efm,rev,idx,ray,efv_with_zero] = CNAcomputeEFM(cnap,[ ],3,1,1)
+%% 
+%% *Converting a CNA model to a COBRA model*
+% A CNA model ‘cnap’ can also be converted to a COBRA model by 
+
+ cbmodel =  CNAcna2cobra(cnap);
+%% 
+% Then, COBRA functions can be applied to a (former) CNA model as well.
+% 
+%  
+% 
+% Note that if you convert a COBRA model to CNA and then back to a COBRA 
+% model, some model information can be lost since a CNA model does not capture 
+% all (potential) fields of a COBRA model. The following fields will definitely 
+% be maintained when converting a COBRA model to a CNA model and back:
+% 
+% * cbmodel.rxns 
+% * cbmodel.mets
+% * cbmodel.S
+% * cbmodel.lb
+% * cbmodel.ub
+% * cbmodel.rev
+% * cbmodel.c
+% * cbmodel.b
+% * cbmodel.metNames
+%% *References*
+% [1] Hädicke O and Klamt S. (2010) CASOP: A Computational Approach for Strain 
+% Optimization aiming at high Productivity. *Journal of Biotechnology,* 147, 88-101. 
+% 
+% [2] Erdrich P, Steuer R, Klamt S. (2015) An algorithm for the reduction 
+% of genome-scale metabolic network models to meaningful core models. *BMC Systems 
+% Biology* 9:48.
+% 
+% [3] von Kamp A, Klamt S (2014) Enumeration of smallest intervention strategies 
+% in genome-scale metabolic networks. *PLoS Computational Biology*, 10:e1003378.
+% 
+% [4] Mahadevan R, von Kamp A, Klamt S. (2015) Genome-scale strain designs 
+% based on regulatory minimal cut sets. *Bioinformatics* 31:2844-2851.
+% 
+% [5] Klamt S, Regensburger G, Gerstl MP, Jungreuthmayer C, Schuster S, Mahadevan 
+% R, Zanghellini J, Müller S. (2017) From elementary flux modes to elementary 
+% flux vectors: Metabolic pathway analysis with arbitrary linear flux constraints. 
+% *PLoS Comput Biol* 13:e1005409.
+##### SOURCE END #####
+--></body></html>
