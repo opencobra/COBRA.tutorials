@@ -84,7 +84,7 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % Initialize The Cobra Toolbox using the |initCobraToolbox| function.
-
+%%
 initCobraToolbox
 %% 
 % For this tutorial we will use a MAT-file formated model of the _E.coli 
@@ -106,7 +106,7 @@ end
 % The most direct way to load a model into The COBRA Toolbox is to use the |readCbModel| 
 % function. For example, to load a model from a MAT-file, you can simply use the 
 % filename (with or without file extension). 
-
+%%
 fileName = 'ecoli_core_model.mat';
 model = readCbModel(fileName);
 %% 
@@ -118,14 +118,14 @@ model = readCbModel(fileName);
 % 
 % You can also call the |readCbModel |function without a fileName to get 
 % a dialog box. This is provided when the Java feature is available. 
-
+%%
 if usejava('desktop') % This line of code is to avoid execution of example in non gui-environments    
     model = readCbModel();
 end
 %% 
 % Once the model is loaded it can be used directly with The COBRA Toolbox 
 % functions. To view the data stored in the model use the following command.
-
+%%
 if usejava('desktop') % This line of code is to avoid execution of example in non gui-environments    
     open model
 end
@@ -156,7 +156,7 @@ end
 % select or enter the filename and the file format. The output is then generated 
 % and saved to the directory indicated in the diaglog box. A summary of the fields 
 % present in the model will also appear in the command window. 
-
+%%
 if usejava('desktop') % This line of code is to avoid execution of example in non gui-environments
     writeCbModel(model)
 end
@@ -166,22 +166,36 @@ end
 % the file type was not specified and so the default file type to be saved was 
 % as a MAT-file. To use the function to write a file types other than a MAT-file, 
 % specificy the file type for input as: ‘text’,’xls’, or ‘sbml’. 
-
+%%
 if usejava('desktop') % This line of code is to avoid execution of example in non gui-environments
     writeCbModel(model,'text')
 end
 %% 
-% It is also possible to specify the file type and file name explicitly. 
-% The following example writes a model directly to the file name 'Acidaminococcus.xml'.
+% It is also possible to specify the file name explicitly using the 'fileName' 
+% parameter. The following example writes a model directly to the file name 'Acidaminococcus.xml'.
+% 
+% The toolbox automatically determines the output from the file extension 
+% provided. '.xml'  indicates an SBML file, '.xls/.xlsx' an excel output and '.mat' 
+% a matlab save file. The return value of writeCbModel is either the input model 
+% struct, or the sbmlstruct used for TranslateSBML.
+%%
+if usejava('desktop') % This line of code is to avoid execution of example in non gui-environments
+    writeCbModel(model, 'fileName', 'Acidaminococcus.xml')
+end
+
+%% 
+% If a non standard file extension is required, you have to specify the 
+% format of the output using the 'format' parameter. the available options are: 
+% 'sbml', 'xls', 'mat', 'txt'
 
 if usejava('desktop') % This line of code is to avoid execution of example in non gui-environments
-    writeCbModel(model, 'SBML', 'Acidaminococcus.xml')
+    writeCbModel(model, 'fileName', 'Acidaminococcus.sbml','format','sbml')
 end
 %% Anticipated Results
 % A file with the given filename containing the model in the specified format.
 %% CLEAN UP
 % Clean up of materials used in the tutorial.  
-
+%%
 currentDir = pwd;
 cd(fileparts(which('tutorial_IO.mlx')));
 
@@ -189,6 +203,7 @@ cd(fileparts(which('tutorial_IO.mlx')));
 try
     delete('ecoli_core_model.mat');
     delete('Acidaminococcus.xml');
+    delete('Acidaminococcus.sbml');
 end
 cd(currentDir)
 %% REFERENCES
