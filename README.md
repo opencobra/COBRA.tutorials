@@ -12,8 +12,8 @@ Tutorials are here to get you started with using [The COBRA Toolbox](https://ope
 All tutorials are provided in 4 formats: `.mlx`, `.m`, `.pdf`, and `.html`.
 
 - The interactive version `.mlx` is a MATLAB Live-script format and can be run using [the MATLAB Live-script editor](https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html).
-- The static version `.html` can be visualized on the [main tutorials page](https://opencobra.github.io/cobratoolbox/latest/tutorials/index.html).
-- For your reference, the `.pdf` version is also included for each tutorial.
+- The static version `.html` can be visualized on the [tutorial section of the COBRA Toolbox documentation](https://opencobra.github.io/cobratoolbox/latest/tutorials).
+- For your reference, the `.pdf` version can be downloaded from the [tutorial section](https://opencobra.github.io/cobratoolbox/stable/tutorials).
 - The `.m` version of the tutorial can be opened and run directly in MATLAB. This is particularly useful to build new analysis scripts based on an existing tutorial.
 
 Additional tutorials can be found in [additionalTutorials](additionalTutorials/). These tutorials are currently being prepared.
