@@ -1,5 +1,5 @@
 COBRA Tutorials
----------------
+===============
 
 Tutorials are here to get you started with using `The COBRA
 Toolbox <https://opencobra.github.io/cobratoolbox>`__. The
@@ -25,7 +25,15 @@ Contribute a new tutorial
 
 A template for generating a new tutorial is provided `here
 <https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials/tutorial_template.mlx>`__.
+
+Contribute using the ``MATLAB.devTools``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
+
+Contribute using ``git`` (via command line)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 .. |icon_analysis| raw:: html
 
