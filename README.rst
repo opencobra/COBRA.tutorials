@@ -3,7 +3,7 @@ COBRA Tutorials
 
 Tutorials are here to get you started with using `The COBRA
 Toolbox <https://opencobra.github.io/cobratoolbox>`__. The
-tutorials are grouped according to the `src/` folder structure:
+tutorials are grouped according to the ``src/`` folder structure:
 
 - |icon_analysis| `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
 - |icon_base| `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
@@ -12,11 +12,11 @@ tutorials are grouped according to the `src/` folder structure:
 - |icon_reconstruction| `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
 - |icon_visualization| `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
 
-All tutorials are provided in 4 formats: `.mlx`, `.m`, `.pdf`, and `.html`.
+All tutorials are provided in 4 formats: ``.mlx``, ``.m``, ``.pdf``, and ``.html``.
 
-- The interactive version `.mlx` is a MATLAB Live-script format and can be run using `the MATLAB Live-script editor <https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html>`__.
-- The static version `.html` can be visualized on the `tutorial section of the COBRA Toolbox documentation <https://opencobra.github.io/COBRA.tutorials>`__.
-- For your reference, the `.pdf` version can be downloaded from the `tutorial section <https://opencobra.github.io/cobratoolbox/COBRA.tutorials>`__. The `.m` version of the tutorial can be opened and run directly in MATLAB. This is particularly useful to build new analysis scripts based on an existing tutorial.
+- The interactive version ``.mlx`` is a MATLAB Live-script format and can be run using `the MATLAB Live-script editor <https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html>`__.
+- The static version ``.html`` can be visualized on the `tutorial section of the COBRA Toolbox documentation <https://opencobra.github.io/COBRA.tutorials>`__.
+- For your reference, the ``.pdf`` version can be downloaded from the `tutorial section <https://opencobra.github.io/COBRA.tutorials>`__. The `.m` version of the tutorial can be opened and run directly in MATLAB. This is particularly useful to build new analysis scripts based on an existing tutorial.
 
 Additional tutorials can be found in `additionalTutorials <https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials>`__. These tutorials are currently being prepared.
 
