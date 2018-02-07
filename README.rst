@@ -20,8 +20,8 @@ All tutorials are provided in 4 formats: ``.mlx``, ``.m``, ``.pdf``, and ``.html
 
 Additional tutorials can be found in `additionalTutorials <https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials>`__. These tutorials are currently being prepared.
 
-Contribute a new tutorial
-=========================
+Contribute a new tutorial or modify an existing tutorial
+========================================================
 
 A template for generating a new tutorial is provided `here
 <https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials/tutorial_template.mlx>`__.
@@ -37,7 +37,7 @@ Contribute using ``git`` (via command line)
 Fork and checkout your branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Fork the repository ``https://www.github.com/opencobra/COBRA.tutorials`` on Github.
+1. Fork the `COBRA.tutorials repository <https://www.github.com/opencobra/COBRA.tutorials>`__ on Github.
 
 2. Clone the forked repository to a directory of your choice:
 
