@@ -5,13 +5,12 @@ Tutorials are here to get you started with using `The COBRA
 Toolbox <https://opencobra.github.io/cobratoolbox>`__. The
 tutorials are grouped according to the `src/` folder structure:
 
-- |icon_analysis| &nbsp;&nbsp; `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
-- |icon_base| &nbsp;&nbsp; `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
-- <img src="https://prince.lcsb.uni.lu/img/icon_base.png" height="14px">&nbsp;&nbsp;[base](base/)
-- <img src="https://prince.lcsb.uni.lu/img/icon_di.png" height="14px">&nbsp;&nbsp;[dataIntegration](dataIntegration/)
-- <img src="https://prince.lcsb.uni.lu/img/icon_design.png" height="14px">&nbsp;&nbsp;[design](design/)
-- <img src="https://prince.lcsb.uni.lu/img/icon_reconstruction.png" height="14px">&nbsp;&nbsp;[reconstruction](reconstruction/)
-- <img src="https://prince.lcsb.uni.lu/img/icon_visualization.png" height="14px">&nbsp;&nbsp;[visualization](visualization/)
+- |icon_analysis| `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
+- |icon_base| `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
+- |icon_dataIntegration| `dataIntegration <https://github.com/opencobra/COBRA.tutorials/tree/master/dataIntegration>`__
+- |icon_design| `design <https://github.com/opencobra/COBRA.tutorials/tree/master/design>`__
+- |icon_reconstruction| `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
+- |icon_visualization| `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
 
 All tutorials are provided in 4 formats: `.mlx`, `.m`, `.pdf`, and `.html`.
 
@@ -35,3 +34,20 @@ You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`
 .. |icon_base| raw:: html
 
    <img src="https://prince.lcsb.uni.lu/img/icon_base.png" height="14px">
+
+.. |icon_dataIntegration| raw:: html
+
+   <img src="https://prince.lcsb.uni.lu/img/icon_di.png" height="14px">
+
+.. |icon_design| raw:: html
+
+   <img src="https://prince.lcsb.uni.lu/img/icon_design.png" height="14px">
+
+.. |icon_reconstruction| raw:: html
+
+   <img src="https://prince.lcsb.uni.lu/img/icon_reconstruction.png" height="14px">
+
+.. |icon_visualization| raw:: html
+
+   <img src="https://prince.lcsb.uni.lu/img/icon_visualization.png" height="14px">
+
