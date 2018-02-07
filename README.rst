@@ -28,10 +28,10 @@ A template for generating a new tutorial is provided `here
 <https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials/tutorial_template.mlx>`__.
 You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
 
-.. |icon_analysis| raw::html
+.. |icon_analysis| raw:: html
 
    <img src="https://prince.lcsb.uni.lu/img/icon_analysis.png" height="14px">
 
-.. |icon_base| raw::html
+.. |icon_base| raw:: html
 
    <img src="https://prince.lcsb.uni.lu/img/icon_base.png" height="14px">
