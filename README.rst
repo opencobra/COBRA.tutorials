@@ -15,23 +15,18 @@ tutorials are grouped according to the `src/` folder structure:
 
 All tutorials are provided in 4 formats: `.mlx`, `.m`, `.pdf`, and `.html`.
 
-- The interactive version `.mlx` is a MATLAB Live-script format and can be run using [the MATLAB Live-script editor](https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html).
-- The static version `.html` can be visualized on the [tutorial section of the COBRA Toolbox documentation](https://opencobra.github.io/cobratoolbox/latest/tutorials).
-- For your reference, the `.pdf` version can be downloaded from the [tutorial section](https://opencobra.github.io/cobratoolbox/stable/tutorials).
-- The `.m` version of the tutorial can be opened and run directly in MATLAB. This is particularly useful to build new analysis scripts based on an existing tutorial.
+- The interactive version `.mlx` is a MATLAB Live-script format and can be run using `the MATLAB Live-script editor <https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html>`__.
+- The static version `.html` can be visualized on the `tutorial section of the COBRA Toolbox documentation <https://opencobra.github.io/COBRA.tutorials>`__.
+- For your reference, the `.pdf` version can be downloaded from the `tutorial section <https://opencobra.github.io/cobratoolbox/COBRA.tutorials>`__. The `.m` version of the tutorial can be opened and run directly in MATLAB. This is particularly useful to build new analysis scripts based on an existing tutorial.
 
-Additional tutorials can be found in
-[additionalTutorials](additionalTutorials/). These tutorials are currently
-being prepared.
+Additional tutorials can be found in `additionalTutorials <https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials>`__. These tutorials are currently being prepared.
 
 Contribute a new tutorial
 -------------------------
 
-A template for generating a new tutorial is provided
-[here](additionalTutorials/tutorial_template.mlx). You can use the
-[MATLAB.devTools](https://github.com/opencobra/MATLAB.devTools) to submit your
-tutorial. Please follow the [contributing
-guidelines](https://opencobra.github.io/cobratoolbox/docs/contributing.html).
+A template for generating a new tutorial is provided `here
+<https://github.com/opencobra/COBRA.tutorials/tree/master/additionalTutorials/tutorial_template.mlx>`__.
+You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
 
 .. |icon_analysis| raw::html
 
