@@ -1,5 +1,5 @@
 %% *Interfacing COBRA and _CellNetAnalyzer*_
-%% Author:  $$* and *$$*: *$$ Max Planck Institute for Dynamics of Comple Technical Systems, Magdeburg; $$ Systems Biochemistry Group, Luxembourg Centre for Systems Biomedicine 
+%% Author:  $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mi>Steffen</mi><mtext>?</mtext><mi>Klamt</mi></mrow><mrow><mn>1</mn></mrow></msup></mrow></math>$* and *$<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mi mathvariant="bold">Susan Ghaderi</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>$*: *$<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mi data-category="placeholder-atom"></mi></mrow><mrow data-category="placeholder"><mn>1</mn></mrow></msup></mrow></math>$ Max Planck Institute for Dynamics of Complex Technical Systems, Magdeburg; $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mi data-category="placeholder-atom"></mi></mrow><mrow data-category="placeholder"><mn>2</mn></mrow></msup></mrow></math>$ Systems Biochemistry Group, Luxembourg Centre for Systems Biomedicine 
 %% Reviewers:
 %% INTRODUCTION
 % _CellNetAnalyzer_ (CNA) is a MATLAB toolbox for exploring structural and functional 
@@ -66,15 +66,15 @@ startcna(1)
 
 % Define the COBRA model
 global CBTDIR
-addpath([CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep 'pathVectors'])
-load('COBRAmodel.mat')% a simple MATLAB struct with fields defined in the Documentation.
+addpath([CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep 'cellNetAnalyzer'])
+load('tutorial_COBRAmodel.mat')% a simple MATLAB struct with fields defined in the Documentation.
 % Define the directory (the place that CNA model will be saved there)
-directory = 'Pathwaysvector';
+directory = 'interfaceCobraCNA';
 %% *Converting a COBRA model to a CNA model*
-% The next step is the conversion of the COBRA model ?COBRAmodel? to a CNA model 
-% (project) ?cnap? which is achieved by the CNA function ?cobra2cna?:
+% The next step is the conversion of the COBRA model ?tutorial_COBRAmodel? to 
+% a CNA model (project) ?cnap? which is achieved by the CNA function ?cobra2cna?:
 
-cnap =  CNAcobra2cna(COBRAmodel);
+cnap =  convertCbModelToCNAModel(tutorial_COBRAmodel);
 %% 
 % That?s all. With the CNA project variable ?cnap? you can now call the 
 % API functions of CNA. 
@@ -125,20 +125,19 @@ cnap =  CNAcobra2cna(COBRAmodel);
 % * *CNAcobra2cna: *Converts a COBRA model to a CNA (mass-flow) model.
 %% *Example: calculating elementary flux modes of a COBRA model with _CellNetAnalyzer*_
 % Here we show an example how to calculate elementary flux modes (EFMs) for 
-% a COBRA model using an API function of CNA. The metabolic network of COBRAmodel 
-% with 10 metabolite (6 internal and four external) and 10 reactions (6 internal 
-% and four exchange) looks as follows:
+% a COBRA model using an API function of CNA. The metabolic network of |tutorial_COBRAmodel 
+% |with 6 metabolites  and 10 reactions (six internal and four exchange) looks 
+% as follows:
 % 
 % 
 % 
 % 
 % 
 % The API function of CNA to calculate elementary flux modes (or, alternatively, 
-% elementary flux vectors or convex basis vectors; for a general introduction 
-% see [5]) is |CNAcomputeEFM|. 
+% elementary flux vectors, convex basis vectors or extreme pathways; for a general 
+% introduction see [5]) is |CNAcomputeEFM|. 
 %% Input
-% Based on computing computing elementary modes and extreme pathways, the inputs 
-% can be different. You can see the optional inputs by the command
+% You can see the different options of   |CNAcomputeEFM |function by the command
 
 help CNAcomputeEFM
 %% 
@@ -146,42 +145,52 @@ help CNAcomputeEFM
 % |CNAsolver| can be 0, 1, 3 or 4, which 
 % 
 % * 0: pure Matlab CNA function;
-% *  1: CNA mex files; 
+% * 1: CNA mex files; 
 % * 3: Metatool mex files; 
 % * 4: Marco Terzer's EFMtool (see http://www.csb.ethz.ch/tools/index). 
 % 
-% The Default is 4. Note that EFMtool cannot be used if some reactions are 
-% enforced (see constraints) and it cannot be used for calculating the convex 
-% basis. 
+% The Default is 4. 
 % 
-%  However, for a standard calculation of elementary flux modes you just 
-% need to call the function with the CNA model (project) variable (which enforces 
-% default parameter setting). Hence, enter:
+% 
+% 
+% Note that EFMtool cannot be used if some reactions are enforced (see constraints) 
+% and it cannot be used for calculating the convex basis. 
+% 
+% However, for a standard calculation of elementary flux modes you just need 
+% to call the function with the CNA model (project) variable (which enforces default 
+% parameter setting). Hence, enter:
 
- [efm,rev,idx,ray,efv_with_zero] = CNAcomputeEFM(cnap)
+cnaPath = fileparts(which('startcna'));
+cnaEFMtoolDir = [cnaPath filesep 'code' filesep 'ext' filesep 'efmtool'];
+addpath(genpath(cnaEFMtoolDir));
+[efm,rev,idx,ray,efv_with_zero] = CNAcomputeEFM(cnap)
 %% 
 %  In this (standard) case, the EFMs are calculated with efmtool (without 
 % inhomogeneous constraints). 
 %% Output
-% The output of |pathVectors.m is|
+% The output of |CNAcomputeEFM |is
 % 
-% *  |efm|:  contains the elementary flux modes in the rows. The columns contain 
-% the stoichiometric coefficients of the reactions - but note that the columns 
-% do not necessarily have the same order as in the stoichiometric matrix;
-% * |idx: |maps the columns in |efm |onto the original columns/reactions, i.e. 
-% |idx(i)| maps the |i|-th column (reaction) in |efm| to the column (reaction) 
-% number in the stoichiometric matrix (|cnap.stoichmat|). In our example, |idx 
-% |exhibits a 1:1 mapping. The vector |rev |indicates the reversibility of the 
-% calculated modes (0: reversible; 1: irreversible; hence, in this example, all 
-% modes are irreversible);
-% *  |rev| :  indicates the reversibility of the calculated modes (0: reversible; 
-% 1: irreversible; hence, in this example, all modes are irreversible). 
-% * |ray|:   indicates which of the calculated modes is unbounded (always true 
-% for EFMs);
-% *  |efv_with_zero:| indicates whether the zero vector is part of the solution 
+% * |efm|:  it is a matrix which contains the elementary flux modes in the rows. 
+% The columns contain the stoichiometric coefficients of the reactions - but note 
+% that the columns do not necessarily have the same order as in the stoichiometric 
+% matrix;
+% * |idx: |it is a variable that maps the columns in |efm |onto the original 
+% columns/reactions, i.e. |idx(i)| maps the |i|-th column (reaction) in |efm| 
+% to the column (reaction) number in the stoichiometric matrix (|cnap.stoichmat|). 
+% In our example, |idx |exhibits a 1:1 mapping. 
+% * |rev| : it is a vector that indicates the reversibility of the calculated 
+% modes (0: reversible; 1: irreversible; hence, in this example, all modes are 
+% irreversible). 
+% * |ray|:   it is a vector that indicates which of the calculated modes is 
+% unbounded (always true for EFMs);
+% * |efv_with_zero:| indicates whether the zero vector is part of the solution 
 % space (always true for EFMs).
 % 
-% These eoght elementary modes are shown in figuers 2:
+% The latter two variables are more relevant for calculation of elementary 
+% flux vectors (see documentation and [5]).
+% 
+% These eight elementary modes of metabolic network of |tutorial_COBRAmodel| 
+% are shown in the following figuer:
 % 
 % 
 % 
@@ -199,7 +208,7 @@ help CNAcomputeEFM
 %% *Converting a CNA model to a COBRA model*
 % A CNA model ?cnap? can also be converted to a COBRA model by 
 
- cbmodel =  CNAcna2cobra(cnap);
+ cbmodel =  convertCNAModelToCbModel(cnap)
 %% 
 % Then, COBRA functions can be applied to a (former) CNA model as well.
 % 
