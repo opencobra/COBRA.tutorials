@@ -245,27 +245,50 @@ load('dataEcoli');
 % TIMING: 15 minutes to hours (computation) - days (interpretation)
 %% ANTICIPATED RESULTS
 % The size of extracted models varies depending of the MEM used
-% 
-% 
-% 
+
+expected_results = {'ecoli_core_model',95,72;...
+                    'FastCore_model',45,48;...
+                    'GIMME_model',74,69;...
+                    'INIT_model',25,32;...
+                    'MBA_model',24,41;...
+                    'iMAT_model',59,58;...
+                    'mCADRE_model',48,49};
+common_reactions_obtained = model.rxns;
+obtained_results = cell(size(expected_results,1),2);
+obtained_results(1,:) = {numel(model.rxns),numel(model.mets)};
+for i = 2:size(expected_results,1)    
+    obtained_results(i,:) = {eval(['numel(' expected_results{i,1} '.rxns)']),eval(['numel(' expected_results{i,1} '.mets)'])};
+    common_reactions_obtained = eval(['intersect(common_reactions_obtained,' expected_results{i,1} '.rxns)']);
+end
+
+%Set the result table
+result_table = table(expected_results(:,1),expected_results(:,2),obtained_results(:,1), expected_results(:,3),obtained_results(:,2),...
+                     'VariableNames',{'ModelName','Reactions_expected','Reactions_obtained','Metabolited_expected','Metabolited_obtained'});
+                 
+%And display it, any values that do not match indicate some form of problem.                 
+disp(result_table)
+%% 
 % 14 reactions are common to the 6 extracted models:
-% 
-% * ACALD	acald[c] + coa[c] + nad[c] 	<=>	accoa[c] + h[c] + nadh[c] 
-% * ALCD2x	etoh[c] + nad[c] 	<=>	acald[c] + h[c] + nadh[c] 
-% * ATPS4r	adp[c] + 4 h[e] + pi[c] 	<=>	atp[c] + h2o[c] + 3 h[c] 
-% * ENO    	2pg[c] 	<=>	h2o[c] + pep[c] 
-% * FBA	        fdp[c] 	<=>	dhap[c] + g3p[c] 
-% * GAPD	g3p[c] + nad[c] + pi[c] 	<=>	13dpg[c] + h[c] + nadh[c] 
-% * GLUDy	glu-L[c] + h2o[c] + nadp[c] 	<=>	akg[c] + h[c] + nadph[c] + nh4[c] 
-% * GLUSy	akg[c] + gln-L[c] + h[c] + nadph[c] 	->	2 glu-L[c] + nadp[c] 
-% * PDH    	coa[c] + nad[c] + pyr[c] 	->	accoa[c] + co2[c] + nadh[c] 
-% * PFK	        atp[c] + f6p[c] 	->	adp[c] + fdp[c] + h[c] 
-% * PGI	        g6p[c] 	<=>	f6p[c] 
-% * PGK	        3pg[c] + atp[c] 	<=>	13dpg[c] + adp[c] 
-% * PYK	        adp[c] + h[c] + pep[c] 	->	atp[c] + pyr[c] 
-% * TPI	        dhap[c] 	<=>	g3p[c] 
-% 
-% __
+
+%These are the expected reactions
+common_reacs = {'ACALD';'ALCD2x';'ATPS4r';'ENO';'FBA';'GAPD';'GLUDy';'GLUSy';'PDH';'PFK';'PGI';'PGK';'PYK';'TPI'}
+
+%We will test if those are present and inform if not.
+if isempty(setxor(common_reacs,common_reactions_obtained))
+    fprintf('The expected common reacs where obtained:\n');
+    printRxnFormula(model,common_reacs);
+else
+    not_in_all = setdiff(common_reacs,common_reactions_obtained);
+    not_in_expected = setdiff(common_reactions_obtained,common_reacs);
+    if ~isempty(not_in_all)
+        fprintf('The following reactions were not in all models but should be contained in them:\n');
+        printRxnFormula(model,not_in_all);    
+    end
+    if ~isempty(not_in_expected)
+        fprintf('The following reactions were unexpectedly present in all tissue models:\n');
+        printRxnFormula(model,not_in_expected);    
+    end
+end
 %% REFERENCES
 % _1. Opdam, S,, Richelle, A., Kellman, B., Li, S., Zielinski, D.C., Lewis, 
 % N.E. A systematic evaluation of methods for tailoring genome-scale models. Cell 
