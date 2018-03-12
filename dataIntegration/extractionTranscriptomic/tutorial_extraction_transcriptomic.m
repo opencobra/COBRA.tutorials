@@ -210,8 +210,8 @@ INIT_model = createTissueSpecificModel(model, options);
 funcModel=1;
 exRxnRemove={};
 tissueModel = createTissueSpecificModel(model, options,funcModel,exRxnRemove);
-%% 
-% CRITICAL STEP
+%% *CRITICAL STEPS*
+% *Gene Expression Preprocessing*
 % 
 % When integrating transcriptomic data, the selection of options related 
 % to each method is critical and algorithmic performance often strongly depends 
@@ -231,16 +231,37 @@ tissueModel = createTissueSpecificModel(model, options,funcModel,exRxnRemove);
 % [1] has been done for the four other methods.
 % 
 % The quality of the results also strongly depends on data preprocessing, 
-% and the COBRA toolbox does not provide an automatic preprocessing pipeline as 
-% multipe methods can be used. We therefore strongly suggest, that all preprocessing 
-% and discretization is performed prior to the call to |createTissueSpecificModel|. 
-% Note that the COBRA toolbox provides a mapping script that determines the expression 
-% value associated to each reaction of the model based on the parsing of the GPR 
-% rules.
+% and the COBRA toolbox does not provide an automatic preprocessing pipeline to 
+% derive expression values from raw measurements as multipe methods can be used. 
+% We therefore strongly suggest, that all preprocessing and discretization is 
+% performed prior to the call to |createTissueSpecificModel|. 
+% 
+% *Gene to Reaction Mapping*
+% 
+% As with Preprocessing, we intentionally left the gene to reaction mapping 
+% separate from the tissue specific model extraction. The most common approach 
+% to obtain reaction expression values from geen expression values is to evaluate 
+% the Gene-Protein-Reaction rules associated with each reaction as follows:
+% 
+% Replace 'and' bin 'min' and 'or' by 'max'. E.g. for a reaction R1 with 
+% GPR 'A and (B or C)' with expression of Genes A = 2, B = 7 and C = 0, 'B or 
+% C' would evaluate to 7 and the whole would evaluate to 2.
+% 
+% This type of mapping can be applied to iMAT and GIMME, and is provided 
+% as a function in the toolbox:
 
-load('ecoli_core_model.mat');
+model = getDistributedModel('ecoli_core_model.mat')
 load('dataEcoli');
 [expressionRxns parsedGPR] = mapExpressionToReactions(model, expression);
+
+%% 
+% INIT and mCADRE use similar approaches, but require the expression to 
+% be protein expression, or ubiquityscores respectively, i.e. the function can 
+% be used for them, but the inputs need to be adjusted according to the required 
+% data for INIT and mCADRE. 
+% 
+% FastCore and MBA again, rely on clearly defined core sets of reactions, 
+% the quality of which strongly influences the resulting models.
 %% TIMING
 % TIMING: 15 minutes to hours (computation) - days (interpretation)
 %% ANTICIPATED RESULTS
