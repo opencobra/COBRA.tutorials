@@ -67,20 +67,13 @@ abunFilePath=strcat(toolboxPath,'Resources/normCoverageReduced.csv');
 % of these variables is available in the documentation. 
 % 
 % The same inputs need to be set in the driver file StartMgPipe when running 
-% MgPipe
-% 
-% outside of this tutorial.
+% MgPipe outside of this tutorial or directly in the "initMgPipe" function.
 
 % name of objective function of organisms
 objre={'EX_biomass(e)'};
 % the output is vectorized picture, change to '-dpng' for .png
 figForm = '-depsc';
 % which solver (and interface) to use
-
-%%% Where is the solver variable used? I can't find that anywhere
-% andthe pipeline crashed because the solver was not set!-Almut %%%%%
-
-
 solver = 'tomlab_cplex'
 % number of cores dedicated for parallelization
 numWorkers = 3;
@@ -98,37 +91,9 @@ extSolve = 0;
 fvaType = 1; 
 % Additionally we will tourn off the autorun to be able to manually execute each part of the pipeline.
 autorun=0; 
-if autorun==1
-    if numWorkers >= 2
-        poolobj=gcp('nocreate');
-        if isempty(poolobj)
-            parpool(numWorkers)
-        end
-    end
-    disp('Well done! Pipeline successfully activated and running!')
-    MgPipe
-else
-    if numWorkers >= 2
-        poolobj=gcp('nocreate');
-        if isempty(poolobj)
-            parpool(numWorkers)
-        end
-    end
-    warning('autorun function was disabled. You are now running in manual / debug mode. If this is not what you wanted, change back to ?autorun?=1. Please note that the usage of manual mode is strongly discouraged and should be used only for debugging purposes.')
-    edit('MgPipe.m')
-end
-if compMod == 1
-    warning('compatibility mode activated. Output will also be saved in .csv / .sbml format. Time of computations will be affected.')    
-else
-    warning('pipeline output will be saved in .mat format. Please enable compomod option if you wish to activate compatibility mode.')
-end
 
-if numWorkers<2
-   warning('apparently you disabled parallel mode to enable sequential one. Computations might become very slow. Please modify numWorkers option.')
-end
-if patStat==0
-    disp('Individuals health status not declared. Analysis will ignore that.')
-end
+[init,modPath,toolboxPath,resPath,dietFilePath,abunFilePath,objre,figForm,solver,numWorkers,autoFix,compMod,patStat,rDiet,extSolve,fvaType,autorun]= initMgPipe(modPath, toolboxPath, resPath, dietFilePath, abunFilePath, objre, figForm, solver, numWorkers, autoFix, compMod, patStat, rDiet,extSolve,fvaType,autorun);
+
 %% PIPELINE: [PART 1]
 % The number of organisms, their names, the number of samples and their identifiers 
 % are automatically detected from the input file. 
@@ -162,11 +127,11 @@ if isempty(mapP)
 % Loading models 
 models=loadUncModels(modPath,strains,objre);
 % Computing genetic information
-[reac,micRea,binOrg,patOrg,reacPat,reacNumb,reacSet,reacTab,reacAbun,reacNumber]=getMappingInfo(models,abunFilePath,patNumb)
-writetable(cell2table(reacAbun),strcat(resPath,'reactions.csv'))
+[reac,micRea,binOrg,patOrg,reacPat,reacNumb,reacSet,reacTab,reacAbun,reacNumber]=getMappingInfo(models,abunFilePath,patNumb);
+writetable(cell2table(reacAbun),strcat(resPath,'reactions.csv'));
 
 % Plotting genetic information
-[PCoA]=plotMappingInfo(resPath,patOrg,reacPat,reacTab,reacNumber,patStat,figForm) 
+[PCoA]=plotMappingInfo(resPath,patOrg,reacPat,reacTab,reacNumber,patStat,figForm); 
 
 if compMod==1
    mkdir(strcat(resPath,'compfile'))
@@ -203,7 +168,7 @@ else
 end
 %end of trigger for Autoload
 %% 
-% A ?global? model joining all the reconstructions contained in the model 
+% A  model joining all the reconstructions contained in the study 
 % will be created in this section. This model will be later used, integrating 
 % abundances coming from the metagenomic sequencing, to derive the different microbiota 
 % models. The result of this section will be automatically saved in the results 
@@ -211,8 +176,8 @@ end
 
 if modbuild == 1
    setup=fastSetupCreator(models, strains, {})
-   setup.name='Global reconstruction with lumen / fecal compartments no host'
-   setup.recon=0
+   setup.name='Global reconstruction with lumen / fecal compartments no host';
+   setup.recon=0;
    save(strcat(resPath,'Setup_allbacs.mat'), 'setup')
 end
 
@@ -228,20 +193,16 @@ end
 [createdModels]=createPersonalizedModel(abunFilePath,resPath,setup,sampName,strains,patNumb)
 %% PIPELINE: [PART 3]
 % 
-% 
-% 
-% 
-% Add some description of what the computed outputs are and what is located 
-% in which file-Almut
-% 
-% 
-% 
-% 
-% 
 % In this phase, for each microbiota model, a diet, in the form of set constraints 
 % to the exchanges reactions of the diet compartment, is integrated. Flux Variability 
 % analysis for all the exchange reactions of the diet and fecal compartment is 
-% also computed and saved. 
+% also computed and saved in a file called "simRes". Specifically what computed and saved are:
+%
+% # *ID* a vector containing the names of metabolites for which FVA of exchange reactions was computed
+% # *fvaCt* a cell array containing min  flux trough uptake and max trough secretion  exchanges (later used for  computing NMPCs)
+% # *nsCT* a cell array containing max  flux trough uptake and min trough secretion  exchanges
+% # *presol* an array containing the value of objectives for each microbiota model with rich and selected diet
+% # *inFesMat* cell array containing the names of the microbiota models that reported an infeasible status when solved for their objective  
 
 [ID,fvaCt,nsCt,presol,inFesMat]=microbiotaModelSimulator(resPath,setup,sampName,dietFilePath,rDiet,0,extSolve,patNumb,fvaType)
 %% 
@@ -252,4 +213,4 @@ end
 % profiles (using the different NMPCs as features) between individuals are also 
 % evaluated with classical multidimensional scaling. 
 
-[Fsp,Y]= mgSimResCollect(resPath,ID,rDiet,0,patNumb,fvaCt,figForm)
+[Fsp,Y]= mgSimResCollect(resPath,ID,rDiet,0,patNumb,fvaCt,figForm);
