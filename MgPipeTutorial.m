@@ -123,6 +123,7 @@ end
 % of reactions of each organism) 
 % # *Classical multidimensional scaling of each individual reactions repertoire* 
 
+[mapP]=detectOutput(resPath,'mapInfo.mat')
 if isempty(mapP)
 % Loading models 
 models=loadUncModels(modPath,strains,objre);
