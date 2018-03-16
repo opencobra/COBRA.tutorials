@@ -7,7 +7,7 @@
 % The pipeline is divided in 3 parts:
 % 
 % # *[PART 1]* Analysis of individuals' specific microbes abundances is computed. 
-% Individuals? metabolic diversity in relation to microbiota size and disease 
+% Individuals' metabolic diversity in relation to microbiota size and disease 
 % presence as well as Classical multidimensional scaling (PCoA) on individuals' 
 % reaction repertoire are examples.
 % # *[PART 2]*: 1 Constructing a global metabolic model (setup) containing all 
@@ -53,7 +53,6 @@ abunFilePath=strcat(toolboxPath,'Resources/normCoverageReduced.csv');
 % # name of objective function of organisms
 % # name of diet to use
 % # format to use to save images
-% # solver (and interface) to use
 % # number of cores to use for the pipeline execution 
 % # if to enable automatic detection and correction of possible bugs
 % # if to enable compatibility mode 
@@ -73,8 +72,6 @@ abunFilePath=strcat(toolboxPath,'Resources/normCoverageReduced.csv');
 objre={'EX_biomass(e)'};
 % the output is vectorized picture, change to '-dpng' for .png
 figForm = '-depsc';
-% which solver (and interface) to use
-solver = 'tomlab_cplex'
 % number of cores dedicated for parallelization
 numWorkers = 3;
 % autofix for names mismatch
@@ -85,11 +82,11 @@ compMod = 0;
 patStat = 0; 
 % to enable also rich diet simulations 
 rDiet = 0; 
-% Add description-Almut
+% if if to use an external solver and save models with diet
 extSolve = 0; 
-% Add description-Almut
+% the type of FVA function to use to solve
 fvaType = 1; 
-% Additionally we will tourn off the autorun to be able to manually execute each part of the pipeline.
+% To tourn off the autorun to be able to manually execute each part of the pipeline.
 autorun=0; 
 
 [init,modPath,toolboxPath,resPath,dietFilePath,abunFilePath,objre,figForm,solver,numWorkers,autoFix,compMod,patStat,rDiet,extSolve,fvaType,autorun]= initMgPipe(modPath, toolboxPath, resPath, dietFilePath, abunFilePath, objre, figForm, solver, numWorkers, autoFix, compMod, patStat, rDiet,extSolve,fvaType,autorun);
