@@ -36,11 +36,11 @@ modPath='YOUR_PATH_TO_AGORA\';
 resPath='YOUR PATH TO RESULT FOLDER\' ;
 % path to where the COBRA Toolbox is located
 global CBTDIR
-toolboxPath=strcat(CBTDIR,'/');
+toolboxPath=CBTDIR;
 % path to and name of the file with dietary information. Here, 
 % we will use an "Average European" diet that is located in the 
 % DietImplementation folder.
-dietFilePath=strcat(toolboxPath,'papers\2017_AGORA\resourceForMicrobiomeModelingToolbox/AverageEuropeanDiet');
+dietFilePath=[CBTDIR filesep 'papers' filesep '2017_AGORA' filesep 'resourceForMicrobiomeModelingToolbox' filesep 'AverageEuropeanDiet'];
 %% 
 % Then we set the path and the name of the file from which to load the abundances. 
 % For this tutorial, in order to reduce the time of computations, we will use 
@@ -48,7 +48,7 @@ dietFilePath=strcat(toolboxPath,'papers\2017_AGORA\resourceForMicrobiomeModeling
 % the folder Resources: only 4 individuals and 30 strains will be considered. 
 % Plese note that abundances are normalized to a total sum of one. 
 
-abunFilePath=strcat(toolboxPath,'tutorials\additionalTutorials/microbiomeModelingToolbox/normCoverageReduced.csv');
+abunFilePath=[CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep 'microbiomeModelingToolbox' filesep 'normCoverageReduced.csv'];
 %% 
 % Next inputs will define:
 % 
