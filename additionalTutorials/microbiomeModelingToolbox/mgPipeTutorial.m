@@ -27,18 +27,20 @@
 % This file has to be modified from the user in order to launch the pipeline 
 % and to define inputs and outputs files and locations. 
 %% 
-% We first set the paths to input and output files
 
-% path to microbiota models
+% We first set the paths to input and output files
+initCobraToolbox()
+% path to microbe models
 modPath='YOUR_PATH_TO_AGORA\';
-% path to where the Microbiome Modeling Toolbox is located
-toolboxPath='YOUR_PATH_TO_Microbiome_Modeling_Toolbox\'
 % % path where to save results
 resPath='YOUR PATH TO RESULT FOLDER\' ;
+% path to where the COBRA Toolbox is located
+global CBTDIR
+toolboxPath=CBTDIR;
 % path to and name of the file with dietary information. Here, 
 % we will use an "Average European" diet that is located in the 
 % DietImplementation folder.
-dietFilePath=strcat(toolboxPath,'DietImplementation/AverageEuropeanDiet'); 
+dietFilePath=[CBTDIR filesep 'papers' filesep '2017_AGORA' filesep 'resourceForMicrobiomeModelingToolbox' filesep 'AverageEuropeanDiet'];
 %% 
 % Then we set the path and the name of the file from which to load the abundances. 
 % For this tutorial, in order to reduce the time of computations, we will use 
@@ -46,12 +48,11 @@ dietFilePath=strcat(toolboxPath,'DietImplementation/AverageEuropeanDiet');
 % the folder Resources: only 4 individuals and 30 strains will be considered. 
 % Plese note that abundances are normalized to a total sum of one. 
 
-abunFilePath=strcat(toolboxPath,'Resources/normCoverageReduced.csv');
+abunFilePath=[CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep 'microbiomeModelingToolbox' filesep 'normCoverageReduced.csv'];
 %% 
 % Next inputs will define:
 % 
 % # name of objective function of organisms
-% # name of diet to use
 % # format to use to save images
 % # number of cores to use for the pipeline execution 
 % # if to enable automatic detection and correction of possible bugs
@@ -173,7 +174,7 @@ end
 % folder. 
 
 if modbuild == 1
-   setup=fastSetupCreator(models, strains, {})
+   setup=fastSetupCreator(models, strains, {},objre)
    setup.name='Global reconstruction with lumen / fecal compartments no host';
    setup.recon=0;
    save(strcat(resPath,'Setup_allbacs.mat'), 'setup')
