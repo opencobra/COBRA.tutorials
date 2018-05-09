@@ -1,14 +1,14 @@
-%% Creation and simulation of personalized microbiota models trough metagenomic data integration
+%% Creation and simulation of personalized microbiota models through metagenomic data integration
 %% Author: Federico Baldini, Molecular Systems Physiology Group, University of Luxembourg.
 %% INTRODUCTION
 % This tutorial shows the steps that MgPipe automatically performs to create 
 % and simulate personalized microbiota models trough metagenomic data integration.
 % 
-% The pipeline is divided in 3 parts:
+% The pipeline is divided into 3 parts:
 % 
 % # *[PART 1]* Analysis of individuals' specific microbes abundances is computed. 
 % Individuals' metabolic diversity in relation to microbiota size and disease 
-% presence as well as Classical multidimensional scaling (PCoA) on individuals' 
+% presence, as well as, classical multidimensional scaling (PCoA) on individuals' 
 % reaction repertoire are examples.
 % # *[PART 2]*: 1 Constructing a global metabolic model (setup) containing all 
 % the microbes listed in the study. 2 Building individuals' specific models integrating 
@@ -20,11 +20,11 @@
 % for example.
 %% USAGE
 % Normally, once provided all the input variables in the driver (StartMgPipe), 
-% the only action required is to run the driver itself. However, for the purposes 
-% of this tutorial, we will disable the autorun functionality and compute each 
+% the only action required is to run the driver itself. However, for  
+%  this tutorial, we will disable the autorun functionality and compute each 
 % section manually. 
 %% DRIVER
-% This file has to be modified from the user in order to launch the pipeline 
+% This file has to be modified by the user to launch the pipeline 
 % and to define inputs and outputs files and locations. 
 %% 
 
@@ -40,26 +40,26 @@ toolboxPath=CBTDIR;
 % path to and name of the file with dietary information. Here, 
 % we will use an "Average European" diet that is located in the 
 % DietImplementation folder.
-dietFilePath=[CBTDIR filesep 'papers' filesep '2017_AGORA' filesep 'resourceForMicrobiomeModelingToolbox' filesep 'AverageEuropeanDiet'];
+dietFilePath=[CBTDIR filesep 'papers' filesep '2018_microbiomeModelingToolbox' filesep 'resources' filesep 'AverageEuropeanDiet'];
 %% 
 % Then we set the path and the name of the file from which to load the abundances. 
-% For this tutorial, in order to reduce the time of computations, we will use 
+% For this tutorial, to reduce the time of computations, we will use 
 % a reduced version of the example file (normCoverageReduced.csv) provided in 
 % the folder Resources: only 4 individuals and 30 strains will be considered. 
-% Plese note that abundances are normalized to a total sum of one. 
+% Plese, note that abundances are normalized to a total sum of one. 
 
 abunFilePath=[CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep 'microbiomeModelingToolbox' filesep 'normCoverageReduced.csv'];
 %% 
 % Next inputs will define:
 % 
-% # name of objective function of organisms
+% # name of the objective function of organisms
 % # format to use to save images
 % # number of cores to use for the pipeline execution 
 % # if to enable automatic detection and correction of possible bugs
 % # if to enable compatibility mode 
-% # if health status for individuals is provided 
+% # if stratification criteria are available
 % # if to simulate also a rich diet
-% # if if to use an external solver and save models with diet
+% # if to use an external solver and save models with diet
 % # the type of FVA function to use to solve 
 % 
 % The following setting should work for almost any system, but please check 
@@ -67,30 +67,30 @@ abunFilePath=[CBTDIR filesep 'tutorials' filesep 'additionalTutorials' filesep '
 % of these variables is available in the documentation. 
 % 
 % The same inputs need to be set in the driver file StartMgPipe when running 
-% MgPipe outside of this tutorial or directly in the "initMgPipe" function.
+% mgPipe outside of this tutorial or directly in the "initMgPipe" function.
 
-% name of objective function of organisms
+% name of the objective function of organisms
 objre={'EX_biomass(e)'};
-% the output is vectorized picture, change to '-dpng' for .png
+% the output is a vectorized picture, change to '-dpng' for .png
 figForm = '-depsc';
 % number of cores dedicated for parallelization
 numWorkers = 3;
 % autofix for names mismatch
-autoFix = 1 
-% if outputs in open formats should be produced for each section (1=T)
-compMod = 0;
-% if documentations on patient health status is provided (0 not 1 yes)
-patStat = 0; 
+autoFix = true; 
+% if outputs in open formats should be produced for each section 
+compMod = false;
+% if documentation (.csv) on stratification criteria is available
+indInfoFilePath='none'; 
 % to enable also rich diet simulations 
-rDiet = 0; 
-% if if to use an external solver and save models with diet
-extSolve = 0; 
+rDiet = false; 
+% if to use an external solver and save models with diet
+extSolve = false; 
 % the type of FVA function to use to solve
-fvaType = 1; 
-% To tourn off the autorun to be able to manually execute each part of the pipeline.
-autorun=0; 
+fvaType = true;
+% to turn off the autorun to be able to manually execute each part of the pipeline
+autorun = false; 
 
-[init,modPath,toolboxPath,resPath,dietFilePath,abunFilePath,objre,figForm,solver,numWorkers,autoFix,compMod,patStat,rDiet,extSolve,fvaType,autorun]= initMgPipe(modPath, toolboxPath, resPath, dietFilePath, abunFilePath, objre, figForm, solver, numWorkers, autoFix, compMod, patStat, rDiet,extSolve,fvaType,autorun);
+[init,modPath,toolboxPath,resPath,dietFilePath,abunFilePath,indInfoFilePath,objre,figForm,numWorkers,autoFix,compMod,rDiet,extSolve,fvaType,autorun]= initMgPipe(modPath, toolboxPath, resPath, dietFilePath, abunFilePath, indInfoFilePath, objre, figForm, numWorkers, autoFix, compMod, rDiet,extSolve,fvaType,autorun);
 
 %% PIPELINE: [PART 1]
 % The number of organisms, their names, the number of samples and their identifiers 
@@ -130,7 +130,7 @@ models=loadUncModels(modPath,strains,objre);
 writetable(cell2table(reacAbun),strcat(resPath,'reactions.csv'));
 
 % Plotting genetic information
-[PCoA]=plotMappingInfo(resPath,patOrg,reacPat,reacTab,reacNumber,patStat,figForm); 
+[PCoA]=plotMappingInfo(resPath,patOrg,reacPat,reacTab,reacNumber,indInfoFilePath,figForm); 
 
 if compMod==1
    mkdir(strcat(resPath,'compfile'))
@@ -146,8 +146,8 @@ save(strcat(resPath,'mapInfo.mat'))
 end
 %end of trigger for Autoload
 %% PIPELINE: [PART 2.1]
-% Checking consistence of inputs: if autofix == 0 halts execution with error 
-% msg if inconsistences are detected, otherwise it really tries hard to fix the 
+% Checking consistency of inputs: if autofix == 0 halts execution with error 
+% msg if inconsistencies are detected, otherwise it really tries hard to fix the 
 % problem and continues execution when possible. 
 
 [autoStat,fixVec,strains]=checkNomenConsist(strains,autoFix);
@@ -208,8 +208,8 @@ end
 % Finally, NMPCs (net maximal production capability) are computed in a metabolite 
 % resolved manner and saved in a comma delimited file in the results folder. NMPCs 
 % indicate the maximal production of each metabolite and are computing summing 
-% the maximal secretion flux with the maximal uptake flux. Similarity of metabolic 
-% profiles (using the different NMPCs as features) between individuals are also 
+% the maximal secretion flux with the maximal uptake flux. The similarity of metabolic 
+% profiles (using the different NMPCs as features) between individuals is also 
 % evaluated with classical multidimensional scaling. 
 
-[Fsp,Y]= mgSimResCollect(resPath,ID,rDiet,0,patNumb,patStat,fvaCt,figForm);
+[Fsp,Y]= mgSimResCollect(resPath,ID,rDiet,0,patNumb,indInfoFilePath,fvaCt,figForm);
