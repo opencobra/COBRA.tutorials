@@ -109,6 +109,8 @@ do
     echo
     echo
 
+    echo "$CODE"
+
     if [ $CODE -ne 0 ]; then
         report+=`printf "%-${longest}s                x      %7.1f"  "$tutorial" "$procTime"`
     else
