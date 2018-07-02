@@ -23,7 +23,7 @@ try
     initCobraToolbox(false)
 
     % set a default solver
-    changeCobraSolver('glpk'
+    changeCobraSolver('glpk');
     fprintf('Default solver is set to GLPK\n');
 
     eval(tutorialName);
