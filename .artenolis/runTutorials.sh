@@ -96,7 +96,7 @@ do
 
     # Time a process
     SECONDS=0;
-    /mnt/prince-data/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; disp(pwd); addpath([pwd filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
+    /mnt/prince-data/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; disp(pwd); addpath([pwd filesep 'tutorials' filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
     CODE=$?
     procTime=$SECONDS
 
@@ -125,4 +125,6 @@ printf "$report"
 
 if [ $nPassed -ne $nTutorial ]; then
     exit 1
+else
+    exit $CODE
 fi
