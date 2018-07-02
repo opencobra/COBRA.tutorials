@@ -17,14 +17,15 @@ ENV_VARS.printLevel = 0;  % Mute initCobraToolbox
 
 addpath(pwd)  % include the root folder
 
-% run the official initialisation script
-initCobraToolbox(false)
-
-% set a default solver
-changeCobraSolver('glpk');
-fprintf('Default solver is set to GLPK\n');
-
 try
+
+    % run the official initialisation script
+    initCobraToolbox(false)
+
+    % set a default solver
+    changeCobraSolver('glpk');
+    fprintf('Default solver is set to GLPK\n');
+
     eval(tutorialName);
 
     % ensure that we ALWAYS call exit
