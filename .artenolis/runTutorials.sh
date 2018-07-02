@@ -10,8 +10,8 @@ mkdir linux && cd linux
 git clone --depth=1 --no-single-branch https://github.com/opencobra/cobratoolbox.git cobratoolbox
 cd cobratoolbox
 
-# checkout the branch on cobratoolbox (default: develop)
-git checkout ci-tutorials-new
+# checkout the branch on cobratoolbox (default development branch: develop)
+git checkout develop
 
 # Remove the submodule entry from .git/config
 git submodule deinit -f tutorials
@@ -23,7 +23,7 @@ rm -rf .git/modules/tutorials
 git rm -f tutorials
 
 # commit the removed submodule
-git commit -m "Removed tutorials submodule"
+git commit -m "[temporary commit] remove tutorials submodule"
 
 # initialize the submodules
 git submodule update --init --depth=1 --remote --no-fetch
