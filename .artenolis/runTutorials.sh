@@ -3,6 +3,8 @@
 # save the cloned directory
 tutorialsClonedPath=$(pwd)/../
 cd $tutorialsClonedPath
+
+# rename the current cloned folder as tutorials (depends on the label of the job)
 mv linux tutorials
 mkdir linux && cd linux
 
@@ -13,13 +15,13 @@ cd cobratoolbox
 # checkout the branch on cobratoolbox (default development branch: develop)
 git checkout develop
 
-# Remove the submodule entry from .git/config
+# remove the submodule entry from .git/config
 git submodule deinit -f tutorials
 
-# Remove the submodule directory from the superproject's .git/modules directory
+# remove the submodule directory from the superproject's .git/modules directory
 rm -rf .git/modules/tutorials
 
-# Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+# remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
 git rm -f tutorials
 
 # commit the removed submodule
@@ -33,8 +35,10 @@ cd $tutorialsClonedPath
 mv tutorials linux/cobratoolbox/.
 cd linux/cobratoolbox
 
+# define the path to the tutorials
 COBRATutorialsPath=$(pwd)
 
+# gather the list of the tutorials to be tested
 buildTutorialList(){
     nTutorial=0
     for d in $(find $COBRATutorialsPath -maxdepth 7 -type d)
@@ -58,6 +62,7 @@ buildTutorialList(){
 
 buildTutorialList
 
+# preliminary tutorials list
 declare -a tutorials=("tutorial_optForce")
 
 longest=0
@@ -76,11 +81,13 @@ report+="$header\n"
 report+=`printf '=%.0s' $(seq 1 ${#header});`"\n"
 failure=0
 
-# Set time format to seconds
+# set time format to seconds
 TIMEFORMAT=%R
 
 nTutorial=0
 nPassed=0
+
+# loop through the tutorials
 for tutorial in "${tutorials[@]}"
 do
     tutorialDir=${tutorial%/*}
@@ -94,7 +101,7 @@ do
     echo "$msg"
     echo "$underline"
 
-    # Time a process
+    # time a process
     SECONDS=0;
     /mnt/prince-data/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; addpath([pwd filesep 'tutorials' filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
     CODE=$?
@@ -125,6 +132,7 @@ report+=`printf "\n  Passed:  %d/%d" "$nPassed" "$nTutorial"`
 report+="\n\n"
 printf "$report"
 
+# exit
 if [ $nPassed -ne $nTutorial ]; then
     exit 1
 else
