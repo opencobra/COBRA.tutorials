@@ -11,5 +11,4 @@ script:
     - cd $CURRENT_DIR
 
     # launch the tests
-    - bash .artenolis/runSuite.sh
-
+    - bash .artenolis/runTutorials.sh
