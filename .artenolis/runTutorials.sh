@@ -96,7 +96,7 @@ do
 
     # Time a process
     SECONDS=0;
-    /mnt/prince-data/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; addpath([pwd filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
+    /mnt/prince-data/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; addpath([pwd filesep 'tutorials' filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
     CODE=$?
     procTime=$SECONDS
 
