@@ -35,7 +35,7 @@ if [ "$JENKINS" == "True" ]; then
     cd $tutorialsClonedPath
     mv tutorials linux/cobratoolbox/.
     cd linux/cobratoolbox
-end
+fi
 
 # define the path to the tutorials
 COBRATutorialsPath=$(pwd)
