@@ -1,39 +1,41 @@
 #!/bin/bash
 
-# save the cloned directory
-tutorialsClonedPath=$(pwd)/../
-cd $tutorialsClonedPath
+if [ "$JENKINS" == "True" ]; then
+    # save the cloned directory
+    tutorialsClonedPath=$(pwd)/../
+    cd $tutorialsClonedPath
 
-# rename the current cloned folder as tutorials (depends on the label of the job)
-mv linux tutorials
-mkdir linux && cd linux
+    # rename the current cloned folder as tutorials (depends on the label of the job)
+    mv linux tutorials
+    mkdir linux && cd linux
 
-# clone the cobratoolbox
-git clone --depth=1 --no-single-branch https://github.com/opencobra/cobratoolbox.git cobratoolbox
-cd cobratoolbox
+    # clone the cobratoolbox
+    git clone --depth=1 --no-single-branch https://github.com/opencobra/cobratoolbox.git cobratoolbox
+    cd cobratoolbox
 
-# checkout the branch on cobratoolbox (default development branch: develop)
-git checkout develop
+    # checkout the branch on cobratoolbox (default development branch: develop)
+    git checkout develop
 
-# remove the submodule entry from .git/config
-git submodule deinit -f tutorials
+    # remove the submodule entry from .git/config
+    git submodule deinit -f tutorials
 
-# remove the submodule directory from the superproject's .git/modules directory
-rm -rf .git/modules/tutorials
+    # remove the submodule directory from the superproject's .git/modules directory
+    rm -rf .git/modules/tutorials
 
-# remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
-git rm -f tutorials
+    # remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+    git rm -f tutorials
 
-# commit the removed submodule
-git commit -m "[temporary commit] remove tutorials submodule"
+    # commit the removed submodule
+    git commit -m "[temporary commit] remove tutorials submodule"
 
-# initialize the submodules
-git submodule update --init --depth=1 --remote --no-fetch
+    # initialize the submodules
+    git submodule update --init --depth=1 --remote --no-fetch
 
-# move the cloned tutorials folder to the cobratoolbox directory
-cd $tutorialsClonedPath
-mv tutorials linux/cobratoolbox/.
-cd linux/cobratoolbox
+    # move the cloned tutorials folder to the cobratoolbox directory
+    cd $tutorialsClonedPath
+    mv tutorials linux/cobratoolbox/.
+    cd linux/cobratoolbox
+end
 
 # define the path to the tutorials
 COBRATutorialsPath=$(pwd)
@@ -63,7 +65,7 @@ buildTutorialList(){
 buildTutorialList
 
 # preliminary tutorials list
-declare -a tutorials=("tutorial_optForce")
+declare -a tutorials=("tutorial_optForce", "tutorial_IO")
 
 longest=0
 for word in "${tutorials[@]}"
