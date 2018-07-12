@@ -65,7 +65,7 @@ buildTutorialList(){
 buildTutorialList
 
 # preliminary tutorials list
-declare -a tutorials=("tutorial_optForce", "tutorial_IO")
+declare -a tutorials=("tutorial_optForce", "tutorial_IO", "tutorial_COBRAconcepts")
 
 longest=0
 for word in "${tutorials[@]}"
