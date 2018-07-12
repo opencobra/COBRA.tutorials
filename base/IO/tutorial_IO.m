@@ -85,7 +85,7 @@
 %% *Initialize the COBRA Toolbox.*
 % Initialize The Cobra Toolbox using the |initCobraToolbox| function.
 %%
-initCobraToolbox
+initCobraToolbox(0);
 %% 
 % For this tutorial we will use a MAT-file formated model of the _E.coli 
 % core_ model [1]. First we will load the model into the tutorial directory (cleaning 
