@@ -28,6 +28,8 @@ try
 
     eval(tutorialName);
 
+    close all;
+
     % ensure that we ALWAYS call exit
     exit;
 catch ME
