@@ -1,8 +1,7 @@
 %% Constraint-based modelling concepts
+% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
 %% Author(s): Ronan Fleming_ _
 %% Reviewer(s): 
-% _Include those who have reviewed the tutorial, and are therefore partly responsible 
-% for picking up errors or omissions._
 %% INTRODUCTION
 % _The purpose of the introduction is to enable readers to make a decision as 
 % to the suitability of the protocol to their problem. Initially you should introduce 
@@ -10,9 +9,6 @@
 % has been used previously, including those published by your own group or to 
 % reviews that discuss applications of the technique (see below for how to cite 
 % references)._
-%% EQUIPMENT
-% _plotregion.m by Per Bergstrom _<https://nl.mathworks.com/matlabcentral/fileexchange/9261-plot-2d-3d-region 
-% https://nl.mathworks.com/matlabcentral/fileexchange/9261-plot-2d-3d-region>
 %% PROCEDURE
 % Create a simple model. 
 % 
@@ -50,7 +46,7 @@ reactionNames = {'Pyruvate mitochondrial transport via proton symport ',...
 reactionFormulas = {PYRt2m, PDHm, LDH_Lm}
 %% 
 % Now we can call
-
+%%
 model = createModel(reactionIdentifiers, reactionNames, reactionFormulas);
 %% 
 % __
@@ -77,7 +73,7 @@ reactionNames = {'v1', 'v2', 'v3', 'v4', 'v5','v6'}
 reactionFormulas = {v1, v2, v3, v4, v5, v6}
 %% 
 % Now we can call
-
+%%
 model = createModel(reactionIdentifiers, reactionNames, reactionFormulas,'lowerBoundList',[-100 -100 -100 -100 -100 -100],'upperBoundList',[100 100 100 100 100 100]);
 %% 
 % Now we plot the reaction rates of v3,v4,v5:
@@ -85,6 +81,7 @@ model = createModel(reactionIdentifiers, reactionNames, reactionFormulas,'lowerB
 bool=logical([0;0;1;1;1;0]);
 model.S=full(model.S);
 model.S(:,bool)
+%%
 %function plotregion(A,b,lb,ub,c,transp,points,linetyp,start_end)
 % The function plotregion plots closed convex regions in 2D/3D. The region
 % is formed by the matrix A and the vectors lb and ub such that Ax>=b
@@ -157,8 +154,8 @@ plotregion(A,b,model.lb,model.ub,c,transp);%,points,linetyp,start_end)
 % _Highlight critical steps in the protocol that must be performed in a very 
 % precise manner e.g., where the input is crucial or the checking of computational 
 % solutions against the literature is required; thus providing the user with hints 
-% to maximize the likelihood of success. Make these clear with the heading ?CRITICAL 
-% STEP?, followed by a brief explanation.  Include diagrams where appropriate. 
+% to maximize the likelihood of success. Make these clear with the heading ‘CRITICAL 
+% STEP’, followed by a brief explanation.  Include diagrams where appropriate. 
 % If the tutorial is complicated you should consider including a flow diagram 
 % to demonstrate how the stages fit together. _
 % 
@@ -192,14 +189,14 @@ plotregion(A,b,model.lb,model.ub,c,transp);%,points,linetyp,start_end)
 % section. _
 %% TIMING
 % _If possible, please include a timeline indicating the approximate time a 
-% step, or set of steps, will take e.g. Steps 1?3, 30 min.; Steps 6+7, 2 h. Provide 
+% step, or set of steps, will take e.g. Steps 1–3, 30 min.; Steps 6+7, 2 h. Provide 
 % this information as a summary at the end of the procedure, as a list. If you 
 % think it would be more user friendly you could refer to time needed for each 
 % section or detail what needs to be performed on each day of the protocol._
 %% _TROUBLESHOOTING_
 % _After key steps, include information on how to troubleshoot the most likely 
 % problems users will encounter with the tutorial. Ideally provide this information 
-% in the form ?problem?, ?possible reason?, ?solution?. _
+% in the form ‘problem’, ‘possible reason’, ‘solution’. _
 %% ANTICIPATED RESULTS
 % _Include information about, or examples of, the likely outcome to users, for 
 % example, likely solution to an optimisation problem, etc. Include example that 
@@ -212,18 +209,21 @@ plotregion(A,b,model.lb,model.ub,c,transp);%,points,linetyp,start_end)
 % 
 % __
 %% REFERENCES
-% _List all references mentioned in the protocol. References are numbered sequentially 
-% as they appear in the text, figure legends, tables and boxes. Use superscript 
-% numbers to indicate a reference, for example 1 . Only one publication is given 
-% for each number, and footnotes are not used. Only papers that have been published 
-% or accepted by a named publication should be in the numbered list; meeting abstracts 
-% and papers in preparation should be mentioned in the text with a list of authors 
-% (or initials if any of the authors are co-authors of the present contribution). 
-% Patents should be included in the reference list. Published conference abstracts 
-% and URLs for web sites should be cited parenthetically in the text, not in the 
-% reference list; articles in formal, peer-reviewed online journals should be 
-% included in the reference list. Grant details and acknowledgments are not permitted 
-% as numbered references._
+% _plotregion.m by Per Bergstrom _<https://nl.mathworks.com/matlabcentral/fileexchange/9261-plot-2d-3d-region 
+% https://nl.mathworks.com/matlabcentral/fileexchange/9261-plot-2d-3d-region>
+% 
+% _List all references mentioned in the protocol. References are numbered 
+% sequentially as they appear in the text, figure legends, tables and boxes. Use 
+% superscript numbers to indicate a reference, for example 1 . Only one publication 
+% is given for each number, and footnotes are not used. Only papers that have 
+% been published or accepted by a named publication should be in the numbered 
+% list; meeting abstracts and papers in preparation should be mentioned in the 
+% text with a list of authors (or initials if any of the authors are co-authors 
+% of the present contribution). Patents should be included in the reference list. 
+% Published conference abstracts and URLs for web sites should be cited parenthetically 
+% in the text, not in the reference list; articles in formal, peer-reviewed online 
+% journals should be included in the reference list. Grant details and acknowledgments 
+% are not permitted as numbered references._
 % 
 % _All authors should be included in reference lists unless there are more 
 % than five, in which case only the first author should be given, followed by 
