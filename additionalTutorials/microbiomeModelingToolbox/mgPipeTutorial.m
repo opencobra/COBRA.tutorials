@@ -207,9 +207,21 @@ end
 %% 
 % Finally, NMPCs (net maximal production capability) are computed in a metabolite 
 % resolved manner and saved in a comma delimited file in the results folder. NMPCs 
-% indicate the maximal production of each metabolite and are computing summing 
+% indicate the maximal production of each metabolite and are computed as the absolute value of the sum of 
 % the maximal secretion flux with the maximal uptake flux. The similarity of metabolic 
 % profiles (using the different NMPCs as features) between individuals is also 
 % evaluated with classical multidimensional scaling. 
 
-[Fsp,Y]= mgSimResCollect(resPath,ID,rDiet,0,patNumb,indInfoFilePath,fvaCt,figForm);
+[Fsp,Y]= mgSimResCollect(resPath,ID,sampName,rDiet,0,patNumb,indInfoFilePath,fvaCt,figForm);
+%%
+% Additionally, it is possible to retrieve and export, comprehensively, all the results (fluxes) 
+% computed during the simulations for a specified diet. Since FVA is computed on diet and fecal 
+% exchanges, every metabolite will have four different values for each individual, 
+% values corresponding min and max of uptake and secretion. 
+
+[finRes] = extractFullRes(resPath, ID, 'sDiet', sampName, fvaCt, nsCt);
+
+
+
+
+
