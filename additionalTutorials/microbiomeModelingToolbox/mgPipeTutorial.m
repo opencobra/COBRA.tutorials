@@ -3,6 +3,9 @@
 %% INTRODUCTION
 % This tutorial shows the steps that MgPipe automatically performs to create 
 % and simulate personalized microbiota models trough metagenomic data integration.
+% Please note that this tutorial uses as an example a small dataset (4 columns and 30 rows)  
+% with the purpose of demonstrating the functionalities of the pipeline. We recommend using 
+% high-performance computing clusters when assembling and simulating from bigger datasets. 
 % 
 % The pipeline is divided into 3 parts:
 % 
