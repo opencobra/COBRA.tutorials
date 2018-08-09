@@ -118,8 +118,15 @@ end
 % 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
 % compared to the total number of unique reactions (extrapolated by the number 
-% of reactions of each organism) 
-% # *Classical multidimensional scaling of each individual reactions repertoire* 
+% of reactions of each organism).Please, note that bigger circles with a number 
+% inside represent overlapping individuals for metabolic diversity. 
+% # *Classical multidimensional scaling of each individual reactions repertoire*
+%
+% Other outputs computed during this phase are saved together with the previous 
+% ones into the *.mat* file called *mapInfo.mat*. If the *compMod* option is enabled 
+% (disabled here and by default in the *mgPipe* pipeline) these results are outputted as 
+% different *.csv* files. For simplicity reasons we will not discuss these additional 
+% outputs in this tutorial: for a description of them, please refer to the documentation.    
 
 [mapP]=detectOutput(resPath,'mapInfo.mat')
 if isempty(mapP)
@@ -127,21 +134,26 @@ if isempty(mapP)
 models=loadUncModels(modPath,strains,objre);
 % Computing genetic information
 [reac,micRea,binOrg,patOrg,reacPat,reacNumb,reacSet,reacTab,reacAbun,reacNumber]=getMappingInfo(models,abunFilePath,patNumb);
-writetable(cell2table(reacAbun),strcat(resPath,'reactions.csv'));
+writetable(cell2table(reacAbun,'VariableNames',['Reactions';sampName]'),strcat(resPath,'reactions.csv'));
 
 % Plotting genetic information
-[PCoA]=plotMappingInfo(resPath,patOrg,reacPat,reacTab,reacNumber,indInfoFilePath,figForm); 
+[PCoA]=plotMappingInfo(resPath,patOrg,reacPat,reacTab,reacNumber,indInfoFilePath,figForm,sampName,strains); 
 
 if compMod==1
    mkdir(strcat(resPath,'compfile'))
-   csvwrite(strcat(resPath,'compfile/reacTab.csv'),reacTab)
-   writetable(cell2table(reacSet),strcat(resPath,'compfile/reacset.csv'))
-   csvwrite(strcat(resPath,'compfile/reacNumb.csv'),reacNumb)
-   csvwrite(strcat(resPath,'compfile/ReacPat.csv'),reacPat)
-   csvwrite(strcat(resPath,'compfile/PCoA_tab.csv'),Y)
+   writetable([array2table(reac),array2table(reacTab,'VariableNames',sampName')],[resPath 'compfile' filesep 'ReacTab.csv'])
+   writetable(cell2table(reacSet,'VariableNames',sampName'),[resPath 'compfile' filesep 'reacSet.csv'])
+   writetable([array2table(strains),array2table(reacPat,'VariableNames',sampName')],[resPath 'compfile' filesep 'ReacPat.csv'])
+   csvwrite(strcat(resPath,'compfile/PCoA_tab.csv'),PCoA)
 end
 
 %Save all the created variables
+
+%Create tables and save all the created variables
+reacTab=[array2table(reac),array2table(reacTab,'VariableNames',sampName')],[resPath 'compfile' filesep 'ReacTab.csv'];
+reacSet=cell2table(reacSet,'VariableNames',sampName');
+reacPat=[array2table(strains),array2table(reacPat,'VariableNames',sampName')];
+
 save(strcat(resPath,'mapInfo.mat'))
 end
 %end of trigger for Autoload
