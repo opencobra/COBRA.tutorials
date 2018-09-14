@@ -30,15 +30,15 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-
+%%
 initCobraToolbox
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
 % the Recon 2.04$^2$, which is provided in the COBRA Toolbox. The Recon 2.04 model 
-% can also be downloaded from the <https://vmh.uni.lu/#downloadview Virtual Metabolic 
-% Human> webpage. You can also select your own model to work with. Before proceeding 
-% with the simulations, the path for the model needs to be set up:      
-
+% can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
+% Metabolic Human> webpage. You can also select your own model to work with. Before 
+% proceeding with the simulations, the path for the model needs to be set up:      
+%%
 global CBTDIR
 modelFileName = 'Recon2.v04.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -52,7 +52,7 @@ model = readCbModel(modelFileName);
 % One randomly generates a matrix $A\in\mathcal{R}^{^{m\times n}}$   and a vector 
 % $x_{0}\in\mathcal{R}^{^{n}}$ . The right hand side vector $b=A\cdot x_{0}$. 
 % There are three optional inputs for the method.
-
+%%
 n = 100; 
 m = 50; 
 x0 = rand(n,1); 
