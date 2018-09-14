@@ -36,7 +36,7 @@ initCobraToolbox(0);
 % path to where the COBRA Toolbox is located
 global CBTDIR
 
-% path to microbe models (download AGORA models from https://vmh.uni.lu/#downloadview)
+% path to microbe models (download AGORA models from https://www.vmh.life/#downloadview)
 modPath = [getenv('HOME') filesep 'AGORA' filesep 'mat'];
 
 % path where to save results
