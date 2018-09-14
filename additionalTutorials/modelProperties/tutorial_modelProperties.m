@@ -11,13 +11,13 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-
+%%
 initCobraToolbox
 %% *Setting the *optimization* solver.*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
 % ('|LP'|) solver. The |'glpk'| package does not require additional instalation 
 % and configuration.
-
+%%
 solverName='glpk';
 solverType='LP'; 
 changeCobraSolver(solverName,solverType);
@@ -37,9 +37,9 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
 % the Recon 2.04 [1], which is provided in the COBRA Toolbox. The Recon 2.04 model* 
-% *can also be downloaded from the <https://vmh.uni.lu/#downloadview Virtual Metabolic 
-% Human> webpage. Before proceeding with the simulations, the path to the model 
-% needs to be set up and the model loaded:
+% *can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
+% Metabolic Human> webpage. Before proceeding with the simulations, the path to 
+% the model needs to be set up and the model loaded:
 
 modelFileName = 'Recon2.v04.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -47,7 +47,7 @@ modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Nece
 model = readCbModel(modelFileName);
 %% PROCEDURE
 % We first initialize the table
-
+%%
 clear TableProp
 r = 1;
 TableProp(r, :) = {'Model'}; r = r+1;
@@ -122,14 +122,14 @@ TableProp
 % Determine blocked reactions properties (optional).
 % 
 % To evaluate the following model properties of bloack reactions, the solver 
-% package of IBM ILOG CPLEX is required. To install CPLEX refer to The Cobra Toolbox 
+% package of IBM ILOG CPLEX is required. To install CPLEX refer to the Cobra Toolbox 
 % <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
 % solver instalation guide>, and change the solver to 'ibm_cplex' using the changeCobraSolver 
 % as shown above in equipment set-up. 
 % 
 % * Determine the number of blocked reactions using fastFVA with 4 paralell 
 % workers (optional).
-
+%%
 nworkers = 2;
 solver = 'ibm_cplex';
 setWorkerCount(nworkers);

@@ -13,18 +13,18 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox*
 % Initialize the Cobra Toolbox using the |initCobraToolbox| function.
-
+%%
 % initCobraToolbox
 %% *Setting the *optimization* solver*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
 % ('|LP'|) solver. The |'glpk'| solver does not require additional installation 
 % or configuration.
-
+%%
 % solverName='glpk';
 %% 
 % However, for the analysis of large models such as Recon 3D, it is not 
 % recommended to use the |'glpk'| package, but rather a commercial-grade solver, 
-% such as |'gurobi'|. For detailed information, refer to The Cobra Toolbox <http://opencobra.github.io/cobratoolbox/docs/solvers.html 
+% such as |'gurobi'|. For detailed information, refer to the Cobra Toolbox <http://opencobra.github.io/cobratoolbox/docs/solvers.html 
 % solver installation guide>. 
 % 
 % For the analysis of a Recon model, change the solver to |'gurobi'|: 
@@ -36,12 +36,12 @@ changeCobraSolver(solverName, 'LP');
 % 
 % In this tutorial, the used model is the generic model of human metabolism, 
 % Recon 3D [1]. If Recon 3D is not available, use Recon 2 [2] provided in The 
-% COBRA Toolbox. Other COBRA models may be downloaded from the <https://vmh.uni.lu/#downloadview 
+% COBRA Toolbox. Other COBRA models may be downloaded from the <https://www.vmh.life/#downloadview 
 % Virtual Metabolic Human> website and saved to your preferred directory.
 % 
 % Before proceeding with the simulations, the path for the model needs to 
 % be defined.
-
+%%
 global CBTDIR
 
 fileName= 'Recon2.0model.mat'; % if using Recon 3 model, amend filename. 
@@ -64,14 +64,14 @@ model.ub(Sinks) = 1000;
 % sources result in a physiologically relevant ATP yield. (Note that this function 
 % uses sparseFBA, i.e., alternative solutions may exist but are not considered 
 % here.)
-
+%%
 [Table_csourcesOri, TestedRxnsC, Perc] = testATPYieldFromCsources(model);
 %% 
 % Identify the model reactions that are needed to ensure that all metabolic 
 % functions can have a non-zero flux. (Note that this function uses |sparseFBA|, 
 % i.e., alternative solutions may exist but are not considered here.) Applicable 
 % to Recon3 only.
-
+%%
 if ~isempty(strfind(fileName, 'Recon3'))
     [TestSolutionOri,TestSolutionNameClosedSinks, TestedRxnsClosedSinks, PercClosedSinks] = test4HumanFctExt(model, 'all', 0);
     TestedRxns = unique([TestedRxnsC; TestedRxnsClosedSinks]);
@@ -81,7 +81,7 @@ end
 % Next we remove all human metabolic reactions (HMRs)  (i.e., those reactions 
 % originating from HMR 2.0 [3] and that start with 'HMR_') that are not needed 
 % for the aforementioned tasks. Applicable to Recon 3 only.
-
+%%
 if ~isempty(strfind(fileName, 'Recon3'))
     HMR = model.rxns(strmatch('HMR_',model.rxns));
     HMR_NE = setdiff(HMR,TestedRxnsX);
@@ -113,7 +113,7 @@ end
 %% 
 % We will use the method FASTCORE, '|fastcc'|, to ensure a flux-consistent 
 % subnetwork [5].
-
+%%
 param.epsilon = 1e-4;
 param.modeFlag = 0;
 param.method = 'fastcc'; %'null_fastcc'
@@ -121,7 +121,7 @@ printLevel = 2;
 [fluxConsistentMetBool, fluxConsistentRxnBool, fluxInConsistentMetBool, fluxInConsistentRxnBool, modelOut] = findFluxConsistentSubset(model, param, printLevel);
 %% 
 % And remove the flux inconsistent reactions from the model.
-
+%%
 modelConsistent = removeRxns(model,model.rxns(find(fluxInConsistentRxnBool)));
 %% 
 % We will now update the GPR associations. 
@@ -136,7 +136,7 @@ for i = 1 : length(modelgrRule)
 end
 %% 
 % Save the resulting model.
-
+%%
 save('SubNetworkRecon.mat', 'modelConsistent')
 %% 
 % Size of the original Recon model:

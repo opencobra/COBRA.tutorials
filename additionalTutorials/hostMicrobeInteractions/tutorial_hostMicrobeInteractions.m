@@ -1,13 +1,13 @@
 %% Computation and analysis of rescued lethal gene deletions in a host-microbe model
 %% Author: Almut Heinken, Molecular Systems Physiology Group, University of Luxembourg.
-
+%%
 % Constraint-based modeling has useful applications for predicting the
 % metabolic interactions between a mammalian host and its commensal gut
 % microbes. For example, the potential of a human gut microbe to rescue 
 % lethal gene defects in the mouse has been predicted. Some of these rescued
 % gene defects correspond to human inborn errors of metabolism (IEMs) 
 % (Heinken et al., Gut Microbes (2013) 4(1):28-40). A variety of IEMs are 
-% documented in human and can be browsed at https://vmh.uni.lu/#diseases. 
+% documented in human and can be browsed at https://www.vmh.life/#diseases. 
 
 % This tutorial demonstrates how to predict the potential of a commensal
 % gut microbe to rescue lethal gene deletions in a mammalian host. For this
@@ -15,7 +15,7 @@
 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017
 % Jan;35(1):81-89) in this tutorial. Please download AGORA from 
-% https://webdav-r3lab.uni.lu/public/msp/AGORA-1.02/Agora-1.02.zip
+% https://www.vmh.life/#downloadview
 % and place the models into a folder.
 
 % As the host model, the global mouse reconstruction 
@@ -28,6 +28,7 @@ modelPath='YOUR_PATH_TO_AGORA/';
 
 % Initialize the COBRA Toolbox.
 initCobraToolbox
+%%
 % Load the mouse reconstruction.
 load('iSS1393.mat');
 iSS1393=changeObjective(iSS1393,'biomass_mm_1_no_glygln');
@@ -88,10 +89,10 @@ RescuedGenes.Mouse_biomass_mm_1_no_glygln.RescuedLethalGenes
 % The gene identifiers  are NCBI Gene IDs and can be looked up to
 % find the corresponding human genes and associated inborn errors
 % of metabolism (IEMs). The reactions associated with the IEMs can 
-% subsequently be browsed at https://vmh.uni.lu/#diseases. 
+% subsequently be browsed at https://www.vmh.life/#diseases. 
 % For example, the gene 22247.1 encodes UMP synthase and its deletion 
 % can be resuced by the presence of E. coli. The corresponding IEM 
-% in human is orotic aciduria (https://vmh.uni.lu/#disease/OROA).
+% in human is orotic aciduria (https://www.vmh.life/#disease/OROA).
 
 % We will now identify the mechanisms of rescued KO phenotypes.
 % Metabolites secreted by each species into the lumen may be taken
@@ -123,7 +124,7 @@ for i=1:length(microbeExchanges)
 end
 
 % Can you explain what you observe? You can look up the metabolite
-% ID of the respective exchange at https://vmh.uni.lu.
-% Hint: Check the description of orotic aciduria at https://vmh.uni.lu/#disease/OROA.
+% ID of the respective exchange at https://www.vmh.life.
+% Hint: Check the description of orotic aciduria at https://www.vmh.life/#disease/OROA.
 % Follow the external link to OMIM (Online Mendelian Inheritance in Man)
 % to find more information.
