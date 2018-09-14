@@ -9,18 +9,19 @@
 % to the model outputs. Here we present a visualisation through ReconMap [<#LyXCite-noronha_reconmap__2017 
 % noronha_reconmap:_2017>], a virtual visualisation of human metabolism derived 
 % from Recon 2.04 [<#LyXCite-thiele_community_driven_2013 thiele_community-driven_2013>]. 
-% Diverse models and maps can be found in the website  <http://vmh.uni.lu. http://vmh.uni.lu.> 
+% Diverse models and maps can be found in the website  <http://www.vmh.life http://www.vmh.life>.
 %% *EQUIPMENT SETUP*
 % In order to access remotely to ReconMap, the user has to be registered. To 
 % obtain your credentials, you must access the ADMIN area and request an account.  
-% To access ReconMap follow the link:  <http://vmh.uni.lu. http://vmh.uni.lu.> 
+% To access ReconMap follow the link:  <http://www.vmh.life http://www.vmh.life> 
+% .
 % 
 %      
 % 
-% Then, use your credentials to remotely access to <http://vmh.uni.lu. http://vmh.uni.lu.> 
-
+% Then, use your credentials to remotely access to <http://www.vmh.life http://www.vmh.life> 
+%%
 load('minerva.mat')
-minerva.minervaURL = 'http://vmh.uni.lu/minerva/galaxy.xhtml';
+minerva.minervaURL = 'http://www.vmh.life/minerva/galaxy.xhtml';
 minerva.map = 'ReconMap-2.01';
 minerva.login = 'user_name';
 minerva.password = 'user_password';
@@ -30,12 +31,12 @@ minerva.googleLicenseConsent = 'true';
 % 
 % A specific solver might be required (depending on the analysis you want 
 % to realise in the COBRA model).
-
+%%
 changeCobraSolver('gurobi','QP');
 changeCobraSolver('gurobi', 'LP');
 %% 
 % Load your generic metabolic model. Recon's most recent version "Recon2.04" 
-% can be freely downloaded from <http://vmh.uni.lu. http://vmh.uni.lu.>  
+% can be freely downloaded from <http://www.vmh.life http://www.vmh.life>  
 
 model = readCbModel('Recon2.v04.mat')
 %% *PROCEDURE*
@@ -50,7 +51,7 @@ model = readCbModel('Recon2.v04.mat')
 % model 
 % 
 % |optimizeCbModel |function solves a flux balance analysis problem.
-
+%%
 formula = printRxnFormula(model, 'ATPS4m')
 
 model_atp_production = model  % re-name the model to do not modify the original one.
@@ -68,13 +69,13 @@ nnz(solution_atp_prod_max_sparse.v)
 solution_atp_prod_max_sparse.v(strcmp(model.rxns,'r0603'))
 %% ANTICIPATED RESULTS
 % |The buildFluxDistLayout |function, create a layout that is automatically 
-% sent to the ReconMap website. After this, you can visualise your layout in <http://vmh.uni.lu. 
-% http://vmh.uni.lu.>  Use your credentials to log in as it is previously explained.  
+% sent to the ReconMap website. After this, you can visualise your layout in <http://www.vmh.life 
+% http://www.vmh.life>. Use your credentials to log in as it is previously explained.  
 % Select your input map (minerva.model) and go to "overlays" section to find your 
 % layout.   
 % 
 % 
-
+%%
 serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max_regularised, 'atp_prod_max_regularised3',[],'#6617B5')
 serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max_sparse, 'atp_prod_max_sparse4',[],'#6617B5')
 %% 
@@ -92,7 +93,7 @@ serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max
 % Note: If the "layout name" selected has been already given, an error might 
 % appear. Please, try to give a new layout name each time you run the code. 
 % 
-% |[0]    'ERROR. Layout with given identifier ("atp_productio?'|
+% |[0]    'ERROR. Layout with given identifier ("atp_productio…'|
 % 
 % *2. Overlay a SubSystem*
 % 
@@ -102,7 +103,7 @@ serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max
 % phosphorylation, citric acid cycle, etc.  Add the name of a specific subSystem 
 % you want to highlight from the COBRA model (see the example, TCA cycle), and 
 % the color reference. 
-
+%%
 generateSubsytemsLayout(minerva, model, 'Citric acid cycle', '#6617B5');
 %% 
 % 
@@ -138,29 +139,29 @@ minerva.map = 'mitochondrion'; % Mitochondrion map
 minerva.map = 'lysosome'; % Lysosome map
 minerva.map = 'golgi'; % Golgi apparatus map
 %% REFERENCES: 
-% [1] Alberto Noronha, Anna Dr?fn Dan?elsd?ttir, Piotr Gawron, Freyr J?hannsson, 
-% Sof?a J?nsd?ttir, Sindri Jarlsson, J?n P?tur Gunnarsson, Sigur?ur Brynj?lfsson, 
+% [1] Alberto Noronha, Anna Dröfn Daníelsdóttir, Piotr Gawron, Freyr Jóhannsson, 
+% Sofía Jónsdóttir, Sindri Jarlsson, Jón Pétur Gunnarsson, Sigurður Brynjólfsson, 
 % Reinhard Schneider, Ines Thiele, and Ronan M. T. Fleming. ReconMap: an interactive 
 % visualization of human metabolism. Bioinformatics , 33(4):605607, February 2017.
 % 
 % [2] Ines Thiele, Neil Swainston, Ronan M. T. Fleming, Andreas Hoppe, Swagatika 
 % Sahoo, Maike K. Aurich, Hulda Haraldsdottir, Monica L. Mo, Ottar Rolfsson, Miranda 
-% D. Stobbe, Stefan G. Thorleifsson, Rasmus Agren, Christian B?lling, Sergio Bordel, 
+% D. Stobbe, Stefan G. Thorleifsson, Rasmus Agren, Christian Bölling, Sergio Bordel, 
 % Arvind K. Chavali, Paul Dobson, Warwick B. Dunn, Lukas Endler, David Hala, Michael 
 % Hucka, Duncan Hull, Daniel Jameson, Neema Jamshidi, Jon J. Jonsson, Nick Juty, 
-% Sarah Keating, Intawat Nookaew, Nicolas Le Nov?re, Naglis Malys, Alexander Mazein, 
+% Sarah Keating, Intawat Nookaew, Nicolas Le Novère, Naglis Malys, Alexander Mazein, 
 % Jason A. Papin, Nathan D. Price, Evgeni Selkov Sr, Martin I. Sigurdsson, Evangelos 
 % Simeonidis, Nikolaus Sonnenschein, Kieran Smallbone, Anatoly Sorokin, Johannes 
 % H. G. M. van Beek, Dieter Weichart, Igor Goryanin, Jens Nielsen, Hans V. Westerho, 
-% Douglas B. Kell, Pedro Mendes, and Bernhard ? Palsson. A community-driven global 
+% Douglas B. Kell, Pedro Mendes, and Bernhard Ø Palsson. A community-driven global 
 % reconstruction of human metabolism. 5 Nat Biotech , 31(5):419425, May 2013.
 % 
 % 
 % 
 % [3] Elizabeth Brunk, Swagatika Sahoo, Daniel C Zielinski, Ali Altunkaya, 
-% Andreas Dr?ger, Nathan Mih, Francesco Gatto, Avlant Nilsson, German Andres Preciat 
-% Gonzalez, Maike Kathrin Aurich, Andreas Prli?, Anand Sastry, Anna D Danielsdottir, 
+% Andreas Dräger, Nathan Mih, Francesco Gatto, Avlant Nilsson, German Andres Preciat 
+% Gonzalez, Maike Kathrin Aurich, Andreas Prlić, Anand Sastry, Anna D Danielsdottir, 
 % Almut Heinken, Alberto Noronha, Peter W Rose, Stephen K Burley, Ronan M T Fleming, 
 % Jens Nielsen, Ines Thiele & Bernhard O Palsson. Recon3D enables a three-dimensional 
 % view of gene variation in human metabolism. _Nature Biotechnology_ volume 36, 
-% pages 272?281 (2018)
+% pages 272–281 (2018)
