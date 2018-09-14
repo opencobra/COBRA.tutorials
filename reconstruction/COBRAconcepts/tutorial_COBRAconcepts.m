@@ -21,16 +21,16 @@
 % 
 % The reactions are:
 % 
-% <https://vmh.uni.lu/#reaction/PYRt2m Pyruvate mitochondrial transport via 
-% proton symport >
+% <https://www.vmh.life/#reaction/PYRt2m Pyruvate mitochondrial transport 
+% via proton symport >
 
 PYRt2m = 'h[c] + pyr[c] <=> h[m] + pyr[m]'
 %% 
-% <https://vmh.uni.lu/#reaction/PDHm Pyruvate dehydrogenase>
+% <https://www.vmh.life/#reaction/PDHm Pyruvate dehydrogenase>
 
 PDHm = 'nad[m] + pyr[m] + coa[m] -> nadh[m] + co2[m] + accoa[m] '
 %% 
-% <https://vmh.uni.lu/#reaction/LDH_Lm L-lactate dehydrogenase>
+% <https://www.vmh.life/#reaction/LDH_Lm L-lactate dehydrogenase>
 
 LDH_Lm = 'nad[m] + lac_L[m] <=> h[m] + nadh[m] + pyr[m]'
 %% 
