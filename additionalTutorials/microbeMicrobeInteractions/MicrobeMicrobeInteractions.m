@@ -1,6 +1,9 @@
 %% Computation and analysis of microbe-microbe metabolic interactions
+% 
+%% Note: This tutorial is a draft and needs completion. Contributions welcome!
+% 
 %% Author: Almut Heinken, Molecular Systems Physiology Group, University of Luxembourg.
-
+%%
 % This tutorial demonstrates how to join a given list of microbial COBRA
 % models in all possible combinations and compute the metabolic
 % interactions between the microbes depending on the implemented diet.
@@ -24,7 +27,7 @@ modelPath='YOUR_PATH_TO_AGORA/';
 % Initialize the COBRA Toolbox.
 initCobraToolbox
 %% Creation of pairwise models
-
+%%
 % For the sake of this tutorial, we will use ten random AGORA
 % reconstructions from the info file.
 modelList = infoFile(randi([2 length(infoFile)],1,10),1);
@@ -67,7 +70,7 @@ numWorkers=4;
 % Join the models in all possible combinations.
 [pairedModels,pairedModelInfo]=joinModelsPairwiseFromList(modelList,inputModels,'c',c,'u',u,'mergeGenesFlag',mergeGenes,'numWorkers',numWorkers);
 %% Computation of pairwise interactions
-
+%%
 % The interactions between all microbes joined in the first step will be
 % simulated on given dietary conditions. Here, we will use four dietary
 % conditions used in Magnusdottir et al., Nat Biotechnol. 2017.: Western
@@ -101,7 +104,7 @@ for i = 1:length(conditions)
 Interactions.(conditions{i})=pairwiseInteractions;
 end
 %% Analysis of computed pairwise interactions
-
+%%
 % The computed microbe-microbe interactions will be plotted by type and
 % analyzed in the context of the taxonomy of the joined strains. There are
 % six possible types of interactions total that can result in increased
@@ -192,7 +195,7 @@ for i=5
     title(taxLevels{i})
 end
 %% Pareto optimality analysis
-
+%%
 % Another way to analyze the metabolic interactions between two microbes in
 % Pareto optimality analysis. In this method, the tradeoff between two
 % competing objectives (e.g., the biomasses of two joined microbes) is
