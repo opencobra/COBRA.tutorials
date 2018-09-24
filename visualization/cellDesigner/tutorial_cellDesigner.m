@@ -1,4 +1,8 @@
 %% 
+% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
+% 
+% **
+% 
 % *Table of Contents *							
 % 
 % *1  Abstract *				
@@ -110,7 +114,7 @@ writeTXT(list_nodes,'test.txt')
 
 [parsed_new,var,final_list]=colourNode(parsed_new,'fatty_acid_new.xml',listRxn,listMet)
 
-% specify the colour of each metabolite addint the listMetColour (list of colour codes for the list of metabolite IDs in the ?listMet?)
+% specify the colour of each metabolite addint the listMetColour (list of colour codes for the list of metabolite IDs in the “listMet”)
 
 [parsed_new,var,final_list]=colourNode(parsed_new,'fatty_acid_new.xml',listRxn,listMet,listMetColour) 
 
@@ -259,8 +263,8 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % >> parsed= parseCD('fatty_acid.xml') 	
 % 
-% A COBRA function ?optimizeCbModel? can be called to obtain a flux distribution 
-% for Recon2, where ?recon2? is the Matlab variable structure of recon2 (human 
+% A COBRA function “optimizeCbModel” can be called to obtain a flux distribution 
+% for Recon2, where ‘recon2’ is the Matlab variable structure of recon2 (human 
 % metabolic reconstruction)  			
 % 
 % >> FBA=optimizeCbModel(recon2) 			
@@ -294,7 +298,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 
 % writeCD(parsed_new,'fatty_acid_new.xml')		
 %% 
-% A new file, ?fatty_acid_new.XML?, can be seen in the current working directory. 
+% A new file, “fatty_acid_new.XML”, can be seen in the current working directory. 
 % Open the file with CellDesigner to visualise the network layout. The screenshot 
 % of network layout is shown below: 
 % 
@@ -321,11 +325,11 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % The CD file uses a variation of the standard hex colour codes to specify 
 % colours. Examples of colour codes can be found at http://www.color-hex.com. 
-% The colour is represented by a six- digit code, e.g., ?#b3c628?, but, for CellDesigner 
-% to recognise, it is needed to remove ?#? from the code and add ?ff? before ?b3c628?, 
-% which converts the six-digit code into an eight-digit code, ?ffb3c628?. In the 
-% tutorial, it is not necessary to include ?#? in the colour code when calling 
-% package functions. The functions can automatically check if a prefix, ?#?, exists 
+% The colour is represented by a six- digit code, e.g., ‘#b3c628’, but, for CellDesigner 
+% to recognise, it is needed to remove ‘#’ from the code and add ‘ff’ before ‘b3c628’, 
+% which converts the six-digit code into an eight-digit code, ‘ffb3c628’. In the 
+% tutorial, it is not necessary to include ‘#’ in the colour code when calling 
+% package functions. The functions can automatically check if a prefix, ‘#’, exists 
 % in the colour code and remove the prefix if it exists. 					
 % 
 % *Note: *					
@@ -337,7 +341,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % second column, these provided codes will be used to highlight reactions. 					
 % 
 % There are five predefined sets of colour palettes. Each palette number 
-% (1-5) is used as the third agurment for ?addColour? function. For example, Red 
+% (1-5) is used as the third agurment for “addColour” function. For example, Red 
 % pt1 Color Palette (5) is chosen in the following command. 					
 % 
 % >>[parsed_new] = addColour(parsed_new,(parsed.r_info.ID(1:32,3)), 5) 
@@ -350,10 +354,10 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 %% 
 % 					
 %% 4.3 Export coloured nodes to a text file 				
-% A simple function ?writeTXT? can be called to produce a text file containing 
+% A simple function ‘writeTXT’ can be called to produce a text file containing 
 % a list of reaction IDs and a list of colour hex codes. The text file can be 
 % uploaded to ReconMap online to highlight reaction links on ReconMap. This function 
-% uses the return variable of ?addColour? function as the input. 					
+% uses the return variable of “addColour” function as the input. 					
 % 
 % >> writeTXT(list_nodes,'test.txt')
 
@@ -363,20 +367,20 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 
 % writeTXT(list_nodes,'test.txt')
 %% 
-% ?list_nodes? contains a list of the reaction IDs and a list of colour 
-% codes; it is one of the output variables of ?addColour? function. One of the 
-% return variables of the function ?addColour?, ?listRxn? can be used as the ?list_nodes? 
+% “list_nodes” contains a list of the reaction IDs and a list of colour 
+% codes; it is one of the output variables of “addColour” function. One of the 
+% return variables of the function “addColour”, “listRxn” can be used as the “list_nodes” 
 % . 
 % 
-% ?text.txt? is a name of the text file. 					
+% “text.txt” is a name of the text file. 					
 %% 4.4 Change the colour of metabolise nodes 
 % 					
 % 
-% ?colourNode? function can be used to change the colours of metabolite nodes. 
-% ?list_Met? can be set to ?false?, then the function will not highlight metabolite 
+% “colourNode” function can be used to change the colours of metabolite nodes. 
+% “list_Met” can be set to “false”, then the function will not highlight metabolite 
 % and only reaction nodes, specified in a reaction list, are highlighted. 					
 % 
-% The return variable of the ?addColour? can be use as the input for ?colourNode?. 
+% The return variable of the “addColour” can be use as the input for “colourNode”. 
 % Then, the same colour of the reaction link will be used to highlight the metabolite 
 % nodes involved in a reaction. 
 % 
@@ -399,7 +403,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % >> [parsed_new] = addColour(parsed_new,(parsed.r_info.ID(1:32,3)),5)
 % 
-% The value ?5? indicates that Red pt1 Color Palette is used to highlight 
+% The value “5” indicates that Red pt1 Color Palette is used to highlight 
 % metabolite nodes. 
 % 
 % >> writeCD(parsed_new,'fatty_acid_new.xml') 
@@ -422,9 +426,9 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 
 % [parsed_new,listRxn] = addColour(parsed_new,(parsed.r_info.ID(1:32,3)),5)
 %% 
-% Another function? colourNodeWhite? can be called as a shortcut to set 
-% all other reactions except those listed in ?listRxn? to white, and then set 
-% reactions listed in ?listRxn? using the same colour scheme passed from ?addColour? 
+% Another function” colourNodeWhite” can be called as a shortcut to set 
+% all other reactions except those listed in “listRxn” to white, and then set 
+% reactions listed in “listRxn” using the same colour scheme passed from “addColour” 
 % function. 					
 % 
 % >>[parsed_new,var,final_list]=colourNodeWhite(parsed_new,'fatty_acid_new.xml',listRxn,'fals 
@@ -440,21 +444,21 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 
 % [parsed_new,var,final_list]=colourNode(parsed_new,'fatty_acid_new.xml',listRxn,listMet)			
 %% 
-% The additional argument ? listMet? contains the metabolite IDs that are 
-% needed to be highlighted for two reactions ?re5161? and ?re5168? of the variable 
-% ?listRxn?; in other words, ?pmtcoa[r]? in reaction ?re5161?, and ?nadp[c]? and 
-% ?nadph[c]? in reaction ?re5168? will be highlighted in orange colour by default. 
+% The additional argument “ listMet” contains the metabolite IDs that are 
+% needed to be highlighted for two reactions ‘re5161’ and ‘re5168’ of the variable 
+% “listRxn”; in other words, ‘pmtcoa[r]’ in reaction ‘re5161’, and ‘nadp[c]’ and 
+% ‘nadph[c]’ in reaction ‘re5168’ will be highlighted in orange colour by default. 
 % 
 % 					
 % 
 % The default orange for highlighting metabolite nodes can be changed by 
 % using the fifth attribute of the function to specify a list of colour codes 
-% for the list of metabolite IDs in the ?listMet? variable. 					
+% for the list of metabolite IDs in the “listMet” variable. 					
 % 
 % >> [parsed_new,var,final_list]=colourNode(parsed_new,'fatty_acid_new.xml',listRxn,listMet,list 
 % MetColour) 
 
-% specify the colour of each metabolite addint the MetColour list (list of colour codes for the list of metabolite IDs in the ?listMet?)
+% specify the colour of each metabolite addint the MetColour list (list of colour codes for the list of metabolite IDs in the “listMet”)
 
 % [parsed_new,var,final_list]=colourNode(parsed_new,'fatty_acid_new.xml',listRxn,listMet,list MetColour) 
 %% 
@@ -462,18 +466,18 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % 					
 % 
-% The row number in ?listMet? variable corresponds to the same row number 
-% in ?listRxn? variable. The ?colourNode? function first check if the metabolites 
-% indicated in ?listMet? appear in the corresponding reactions in ?listRxn?. For 
-% example, a screenshot of the ?listMet? below shows that the first 30 rows are 
-% empty and the metabolites in the first 30 reactions in ?listRxn? are not particularly 
+% The row number in “listMet” variable corresponds to the same row number 
+% in “listRxn” variable. The “colourNode” function first check if the metabolites 
+% indicated in “listMet” appear in the corresponding reactions in “listRxn’. For 
+% example, a screenshot of the “listMet” below shows that the first 30 rows are 
+% empty and the metabolites in the first 30 reactions in “listRxn” are not particularly 
 % highlighted. Each of rows 31 & 32 contain two metabolite IDs; the function first 
-% check if reaction 31 contains metabolite ?no[c]? and ?o2[c]?, and reaction 32 
-% contains the metabolites ?h[c]? and ?adp[c]? respectively; only those listed 
+% check if reaction 31 contains metabolite “no[c]” and “o2[c]”, and reaction 32 
+% contains the metabolites “h[c]” and “adp[c]” respectively; only those listed 
 % metabolite IDs existing in the corresponding reaction will be particularly highlighted 
 % on the graphical layout. The default colour is orange, but can be changed to 
-% any other colours by specifying the hex colour codes in ?list_Colour_Met?, which 
-% is an optional argument of the ?colourNode? function. 
+% any other colours by specifying the hex colour codes in “list_Colour_Met”, which 
+% is an optional argument of the “colourNode” function. 
 % 
 % 	
 % 
@@ -482,9 +486,9 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % There could be errors with the species names when the network layout is drawn 
 % by human effort. The content (e.g., species names) of a CellDesigner files can 
 % be corrected using a COBRA model structure as the reference. The errors in the 
-% network layout of ?fatty acid pathway? are corrected through the following steps.	
+% network layout of ‘fatty acid pathway’ are corrected through the following steps.	
 %% 5.1 Check and correct species names 				
-% ?cmpMet? and ?correctMetName? functions can be used to correct species names 
+% “cmpMet” and “correctMetName” functions can be used to correct species names 
 % in a parsed CD model 				
 % 
 % >> results =cmpMet(parsed_new,model) 
@@ -495,15 +499,15 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 %% 
 % 									
 % 
-% This command intends to produce a ?r_info? structure that is updated with 
+% This command intends to produce a “r_info” structure that is updated with 
 % the identified changes to the metabolite names. 				
 % 
 % 1. The first argument stores the parsed model structure. The structure 
-% is the same as ?parsedModel.r_info? 				
+% is the same as “parsedModel.r_info” 				
 % 
-% 2. The second argument is the return variable of the ?cmpMet? function. 
+% 2. The second argument is the return variable of the ‘cmpMet’ function. 
 % Basically, the second field of the variable contains a list of row numbers of 
-% the problematic species names which is used by ?correct_M? function to locate 
+% the problematic species names which is used by ‘correct_M’ function to locate 
 % the incorrect metabolite names in the array and replace them with the provided 
 % substituting species names contained the third argument. 				
 % 
@@ -520,7 +524,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % 							
 % 
-% Optionally, ?cmpMet? function can then be called again to check if the 
+% Optionally, “cmpMet” function can then be called again to check if the 
 % there would be any further discrepancies existing between the COBRA and parsed 
 % CellDesigner models. 				
 % 
@@ -533,7 +537,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 				
 % 
 % The result indicates that there is only one metabolite that cannot be found 
-% in the reference COBRA model structure. The metabolite name is ?Fatty acid synthesis?, 
+% in the reference COBRA model structure. The metabolite name is “Fatty acid synthesis’, 
 % which is a dummy metabolite shown on the network layout as a name label of the 
 % whole network. Therefore, it is fine to leave where it is. 				
 %% 5.2 Repair the XML file 				
@@ -546,24 +550,24 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 
 % XML = repairXML(parsed_corrected,'fatty_acid_corrected.xml') 	
 %% 
-% This command intends produce a variable ?text? that stores all the text 
-% lines of the XML file, using ?annotedText? as a reference, which is outputted 
-% by ?writeXML? function. 							
+% This command intends produce a variable “text” that stores all the text 
+% lines of the XML file, using “annotedText” as a reference, which is outputted 
+% by “writeXML” function. 							
 % 
-% ?  ?parsed_corrected? is the corrected parsed model structure outputted 
-% by ?correctMetName? function. 						
+% −  “parsed_corrected” is the corrected parsed model structure outputted 
+% by “correctMetName” function. 						
 % 
-% ?  ?fatty_acid_corrected.xml? is the name of the output XML file. 						
+% −  “fatty_acid_corrected.xml” is the name of the output XML file. 						
 % 
-% ?  ?XML" contains text lines of the output XML file. 
+% −  “XML" contains text lines of the output XML file. 
 % 
 % The following is the screenshot of the corrected network layout, in metabolite 
-% IDs with stoichiometric coefficients (such as ?3 h[c]?) are changed to metabolite 
-% IDs (such as ?h[c]?). 
+% IDs with stoichiometric coefficients (such as “3 h[c]”) are changed to metabolite 
+% IDs (such as “h[c]”). 
 % 
 % 					
 %% 5.3 Check reaction names 				
-% ?cmpRxn? function can be called to check if there are any discrepancies in 
+% “cmpRxn” function can be called to check if there are any discrepancies in 
 % reactions between the parsed CD and the COBRA models. 				
 % 
 % >>results =cmpRxn(parsed_corrected,model) 
@@ -578,12 +582,12 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % between the CD and COBRA model structures. 					
 % 
 % To demonstrate the discrepancies in reactions can be identified by the 
-% ?cmpRxn? function, we use the central metabolic network of Recon2 as an example, 
+% ”cmpRxn” function, we use the central metabolic network of Recon2 as an example, 
 % and compare it with the fatty acid Matlab model structure. 				
 % 
 % >> parsed_Central=parseCD('CentralMetabolism_Recon2.xml') 			
 % 
-% The following command uses ?cmpRxn? function to compare the parsed central 
+% The following command uses “cmpRxn” function to compare the parsed central 
 % metabolism structure (i.e., CD model) with the fatty acid COBRA model structure 
 % (i.e., COBRA model). 				
 % 
@@ -601,19 +605,19 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % model are found in the COBRA model, 214 reactions of the parsed CD model are 
 % not present in the COBRA model. 				
 % 
-% ?main? displays all the comparison results. The 1-3 columns list the all 
+% “main” displays all the comparison results. The 1-3 columns list the all 
 % of the available reaction IDs in the CD model; the fifth column lists the comparison 
-% results: a ?found? text indicates the reaction ID of the CD model is also present 
+% results: a “found” text indicates the reaction ID of the CD model is also present 
 % in the COBRA model. 				
 % 
-% ?listOfFound? contains the reactions of the CD models that are present 
+% “listOfFound” contains the reactions of the CD models that are present 
 % in both CD and COBRA models. 				
 % 
-% ?found_rxns_and_mets? lists all the substrates and products of the reactions 
+% “found_rxns_and_mets” lists all the substrates and products of the reactions 
 % present in both CD and COBRA models; the metabolite IDs are retrieved from the 
 % COBRA model. 				
 % 
-% ?list_of_rxns_not_present_in_ReferenceModel??lists the reactions of the 
+% “list_of_rxns_not_present_in_ReferenceModel’”lists the reactions of the 
 % CD model that are absent from the COBRA model. 
 % 
 % 								
@@ -640,9 +644,9 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % parsed.r_info.species(:,3) is the list of species names.
 % 
 % The function returns an array of text lines of the XML file, as saved in 
-% ?var?. 			
+% “var”. 			
 % 
-% The following screenshot shows the added annotations for reaction ?OCDCAFATPc? 
+% The following screenshot shows the added annotations for reaction “OCDCAFATPc” 
 % when clicking on the reaction node of the graphical layout in CellDesigner. 
 % 
 % 							
@@ -652,12 +656,12 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % >> [var]=addAnnotation ('fatty_acid_new.xml','fatty_acid_new_annotated.xml', 
 % parsed.r_info.species(:,2),recon2); 			
 % 
-% The following screenshot shows the annotations for reaction ?coa[c]? when 
+% The following screenshot shows the annotations for reaction “coa[c]” when 
 % clicking on the metabolite node on the graphical layout in CellDesigner. 
 % 
 % 			
 % 
-% Instead of calling ?addAnnotation? function twice, it is also possible 
+% Instead of calling “addAnnotation” function twice, it is also possible 
 % to add omics data for reactions and metabolites using one single command: 			
 % 
 % First, run the following command to combine the lists of reactions and 
@@ -665,7 +669,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % >> sumList={parsed.r_info.ID{:,3},parsed.r_info.species{:,2}}' 	
 % 
-% Second, use ?sumList? as the third argument of the function, which contains 
+% Second, use “sumList” as the third argument of the function, which contains 
 % a combined list of reactions and metabolites. 				
 % 
 % >> [var]=addAnnotation ('fatty_acid_new.xml','fatty_acid_new_annotated.xml',sumList,recon2); 			
@@ -684,8 +688,8 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % >> addMiriam('fatty_acid_new.xml','fatty_acid_miriam.xml',sumList,model_miriam,'name', 
 % list(1:15,:)) 					
 % 
-% 'fatty_acid_new.xml' - A CD compliable XML file without annotations 'fatty_acid_miriam.xml? 
-% ? a new file that contains annotations. 				
+% 'fatty_acid_new.xml' - A CD compliable XML file without annotations 'fatty_acid_miriam.xml’ 
+% – a new file that contains annotations. 				
 % 
 % sumList - a mixed list of reaction metabolite names, which is produced 
 % by merging the lists of metabolite and reactions into one list using the command: 				
@@ -698,7 +702,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 
 % addMiriam('fatty_acid_new.xml','fatty_acid_miriam.xml',sumList,model_miriam,'name', list(1:15,:)) 	
 %% 
-% model_miriam ? A COBRA model structure that contains the necessary MIRIAM 
+% model_miriam – A COBRA model structure that contains the necessary MIRIAM 
 % annotations. 				
 % 
 % A snapshot of an example structure array is as follows: 
@@ -712,7 +716,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % is missing, the function will generate a list of random relations for the data 
 % arrays. 				
 % 
-% For example, ID is a list of reaction IDs, so ?model_t_list2? should contain 
+% For example, ID is a list of reaction IDs, so ’model_t_list2’ should contain 
 % the MIRIAM information for a reaction. 				
 % 
 % The screenshot shows the MIRIAM information is added to the XML file. 
@@ -721,8 +725,8 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % 
 % *NOTE: *				
 % 
-% It should be noted that the ?XML file? is the one that is used to produce 
-% the ?parsed model structure?; otherwise there will be errors. 				
+% It should be noted that the ‘XML file’ is the one that is used to produce 
+% the ‘parsed model structure’; otherwise there will be errors. 				
 % 
 % Potential errors may be caused by the fact that there is no corresponding 
 % fields referring to annotations in the Matlab structure, or the length of the 
@@ -733,7 +737,7 @@ addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(
 % is possible to use COBRA functions to generate different types of annotations, 
 % which can then be added to the XML file as free-text annotations. 				
 % 
-% Use COBRA function ?printRxnFormula? to create a new field of array of 
+% Use COBRA function “printRxnFormula” to create a new field of array of 
 % reaction formulas 				
 % 
 % >> model_updated.rxnformulas=printRxnFormula(model,model.rxns(:)) 				
