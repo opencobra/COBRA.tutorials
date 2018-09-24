@@ -1,4 +1,10 @@
 %% *Reaction essentiality across multiple models*
+% **
+% 
+% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
+% 
+% **
+% 
 % *Authors: Miguel A.P. Oliveira, Diana C. El Assal-Jordan, Sylvain Arreckx 
 % and Ronan M.T. Fleming, Luxembourg Centre for Systems Biomedicine*
 % 
@@ -18,7 +24,7 @@
 %% *Initialize the COBRA Toolbox *and set the solver
 % Please ensure that The CobraToolbox has been properly installed, and initialized 
 % using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox
 %% 
 % The present tutorial can run with <https://opencobra.github.io/cobratoolbox/deprecated/docs/cobra/solvers/changeCobraSolver.html 
@@ -51,7 +57,7 @@ load(horzcat(modelsDir,'/',modelName))
 objFun = 'ATPS4m';
 %% *2. Generate multiple cardiac models that use different carbon sources*
 % *2.1. Close exchange reactions:*
-%%
+
 modelalter = modelCardioMito;
 exchanges = {'EX_12dgr_m(e)'
     'EX_arachd(e)'
@@ -79,7 +85,7 @@ end
 % be fed into each model*
 % 
 % Select one carbon source to be fed into the model at a time using 20 units.
-%%
+
 allModels = {};
 for i = 1:length(exchanges)
     model = modelalter;
@@ -105,7 +111,7 @@ end
 % by using the function |essentialRxn4MultipleModels.m| 
 % 
 % TIMING: aprox. 10 seconds per model (~3min)
-%%
+
 %allModels = '/hdd/work/sbgCloud/programReconstruction/projects/brainMetabolism/results/modelGeneration/models/cutoff_50'
 
 [ essentialRxn4Models, dataStruct] = essentialRxn4MultipleModels(allModels, objFun);
@@ -115,7 +121,7 @@ end
 % *Define an essentiality threshold:* reactions for which its deletion resulted 
 % in an 'ATPS4mi' flux below the threshold value will be considered essential 
 % for the model.
-%%
+
 essentialityRange = [-100,100]; %negative values only represent absent reactions
 %% 
 % In the following heatmaps, reactions with the lowest positive flux values 
@@ -130,19 +136,19 @@ numModelsPresent = 1;
 rxnsOfInterest_1Model = plotEssentialRxns( essentialRxn4Models, essentialityRange, numModelsPresent);
 %% 
 % *2.4.2. Identify reactions that are essential in at least 11 models:*
-%%
+
 numModelsPresent = 11;
 rxnsOfInterest_11Models = plotEssentialRxns( essentialRxn4Models, essentialityRange, numModelsPresent);
 %% 
 % *2.4.3.  Identify reactions that are essential in at least 17 models:*
-%%
+
 numModelsPresent = 17;
 rxnsOfInterest_17Models = plotEssentialRxns( essentialRxn4Models, essentialityRange, numModelsPresent);
 %% 
 % **
 % 
 % *2.4.4.  Identify reactions that are essential and present in all models:*
-%%
+
 numModelsPresent = size(essentialRxn4Models(:,2:end),2);
 rxnsOfInterest_allModels = plotEssentialRxns( essentialRxn4Models, essentialityRange, numModelsPresent);
 %% 
@@ -151,7 +157,7 @@ rxnsOfInterest_allModels = plotEssentialRxns( essentialRxn4Models, essentialityR
 % 
 % Allow only reactions that are present across all models by adjusting the 
 % lower value of the |essentialityRange| to a non-negative value.
-%%
+
 essentialityRange = [0,0]; % only reactions
 %% 
 % Now identify the present reactions that are essential in at least one 
@@ -164,13 +170,13 @@ presentRxnsOfInterest_1Model = plotEssentialRxns( essentialRxn4Models, essential
 % 
 % Allow only reactions that are present across all models by adjusting the 
 % lower value of the |essentialityRange| to a positive value (e.g. 50 units).
-%%
+
 essentialityRange = [50,100]; % always positive fluxes
 numModelsPresent = 1; 
 rxnsOfInterest = plotEssentialRxns( essentialRxn4Models, essentialityRange, numModelsPresent);
 %% 3. Allow different max fluxes in NADH reaction and test reaction essentiality across all models
 % Use again the |modelCardioMito| model
-%%
+
 titratioModel = modelCardioMito;
 %% 
 % *3.1. Select the reaction |NADH2-u10m| to be titrated and the titration 
@@ -204,11 +210,11 @@ end
 %% 
 % *3.2. Delete every reaction in each model to study their essentiatity 
 % across:*
-%%
+
 [ essentialRxn4NADHModels, dataStruct] = essentialRxn4MultipleModels(allTitrationModels, objFun);
 %% 
 % *3.3. Study reaction essentiality across all models by conditional search:*
-%%
+
 essentialityRange = [-100,100]; %negative values only represent absent reactions
 numModelsPresent = 1; % essential reactions in at least 1 model
 rxnsOfInterest_NADH1Model = plotEssentialRxns( essentialRxn4NADHModels, essentialityRange, numModelsPresent);
