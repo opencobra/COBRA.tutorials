@@ -1,4 +1,5 @@
 %% Computation and analysis of rescued lethal gene deletions in a host-microbe model
+% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
 %% Author: Almut Heinken, Molecular Systems Physiology Group, University of Luxembourg.
 %%
 % Constraint-based modeling has useful applications for predicting the
