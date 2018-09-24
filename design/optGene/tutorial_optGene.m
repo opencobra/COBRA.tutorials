@@ -1,5 +1,5 @@
 %% OptGene Tutorial
-%% Author: Sebasti·n N. Mendoza,  Center for Mathematical Modeling, University of Chile. snmendoz@uc.cl
+%% Author: Sebasti√°n N. Mendoza,  Center for Mathematical Modeling, University of Chile. snmendoz@uc.cl
 %% *Reviewer(s): Sylvian Arreckx*
 %% *INTRODUCTION:*
 % In this tutorial we will run optGene For a detailed description of the procedure, 
@@ -32,7 +32,7 @@
 % 4) Run optGene. *TIMING*: This task should take from a few minutes to a 
 % few days, depending on the size of your reconstruction and the criterion for 
 % stoping optGene
-
+%%
 global TUTORIAL_INIT_CB;
 if ~isempty(TUTORIAL_INIT_CB) && TUTORIAL_INIT_CB  ==  1
     initCobraToolbox
@@ -108,7 +108,7 @@ end
 % 
 % *EXAMPLE 1: finding reaction knockouts sets of large 2 or less, using a 
 % limit of time to stop optGene*
-
+%%
 
 EXAMPLE 1: finding reaction knockouts sets of large 2 or less
 
@@ -158,7 +158,7 @@ end
 %% 
 % *EXAMPLE 2: finding reaction knockouts sets of large 2 or less, using 
 % the number of generations to stop optGene*
-
+%%
 fprintf('\n...EXAMPLE 2: Finding optGene sets\n\n')
 previousSolutions = cell(10, 1);
 contPreviousSolutions = 1;
@@ -231,10 +231,10 @@ end
 % is too short or because the number of generations is too small. In those cases 
 % try to increases those input variables. 
 %% References
-% [1] Patil, K. R., Rocha, I., Fˆrster, J., & Nielsen, J. (2005). Evolutionary 
+% [1] Patil, K. R., Rocha, I., F√∂rster, J., & Nielsen, J. (2005). Evolutionary 
 % programming as a platform for in silico metabolic engineering. _BMC bioinformatics_, 
 % _6_(1), 308.
 % 
 % [2] Orth, J. D., Conrad, T. M., Na, J., Lerman, J. A., Nam, H., Feist, 
-% A. M., & Palsson, B. ÿ. (2011). A comprehensive genome?scale reconstruction 
-% of Escherichia coli metabolismó2011. _Molecular systems biology_, _7_(1), 535.
+% A. M., & Palsson, B. √ò. (2011). A comprehensive genome‚Äêscale reconstruction 
+% of Escherichia coli metabolism‚Äî2011. _Molecular systems biology_, _7_(1), 535.

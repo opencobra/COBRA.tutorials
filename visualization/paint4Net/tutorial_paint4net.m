@@ -41,48 +41,48 @@
 % 
 % *Two functions with their arguments are used in the Paint4Net to define 
 % the scope of visualization: (1) [involvedMets, deadEnds] = draw by rxn(model, 
-% rxns, drawMap, direction, initialMet, excludeMets, flux) ñ to define scope by 
+% rxns, drawMap, direction, initialMet, excludeMets, flux) ‚Äì to define scope by 
 % a list of reactions and (2) [directionRxns, involvedMets, deadEnds] = draw by 
-% met(model, metAbbr, drawMap, radius, direction, excludeMets, flux) ñ to define 
+% met(model, metAbbr, drawMap, radius, direction, excludeMets, flux) ‚Äì to define 
 % the metabolite of interest to see linked reactions within radius of, for instance, 
-% 2 reactions.* The function draw_by_rxn has 7 input arguments: (1) model ñ stands 
-% for stoichiometric reconstruction or model with constraints, (2) rxns ñ stands 
+% 2 reactions.* The function draw_by_rxn has 7 input arguments: (1) model ‚Äì stands 
+% for stoichiometric reconstruction or model with constraints, (2) rxns ‚Äì stands 
 % for a list of the reactions of interest for analysis, (3) drawMap (optional) 
-% ñ stands for request to generate visualization ('true' or 'false', default is 
-% 'false'), (4) direction (optional) ñ stands for algorithm visualization mode 
+% ‚Äì stands for request to generate visualization ('true' or 'false', default is 
+% 'false'), (4) direction (optional) ‚Äì stands for algorithm visualization mode 
 % ('struc', 'sub', 'prod' or 'both') in order to visualize structure (struc) of 
 % reconstructions without FBA data or visualize substrates (sub), products (prod) 
 % or substrates and products (both) for models with flux constraints and FBA data 
-% (default is 'struc'), (5) initialMet (optional) ñ stands for metabolite of interest 
+% (default is 'struc'), (5) initialMet (optional) ‚Äì stands for metabolite of interest 
 % to be used by function draw by met (default is empty), (6) excludeMets (optional) 
-% ñ stands for a list of the excludable metabolites as a filter and (7) flux (optional) 
-% ñ stands for vector of FBA data of reactions flux distribution (default is vector 
+% ‚Äì stands for a list of the excludable metabolites as a filter and (7) flux (optional) 
+% ‚Äì stands for vector of FBA data of reactions flux distribution (default is vector 
 % of x characters if flux is not calculated). The last 5 arguments are optional 
-% and can be unset. The function draw_by_rxn has 2 outputs: (1) involvedMets ñ 
+% and can be unset. The function draw_by_rxn has 2 outputs: (1) involvedMets ‚Äì 
 % stands for a list of involved metabolites depending on the input arguments and 
-% (2) deadEnds ñ stands for a list of dead-end metabolites depending on the input 
-% arguments. The function draw_by_met has 7 input arguments: (1) model ñ stands 
-% for stoichiometric reconstruction or model with constraints, (2) metAbbr ñ stands 
+% (2) deadEnds ‚Äì stands for a list of dead-end metabolites depending on the input 
+% arguments. The function draw_by_met has 7 input arguments: (1) model ‚Äì stands 
+% for stoichiometric reconstruction or model with constraints, (2) metAbbr ‚Äì stands 
 % for an input for metabolite of interest for analysis, (3) drawMap (optional) 
-% ñ stands for request to generate visualization ('true' or 'false', default is 
-% 'false'), (4) radius (optional) ñ stands for distance indicator between metabolite 
+% ‚Äì stands for request to generate visualization ('true' or 'false', default is 
+% 'false'), (4) radius (optional) ‚Äì stands for distance indicator between metabolite 
 % of interest and involved reactions (default is 1), (5) direction (optional) 
-% ñ stands for algorithm visualization mode ('struc', 'sub', 'prod' or 'both') 
+% ‚Äì stands for algorithm visualization mode ('struc', 'sub', 'prod' or 'both') 
 % in order to visualize structure (struc) of reconstructions without FBA data 
 % or visualize substrates (sub), products (prod) or substrates and products (both) 
 % for models with flux constraints and FBA data (default is 'struc'), (6) excludeMets 
-% (optional) ñ stands for a list of the excludable metabolites as a filter and 
-% (7) flux (optional) ñ stands for vector of FBA data of reactions flux distribution 
+% (optional) ‚Äì stands for a list of the excludable metabolites as a filter and 
+% (7) flux (optional) ‚Äì stands for vector of FBA data of reactions flux distribution 
 % (default is vector of x characters for no flux). The last 5 arguments are optional 
 % and can be unset. The function draw_by_met has 3 outputs: (1) directionRxns 
-% ñ stands for a list of involved reactions depending on the input arguments, 
-% (2) involvedMets ñ stands for a list of involved metabolites depending on the 
-% input arguments and (3) deadEnds ñ stands for alist of dead-end metabolites 
+% ‚Äì stands for a list of involved reactions depending on the input arguments, 
+% (2) involvedMets ‚Äì stands for a list of involved metabolites depending on the 
+% input arguments and (3) deadEnds ‚Äì stands for alist of dead-end metabolites 
 % depending on the input arguments. 
 % 
 % The layout of the network is generated by Bioinformatics Toolbox using 
 % hierarchical (default), radial or equilibrium layout engine algorithm, which 
-% can be changed in the menu item ìToolî of the layout. The automatically generated 
+% can be changed in the menu item ‚ÄúTool‚Äù of the layout. The automatically generated 
 % layout stays the same as long as the scope of representation and directionality 
 % of reactions remain unchanged. The layout of automatically generated network 
 % can be changed by dragging metabolites or reactions for analysis or publishing 
@@ -100,7 +100,7 @@
 % be chosen by a cursor to see detailed information: (1) ID, name, synonyms and 
 % equation for a reaction and (2) ID, name, synonyms and charged formula for a 
 % metabolite.  Metabolite _acald[c]_is selected by cursor for displaying of detailed 
-% information.  Creation of this figure is described in the ìAnticipated resultsî 
+% information.  Creation of this figure is described in the ‚ÄúAnticipated results‚Äù 
 % section, Step 8.
 % 
 % 
@@ -109,13 +109,13 @@
 % right on the visualization choosing the node of interest by cursor. To facilitate 
 % the analysis the Paint4Net creates a list of involved metabolites and a list 
 % of the dead end metabolites (metabolite cannot be produced or consumed caused 
-% by gap ñ missing reaction ñ in the model) (Thiele and Palsson, 2010) in the 
+% by gap ‚Äì missing reaction ‚Äì in the model) (Thiele and Palsson, 2010) in the 
 % visualized part of the reaction network. That is a convenient feature analyzing 
 % larger visualizations where it becomes hard to be sure that a particular metabolite 
 % is or is not involved just by search of the abbreviation in the picture. The 
 % dead end metabolites are detected according to the S matrix (Palsson, 2006) 
 % of the biochemical model and the rates of reactions at steady state according 
-% to FBA. Flux rates below 10E?9 mmol g?1 h?1 are considered to be zero flux rates. 
+% to FBA. Flux rates below 10E‚àí9 mmol g‚àí1 h‚àí1 are considered to be zero flux rates. 
 % To reduce the density of visualization a metabolite filter can be used. Stoichiometric 
 % model may have some particular metabolites (H, H2O, ATP, ADP, NAD, NADPH, NADP 
 % etc.), which are more involved in the metabolism, than other ones. It leads 
@@ -233,7 +233,7 @@ model = xls2model('test_model.xls')
 % The arrows in the end of the edges point on the forward directions of the reactions 
 % in the COBRA_ _model.
 %% _*Input arguments of the command draw_by_rxn*_
-% The command _draw_by_rxn_ has several input arguments ñ _model, rxns_,_ drawMap_, 
+% The command _draw_by_rxn_ has several input arguments ‚Äì _model, rxns_,_ drawMap_, 
 % _direction_, _initialMet_, _excludeMets_, and_ flux_. The last 5 arguments are 
 % optional; it means that the algorithm of the command _draw_by_rxn_ uses default 
 % values of those arguments, so user can ignore them if additional functionality 
@@ -291,7 +291,7 @@ rxns = {'glyc12', 'glyc21', 'carb12', 'ed2'}
 % than +10-9 mmol*g-1*h-1 are non-zero fluxes. In case of _'prod'_ (products) 
 % the algorithm visualizes only those metabolites which are products for the specified 
 % reactions in the argument _rxns_ but in case of _'both' _the algorithm visualizes 
-% both ñ substrates and products - for the specified reactions in the argument 
+% both ‚Äì substrates and products - for the specified reactions in the argument 
 % _rxns_. For both cases the algorithm is using the same rules regarding to calculation 
 % of the directions for each reaction as for case of _'sub'_. This argument is 
 % essential for the command _draw_by_met _ of the Paint4Net_ _v1.3 because the 
@@ -459,7 +459,7 @@ model = xls2model('test_model.xls')
 % that fluxes at steady state were not calculated. This approach is useful in 
 % case of reconstruction visualization where fluxes are not calculated.
 %% *Input arguments of the command _draw_by_met*_
-% The command _draw_by_met _has several input arguments ñ _model, metAbbr, drawMap, 
+% The command _draw_by_met _has several input arguments ‚Äì _model, metAbbr, drawMap, 
 % radius, direction, excludeMets, _and _flux_. The last 5 are optional, it means 
 % that the algorithm of the command _draw_by_met _uses default values of those 
 % arguments, so user can ignore them if additional functionality is not necessary.
@@ -488,7 +488,7 @@ model = xls2model('test_model.xls')
 % *iiii. optional argument _radius*_
 % 
 % It is a _double_ type variable that can take a value of natural numbers 
-% (1,2,3Ön).
+% (1,2,3‚Ä¶n).
 
 [directionRxns, involvedMets, deadEnds] = draw_by_met(model, {'etoh[c]'}, 'true', 1)
 %% 
@@ -545,7 +545,7 @@ model = xls2model('test_model.xls')
 % mmol*g-1*h-1or greater than +10-9 mmol*g-1*h-1 are non-zero fluxes. In case 
 % of _'prod'_ (products) the algorithm visualizes only those metabolites which 
 % are products for the specified reactions in the argument _rxns_ but in case 
-% of _'both' _the algorithm visualizes both ñ substrates and products - for the 
+% of _'both' _the algorithm visualizes both ‚Äì substrates and products - for the 
 % specified reactions in the argument _rxns_. For both cases the algorithm is 
 % using the same rules regarding to calculation of the directions for each reaction 
 % as for case of _'sub'_.
@@ -719,7 +719,7 @@ excludeMets = {'atp[c]', 'nad[c]', 'adp[c]', 'h[c]'}
 % initialMet, excludeMets, flux), the last will take default value. Besides the 
 % list of involved metabolites and the list of dead-end metabolites the hypergraph 
 % layout will be generated by Paint4Net using the Bioinformatics Toolbox. The 
-% reaction nodes will containî_xî _for flux rates. The generated layout will not 
+% reaction nodes will contain‚Äù_x‚Äù _for flux rates. The generated layout will not 
 % contain any of metabolites declared in the list of excludable metabolites _excludeMets_. 
 % All interconnecting edges will be in gray because of no FBA data.
 
@@ -837,7 +837,7 @@ excludeMets = {'atp[c]', 'nad[c]', 'adp[c]', 'h[c]'}
 % software for COBRA models. 
 % 
 % This work is funded by a project of European Structural Fund Nr. 2009/0207/1DP/1.1.1.2.0/09/APIA/VIAA/128 
-% ìLatvian Interdisciplinary Interuniversity Scientific Group of Systems Biologyî 
+% ‚ÄúLatvian Interdisciplinary Interuniversity Scientific Group of Systems Biology‚Äù 
 % www.sysbio.lv.
 %% REFERENCES
 % Aurich, M.K., Thiele, I., 2012. Contextualization Procedure and Modeling of 
@@ -845,7 +845,7 @@ excludeMets = {'atp[c]', 'nad[c]', 'adp[c]', 'h[c]'}
 % 
 % Contador, C.A., Rodr?guez, V., Andrews, B.A., Asenjo, J.A., 2015. Genome-scale 
 % reconstruction of Salinispora tropica CNB-440 metabolism to study strain-specific 
-% adaptation. Antonie Van Leeuwenhoek 108, 1075ñ1090. doi:10.1007/s10482-015-0561-9
+% adaptation. Antonie Van Leeuwenhoek 108, 1075‚Äì1090. doi:10.1007/s10482-015-0561-9
 % 
 % Demidenko, A., Akberdin, I.R., Allemann, M., Allen, E.E., Kalyuzhnaya, 
 % M.G., 2017. Fatty Acid Biosynthesis Pathways in Methylomicrobium buryatense 
@@ -853,21 +853,21 @@ excludeMets = {'atp[c]', 'nad[c]', 'adp[c]', 'h[c]'}
 % 
 % Koussa, J., Chaiboonchoe, A., Salehi-Ashtiani, K., 2014. Computational 
 % Approaches for Microalgal Biofuel Optimization: A Review. Biomed Res. Int. 2014, 
-% 1ñ12. doi:10.1155/2014/649453
+% 1‚Äì12. doi:10.1155/2014/649453
 % 
 % Mao, L., Verwoerd, W.S., 2014. ORCA: a COBRA toolbox extension for model-driven 
-% discovery and analysis. Bioinformatics 30, 584ñ585. doi:10.1093/bioinformatics/btt723
+% discovery and analysis. Bioinformatics 30, 584‚Äì585. doi:10.1093/bioinformatics/btt723
 % 
 % Meitalovs, J., Stalidzans, E., 2013. Analysis of synthetic metabolic pathways 
 % solution space, in: 2013 International Conference on System Science and Engineering 
-% (ICSSE). Ieee, pp. 183ñ187. doi:10.1109/ICSSE.2013.6614656
+% (ICSSE). Ieee, pp. 183‚Äì187. doi:10.1109/ICSSE.2013.6614656
 % 
 % Palsson, B.O., 2006. Systems Biology: Properties of Reconstructed Networks. 
 % Cambridge University Press, New York.
 % 
 % Pentjuss, A., Odzina, I., Kostromins, A., Fell, D.A., Stalidzans, E., Kalnenieks, 
 % U., 2013. Biotechnological potential of respiring Zymomonas mobilis: a stoichiometric 
-% analysis of its central metabolism. J. Biotechnol. 165, 1ñ10. doi:10.1016/j.jbiotec.2013.02.014
+% analysis of its central metabolism. J. Biotechnol. 165, 1‚Äì10. doi:10.1016/j.jbiotec.2013.02.014
 % 
 % Pentjuss, A., Stalidzans, E., Liepins, J., Kokina, A., Martynova, J., Zikmanis, 
 % P., Mozga, I., Scherbaka, R., Hartman, H., Poolman, M.G., Fell, D.A., Vigants, 
@@ -876,18 +876,18 @@ excludeMets = {'atp[c]', 'nad[c]', 'adp[c]', 'h[c]'}
 % 
 % Richards, M.A., Lie, T.J., Zhang, J., Ragsdale, S.W., Leigh, J.A., Price, 
 % N.D., 2016. Exploring Hydrogenotrophic Methanogenesis: a Genome Scale Metabolic 
-% Reconstruction of Methanococcus maripaludis. J. Bacteriol. 198, 3379ñ3390. doi:10.1128/JB.00571-16
+% Reconstruction of Methanococcus maripaludis. J. Bacteriol. 198, 3379‚Äì3390. doi:10.1128/JB.00571-16
 % 
 % Rove, Z., Mednis, M., Odzina, I., 2012. Biochemical networks comparison 
 % tool, in: 5th International Scientific Conference on Applied Information and 
-% Communication Technologies. Jelgava, Latvia., pp. 306ñ311.
+% Communication Technologies. Jelgava, Latvia., pp. 306‚Äì311.
 % 
-% Rubina, T., Stalidzans, E., 2013. BINESA ó A software tool for evolution 
-% modelling of biochemical networksí structure, in: 2013 IEEE 14th International 
-% Symposium on Computational Intelligence and Informatics (CINTI). IEEE, pp. 345ñ350. 
+% Rubina, T., Stalidzans, E., 2013. BINESA ‚Äî A software tool for evolution 
+% modelling of biochemical networks‚Äô structure, in: 2013 IEEE 14th International 
+% Symposium on Computational Intelligence and Informatics (CINTI). IEEE, pp. 345‚Äì350. 
 % doi:10.1109/CINTI.2013.6705218
 % 
-% Thiele, I., Palsson, B.ÿ., 2010. A protocol for generating a high-quality 
-% genome-scale metabolic reconstruction. Nat. Protoc. 5, 93ñ121. doi:10.1038/nprot.2009.203
+% Thiele, I., Palsson, B.√ò., 2010. A protocol for generating a high-quality 
+% genome-scale metabolic reconstruction. Nat. Protoc. 5, 93‚Äì121. doi:10.1038/nprot.2009.203
 % 
 % __

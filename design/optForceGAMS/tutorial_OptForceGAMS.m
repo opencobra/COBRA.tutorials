@@ -54,7 +54,7 @@
 % Then, we change the objective function to maximize biomass ("R75"). We 
 % also change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
 % sulfate, ammomium, citrate and glycerol.
-
+%%
 global TUTORIAL_INIT_CB;
 if ~isempty(TUTORIAL_INIT_CB) && TUTORIAL_INIT_CB==1
     initCobraToolbox
@@ -111,7 +111,7 @@ fprintf('The maximum production rate of succinate is %1.2f', maxSucc.f);
 % Then, we change the objective function to maximize biomass ("R75"). We 
 % also change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
 % sulfate, ammomium, citrate and glycerol. 
-
+%%
 
 
 %% 
@@ -124,7 +124,7 @@ Constr_MT = struct('rxnList', {{'R75','EX_suc'}}, 'rxnValues', [0, 155.55], 'rxn
 % on the size of your reconstruction
 % 
 % We  run the FVA analysis for both strains
-
+%%
 [minFluxes_WT, maxFluxes_WT, minFluxes_MT, maxFluxes_MT,~,~] = FVAOptForce(model, Constr_WT, Constr_MT);
 disp([minFluxes_WT, maxFluxes_WT, minFluxes_MT, maxFluxes_MT]);
 %% 
@@ -156,7 +156,7 @@ disp([minFluxes_WT, maxFluxes_WT, minFluxes_MT, maxFluxes_MT]);
 % used, outputs generated, errors in the run) for each run.
 % 
 % We define then our runID
-
+%%
 runID = 'TestOptForce';
 %% 
 % Fow now, only functions to find first and second order must sets are supported. 
@@ -289,7 +289,7 @@ disp(mustUL);
 % must be upregulated in both first and second order must sets; and mustL set 
 % as the union of the reactions that must be downregulated in both first and second 
 % order must sets 
-
+%%
 mustU = unique(union(mustUSet, mustUU));
 mustL = unique(union(mustLSet, mustLL));
 targetRxn = 'EX_suc';

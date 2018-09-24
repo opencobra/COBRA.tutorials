@@ -36,18 +36,16 @@
 %  where $$p,q\in\mathcal{R}^{n}$$ denote the relaxations of the lower and 
 % upper bounds on reaction rates of the reaction rates vector  v, and where $$r\in\mathcal{R}^{m}$$ 
 % denotes a relaxation of the mass balance constraint. Non-negative scalar parameters   
-% ?   and   $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>&alpha;</mi><mtext>?
-% </mtext></mrow></math>$ can be used to trade off between relaxation of mass 
-% balance or bound constraints. A non-negative vector parameter   ?   can be used 
+% λ   and   $\alpha \text{ }$ can be used to trade off between relaxation of mass 
+% balance or bound constraints. A non-negative vector parameter   λ   can be used 
 % to prioritise relaxation of one mass balance constraint over another, e.g, to 
 % avoid relaxation of a mass balance constraint on a metabolite that is not desired 
 % to be exchanged across the boundary of the system. A non-negative vector parameter   
-% $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>&alpha;</mi><mtext>?
-% </mtext></mrow></math>$  may be used to prioritise relaxation of bounds on some 
-% reactions rather than others, e.g., relaxation of bounds on exchange reactions 
-% rather than internal reactions. The optimal choice of parameters depends heavily 
-% on the biochemical context. A relaxation of the minimum number of constraints 
-% is desirable because ideally one should be able to justify the choice of bounds 
+% $\alpha \text{ }$  may be used to prioritise relaxation of bounds on some reactions 
+% rather than others, e.g., relaxation of bounds on exchange reactions rather 
+% than internal reactions. The optimal choice of parameters depends heavily on 
+% the biochemical context. A relaxation of the minimum number of constraints is 
+% desirable because ideally one should be able to justify the choice of bounds 
 % or choice of metabolites to be exchanged across the boundary of the system by 
 % recourse to experimental literature. This task is magnified by the number of 
 % constraints proposed to be relaxed.
@@ -62,11 +60,11 @@ model.lb(4) = 2;
 model.ub(6) = 3;
 %% 
 % Print the constraints
-
+%%
 printConstraints(model, -1001, 1001)
 %% 
 % Identify the exchange reactions and biomass reaction(s) heuristically
-
+%%
 model = findSExRxnInd(model,size(model.S,1),0);
 %    relaxOption:    Structure containing the relaxation options:
 %
@@ -106,7 +104,7 @@ relaxOption.steadyStateRelax = 0;
 %
 %% 
 % Set the tolerance to distinguish between zero and non-zero flux
-
+%%
 if 1
     %feasTol = getCobraSolverParams('LP', 'feasTol');
     %relaxOption.epsilon = feasTol/100;%*100;
@@ -124,7 +122,7 @@ else
 end
 %% 
 % Check if the model is feasible
-
+%%
 FBAsolution = optimizeCbModel(model,'max', 0, true);
 if FBAsolution.stat == 1
     disp('Model is feasible. Nothing to do.');
@@ -151,7 +149,7 @@ end
 % The output is a solution structure with a 'stat' field reporting the solver 
 % status and a set of fields matching the relaxation of constraints given in the 
 % mathematical formulation of the relaxed flux balance problem above.
-
+%%
 % OUTPUT:
 %    solution:       Structure containing the following fields:
 %                      * stat - status
@@ -164,7 +162,7 @@ end
 %                      * v - reaction rate
 %% 
 % Display the proposed relaxation solution
-
+%%
 fprintf('%s\n','Relaxation of steady state constraints:')
 disp(r)
 fprintf('%s\n','Relaxation on lower bound of reactions:')
@@ -223,20 +221,20 @@ rxnNames = {'R1','R2','R3','R4','R5','R6','R7','R8','R9','R10','R11'};
 model = createModel(rxnNames, rxnNames,rxnForms);
 %% 
 % Assume all reactions are irreversible
-
+%%
 model.lb(:) = 0;
 model.ub(:) = 10;
 %% 
 % Reaction R7 with bounds 1 <= v_7 <= 10
-
+%%
 model.lb(7) = 1;
 %% 
 % Print the constraints
-
+%%
 printConstraints(model, -1001, 1001)
 %% 
 % Identify the exchange reactions and biomass reaction(s) heuristically
-
+%%
 model = findSExRxnInd(model,size(model.S,1),0);
 %    relaxOption:    Structure containing the relaxation options:
 %
@@ -275,13 +273,13 @@ relaxOption.steadyStateRelax = 0;
 %                        * excludedMetabolites(i) = true : do not allow to relax steady state constraint on metabolite i
 %% 
 % Set the tolerance to distinguish between zero and non-zero flux
-
+%%
 feasTol = getCobraSolverParams('LP', 'feasTol');
 relaxOption.epsilon = feasTol/100;%*100;
 %% 
 % Call the relaxedFBA function, deal the solution, and set small values 
 % to zero
-
+%%
 tic;
 solution = relaxedFBA(model,relaxOption);
 timeTaken=toc;
@@ -295,7 +293,7 @@ end
 % The output is a solution structure with a 'stat' field reporting the solver 
 % status and a set of fields matching the relaxation of constraints given in the 
 % mathematical formulation of the relaxed flux balance problem above.
-
+%%
 % OUTPUT:
 %    solution:       Structure containing the following fields:
 %                      * stat - status
@@ -308,7 +306,7 @@ end
 %                      * v - reaction rate
 %% 
 % Summarise the proposed relaxation solution
-
+%%
 if solution.stat == 1
    
    dispCutoff=relaxOption.epsilon;

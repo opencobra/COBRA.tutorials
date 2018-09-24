@@ -10,7 +10,7 @@
 % models are still able to produce physiologically relevant ATP yields.
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox with
-
+%%
 % initCobraToolbox
 %% 
 % For solving linear programming problems in FBA analysis, certain solvers 
@@ -28,7 +28,7 @@ changeCobraSolver ('glpk', 'all', 1);
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up:
-
+%%
 modelFileName = 'Recon2.0model.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
 modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
@@ -43,7 +43,7 @@ tol = 1e-6;
 %% Harmonization of abbreviation usage
 % First, we will harmonize different bracket types used in different model versions, 
 % e.g., different version of the human metabolic reconstruction. 
-
+%%
 model.rxns = regexprep(model.rxns, '\(', '\[');
 model.rxns = regexprep(model.rxns, '\)', '\]');
 model.mets = regexprep(model.mets, '\(', '\[');
@@ -130,7 +130,7 @@ modelClosedOri = modelClosed;
 % the option 'zero', which approximates the sparsest possible flux distribution 
 % with an maximal ATP yield.
 %% Carbon source: Glucose (VMH ID: <http://vmh.life/#metabolite/glc_D glc_D>), Oxygen: Yes
-
+%%
 modelClosed = modelClosedOri;
 modelClosed.lb(find(ismember(modelClosed.rxns, 'EX_o2[e]'))) = -1000;
 modelClosed.lb(find(ismember(modelClosed.rxns, 'EX_h2o[e]'))) = -1000;
@@ -168,7 +168,7 @@ ReactionsInSparseSolution = modelClosed.rxns(find(FBA.x));
 
 k = k+1; clear FBA
 %% Carbon source: Glucose (VMH ID: <http://vmh.life/#metabolite/glc_D glc_D>), Oxygen: No
-
+%%
 modelClosed = modelClosedOri;
 modelClosed.lb(find(ismember(modelClosed.rxns,'EX_o2[e]'))) = 0;
 modelClosed.ub(find(ismember(modelClosed.rxns,'EX_o2[e]'))) = 0;

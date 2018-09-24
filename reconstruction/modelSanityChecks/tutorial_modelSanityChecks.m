@@ -32,7 +32,7 @@
 % All results are stored in a table ('TableChecks').
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox:
-
+%%
 initCobraToolbox
 %% 
 % For solving linear programming problems in FBA analysis, certain solvers 
@@ -55,7 +55,7 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up. In this tutorial, the used model is the generic model of human metabolism, 
 % Recon 3 [1]. If Recon 3 is not available, please use Recon 2.
-
+%%
 modelFileName = 'Recon2.0model.mat'; %Replace if you want to load Recon3D
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
 modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
@@ -63,7 +63,7 @@ model = readCbModel(modelFileName);
 %% Model Harmonization
 % Replace reaction abbreviation for the ATP hydrolysis (DM_atp_c_) and Biomass 
 % reaction used differently in various models.
-
+%%
 model.rxns(find(ismember(model.rxns,'ATPM')))={'DM_atp_c_'};
 model.rxns(find(ismember(model.rxns,'ATPhyd')))={'DM_atp_c_'};
 model.rxns(find(ismember(model.rxns,'DM_atp(c)')))={'DM_atp_c_'};
@@ -111,7 +111,7 @@ modelClosedOri = modelClosed;
 %% Start with tests.
 % Perform leak test, i.e., whether the closed model can produce any exchanged 
 % metabolite, as defined in the model, from nothing. 
-
+%%
 modelClosed = modelClosedOri;
 [LeakRxns,modelTested,LeakRxnsFluxVector] = fastLeakTest(modelClosed,modelClosed.rxns(selExc),'false');
 TableChecks{cnt,1} = 'fastLeakTest 1';
@@ -252,7 +252,7 @@ cnt =  cnt + 1;
 
 TableChecks{cnt,1} = 'Test metabolic objective functions with closed sinks (lb)';
 if 1 % perform test functions
-    [TestSolution,TestSolutionNameClosedSinks, TestedRxnsClosedSinks, PercClosedSinks] = Test4HumanFctExt(model,'all',0);
+    [TestSolution,TestSolutionNameClosedSinks, TestedRxnsClosedSinks, PercClosedSinks] = test4HumanFctExt(model,'all',0);
     TableChecks{cnt,2} = strcat('Done. See variable TestSolutionNameClosedSinks for results. The model passes ', num2str(length(find(abs(TestSolution)>tol))),' out of ', num2str(length(TestSolution)), 'tests');
 else
     TableChecks{cnt,2} = 'Not performed.';

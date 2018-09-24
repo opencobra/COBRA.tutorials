@@ -19,7 +19,7 @@
 % 
 % The pentose phosphate pathway subsystem includes the following reactions 
 % derived from the core model. _[Timing: Seconds]_
-
+%%
 model = e_coli_core; % Starting with the original model
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l');
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l');
@@ -113,7 +113,7 @@ T = table(Glucose_Aerobic_Flux,Fructcose_Aerobic_Flux,Glucose_Anaerobic_Flux,...
 % 
 % The reactions associated with the TCA cycle can be retrieved from the _E.coli_ 
 % core model as shown below. _[Timing: Seconds]_
-
+%%
 model = e_coli_core;
 TCA_Reactions = transpose({'CS','ACONTa','ACONTb','ICDHyr','AKGDH','SUCOAS',...
     'FRD7','SUCDi','FUM','MDH'});
@@ -221,7 +221,7 @@ T = table(Pyrvate_Aerobic_Flux,Pyrvate_Anaerobic_Flux,...
 % The reactions included in this section on the glycoxylate cycle, gluconeogenesis, 
 % and anapleurotic reactions are shown below.  This subsystem is referred to in 
 % the core model as the "anapleurotic reactions" subsystem.  _[Timing: Seconds]_
-
+%%
 % Set initial constraints for glycoxylate cycle, gluconeogenesis, and anapleurotic reactions section
 model = e_coli_core;
 ANA_Reactions = transpose({'ICL','MALS','ME1','ME2','PPS','PPCK',...
@@ -300,7 +300,7 @@ printFluxVector(model,FBAsolution.x,true) % only prints nonzero fluxes
 % example of the role of the glycoxylate cycle, gluconeogenesis, and anapleurotic 
 % reactions. The Matlab/COBRA Toolbox code for this example is shown below. _[Timing: 
 % Seconds]_
-
+%%
 model = e_coli_core;
 model = changeRxnBounds(model,'EX_glc(e)',-0,'l'); 
 model = changeRxnBounds(model,'EX_mal_L(e)',-10,'l'); 
@@ -347,7 +347,7 @@ printFluxVector(model,FBAsolution.x,true) % only prints nonzero fluxes
 % 
 % The reactions associated with the fermentation pathways include: _[Timing: 
 % Seconds]_
-
+%%
 % Set initial constraints for fermentation metabolism section
 model = e_coli_core;
 FERM_Reactions = transpose({'LDH_D','D_LACt2','PDH','PFL','FORti','FORt2',...
@@ -475,7 +475,7 @@ printFluxVector(model,FBAsolution.x,true) % only prints nonzero reactions
 % core map [3].
 % 
 % The reactions of the nitrogen metabolism include: _[Timing: Seconds]_
-
+%%
 % Set initial constraints for nitrogen metabolism section
 model = e_coli_core;
 NIT_Reactions = transpose({'GLNabc','GLUt2r','GLUDy','GLNS','GLUSy','GLUN'});
@@ -613,17 +613,12 @@ surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 %% *7. Tutorial Understanding Enhancement Problems*
 % # Find the maximum atp[c], nadh[c], and nadph[c] that can be produced by the 
 % _E.coli _core model in an aerobic environment assuming a fixed glucose uptake 
-% rate of -1 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
-% Hint: For atp[c] you can set ATPM as the objective function but for nadh[c] 
-% and nadph[c] you will need to create separate demand functions. See Chapter 
-% 19 of Palsson's book [1].
+% rate of -1 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. Hint: 
+% For atp[c] you can set ATPM as the objective function but for nadh[c] and nadph[c] 
+% you will need to create separate demand functions. See Chapter 19 of Palsson's 
+% book [1].
 % # Compare the difference in the aerobic vs anaerobic flux rate through the 
-% glycolysis pathway by setting biomass function to a fixed rate of 0.8739 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mi 
-% mathvariant="italic">h</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$. 
+% glycolysis pathway by setting biomass function to a fixed rate of 0.8739 $h^{-1}$. 
 % Why is the anaerobic flux so much higher than the aerobic flux? Hint: Set the 
 % objective function to the glucose exchange reaction.
 %% References

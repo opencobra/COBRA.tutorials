@@ -18,22 +18,21 @@
 % minimizes ('min') the objective function. Below is an example for an aerobic 
 % environment with glucose as the carbon source optimizing for maximum growth-rate. 
 % _[Timing: Seconds]_
-
+%%
 model = e_coli_core; % Starting with the original model
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l'); % Set maximum glucose uptake
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l'); % Set maximum oxygen uptake
 model = changeObjective(model,'Biomass_Ecoli_core_w_GAM'); % Set the objective function
 FBAsolution = optimizeCbModel(model,'max') % FBA analysis
 %% 
-% ?FBAsolution? is a Matlab structure that contains the following outputs.  
-% ?FBAsolution.f ? is the value of objective function as calculated by FBA, thus 
-% if the biomass reaction is the objective function then ?FBAsolution.f" corresponds 
+% “FBAsolution” is a Matlab structure that contains the following outputs.  
+% “FBAsolution.f “ is the value of objective function as calculated by FBA, thus 
+% if the biomass reaction is the objective function then “FBAsolution.f" corresponds 
 % to the growth-rate of the cell. In the example above, it can be seen that the 
-% growth-rate "FBAsolution.f" is listed as 0.8739 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mi mathvariant="normal">hr</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$. 
-% ?FBAsolution.x? is a vector listing the calculated fluxes flowing through the 
-% network. ?FBAsolution.y? and ?FBAsolution.w? contain vectors representing the 
-% shadow prices and reduced costs for each metabolite or reaction, respectively.
+% growth-rate "FBAsolution.f" is listed as 0.8739 ${\mathrm{hr}}^{-1}$. “FBAsolution.x” 
+% is a vector listing the calculated fluxes flowing through the network. “FBAsolution.y” 
+% and “FBAsolution.w” contain vectors representing the shadow prices and reduced 
+% costs for each metabolite or reaction, respectively.
 % 
 % The flux values found in the structure "FBAsolution.x"  can be printed 
 % out using the "printFluxVector(model,fluxData,nonZeroFlag,excFlag)" where the 
@@ -61,29 +60,17 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % 
 % 
 % *                        Figure 7.* Screenshot of the network map of the 
-% _E.coli_ core model with EX_glc(e) $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mo>?</mo></mrow></math>$ -10 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$ 
-% and EX_o2(e) $<math xmlns="http://www.w3.org/1998/Math/MathML"><mo>?</mo></math>$ 
-% -30 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$.
+% _E.coli_ core model with EX_glc(e) $\ge$ -10 $\text{mmol}\cdot {\text{gDW}}^{-1} 
+% \cdot {\text{hr}}^{-1}$ and EX_o2(e) $\ge$ -30 $\text{mmol}\cdot {\text{gDW}}^{-1} 
+% \cdot {\text{hr}}^{-1}$.
 % 
 % As a cautionary note, the default condition for the_ E.coli _core model 
-% sets the carbon source as glucose with an uptake rate of -10 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$, 
-% the oxygen uptake is -1000 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$ 
-% which implies an aerobic environment with the objectve function defined as 'Biomass_Ecoli_core_w_GAM'. 
-% It is a good practice to define the conditions of your simulation explicity 
-% to avoid unexpected results and long troubleshooting times.
+% sets the carbon source as glucose with an uptake rate of -10 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$, the oxygen uptake is -1000 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$ which implies an aerobic environment 
+% with the objectve function defined as 'Biomass_Ecoli_core_w_GAM'. It is a good 
+% practice to define the conditions of your simulation explicity to avoid unexpected 
+% results and long troubleshooting times.
 %% 4. The Subsystems of the _E.coli _Core Model
 % Now with these basic Matlab and COBRA toolbox skills behind us, it is time 
 % to start exploring the subsytems that make up the _E.coli_ core model. We will 
@@ -161,20 +148,13 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % of adenine nucleotides, and plays an important role in the adp[c]/atp[c] balance 
 % or cellular energy homeostasis.
 % 
-% Finally, the ATP maintenance function (ATPM), which is set at 8.39 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$ 
-% accounts for the energy (in form of atp[c]) necessary to replicate a cell, including 
-% for macromolecular synthesis (e.g., proteins, DNA, and RNA). Thus, for growth 
-% to occur in the _E.coli_ model, the flux rate through ATPM must be greater than 
-% 8.39 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
-% If the model detects that ATPM has not reached its minimum value it will not 
-% produce FBA results.
+% Finally, the ATP maintenance function (ATPM), which is set at 8.39 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$ accounts for the energy (in form of 
+% atp[c]) necessary to replicate a cell, including for macromolecular synthesis 
+% (e.g., proteins, DNA, and RNA). Thus, for growth to occur in the _E.coli_ model, 
+% the flux rate through ATPM must be greater than 8.39 $\text{mmol}\cdot {\text{gDW}}^{-1} 
+% \cdot {\text{hr}}^{-1}$. If the model detects that ATPM has not reached its 
+% minimum value it will not produce FBA results.
 % 
 % Another part of the energy management of a cell is the reducing power that 
 % is required for both cellular catabolism and anabolism. Catabolism refers to 
@@ -185,7 +165,7 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % Anabolism, on the other hand, is the set of metabolic pathways that construct 
 % molecules from smaller units. These anabolic reactions are endergonic and therefore 
 % require an input of energy. In this case, NADPH (nadph[c]) is the reducing power 
-% required for biosynthesis using the cell?s precursor metabolites. 
+% required for biosynthesis using the cell’s precursor metabolites. 
 % 
 % Maintaining the proper balance between anabolic reduction charge, nadph[c]/ 
 % nadp[c], and catabolic reduction charge, nadh[c]/ nad[c], is achieved by reactions 
@@ -205,7 +185,7 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % print out a table that includes all the reaction abbreviations, names, and their 
 % formulas for the reactions invovled in oxidative phosphorylation and the cell's 
 % energy and reducing power management (see Figure 9). _[Timing: Seconds]_
-
+%%
 model = e_coli_core; % Starting this section with the original model
 energySubSystems = {'Oxidative Phosphorylation'};
 energyReactions = model.rxns(ismember(model.subSystems,energySubSystems));
@@ -223,15 +203,9 @@ T = table(reactionNames,reactionFormulas,'RowNames',energyReactions)
 % fit functionally in the TCA cycle, as will be seen later. 
 % 
 % Now lets explore the flux through these reactions in aerobic conditons 
-% with the glucose uptake set at -10 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$ 
-% and the oxygen uptake at -30 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
-% _[Timing: Seconds]_
+% with the glucose uptake set at -10 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot 
+% {\text{hr}}^{-1}$ and the oxygen uptake at -30 $\text{mmol}\cdot {\text{gDW}}^{-1} 
+% \cdot {\text{hr}}^{-1}$. _[Timing: Seconds]_
 
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l'); % Set maximum glucose uptake
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l'); % Set oxygen uptake
@@ -263,7 +237,7 @@ printLabeledData(energyReactions,FBAsolution.x(energy_rxnID))
 % atp[c] is produced by both substrate phosphorylation and oxidative phosphorylation. 
 % All of the reactions that either produce or consume atp[c] can be found using 
 % the "surfNet" COBRA toolbox function.  _[Timing: Seconds]_
-
+%%
 surfNet(model, 'atp[c]', 0,FBAsolution.x,1,1)
 %% 
 % These results show that under aerobic conditions with glucose as the sole 
@@ -272,15 +246,11 @@ surfNet(model, 'atp[c]', 0,FBAsolution.x,1,1)
 % PYK, and SOCAS (substrate phosphoylation) as secondary sources. This also shows 
 % the consumers to be GLNS, PFK, ATPM and the biomass function. As we will see 
 % later, the atp[c] associated with PFK is required by the glycolysis pathway. 
-% The atp[c] used by ATPM must be greater than or equal to 8.39 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi mathvariant="normal">mmol</mi><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">gDW</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$ 
-% to allow the cell to grow. Finally the biomass function shows that 52.27 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi mathvariant="normal">mmol</mi><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">gDW</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$(0.873922 
-% x 59.81) is used for the cell's biosynthesis needs. 
+% The atp[c] used by ATPM must be greater than or equal to 8.39 $\mathrm{mmol}\cdot 
+% {\mathrm{gDW}}^{-1} \cdot {\mathrm{hr}}^{-1}$ to allow the cell to grow. Finally 
+% the biomass function shows that 52.27 $\mathrm{mmol}\cdot {\mathrm{gDW}}^{-1} 
+% \cdot {\mathrm{hr}}^{-1}$(0.873922 x 59.81) is used for the cell's biosynthesis 
+% needs. 
 % 
 % One of the important concepts associated with these constraint-based steady 
 % state models is that the total cell fluxes for key cofactors like atp[c] and 
@@ -290,7 +260,7 @@ surfNet(model, 'atp[c]', 0,FBAsolution.x,1,1)
 % another atp[c] molecule. Thus, the total cellular atp[c] flux must equal the 
 % total cellular adp[c] flux. This can be observed using the COBRA Toolbox function 
 % called "computeFluxSplits" as shown below. _[Timing: Seconds]_
-
+%%
 [P, C, vP, vC] = computeFluxSplits(model, {'adp[c]'}, FBAsolution.x);
 total_adp_flux = sum(vP)
 [P, C, vP, vC] = computeFluxSplits(model, {'adp[c]'}, FBAsolution.x);
@@ -312,31 +282,21 @@ model = changeRxnBounds(model,'EX_o2(e)',-30,'l'); % Set oxygen uptake
 ylabel('Growth-rate (1/hr)');
 %% 
 % This graph shows the entire capability of ATPS4r when the carbon source 
-% glucose has a maximum uptake rate greater than or equal to  -10 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi mathvariant="normal">mmol</mi><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">gDW</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$. 
-% If we start at the left of this of this figure, it can be seen that ATPS4r takes 
-% on negative values which implies that instead of producing atp[c] through the 
-% proton-motive force, it has become an energy-dependent proton pump removing 
-% protons from the cytoplasm and transporting them to the extracellular space. 
-% Note that the growth-rate under these anaerobic conditions is small. As the 
-% flux through ATPS4r becomes positive it starts producing atp[c] providing the 
-% majority of the atp[c] required for aerobic operation. At the beginning of aerobic 
-% operation there is a nice linear relationship between the produced atp[c] and 
-% the growth-rate. Eventually the growth-rate reaches a maximum of 0.8738 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$ 
-% when the ATPS4r flux level reaches 45.54 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
-% After the maximum growth-rate has been achieved the cell then needs to find 
-% ways to recycle the extra ATP. This can be seen below by fixing the flux through 
-% ATPS4r to a value greater than 45.54 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
+% glucose has a maximum uptake rate greater than or equal to  -10 $\mathrm{mmol}\cdot 
+% {\mathrm{gDW}}^{-1} \cdot {\mathrm{hr}}^{-1}$. If we start at the left of this 
+% of this figure, it can be seen that ATPS4r takes on negative values which implies 
+% that instead of producing atp[c] through the proton-motive force, it has become 
+% an energy-dependent proton pump removing protons from the cytoplasm and transporting 
+% them to the extracellular space. Note that the growth-rate under these anaerobic 
+% conditions is small. As the flux through ATPS4r becomes positive it starts producing 
+% atp[c] providing the majority of the atp[c] required for aerobic operation. 
+% At the beginning of aerobic operation there is a nice linear relationship between 
+% the produced atp[c] and the growth-rate. Eventually the growth-rate reaches 
+% a maximum of 0.8738 ${\mathrm{hr}}^{-1}$ when the ATPS4r flux level reaches 
+% 45.54 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. After the 
+% maximum growth-rate has been achieved the cell then needs to find ways to recycle 
+% the extra ATP. This can be seen below by fixing the flux through ATPS4r to a 
+% value greater than 45.54 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. 
 % _[Timing: Seconds]_
 
 model = e_coli_core; % Starting the original model
@@ -361,16 +321,14 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % 
 % 
 % *                                                                                
-% Figure 11. *A screenshot of the core map with ATPS4r fixed at 60$<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
+% Figure 11. *A screenshot of the core map with ATPS4r fixed at 60$\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. 
 % 
 % _*NADH Production*_
 % 
 % Now that we have explored the production and consumption of atp[c], let's 
 % look at the producers and consumers of nadh[c]. _[Timing: Seconds]_
-
+%%
 model = e_coli_core; % Starting with the original model
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l'); % Set maximum glucose uptake
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l'); % Set oxygen uptake
@@ -386,12 +344,9 @@ surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 % produced in other parts of the cell that are not included in this simple core 
 % model. The flux supplied through the biomass function is calculated by multiplying 
 % the total biomass flux (0.873922) times the nadh[c] biomass function coefficient 
-% (3.547) to yielding a total nadh[c] biomass flux of 3.0998 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi mathvariant="normal">mmol</mi><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">gDW</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup><mo>?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo>?</mo><mn>1</mn></mrow></msup></mrow></math>$. 
-% This can also be calculated using the COBRA Toolbox function "computeFluxSplits" 
-% as follows. _[Timing: Seconds]_
+% (3.547) to yielding a total nadh[c] biomass flux of 3.0998 $\mathrm{mmol}\cdot 
+% {\mathrm{gDW}}^{-1} \cdot {\mathrm{hr}}^{-1}$. This can also be calculated using 
+% the COBRA Toolbox function "computeFluxSplits" as follows. _[Timing: Seconds]_
 
 [nadh_P, nadh_C, nadh_vP, nadh_vC] = computeFluxSplits(model, {'nadh[c]'}, FBAsolution.x);
 [~,nadh_rxnID] = ismember('Biomass_Ecoli_core_w_GAM',model.rxns);
@@ -433,7 +388,7 @@ surfNet(model,'nadph[c]',0,FBAsolution.x,1,1)
 % 
 % Figure 12 is a map of anaerobic operation using glucose as the only carbon 
 % source.
-
+%%
 model = e_coli_core; % Starting with the original model
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l'); % Set maximum glusose uptake
 model = changeRxnBounds(model,'EX_o2(e)',-0,'l'); % Set maximum oxygen uptake
@@ -449,22 +404,15 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % 
 % 
 % *Figure 12.* Network map of the _E.coli_ core model with glucose as the 
-% carbon source (EX_glc(e) $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mo>?</mo></mrow></math>$ 
-% -10 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$) 
-% in an anaerobic environment (EX_o2(e) $<math xmlns="http://www.w3.org/1998/Math/MathML"><mo>?</mo></math>$ 
-% 0 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$).
+% carbon source (EX_glc(e) $\ge$ -10 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot 
+% {\text{hr}}^{-1}$) in an anaerobic environment (EX_o2(e) $\ge$ 0 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$).
 % 
 % Note that for anaerobic operation the flux through oxidative phosphorylation 
 % pathways (electron transport chain) is zero. Let's look at the nonzero fluxes 
 % associated with anaerobic operation to understand the role of THD2 and ATPS4r. 
 % _[Timing: Seconds]_
-
+%%
 Reactions = transpose({'ATPS4r','THD2'});
 [~,rxnID] = ismember(Reactions,model.rxns);
 printLabeledData(Reactions,FBAsolution.x(rxnID))
@@ -526,7 +474,7 @@ surfNet(model, 'nadph[c]',0,FBAsolution.x,1,1)
 % 
 % A table showing the reactions associated with the glycolysis pathway can 
 % be extracted from the core model as follows: _[Timing: Seconds]_
-
+%%
 model = e_coli_core; % Starting with the original model
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l');
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l');
@@ -583,16 +531,9 @@ drawFlux(map, model, FBAsolution.x, options);
 % 
 % 
 % *Figure 15.* Network map of the _E.coli_ core model using fructose as the 
-% carbon source (EX_fru(e) $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mo>?</mo></mrow></math>$ 
-% -10 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$) 
-% in an anaerobic environment (EX_o2(e) $<math xmlns="http://www.w3.org/1998/Math/MathML"><mo>?</mo></math>$ 
-% 0 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$).
+% carbon source (EX_fru(e) $\ge$ -10 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot 
+% {\text{hr}}^{-1}$) in an anaerobic environment (EX_o2(e) $\ge$ 0 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$).
 % 
 % Note that the fructose enters the network on the top left of the map. The 
 % detailed flux values for all the active reactions are shown below. _[Timing: 

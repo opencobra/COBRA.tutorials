@@ -51,7 +51,7 @@ cd(fileparts(which('tutorial_ecoliCoreModel.mlx')));
 % necessary for the network optimizations required by this tutorial. This can 
 % be done by selecting the approrpriate solver for the machine you are using by 
 % removing the "%" (comment) sign for only the desired solver. _[Timing: Seconds]_
-
+%%
 changeCobraSolver('gurobi','all');
 %% PROCEDURE
 %% 1. Constraint-based modeling
@@ -139,8 +139,8 @@ changeCobraSolver('gurobi','all');
 % for glucose is "EX_glc(e)."
 % 
 % The COBRA models also include Boolean rules for each reaction describing 
-% the gene-reaction relationship. For example, ?gene1 and gene2? indicate that 
-% the two gene products are part of an enzyme whereas ?gene1 or gene2? indicate 
+% the gene-reaction relationship. For example, ‘gene1 and gene2’ indicate that 
+% the two gene products are part of an enzyme whereas ‘gene1 or gene2’ indicate 
 % that the two gene products are isozymes that catalyze the same reaction.The 
 % gene-protein-reaction associations (GPRA) for a few reactions are shown in Figure 
 % 2. Each GPRA is composed of a gene locus, a translated peptide (mRNA), and functional 
@@ -174,7 +174,7 @@ changeCobraSolver('gurobi','all');
 % the Matlab work environment. This can be achieved by loading the Matlab version 
 % of the model (.mat) into Matlab. This model is available in the downloaded COBRA 
 % toolbox software. _[Timing: Seconds]_
-
+%%
 global CBTDIR
 model = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'ecoli_core_model.mat']);
 e_coli_core = model; % Save the original model for later use
@@ -193,7 +193,7 @@ e_coli_core = model; % Save the original model for later use
 % is to print out a spreadsheet that contains all the information stored in the 
 % model. This can be accomplished using the "writeCbModel" function. _[Timing: 
 % Seconds]_
-
+%%
 outmodel = writeCbModel(model, 'xls', 'core_model.xls')
 %% 
 % This function will write the model to an Excel spreadsheet named "core_model.xls" 
@@ -218,7 +218,7 @@ outmodel = writeCbModel(model, 'xls', 'core_model.xls')
 % COBRA toolbox installation. The following steps can be used to create a map 
 % of the _E.coli_ core in an "SVG" file called "target.svg." This map file should 
 % be located in your working directory. _[Timing: Seconds]_
-
+%%
 map=readCbMap('ecoli_core_map.txt');
 options.zeroFluxWidth = 0.1;
 options.rxnDirMultiplier = 10;
@@ -246,7 +246,7 @@ drawCbMap(map);
 % "findGeneIDs"  COBRA Toolbox function can be used to pull the geneID from the 
 % model structure.  The first 10 genes in the model, and their geneIDs, can be 
 % printed out as follows. _[Timing: Seconds]_
-
+%%
 genes = cellstr(model.genes(1:10));
 geneIDs = findGeneIDs(model, model.genes(1:10));
 printLabeledData(model.genes(1:10),geneIDs)
@@ -273,7 +273,7 @@ findGeneIDs(model, 'b0116')
 % "findRxnIDs" can be used to extract the rxnID from the model structure.  Note 
 % that the biomass function "Biomass_Ecoli_core_w_GAM" is listed as one of the 
 % reactions. _[Timing: Seconds]_
-
+%%
 rxnIDs = findRxnIDs(model, model.rxns(1:15));
 printLabeledData(model.rxns(1:15),rxnIDs)
 %% 
@@ -320,7 +320,7 @@ surfNet(model, 'GAPD')
 % in model.metNames. The COBRA Toolbox function "findMetIDs" can be used to extract 
 % the metID's from the model structure as shown in the following example.  _[Timing: 
 % Seconds]_
-
+%%
 metIDs = findMetIDs(model, model.mets(1:15));
 printLabeledData(model.mets(1:15),metIDs)
 %% 
@@ -357,7 +357,7 @@ surfNet(model, 'atp[c]')
 % 2). The Boolean relationship between the genes and a given reaction can be found 
 % using the "model.grRules" structure of the model. This is shown below. _[Timing: 
 % Seconds]_
-
+%%
 rxnIDs = findRxnIDs(model, 'PYK');
 model.grRules(rxnIDs)
 %% 
@@ -382,53 +382,29 @@ model.grRules(rxnIDs)
 % upper bound of the reactions flux. It is important to understand the default 
 % constraint settings for the _E.coli_ core model. In this model all reversible 
 % reactions in the cytoplasm are initally set so that their lower bound is -1000 
-% $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$with 
-% an upper bound of +1000 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
-% On the other hand, irreversible reactions, except ATPM, are set with a lower 
-% bound of 0 and an upper bound of +1000 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
+% $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$with an upper bound 
+% of +1000 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. On the 
+% other hand, irreversible reactions, except ATPM, are set with a lower bound 
+% of 0 and an upper bound of +1000 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. 
 % The ATP maintenance reaction (ATPM) is set with a lower bound of 0 and an upper 
-% bound of +8.39 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$(this 
+% bound of +8.39 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$(this 
 % will be discussed later). All the exchange reactions, except EX_glc(e), are 
 % set to allow secretion but not uptake, thus a lower bound of 0 and an upper 
-% bound of +1000 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
+% bound of +1000 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. 
 % To avoid confusion, it should be understood that all exchange reactions, which 
 % are reactions that interface between the extracellular and cytoplasmic space, 
 % assume that secretion is positive while uptake is labeled negative.  Finally, 
-% the glucose exchange reaction, EX_glc(e), is set with a lower bound of -10 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$ 
-% and an upper bound of +1000 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$.
+% the glucose exchange reaction, EX_glc(e), is set with a lower bound of -10 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$ and an upper bound of +1000 $\text{mmol}\cdot 
+% {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$.
 % 
 % To see the constraints for the reactions that are not set at the minimum/maximum 
 % (-100\100) values, then "lb" and "ub" can be adjusted. _[Timing: Seconds]_
-
+%%
 printConstraints(model,-100, +100)
 %% 
 % Note that the exchange reaction that controls the uptake of glucose, 'EX_glc(e) 
-% is automatically set to -10 $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$. 
+% is automatically set to -10 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. 
 % 
 % The results of the upper or lower bounds for a particular reaction can 
 % be found by using the COBRA model structure, "model.lb" for the lower bound 
@@ -441,22 +417,15 @@ model.ub(rxnIDs)
 % Altering the constraints for a reaction can be accomplished with the "model 
 % = changeRxnBounds(model,rxnNameList,value,boundType)" function. For this function 
 % the second parameter is the reaction(s) that need to be constrained, the third 
-% parameter is the desired flux rate in $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi 
-% mathvariant="normal">mmol</mi><mo stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$, 
-% and the fourth parameter can be 'u' - upper limit, 'l' - lower limit, or 'b' 
-% - both (Default = 'b'). _[Timing: Seconds]_
+% parameter is the desired flux rate in $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot 
+% {\text{hr}}^{-1}$, and the fourth parameter can be 'u' - upper limit, 'l' - 
+% lower limit, or 'b' - both (Default = 'b'). _[Timing: Seconds]_
 
 model = changeRxnBounds(model,'EX_glc(e)',-5,'l');
 printConstraints(model,-100, +100); % Showing the result of the change
 %% 
 % You can now see that the lower bound for glucose has been changed to -5 
-% $<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">mmol</mi><mo 
-% stretchy="false">?</mo><msup><mrow><mi mathvariant="normal">gDW</mi></mrow><mrow><mo 
-% stretchy="false">?</mo><mn>1</mn></mrow></msup><mo stretchy="false">?</mo><msup><mrow><mi 
-% mathvariant="normal">hr</mi></mrow><mrow><mo stretchy="false">?</mo><mn>1</mn></mrow></msup></math>$ 
-% .
+% $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$ .
 % 
 % *2.F. Objective Functions*
 % 
@@ -464,7 +433,7 @@ printConstraints(model,-100, +100); % Showing the result of the change
 % objective or objective function. For the case of predicting growth, the biological 
 % objective is the biomass production or the rate at which metabolic compounds 
 % are converted into biomass constituents. This biomass production is mathematically 
-% represented by the addition to the model of an artificial ?biomass reaction? 
+% represented by the addition to the model of an artificial ‘biomass reaction’ 
 % (Biomass_Ecoli_core_w_GAM) which consumes precursor metabolites at stoichiometries 
 % that simulate biomass production. The precursors for the _E.coli _core model 
 % are shown in Figure 6. 
@@ -478,14 +447,14 @@ printConstraints(model,-100, +100); % Showing the result of the change
 % nadh[c], nadph[c], and pi[c])  that are required for cell growth and operation. 
 % The biomass reaction is based on experimental measurements of biomass components 
 % allowing the reaction to be scaled so that its flux is equal to the exponential 
-% growth-rate (?) of the organism. With the biomass now represented in the model, 
+% growth-rate (μ) of the organism. With the biomass now represented in the model, 
 % the maximum growth rate can be predicted by calculating the conditions that 
 % maximize the flux through the biomass reaction.  
 % 
 % The biomass reaction and the weighted precursor metaboites can be inspected 
 % by printing out the formula for the biomass function using the "printRxnFormula" 
 % COBRA Toolbox function. _[Timing: Seconds]_
-
+%%
 printRxnFormula(model,'Biomass_Ecoli_core_w_GAM')
 %% 
 % The objective function can also be checked using the "checkObjective(model)" 

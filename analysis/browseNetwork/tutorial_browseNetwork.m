@@ -24,7 +24,7 @@ iJO1366 = readCbModel(modelFileName);
 % 
 % Browse the network by starting from an initial metabolite, e.g., D-glucose 
 % in the extracellular compartment.
-
+%%
 surfNet(iJO1366, 'glc__D_e')
 %% 
 % All reactions producing or consuming '|*glc__D_e|*' will have their reaction 
@@ -78,7 +78,7 @@ surfNet([], [], 0, 'none', 0, 1, [], 0, struct('showPrev', true))
 % *Show objective reactions*
 % 
 % Omit the '|metrxn|' (2nd) argument to print objective reactions:
-
+%%
 surfNet(iJO1366)
 %% 
 % *Call with a list of mets/rxns*

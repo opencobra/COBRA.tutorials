@@ -63,7 +63,7 @@
 % to increase its biochemical fidelity can take days or weeks.
 %% EQUIPMENT SETUP
 % Make sure to initialise the COBRA Toolbox.
-
+%%
 % initCobraToolbox
 %% PROCEDURE
 %% Setting the numerical tolerance
@@ -71,7 +71,7 @@
 % solver requires a tolerance to be set that distinguished between zero and non-zero 
 % flux, based on the numerical tolerance of the currently installed optimisation 
 % solver. Typically 1e-6 will suffice, except for multiscale models.
-
+%%
 feasTol = getCobraSolverParams('LP', 'feasTol');
 %% Loading and examining the properties of a model
 % We are going to focus here on testing the biochemical fidelity of Recon3.0model 
@@ -86,7 +86,7 @@ model.csense(1:size(model.S,1),1) = 'E';
 % and B: one norm minimisation.
 %% A: Sparse flux balance analysis test for production of ATP with all external reactions blocked, but all internal reaction bounds unchanged
 % Detect the ATP maintenance reaction and if there is none already, add one.
-
+%%
 atpMaintenanceBool=strcmp(model.rxns,'DM_atp_c_') | strcmp(model.rxns,'DM_atp(c)') | strcmp(model.rxns,'ATPM');
 if ~any(atpMaintenanceBool)
     fprintf('Could not find ATP maintenance reaction, adding one.')
@@ -113,7 +113,7 @@ maxInf =  1000;
 printConstraints(model, minInf, maxInf);
 %% 
 % Identify the exchange reactions(s) heuristically
-
+%%
 if ~isfield(model,'SIntRxnBool')
     model = findSExRxnInd(model,size(model.S,1),1);
 end
@@ -149,7 +149,7 @@ model.lb(~model.SIntRxnBool) = 0;
 model.ub(~model.SIntRxnBool) = 0;
 %% 
 % Run sparse flux balance analysis on the model with all exchanges closed
-
+%%
 tic
 sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops, zeroNormApprox);
 toc
@@ -193,7 +193,7 @@ end
 %% B: One norm minimisation test for production of ATP with all external reactions blocked, but all internal reaction bounds unchanged
 % Run flux balance analysis on the same model and minimise the total sum of 
 % all reaction rates (minimum one norm)
-
+%%
 minNorm = 'one';
 oneNormFBASolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops, zeroNormApprox);
 %% 
@@ -215,7 +215,7 @@ end
 % and B: one norm minimisation.
 %% A: Sparse flux balance analysis test for production of ATP with all external reactions blocked and all internal reactions reversible
 % Fully open all internal reactions
-
+%%
 model.lb(model.SIntRxnBool) = -1000;
 model.ub(model.SIntRxnBool) = 1000;
 %% 
@@ -247,7 +247,7 @@ end
 %% B: One norm minimisation test for production of ATP with all external reactions blocked and all internal reactions reversible
 % Run flux balance analysis on the samemodel and minimise the sum total of all 
 % reaction rates (minimium one norm)
-
+%%
 minNorm = 'one';
 oneNormFBASolutionUnBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops, zeroNormApprox);
 %% 
@@ -267,18 +267,18 @@ end
 % these cycles are latent in the network and could become active with inadvertent 
 % relaxation of model bounds.
 %% REFERENCES
-% [1] Feist, Adam M, and Bernhard O Palsson. ?The Biomass Objective Function.? 
-% _Current Opinion in Microbiology_, Ecology and industrial microbiology ? Special 
-% section: Systems biology, 13, no. 3 (June 2010): 344?49. doi:10.1016/j.mib.2010.03.003.
+% [1] Feist, Adam M, and Bernhard O Palsson. “The Biomass Objective Function.” 
+% _Current Opinion in Microbiology_, Ecology and industrial microbiology • Special 
+% section: Systems biology, 13, no. 3 (June 2010): 344–49. doi:10.1016/j.mib.2010.03.003.
 % 
-% [2] Fleming, R. M. T., C. M. Maes, M. A. Saunders, Y. Ye, and B. ?. Palsson. 
-% ?A Variational Principle for Computing Nonequilibrium Fluxes and Potentials 
-% in Genome-Scale Biochemical Networks.? _Journal of Theoretical Biology_ 292 
-% (January 7, 2012): 71?77. doi:10.1016/j.jtbi.2011.09.029.
+% [2] Fleming, R. M. T., C. M. Maes, M. A. Saunders, Y. Ye, and B. Ø. Palsson. 
+% “A Variational Principle for Computing Nonequilibrium Fluxes and Potentials 
+% in Genome-Scale Biochemical Networks.” _Journal of Theoretical Biology_ 292 
+% (January 7, 2012): 71–77. doi:10.1016/j.jtbi.2011.09.029.
 % 
 % [3] Brunk, Elizabeth, Swagatika Sahoo, Daniel C Zielinski, Ali Altunkaya, 
-% Maike Aurich, Nathan Mih, German Andres Preciat Gonzalez, et al. ?Recon 3D: 
-% A Resource Enabling a Three-Dimensional View of Gene Variation in Human Metabolism.? 
+% Maike Aurich, Nathan Mih, German Andres Preciat Gonzalez, et al. “Recon 3D: 
+% A Resource Enabling a Three-Dimensional View of Gene Variation in Human Metabolism.” 
 % _(Submitted)_ 1 (2017).
 % 
 % [4] Fleming, R.M.T., et al., Cardinality optimisation in constraint-based 
@@ -286,12 +286,12 @@ end
 % 
 % [5] Le Thi, H.A., Pham Dinh, T., Le, H.M., and Vo, X.T. (2015). DC approximation 
 % approaches for sparse optimization. European Journal of Operational Research 
-% 244, 26?46.
+% 244, 26–46.
 % 
 % [6] Duarte, N. C., S. A. Becker, N. Jamshidi, I. Thiele, M. L. Mo, T. D. 
-% Vo, R. Srivas, and B. ?. Palsson. ?Global Reconstruction of the Human Metabolic 
-% Network Based on Genomic and Bibliomic Data.? _Proceedings of the National Academy 
-% of Sciences of the United States of America_ 104, no. 6 (2007): 1777?82. doi:10.1073/pnas.0610772104.
+% Vo, R. Srivas, and B. Ø. Palsson. “Global Reconstruction of the Human Metabolic 
+% Network Based on Genomic and Bibliomic Data.” _Proceedings of the National Academy 
+% of Sciences of the United States of America_ 104, no. 6 (2007): 1777–82. doi:10.1073/pnas.0610772104.
 % 
 %   
 % 

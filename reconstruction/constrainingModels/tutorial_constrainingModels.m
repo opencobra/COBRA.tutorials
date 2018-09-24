@@ -41,7 +41,7 @@
 % $$\text{(3)}\ Sv=\frac{dx}{dt}=\lambda x\\$$
 %% PROCEDURE
 % Initialize the Cobra Toolbox using the |initCobraToolbox| function.
-
+%%
 initCobraToolbox
 %% *Setting the *optimization* solver*
 %%
@@ -65,7 +65,7 @@ modelOrig = model;
 % consumption rate was found to range between -12.00 and -11.58  $\mu mol/gDW/hr$[3]. 
 % Therefore, the lower bound of the glucose exchange reaction (<http://www.vmh.life/#reaction/EX_glc(e) 
 % EX_glc(e)>) can be set as follows:
-
+%%
 modelConstrained = model;
 modelConstrained.c = 0*modelConstrained.c; % remove any objective function
 modelConstrained = changeRxnBounds(modelConstrained, 'EX_glc(e)', -12, 'l');
@@ -86,7 +86,7 @@ modelConstrained = changeRxnBounds(modelConstrained, 'EX_glc(e)', -11.58, 'u');
 % aldolase (<http://www.vmh.life/#reaction/FBA FBA>) has a _Vmax _of 128 units 
 % in our specific cell type, we can then add this constraint on the corresponding 
 % internal reaction FBA, as an upper bound. 
-
+%%
 modelConstrained = changeRxnBounds(modelConstrained, 'FBA', 128, 'u');
 %% 
 % Optionally, if the reaction is reversible, the same constraint can be 
@@ -102,7 +102,7 @@ modelConstrained = changeRxnBounds(modelConstrained, 'FBA', -128, 'l');
 % by defining stoichiometric coefficients for each biomass precursor. For dividing 
 % cell types, the generic human biomass reaction available in Recon2 is formulated 
 % as follows: 
-
+%%
 printRxnFormula(modelConstrained, 'biomass_reaction');
 %% *3.1 Biomass reaction*
 % 20.6508 h2o[c] + 20.7045 atp[c] + 0.38587 glu_L[c] + 0.35261 asp_L[c] + 0.036117 
@@ -154,7 +154,7 @@ modelConstrained = addReaction(modelConstrained, 'biomasReactionLipids',  '20.65
 % gDW of tissue.
 % 
 % $$\frac{31.3*39.6*1gDW}{100*100}=0.124gDW\\\$$
-
+%%
 abundance = (31.3*39.6*1)/(100*100);
 %% 
 % _*ii. Calculate the molar abundance*_
@@ -371,7 +371,7 @@ return;
 % take advantage of sparseFBA to identify the minimal set of essential reactions 
 % required to fulfill a certain objective function (e.g. <http://www.vmh.life/#reaction/DM_atp_c_ 
 % DM_atp_c_>).
-
+%%
 originalTest = model; 
 originalTest = changeObjective(originalTest , 'DM_atp_c_');
 [vSparseOriginal, sparseRxnBoolOriginal, essentialRxnBoolOriginal]  = sparseFBA(originalTest);

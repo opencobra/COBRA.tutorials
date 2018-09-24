@@ -48,7 +48,7 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-
+%%
 %initCobraToolbox
 %% *Setting the *optimization* solver.*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
@@ -89,7 +89,7 @@ model = changeRxnBounds(model, 'EX_glc(e)', -18, 'l');
 % will be recorded in an 'essential_genes' vector. Here no growth is defined as 
 % growth lower than 0.000001. The remaining non-essentail genes will be stored 
 % in a 'non_EG' vector.
-
+%%
 [grRatio, grRateKO, grRateWT, delRxns,...
     hasEffect] = singleGeneDeletion(model, 'FBA', model.genes);
 essential_genes = [];
@@ -112,7 +112,7 @@ pFBAEssentialRxns = model.rxns(RxnRatio < tol);
 % function set the percentage of optimal solution to zero %. The reactions that 
 % do not carry flux will be stored in a vector called |pFBAnoFluxRxn| and the 
 % reaction that do carry flux in another vector called |pFBAfluxRxn|.
-
+%%
 [minFluxglc, maxFluxglc] = fluxVariability(model, 0);
 pFBAnoFluxRxn = [];
 pFBAfluxRxn = [];
@@ -158,7 +158,7 @@ pFBAfluxGenes(pFBAfluxGenes==0) = [];
 % this case biomass production). The FBA is run with a maxmial optimization of 
 % biomass production. Then set the optimal solution (|FBAsolution.f|) as the lower 
 % bound in the model using the |changeRxnBounds |function.
-
+%%
 FBAsolution = optimizeCbModel(model, 'max'); 
 model = changeRxnBounds(model, 'Biomass_Ecoli_core_w_GAM', FBAsolution.f, 'l');
 %% 
@@ -172,7 +172,7 @@ model = changeRxnBounds(model, 'Biomass_Ecoli_core_w_GAM', FBAsolution.f, 'l');
 % are "turned off" when the system is forced to achieve certain biomass production 
 % are MLE reactions. MLE reations will be stored in the vector, |RxnMLE|, and 
 % the remaining reactions will be stored in the vector, |restRxn|.
-
+%%
 RxnMLE = [];
 restRxn = [];
 for i = 1:length(pFBAfluxRxn)
@@ -188,7 +188,7 @@ RxnMLEname = model.rxns(RxnMLE)
 % Next run an FBA, calculating a minimal optimization of biomass production. 
 % Then set the bounds of all reactions to it respective minimal flux balance solution 
 % (|FBAsolution.x|) using the |changeRxnBounds() |function. 
-
+%%
 FBAsolution = optimizeCbModel(model,'min','one');
 model = changeRxnBounds(model, model.rxns, FBAsolution.x, 'b');
 %% 
@@ -231,7 +231,7 @@ RxnOptima = findRxnIDs(model, pFBAopt_Rxns);
 % 
 % Some genes may not fit in any of this 5 categories. These genes will be 
 % saved in a vetor called 'remainingGenes'.
-
+%%
 OptimaGenes = [];
 restGenes = pFBAfluxGenes;
 for i = 1:length(RxnOptima)

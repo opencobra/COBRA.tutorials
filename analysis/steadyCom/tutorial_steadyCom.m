@@ -1,4 +1,4 @@
-%% Analyze Steady-State Community COBRA Models at  Using SteadyCom
+%% Analyze Steady-State Community COBRA Models
 %% Author(s): Siu Hung Joshua Chan, Department of Chemical Engineering, The Pennsylvania State University
 %% Reviewer(s): Almut Heinken, Luxembourg Centre for Systems Biomedicine, University of Luxembourg
 % __
@@ -63,7 +63,7 @@ changeCobraSolver('ibm_cplex', 'LP');
 %% PROCEDURE
 %% Model Construction
 % Load the _E. coli_ iAF1260 model in the COBRA toolbox.
-
+%%
 global CBTDIR
 iAF1260 = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'iAF1260.mat']);
 %% 
@@ -169,7 +169,7 @@ EcCom.indCom.spBm = rxnBiomassId;
 %% Finding Maximum Growth Rate Using SteadyCom
 % Set community and organism-specific uptake rates to be the same as in the 
 % orginal iAF1260 model:
-
+%%
 [yn, id] = ismember(strrep(iAF1260.mets(metEx), '[e]', '[u]'), EcCom.infoCom.Mcom);  % map the metabolite name
 assert(all(yn));  % must be a 1-to-1 mapping
 EcCom.lb(EcCom.indCom.EXcom(:,1)) = lbEx(id);  % assign community uptake bounds
@@ -266,13 +266,8 @@ end
 % Guess method in the last column represents the method used for guessing 
 % the growth rate solved in the current iteration:
 % 
-% 0: the default simple guess by $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msub><mrow><mi>&mu;</mi></mrow><mrow><mi mathvariant="normal">next</mi></mrow></msub><mo>=</mo><msub><mrow><mi>&mu;</mi></mrow><mrow><mi 
-% mathvariant="normal">current</mi></mrow></msub><mtext>?</mtext><mrow><msubsup><mrow><mo>&sum;</mo></mrow><mrow><mi 
-% mathvariant="italic">k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi mathvariant="italic">K</mi></mrow></msubsup><mrow><msubsup><mrow><mi 
-% mathvariant="italic">X</mi></mrow><mrow><mi mathvariant="italic">k</mi></mrow><mrow><mi 
-% mathvariant="normal">current</mi></mrow></msubsup></mrow></mrow></mrow></math>$ 
-% (_K_ is the total number of organisms)
+% 0: the default simple guess by $\mu_{next} =\mu_{current} \text{ }\sum_{k=1}^K 
+% X_k^{current}$ (_K_ is the total number of organisms)
 % 
 % 1: bisection method
 % 
@@ -314,7 +309,7 @@ options.algorithm = 3;  % use the bisection algorithm
 %% Analyzing Flux Variability Using SteadyComFVA
 % Now we want to analyze the variability of the organism abundance at various 
 % growth rates. Choose more options and call |SteadyComFVA|:
-
+%%
 % percentage of maximum total biomass of the community required. 100 for sum(biomass) = 1 (1 is the default total biomass)
 options.optBMpercent = 100;  
 n = size(EcCom.S, 2);  % number of reactions in the model
@@ -427,7 +422,7 @@ lg.Position = [0.65 0.65 0.1 0.27];
 % the function analyzes all possible pairs in |options.rxnNameList|. To analyze 
 % only particular pairs, use |options.pairList|. See |help SteadyComPOA |for more 
 % details.
-
+%%
 options.savePOA = ['POA' filesep 'EcCom'];  % directory and fila name for saving POA results
 options.optGRpercent = [99 90 70 50];  % analyze at these percentages of max. growth rate
 % Nstep is the number of intermediate steps that the independent variable will take different values
@@ -525,7 +520,7 @@ end
 % SteadyComFVA and |spmd| for SteadyComPOA). 
 % 
 % Test SteadyComFVA with 2 threads:
-
+%%
 options.rxnNameList = EcCom.rxns(1:100);  % test FVA for the first 50 reactions
 options.optGRpercent = 99;
 options.algorithm = 1;
@@ -588,7 +583,7 @@ fprintf('\nSingle-thread computation: %.0f sec\nTwo-thread computation: %.0f sec
 % abundances while ensuring community stability. PLoS Comput Biol 13(5): e1005539. 
 % https://doi.org/10.1371/journal.pcbi.1005539
 % 
-% _[2] _Khandelwal RA, Olivier BG, Röling WFM, Teusink B, Bruggeman FJ (2013) 
+% _[2] _Khandelwal RA, Olivier BG, RÃ¶ling WFM, Teusink B, Bruggeman FJ (2013) 
 % Community Flux Balance Analysis for Microbial Consortia at Balanced Growth. 
 % PLoS ONE 8(5): e64567. https://doi.org/10.1371/journal.pone.0064567
 % 

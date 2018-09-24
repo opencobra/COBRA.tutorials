@@ -75,7 +75,7 @@
 %% Select reconstruction to convert into a model and enter parameters
 % Load the ReconX reconstruction, and save the original reconstruction in the 
 % workspace, unless it is already loaded into the workspace. 
-
+%%
 clear model
 if ~exist('modelOrig','var')
     %select your own model, or use Recon2.0model instead
@@ -122,7 +122,7 @@ end
 %% Overview some of the key properties of the reconstruction
 % Noting the initial size of the reconstruction is useful for comparisons later 
 % with subsets derived according to mathematical specifications.
-
+%%
 [nMet,nRxn]=size(model.S);
 fprintf('%6s\t%6s\n','#mets','#rxns')
 fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')

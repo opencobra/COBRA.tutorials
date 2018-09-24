@@ -15,7 +15,7 @@
 % 
 % Sauls, J. T., & Buescher, J. M. (2014). Assimilating genome-scale metabolic 
 % reconstructions with modelBorgifier. _Bioinformatics_ (Oxford, England), 30(7), 
-% 1036?8. http://doi.org/10.1093/bioinformatics/btt747
+% 1036–8. http://doi.org/10.1093/bioinformatics/btt747
 % 
 % Correspondance: johntsauls@gmail.com
 % 
@@ -86,7 +86,7 @@
 % We are going to use the E. coli core model located in the test/models/ 
 % directory of the Toolbox. We use this model for the tutorial because it is small 
 % and will require less time to match. 
-
+%%
 % Load the model using the Toolbox function
 Cmodel = readCbModel('ecoli_core_model.mat', ...
                      'modelDescription', 'Ecoli_core')
@@ -99,8 +99,8 @@ Cmodel = readCbModel('ecoli_core_model.mat', ...
 % to keep or edit the model name ("description"). Simply press 'y' in for this 
 % tutorial. 
 % 
-% Note that this verify function (verifyModelBorg) is different from the Toolbox 
-% function verifyModel.
+% Note that this verify function (verifyModelBorg) is different from the 
+% Toolbox function verifyModel.
 
 % Verify model has the necessary fields required for later processing
 Cmodel = verifyModelBorg(Cmodel, 'keepName', 'Verbose');
@@ -121,7 +121,7 @@ Cmodel = verifyModelBorg(Cmodel, 'keepName', 'Verbose');
 % as our template model. Load it the same way as any model. If you had previous 
 % combined two models using modelBorgifier, you could simply load that composite 
 % model as your Tmodel. 
-
+%%
 global CBTDIR
 pth=which('initCobraToolbox.m');
 CBTDIR = pth(1:end-(length('initCobraToolbox.m')+1));
@@ -154,7 +154,7 @@ Tmodel = buildTmodel(Tmodel);
 % scores. In particular the bottom right graph shows a reaction by reaction matrix 
 % of the scores. Lighter colors indicate a higher matching score between any two 
 % reactions. Note the transport reactions along the bottom and right of the graph. 
-
+%%
 [Cmodel, Tmodel, score, Stats] = compareCbModels(Cmodel, Tmodel, 'Verbose');
 %% 
 % *5. Match models*
@@ -165,7 +165,7 @@ Tmodel = buildTmodel(Tmodel);
 % 
 % Note you must run reactionCompare in the Command Window, as GUIs are not 
 % proprely rendered within the Matlab Live script. 
-
+%%
 if ~exist('rxnList', 'var') || ~exist('metList', 'var') || ~exist('Stats', 'var')
     rxnList = [];
     metList = [];
@@ -265,14 +265,14 @@ end
 % and will prompt the user if errors are found. It will also produce a copy of 
 % Cmodel which has been extracted from TmodelC (see next step).
 %% Merge models and test results.
-
+%%
 if ~isempty(rxnList) && ~isempty(metList) && ~isempty(Stats)
     [TmodelC, Cspawn, Stats] = mergeModelsBorg(Cmodel, Tmodel, rxnList, metList, Stats, 'Verbose');
 end
 %% 
 % The structure Stats contains information about the number of unique and 
 % shared metabolites between the models, as well as the completeness of annotations. 
-
+%%
 if ~isempty(rxnList) && ~isempty(metList) && ~isempty(Stats)
     % Shared reaction between the models. Values along the diagonal how many reactions in the model are unique. 
     Stats.sharedRxns
@@ -307,7 +307,7 @@ end
 % to the model that went in, but will contain additional annotation information 
 % garnered from the comparison. For example, the extracted Ecoli_core model now 
 % contains KEGG IDs for its metabolites. 
-
+%%
 %% Extract both models 
 if ~isempty(rxnList) && ~isempty(metList) && ~isempty(Stats)
     Ecoli_core = readCbTmodel('Ecoli_core', TmodelC, 'Verbose');
@@ -318,15 +318,15 @@ end
 % 
 % Finally, you should save your combined model to be used for future comparison. 
 % Subsequent comparisons become easier a Tmodel gains information. 
-
+%%
 %     save([filesep 'Tmodel_' datestr(now,'yyyy.mm.dd') '.mat'], 'TmodelC')
 %% REFERENCES
 % # Sauls, J. T., & Buescher, J. M. (2014). Assimilating genome-scale metabolic 
 % reconstructions with modelBorgifier. _Bioinformatics_ (Oxford, England), 30(7), 
-% 1036?8. <http://doi.org/10.1093/bioinformatics/btt747 http://doi.org/10.1093/bioinformatics/btt747>
-% # Thiele, I., Vo, T. D., Price, N. D., & Palsson, B. �. (2005). Expanded metabolic 
+% 1036–8. <http://doi.org/10.1093/bioinformatics/btt747 http://doi.org/10.1093/bioinformatics/btt747>
+% # Thiele, I., Vo, T. D., Price, N. D., & Palsson, B. Ø. (2005). Expanded metabolic 
 % reconstruction of _Helicobacter pylori_ (_i_IT341 GSM/GPR): an _in silico_ genome-scale 
 % characterization of single- and double-deletion mutants. _Journal of Bacteriology_, 
-% _187_(16), 5818?5830. http://doi.org/10.1128/JB.187.16.5818
+% _187_(16), 5818–5830. http://doi.org/10.1128/JB.187.16.5818
 % 
 % __
