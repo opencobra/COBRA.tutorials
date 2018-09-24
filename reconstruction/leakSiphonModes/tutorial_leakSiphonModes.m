@@ -1,4 +1,9 @@
 %% *Find leakage and siphon modes in a reconstruction  *
+% **
+% 
+% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
+% 
+% **
 %% *Author: Ronan Fleming, University of Luxembourg*
 %% *Reviewers: *
 %% INTRODUCTION
@@ -124,13 +129,13 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
 %% 
 % 
 %% Find leakage or siphons in heuristically internal part using the bounds given with the model
-
+%%
         if 1
             [leakMetBool,leakRxnBool,siphonMetBool,siphonRxnBool,leakY,siphonY,statp,statn]...
                 = findMassLeaksAndSiphons(model,model.SIntMetBool,model.SIntRxnBool,modelBoundsFlag,leakParams,printLevel);
         end
 %% For each leaking metabolite find a minimal cardinality leakage mode
-
+%%
         leakParams.epsilon=1e-4;
         minLeakParams.eta = getCobraSolverParams('LP', 'feasTol')*100;
         leakParams.method='dc';
@@ -141,28 +146,28 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
                 findMinimalLeakageModeMet(model,leakMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each siphon metabolite find a minimal cardinality siphon mode
-
+%%
         if 1
             minLeakParams.monoMetMode=1;
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] =...
                 findMinimalLeakageModeMet(model,siphonMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each leaking metabolite find a minimal cardinality leakage mode
-
+%%
         if 1
             minLeakParams.monoMetMode=0;
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] =...
                 findMinimalLeakageModeMet(model,leakMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each siphon metabolite find a minimal cardinality siphon mode
-
+%%
         if 1
             minLeakParams.monoMetMode=0;
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] =...
                 findMinimalLeakageModeMet(model,siphonMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each heuristically internal but stoichiometrically inconsistent reaction (one at a time), find the min cardinality leakage mode
-
+%%
         if 1
             rxnBool=model.SIntRxnBool & model.SInConsistentRxnBool;
             metBool=true(nMet,1);
@@ -200,7 +205,7 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
         %
         %
 %% For each heuristically internal but stoichiometrically inconsistent reaction, find the min cardinality leakage mode
-
+%%
         if 1
             rxnBool=model.SIntRxnBool & model.SInConsistentRxnBool;
             metBool=true(nMet,1);
@@ -209,7 +214,7 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
                 findMinimalLeakageModeRxn(model,rxnBool,metBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each heuristically internal but unknown stoichiometric consistency reaction (one at a time), find a minimal cardinality leakage mode
-
+%%
         if 1
             rxnBool=model.SIntRxnBool & model.unknownSConsistencyRxnBool;
             metBool=true(nMet,1);
@@ -217,7 +222,7 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] = findMinimalLeakageModeRxn(model,rxnBool,metBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each heuristically internal but unknown stoichiometric consistency reaction, find a minimal cardinality leakage mode
-
+%%
         if 1
             rxnBool=model.SIntRxnBool & model.unknownSConsistencyRxnBool;
             metBool=true(nMet,1);
