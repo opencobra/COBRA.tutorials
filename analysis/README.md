@@ -1,11 +1,15 @@
 # <img src="https://prince.lcsb.uni.lu/img/icon_analysis.png" height="22px">&nbsp;&nbsp;Tutorials - analysis
 
+- [Atomically resolve a metabolic reconstruction (atomicallyResolveReconstruction)](atomicallyResolveReconstruction)
+- [Browse Networks in the Matlab Command Window Using surfNet](browseNetwork)
+- [Reaction essentiality across multiple models](essentialRxns4MultipleModels)
 - [Flux balance analysis and its variants (FBA)](FBA)
 - [Flux Variability Analysis (FVA)](FVA)
-- [Atomically resolve a metabolic reconstruction (atomicallyResolveReconstruction)](atomicallyResolveReconstruction)
+- [genetic Minimal Cut Sets - gMCS](gMCS)
 - [Minimal spanning pathway vectors (minSpan)](minSpan)
 - [Relaxed Flux Balance Analysis (relaxedFBA)](relaxedFBA)
 - [Sparse Flux Balance Analysis (sparseFBA)](sparseFBA)
 - [Uniform sampling of steady-state fluxes (uniformSampling)](uniformSampling)
 - [Variational kinetic modelling (variationalKinetics)](variationalKinetics)
 - [Thermodynamically constrain a metabolic model (vonBertalanffy)](vonBertalanffy)
+- []()
