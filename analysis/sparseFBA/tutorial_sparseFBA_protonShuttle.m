@@ -102,7 +102,7 @@ maxInf =  1000;
 printConstraints(model, minInf, maxInf);
 %% 
 % Identify the exchange reactions(s) heuristically
-
+%%
 if ~isfield(model,'SIntRxnBool')
     model = findSExRxnInd(model,size(model.S,1),1);
 end
@@ -425,7 +425,7 @@ end
 % 
 % [<#LyXCite-sparsePaper sparsePaper>] Le Thi, H.A., Pham Dinh, T., Le, H.M., 
 % and Vo, X.T. (2015). DC approximation approaches for sparse optimization. European 
-% Journal of Operational Research 244, 26?46.
+% Journal of Operational Research 244, 26–46.
 % 
 % __
 % 

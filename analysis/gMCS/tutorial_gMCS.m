@@ -1,5 +1,5 @@
 %% *genetic Minimal Cut Sets - gMCS*
-%% Authors: Iñigo Apaolaza, University of Navarra, TECNUN School of Engineering, Spain
+%% Authors: IÃ±igo Apaolaza, University of Navarra, TECNUN School of Engineering, Spain
 %% Luis V. Valcarcel, University of Navarra, TECNUN School of Engineering, Spain
 %% Francisco J. Planes, University of Navarra, TECNUN School of Engineering, Spain
 %% Reviewer(s): 
@@ -122,7 +122,7 @@ MCSs{6}
 % simultaneous knockout is required to delete at least one of the reactions in 
 % the metabolic network. This matrix may be needed for other calculations. We 
 % will name here 'toy_example_gMCS' and again will calculate 10 gMCSs. The function 
-% will look for the G matrix in ['G_' model_name '.mat'] (here “G_toy_example_gMCS.mat). 
+% will look for the G matrix in ['G_' model_name '.mat'] (here â€œG_toy_example_gMCS.mat). 
 % If this structure is not available, the function buildGmatrix() is called and 
 % the G matrix for the model under consideration generated and saved. In this 
 % case, the length of the largest gMCS calculated will be set to 6 (the number 
@@ -225,7 +225,7 @@ gMCSs{6}
 % synthetic lethality in cancer metabolism. _Nature Communications_, _8_(1), 459 
 % (2017 (a)). 
 % 
-% _3. _Apaolaza, I., José-Eneriz, E. S., Agirre, X., Prósper, F. & Planes, 
+% _3. _Apaolaza, I., JosÃ©-Eneriz, E. S., Agirre, X., PrÃ³sper, F. & Planes, 
 % F. J. COBRA methods and metabolic drug targets in cancer. _Molecular & Cellular 
 % Oncology_, (just-accepted), 00-00 (2017 (b)).
 % 
