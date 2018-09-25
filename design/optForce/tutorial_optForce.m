@@ -47,7 +47,7 @@
 % Then, we change the objective function to maximize biomass ("R75"). We 
 % also change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
 % sulfate, ammomium, citrate and glycerol.
-
+%%
 changeCobraSolver('gurobi', 'ALL');
 modelFileName = 'AntCore.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -94,7 +94,7 @@ fprintf('The maximum production rate of succinate is %1.2f', maxSucc.f);
 % growth rate. 
 % # The mutant strain's biomass function is set to zero. Succinate export ('EX_suc') 
 % is forced to be the maximum as calculated previously.
-
+%%
 constrWT = struct('rxnList', {{'R75'}}, 'rxnValues', 14, 'rxnBoundType', 'b')
 constrMT = struct('rxnList', {{'R75', 'EX_suc'}}, 'rxnValues', [0, 155.55], ...
                   'rxnBoundType', 'bb')
@@ -103,7 +103,7 @@ constrMT = struct('rxnList', {{'R75', 'EX_suc'}}, 'rxnValues', [0, 155.55], ...
 % on the size of your reconstruction
 % 
 % We  run the FVA analysis for both strains
-
+%%
 [minFluxesW, maxFluxesW, minFluxesM, maxFluxesM, ~, ~] = FVAOptForce(model, ...
                                                                      constrWT, constrMT);
 disp([minFluxesW, maxFluxesW, minFluxesM, maxFluxesM]);
@@ -136,7 +136,7 @@ disp([minFluxesW, maxFluxesW, minFluxesM, maxFluxesM]);
 % used, outputs generated, errors in the run) for each run.
 % 
 % We define then our |runID|.
-
+%%
 runID = 'TestOptForceM';
 %% 
 % Fow now, only functions to find first and second order must sets are supported 
@@ -173,7 +173,7 @@ constrOpt = struct('rxnList', {{'EX_gluc', 'R75', 'EX_suc'}}, 'values', [-100, 0
 disp(mustLSet)
 %% 
 % *ii) MustU set: *
-
+%%
 [mustUSet, pos_mustU] = findMustU(model, minFluxesW, maxFluxesW, 'constrOpt', constrOpt, ...
                                   'runID', runID, 'outputFolder', 'OutputsFindMustU', ...
                                   'outputFileName', 'MustU' , 'printExcel', 1, 'printText', 1, ...
@@ -265,7 +265,7 @@ disp(mustUL);
 % must be upregulated in both first and second order must sets; and |mustL| set 
 % as the union of the reactions that must be downregulated in both first and second 
 % order must sets .
-
+%%
 mustU = unique(union(mustUSet, mustUU));
 mustL = unique(union(mustLSet, mustLL));
 targetRxn = 'EX_suc';

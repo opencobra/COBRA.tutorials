@@ -105,7 +105,7 @@ load('dataEcoli');
 % confidence (default - no core reactions)                           
 % * *options.logfile** : name of the file to save the MILP log (defaut - 'MILPlog')
 % * *options.runtime** : maximum solve time for the MILP (default - 7200s)
-
+%%
 options = 'options_iMAT';
 %% 
 % Now, load the preprocessed data 
@@ -129,7 +129,7 @@ iMAT_model = createTissueSpecificModel(model, options);
 % need to be maintained in the extracted model (default - 0.9)
 % 
 % The code to create the tissue-specific model is as for iMAT.
-
+%%
 options = 'options_GIMME';
 load(['options_methods' filesep options]);
 GIMME_model = createTissueSpecificModel(model, options);
@@ -142,7 +142,7 @@ GIMME_model = createTissueSpecificModel(model, options);
 % * *options.high_set* : list of reaction names with high confidence
 % * *options.tol** : minimum flux value for "expressed" reactions (default - 
 % 1e-8)
-
+%%
 options = 'options_MBA';
 load(['options_methods' filesep options]);
 MBA_model = createTissueSpecificModel(model, options);
@@ -156,7 +156,7 @@ MBA_model = createTissueSpecificModel(model, options);
 % * *options.epsilon** : smallest flux value that is considered nonzero (default 
 % - 1e-4)
 % * *options.printLevel** : 0 = silent, 1 = summary, 2 = debug (default - 0)
-
+%%
 options = 'options_fastCore';
 load(['options_methods' filesep options]);
 FastCore_model = createTissueSpecificModel(model, options);
@@ -179,7 +179,7 @@ FastCore_model = createTissueSpecificModel(model, options);
 % (default - 1/3)
 % * *options.tol** : minimum flux value for "expressed" reactions (default - 
 % 1e-8)
-
+%%
 options = 'options_mCADRE';
 load(['options_methods' filesep options]);
 mCADRE_model = createTissueSpecificModel(model, options);
@@ -194,7 +194,7 @@ mCADRE_model = createTissueSpecificModel(model, options);
 % 1e-8)
 % * *options.logfile** : name of the file to save the MILP log (defaut - 'MILPlog')
 % * *options.runtime** : maximum solve time for the MILP (default - 7200s)
-
+%%
 options = 'options_INIT';
 load(['options_methods' filesep options]);
 INIT_model = createTissueSpecificModel(model, options);
@@ -206,7 +206,7 @@ INIT_model = createTissueSpecificModel(model, options);
 % list of reactions that will be automatically removed in the extracted model. 
 % Example, if you want to extract a consistent model but you do not have any predefined 
 % list of reactions to remove, your call will be:
-
+%%
 funcModel=1;
 exRxnRemove={};
 tissueModel = createTissueSpecificModel(model, options,funcModel,exRxnRemove);
@@ -266,7 +266,7 @@ load('dataEcoli');
 % TIMING: 15 minutes to hours (computation) - days (interpretation)
 %% ANTICIPATED RESULTS
 % The size of extracted models varies depending of the MEM used
-
+%%
 expected_results = {'ecoli_core_model',95,72;...
                     'FastCore_model',45,48;...
                     'GIMME_model',74,69;...

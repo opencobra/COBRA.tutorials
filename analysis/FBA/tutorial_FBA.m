@@ -44,7 +44,7 @@
 %% EQUIPMENT SETUP
 %% Initialise The Cobra Toolbox and set the solver.
 % If necessary, initialise the cobra toolbox:
-
+%%
  initCobraToolbox
 %% 
 % For solving LP problems in a FBA analysis, certain solvers are required 
@@ -100,7 +100,7 @@ model = readCbModel(modelFileName);
 % This preserves the constraints of the original model to perform further simulations 
 % with new constraints. Additionally, this method of renaming the model avoids 
 % confusion while performing multiple simulations at the same time.
-
+%%
 modelaerobic = model;
 %% 
 % The ATP demand reaction, i.e., |<http://vmh.life/#human/all/DM_atp_c_ 
@@ -120,10 +120,9 @@ modelaerobic = changeObjective (modelaerobic, 'DM_atp_c_');
 % 
 % The |'changeRxnBounds' |function changes the flux constraints of the lower 
 % ('|l|'), upper ('|u|'), or both the bounds ('|b|'), of the specified reaction. 
-% Here, we will change the maximal uptake of glucose to 20 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi>&mu;</mi></mrow></math>$mol/min/gDW and of oxygen 
-% to 1000 $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>&mu;</mi></mrow></math>$mol/min/gDW. 
-% The uptake of oxygen is effectively unconstrainted (i.e. infinity). 
+% Here, we will change the maximal uptake of glucose to 20 $\mu$mol/min/gDW and 
+% of oxygen to 1000 $\mu$mol/min/gDW. The uptake of oxygen is effectively unconstrainted 
+% (i.e. infinity). 
 
 % modelaerobic = changeRxnBounds (modelaerobic, 'EX_glc_D[e]', -20, 'l'); % For Recon 3.0 uncomment these lines and 
 %modelaerobic = changeRxnBounds (modelaerobic, 'EX_o2[e]', -1000, 'l'); % comment the lines below.
@@ -140,8 +139,7 @@ FBAaerobic = optimizeCbModel (modelaerobic, 'max')
 % * *Anticipated results*
 % 
 % When oxygen and all carbon sources (internal and external) are provided 
-% the flux through ATP demand reaction can reach its maximum rate of 1000 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>&mu;</mi></mrow></math>$mol/min/gDW. 
+% the flux through ATP demand reaction can reach its maximum rate of 1000 $\mu$mol/min/gDW. 
 % 
 % * *Troubleshooting*
 % 
@@ -197,12 +195,10 @@ FBAanaerob = optimizeCbModel(modelanaerobic,'max')
 % * *Anticipated results*
 % 
 % Compared to the aerobic condition, anaerobic condition with only glucose 
-% as an energy source has reduced flux through ATP demand (82 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi>&mu;</mi></mrow></math>$mol/min/gDW), signifying 
-% the need to oxygen to run the oxidative phosphorylation. The results are dependant 
-% on the model you are using. For Recon 3.0, under anaerobic conditions with only 
-% glucose as an energy source, the flux for ATP demand is 40 $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi>&mu;</mi></mrow></math>$mol/min/gDW.
+% as an energy source has reduced flux through ATP demand (82 $\mu$mol/min/gDW), 
+% signifying the need to oxygen to run the oxidative phosphorylation. The results 
+% are dependant on the model you are using. For Recon 3.0, under anaerobic conditions 
+% with only glucose as an energy source, the flux for ATP demand is 40 $\mu$mol/min/gDW.
 %% 2. Sparse FBA
 % Sparse FBA calculates the optimal solution of an objective function and finds 
 % the smallest set of reactions that can carry flux to achieve the objective. 
@@ -218,7 +214,7 @@ FBAanaerob = optimizeCbModel(modelanaerobic,'max')
 % problem. This approach is used to check for minimal sets of reactions that either 
 % should be active or should not be active in a flux balance model that is representative 
 % of a biochemical network.
-
+%%
 % [vSparse, sparseRxnBool, essentialRxnBool]  = sparseFBA(model, osenseStr,...
 %  checkMinimalSet, checkEssentialSet, zeroNormApprox)
 %% 
@@ -238,11 +234,8 @@ FBAanaerob = optimizeCbModel(modelanaerobic,'max')
 % *Timing:*
 % 
 % The time to determine a |sparseFBA()| solution depends on the size of the 
-% genome-scale model and is taking from $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mo stretchy="false">&lt;</mo><mn>1</mn></mrow></math>$ 
-% second for a 1,000 reaction model, to $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mo>&lt;</mo><mn>2</mn></mrow></math>$ seconds for a 
-% model with more than 10,000 reactions.
+% genome-scale model and is taking from $<1$ second for a 1,000 reaction model, 
+% to $<2$ seconds for a model with more than 10,000 reactions.
 % 
 % *Calculating maximal ATP energy production under anaerobic and glucose 
 % only conditions:*
@@ -264,7 +257,7 @@ modelspar = changeObjective(modelspar, 'DM_atp_c_');
 % 0's, with sparse and essential reactions respectively.
 % 
 % Display the sparse flux solution, but only the non-zero fluxes.
-
+%%
 for i=1:length(vSparse)
     if abs(vSparse(i)) > 1e-3
         fprintf('%1.3f \t %s\n', vSparse(i), modelspar.rxns{i})
@@ -286,7 +279,7 @@ end
 % 
 % In this function, there is an optional output |newActives|, that represent 
 % reactions that are only active in this analysis.
-
+%%
 % The valid solution can be produced with the Recon 3.0 model
 % modelmd = model;
 % modelmd = changeRxnBounds(modelmd, 'EX_glc_D[e]',-20,'l');
@@ -328,7 +321,7 @@ modelnosol = changeObjective(modelnosol, 'DM_atp_c_');
 % This FBA analysis applies iterations, where by each iteration reduces the 
 % permissible solution space. After a finite number of iterations, it resolves 
 % one single solution of the flux distribution.
-
+%%
 % USAGE:
 % flux = geometricFBA(model, varargin)
 %% 
@@ -336,8 +329,7 @@ modelnosol = changeObjective(modelnosol, 'DM_atp_c_');
 % 
 % The time to determine a geometric FBA solution depends on the size of the 
 % genome-scale model and the number of iterations. For a model with more than 
-% 10,000 reactions and several iterations takes $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mo>&geq;</mo><mn>30</mn></mrow></math>$minutes.
+% 10,000 reactions and several iterations takes $\ge 30$minutes.
 % 
 % *Calculating ATP energy production under anaerobic conditions using geometric 
 % FBA:*
@@ -382,12 +374,11 @@ modelgeo = changeObjective(modelgeo, 'DM_atp_c_');
 % *Timing:*
 % 
 % The time to determine a pFBA solution depends on the size of the genome-scale 
-% model and is taking from $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mo 
-% stretchy="false">&lt;</mo><mn>1</mn></mrow></math>$ minute for a 1,000 reaction 
-% model, to 5 minutes for a model with more than 10,000 reactions.
+% model and is taking from $<1$ minute for a 1,000 reaction model, to 5 minutes 
+% for a model with more than 10,000 reactions.
 % 
 % The function is:
-
+%%
 % [GeneClasses RxnClasses modelIrrevFM] = pFBA(model, varargin)
 %% 
 % Where 'varagin' includes required inputs:
@@ -442,7 +433,7 @@ end
 % 
 % The dynamic FBA method implemented in this function is essentially the 
 % same as the method described by Varma A. and B. O. Palsson$$^7$.
-
+%%
 modeldinamic = model;
 % For Recon3.0 model
 % modeldinamic = changeRxnBounds (modeldinamic, 'EX_glc_D[e]', -20, 'l');
@@ -468,7 +459,7 @@ time = 1.0/dt; % simulation time
 %% 7. Relax FBA
 % Find the minimal set of relaxations on bounds and steady-state constraint 
 % to make the FBA problem feasible.
-
+%%
 modelrelax = modelalter;
 FBArel = relaxedFBA(modelrelax)
 %% 
@@ -488,10 +479,8 @@ FBArel = relaxedFBA(modelrelax)
 % 
 % *Timing:*
 % 
-% The time to calculate the FEA is $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mo stretchy="false">&lt;</mo><mn>1</mn></mrow></math>$ 
-% second for any size of a model.
-
+% The time to calculate the FEA is $<1$ second for any size of a model.
+%%
 modelfea = model;
 res = optimizeCbModel(modelfea,'max'); 
 % say you are interested in enriching the active reactions

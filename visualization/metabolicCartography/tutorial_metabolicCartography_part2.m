@@ -9,7 +9,7 @@
 % the rest of colours in the map. The function |unifyMetabolicMapCD| changes all 
 % nodes colour to white and reactions colour to light grey and width to 1 (usually 
 % set as default).
-
+%%
 mapGlyUnified = unifyMetabolicMapCD(mapGly);
 transformMap2XML(xmlGly, mapGlyUnified, 'mapGlyUnified.xml');
 %% 
@@ -20,7 +20,7 @@ transformMap2XML(xmlGly, mapGlyUnified, 'mapGlyUnified.xml');
 % and specific metabolites linked to these reactions. In this example, reactions 
 % containing "mitochondrial ATP and ADP" will be coloured in Dodger-blue and have 
 % a width of 10. Furthremore, the two described metabolites will be also coloured. 
-
+%%
 mapGlyATPADPRxns = modifyReactionsMetabolites(mapGlyUnified, ...
     rxnsATPADP , {'atp[m]';'adp[m]'}, 'DODGERBLUE', 10);
 transformMap2XML(xmlGly, ...
@@ -33,7 +33,7 @@ transformMap2XML(xmlGly, ...
 % subsystem in the model (a subsystem is to be understood as a metabolic pathway). 
 % Furthermore changes in the width are also possible. Here three subsystems are 
 % differentially coloured: Glycolysis, TCA and Pyruvate metabolism.
-
+%%
 mapSubSystems = colorSubsystemCD(mapGly, ...
     model, 'Citric acid cycle', 'HOTPINK', 10);
 mapSubSystems = colorSubsystemCD(mapSubSystems, ...
@@ -50,7 +50,7 @@ transformMap2XML(xmlGly, ...
 % genes was obtained from mitocarta 2.0 [5]. Based on this list of genes, we would 
 % like to know how many reactions in our metabolic map are associated to these 
 % genes. 
-
+%%
 load('mitocartaHumanGenes.mat')
 mapMitocarta = colorRxnsFromGenes(mapMitoMetab, model, ...
     mitocartaHumanGenes, 'CRIMSON', 10);
@@ -70,7 +70,7 @@ transformMap2XML(xmlMitoMetab, ...
 % 
 % First, we obtain reactions associated to all transport subsystems in Recon2 
 % model: 
-
+%%
 transportMitochondria = ismember([model.subSystems{:}]', 'Transport');
 index=find(transportMitochondria);
 transportReactions = model.rxns(index,1);
@@ -94,7 +94,7 @@ transformMap2XML(xmlMitoMetab, mitoMapTransportColoured, ...
 % function |changeNodesArea| by giving a list of molecule names. Previously, we 
 % visualized mitochondrial ATP and ADP. Here we would like to modify their size 
 % in the map. The measures given are: heigth 100 and width 80.
-
+%%
  mapNodesArea = changeNodesArea(mapGly, {'atp[m]'; 'adp[m]'}, 100, 80);
  transformMap2XML(xmlGly, mapNodesArea, 'mapNodesArea.xml');
 %% 
@@ -110,7 +110,7 @@ transformMap2XML(xmlMitoMetab, mitoMapTransportColoured, ...
 % reverts to default reactions colour and width (black and 1) and metabolites 
 % colour and size (a specific colour is given depending on metabolite type, moreover 
 % the size is also given depending on metabolite relevance). 
-
+%%
 mapDefault = defaultColorCD(mapGly);
 mapDefaultAll = defaultLookMap(mapGly);
 %% Functions mimicking COBRA functions for model manipulation
@@ -123,7 +123,7 @@ mapDefaultAll = defaultLookMap(mapGly);
 % * idAlias: Logical matrix with rows=speciesID and columns=speciesAlias
 % 
 % These matrices will be added to the map structure by the function |getMapMatrices|.
-
+%%
 mapGlyCorrected = getMapMatrices(mapGlyCorrected);
 %% 
 % 
@@ -136,7 +136,7 @@ mapGlyCorrected = getMapMatrices(mapGlyCorrected);
 % The function |findRxnsPerTypeInMap| gives a list of desired reactions based 
 % on the reaction type (2nd colum), and the index for those reactions in |map.rxnName| 
 % (1st colum). 
-
+%%
 transportReactionsIndexList = findRxnsPerTypeInMap(mapGlyCorrected, 'TRANSPORT');
 %% 
 % The function |findMetsInMap| finds the IDs of specific metabolites in 
@@ -172,7 +172,7 @@ mitochondrialRxnsIndexList = ...
 % a list of proteins associated to the mitochondrial compartment from PDmap [4].
 % 
 % First, we load the protein list. 
-
+%%
 load('mitochondrialProteinsPDmap.mat')
 %% 
 %  Then, we would like to identify those proteins in our map. 
@@ -192,7 +192,7 @@ transformFullMap2XML(xmlPPI, ...
 % saved in the map. |defaultColorCD| reverts the changes in reactions width and 
 % colour (revert all reactions to black and width 1). Furthermore, |defaultColorAndSizeCDMap| 
 % reverts to default reactions and nodes (colour and size).
-
+%%
 map2 = unifyMetabolicPPImapCD(mapPPI);
 transformFullMap2XML(xmlPPI, map2, 'mapPPIUnified.xml');
 %% 
@@ -207,7 +207,7 @@ transformFullMap2XML(xmlPPI, map2, 'mapPPIUnified.xml');
 % map represented is a mitochondria (main organelle responsible for energy production 
 % in the cell), we would maximize ATP production through complex V in the electron 
 % transport chain. 
-
+%%
 load('mitomodels.mat')
 formulaATPS4m = printRxnFormula(modelMito3D, 'ATPS4m');
 model = changeObjective(modelMito3D, 'ATPS4m');
@@ -238,7 +238,7 @@ transformMap2XML(xmlMitoMetab, ...
 %% Writing information about models to map
 % Information from the models specific to each reaction or metabolite can be 
 % retrieved from the models and added to the CellDesigner map in notes.
-
+%%
 mapGlyCorrectedNotes = addNotes(model, mapGlyCorrected);
 transformMap2XML(xmlGly, mapGlyCorrectedNotes, 'mapGlyNotes.xml');
 %% 
