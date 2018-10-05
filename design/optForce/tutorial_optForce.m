@@ -1,4 +1,4 @@
-%% OptForce Tutorial
+%% OptForce
 %% Author: Sebastián N. Mendoza,  Center for Mathematical Modeling, University of Chile. snmendoz@uc.cl
 %% *Reviewers(s): Chiam Yu Ng (Costas D. Maranas group), *Lin Wang *(Costas D. Maranas group), John Sauls*
 %% *INTRODUCTION:*

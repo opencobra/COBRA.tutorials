@@ -1,4 +1,4 @@
-%% 
+%% *Intrdouction to Cell Designer*
 % *Note: This tutorial is a draft and needs completion. Contributions welcome!*
 % 
 % **
@@ -176,7 +176,6 @@ addMiriam('fatty_acid_new.xml','fatty_acid_miriam.xml',sumList,model_miriam,'nam
 model_updated.rxnformulas=printRxnFormula(model,model.rxns(:)) 
 
 addAnnotation('fatty_acid.xml','fatty_acid_annotated.xml',parsed.r_info.species(1:58,2),model_updated); 
-%% Quick tutorial. Extra explanation and Examples: 
 %% 1. Abstract
 % The CellDesigner interface packages us developed to serve as a bridge between 
 % constraint-based modelling and the popular process diagram editor, CellDesigner, 
