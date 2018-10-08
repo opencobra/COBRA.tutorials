@@ -1,4 +1,4 @@
-%% *Intrdouction to Cell Designer*
+%% *Introduction to Cell Designer*
 % *Note: This tutorial is a draft and needs completion. Contributions welcome!*
 % 
 % **
