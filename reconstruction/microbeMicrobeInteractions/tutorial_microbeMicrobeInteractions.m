@@ -17,8 +17,7 @@
 % 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. Please download AGORA version 1.02  from 
-% <https://webdav-r3lab.uni.lu/public/msp/AGORA-1.02/Agora-1.02.zip https://webdav-r3lab.uni.lu/public/msp/AGORA-1.02/Agora-1.02.zip> 
-% and place the models into a folder.
+% <https://vmh.life https://vmh.life> and place the models into a folder.
 % 
 % Define the path to the folder where you stored the AGORA models.
 
