@@ -4,13 +4,12 @@
 % *Reviewers: *
 %% MATERIALS - EQUIPMENT SETUP
 % Please ensure that all the required dependencies of The COBRA Toolbox have 
-% been properly installed by following the requirements guide at <https://github.com/opencobra/cobratoolbox/blob/gh-pages/docs/requirements.html 
-% https://github.com/opencobra/cobratoolbox/blob/gh-pages/docs/requirements.html>. 
-% In particular, |git| and |curl| must be installed.
+% been properly installed by following the installation guide <https://opencobra.github.io/cobratoolbox/stable/installation.html 
+% here>. In particular, |git| and |curl| must be installed.
 %% PROCEDURE 
 % At the start of each MATLAB session, The COBRA Toolbox must be initialised. 
 % Navigate to the directory where you installed The COBRA Toolbox and initialise 
-%%
+
 initCobraToolbox
 %% 
 % The user who primarily uses the official openCOBRA repository may automatically 
@@ -57,7 +56,7 @@ end
 % is printed to the user during initialisation. 
 % 
 % 2| Check the currently selected solvers with |changeCobraSolver|
-%%
+
 changeCobraSolver
 %% ANTICIPATED RESULTS 
 % A list of solvers assigned to solve each class of optimisation solver is returned. 				
@@ -70,7 +69,7 @@ changeCobraSolver
 % if one encounters an error running a function. The test suite runs tailored 
 % tests that verify the output and proper execution of core functions on the locally 
 % configured system. The full test suite can be invoked by typing:
-%%
+
 testAll
 %% ANTICIPATED RESULTS
 % The test suite starts by initialising The COBRA Toolbox and thereafter, all 
