@@ -29,7 +29,7 @@
 % (COBRA) Toolbox [2,3] that is currently under development. To use this tutorial 
 % will require the 2016a or newer version of Matlab (<https://www.mathworks.com 
 % https://www.mathworks.com>/) and the COBRA toolbox software that can be downloaded 
-% from <https://opencobra.github.io/cobratoolbox/latest/index.html. https://opencobra.github.io/cobratoolbox/latest/index.html.> 
+% from <https://github.com/opencobra/cobratoolbox https://github.com/opencobra/cobratoolbox>. 
 % The installation instructions and troubleshooting tips are also available on 
 % this website.
 %% *EQUIPMENT SETUP*
@@ -51,7 +51,7 @@ cd(fileparts(which('tutorial_ecoliCoreModel.mlx')));
 % necessary for the network optimizations required by this tutorial. This can 
 % be done by selecting the approrpriate solver for the machine you are using by 
 % removing the "%" (comment) sign for only the desired solver. _[Timing: Seconds]_
-%%
+
 changeCobraSolver('gurobi','all');
 %% PROCEDURE
 %% 1. Constraint-based modeling
@@ -174,7 +174,7 @@ changeCobraSolver('gurobi','all');
 % the Matlab work environment. This can be achieved by loading the Matlab version 
 % of the model (.mat) into Matlab. This model is available in the downloaded COBRA 
 % toolbox software. _[Timing: Seconds]_
-%%
+
 global CBTDIR
 model = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'ecoli_core_model.mat']);
 e_coli_core = model; % Save the original model for later use
@@ -193,7 +193,7 @@ e_coli_core = model; % Save the original model for later use
 % is to print out a spreadsheet that contains all the information stored in the 
 % model. This can be accomplished using the "writeCbModel" function. _[Timing: 
 % Seconds]_
-%%
+
 outmodel = writeCbModel(model, 'xls', 'core_model.xls')
 %% 
 % This function will write the model to an Excel spreadsheet named "core_model.xls" 
@@ -218,7 +218,7 @@ outmodel = writeCbModel(model, 'xls', 'core_model.xls')
 % COBRA toolbox installation. The following steps can be used to create a map 
 % of the _E.coli_ core in an "SVG" file called "target.svg." This map file should 
 % be located in your working directory. _[Timing: Seconds]_
-%%
+
 map=readCbMap('ecoli_core_map.txt');
 options.zeroFluxWidth = 0.1;
 options.rxnDirMultiplier = 10;
@@ -246,7 +246,7 @@ drawCbMap(map);
 % "findGeneIDs"  COBRA Toolbox function can be used to pull the geneID from the 
 % model structure.  The first 10 genes in the model, and their geneIDs, can be 
 % printed out as follows. _[Timing: Seconds]_
-%%
+
 genes = cellstr(model.genes(1:10));
 geneIDs = findGeneIDs(model, model.genes(1:10));
 printLabeledData(model.genes(1:10),geneIDs)
@@ -273,7 +273,7 @@ findGeneIDs(model, 'b0116')
 % "findRxnIDs" can be used to extract the rxnID from the model structure.  Note 
 % that the biomass function "Biomass_Ecoli_core_w_GAM" is listed as one of the 
 % reactions. _[Timing: Seconds]_
-%%
+
 rxnIDs = findRxnIDs(model, model.rxns(1:15));
 printLabeledData(model.rxns(1:15),rxnIDs)
 %% 
@@ -320,7 +320,7 @@ surfNet(model, 'GAPD')
 % in model.metNames. The COBRA Toolbox function "findMetIDs" can be used to extract 
 % the metID's from the model structure as shown in the following example.  _[Timing: 
 % Seconds]_
-%%
+
 metIDs = findMetIDs(model, model.mets(1:15));
 printLabeledData(model.mets(1:15),metIDs)
 %% 
@@ -357,7 +357,7 @@ surfNet(model, 'atp[c]')
 % 2). The Boolean relationship between the genes and a given reaction can be found 
 % using the "model.grRules" structure of the model. This is shown below. _[Timing: 
 % Seconds]_
-%%
+
 rxnIDs = findRxnIDs(model, 'PYK');
 model.grRules(rxnIDs)
 %% 
@@ -400,7 +400,7 @@ model.grRules(rxnIDs)
 % 
 % To see the constraints for the reactions that are not set at the minimum/maximum 
 % (-100\100) values, then "lb" and "ub" can be adjusted. _[Timing: Seconds]_
-%%
+
 printConstraints(model,-100, +100)
 %% 
 % Note that the exchange reaction that controls the uptake of glucose, 'EX_glc(e) 
@@ -454,7 +454,7 @@ printConstraints(model,-100, +100); % Showing the result of the change
 % The biomass reaction and the weighted precursor metaboites can be inspected 
 % by printing out the formula for the biomass function using the "printRxnFormula" 
 % COBRA Toolbox function. _[Timing: Seconds]_
-%%
+
 printRxnFormula(model,'Biomass_Ecoli_core_w_GAM')
 %% 
 % The objective function can also be checked using the "checkObjective(model)" 
