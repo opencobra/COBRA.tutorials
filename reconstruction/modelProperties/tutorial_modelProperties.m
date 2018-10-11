@@ -11,22 +11,20 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox
 %% *Setting the *optimization* solver.*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
 % ('|LP'|) solver. The |'glpk'| package does not require additional instalation 
 % and configuration.
-%%
+
 solverName='glpk';
 solverType='LP'; 
 changeCobraSolver(solverName,solverType);
 %% 
 % However, for the analysis of large models, such as Recon 2.04, it is not 
 % recommended to use the |'glpk'| package but rather an industrial strength solver, 
-% such as the |'gurobi'| package. For detailed information, refer to The Cobra 
-% Toolbox <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% solver instalation guide>. 
+% such as the |'gurobi'| package.
 % 
 % A solver package may offer different types of optimization programmes to 
 % solve a problem. The above example used a LP optimization, other types of optimization 
@@ -47,7 +45,7 @@ modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Nece
 model = readCbModel(modelFileName);
 %% PROCEDURE
 % We first initialize the table
-%%
+
 clear TableProp
 r = 1;
 TableProp(r, :) = {'Model'}; r = r+1;
@@ -122,14 +120,13 @@ TableProp
 % Determine blocked reactions properties (optional).
 % 
 % To evaluate the following model properties of bloack reactions, the solver 
-% package of IBM ILOG CPLEX is required. To install CPLEX refer to the Cobra Toolbox 
-% <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% solver instalation guide>, and change the solver to 'ibm_cplex' using the changeCobraSolver 
+% package of IBM ILOG CPLEX is required. To install CPLEX refer to <https://opencobra.github.io/cobratoolbox/stable/installation.html 
+% solver installation guide>, and change the solver to 'ibm_cplex' using the changeCobraSolver 
 % as shown above in equipment set-up. 
 % 
 % * Determine the number of blocked reactions using fastFVA with 4 paralell 
 % workers (optional).
-%%
+
 nworkers = 2;
 solver = 'ibm_cplex';
 setWorkerCount(nworkers);
