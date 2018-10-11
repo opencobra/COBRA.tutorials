@@ -1,4 +1,4 @@
-%% *Visualisation and map manipulation in Cell Designer (    PART 1) *
+%% *Visualisation and map manipulation in Cell Designer (PART 1) *
 %% Authors: 
 %% Jennifer Modamio, Anna Danielsdottir, Systems Biochemistry group, University of Luxembourg.
 %% Nicolas Sompairac, Bioinformatics and Computational Systems Biology of Cancer, Institut Curie.
@@ -46,10 +46,9 @@
 %%
 initCobraToolbox
 %% 
-% The present tutorial can run with <https://opencobra.github.io/cobratoolbox/deprecated/docs/cobra/solvers/changeCobraSolver.html 
-% glpk package>, which does not require additional installation and configuration. 
-% Although, for the analysis of large models it is recommended to use the <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% GUROBI> package.
+% The present tutorial can run with glpk package, which does not require 
+% additional installation and configuration. Although, for the analysis of large 
+% models it is recommended to use the GUROBI package.
 
 if changeCobraSolver('gurobi', 'LP', 0)
     changeCobraSolver('gurobi6','all')
