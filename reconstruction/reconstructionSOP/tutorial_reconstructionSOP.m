@@ -22,7 +22,7 @@
 %% EQUIPMENT SETUP
 %% *Step 38.  Initialize The COBRA Toolbox.*
 % Initialize The COBRA Toolbox using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox
 %% *Setting the *optimization* solver.*
 % This tutorial will be run with the |'glpk'| package, which is a linear programming 
@@ -35,9 +35,7 @@ changeCobraSolver(solverName, solverType);
 %% 
 % However, for the analysis of large models, such as Recon 3, it is not 
 % recommended to use the |'glpk'| package but rather an industrial strength solver, 
-% such as the |'gurobi'| package. For detailed information, refer to The COBRA 
-% Toolbox <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% solver instalation guide>. 
+% such as the |'gurobi'| package.
 % 
 % A solver package may offer different types of optimization programmes to 
 % solve a problem. The above example used a LP optimization, other types of optimization 
@@ -49,7 +47,7 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 %% *Step 39.  Load reconstruction into Matlab*. 
 % The metabolic network reconstruction, containing a reaction and metabolite 
 % list, is contained by the file 'Ecoli_core_model.mat'.
-%%
+
 modelFileName = 'ecoli_core_model.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
 modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
@@ -127,7 +125,7 @@ rxnID = findRxnIDs(modelEcore, rxnList)
 % Remember that in the S matrix the rows and the columns correspond to the metabolites 
 % and the reactions of the model, respectively. The number of non-zero (nz) entries 
 % in the S matrix is visualized graphically below using a spy image. 
-%%
+
 spy(modelEcore.S)
 %% 
 % To put this number into perspective, we can calculate the percentage of 
@@ -158,7 +156,7 @@ Perc_nz = nz*100/(a*b)
 %% *Step 41.  Set objective function*.* *
 % We will set the biomass reaction (Biomass_Ecoli_core_w_GAM) of the _E. coli 
 % _core model as objective function:* *
-%%
+
 modelEcore = changeObjective(modelEcore, 'Biomass_Ecoli_core_w_GAM');
 %% 
 % If you wish to check which reaction(s) make up the objective function 
@@ -168,7 +166,7 @@ objectiveAbbr = checkObjective(modelEcore)
 %% *Step 42.  Set simulation constraints*. 
 % A first step when using and debugging a model should be to identify the constraints 
 % that have been applied.
-%%
+
 minInf = -1000;
 maxInf = 1000;
 printConstraints(modelEcore, minInf, maxInf)
@@ -216,11 +214,11 @@ modelEcore = changeRxnBounds(modelEcore, 'ATPS4r', 100, 'u');
 printConstraints(modelEcore, -1000,1000)
 %% *Steps 43 - 44.  Test if network is mass- and charge balanced.*
 % Check mass- and charge balance for the entire network of the model:
-%%
+
 [massImbalance, imBalancedMass, imBalancedCharge, imBalancedRxnBool, Elements, missingFormulaeBool, balancedMetBool] = checkMassChargeBalance(modelEcore);
 %% *Step 45.  Identify metabolic dead-ends*
 % Detect deadend metabolites:
-%%
+
 outputMets = detectDeadEnds(modelEcore)
 %% 
 % Print the corresponding metabolite names:
@@ -279,7 +277,7 @@ DeadEnds = modelEcore_New.mets(outputMets)
 % * The indices of the exchange reactions ('EX_') are input as a list. 
 % * The output filename can be specified with ‘test’, it receives automatically 
 % the extension ‘.expa’. The filename is optional, the default name is: 'ModelTestTypeIII'
-%%
+
 selExc = findExcRxns(modelEcore);
 listExch = find(selExc);
 try
@@ -294,7 +292,7 @@ end
 % _*%TODO steps 64 to 66 are not referenced in this section. *_
 % 
 % *60.*  Obtain a list of biomass components:
-%%
+
 BiomassComponents = modelEcore.mets(find(modelEcore.S(:, strmatch('Biomass', modelEcore.rxns))))
 %% 
 % 
@@ -429,7 +427,7 @@ printFluxVector(modelEcore, FBAsolution.x, 'true')
 % For this example, acetate secretion ('EX_ac(e)') was chosen and let's require 
 % that secretion flux is at least 2 mmol/gDW/h (i.e. the lower bound is constrained 
 % to 2).
-%%
+
 modelEcore_New = changeRxnBounds(modelEcore, 'EX_ac(e)', 2, 'l'); 
 %% 
 % *68. * Set the constraints to the desired medium condition (e.g., minimal 
@@ -484,7 +482,7 @@ printConstraints(modelEcore_New, -1000,1000)
 % 
 % *72. * Let's verify that both metabolites can be secreted independently. 
 % Repeat steps 69 and 70.
-%%
+
 modelEcoreAc = changeObjective(modelEcore, 'EX_ac(e)');
 FBAsolution = optimizeCbModel(modelEcoreAc, 'max')
 modelEcoreFor = changeObjective(modelEcore, 'EX_for(e)');
@@ -546,7 +544,7 @@ FBAsolution.x(find(ismember(modelEcore_NEW.rxns, 'EX_for(e)')))
 % 
 % * Identify the exchange reactions and set the reaction values to − infinity 
 % (e.g., − 1,000) and + infinity (e.g., + 1,000):
-%%
+
 selExc = findExcRxns(modelEcore);
 ExR = modelEcore.rxns(selExc);
 modelEcore_Open =  changeRxnBounds(modelEcore, ExR, -1000, 'l');
@@ -569,7 +567,7 @@ BlockedReactions = findBlockedReaction(modelEcore_Open)
 %% Steps 79 - 80. Compute single gene deletion phenotypes
 % *79.*  Use The Cobra Toolbox function, |singleGeneDeletion, |to simulate gene 
 % deletion:
-%%
+
 [grRatio, grRateKO, grRateWT, hasEffect] = singleGeneDeletion(modelEcore);
 %% 
 % * The variable 'hasEffect' is returned, and an entry of 1 in the vector indicate 
@@ -622,7 +620,7 @@ ylabel('Growth rate (1/hr)')
 % * Change the objective function. Test for incapability by maximizing for the 
 % objective function.
 % * If incapable, no solution or zero flux should be returned.
-%%
+
 modelIncapable = changeRxnBounds(modelEcore, 'EX_glc(e)', 0, 'l');
 modelIncapable = changeRxnBounds(modelIncapable, 'EX_ac(e)', -10, 'l');
 FBAsolution = optimizeCbModel(modelIncapable, 'max', false)
@@ -671,7 +669,7 @@ FBAsolution = optimizeCbModel(modelIncapable, 'max', false)
 % 
 % *88.  *Determine the reduced cost associated with network reactions when 
 % optimizing for an objective function: 
-%%
+
 FBAsolution = optimizeCbModel(modelEcore, 'max', false)
 %% 
 % * FBAsolution.y contains the shadow price for each metabolite and FBAsolution.w 
@@ -733,7 +731,7 @@ plot(grRateKO)
 % *95.  Print Matlab model content.  *
 % 
 % * Add a field if missing:
-%%
+
 if ~isfield(modelEcore, 'osense')
     modelEcore.osense = -1;
 end
