@@ -15,7 +15,7 @@
 % or two parameters over a fixed range of numerical values.
 %% EQUIPMENT SETUP
 % If necessary, initialise the cobra toolbox:
-%%
+
 initCobraToolbox;
 %% 
 % For solving linear programming problems in the analysis, certain solvers 
@@ -26,9 +26,7 @@ changeCobraSolver ('gurobi', 'all', 1);
 %% 
 % The present tutorial can run with |'glpk'| package, which does not require 
 % additional installation and configuration. Although, for the analysis of large 
-% models is recommended to use the |'gurobi'| package. For detail information, 
-% refer to the solver installation guide: <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md>
+% models is recommended to use the |'gurobi'| package.
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up. In this tutorial, the used model is the generic model of human metabolism, 
@@ -36,7 +34,7 @@ changeCobraSolver ('gurobi', 'all', 1);
 % production or optimisation of uptake rates and by-product secretion for various 
 % physiological functions of the human body. If Recon 3 is not available, please 
 % use Recon 2.
-%%
+
 %For Recon3D Change the model
 modelFileName = 'Recon2.0model.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -54,7 +52,7 @@ model.rxns(find(ismember(model.rxns,'EX_o2(e)')))={'EX_o2[e]'};
 % and oxygen energy sources available in the cell and the maximal ATP production. 
 % 
 % To avoid this issue, all external carbon sources need to be closed.
-%%
+
 %Closing the uptake of all energy and oxygen sources
 for i=1:length(model.rxns)
     if strncmp(model.rxns{i},'EX_',3)
@@ -99,7 +97,7 @@ modelalter = changeRxnBounds(modelalter, uptakes, 0, 'l');
 % 
 % 
 % The function |robustnessAnalysis()| is used for this analysis:
-%%
+
 % [controlFlux, objFlux] = robustnessAnalysis(model, controlRxn, nPoints,...
 %      plotResFlag, objRxn,objType)
 %% 
@@ -163,7 +161,7 @@ ylabel('Objective function')
 % Performs robustness analysis for a pair of reactions of interest and an 
 % objective of interest. The double robust analysis is implemented with the function 
 % |doubleRobustnessAnalysis()|.
-%%
+
 % [controlFlux1, controlFlux2, objFlux] = doubleRobustnessAnalysis(model,...
 %  controlRxn1, controlRxn2, nPoints, plotResFlag, objRxn, objType)
 %% 
@@ -196,7 +194,7 @@ modeldrobustoxy = changeRxnBounds(modeldrobustoxy, 'EX_o2[e]', -17, 'l');
 % 
 % Essentially PhPP performs a |doubleRobustnessAnalysis()|, with the difference 
 % that shadow prices are retained. The code is as follows-
-%%
+
 modelphpp = modelalter;
 ATPphppRates = zeros(21);
 for i = 0:10
@@ -221,7 +219,7 @@ zlabel('Objective function')
 % from the two control reactions. In this case, control reactions are '|EX_glc_D[e]|' 
 % and '|EX_o2[e]|'. The line of optimality signifies the state wherein, the objective 
 % function is optimal. In this case it is '|DM_atp_c_|'.
-%%
+
 modelphpp = changeObjective (modelphpp, 'DM_atp_c_');
 [growthRates, shadowPrices1, shadowPrices2] = phenotypePhasePlane(modelphpp,...
     'EX_glc_D[e]', 'EX_o2[e]');

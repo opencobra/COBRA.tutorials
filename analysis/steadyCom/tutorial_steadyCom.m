@@ -52,9 +52,7 @@ initCobraToolbox
 % Any solvers supported by the COBRA toolbox will work. But SteadyCom contains 
 % specialized codes for IBM ILOG Cplex which was tested to run significantly faster 
 % for SteadyComFVA and SteadyComPOA for larger problems through calling the Cplex 
-% object in Matlab directly. For a guide how to install solvers, please refer 
-% to the <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% opencobra documentation>.
+% object in Matlab directly. 
 % 
 % Please note that parallelization requires a working installation of the 
 % Parallel Computing Toolbox.
@@ -63,7 +61,7 @@ changeCobraSolver('ibm_cplex', 'LP');
 %% PROCEDURE
 %% Model Construction
 % Load the _E. coli_ iAF1260 model in the COBRA toolbox.
-%%
+
 global CBTDIR
 iAF1260 = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'iAF1260.mat']);
 %% 
@@ -169,7 +167,7 @@ EcCom.indCom.spBm = rxnBiomassId;
 %% Finding Maximum Growth Rate Using SteadyCom
 % Set community and organism-specific uptake rates to be the same as in the 
 % orginal iAF1260 model:
-%%
+
 [yn, id] = ismember(strrep(iAF1260.mets(metEx), '[e]', '[u]'), EcCom.infoCom.Mcom);  % map the metabolite name
 assert(all(yn));  % must be a 1-to-1 mapping
 EcCom.lb(EcCom.indCom.EXcom(:,1)) = lbEx(id);  % assign community uptake bounds
@@ -309,7 +307,7 @@ options.algorithm = 3;  % use the bisection algorithm
 %% Analyzing Flux Variability Using SteadyComFVA
 % Now we want to analyze the variability of the organism abundance at various 
 % growth rates. Choose more options and call |SteadyComFVA|:
-%%
+
 % percentage of maximum total biomass of the community required. 100 for sum(biomass) = 1 (1 is the default total biomass)
 options.optBMpercent = 100;  
 n = size(EcCom.S, 2);  % number of reactions in the model
@@ -422,7 +420,7 @@ lg.Position = [0.65 0.65 0.1 0.27];
 % the function analyzes all possible pairs in |options.rxnNameList|. To analyze 
 % only particular pairs, use |options.pairList|. See |help SteadyComPOA |for more 
 % details.
-%%
+
 options.savePOA = ['POA' filesep 'EcCom'];  % directory and fila name for saving POA results
 options.optGRpercent = [99 90 70 50];  % analyze at these percentages of max. growth rate
 % Nstep is the number of intermediate steps that the independent variable will take different values
@@ -520,7 +518,7 @@ end
 % SteadyComFVA and |spmd| for SteadyComPOA). 
 % 
 % Test SteadyComFVA with 2 threads:
-%%
+
 options.rxnNameList = EcCom.rxns(1:100);  % test FVA for the first 50 reactions
 options.optGRpercent = 99;
 options.algorithm = 1;

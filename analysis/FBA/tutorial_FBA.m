@@ -44,7 +44,7 @@
 %% EQUIPMENT SETUP
 %% Initialise The Cobra Toolbox and set the solver.
 % If necessary, initialise the cobra toolbox:
-%%
+
  initCobraToolbox
 %% 
 % For solving LP problems in a FBA analysis, certain solvers are required 
@@ -52,10 +52,9 @@
 
 % solverOK = changeCobraSolver(solverName, solverType, printLevel, unchecked)
 %% 
-% The present tutorial can run with <https://opencobra.github.io/cobratoolbox/deprecated/docs/cobra/solvers/changeCobraSolver.html 
-% glpk package>, which does not require additional installation and configuration. 
-% Although, for the analysis of large models is recommended to use the <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% GUROBI> package.
+% The present tutorial can run with the GLPK package, which does not require 
+% additional installation and configuration. Although, for the analysis of large 
+% models is recommended to use the GUROBI package.
 % 
 % Setup the appropriate solver for the machine you are using by removing 
 % the "%" (comment) sign for only the desired solver.
@@ -100,7 +99,7 @@ model = readCbModel(modelFileName);
 % This preserves the constraints of the original model to perform further simulations 
 % with new constraints. Additionally, this method of renaming the model avoids 
 % confusion while performing multiple simulations at the same time.
-%%
+
 modelaerobic = model;
 %% 
 % The ATP demand reaction, i.e., |<http://vmh.life/#human/all/DM_atp_c_ 
@@ -214,7 +213,7 @@ FBAanaerob = optimizeCbModel(modelanaerobic,'max')
 % problem. This approach is used to check for minimal sets of reactions that either 
 % should be active or should not be active in a flux balance model that is representative 
 % of a biochemical network.
-%%
+
 % [vSparse, sparseRxnBool, essentialRxnBool]  = sparseFBA(model, osenseStr,...
 %  checkMinimalSet, checkEssentialSet, zeroNormApprox)
 %% 
@@ -257,7 +256,7 @@ modelspar = changeObjective(modelspar, 'DM_atp_c_');
 % 0's, with sparse and essential reactions respectively.
 % 
 % Display the sparse flux solution, but only the non-zero fluxes.
-%%
+
 for i=1:length(vSparse)
     if abs(vSparse(i)) > 1e-3
         fprintf('%1.3f \t %s\n', vSparse(i), modelspar.rxns{i})
@@ -279,7 +278,7 @@ end
 % 
 % In this function, there is an optional output |newActives|, that represent 
 % reactions that are only active in this analysis.
-%%
+
 % The valid solution can be produced with the Recon 3.0 model
 % modelmd = model;
 % modelmd = changeRxnBounds(modelmd, 'EX_glc_D[e]',-20,'l');
@@ -321,7 +320,7 @@ modelnosol = changeObjective(modelnosol, 'DM_atp_c_');
 % This FBA analysis applies iterations, where by each iteration reduces the 
 % permissible solution space. After a finite number of iterations, it resolves 
 % one single solution of the flux distribution.
-%%
+
 % USAGE:
 % flux = geometricFBA(model, varargin)
 %% 
@@ -378,7 +377,7 @@ modelgeo = changeObjective(modelgeo, 'DM_atp_c_');
 % for a model with more than 10,000 reactions.
 % 
 % The function is:
-%%
+
 % [GeneClasses RxnClasses modelIrrevFM] = pFBA(model, varargin)
 %% 
 % Where 'varagin' includes required inputs:
@@ -433,7 +432,7 @@ end
 % 
 % The dynamic FBA method implemented in this function is essentially the 
 % same as the method described by Varma A. and B. O. Palsson$$^7$.
-%%
+
 modeldinamic = model;
 % For Recon3.0 model
 % modeldinamic = changeRxnBounds (modeldinamic, 'EX_glc_D[e]', -20, 'l');
@@ -459,7 +458,7 @@ time = 1.0/dt; % simulation time
 %% 7. Relax FBA
 % Find the minimal set of relaxations on bounds and steady-state constraint 
 % to make the FBA problem feasible.
-%%
+
 modelrelax = modelalter;
 FBArel = relaxedFBA(modelrelax)
 %% 
@@ -480,7 +479,7 @@ FBArel = relaxedFBA(modelrelax)
 % *Timing:*
 % 
 % The time to calculate the FEA is $<1$ second for any size of a model.
-%%
+
 modelfea = model;
 res = optimizeCbModel(modelfea,'max'); 
 % say you are interested in enriching the active reactions

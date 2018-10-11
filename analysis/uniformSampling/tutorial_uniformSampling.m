@@ -11,8 +11,8 @@
 % n}$ the stoichiometric matrix, while $l$ and $u$ are lower and upper bounds 
 % on fluxes. These criteria still allow a wide range of admissible flux distributions 
 % which, in FBA are commonly further restricted by introducing an objective to 
-% optimise, transforming the question of admissible fluxes into an FBA problem${\text{ 
-% }}^1$ of the form
+% optimise, transforming the question of admissible fluxes into an FBA problem${\text{\,}}^1$ 
+% of the form
 % 
 % $$\begin{array}{ll}\min\limits _{v} & c^{T}v\\\text{s.t.} & Sv=b,\\ & l\leq 
 % v\leq u,\end{array}$$
@@ -34,22 +34,21 @@
 % 
 % In COBRA v3 there are three different sampling algorithms: coordinate hit-and-run 
 % with rounding (CHRR), artificial centring hit-and-run (ACHR) and the minimum 
-% free energy (MFE). In this tutorial, we will use the CHRR algorithm${\text{ 
-% }}^2$ to uniformly sample a high dimensionally constraint-based model of the 
-% differentiation of induced pluripotent stem cells to dopaminergic neurons (iPSC_dopa). 
-% The algorithm consists of rounding the anisotropic flux space  Ω using a maximum 
-% volume ellipsoid algorithm${\text{ }}^3$ and then performs a uniform sampling 
-% based on the provably efficient hit-and-run random walk${\text{ }}^4$. Below 
-% is a high-level illustration of the process to uniformly sample a random metabolic 
-% flux vector $v$ from the set $\Omega$ of all feasible metabolic fluxes (grey). 
-% *1)* Apply a rounding transformation $T$ to $\Omega$. The transformed set $\Omega 
-% \prime =T\Omega \text{ }$ is such that its maximal inscribed ellipsoid (blue) 
-% approximates a unit ball. *2)* Take $q$ steps of coordinate hit-and-run. At 
-% each step, i) pick a random coordinate direction $e_i$, and ii) move from current 
-% point $v\prime_k \in \Omega \prime$ to a random point $v\prime_{k+1} \in \Omega 
-% \prime$ along $v\prime_k +\alpha e_i \cap \Omega \prime$. *3)* Map samples back 
-% to the original space by applying the inverse transformation, e.g., $v_k =T^{-1} 
-% v\prime_k$.
+% free energy (MFE). In this tutorial, we will use the CHRR algorithm${\text{\,}}^2$ 
+% to uniformly sample a high dimensionally constraint-based model of the differentiation 
+% of induced pluripotent stem cells to dopaminergic neurons (iPSC_dopa). The algorithm 
+% consists of rounding the anisotropic flux space  Ω using a maximum volume ellipsoid 
+% algorithm${\text{\,}}^3$ and then performs a uniform sampling based on the provably 
+% efficient hit-and-run random walk${\text{\,}}^4$. Below is a high-level illustration 
+% of the process to uniformly sample a random metabolic flux vector $v$ from the 
+% set $\Omega$ of all feasible metabolic fluxes (grey). *1)* Apply a rounding 
+% transformation $T$ to $\Omega$. The transformed set $\Omega \prime =T\Omega 
+% \text{\,}$ is such that its maximal inscribed ellipsoid (blue) approximates 
+% a unit ball. *2)* Take $q$ steps of coordinate hit-and-run. At each step, i) 
+% pick a random coordinate direction $e_i$, and ii) move from current point $v\prime_k 
+% \in \Omega \prime$ to a random point $v\prime_{k+1} \in \Omega \prime$ along 
+% $v\prime_k +\alpha e_i \cap \Omega \prime$. *3)* Map samples back to the original 
+% space by applying the inverse transformation, e.g., $v_k =T^{-1} v\prime_k$.
 % 
 % 
 %% Equipment setup
@@ -58,22 +57,20 @@
 % Parallel Computing Toolbox.
 % 
 % Please set a solver, e.g., gurobi. Note that the solver ibm_cplex is required 
-% for the function fastFVA. For a guide how to install solvers, please refer to 
-% the <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% opencobra documentation>.
+% for the function fastFVA.
 % 
 % In this tutorial, we will perform FVA using the function |fluxVariability|. 
 % Change the variable |options.useFastFVA = 1| to use |fastFVA|.
 %% Modelling
 % We will investigate ATP energy production with limited and unlimited oxygen 
 % uptake, following closely the flux balance analysis (FBA) tutorial published 
-% with${\text{ }}^1$.
+% with${\text{\,}}^1$.
 % 
 % We start by loading the model with its flux bounds and the objective function 
 % (ATP demand reaction). We set the maximum glucose uptake rate to 18.5 mmol/gDW/hr. 
 % To explore the entire space of feasible steady state fluxes we also remove the 
 % cellular objective.
-%%
+
 options.useFastFVA = false; % to use fluxVariability
 tutorialPath = fileparts(which('tutorial_uniformSampling.mlx'));
 model = readCbModel([tutorialPath filesep 'data' filesep 'iPSC_DA.mat'],'modelName','modelUptClosed');
@@ -88,7 +85,7 @@ limitedOx = changeRxnBounds(model, 'EX_o2(e)', -4, 'l');
 %% Flux variability analysis
 % Flux variability analysis (FVA) returns the minimum and maximum possible flux 
 % through every reaction in a model.
-%%
+
 if options.useFastFVA
     [minUn, maxUn] = fastFVA(unlimitedOx, 100);
     [minLim, maxLim] = fastFVA(limitedOx, 100);
@@ -99,7 +96,7 @@ end
 %% 
 % FVA predicts faster maximal ATP production with unlimited than with limited 
 % oxygen uptake conditions.
-%%
+
 ATP = 'DM_atp_c_';  % Identifier of the ATP demand reaction
 ibm = find(ismember(model.rxns, ATP));  % column index of the ATP demand reaction
 fprintf('Max. ATP energy production with an unlimited oxygen uptake: %.4f/h.\n', maxUn(ibm));
@@ -147,10 +144,10 @@ ylabel('Jaccard index')
 % two parameters are important: the sampling density (|nStepsPerPoint)| and the 
 % number of samples (|nPointsReturned). |The total length of the random walk is 
 % |nStepsPerPoint*nPointsReturned|. The time it takes to run the sampler depends 
-% on the total length of the random walk and the size of the model${\text{ }}^2$. 
+% on the total length of the random walk and the size of the model${\text{\,}}^2$. 
 % However, using sampling parameters that are too small will lead to invalid sampling 
 % distributions, e.g.,
-%%
+
 options.nStepsPerPoint = 1;
 options.nPointsReturned = 500;
 %% 
@@ -172,7 +169,7 @@ options.toRound = 1;
 % the rounded polytope (P_un and P_lim). Histograms of sampled ATP synthase show 
 % that the models are severely undersampled, as evidenced by the presence of multiple 
 % sharp peaks.
-%%
+
 nbins = 20;
 [yUn, xUn] = hist(X1_un(ibm, :), nbins);
 [yLim, xLim] = hist(X1_lim(ibm, :), nbins);
@@ -188,8 +185,8 @@ ylabel('# samples')
 % by the model constraints (see intro). One rule of thumb says to set  $nSkip=8\ast 
 % {dim\left(\Omega \right)}^2$ to ensure the statistical independence of samples. 
 % The random walk should be long enough to ensure convergence to a stationary 
-% sampling distribution${\text{ }}^2$.
-%%
+% sampling distribution${\text{\,}}^2$.
+
 options.nStepsPerPoint = 8 * size(P_lim.A, 2);
 options.nPointsReturned = 1000;
 %% 
@@ -202,7 +199,7 @@ options.toRound = 0;
 %% 
 % The converged sampling distributions for the ATP synthase reaction are 
 % much smoother, with a single peak at zero flux.
-%%
+
 nbins = 20;
 [yUn, xUn] = hist(X2_un(ibm, :), nbins);
 [yLim, xLim] = hist(X2_lim(ibm, :), nbins);
@@ -221,7 +218,7 @@ ylabel('# samples')
 % decreases more slowly in the unlimitedOx model, indicating that higher ATP production 
 % is more probable under unlimited oxygen uptake conditions. It is interesting 
 % to see that maximum ATP production is highly improbable in both models.
-%%
+
 ylim = get(gca, 'ylim');
 cUn = get(p1(1), 'color');
 cLim = get(p1(2), 'color');
@@ -235,7 +232,7 @@ hold off
 %% 
 % Finally, plotting sampling distributions for six selected iPSC_dopa reactions 
 % shows how oxygen availability affects a variety of metabolic pathways.
-%%
+
 f4 = figure;
 position = get(f4, 'position');
 set(f4, 'units', 'centimeters', 'position', [position(1), position(2), 18, 27])

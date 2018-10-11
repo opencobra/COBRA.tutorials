@@ -49,7 +49,7 @@
 % This tutorial is based on [1].
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox:
-%%
+
 initCobraToolbox
 %% 
 % For solving linear programming problems in FBA analysis, certain solvers 
@@ -61,8 +61,6 @@ changeCobraSolver ('gurobi', 'all', 1);
 % which does not require additional instalation and configuration. However, for 
 % the analysis of large models, such as Recon 3, it is not recommended to use 
 % |'glpk'| but rather industrial strength solvers, such as the |'gurobi'| package. 
-% For detail information, refer to the solver instalation guide: <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md>
 
 warning off MATLAB:subscripting:noSubscriptsSpecified
 %% TIME REQUIREMENTS
@@ -71,7 +69,7 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up:
-%%
+
 pathModel = '~/work/sbgCloud/data/models/unpublished/Recon3D_models/';
 filename = '2017_04_28_Recon3d.mat';
 load([pathModel, filename])
@@ -83,7 +81,7 @@ clear modelRecon3model
 %% 
 %% Identification of deadend metabolites
 % * Detect deadend metabolites
-%%
+
 outputMets = detectDeadEnds(model)
 %% 
 % * print the corresponding metabolite names
@@ -122,7 +120,7 @@ model.ub(find(ismember(model.rxns,rxnList)))
 % and simulation constraints.
 % * Run analysis for blocked reactions. The function returns a list of blocked 
 % reactions (‘BlockedReactions’).
-%%
+
 BlockedReactions = findBlockedReaction(model)
 %% fastGapFill
 % FastGapFill allows to set different priorities for reaction types (MetabolicRxns 
@@ -131,7 +129,7 @@ BlockedReactions = findBlockedReaction(model)
 % reactions) using the weights. The lower the weight for a reaction type, the 
 % higher is its priority. Generally, a metabolic reaction should be prioritised 
 % in a solution over transport and exchange reactions.
-%%
+
 weights.MetabolicRxns = 0.1; % Kegg metabolic reactions
 weights.ExchangeRxns = 0.5; % Exchange reactions
 weights.TransportRxns = 10; % Transport reactions
