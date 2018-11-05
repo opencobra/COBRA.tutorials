@@ -89,12 +89,13 @@ model_orig = model;
 % 
 %  From UNIPROT[1], the Km value of aconitase acting on citrate is 6.13 and 
 % 23.8 umol/min/mg for aconA and aconB respectively. For cis-aconitate the values 
-% are 14.5 and 39.1 umol/min/mg, respectively.
+% are 14.5 and 39.1 umol/min/mg, respectively. Since most models use mmol/gDW/hr 
+% we will have to convert the units to mmol/hr instead of umol/min:
 
-aconACit = 6.13;
-aconAAcon = 14.5;
-aconBCit = 23.8;
-aconBAcon = 39.1;
+aconACit = 6.13 / 1000 * 60;
+aconAAcon = 14.5 / 1000 * 60;
+aconBCit = 23.8 / 1000 * 60;
+aconBAcon = 39.1 / 1000 * 60;
 %% 
 % From Wiśniewski and Rakus[2] the amount of aconA and aconB per mg E.Coli 
 % sample is ~4.05 pmol/mg and 95.95 pmol/mg respectively, with a weight of 97.676 
