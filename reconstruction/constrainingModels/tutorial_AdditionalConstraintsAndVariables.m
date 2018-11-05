@@ -4,30 +4,29 @@
 %% INTRODUCTION
 % The COBRA Toolbox offers the possibility to add additional constraints to 
 % a model, that are not direct flux constraints. One example is already indicated 
-% in the constraining Models tutorial (constraining a sum of fluxes above a certain 
+% in the constraining models tutorial (constraining a sum of fluxes above a certain 
 % bound), but there are plenty of other possibilities, that can be achieved using 
 % constraints.
 % 
 % The tools introduced in this tutorial are mainly aimed at developers who 
-% want to implement complex algorithms or formalisms within the COBRA Toolbox 
-% environment, but the basics are also useful to integrate specific properties 
-% of a model or specific literature data. The section "The COBRA Model structure" 
-% is aimed at developers and can be skipped by users who don't to go into the 
-% details.
+% want to implement complex algorithms or formalism within the COBRA Toolbox environment, 
+% but the basics are also useful to integrate specific properties of a model or 
+% specific literature data. The section "The COBRA Model structure" is aimed at 
+% developers and can be skipped by users who don't to go into the details.
 % 
 % 
 %% The COBRA Model structure
 % In general, the COBRA toolbox represents a model in a struct, using multiple 
 % fields to represent the different properties of the model. Of particular interest 
-% for analysis are the stoichiometric Matrix S (which represents the metabolic 
-% stoichiometries of the reactions in the model). nder normal circumstances, this 
-% matrix can directly be translated into the linear problem matrix A of a Problem 
-% struct as used by the Toolbox. However, since there are several algorithms which 
-% aim at manipulating reactions or metabolites, it is important to draw a distinction 
-% between the stoichiometric matrix S and any other constraints or variables which 
-% can be added to the model.
+% for analysis are the stoichiometric matrix S (which represents the metabolic 
+% stoichiometries of the reactions in the model). Under normal circumstances, 
+% this matrix can directly be translated into the linear problem matrix A of a 
+% problem struct as used by the Toolbox. However, since there are several algorithms 
+% which aim at manipulating reactions or metabolites, it is important to draw 
+% a distinction between the stoichiometric matrix S and any other constraints 
+% or variables which can be added to the model.
 % 
-% Therefore 3 additional matricies exist, where such information can be stored:
+% Therefore 3 additional matrices exist, where such information can be stored:
 % 
 % E - The matrix indicating the influence of additional variables on metabolite 
 % levels.
@@ -41,13 +40,8 @@
 % Overall A COBRA model will be translated into a Linear problem by combining 
 % these matrices in the following way:
 % 
-% $$<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi 
-% mathvariant="normal">LPproblem</mi><mo>.</mo><mi mathvariant="italic">A</mi><mo>=</mo><mtext> 
-% </mtext><mrow><mo>[</mo><mtable><mtr><mtd><mrow><mi mathvariant="normal">model</mi><mo>.</mo><mi 
-% mathvariant="italic">S</mi></mrow></mtd><mtd><mrow><mi mathvariant="normal">model</mi><mo>.</mo><mi 
-% mathvariant="italic">E</mi></mrow></mtd></mtr><mtr><mtd><mrow><mi mathvariant="normal">model</mi><mo>.</mo><mi 
-% mathvariant="italic">C</mi></mrow></mtd><mtd><mrow><mi mathvariant="normal">model</mi><mo>.</mo><mi 
-% mathvariant="italic">D</mi></mrow></mtd></mtr></mtable><mo>]</mo></mrow></mrow></math>$$ 
+% $$LPproblem\ldotp A=\text{ }\left\lbrack \begin{array}{c}model\ldotp S 
+% & model\ldotp E\\model\ldotp C & model\ldotp D\end{array}\right\rbrack$$ 
 % 
 % The Cobra toolbox allows one sided inequality constraints and equality 
 % constraints on a model. i.e. there is currently no mechanism to add a constraint 
@@ -80,16 +74,16 @@
 % 
 %% PROCEDURE
 % Initially you will load a model for which we want to add a few additional 
-% constraints. The model used will be the simple ecoli core model:
-
+% constraints. The model used will be the simple E.Coli core model:
+%%
 initCobraToolbox
 model = getDistributedModel('ecoli_core_model.mat');
 %Create a copy for comparisons
 model_orig = model;
 %% 
 % We will add a restriction on the activity of the two aconitase proteins 
-% present in ecoli (aconA and aconB), which catalyse two steps in the Citric acid 
-% cycle (see below)
+% present in E.Coli (aconA and aconB), which catalyse two steps in the citric 
+% acid cycle (see below)
 % 
 % 
 % 
@@ -102,8 +96,21 @@ aconAAcon = 14.5;
 aconBCit = 23.8;
 aconBAcon = 39.1;
 %% 
+% From Wiśniewski and Rakus[2] the amount of aconA and aconB per mg E.Coli 
+% sample is ~4.05 pmol/mg and 95.95 pmol/mg respectively, with a weight of 97.676 
+% kDa and 93.497 kDa, respectively.
+
+aconAmol_per_g = 4.05 * 1000 * 1e-12;
+aconBmol_per_g = 95.95 * 1000 * 1e-12;
+aconA_molWeight = 97.676 * 1e3;
+aconB_molWeight = 93.497 * 1e3;
+aconAAmount = aconAmol_per_g * aconA_molWeight / 0.3; % divided by 0.3 to account for 
+                                                      % the non water fraction assuming
+                                                      % 70% water.
+aconBAmount = aconBmol_per_g * aconB_molWeight / 0.3;
+%% 
 % Now, there are two genes which code for aconitase in the ecoli core model: 
-% b0118 (aconB) and b1276 (aconA). Both the Citrate hydratase and the aconitatde 
+% b0118 (aconB) and b1276 (aconA). Both the citrate hydratase and the aconitatde 
 % dehydratase have the same GPR rule: (b0118 or b1276), so they can both use this 
 % enzyme. 
 
@@ -112,9 +119,8 @@ aconBgene = 'b0118';
 %% 
 % We would like to add a constraint, that not only restricts the activity 
 % of these two reactions but also ensures, that the turnover rates are considered. 
-% Lets assume, that we are looking at 1 minute time steps in our simulation. that 
-% means, that one mg of aconA can suppoert a flux of 6.13 umol/min through the 
-% reaction ACONTa:
+% Lets assume, that we are looking at 1 minute time steps in our simulation. Therefore, 
+% one mg of aconA can support a flux of 6.13 umol/min through the reaction ACONTa:
 
 printRxnFormula(model,'rxnAbbrList',{'ACONTa'},'gprFlag', true);
 %% 
@@ -139,24 +145,21 @@ printRxnFormula(model,'rxnAbbrList',{'ACONTb'},'gprFlag', true);
 % C: The usage of that protein by the respective reaction.
 % 
 % And we will do so in this tutorial
-%% Adding availability Variables.
+%% Adding availability variables.
 % The rxns field is intended to only represent reactions from the model, so 
 % if an additional variable is required for a specific task, this variable should 
 % not be generated in the rxns field, but in a distinct field for this kind of 
 % variables. So we will add availability variables, which can be thought of exchange 
-% reaction for the enzymes. Lets assume, that we have a total of 0.02 mg of aconA 
-% and a total of 0.01 mg of aconB (these numbers are completely arbitrary).
-
-aconAAmount = 0.02;
-aconBAmount = 0.01;
+% reaction for the enzymes. 
+%%
 aconVars = {'aconA','aconB'};
 model = addCOBRAVariables(model,aconVars,'lb',[0;0],'ub',[aconAAmount;aconBAmount]);
 %% 
 % 
-%% Adding usage Efficiencies
+%% Adding usage efficiencies
 % We further need a conversion between the used amount of aconA and the potential 
 % flux through ACONTa. We also need this for ACONTb and the same for aconB.
-
+%%
 linkedReactions = {'ACONTa','ACONTb'};
 for enzyme = 1:numel(aconVars)
     for linkedReaction = 1:numel(linkedReactions)
@@ -192,13 +195,13 @@ model = addCOBRAConstraints(model,{'aconAtoACONTb','aconBtoACONTb','ACONTb'},0, 
 %% Analysing the effects of the constraints
 % If we compare the results of a simple FBA optimization of the original model, 
 % and the constrained model:
-
+%%
 orig_sol = optimizeCbModel(model_orig)
 restricted_sol = optimizeCbModel(model)
 %% 
 % We can easily see, that the obtained objective of the modified model is 
 % lower than that of the original model.
-%% Modifiying Variables and Constraints
+%% Modifying variables and constraints
 % Variables and constraints can be altered by the functions changeCOBRAVariable 
 % and changeCOBRAConstraint respectively. Modifications on a variable include 
 % the adjustment of upper and lower bounds (by the parameters lb/ub) as well as 
@@ -217,30 +220,35 @@ restricted_sol = optimizeCbModel(model)
 % An example of these functions is provided below:
 % 
 % If we increase the abundance of aconA (by increasing its upper bound)
-
-model = changeCOBRAVariable(model,'aconA','ub',0.06);
+%%
+model = changeCOBRAVariable(model,'aconA','ub',aconAAmount*2);
 less_restricted_sol = optimizeCbModel(model)
 %% 
 % We can see, that the objective increases as more flux through the TCA 
 % is possible.
 % 
-% Similarily, if we reduce the efficiency of aconA on Citrate by 50%:
+% Similarily, if we reduce the efficiency of aconB on Citrate by 50%:
 
 model = changeCOBRAConstraints(model,'ACONTaFlux','idList',{'aconAtoACONTa','aconBtoACONTa','ACONTa'},...
-    'c',[aconACit*0.5,aconBCit,-1]);
+    'c',[aconACit,aconBCit*0.5,-1]);
 less_efficient_aconA = optimizeCbModel(model)
 %% 
 % We can again see the objective drop.
 % 
 % While we only used a very simple example for this tutorial, this interplay 
 % can improve predictive qualities substantially (for more have a look at e.g. 
-% [2])
+% [3])
 % 
 % 
 %% References
 % [1] The UniProt Consortium, UniProt: the universal protein knowledgebase, 
 % Nucleic Acids Res. 45: D158-D169 (2017)
 % 
-% [2] Sánchez et al, Improving the phenotype predictions of a yeast genome-scale 
+% [2]Jacek R. Wiśniewski, Dariusz Rakus, Quantitative analysis of the Escherichia 
+% coli proteome, Data in Brief 1, 7-11, (2014)
+% 
+% [3] Sánchez et al, Improving the phenotype predictions of a yeast genome-scale 
 % metabolic model by incorporating enzymatic constraints, Mol Sys Biol, 13:935 
 % (2017)
+% 
+%
