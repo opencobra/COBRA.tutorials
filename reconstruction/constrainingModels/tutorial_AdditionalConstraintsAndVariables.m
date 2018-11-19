@@ -4,9 +4,8 @@
 %% INTRODUCTION
 % The COBRA Toolbox offers the possibility to add additional constraints to 
 % a model that are not direct flux constraints. One example is already indicated 
-% in the constraining models tutorial (constraining a sum of fluxes above a certain 
-% bound), but there are plenty of other possibilities that can be achieved using 
-% constraints.
+% in the constraining models tutorial which introduces coupling constraints[1], 
+% but there are plenty of other possibilities that can be achieved using constraints.
 % 
 % The tools introduced in this tutorial are mainly aimed at developers who 
 % want to implement complex algorithms or formalism within the COBRA Toolbox environment, 
@@ -87,7 +86,7 @@ model_orig = model;
 % 
 % 
 % 
-% From UNIPROT[1], the Km value of aconitase acting on citrate is 6.13 and 
+% From UNIPROT[2], the Km value of aconitase acting on citrate is 6.13 and 
 % 23.8 umol/min/mg for aconA and aconB respectively. For cis-aconitate the values 
 % are 14.5 and 39.1 umol/min/mg, respectively. Since most models assume fluxes 
 % having the unit mmol/gDW/hr we will have to convert the units to mmol/hr instead 
@@ -98,7 +97,7 @@ aconAAcon = 14.5 / 1000 * 60;
 aconBCit = 23.8 / 1000 * 60;
 aconBAcon = 39.1 / 1000 * 60;
 %% 
-% From Wiśniewski and Rakus[2] the amount of aconA and aconB per mg E.Coli 
+% From Wiśniewski and Rakus[3] the amount of aconA and aconB per mg E.Coli 
 % sample is ~4.05 pmol/mg and 95.95 pmol/mg respectively, with a weight of 97.676 
 % kDa and 93.497 kDa, respectively.
 
@@ -151,13 +150,39 @@ printRxnFormula(model,'rxnAbbrList',{'ACONTb'},'gprFlag', true);
 % if an additional variable is required for a specific task, this variable should 
 % not be generated in the rxns field, but in a distinct field for this kind of 
 % variables. Therefore, we will add availability variables, which can be thought 
-% of as exchange reaction for the enzymes. 
+% of as exchange reaction for the enzymes. To do so, we use the following function
 %%
+%addCOBRAVariables(model, idList, varargin)
+%% 
+% The function takes an existing model, and a set of variable ids (*idList*) 
+% and generates all required fields for these variables. You can modify the properties 
+% of the variables by the following parameters which can either be supplied as 
+% parameter/value pairs:
+
+addCOBRAVariables(model,{'newVar'},'lb', -5,'ub',3);
+%% 
+%  or as a parameter struct:
+
+params = struct();
+params.lb = -5;
+params.ub = 3;
+addCOBRAVariables(model,{'newVar'},params);
+%% 
+% The available parameters are:
+% 
+% * *'lb'* - The lower bound(s) of the variable(s) (default: -1000)
+% * *'ub'* - The upper bound(s) of the variable(s) (default: 1000)
+% * *'c'* - The objective coefficient(s) of the variable(s) (default: 0)
+% * *'Names'* - Descriptive name(s) of the variable(s) (default: idList)
+% 
+% We will now add the variables 'aconA' and 'aconB' with lower bounds 0 and 
+% upper bounds according to the values determined above.
+
 aconVars = {'aconA','aconB'};
 model = addCOBRAVariables(model,aconVars,'lb',[0;0],'ub',[aconAAmount;aconBAmount]);
 %% 
 % 
-%% Adding usage efficiencies
+%% 
 % We further need a conversion between the used amount of aconA and the potential 
 % flux through ACONTa. We also need this for ACONTb and the same for aconB.
 %%
@@ -168,13 +193,52 @@ for enzyme = 1:numel(aconVars)
     end
 end
 
-%% 
+%% Adding usage efficiencies
 % Now, we can add the respective constraints.
 % 
-% The first constraint is for the amount of aconA, which should be steady 
-% (i.e. not more than made available by the aconA variable). More precisely, the 
-% amount enzyme made available for ACONTa and ACONTb, should be balanced with 
-% the amount of enzyme made available by the aconA variable.
+% To do so, we will use the function 
+
+%addCOBRAConstraints(model, idList, d, varargin)
+%% 
+% This function will add constraints to the given *model* using a list of 
+% reactions (*idList*) involved in the constraint and right hand side values for 
+% each constraint (*d*). By default, the constraint is assumed to be a limiting 
+% constraint, and the coefficients of the reactions is assumed to be one. 
+% 
+% i.e. if you run
+
+constMod = addCOBRAConstraints(model,{'FBP','FBA'}, 5);
+%% 
+% The added constraint will restrict the sum of flow through 'FBP' and 'FBA' 
+% to 5. The function has parameters which can be used either by parameter/value 
+% pairs:
+
+constMod = addCOBRAConstraints(model,{'FBP','FBA'}, 5, 'c',[0.2,0.4],'dsense',['L']);
+%% 
+% or using a parameter struct:
+
+params = struct();
+params.c = [0.2,0.4];
+params.dsense = 'L';
+constMod = addCOBRAConstraints(model,{'FBP','FBA'}, 5, params);
+%% 
+% The available parameters are:
+% 
+% * *'c'* - The coefficient matrix with one column per reaction id and one row 
+% per added constraint (default: 1 for each element in *idList*)
+% * *'dsense'* - the sense vector with one element per added constraint ('E' 
+% for equality, 'L' for lower than, 'G' for greater than), or one element which 
+% is used for all constraints (default: 'L').
+% * *'ConstraintID'* - a cell array of strings with one element for each added 
+% constraint (default: ConstraintXYZ, with XYZ being the position in the ctrs 
+% vector)
+% * *checkDuplicates* - Whether to check for duplicate Constraints (they don't 
+% hurt, but they don't help). Note that duplicate IDs are still not allowed.
+% 
+% Coming back to our example, the first constraint we add is for the amount 
+% of aconA, which should be steady (i.e. not more than made available by the aconA 
+% variable). More precisely, the amount enzyme made available for ACONTa and ACONTb, 
+% should be balanced with the amount of enzyme made available by the aconA variable.
 
 model = addCOBRAConstraints(model,{'aconAtoACONTa','aconAtoACONTb','aconA'},0, 'c',[-1,-1,1],...
     'dsense','E', 'ConstraintID', 'aconAAmount');
@@ -202,6 +266,11 @@ restricted_sol = optimizeCbModel(model)
 %% 
 % we can easily see that the obtained objective of the modified model is 
 % lower than that of the original model.
+% 
+% Values for additional variables are stored in the solution outputs *vars_v 
+% *(value used in the solution) and *vars_w *(reduced cost of the variable). For 
+% constraints the respective fields are: *ctrs_y *( fordual values for constraints) 
+% and *ctrs_s* (slacks for the constraints)
 %% Modifying variables and constraints
 % Variables and constraints can be altered by the functions changeCOBRAVariable 
 % and changeCOBRAConstraint, respectively. Modifications on a variable include 
@@ -238,17 +307,21 @@ less_efficient_aconA = optimizeCbModel(model)
 % 
 % While we only used a very simple example for this tutorial, this interplay 
 % can improve predictive qualities substantially (for more have a look at e.g. 
-% [3])
+% [4])
 % 
 % 
 %% References
-% [1] The UniProt Consortium, UniProt: the universal protein knowledgebase, 
+% [1] Thiele I, Fleming RM, Bordbar A, Schellenberger J, Palsson BØ. Functional 
+% characterization of alternate optimal solutions of Escherichia coli's transcriptional 
+% and translational machinery. Biophys J. 98(10):2072-81 (2010). 
+% 
+% [2] The UniProt Consortium, UniProt: the universal protein knowledgebase, 
 % Nucleic Acids Res. 45: D158-D169 (2017)
 % 
-% [2]Jacek R. Wiśniewski, Dariusz Rakus, Quantitative analysis of the Escherichia 
+% [3]Jacek R. Wiśniewski, Dariusz Rakus, Quantitative analysis of the Escherichia 
 % coli proteome, Data in Brief 1, 7-11, (2014)
 % 
-% [3] Sánchez et al, Improving the phenotype predictions of a yeast genome-scale 
+% [4] Sánchez et al, Improving the phenotype predictions of a yeast genome-scale 
 % metabolic model by incorporating enzymatic constraints, Mol Sys Biol, 13:935 
 % (2017)
 % 
