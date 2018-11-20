@@ -32,7 +32,7 @@
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
 %%
-initCobraToolbox
+initCobraToolbox(false) % false, as we don't want to update
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
 % the Recon 2.04$^2$, which is provided in the COBRA Toolbox. The Recon 2.04 model 

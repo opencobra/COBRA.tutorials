@@ -33,9 +33,7 @@
 initCobraToolbox
 %% Prepare input data and models
 % We first set the paths to input and output files
-% change directory to where the tutorial is located
-tutorialPath = fileparts(which('tutorial_mgPipe'));
-cd(tutorialPath);
+initCobraToolbox(false); % false, as we don't want to update
 %%
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at

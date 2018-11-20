@@ -50,7 +50,7 @@
 %% EQUIPMENT SETUP
 % Start CobraToolbox
 %%
-initCobraToolbox;
+initCobraToolbox(false) % false, as we don't want to update;
 %% PROCEDURE
 %% Generate a network
 % A constraint-based metabolic model contains the stoichiometric matrix ($$S$) 
