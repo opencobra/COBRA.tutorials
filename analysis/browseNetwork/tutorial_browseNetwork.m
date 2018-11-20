@@ -10,7 +10,7 @@
 %% EQUIPMENT SETUP
 % Start CobraToolbox
 
-% initCobraToolbox;
+initCobraToolbox(false) % false, as we don't want to update;
 %% PROCEDURE
 % Load the _E. coli_ iJO1366 model as an example model.
 

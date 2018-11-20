@@ -70,8 +70,8 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % Initialize The Cobra Toolbox using the |initCobraToolbox| function.
-
-initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 global CBTDIR; %Get the folder of the toolbox.
 %% *Setting the *optimization* solver.*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
@@ -105,7 +105,7 @@ if usejava('desktop') % This line of code is to avoid execution of this turorial
 % 
 % * For the tutorial, we will create a file "rBioNetSettingsDB.mat" that contains 
 % the paths to the tutorial reaction, metabolite, and compartment database files.
-
+%%
 %Get the path of the tutorial to store the rBioNet Databases in this folder.
 %If you want to use another folder just change the pathes.
 tutorialPath = fileparts(which('tutorial_rBioNet'));
@@ -146,7 +146,7 @@ rBioNetSettings
 % your requirements. 
 %% Open and nagivating in rBioNet
 % Let's open the rBioNet tool:
-
+%%
 ReconstructionTool 
 %% 
 % A window appears called the 'Reaction and Metabolite Editor'. 
@@ -334,7 +334,7 @@ ReconstructionTool
 % in the database.* 
 %% Clean-up
 % Remove "rBioNetSettingsDB.mat" file from the tutorial directory.
-
+%%
 fclose all;% close all open windows
 delete([CBTDIR filesep 'tutorials' filesep 'rBioNet' filesep 'rBioNetSettingsDB.mat'])
 %%

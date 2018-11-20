@@ -18,7 +18,7 @@
 % Clear workspace and initialize the COBRA Toolbox
 %%
 clear
-initCobraToolbox
+initCobraToolbox(false) % false, as we don't want to update
 %% Step *0* - Define the output location and set the LP solver
 % Define the output path and set the solver for LP problem
 %%

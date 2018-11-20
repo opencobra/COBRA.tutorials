@@ -61,7 +61,7 @@ nameTagHost='Mouse_';
 [modelJoint] = createMultipleSpeciesModel(models,'nameTagsModels',nameTagsModels,'modelHost',modelHost,'nameTagHost',nameTagHost,'mergeGenesFlag',false);
 %% 
 % Define the coupling parameters.
-
+%%
 c=400;
 u=0;
 [modelJoint]=coupleRxnList2Rxn(modelJoint,modelJoint.rxns(strmatch(nameTagsModels{1,1},modelJoint.rxns)),strcat(nameTagsModels{1,1},bioID{1,1}),c,u);

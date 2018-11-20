@@ -27,8 +27,8 @@
 % FVA,* *models larger than 10,000 reactions $$^2$.
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox
-
-initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% 
 % For solving linear programming problems in FBA and FVA analysis, certain 
 % solvers are required. The present tutorial can run with glpk package, which 
@@ -39,7 +39,7 @@ changeCobraSolver ('gurobi', 'all');
 %% PROCEDURE
 % In this tutorial, we will use the generic model of the human cellular metabolism, 
 % Recon2.0 $$^3$. Load the model
-
+%%
 global CBTDIR
 modelFileName = 'Recon2.0model.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -52,7 +52,7 @@ model = readCbModel(modelFileName);
 % 
 % Constrain the model to limit the availability of carbon and oxygen energy 
 % sources. Find the uptake exchange reactions using _findExcRxns_
-
+%%
 [selExc, selUpt] = findExcRxns(model);
 uptakes = model.rxns(selUpt);
 %% 
@@ -92,7 +92,7 @@ modelfva2 = changeRxnBounds(modelfva2, 'EX_o2(e)',  0, 'l');
 %% 1) Standard FVA
 % The full spectrum of flux variability analysis options can be accessed using 
 % the command:
-
+%%
 % [minFlux, maxFlux, Vmin, Vmax] = fluxVariability(model,...
 % optPercentage,osenseStr, rxnNameList, verbFlag, allowLoops, method);
 %% 
@@ -121,7 +121,7 @@ rxnsList = {'DM_atp_c_'; 'ACOAHi'; 'ALCD21_D'; 'LALDO'; 'ME2m';...
 % Run |fluxVariability()| on both models (|modelfva1|, |modelfva2|) to generate 
 % the minimum and maximum flux values of selected reactions (_rxnsList_) in the 
 % model.
-
+%%
 % Run FVA analysis for the model with the constraints that simulates aerobic conditions:
 [minFlux1, maxFlux1, Vmin1, Vmax1] = fluxVariability(modelfva1, 100, 'max', rxnsList)
 %% 
@@ -136,7 +136,7 @@ rxnsList = {'DM_atp_c_'; 'ACOAHi'; 'ALCD21_D'; 'LALDO'; 'ME2m';...
 % 
 % You can further plot and compare the FVA results for the selected reaction 
 % from both models:
-
+%%
 ymax1 = maxFlux1;
 ymin1 = minFlux1;
 ymax2 = maxFlux2;
@@ -167,7 +167,7 @@ title('Variations in fluxes in the aerobic and anaerobic conditions')
 % 
 % The |fastFVA()| function only supports the <https://opencobra.github.io/cobratoolbox/docs/solvers.html  
 % CPLEX> solver.
-
+%%
 changeCobraSolver ('ibm_cplex', 'all', 1);
 %% 
 % Run fastFVA analysis for the whole model (i.e. flux varaibility analysis 
@@ -178,13 +178,13 @@ changeCobraSolver ('ibm_cplex', 'all', 1);
 %% 
 % Run fast FVA analysis for the whole model with the constraints that simulates 
 % anaerobic conditions:
-
+%%
 [minFluxF2, maxFluxF2, optsol2, ret2, fbasol2, fvamin2, fvamax2,...
     statussolmin2, statussolmax2] = fastFVA(modelfva2);
 %% 
 % Plot the results of the fast FVA and compare them between the aerobic 
 % and anaerobic models:
-
+%%
 ymaxf1 = maxFluxF1;
 yminf1 = minFluxF1;
 ymaxf2 = maxFluxF2;

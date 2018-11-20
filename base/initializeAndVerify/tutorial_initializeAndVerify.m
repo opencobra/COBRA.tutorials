@@ -9,8 +9,8 @@
 %% PROCEDURE 
 % At the start of each MATLAB session, The COBRA Toolbox must be initialised. 
 % Navigate to the directory where you installed The COBRA Toolbox and initialise 
-
-initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% 
 % The user who primarily uses the official openCOBRA repository may automatically 
 % initialise The COBRA Toolbox. To do so, edit the MATLAB |startup.m| file and 
@@ -56,7 +56,7 @@ end
 % is printed to the user during initialisation. 
 % 
 % 2| Check the currently selected solvers with |changeCobraSolver|
-
+%%
 changeCobraSolver
 %% ANTICIPATED RESULTS 
 % A list of solvers assigned to solve each class of optimisation solver is returned. 				
@@ -69,7 +69,7 @@ changeCobraSolver
 % if one encounters an error running a function. The test suite runs tailored 
 % tests that verify the output and proper execution of core functions on the locally 
 % configured system. The full test suite can be invoked by typing:
-
+%%
 testAll
 %% ANTICIPATED RESULTS
 % The test suite starts by initialising The COBRA Toolbox and thereafter, all 

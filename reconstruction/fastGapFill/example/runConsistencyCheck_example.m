@@ -1,7 +1,7 @@
 %% example to run the stoichiometric consistency check
 
 %  initialize the COBRA toolbox
-initCobraToolbox;
+initCobraToolbox(false) % false, as we don't want to update;
 
 % load model
 load iTZ479_v2.mat 
