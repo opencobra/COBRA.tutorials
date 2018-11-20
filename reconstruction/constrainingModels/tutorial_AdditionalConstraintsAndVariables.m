@@ -75,7 +75,7 @@
 % Initially, we will load a model that we want to modify by adding a few additional 
 % constraints. The model used will be the simple E.Coli core model:
 %%
-initCobraToolbox
+initCobraToolbox(false)
 model = getDistributedModel('ecoli_core_model.mat');
 %Create a copy for comparisons
 model_orig = model;
