@@ -1,5 +1,4 @@
 %% Computation and analysis of rescued lethal gene deletions in a host-microbe model
-% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
 %% Author: Almut Heinken, Molecular Systems Physiology Group, University of Luxembourg.
 % Constraint-based modeling has useful applications for predicting the metabolic 
 % interactions between a mammalian host and its commensal gut microbes. For example, 
@@ -14,31 +13,25 @@
 % a microbe is joined with a mouse host.
 % 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
-% Jan;35(1):81-89) in this tutorial. Please download AGORA from <https://www.vmh.life/#downloadview 
-% https://www.vmh.life/#downloadview> and place the models into a folder.
+% Jan;35(1):81-89) in this tutorial. AGORA can be downloaded from <https://www.vmh.life/#downloadview 
+% https://www.vmh.life/#downloadview>.
 % 
 % As the host model, the global mouse reconstruction (Sigurdsson et al., 
-% BMC Systems Biology (2010) 4:140) will be used. Please download the mouse reconstruction 
-% from <https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip 
+% BMC Systems Biology (2010) 4:140) will be used. The mouse reconstruction
+% can be downloaded from <https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip 
 % https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip>.
-% 
-% Define the path to the folder where you stored the AGORA models.
-
-modelPath='YOUR_PATH_TO_AGORA/';
 %% 
 % Initialize the COBRA Toolbox.
 
 initCobraToolbox
 %% 
-% Load the mouse reconstruction.
-
-load('iSS1393.mat');
+% Download the mouse reconstruction.
+system('curl -O https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip')
+currentDir=pwd;
+unzip('Mus_musculus_iSS1393.zip',currentDir)
+iSS1393=readCbModel('iSS1393.mat');
+iSS1393=convertOldStyleModel(iSS1393);
 iSS1393=changeObjective(iSS1393,'biomass_mm_1_no_glygln');
-%% 
-% Unify the metabolite nomenclature.
-
-iSS1393.mets=strrep(iSS1393.mets,'-','_');
-
 %% 
 % NOTE: Since dietary nutrients can also rescue many lethal gene defects, 
 % a diet reduced in nutrients will be used in this simulation to identify the 
@@ -49,19 +42,18 @@ iSS1393.mets=strrep(iSS1393.mets,'-','_');
 
 reducedDietConstraints={'EX_12dgr180[u]','-1','1000';'EX_26dap_M[u]','-1','1000';'EX_2dmmq8[u]','-1','1000';'EX_2obut[u]','-1','1000';'EX_3mop[u]','-1','1000';'EX_4abz[u]','-1','1000';'EX_4hbz[u]','-1','1000';'EX_5aop[u]','-1','1000';'EX_acmana[u]','-1','1000';'EX_adpcbl[u]','-1','1000';'EX_ala_L[u]','-0.3','1000';'EX_amet[u]','-1','1000';'EX_amylose300[u]','-0.001667','1000';'EX_anth[u]','-1','1000';'EX_arab_D[u]','-1','1000';'EX_arabinogal[u]','-0.00078','1000';'EX_arach[u]','-0.1743','1000';'EX_arachd[u]','-0.1743','1000';'EX_arg_L[u]','-0.15','1000';'EX_asn_L[u]','-0.225','1000';'EX_asp_L[u]','-0.225','1000';'EX_ca2[u]','-1','1000';'EX_cbl1[u]','-1','1000';'EX_chor[u]','-1','1000';'EX_chsterol[u]','-0.12908','1000';'EX_cl[u]','-1','1000';'EX_cobalt2[u]','-1','1000';'EX_cu2[u]','-1','1000';'EX_cys_L[u]','-0.3','1000';'EX_ddca[u]','-1','1000';'EX_dextran40[u]','-0.0063','1000';'EX_fald[u]','-1','1000';'EX_fe2[u]','-1','1000';'EX_fe3[u]','-1','1000';'EX_fru[u]','-1','1000';'EX_fum[u]','-1','1000';'EX_glc_D[u]','-1','1000';'EX_glcn[u]','-1','1000';'EX_gln_L[u]','-0.18','1000';'EX_glu_D[u]','-1','1000';'EX_glu_L[u]','-0.18','1000';'EX_gly[u]','-0.45','1000';'EX_glyc[u]','-1.162','1000';'EX_glyc3p[u]','-1','1000';'EX_h2[u]','-1','1000';'EX_h2s[u]','-1','1000';'EX_hdca[u]','-0.21788','1000';'EX_hdcea[u]','-0.21788','1000';'EX_his_L[u]','-0.15','1000';'EX_ile_L[u]','-0.15','1000';'EX_indole[u]','-1','1000';'EX_k[u]','-1','1000';'EX_lanost[u]','-1','1000';'EX_lcts[u]','-0.5','1000';'EX_leu_L[u]','-0.15','1000';'EX_levan1000[u]','-0.0005','1000';'EX_lnlc[u]','-0.19367','1000';'EX_lnlnca[u]','-0.19367','1000';'EX_lys_L[u]','-0.15','1000';'EX_mal_L[u]','-1','1000';'EX_malt[u]','-0.5','1000';'EX_met_L[u]','-0.18','1000';'EX_metsox_S_L[u]','-1','1000';'EX_mg2[u]','-1','1000';'EX_mn2[u]','-1','1000';'EX_mnl[u]','-1','1000';'EX_mqn7[u]','-1','1000';'EX_mqn8[u]','-1','1000';'EX_na1[u]','-1','1000';'EX_nh4[u]','-100','1000';'EX_nmn[u]','-1','1000';'EX_no2[u]','-1','1000';'EX_no3[u]','-1','1000';'EX_ocdca[u]','-0.19367','1000';'EX_ocdcea[u]','-0.19367','1000';'EX_octa[u]','-0.43575','1000';'EX_phe_L[u]','-0.099','1000';'EX_pheme[u]','-1','1000';'EX_pi[u]','-100','1000';'EX_pime[u]','-1','1000';'EX_pro_L[u]','-0.18','1000';'EX_ptrc[u]','-1','1000';'EX_pullulan1200[u]','-0.00042','1000';'EX_pydx5p[u]','-1','1000';'EX_q8[u]','-1','1000';'EX_raffin[u]','-0.1667','1000';'EX_rmn[u]','-1','1000';'EX_ser_L[u]','-0.3','1000';'EX_sheme[u]','-1','1000';'EX_so4[u]','-1','1000';'EX_spmd[u]','-1','1000';'EX_sucr[u]','-0.5','1000';'EX_thr_L[u]','-0.225','1000';'EX_trp_L[u]','-0.081','1000';'EX_ttdca[u]','-0.24899','1000';'EX_tyr_L[u]','-0.099','1000';'EX_val_L[u]','-0.18','1000';'EX_xan[u]','-1','1000';'EX_zn2[u]','-1','1000'};
 %% 
-% Define an AGORA model that can grow on the reduced diet and will be joined 
-% with the mouse. 
-
-microbeModel='Escherichia_coli_str_K_12_substr_MG1655';
 models={};
 nameTagsModels={};
 bioID={};
+% Define an AGORA model that can grow on the reduced diet and will be joined 
+% with the mouse. 
+system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/reconstructions/sbml/Escherichia_coli_str_K_12_substr_MG1655.xml')
+model=readCbModel('Escherichia_coli_str_K_12_substr_MG1655.xml');
 
-load(strcat(modelPath,microbeModel,'.mat'));
 model = convertOldStyleModel(model);
 models{1,1}=model;
 bioID{1,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
-nameTagsModels{1,1}=strcat(microbeModel,'_');
+nameTagsModels{1,1}=strcat('Escherichia_coli_str_K_12_substr_MG1655_');
 modelHost=iSS1393;
 nameTagHost='Mouse_';
 %% 
@@ -119,7 +111,7 @@ RescuedGenes.Mouse_biomass_mm_1_no_glygln.RescuedLethalGenes
 % and provide the metabolites that are essential due to the gene defect. To find 
 % the lumen exchange reactions of E. coli:
 
-microbeExchanges=find(strncmp(modelJoint.rxns,strcat(microbeModel,'_IEX'),length(strcat(microbeModel,'_IEX'))));
+microbeExchanges=find(strncmp(modelJoint.rxns,strcat(nameTagsModels{1,1},'IEX'),length(strcat(nameTagsModels{1,1},'IEX'))));
 %% 
 % Now, let us find out which of the metabolites secreted by E.coli was essential 
 % for rescuing the defect in mouse UMP synthase. 

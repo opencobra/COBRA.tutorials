@@ -1,7 +1,4 @@
 %% Computation and analysis of microbe-microbe metabolic interactions
-% 
-%% Note: This tutorial is a draft and needs completion. Contributions welcome!
-% 
 %% Author: Almut Heinken, Molecular Systems Physiology Group, University of Luxembourg.
 % 
 % 
@@ -16,18 +13,17 @@
 % 
 % 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
-% Jan;35(1):81-89) in this tutorial. Please download AGORA version 1.02  from 
-% <https://vmh.life https://vmh.life> and place the models into a folder.
-% 
-% Define the path to the folder where you stored the AGORA models.
-
-modelPath='YOUR_PATH_TO_AGORA/';
+% Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
+% www.vmh.life. Download AGORA and place the models into a folder.
+system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
+unzip('Agora-1.02.zip','AGORA')
+currentDir=pwd;
+modelPath=strcat(currentDir,'/AGORA/mat/');
 %% 
 % Import a file with information on the AGORA organisms including reconstruction 
 % names and taxonomy.
 
 [~,infoFile,~]=xlsread('AGORA_infoFile.xlsx');
-
 %% 
 % Initialize the COBRA Toolbox.
 
@@ -42,7 +38,7 @@ modelList = infoFile(randi([2 length(infoFile)],1,10),1);
 % combinations. NOTE: this is very time-consuming due to the large  number of 
 % model combinations analyzed.
 
-modelList=infoFile(2:end,1);
+% modelList=infoFile(2:end,1);
 %% 
 % You may also enter a custom selection of AGORA reconstructions as a cell 
 % array named modelList.
@@ -238,6 +234,7 @@ dinc=0.001;
 % two joined microbes.
 
 for i=1:size(modelInd,2)
+    models={};
     load(strcat(modelPath,infoFile{modelInd(1,i),1},'.mat'));
     model = convertOldStyleModel(model);
     models{1,1}=model;

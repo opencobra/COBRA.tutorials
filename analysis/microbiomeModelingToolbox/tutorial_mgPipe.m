@@ -36,8 +36,13 @@ initCobraToolbox(0);
 % path to where the COBRA Toolbox is located
 global CBTDIR
 
-% path to microbe models (download AGORA models from https://www.vmh.life/#downloadview)
-modPath = [getenv('HOME') filesep 'AGORA' filesep 'mat'];
+% We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
+% Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
+% www.vmh.life. Download AGORA and place the models into a folder.
+system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
+unzip('Agora-1.02.zip','AGORA')
+currentDir=pwd;
+modPath=strcat(currentDir,'/AGORA/mat/');
 
 % path where to save results
 resPath = [CBTDIR filesep '.tmp']
