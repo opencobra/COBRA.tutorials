@@ -35,17 +35,16 @@ initCobraToolbox(0);
 %%
 % path to where the COBRA Toolbox is located
 global CBTDIR
-
+cd([CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbiomeModelingToolbox'])
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
 % www.vmh.life. Download AGORA and place the models into a folder.
 system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
 unzip('Agora-1.02.zip','AGORA')
-currentDir=pwd;
-modPath=strcat(currentDir,'/AGORA/mat/');
+modPath=[CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbiomeModelingToolbox' filesep 'AGORA' filesep 'mat'];
 
 % path where to save results
-resPath = [CBTDIR filesep '.tmp']
+resPath = [CBTDIR filesep '.tmp'];
 
 % path to and name of the file with dietary information. Here, 
 % we will use an "Average European" diet that is located in the 
