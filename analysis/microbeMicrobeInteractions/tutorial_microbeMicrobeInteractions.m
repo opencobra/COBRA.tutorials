@@ -10,16 +10,15 @@
 % tutorial can be adapted to any number of AGORA models and dietary conditions 
 % analyzed.
 % 
-initCobraToolbox(0);
-% path to where the COBRA Toolbox is located
-global CBTDIR
-cd([CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbeMicrobeInteractions'])
+% change directory to where the tutorial is located
+tutorialPath = fileparts(which('tutorial_microbeMicrobeInteractions'));
+cd(tutorialPath);
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
 % www.vmh.life. Download AGORA and place the models into a folder.
 system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
 unzip('Agora-1.02.zip','AGORA')
-modPath=[CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbeMicrobeInteractions' filesep 'AGORA' filesep 'mat'];
+modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
 %% 
 % Import a file with information on the AGORA organisms including reconstruction 
 % names and taxonomy.
@@ -27,7 +26,6 @@ modPath=[CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbeMicrobeIn
 [~,infoFile,~]=xlsread('AGORA_infoFile.xlsx');
 %% 
 % Initialize the COBRA Toolbox.
-
 initCobraToolbox
 %% Creation of pairwise models
 % For the sake of this tutorial, we will use ten random AGORA reconstructions 
@@ -47,10 +45,7 @@ modelList = infoFile(randi([2 length(infoFile)],1,10),1);
 % Load the AGORA reconstructions to be joined.
 
 for i=1:size(modelList,1)
-    load(strcat(modPath,modelList{i,1},'.mat'));
-    % make sure the fields in the reconstruction structure are in the correct
-    % format, incorrect format causes errors when joining the models
-    model = convertOldStyleModel(model);
+    model=readCbModel(strcat(modPath,modelList{i,1},'.mat'));
     inputModels{i,1}=model;
 end
 %% 
@@ -236,13 +231,11 @@ dinc=0.001;
 
 for i=1:size(modelInd,2)
     models={};
-    load(strcat(modPath,infoFile{modelInd(1,i),1},'.mat'));
-    model = convertOldStyleModel(model);
+    model=readCbModel(strcat(modPath,infoFile{modelInd(1,i),1},'.mat'));
     models{1,1}=model;
     bioID{1,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
     nameTagsModels{1,1}=strcat(infoFile{modelInd(1,i),1},'_');
-    load(strcat(modPath,infoFile{modelInd(2,i),1},'.mat'));
-    model = convertOldStyleModel(model);
+    model=readCbModel(strcat(modPath,infoFile{modelInd(2,i),1},'.mat'));
     models{2,1}=model;
     nameTagsModels{2,1}=strcat(infoFile{modelInd(2,i),1},'_');
     bioID{2,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));

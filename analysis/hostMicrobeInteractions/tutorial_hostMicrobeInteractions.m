@@ -21,19 +21,18 @@
 % can be downloaded from <https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip 
 % https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip>.
 %% 
+% change directory to where the tutorial is located
+tutorialPath = fileparts(which('tutorial_hostMicrobeInteractions'));
+cd(tutorialPath);
+%% 
 % Initialize the COBRA Toolbox.
-initCobraToolbox(0);
-% path to where the COBRA Toolbox is located
-global CBTDIR
-cd([CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'hostMicrobeInteractions'])
-
+initCobraToolbox
 %% 
 % Download the mouse reconstruction.
 system('curl -O https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip')
 currentDir=pwd;
 unzip('Mus_musculus_iSS1393.zip',currentDir)
 iSS1393=readCbModel('iSS1393.mat');
-iSS1393=convertOldStyleModel(iSS1393);
 iSS1393=changeObjective(iSS1393,'biomass_mm_1_no_glygln');
 % Define an AGORA model that can grow on the reduced diet and will be joined 
 % with the mouse. 
@@ -52,8 +51,6 @@ reducedDietConstraints={'EX_12dgr180[u]','-1','1000';'EX_26dap_M[u]','-1','1000'
 models={};
 nameTagsModels={};
 bioID={};
-
-model = convertOldStyleModel(model);
 models{1,1}=model;
 bioID{1,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
 nameTagsModels{1,1}=strcat('Escherichia_coli_str_K_12_substr_MG1655_');
