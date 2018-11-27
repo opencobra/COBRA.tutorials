@@ -10,23 +10,23 @@
 % tutorial can be adapted to any number of AGORA models and dietary conditions 
 % analyzed.
 % 
+%% Initialize the COBRA Toolbox
+initCobraToolbox
+%% Prepare input data and models
 % change directory to where the tutorial is located
 tutorialPath = fileparts(which('tutorial_microbeMicrobeInteractions'));
 cd(tutorialPath);
+%%
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
 % www.vmh.life. Download AGORA and place the models into a folder.
 system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
 unzip('Agora-1.02.zip','AGORA')
 modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
-%% 
+%%
 % Import a file with information on the AGORA organisms including reconstruction 
 % names and taxonomy.
-
 [~,infoFile,~]=xlsread('AGORA_infoFile.xlsx');
-%% 
-% Initialize the COBRA Toolbox.
-initCobraToolbox
 %% Creation of pairwise models
 % For the sake of this tutorial, we will use ten random AGORA reconstructions 
 % from the info file.

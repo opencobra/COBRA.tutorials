@@ -20,14 +20,13 @@
 % BMC Systems Biology (2010) 4:140) will be used. The mouse reconstruction
 % can be downloaded from <https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip 
 % https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip>.
+%%  Initialize the COBRA Toolbox
+initCobraToolbox
 %% 
 % change directory to where the tutorial is located
 tutorialPath = fileparts(which('tutorial_hostMicrobeInteractions'));
 cd(tutorialPath);
-%% 
-% Initialize the COBRA Toolbox.
-initCobraToolbox
-%% 
+%% Prepare the models
 % Download the mouse reconstruction.
 system('curl -O https://wwwen.uni.lu/content/download/72950/917509/file/Mus_musculus_iSS1393.zip')
 currentDir=pwd;

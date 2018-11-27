@@ -29,11 +29,14 @@
 %% DRIVER
 % This file has to be modified by the user to launch the pipeline and to define 
 % inputs and outputs files and locations. 
-%%
+%% Initialize the COBRA Toolbox
+initCobraToolbox
+%% Prepare input data and models
 % We first set the paths to input and output files
 % change directory to where the tutorial is located
 tutorialPath = fileparts(which('tutorial_mgPipe'));
 cd(tutorialPath);
+%%
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
 % www.vmh.life. Download AGORA and place the models into a folder.
@@ -43,9 +46,7 @@ modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
 % path where to save results
 mkdir('results');
 resPath = [tutorialPath filesep 'results'];
-%% 
-% Initialize the COBRA Toolbox.
-initCobraToolbox
+%%
 % path to and name of the file with dietary information. Here, 
 % we will use an "Average European" diet that is located in the 
 % DietImplementation folder.
