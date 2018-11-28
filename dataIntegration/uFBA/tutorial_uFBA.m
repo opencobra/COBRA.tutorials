@@ -50,7 +50,7 @@
 %% Initialize
 % Running uFBA requires the use of several functions from the COBRA Toolbox.
 %%
-initCobraToolbox
+initCobraToolbox(false) % argument indicates not to update the toolbox
 %% 
 % We first load in sample data. This data is absolutely quantified and has 
 % already been volume adjusted such that intracellular and extracellular metabolite 
