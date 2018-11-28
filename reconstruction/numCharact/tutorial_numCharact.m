@@ -19,7 +19,7 @@
 % Please ensure that The COBRA Toolbox has been properly installed, and initialized 
 % using the |initCobraToolbox| function.
 %%
-% initCobraToolbox
+initCobraToolbox(false) % false, as we don't want to update
 %% PROCEDURE 
 % TIMING: 5 seconds - several hours (depending on the model size)
 % 

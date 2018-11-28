@@ -30,26 +30,29 @@
 % This file has to be modified by the user to launch the pipeline and to define 
 % inputs and outputs files and locations. 
 %% Initialize the COBRA Toolbox
-initCobraToolbox
+%%
+initCobraToolbox(false) %don't update the toolbox
 %% Prepare input data and models
-% We first set the paths to input and output files
-% change directory to where the tutorial is located
+% We first set the paths to input and output files change directory to where 
+% the tutorial is located
+%%
 tutorialPath = fileparts(which('tutorial_mgPipe'));
 cd(tutorialPath);
-%%
+%% 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
-% Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at
-% www.vmh.life. Download AGORA and place the models into a folder.
+% Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at www.vmh.life. 
+% Download AGORA and place the models into a folder.
+%%
 system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
 unzip('Agora-1.02.zip','AGORA')
 modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
 % path where to save results
 mkdir('results');
 resPath = [tutorialPath filesep 'results'];
+%% 
+% path to and name of the file with dietary information. Here, we will use 
+% an "Average European" diet that is located in the DietImplementation folder.
 %%
-% path to and name of the file with dietary information. Here, 
-% we will use an "Average European" diet that is located in the 
-% DietImplementation folder.
 global CBTDIR
 dietFilePath=[CBTDIR filesep 'papers' filesep '2018_microbiomeModelingToolbox' filesep 'resources' filesep 'AverageEuropeanDiet'];
 %% 
@@ -58,6 +61,8 @@ dietFilePath=[CBTDIR filesep 'papers' filesep '2018_microbiomeModelingToolbox' f
 % version of the example file (normCoverageReduced.csv) provided in the folder 
 % Resources: only 4 individuals and 30 strains will be considered. Plese, note 
 % that abundances are normalized to a total sum of one. 
+% 
+% 
 %%
 abunFilePath=[CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbiomeModelingToolbox' filesep 'normCoverageReduced.csv'];
 %% 
@@ -79,8 +84,9 @@ abunFilePath=[CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbiomeM
 % 
 % The same inputs need to be set in the driver file StartMgPipe when running 
 % mgPipe outside of this tutorial or directly in the "initMgPipe" function.
-%%
+% 
 % name of the objective function of organisms
+%%
 objre={'EX_biomass(e)'};
 
 % the output is a vectorized picture, change to '-dpng' for .png
@@ -114,12 +120,16 @@ autorun = false;
 %% PIPELINE: [PART 1]
 % The number of organisms, their names, the number of samples and their identifiers 
 % are automatically detected from the input file. 
+% 
+% 
 %%
 [patNumb, sampName, strains] = getIndividualSizeName(abunFilePath)
 %% 
 % Now we detect from the content of the results folder if PART1 was already 
 % computed: if the associated file is already present in the results folder its 
 % execution is skipped else its execution starts
+% 
+% 
 %%
 [mapP] = detectOutput(resPath, 'mapInfo.mat');
 
@@ -147,8 +157,12 @@ end
 % as different *.csv* files. For simplicity reasons we will not discuss these 
 % additional outputs in this tutorial: for a description of them, please refer 
 % to the documentation. 
+% 
+% 
 %%
 [mapP] = detectOutput(resPath,'mapInfo.mat')
+%% 
+% 
 %%
 if isempty(mapP)
     % Loading models 
@@ -183,12 +197,16 @@ end
 % Checking consistency of inputs: if autofix == 0 halts execution with error 
 % msg if inconsistencies are detected, otherwise it really tries hard to fix the 
 % problem and continues execution when possible. 
+% 
+% 
 %%
 [autoStat,fixVec,strains]=checkNomenConsist(strains,autoFix);
 %% 
 % Now we detect from the content of the results folder If PART2 was already 
 % computed: if the associated file is already present in the results folder its 
 % execution is skipped else its execution starts
+% 
+% 
 %%
 [mapP]=detectOutput(resPath,'Setup_allbacs.mat');
 
@@ -205,6 +223,8 @@ end
 % created in this section. This model will be later used, integrating abundances 
 % coming from the metagenomic sequencing, to derive the different microbiota models. 
 % The result of this section will be automatically saved in the results folder. 
+% 
+% 
 %%
 if modbuild == 1
    setup=fastSetupCreator(models, strains, {},objre)
@@ -221,6 +241,8 @@ end
 % Coupling constraints and personalized "cumulative biomass" objective functions 
 % are also added. Models that are already existent will not be recreated, and 
 % new microbiota models will be saved in the results folder. 
+% 
+% 
 %%
 [createdModels]=createPersonalizedModel(abunFilePath,resPath,setup,sampName,strains,patNumb)
 %% PIPELINE: [PART 3]
@@ -240,6 +262,8 @@ end
 % model with rich and selected diet
 % # *inFesMat* cell array containing the names of the microbiota models that 
 % reported an infeasible status when solved for their objective 
+% 
+% 
 %%
 [ID,fvaCt,nsCt,presol,inFesMat]=microbiotaModelSimulator(resPath,setup,sampName,dietFilePath,rDiet,0,extSolve,patNumb,fvaType)
 %% 
@@ -249,6 +273,8 @@ end
 % value of the sum of the maximal secretion flux with the maximal uptake flux. 
 % The similarity of metabolic profiles (using the different NMPCs as features) 
 % between individuals is also evaluated with classical multidimensional scaling. 
+% 
+% 
 %%
 [Fsp,Y]= mgSimResCollect(resPath,ID,sampName,rDiet,0,patNumb,indInfoFilePath,fvaCt,figForm);
 %% 
@@ -257,5 +283,7 @@ end
 % Since FVA is computed on diet and fecal exchanges, every metabolite will have 
 % four different values for each individual, values corresponding min and max 
 % of uptake and secretion. 
+% 
+% 
 %%
 [finRes] = extractFullRes(resPath, ID, 'sDiet', sampName, fvaCt, nsCt);

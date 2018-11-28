@@ -31,7 +31,7 @@
 %% Initialize The Cobra Toolbox and select the solver (~25 sec)
 % If necessary, initialise the Cobra Toolbox:
 %%
-initCobraToolbox
+initCobraToolbox(false) % false, as we don't want to update
 %% 
 % Note that the approaches to search for MCS and gMCS problems are based 
 % on Mixed Integer Linear Programming (MILP). The solver selected will be Cplex.

@@ -10,8 +10,8 @@
 % models are still able to produce physiologically relevant ATP yields.
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox with
-
-% initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% 
 % For solving linear programming problems in FBA analysis, certain solvers 
 % are required:
@@ -40,7 +40,7 @@ tol = 1e-6;
 %% Harmonization of abbreviation usage
 % First, we will harmonize different bracket types used in different model versions, 
 % e.g., different version of the human metabolic reconstruction. 
-
+%%
 model.rxns = regexprep(model.rxns, '\(', '\[');
 model.rxns = regexprep(model.rxns, '\)', '\]');
 model.mets = regexprep(model.mets, '\(', '\[');
