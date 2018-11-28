@@ -185,7 +185,7 @@
 % Before starting the tutorial, initialize the Cobra Toolbox if necessary 
 % and set a LP solver.
 
-initCobraToolbox
+initCobraToolbox(false) %don't update the toolbox
 changeCobraSolver ('gurobi', 'all', 1);
 %changeCobraSolver ('glpk', 'all', 1);
 %% _A*.* COBRA model visualization_ 

@@ -11,13 +11,13 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-
-initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% *Setting the *optimization* solver.*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
 % ('|LP'|) solver. The |'glpk'| package does not require additional instalation 
 % and configuration.
-
+%%
 solverName='glpk';
 solverType='LP'; 
 changeCobraSolver(solverName,solverType);
@@ -45,7 +45,7 @@ modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Nece
 model = readCbModel(modelFileName);
 %% PROCEDURE
 % We first initialize the table
-
+%%
 clear TableProp
 r = 1;
 TableProp(r, :) = {'Model'}; r = r+1;
@@ -126,7 +126,7 @@ TableProp
 % 
 % * Determine the number of blocked reactions using fastFVA with 4 paralell 
 % workers (optional).
-
+%%
 nworkers = 2;
 solver = 'ibm_cplex';
 setWorkerCount(nworkers);

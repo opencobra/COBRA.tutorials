@@ -64,7 +64,7 @@
 %% EQUIPMENT SETUP
 % Make sure to initialise the COBRA Toolbox.
 %%
-% initCobraToolbox
+initCobraToolbox(false) % false, as we don't want to update
 %% PROCEDURE
 %% Setting the numerical tolerance
 % Implementation of sparse flux balance analysis with any numerical optimisation 

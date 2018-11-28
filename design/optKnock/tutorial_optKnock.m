@@ -36,7 +36,7 @@
 %%
 global TUTORIAL_INIT_CB;
 if ~isempty(TUTORIAL_INIT_CB) && TUTORIAL_INIT_CB==1
-    initCobraToolbox
+    initCobraToolbox(false) % false, as we don't want to update
 end
 
 changeCobraSolver('gurobi','all');
