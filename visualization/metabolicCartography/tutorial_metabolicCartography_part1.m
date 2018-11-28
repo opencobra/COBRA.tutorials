@@ -44,7 +44,7 @@
 %% Initialise The Cobra Toolbox and set the solver. 
 % If needed, initialise the cobra toolbox.
 %%
-initCobraToolbox
+initCobraToolbox(false) %don't update the toolbox
 %% 
 % The present tutorial can run with glpk package, which does not require 
 % additional installation and configuration. Although, for the analysis of large 
