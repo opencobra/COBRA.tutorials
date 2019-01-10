@@ -19,7 +19,7 @@
 %      
 % 
 % Then, use your credentials to remotely access to <http://www.vmh.life http://www.vmh.life> 
-%%
+
 load('minerva.mat')
 minerva.minervaURL = 'http://www.vmh.life/minerva/galaxy.xhtml';
 minerva.map = 'ReconMap-2.01';
@@ -31,7 +31,7 @@ minerva.googleLicenseConsent = 'true';
 % 
 % A specific solver might be required (depending on the analysis you want 
 % to realise in the COBRA model).
-%%
+
 changeCobraSolver('gurobi','QP');
 changeCobraSolver('gurobi', 'LP');
 %% 
@@ -51,7 +51,7 @@ model = readCbModel('Recon2.v04.mat')
 % model 
 % 
 % |optimizeCbModel |function solves a flux balance analysis problem.
-%%
+
 formula = printRxnFormula(model, 'ATPS4m')
 
 model_atp_production = model  % re-name the model to do not modify the original one.
@@ -75,7 +75,7 @@ solution_atp_prod_max_sparse.v(strcmp(model.rxns,'r0603'))
 % layout.   
 % 
 % 
-%%
+
 serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max_regularised, 'atp_prod_max_regularised3',[],'#6617B5')
 serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max_sparse, 'atp_prod_max_sparse4',[],'#6617B5')
 %% 
@@ -93,7 +93,7 @@ serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max
 % Note: If the "layout name" selected has been already given, an error might 
 % appear. Please, try to give a new layout name each time you run the code. 
 % 
-% |[0]    'ERROR. Layout with given identifier ("atp_productio…'|
+% |[0]    'ERROR. Layout with given identifier ("atp_productio?'|
 % 
 % *2. Overlay a SubSystem*
 % 
@@ -103,7 +103,7 @@ serverResponse = buildFluxDistLayout(minerva, model, solution_atp_production_max
 % phosphorylation, citric acid cycle, etc.  Add the name of a specific subSystem 
 % you want to highlight from the COBRA model (see the example, TCA cycle), and 
 % the color reference. 
-%%
+
 generateSubsytemsLayout(minerva, model, 'Citric acid cycle', '#6617B5');
 %% 
 % 
@@ -138,30 +138,69 @@ minerva.map = 'nucleus'; % Nucleus map
 minerva.map = 'mitochondrion'; % Mitochondrion map
 minerva.map = 'lysosome'; % Lysosome map
 minerva.map = 'golgi'; % Golgi apparatus map
+%% *3. Manual upload of overlays*
+% It is also possible to manually submit your overlays. For this purpose, you 
+% will need to generate a tab delimited file with the necessary information.
+% 
+% To upload a data set, do the following:
+% 
+% # In *Overlays > User-provided overlays* section 
+% # Choose *Add overlay* 
+% # Press *Choose File* to select *File* to upload
+% 
+% *Warning*: To see uploaded overlay agree on Google Maps terms
+% 
+% 
+% 
+% *File format:*
+% 
+% To upload reaction fluxes you can use the following tab delimited format:
+% 
+% 
+% 
+% name    reactionIdentifier    lineWidth    color
+% 
+%     HEX1    2    #57c657
+% 
+% 
+% 
+% If you are uploading a file to the newer versions of the map (e.g., ReconMap3), 
+% you will have to add a prefix "R_" before the reaction identifiers. 
+% 
+% 
+% 
+% name    reactionIdentifier    lineWidth    color
+% 
+%     R_HEX1    2    #57c657
+% 
+% 
+% 
+% For more information on MINERVA's functionalities check MINERVA' manual 
+% at: https://minerva.pages.uni.lu/doc/user-manual/
 %% REFERENCES: 
-% [1] Alberto Noronha, Anna Dröfn Daníelsdóttir, Piotr Gawron, Freyr Jóhannsson, 
-% Sofía Jónsdóttir, Sindri Jarlsson, Jón Pétur Gunnarsson, Sigurður Brynjólfsson, 
+% [1] Alberto Noronha, Anna Dr?fn Dan?elsd?ttir, Piotr Gawron, Freyr J?hannsson, 
+% Sof?a J?nsd?ttir, Sindri Jarlsson, J?n P?tur Gunnarsson, Sigur?ur Brynj?lfsson, 
 % Reinhard Schneider, Ines Thiele, and Ronan M. T. Fleming. ReconMap: an interactive 
 % visualization of human metabolism. Bioinformatics , 33(4):605607, February 2017.
 % 
 % [2] Ines Thiele, Neil Swainston, Ronan M. T. Fleming, Andreas Hoppe, Swagatika 
 % Sahoo, Maike K. Aurich, Hulda Haraldsdottir, Monica L. Mo, Ottar Rolfsson, Miranda 
-% D. Stobbe, Stefan G. Thorleifsson, Rasmus Agren, Christian Bölling, Sergio Bordel, 
+% D. Stobbe, Stefan G. Thorleifsson, Rasmus Agren, Christian B?lling, Sergio Bordel, 
 % Arvind K. Chavali, Paul Dobson, Warwick B. Dunn, Lukas Endler, David Hala, Michael 
 % Hucka, Duncan Hull, Daniel Jameson, Neema Jamshidi, Jon J. Jonsson, Nick Juty, 
-% Sarah Keating, Intawat Nookaew, Nicolas Le Novère, Naglis Malys, Alexander Mazein, 
+% Sarah Keating, Intawat Nookaew, Nicolas Le Nov?re, Naglis Malys, Alexander Mazein, 
 % Jason A. Papin, Nathan D. Price, Evgeni Selkov Sr, Martin I. Sigurdsson, Evangelos 
 % Simeonidis, Nikolaus Sonnenschein, Kieran Smallbone, Anatoly Sorokin, Johannes 
 % H. G. M. van Beek, Dieter Weichart, Igor Goryanin, Jens Nielsen, Hans V. Westerho, 
-% Douglas B. Kell, Pedro Mendes, and Bernhard Ø Palsson. A community-driven global 
+% Douglas B. Kell, Pedro Mendes, and Bernhard ? Palsson. A community-driven global 
 % reconstruction of human metabolism. 5 Nat Biotech , 31(5):419425, May 2013.
 % 
 % 
 % 
 % [3] Elizabeth Brunk, Swagatika Sahoo, Daniel C Zielinski, Ali Altunkaya, 
-% Andreas Dräger, Nathan Mih, Francesco Gatto, Avlant Nilsson, German Andres Preciat 
-% Gonzalez, Maike Kathrin Aurich, Andreas Prlić, Anand Sastry, Anna D Danielsdottir, 
+% Andreas Dr?ger, Nathan Mih, Francesco Gatto, Avlant Nilsson, German Andres Preciat 
+% Gonzalez, Maike Kathrin Aurich, Andreas Prli?, Anand Sastry, Anna D Danielsdottir, 
 % Almut Heinken, Alberto Noronha, Peter W Rose, Stephen K Burley, Ronan M T Fleming, 
 % Jens Nielsen, Ines Thiele & Bernhard O Palsson. Recon3D enables a three-dimensional 
 % view of gene variation in human metabolism. _Nature Biotechnology_ volume 36, 
-% pages 272–281 (2018)
+% pages 272?281 (2018)
