@@ -29,7 +29,7 @@ if [ "$JENKINS" == "True" ]; then
     git commit -m "[temporary commit] remove tutorials submodule"
 
     # initialize the submodules
-    git submodule update --init --depth=1 --remote --no-fetch
+    git submodule update --init --remote --no-fetch
 
     # move the cloned tutorials folder to the cobratoolbox directory
     cd $tutorialsClonedPath
