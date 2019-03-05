@@ -6,8 +6,8 @@ if [ "$JENKINS" == "True" ]; then
     cd $tutorialsClonedPath
 
     # rename the current cloned folder as tutorials (depends on the label of the job)
-    mv linux tutorials
-    mkdir linux && cd linux
+    mv $ARTENOLIS_SLAVE_NAME_01 tutorials
+    mkdir $ARTENOLIS_SLAVE_NAME_01 && cd $ARTENOLIS_SLAVE_NAME_01
 
     # clone the cobratoolbox
     git clone --depth=1 --no-single-branch https://github.com/opencobra/cobratoolbox.git cobratoolbox
@@ -33,8 +33,8 @@ if [ "$JENKINS" == "True" ]; then
 
     # move the cloned tutorials folder to the cobratoolbox directory
     cd $tutorialsClonedPath
-    mv tutorials linux/cobratoolbox/.
-    cd linux/cobratoolbox
+    mv tutorials $ARTENOLIS_SLAVE_NAME_01/cobratoolbox/.
+    cd $ARTENOLIS_SLAVE_NAME_01/cobratoolbox
 fi
 
 # define the path to the tutorials
