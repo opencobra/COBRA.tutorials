@@ -10,7 +10,7 @@ if [ "$JENKINS" == "True" ]; then
     mkdir $ARTENOLIS_SLAVE_NAME_01 && cd $ARTENOLIS_SLAVE_NAME_01
 
     # clone the cobratoolbox
-    git clone --depth=1 --no-single-branch https://github.com/opencobra/cobratoolbox.git cobratoolbox
+    git clone --depth=1 --no-single-branch --recurse-submodules https://github.com/opencobra/cobratoolbox.git cobratoolbox
     cd cobratoolbox
 
     # checkout the branch on cobratoolbox (default development branch: develop)
@@ -27,9 +27,6 @@ if [ "$JENKINS" == "True" ]; then
 
     # commit the removed submodule
     git commit -m "[temporary commit] remove tutorials submodule"
-
-    # initialize the submodules
-    git submodule update --init --remote --no-fetch
 
     # move the cloned tutorials folder to the cobratoolbox directory
     cd $tutorialsClonedPath
