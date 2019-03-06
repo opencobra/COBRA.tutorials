@@ -6,11 +6,11 @@ if [ "$JENKINS" == "True" ]; then
     cd $tutorialsClonedPath
 
     # rename the current cloned folder as tutorials (depends on the label of the job)
-    mv linux tutorials
-    mkdir linux && cd linux
+    mv $ARTENOLIS_SLAVE_NAME_01 tutorials
+    mkdir $ARTENOLIS_SLAVE_NAME_01 && cd $ARTENOLIS_SLAVE_NAME_01
 
     # clone the cobratoolbox
-    git clone --depth=1 --no-single-branch https://github.com/opencobra/cobratoolbox.git cobratoolbox
+    git clone --depth=1 --no-single-branch --recurse-submodules https://github.com/opencobra/cobratoolbox.git cobratoolbox
     cd cobratoolbox
 
     # checkout the branch on cobratoolbox (default development branch: develop)
@@ -28,13 +28,10 @@ if [ "$JENKINS" == "True" ]; then
     # commit the removed submodule
     git commit -m "[temporary commit] remove tutorials submodule"
 
-    # initialize the submodules
-    git submodule update --init --depth=1 --remote --no-fetch
-
     # move the cloned tutorials folder to the cobratoolbox directory
     cd $tutorialsClonedPath
-    mv tutorials linux/cobratoolbox/.
-    cd linux/cobratoolbox
+    mv tutorials $ARTENOLIS_SLAVE_NAME_01/cobratoolbox/.
+    cd $ARTENOLIS_SLAVE_NAME_01/cobratoolbox
 fi
 
 # define the path to the tutorials
@@ -65,7 +62,7 @@ buildTutorialList(){
 buildTutorialList
 
 # preliminary tutorials list
-declare -a tutorials=("tutorial_IO", "tutorial_COBRAconcepts", "tutorial_browseNetwork")
+declare -a tutorials=("tutorial_IO", "tutorial_COBRAconcepts")
 
 longest=0
 for word in "${tutorials[@]}"
@@ -105,7 +102,7 @@ do
 
     # time a process
     SECONDS=0;
-    /mnt/prince-data/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; addpath([pwd filesep 'tutorials' filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
+    $ARTENOLIS_SOFT_PATH/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash -r "restoredefaultpath; addpath([pwd filesep 'tutorials' filesep '.artenolis']); runTutorial('$tutorialName'); delete(gcp);"
     CODE=$?
     procTime=$SECONDS
 
