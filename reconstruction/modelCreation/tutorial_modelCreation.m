@@ -65,7 +65,7 @@ model1 = createModel(reactionIdentifiers, reactionNames, reactionFormulas);
 % reactions (again, this will overwrite both |revFlagList| and the indication 
 % from the formula). E.g. if a |revFlagList| entry indicates a reversible reaction, 
 % but the lower bound is >0, the reaction will be considered as irreversible. 
-% (The default is to assume 0 for irreversible and 1000 for irreversible reactions)
+% (The default is to assume 0 for irreversible and 1000 for reversible reactions)
 % * |upperBoundList| - a double array indicating the upper bounds of the reactions. 
 % (default: 1000)
 % * |subSystemList| - a cell array indicating the subSystems of the reactions
