@@ -1,4 +1,4 @@
-# <img src="https://prince.lcsb.uni.lu/img/icon_design.png" height="22px">&nbsp;&nbsp;Tutorials - dataIntegration
+# <img src="https://prince.lcsb.uni.lu/cobratoolbox/img/icon_design.png" height="22px">&nbsp;&nbsp;Tutorials - dataIntegration
 
 - [OptForce (optForce)](optForce)
 - [OptForce GAMS (optForceGAMS)](optForceGAMS)
