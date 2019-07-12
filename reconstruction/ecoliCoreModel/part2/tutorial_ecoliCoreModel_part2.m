@@ -25,13 +25,13 @@ model = changeRxnBounds(model,'EX_o2(e)',-30,'l'); % Set maximum oxygen uptake
 model = changeObjective(model,'Biomass_Ecoli_core_w_GAM'); % Set the objective function
 FBAsolution = optimizeCbModel(model,'max') % FBA analysis
 %% 
-% â€œFBAsolutionâ€? is a Matlab structure that contains the following outputs.  
-% â€œFBAsolution.f â€œ is the value of objective function as calculated by FBA, thus 
-% if the biomass reaction is the objective function then â€œFBAsolution.f" corresponds 
+% "FBAsolution" is a Matlab structure that contains the following outputs.  
+% "FBAsolution.f" is the value of objective function as calculated by FBA, thus 
+% if the biomass reaction is the objective function then "FBAsolution.f" corresponds 
 % to the growth-rate of the cell. In the example above, it can be seen that the 
-% growth-rate "FBAsolution.f" is listed as 0.8739 ${\mathrm{hr}}^{-1}$. â€œFBAsolution.xâ€? 
-% is a vector listing the calculated fluxes flowing through the network. â€œFBAsolution.yâ€? 
-% and â€œFBAsolution.wâ€? contain vectors representing the shadow prices and reduced 
+% growth-rate "FBAsolution.f" is listed as 0.8739 ${\mathrm{hr}}^{-1}$. "FBAsolution.x"
+% is a vector listing the calculated fluxes flowing through the network. "FBAsolution.y" 
+% and "FBAsolution.w" contain vectors representing the shadow prices and reduced 
 % costs for each metabolite or reaction, respectively.
 % 
 % The flux values found in the structure "FBAsolution.x"  can be printed 
