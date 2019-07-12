@@ -42,7 +42,7 @@
 initCobraToolbox(false) % false, as we don't want to update
 
 % change to the directory of the tutorial
-cd(fileparts(which('tutorial_ecoliCoreModel.mlx')));
+cd(fileparts(which('tutorial_ecoliCoreModel_part1.mlx')));
 %% 
 % *TROUBLESHOOTING*
 % 
@@ -176,7 +176,7 @@ changeCobraSolver('gurobi','all');
 % toolbox software. _[Timing: Seconds]_
 %%
 global CBTDIR
-model = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'ecoli_core_model.mat']);
+model = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'mat' filesep 'ecoli_core_model.mat']);
 e_coli_core = model; % Save the original model for later use
 %% 
 % After you load the _E.coli_ core model into the Matlab, you should be 
