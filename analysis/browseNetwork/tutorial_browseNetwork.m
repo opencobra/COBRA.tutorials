@@ -167,7 +167,7 @@ surfNet(iJO1366, iJO1366.rxns(rxnDiff), [], fluxMatrix, [], 0)
 
 surfNet(iJO1366, 'fdp[c]', [], [], [], [],...
     {'metNames', 'metFormulas', 'rxnNames', 'grRules', 'csense'})
-surfNet(iJO1366, 'fdp_c')
+surfNet(iJO1366, 'fdp[c]')
 %% 
 % The last argument (8th) 'nCharBreak' sets the number of characters printed 
 % per line. By default, it is equal to the width of the Matlab command window. 
