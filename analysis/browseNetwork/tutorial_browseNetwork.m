@@ -24,8 +24,8 @@ iJO1366 = readCbModel(modelFileName);
 % 
 % Browse the network by starting from an initial metabolite, e.g., D-glucose 
 % in the extracellular compartment.
-%%
-surfNet(iJO1366, 'glc__D_e')
+
+surfNet(iJO1366, 'glc__D[e]')
 %% 
 % All reactions producing or consuming '|*glc__D_e|*' will have their reaction 
 % indices (#xxx), ids (.rxns), bounds (.lb/.ub), names (.rxnNames) and formulae 
@@ -41,13 +41,13 @@ surfNet([], 'GLCtex_copy1', 0, 'none', 0, 1, [], 0)
 % and metabolites that you are interested in, you can browse through the metabolic 
 % network.
 % 
-% Now, say you have gone through a series of metabolites and reactions (glc__D_e, 
-% GLCtex_copy1, glc__D_p, GLCptspp, g6p_c): 
+% Now, say you have gone through a series of metabolites and reactions (glc__D[e], 
+% GLCtex_copy1, glc__D[p], GLCptspp, g6p[c]): 
 % 
-% Click glc__D_p:
+% Click glc__D_[p]:
 
 % called by clicking 'glc__D_p'
-surfNet([], 'glc__D_p', 0, 'none', 0, 1, [], 0)  
+surfNet([], 'glc__D[p]', 0, 'none', 0, 1, [], 0)  
 %% 
 % Click GLCptspp:
 
@@ -56,8 +56,8 @@ surfNet([], 'GLCptspp', 0, 'none', 0, 1, [], 0)
 %% 
 % Click g6p_c:
 
-% called by clicking 'g6p_c'
-surfNet([], 'g6p_c', 0, 'none', 0, 1, [], 0)  
+% called by clicking 'g6p[c]'
+surfNet([], 'g6p[c]', 0, 'none', 0, 1, [], 0)  
 %% 
 % In each click, there is also a button '*Show previous steps...*' at the 
 % bottom. Clicking on it will show the metabolites and reactions that you have 
@@ -78,7 +78,7 @@ surfNet([], [], 0, 'none', 0, 1, [], 0, struct('showPrev', true))
 % *Show objective reactions*
 % 
 % Omit the '|metrxn|' (2nd) argument to print objective reactions:
-%%
+
 surfNet(iJO1366)
 %% 
 % *Call with a list of mets/rxns*
@@ -86,7 +86,7 @@ surfNet(iJO1366)
 % The 'metrxn' arguement can be a string of id for a metabolite or reaction. 
 % It can also be a cell array of ids, e.g.,
 
-surfNet(iJO1366, {'glc__D_p'; 'GLCptspp'; 'g6p_c'})
+surfNet(iJO1366, {'glc__D[p]'; 'GLCptspp'; 'g6p[c]'})
 %% 
 % *Show metabolite names in reaction formulae*
 % 
@@ -94,7 +94,7 @@ surfNet(iJO1366, {'glc__D_p'; 'GLCptspp'; 'g6p_c'})
 % with the '|metNameFlag|' (3rd) arguement turned on to show the names for metabolites 
 % (|.metNames|) in the reaction formulae, e.g.,
 
-surfNet(iJO1366, 'fgam_c', 1)
+surfNet(iJO1366, 'fgam[c]', 1)
 %% 
 % *Hide reaction detials*
 % 
@@ -111,7 +111,7 @@ surfNet(iJO1366, iJO1366.rxns(1001:1010), [], [], [], 0)
 % is distributed:
 
 s = optimizeCbModel(iJO1366, 'max', 'one');
-surfNet(iJO1366, 'pyr_c', [], s.x)
+surfNet(iJO1366, 'pyr[c]', [], s.x)
 %% 
 % All reactions involving pyruvate with non-zero fluxes are printed. The 
 % flux values are in the parentheses following the reaction ids. Note that reactions 
@@ -121,7 +121,7 @@ surfNet(iJO1366, 'pyr_c', [], s.x)
 % non-zero fluxes are printed if a flux distribution is supplied. Turn the '|nonzeroFluxFlag|' 
 % (5th) argument off to show all reactions:
 
-surfNet(iJO1366, 'pyr_c', [], s.x, 0)
+surfNet(iJO1366, 'pyr[c]', [], s.x, 0)
 %% 
 % You can also compare multiple flux distributions by supplying them in 
 % a matrix format, each column being a flux distribution. For example, get another 
@@ -165,9 +165,9 @@ surfNet(iJO1366, iJO1366.rxns(rxnDiff), [], fluxMatrix, [], 0)
 % (|csense|) associated with each metabolite. Note the difference from the original 
 % call:
 
-surfNet(iJO1366, 'fdp_c', [], [], [], [],...
+surfNet(iJO1366, 'fdp[c]', [], [], [], [],...
     {'metNames', 'metFormulas', 'rxnNames', 'grRules', 'csense'})
-surfNet(iJO1366, 'fdp_c')
+surfNet(iJO1366, 'fdp[c]')
 %% 
 % The last argument (8th) 'nCharBreak' sets the number of characters printed 
 % per line. By default, it is equal to the width of the Matlab command window. 
