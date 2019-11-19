@@ -25,13 +25,13 @@ model = changeRxnBounds(model,'EX_o2(e)',-30,'l'); % Set maximum oxygen uptake
 model = changeObjective(model,'Biomass_Ecoli_core_w_GAM'); % Set the objective function
 FBAsolution = optimizeCbModel(model,'max') % FBA analysis
 %% 
-% “FBAsolution” is a Matlab structure that contains the following outputs.  
-% “FBAsolution.f “ is the value of objective function as calculated by FBA, thus 
-% if the biomass reaction is the objective function then “FBAsolution.f" corresponds 
+% "FBAsolution" is a Matlab structure that contains the following outputs.  
+% "FBAsolution.f" is the value of objective function as calculated by FBA, thus 
+% if the biomass reaction is the objective function then "FBAsolution.f" corresponds 
 % to the growth-rate of the cell. In the example above, it can be seen that the 
-% growth-rate "FBAsolution.f" is listed as 0.8739 ${\mathrm{hr}}^{-1}$. “FBAsolution.x” 
-% is a vector listing the calculated fluxes flowing through the network. “FBAsolution.y” 
-% and “FBAsolution.w” contain vectors representing the shadow prices and reduced 
+% growth-rate "FBAsolution.f" is listed as 0.8739 ${\mathrm{hr}}^{-1}$. "FBAsolution.x"
+% is a vector listing the calculated fluxes flowing through the network. "FBAsolution.y" 
+% and "FBAsolution.w" contain vectors representing the shadow prices and reduced 
 % costs for each metabolite or reaction, respectively.
 % 
 % The flux values found in the structure "FBAsolution.x"  can be printed 
@@ -187,6 +187,9 @@ drawFlux(map, model, FBAsolution.x, options); % Draw the flux values on the map 
 % energy and reducing power management (see Figure 9). _[Timing: Seconds]_
 %%
 model = e_coli_core; % Starting this section with the original model
+for i=1:length(model.rxns)
+    model.subSystems{i}=model.subSystems{i}{1};
+end
 energySubSystems = {'Oxidative Phosphorylation'};
 energyReactions = model.rxns(ismember(model.subSystems,energySubSystems));
 [~,energy_rxnID] = ismember(energyReactions,model.rxns);
@@ -476,6 +479,9 @@ surfNet(model, 'nadph[c]',0,FBAsolution.x,1,1)
 % be extracted from the core model as follows: _[Timing: Seconds]_
 %%
 model = e_coli_core; % Starting with the original model
+for i=1:length(model.rxns)
+    model.subSystems{i}=model.subSystems{i}{1};
+end
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l');
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l');
 model = changeObjective(model,'Biomass_Ecoli_core_w_GAM');
