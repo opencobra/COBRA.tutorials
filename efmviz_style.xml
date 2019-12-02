@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vizmap documentVersion="3.0" id="VizMap-2019_10_30-11_10">
+    <visualStyle name="efmviz_style">
+        <network>
+            <visualProperty name="NETWORK_BACKGROUND_PAINT" default="#FFFFFF"/>
+            <visualProperty name="NETWORK_CENTER_X_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_CENTER_Y_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_TITLE" default=""/>
+            <visualProperty name="NETWORK_HEIGHT" default="400.0"/>
+            <visualProperty name="NETWORK_DEPTH" default="0.0"/>
+            <visualProperty name="NETWORK_CENTER_Z_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_NODE_SELECTION" default="true"/>
+            <visualProperty name="NETWORK_SCALE_FACTOR" default="1.0"/>
+            <visualProperty name="NETWORK_EDGE_SELECTION" default="true"/>
+            <visualProperty name="NETWORK_WIDTH" default="550.0"/>
+        </network>
+        <node>
+            <dependency name="nodeCustomGraphicsSizeSync" value="true"/>
+            <dependency name="nodeSizeLocked" value="true"/>
+            <visualProperty name="NODE_PAINT" default="#787878"/>
+            <visualProperty name="NODE_CUSTOMPAINT_8" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_8, name=Node Custom Paint 8)"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_8" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_WIDTH" default="20.0"/>
+            <visualProperty name="NODE_NESTED_NETWORK_IMAGE_VISIBLE" default="true"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_6" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_1" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_2" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_BORDER_PAINT" default="#000000">
+                <discreteMapping attributeType="integer" attributeName="compartmentCode">
+                    <discreteMappingEntry value="#3333FF" attributeValue="1"/>
+                    <discreteMappingEntry value="#FF3333" attributeValue="2"/>
+                    <discreteMappingEntry value="#336600" attributeValue="3"/>
+                    <discreteMappingEntry value="#000000" attributeValue="4"/>
+                    <discreteMappingEntry value="#CCCC00" attributeValue="5"/>
+                    <discreteMappingEntry value="#66CCFF" attributeValue="6"/>
+                    <discreteMappingEntry value="#990099" attributeValue="7"/>
+                    <discreteMappingEntry value="#F0F0F0" attributeValue="8"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_1" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMPAINT_2" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_2, name=Node Custom Paint 2)"/>
+            <visualProperty name="NODE_CUSTOMPAINT_6" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_6, name=Node Custom Paint 6)"/>
+            <visualProperty name="NODE_FILL_COLOR" default="#CCCCCC">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="#00FF00" attributeValue="reaction"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_SHAPE" default="ELLIPSE">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="RECTANGLE" attributeValue="reaction"/>
+                    <discreteMappingEntry value="RECTANGLE" attributeValue="qual_transition"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="fbc_geneProduct"/>
+                    <discreteMappingEntry value="RECTANGLE" attributeValue="comp_replacedBy"/>
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="unit"/>
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="unitDefinition"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="species"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="localParameter"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="parameter"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="eventAssignment"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="compartment"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="event"/>
+                    <discreteMappingEntry value="RECTANGLE" attributeValue="comp_replacedElement"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="group"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_SELECTED" default="false"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_5" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_VISIBLE" default="true"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_3" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="COMPOUND_NODE_PADDING" default="10.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_7" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_9" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_1" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="COMPOUND_NODE_SHAPE" default="ROUND_RECTANGLE"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_2" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_LABEL_WIDTH" default="200.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_5" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_9" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMPAINT_4" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_4, name=Node Custom Paint 4)"/>
+            <visualProperty name="NODE_CUSTOMPAINT_5" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_5, name=Node Custom Paint 5)"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_6" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMPAINT_7" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_7, name=Node Custom Paint 7)"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_9" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_8" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_3" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_DEPTH" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_7" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_TOOLTIP" default=""/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_2" default="0.0"/>
+            <visualProperty name="NODE_LABEL_TRANSPARENCY" default="255"/>
+            <visualProperty name="NODE_Z_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_4" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_SIZE" default="25.0">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="20.0" attributeValue="assignmentRule"/>
+                    <discreteMappingEntry value="18.0" attributeValue="reaction"/>
+                    <discreteMappingEntry value="25.0" attributeValue="fbc_and"/>
+                    <discreteMappingEntry value="10.0" attributeValue="comp_deletion"/>
+                    <discreteMappingEntry value="20.0" attributeValue="kineticLaw"/>
+                    <discreteMappingEntry value="15.0" attributeValue="qual_transition"/>
+                    <discreteMappingEntry value="20.0" attributeValue="algebraicRule"/>
+                    <discreteMappingEntry value="30.0" attributeValue="fbc_geneProduct"/>
+                    <discreteMappingEntry value="10.0" attributeValue="comp_replacedBy"/>
+                    <discreteMappingEntry value="20.0" attributeValue="unit"/>
+                    <discreteMappingEntry value="40.0" attributeValue="species"/>
+                    <discreteMappingEntry value="30.0" attributeValue="unitDefinition"/>
+                    <discreteMappingEntry value="30.0" attributeValue="localParameter"/>
+                    <discreteMappingEntry value="20.0" attributeValue="rateRule"/>
+                    <discreteMappingEntry value="25.0" attributeValue="species-clone"/>
+                    <discreteMappingEntry value="30.0" attributeValue="parameter"/>
+                    <discreteMappingEntry value="40.0" attributeValue="qual_species"/>
+                    <discreteMappingEntry value="20.0" attributeValue="eventAssignment"/>
+                    <discreteMappingEntry value="90.0" attributeValue="compartment"/>
+                    <discreteMappingEntry value="25.0" attributeValue="fbc_or"/>
+                    <discreteMappingEntry value="40.0" attributeValue="event"/>
+                    <discreteMappingEntry value="10.0" attributeValue="comp_replacedElement"/>
+                    <discreteMappingEntry value="60.0" attributeValue="group"/>
+                    <discreteMappingEntry value="10.0" attributeValue="comp_port"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_COLOR" default="#000000"/>
+            <visualProperty name="NODE_CUSTOMPAINT_1" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_1, name=Node Custom Paint 1)"/>
+            <visualProperty name="NODE_LABEL" default="">
+                <passthroughMapping attributeType="string" attributeName="label"/>
+            </visualProperty>
+            <visualProperty name="NODE_Y_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_X_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_LABEL_POSITION" default="C,C,c,0.00,0.00">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="assignmentRule"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="reaction"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="comp_deletion"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="kineticLaw"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="qual_transition"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="algebraicRule"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="fbc_geneProduct"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="comp_replacedBy"/>
+                    <discreteMappingEntry value="S,N,c,0.00,0.00" attributeValue="species"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="localParameter"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="rateRule"/>
+                    <discreteMappingEntry value="SW,N,r,0.00,0.00" attributeValue="species-clone"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="parameter"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="comp_replacedElement"/>
+                    <discreteMappingEntry value="N,S,c,0.00,0.00" attributeValue="comp_port"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_6" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_8" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_BORDER_WIDTH" default="5.0">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="8.0" attributeValue="species"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_HEIGHT" default="10.0"/>
+            <visualProperty name="NODE_LABEL_FONT_FACE" default="Dialog.plain,plain,12">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="assignmentRule"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="reaction"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="localParameter"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="rateRule"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="parameter"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="compartment"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="kineticLaw"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="initialAssignment"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="qual_transition"/>
+                    <discreteMappingEntry value="Dialog.plain,plain,12" attributeValue="algebraicRule"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_SELECTED_PAINT" default="#FFFF00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_4" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_4" default="0.0"/>
+            <visualProperty name="NODE_BORDER_STROKE" default="SOLID"/>
+            <visualProperty name="NODE_BORDER_TRANSPARENCY" default="200"/>
+            <visualProperty name="NODE_CUSTOMPAINT_9" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_9, name=Node Custom Paint 9)"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_3" default="0.0"/>
+            <visualProperty name="NODE_LABEL_FONT_SIZE" default="15">
+                <discreteMapping attributeType="string" attributeName="sbml type">
+                    <discreteMappingEntry value="13" attributeValue="reaction"/>
+                    <discreteMappingEntry value="20" attributeValue="species"/>
+                    <discreteMappingEntry value="12" attributeValue="fbc_and"/>
+                    <discreteMappingEntry value="12" attributeValue="fbc_or"/>
+                    <discreteMappingEntry value="20" attributeValue="fbc_geneProduct"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_5" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_TRANSPARENCY" default="255"/>
+            <visualProperty name="NODE_CUSTOMPAINT_3" default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_3, name=Node Custom Paint 3)"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_7" default="0.0"/>
+        </node>
+        <edge>
+            <dependency name="arrowColorMatchesEdge" value="false"/>
+            <visualProperty name="EDGE_UNSELECTED_PAINT" default="#969696">
+                <continuousMapping attributeType="float" attributeName="fluxData_anaer">
+                    <continuousMappingPoint lesserValue="#3182BD" greaterValue="#3182BD" equalValue="#3182BD" attrValue="-1000.0"/>
+                    <continuousMappingPoint lesserValue="#EFF3FF" greaterValue="#EFF3FF" equalValue="#EFF3FF" attrValue="-1.0"/>
+                    <continuousMappingPoint lesserValue="#969696" greaterValue="#969696" equalValue="#969696" attrValue="0.0"/>
+                    <continuousMappingPoint lesserValue="#FEE5D9" greaterValue="#FEE5D9" equalValue="#FEE5D9" attrValue="1.0"/>
+                    <continuousMappingPoint lesserValue="#DE2D26" greaterValue="#DE2D26" equalValue="#DE2D26" attrValue="1000.0"/>
+                </continuousMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_TRANSPARENCY" default="255"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_SIZE" default="6.0"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_SHAPE" default="NONE"/>
+            <visualProperty name="EDGE_LABEL_WIDTH" default="200.0"/>
+            <visualProperty name="EDGE_LABEL_FONT_SIZE" default="10"/>
+            <visualProperty name="EDGE_CURVED" default="true"/>
+            <visualProperty name="EDGE_SELECTED_PAINT" default="#FF0000"/>
+            <visualProperty name="EDGE_BEND"/>
+            <visualProperty name="EDGE_LABEL" default=""/>
+            <visualProperty name="EDGE_LABEL_COLOR" default="#000000"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_UNSELECTED_PAINT" default="#000000">
+                <discreteMapping attributeType="string" attributeName="shared interaction">
+                    <discreteMappingEntry value="#FF6600" attributeValue="reference_eventAssignment"/>
+                    <discreteMappingEntry value="#000000" attributeValue="reaction-product"/>
+                    <discreteMappingEntry value="#000000" attributeValue="reaction-reactant"/>
+                    <discreteMappingEntry value="#000000" attributeValue="input_transition"/>
+                    <discreteMappingEntry value="#3333FF" attributeValue="species_geneProduct"/>
+                    <discreteMappingEntry value="#006600" attributeValue="reaction-activator"/>
+                    <discreteMappingEntry value="#FF3333" attributeValue="reaction-inhibitor"/>
+                    <discreteMappingEntry value="#3333FF" attributeValue="reaction-modifier"/>
+                    <discreteMappingEntry value="#FF6600" attributeValue="variable_eventAssignment"/>
+                    <discreteMappingEntry value="#000000" attributeValue="transition_output"/>
+                    <discreteMappingEntry value="#FF3333" attributeValue="sbase_unitDefinition"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_SOURCE_ARROW_SELECTED_PAINT" default="#FFFF00"/>
+            <visualProperty name="EDGE_LABEL_FONT_FACE" default="SansSerif.plain,plain,10"/>
+            <visualProperty name="EDGE_LINE_TYPE" default="SOLID">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="SOLID" attributeValue="reaction-product"/>
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="association_reaction"/>
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="association_association"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_TARGET_ARROW_SELECTED_PAINT" default="#FFFF00"/>
+            <visualProperty name="EDGE_LABEL_TRANSPARENCY" default="255"/>
+            <visualProperty name="EDGE_TOOLTIP" default=""/>
+            <visualProperty name="EDGE_STROKE_UNSELECTED_PAINT" default="#969696"/>
+            <visualProperty name="EDGE_TARGET_ARROW_SHAPE" default="NONE">
+                <discreteMapping attributeType="string" attributeName="interaction type">
+                    <discreteMappingEntry value="DELTA" attributeValue="reaction-product"/>
+                    <discreteMappingEntry value="DELTA_SHORT_2" attributeValue="sbase-replacedElement"/>
+                    <discreteMappingEntry value="DELTA" attributeValue="transition_output"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_TARGET_ARROW_SIZE" default="6.0"/>
+            <visualProperty name="EDGE_WIDTH" default="2.0"/>
+            <visualProperty name="EDGE_SELECTED" default="false"/>
+            <visualProperty name="EDGE_TARGET_ARROW_UNSELECTED_PAINT" default="#000000"/>
+            <visualProperty name="EDGE_STROKE_SELECTED_PAINT" default="#FF0000"/>
+            <visualProperty name="EDGE_PAINT" default="#808080"/>
+            <visualProperty name="EDGE_VISIBLE" default="true"/>
+        </edge>
+    </visualStyle>
+</vizmap>
