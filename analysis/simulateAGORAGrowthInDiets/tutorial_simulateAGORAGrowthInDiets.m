@@ -27,7 +27,7 @@ modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
 % Load the AGORA reconstructions.
 %% Load the AGORA reconstructions to be joined.
 for i=2:size(infoFile,1)
-    model=readCbModel([modPath filesep infoFile{i,1} '.mat']);
+    load([modPath filesep infoFile{i,1} '.mat']);
     inputModels{i-1,1}=model;
 end
 %% Simulation of growth on a Western and a high fiber diet in presence and absence of oxygen

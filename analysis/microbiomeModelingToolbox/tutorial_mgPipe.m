@@ -48,7 +48,7 @@ unzip('Agora-1.02.zip','AGORA')
 modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
 % path where to save results
 mkdir('results');
-resPath = [tutorialPath filesep 'results'];
+resPath = [tutorialPath filesep 'results' filesep];
 %% 
 % path to and name of the file with dietary information. Here, we will use 
 % an "Average European" diet that is located in the DietImplementation folder.
@@ -87,7 +87,7 @@ abunFilePath=[CBTDIR filesep 'tutorials' filesep 'analysis' filesep 'microbiomeM
 % 
 % name of the objective function of organisms
 %%
-objre={'EX_biomass(e)'};
+objre='EX_biomass(e)';
 
 % the output is a vectorized picture, change to '-dpng' for .png
 figForm = '-depsc';
@@ -102,10 +102,13 @@ autoFix = true;
 compMod = false;
 
 % if documentation (.csv) on stratification criteria is available
-indInfoFilePath='none'; 
+indInfoFilePath=''; 
 
 % to enable also rich diet simulations 
 rDiet = false; 
+
+% to enable personalized diet simulations 
+pDiet = false; 
 
 % if to use an external solver and save models with diet
 extSolve = false; 
@@ -116,14 +119,19 @@ fvaType = true;
 % to turn off the autorun to be able to manually execute each part of the pipeline
 autorun = false; 
 
-[init,modPath,~,resPath,dietFilePath,abunFilePath,indInfoFilePath,objre,figForm,numWorkers,autoFix,compMod,rDiet,extSolve,fvaType,autorun]= initMgPipe(modPath, CBTDIR, resPath, dietFilePath, abunFilePath, indInfoFilePath, objre, figForm, numWorkers, autoFix, compMod, rDiet,extSolve,fvaType,autorun);
+init = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'numWorkers', numWorkers, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'indInfoFilePath', indInfoFilePath, 'rDiet', rDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'autorun', autorun);
+
+%% Manual run of the pipeline
+% Alternatively, the pipeline can be run through the function mgPipe. To do
+% this, set autorun to true.
+
 %% PIPELINE: [PART 1]
 % The number of organisms, their names, the number of samples and their identifiers 
 % are automatically detected from the input file. 
 % 
 % 
 %%
-[patNumb, sampName, strains] = getIndividualSizeName(abunFilePath)
+[patNumb, sampName, strains] = getIndividualSizeName(abunFilePath);
 %% 
 % Now we detect from the content of the results folder if PART1 was already 
 % computed: if the associated file is already present in the results folder its 
@@ -160,7 +168,7 @@ end
 % 
 % 
 %%
-[mapP] = detectOutput(resPath,'mapInfo.mat')
+[mapP] = detectOutput(resPath,'mapInfo.mat');
 %% 
 % 
 %%
@@ -227,7 +235,7 @@ end
 % 
 %%
 if modbuild == 1
-   setup=fastSetupCreator(models, strains, {},objre)
+   setup=fastSetupCreator(models, strains, {},objre);
    setup.name='Global reconstruction with lumen / fecal compartments no host';
    setup.recon=0;
    save(strcat(resPath,'Setup_allbacs.mat'), 'setup')
@@ -244,7 +252,7 @@ end
 % 
 % 
 %%
-[createdModels]=createPersonalizedModel(abunFilePath,resPath,setup,sampName,strains,patNumb)
+[createdModels]=createPersonalizedModel(abunFilePath,resPath,setup,sampName,strains,patNumb);
 %% PIPELINE: [PART 3]
 % In this phase, for each microbiota model, a diet, in the form of set constraints 
 % to the exchanges reactions of the diet compartment, is integrated. Flux Variability 
@@ -265,7 +273,7 @@ end
 % 
 % 
 %%
-[ID,fvaCt,nsCt,presol,inFesMat]=microbiotaModelSimulator(resPath,setup,sampName,dietFilePath,rDiet,0,extSolve,patNumb,fvaType)
+[ID,fvaCt,nsCt,presol,inFesMat]=microbiotaModelSimulator(resPath,setup,sampName,dietFilePath,rDiet,0,extSolve,patNumb,fvaType);
 %% 
 % Finally, NMPCs (net maximal production capability) are computed in a metabolite 
 % resolved manner and saved in a comma delimited file in the results folder. NMPCs 
@@ -276,7 +284,7 @@ end
 % 
 % 
 %%
-[Fsp,Y]= mgSimResCollect(resPath,ID,sampName,rDiet,0,patNumb,indInfoFilePath,fvaCt,figForm);
+[netSecretionFluxes, netUptakeFluxes, Y] = mgSimResCollect(resPath, ID, sampName, rDiet, pDiet, patNumb, indInfoFilePath, fvaCt, nsCt, figForm);
 %% 
 % Additionally, it is possible to retrieve and export, comprehensively, 
 % all the results (fluxes) computed during the simulations for a specified diet. 
