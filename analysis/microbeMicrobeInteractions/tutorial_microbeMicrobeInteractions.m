@@ -32,7 +32,7 @@ modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
 % For the sake of this tutorial, we will use ten random AGORA reconstructions 
 % from the info file.
 %%
-modelList = infoFile(randi([2 length(infoFile)],1,10),1);
+modelList = sort(infoFile(randi([2 length(infoFile)],1,10),1));
 %% 
 % Uncomment the following line to join all AGORA reconstructions in all 
 % combinations. NOTE: this is very time-consuming due to the large number of model 
@@ -43,12 +43,6 @@ modelList = infoFile(randi([2 length(infoFile)],1,10),1);
 % You may also enter a custom selection of AGORA reconstructions as a cell 
 % array named modelList.
 % 
-% Load the AGORA reconstructions to be joined.
-%%
-for i=1:size(modelList,1)
-    model=readCbModel(strcat(modPath,modelList{i,1},'.mat'));
-    inputModels{i,1}=model;
-end
 %% 
 % Let us define some parameters for joining the models. Set the coupling 
 % factor c, which defined how the flux through all reactions in a model is coupled 
@@ -72,10 +66,14 @@ mergeGenes = false;
 % is not available.
 %%
 numWorkers = 4;
+%%
+% Create a folder where the pairwise models will be saved
+mkdir('pairwiseModels')
+pairwiseModelFolder = [pwd filesep 'pairwiseModels'];
 %% 
 % Join the models in all possible combinations.
 %%
-[pairedModels,pairedModelInfo]=joinModelsPairwiseFromList(modelList,inputModels,'c',c,'u',u,'mergeGenesFlag',mergeGenes,'numWorkers',numWorkers);
+joinModelsPairwiseFromList(modelList,modPath,'c',c,'u',u,'mergeGenesFlag',mergeGenes,'numWorkers',numWorkers, 'pairwiseModelFolder',pairwiseModelFolder);
 %% Computation of pairwise interactions
 % The interactions between all microbes joined in the first step will be simulated 
 % on given dietary conditions. Here, we will use four dietary conditions used 
@@ -107,7 +105,7 @@ sigD = 0.1;
 %%
 for i = 1:length(conditions)
     % assign dietary constraints
-    [pairwiseInteractions]=simulatePairwiseInteractions(pairedModels,pairedModelInfo,'inputDiet',dietConstraints{i},'sigD',sigD,'saveSolutionsFlag', false,'numWorkers', numWorkers);
+    [pairwiseInteractions]=simulatePairwiseInteractions(pairwiseModelFolder,'inputDiet',dietConstraints{i},'sigD',sigD,'saveSolutionsFlag', false,'numWorkers', numWorkers);
 Interactions.(conditions{i})=pairwiseInteractions;
 end
 %% Analysis of computed pairwise interactions
@@ -231,14 +229,14 @@ dinc=0.001;
 %%
 for i=1:size(modelInd,2)
     models={};
-    model=readCbModel(strcat(modPath,infoFile{modelInd(1,i),1},'.mat'));
+    model=readCbModel([modPath filesep infoFile{modelInd(1,i),1} '.mat']);
     models{1,1}=model;
-    bioID{1,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
+    bioID{1,1}=model.rxns(find(strncmp(model.rxns,'bio',3)));
     nameTagsModels{1,1}=strcat(infoFile{modelInd(1,i),1},'_');
-    model=readCbModel(strcat(modPath,infoFile{modelInd(2,i),1},'.mat'));
+    model=readCbModel([modPath filesep infoFile{modelInd(2,i),1} '.mat']);
     models{2,1}=model;
     nameTagsModels{2,1}=strcat(infoFile{modelInd(2,i),1},'_');
-    bioID{2,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
+    bioID{2,1}=model.rxns(find(strncmp(model.rxns,'bio',3)));
     [pairedModel] = createMultipleSpeciesModel(models,'nameTagsModels',nameTagsModels);
     [pairedModel]=coupleRxnList2Rxn(pairedModel,pairedModel.rxns(strmatch(nameTagsModels{1,1},pairedModel.rxns)),strcat(infoFile{modelInd(1,i),1},'_',bioID{1,1}));
     [pairedModel]=coupleRxnList2Rxn(pairedModel,pairedModel.rxns(strmatch(nameTagsModels{2,1},pairedModel.rxns)),strcat(infoFile{modelInd(2,i),1},'_',bioID{2,1}));
