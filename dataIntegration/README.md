@@ -1,4 +1,4 @@
-# <img src="https://prince.lcsb.uni.lu/cobratoolbox/img/icon_di.png" height="22px">&nbsp;&nbsp;Tutorials - dataIntegration
+# <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_di.png" height="22px">&nbsp;&nbsp;Tutorials - dataIntegration
 
 - [Extraction of context-specific models (extractionTranscriptomic)](extractionTranscriptomic)
 - [Metabotools tutorial I (metabotools - tutorial I)](metabotools)
