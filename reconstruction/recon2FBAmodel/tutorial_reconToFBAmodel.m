@@ -35,14 +35,14 @@
 %% Select reconstruction to convert into a model and enter parameters
 % Load the ReconX reconstruction, and save the original reconstruction in the 
 % workspace, unless it is already loaded into the workspace. 
-%%
+
 clear model
 if ~exist('modelOrig','var')
-    %select your own model, or use Recon2.0model instead
-    if 0
-        filename='Recon3.0model';
-        directory='~/work/sbgCloud/programReconstruction/projects/recon2models/data/reconXComparisonModels';
-        model = loadIdentifiedModel(filename,directory);
+    %select your own model, or use ReconX instead
+    if 1
+        filename='Recon3D_301.mat'
+        load(filename);
+        model=Recon3D;
     else
         filename='Recon2.0model.mat';
         if exist('Recon2.0model.mat','file')==2
@@ -61,8 +61,9 @@ printLevel=2;
 %% 
 % Choose the directory to place the results
 
-basePath='~/work/sbgCloud/';
-resultsPath=[basePath '/programReconstruction/projects/recon2models/results/reconXs/' model.modelID];
+basePath=pwd;
+resultsPath=basePath;
+%resultsPath=[basePath '/courses/2019_Leiden_COBRA/practicalsDemo/Day4/' model.modelID];
 resultsFileName=[resultsPath filesep model.modelID];
 %% 
 % Create and enter the folder for the results if it does not already exist
@@ -72,9 +73,9 @@ if ~exist(resultsPath,'dir')
 end
 cd(resultsPath)
 %% 
-% Optionally create a diary to save the output in case it is very long, 
-% this makes it easier to search, especially when debugging the process during 
-% the early stages.
+% Optionally create a diary to save the output in case it is very long, this 
+% makes it easier to search, especially when debugging the process during the 
+% early stages.
 
 if 0
     diary([resultsFileName '_diary.txt'])
@@ -82,13 +83,13 @@ end
 %% Overview some of the key properties of the reconstruction
 % Noting the initial size of the reconstruction is useful for comparisons later 
 % with subsets derived according to mathematical specifications.
-%%
+
 [nMet,nRxn]=size(model.S);
 fprintf('%6s\t%6s\n','#mets','#rxns')
 fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
 %% 
-% Make sure the stoichiometric matrix is stored in a sparse format as this 
-% accelerates computations with large networks
+% Make sure the stoichiometric matrix is stored in a sparse format as this accelerates 
+% computations with large networks
 
 model.S=sparse(model.S);
 %% Check in case the reconstruction is a model that is already ready for flux balance analysis
@@ -101,8 +102,8 @@ model.S=sparse(model.S);
 % SIntMetBool                     m x 1 Boolean of metabolites heuristically 
 % though to be involved in mass balanced reactions.
 % 
-% SIntRxnBool                     n x 1 Boolean of reactions heuristically 
-% though to be mass balanced.
+% SIntRxnBool                     n x 1 Boolean of reactions heuristically though 
+% to be mass balanced.
 % 
 % SConsistentMetBool        m x 1 Boolean vector indicating consistent mets
 % 
@@ -136,8 +137,8 @@ end
 % 
 % A. Skip manual review of reconstruction content. Move to the next step.
 % 
-% B. Review the content of the reconstruction and omit any reactions that 
-% are assumed to be stoichiometrically or flux inconsistent. With respect to stoichiometric 
+% B. Review the content of the reconstruction and omit any reactions that are 
+% assumed to be stoichiometrically or flux inconsistent. With respect to stoichiometric 
 % inconsistency, such reactions may be obviously mass imbalanced and not satisfy 
 % the heuristic conditions for indentification as an exernal reaction. Alternatively, 
 % such reactions may be identified by a previous pass through of this tutorial 
@@ -147,8 +148,8 @@ end
 % of the largest stoichiometrically consistent set and manual curation of the 
 % remainder that is of unknown stoichiometric consistency is necessary.
 
-if strcmp(filename,'Recon3.0model')
-    modelOrig=model;
+if strcmp(filename,'Recon3.0model') || strcmp(filename,'Recon3D_301.mat')
+    modelOrig=model; 
     if 0
         if 1
             %Rename some of the biomass reactions to make them more obviously exchange
@@ -191,17 +192,17 @@ if nMet0==nMet && nRxn0==nRxn && printLevel>0
     fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' remaining.')
 end
 %% 
-% Check for duplicate columns by detecting the columns of the  S matrix 
-% that are identical upto scalar multiplication.
-%%
+% Check for duplicate columns by detecting the columns of the  S matrix that 
+% are identical upto scalar multiplication.
+
 modelOrig=model;
 dupDetectMethod='FR';
 dupDetectMethod='S';
 removeFlag=0;
 [modelOut,removedRxnInd, keptRxnInd] = checkDuplicateRxn(model,dupDetectMethod,removeFlag,printLevel-2);
 %% 
-% Remove any duplicate reactions, and uniquely involved reactants, from 
-% the stoichiometric matrix. 
+% Remove any duplicate reactions, and uniquely involved reactants, from the 
+% stoichiometric matrix. 
 
 if length(removedRxnInd)>0
     irrevFlag=0;
@@ -230,12 +231,12 @@ end
 % as substrates or products. Also remove exclusively involved reactants.
 % 
 % Save a temporary model for testing, before making any changes.
-%%
+
 modelH=model;
 %% 
-% Find the proton indicies in different compartments. A proton, with index 
-% i, is asumed to be represented by an abbreviation within model.mets{i} like 
-% h[*], where * denotes the compartment symbol.
+% Find the proton indicies in different compartments. A proton, with index i, 
+% is asumed to be represented by an abbreviation within model.mets{i} like h[*], 
+% where * denotes the compartment symbol.
 
 nMetChars=zeros(length(modelH.mets),1);
 for m=1:length(modelH.mets)
@@ -246,20 +247,20 @@ if printLevel>2
     disp(modelH.mets(protonMetBool))
 end
 %% 
-%     Zero out the proton stoichiometric coefficients from the temporary 
-% model for testing
+% Zero out the proton stoichiometric coefficients from the temporary model for 
+% testing
 
 modelH.S(protonMetBool,:)=0;
 %% 
-% Check for duplicate columns, upto protons, by detecting the columns of 
-% the  S matrix that are identical upto scalar multiplication.
+% Check for duplicate columns, upto protons, by detecting the columns of the  
+% S matrix that are identical upto scalar multiplication.
 
 dupDetectMethod='FR';
 removeFlag=0;
 [modelOut,removedRxnInd, keptRxnInd] = checkDuplicateRxn(modelH,dupDetectMethod,removeFlag,printLevel-1);
 %% 
-% Remove any duplicate reactions from the stoichiometric matrix, but do 
-% not remove the protons.
+% Remove any duplicate reactions from the stoichiometric matrix, but do not 
+% remove the protons.
 
 if length(removedRxnInd)>0
     irrevFlag=0;
@@ -289,7 +290,7 @@ end
 % The findSExRxnInd function finds the external reactions in the model which export 
 % or import mass from or to the model, e.g. Exchange reactions, Demand reactions, 
 % Sink reactions.
-%%
+
 if ~isfield(model,'SIntMetBool')  ||  ~isfield(model,'SIntRxnBool')
      model = findSExRxnInd(model,[],printLevel-1);
 end
@@ -308,7 +309,7 @@ end
 % the stoichiometrically consistent subset can be demanding for large models so 
 % first we identify the subset of reactions that are flux consistent and focus 
 % on them.
-%%
+
 modelOrig=model;
 model.lb(~model.SIntRxnBool)=-1000;
 model.ub(~model.SIntRxnBool)= 1000;
@@ -318,7 +319,9 @@ if 1
         param.modeFlag=0;
         param.method='null_fastcc';
         %param.method='fastcc';
-        [fluxConsistentMetBool,fluxConsistentRxnBool,fluxInConsistentMetBool,fluxInConsistentRxnBool,model] = findFluxConsistentSubset(model,param,printLevel-1);
+        [fluxConsistentMetBool,fluxConsistentRxnBool,...
+            fluxInConsistentMetBool,fluxInConsistentRxnBool,model]...
+            = findFluxConsistentSubset(model,param,printLevel);
     end
     % Remove reactions that are flux inconsistent
     if any(fluxInConsistentRxnBool)
@@ -361,7 +364,7 @@ if 1
     end
 end
 %% Find mass leaks or siphons within the heuristically internal part, without using the bounds given by the model
-%%
+
 if 1
     modelBoundsFlag=0;
     leakParams.epsilon=1e-4;
@@ -372,7 +375,7 @@ if 1
         modelBoundsFlag,leakParams,printLevel);
 end
 %% Find the maximal set of reactions that are stoichiometrically consistent
-%%
+
 if ~isfield(model,'SConsistentMetBool') || ~isfield(model,'SConsistentRxnBool')
     if strcmp(model.modelID,'HMRdatabase2_00')
         massBalanceCheck=0;
@@ -389,7 +392,7 @@ if ~isfield(model,'SConsistentMetBool') || ~isfield(model,'SConsistentRxnBool')
             =findStoichConsistentSubset(model,massBalanceCheck,printLevel,resultsFileName);
     end
 end
-    
+%%
 rxnBool=model.SInConsistentRxnBool & model.SIntRxnBool;
 if any(rxnBool)
     if printLevel>0
@@ -397,7 +400,11 @@ if any(rxnBool)
     end
     for n=1:nRxn
         if rxnBool(n)
-            fprintf('%20s\t%50s\t%s\n',model.rxns{n},model.rxnNames{n},model.subSystems{n})
+            if iscell(model.subSystems{n})
+                fprintf('%20s\t%50s\t%s\n',model.rxns{n},model.rxnNames{n},model.subSystems{n}{1})
+            else
+                fprintf('%20s\t%50s\t%s\n',model.rxns{n},model.rxnNames{n},model.subSystems{n})
+            end
         end
     end
     if printLevel>0
@@ -405,6 +412,7 @@ if any(rxnBool)
     end
 end
     
+%%
 rxnBool=model.unknownSConsistencyRxnBool & model.SIntRxnBool;
 if any(rxnBool)
     if printLevel>0
@@ -412,7 +420,11 @@ if any(rxnBool)
     end
     for n=1:nRxn
         if rxnBool(n)
-            fprintf('%20s\t%50s\t%s\n',model.rxns{n},model.rxnNames{n},model.subSystems{n})
+                     if iscell(model.subSystems{n})
+                fprintf('%20s\t%50s\t%s\n',model.rxns{n},model.rxnNames{n},model.subSystems{n}{1})
+            else
+                fprintf('%20s\t%50s\t%s\n',model.rxns{n},model.rxnNames{n},model.subSystems{n})
+                     end
         end
     end
     if printLevel>0
@@ -420,94 +432,25 @@ if any(rxnBool)
     end
 end
 %% Sanity check of stoichiometric and flux consistency of model with open external reactions
-%%
-    if  all(model.SIntMetBool & model.SConsistentMetBool)...
-            && nnz(model.SIntRxnBool & model.SConsistentRxnBool)==nnz(model.SIntRxnBool)...
-            && all(model.fluxConsistentMetBool)...
-            && all(model.fluxConsistentRxnBool)
-        
-        [nMet,nRxn]=size(model.S);
-        if printLevel>1
-            fprintf('%6s\t%6s\n','#mets','#rxns')
-            fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
-            fprintf('%6u\t%6u\t%s\n',nnz(~model.SIntMetBool),nnz(~model.SIntRxnBool),' heuristically exchange.')
-        end
-        
-        checksPassed=0;
-        %Check that all heuristically non-exchange reactions are also stoichiometrically consistent
-        
-        %exchange reactions
-        model.EXRxnBool=strncmp('EX_', model.rxns, 3)==1;
-        %demand reactions going out of model
-        model.DMRxnBool=strncmp('DM_', model.rxns, 3)==1;
-        %sink reactions going into or out of model
-        model.SinkRxnBool=strncmp('sink_', model.rxns, 5)==1;
-        %all heuristic non-exchanges, i.e., supposedly all external reactions
-        bool=~(model.EXRxnBool | model.DMRxnBool | model.SinkRxnBool);
-        if nnz(bool & model.SIntRxnBool & model.SConsistentRxnBool)==nnz(model.SConsistentRxnBool)
-            checksPassed=checksPassed+1;
-            if printLevel>1
-                fprintf('%6u\t%6u\t%s\n',nnz(model.SIntMetBool),nnz(model.SIntRxnBool),' All internally stoichiometrically consistent. (Check 1: minimum cardinality of conservation relaxation vector.)');
-            end
-        end
-        
-        %Check for mass leaks or siphons in the stoichiometrically consistent part
-        %There should be no leaks or siphons in the stiochiometrically consistent part
-        modelBoundsFlag=0;
-        leakParams.epsilon=1e-4;
-        leakParams.eta = getCobraSolverParams('LP', 'feasTol')*100;
-        leakParams.method='dc';
-        [leakMetBool,leakRxnBool,siphonMetBool,siphonRxnBool,leakY,siphonY,statp,statn]...
-            =findMassLeaksAndSiphons(model,model.SConsistentMetBool,model.SConsistentRxnBool,modelBoundsFlag,leakParams,printLevel);
-        
-        if nnz(leakMetBool)==0 && nnz(leakRxnBool)==0 && nnz(siphonMetBool)==0 && nnz(siphonRxnBool)==0
-            checksPassed=checksPassed+1;
-            if printLevel>1
-                fprintf('%6u\t%6u\t%s\n',nnz(leakMetBool | siphonMetBool),nnz(leakRxnBool | siphonRxnBool),' No internal leaks or siphons. (Check 2: leak/siphon tests.)');
-            end
-        end
-        
-        %Check that the maximal conservation vector is nonzero for each the
-        %internal stoichiometric matrix
-        maxCardinalityConsParams.epsilon=1e-4;%1/epsilon is the largest mass considered, needed for numerical stability
-        maxCardinalityConsParams.method = 'quasiConcave';%seems to work the best, but sometimes infeasible
-        maxCardinalityConsParams.theta = 0.5;
-        maxCardinalityConsParams.eta=getCobraSolverParams('LP', 'feasTol')*100;
-        [maxConservationMetBool,maxConservationRxnBool,solution]=maxCardinalityConservationVector(model.S(model.SConsistentMetBool,model.SConsistentRxnBool), maxCardinalityConsParams);
-        
-        if nnz(maxConservationMetBool)==size(model.S,1) && nnz(maxConservationRxnBool)==nnz(model.SIntRxnBool)
-            checksPassed=checksPassed+1;
-            if printLevel>1
-                fprintf('%6u\t%6u\t%s\n',nnz(maxConservationMetBool),nnz(maxConservationRxnBool),' All internally stoichiometrically consistent. (Check 3: maximim cardinality conservation vector.)');
-            end
-        end
-        
-        %Check that each of the reactions in the model (with open external reactions) is flux consistent
-        modelOpen=model;
-        modelOpen.lb(~model.SIntRxnBool)=-1000;
-        modelOpen.ub(~model.SIntRxnBool)= 1000;
-        param.epsilon=1e-4;
-        param.modeFlag=0;
-        param.method='null_fastcc';
-        [fluxConsistentMetBool,fluxConsistentRxnBool,fluxInConsistentMetBool,fluxInConsistentRxnBool,modelOpen] = findFluxConsistentSubset(modelOpen,param,printLevel-2);
-        
-        if nnz(fluxConsistentMetBool)==size(model.S,1) && nnz(fluxConsistentRxnBool)==size(model.S,2)
-            checksPassed=checksPassed+1;
-            if printLevel>1
-                fprintf('%6u\t%6u\t%s\n',nnz(fluxConsistentMetBool),nnz(fluxConsistentRxnBool),' All flux consistent. (Check 4: maximim cardinality constrained right nullspace.)');
-            end
-        end
-        
-        if checksPassed==4
-            %save the model with open exchanges as the default generic
-            %model
-            model=modelOpen;
-            if printLevel>0
-                fprintf('%s\n','Open external reactions is stoichiometrically and flux consistent. A flux balance model generated from a reconstruction. GREAT!!!!');
-            end
-        end
-        save([resultsFileName '_consistent.mat'],'model')
-    end
+
+if  all(model.SIntMetBool & model.SConsistentMetBool)...
+        && nnz(model.SIntRxnBool & model.SConsistentRxnBool)==nnz(model.SIntRxnBool)...
+        && all(model.fluxConsistentMetBool)...
+        && all(model.fluxConsistentRxnBool)
+    
+    checks if a model is consistent (stoichiometrically and flux consistent)
+    param.printLevel = printLevel;
+    isConsistent = assertModelConsistency(model,param);
+    save([resultsFileName '_consistent.mat'],'model')
+end
+if isConsistent
+    fprintf('\n\n%s\n',['model in ' modelName ' is stoichiometrically consistent, and flux consistent with open external reactions']);
+    fprintf('%s\n',['i.e. model in ' modelName ' is ready for flux balance analysis. GREAT!!!!']);
+else
+    fprintf('%s\n',['model in ' modelName ' is either NOT stoichiometrically consistent or NOT flux consistent with open external reactions.']);
+    fprintf('%s\n',['i.e. model in ' modelName ' may not be suitable for flux balance analysis.']);
+    fprintf('%s\n',['see https://opencobra.github.io/cobratoolbox/stable/tutorials/tutorialReconToFBAmodel.html']);
+end
 %% REFERENCES
 % Gevorgyan, A., Poolman, M. G., Fell D., Detection of stoichiometric inconsistencies 
 % in biomolecular models. Bioinformatics, 24(19):2245–51, 2008.
@@ -515,5 +458,5 @@ end
 % Fleming, R.M.T., et al., Cardinality optimisation in constraint-based modelling: 
 % Application to Recon 3D (submitted), 2017.
 % 
-% Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view 
-% of gene variation in human metabolism. (submitted) 2017.
+% Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view of 
+% gene variation in human metabolism. (submitted) 2017.
