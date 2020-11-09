@@ -49,8 +49,8 @@
 % This tutorial is based on [1].
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox:
-%%
-initCobraToolbox(false) % false, as we don't want to update
+
+initCobraToolbox
 %% 
 % For solving linear programming problems in FBA analysis, certain solvers 
 % are required:
@@ -61,6 +61,8 @@ changeCobraSolver ('gurobi', 'all', 1);
 % which does not require additional instalation and configuration. However, for 
 % the analysis of large models, such as Recon 3, it is not recommended to use 
 % |'glpk'| but rather industrial strength solvers, such as the |'gurobi'| package. 
+% For detail information, refer to the solver instalation guide: <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
+% https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md>
 
 warning off MATLAB:subscripting:noSubscriptsSpecified
 %% TIME REQUIREMENTS
@@ -69,7 +71,7 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up:
-%%
+
 pathModel = '~/work/sbgCloud/data/models/unpublished/Recon3D_models/';
 filename = '2017_04_28_Recon3d.mat';
 load([pathModel, filename])
@@ -81,7 +83,7 @@ clear modelRecon3model
 %% 
 %% Identification of deadend metabolites
 % * Detect deadend metabolites
-%%
+
 outputMets = detectDeadEnds(model)
 %% 
 % * print the corresponding metabolite names
@@ -119,8 +121,8 @@ model.ub(find(ismember(model.rxns,rxnList)))
 % cannot carry any flux (aka. blocked reactions), under the given network topology 
 % and simulation constraints.
 % * Run analysis for blocked reactions. The function returns a list of blocked 
-% reactions (‘BlockedReactions’).
-%%
+% reactions (?BlockedReactions?).
+
 BlockedReactions = findBlockedReaction(model)
 %% fastGapFill
 % FastGapFill allows to set different priorities for reaction types (MetabolicRxns 
@@ -129,7 +131,7 @@ BlockedReactions = findBlockedReaction(model)
 % reactions) using the weights. The lower the weight for a reaction type, the 
 % higher is its priority. Generally, a metabolic reaction should be prioritised 
 % in a solution over transport and exchange reactions.
-%%
+
 weights.MetabolicRxns = 0.1; % Kegg metabolic reactions
 weights.ExchangeRxns = 0.5; % Exchange reactions
 weights.TransportRxns = 10; % Transport reactions
@@ -203,12 +205,12 @@ clear Rem tok rem;
 tic; [consistModel,consistMatricesSUX,BlockedRxns] = prepareFastGapFill(model);
 tpre=toc;
 %% 
-% * *consistModel* – Flux consistent subnetwork of the input model
-% * *consistMatricesSUX* – Flux consistent _SUX_ matrix, which contains the 
+% * *consistModel* ? Flux consistent subnetwork of the input model
+% * *consistMatricesSUX* ? Flux consistent _SUX_ matrix, which contains the 
 % flux consistent _S_ matrix (model), the universal database placed in all cellular 
 % compartments along with transport reactions for each metabolite from cytosol 
 % to compartment and exchange reactions for all extracellular metabolites.
-% * *BlockedRxns* – Blocked reactions in model.
+% * *BlockedRxns* ? Blocked reactions in model.
 % 
 % Add on more statistics to the table. Here, we will report how many gaps 
 % cannot be filled at all in the starting reconstruction.
@@ -237,8 +239,8 @@ tgap=toc;
 Stats{cnt,i+1} = num2str(length(AddedRxns.rxns));cnt = cnt+1;
 %% Postprocessing of results
 % Here, we assign  generalized functions to the output from _fastGapFill_ (e.g., 
-% ‘Metabolic reaction’, ‘Transport reaction’, ‘Exchange reaction’). It also provides 
-% basic statistics for the solution. One can use the option ‘IdentifyPW’ to compute 
+% ?Metabolic reaction?, ?Transport reaction?, ?Exchange reaction?). It also provides 
+% basic statistics for the solution. One can use the option ?IdentifyPW? to compute 
 % for each solved blocked reaction a flux vector, such that the flux through this 
 % reaction is maximized while the sum of all fluxes is minimized. This analysis 
 % can be helpful to put the solution reactions into the network context.

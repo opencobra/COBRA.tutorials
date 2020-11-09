@@ -14,7 +14,9 @@
 % We can model the flux through a metabolic network using a set of linear 
 % equations defined by
 % 
-% $$\mathbf{S}\cdot \mathbf{v}=\mathbf{b}$$
+% $$<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi 
+% mathvariant="bold">S</mi><mo>&sdot;</mo><mi mathvariant="bold">v</mi><mo>=</mo><mi 
+% mathvariant="bold">b</mi></mrow></math>$$
 % 
 % where *S* is the stoichiometric matrix, *v* is a vector of fluxes through 
 % the chemical reactions defined in *S*, and *b* represents constraints on the 
@@ -27,8 +29,11 @@
 % of each metabolite concentration. If the rate of change is significant, the 
 % model is updated by changing the steady-state constraint from 0 to 
 % 
-% $$\begin{array}{l}\mathbf{S}\cdot \mathbf{v}\text{ }\ge {\mathbf{b}}_1 
-% \\\mathbf{S}\cdot \mathbf{v}\text{ }\le {\mathbf{b}}_2 \end{array}$$
+% $$<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mtable 
+% columnalign="left"><mtr><mtd><mrow><mi mathvariant="bold">S</mi><mo>&sdot;</mo><mi 
+% mathvariant="bold">v</mi><mtext> </mtext><mo>&geq;</mo><msub><mrow><mi mathvariant="bold">b</mi></mrow><mrow><mn>1</mn></mrow></msub></mrow></mtd></mtr><mtr><mtd><mrow><mi 
+% mathvariant="bold">S</mi><mo>&sdot;</mo><mi mathvariant="bold">v</mi><mtext> 
+% </mtext><mo>&leq;</mo><msub><mrow><mi mathvariant="bold">b</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mtd></mtr></mtable></mrow></math>$$
 % 
 % where [$\mathbf{b}_1$, $\mathbf{b}_2$] represents the 95% confidence interval 
 % for each significantly changing metabolite. All unmeasured metabolites are assumed 
@@ -49,13 +54,13 @@
 %% PROCEDURE 
 %% Initialize
 % Running uFBA requires the use of several functions from the COBRA Toolbox.
-%%
-initCobraToolbox(false) % no toolbox update, just init
+
+initCobraToolbox
 %% 
 % We first load in sample data. This data is absolutely quantified and has 
 % already been volume adjusted such that intracellular and extracellular metabolite 
 % concentrations have compatible units. 
-%%
+
 tutorialPath = fileparts(which('tutorial_uFBA.mlx'));
 load([tutorialPath filesep 'sample_data.mat']);
 % We load the model by readCbModel to make sure it fits to the specifications.
@@ -73,7 +78,7 @@ model = readCbModel([tutorialPath filesep 'sample_data.mat'],'modelName','model'
 % the uFBA algorithm
 % 
 % In this tutorial, the use of Gurobi is mandatory.
-%%
+
 solverLPOk = changeCobraSolver('gurobi', 'LP');
 solverMILPOk = changeCobraSolver('gurobi', 'MILP');
 %% 
@@ -81,7 +86,7 @@ solverMILPOk = changeCobraSolver('gurobi', 'MILP');
 %% Estimate Metabolite Rates of Change (<1 sec.)
 % Next, we run linear regression to find the rate of change for each metabolite 
 % concentration.
-%%
+
 changeSlopes = zeros(length(met_IDs), 1);
 changeIntervals = zeros(length(met_IDs), 1);
 for i = 1:length(met_IDs)
@@ -133,7 +138,7 @@ ignoreSlopes = double(tmp1 < 0 & tmp2 > 0);
 % 
 %                                        Table 1 | Inputs and outputs of 
 % the |buildUFBAmodel| function.
-%%
+
 uFBAvariables.metNames = met_IDs;
 uFBAvariables.changeSlopes = changeSlopes;
 uFBAvariables.changeIntervals = changeIntervals;

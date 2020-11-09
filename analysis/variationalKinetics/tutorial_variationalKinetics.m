@@ -7,19 +7,27 @@
 % 
 % 
 % 
-% Let us consider  a biochemical network with $m$ molecular species and $n$ 
-% reversiable elementary reactions. We define forward and reverse stoichiometry 
-% matrices  $(F,R \in Z_{+}^{m\times n})$ respectively, where $F_{ij}$ denotes 
-% the stoichiometry of the $i^{th}$ molecular species in the $j^{th}$ forward 
-% reaction and $R_{ij}$ denotes the the stoichiometry of the $i^{th}$ molecular 
-% species in the $j^{th}$ reverse reaction. We assume that every reaction conservs 
-% mass, that is, there exists at least one positive vector $l\in R_{++}^{m}$ satisfying 
-% $(R-F)^{T}l=0$. The matrix $N=R-F$ represents net reaction stoichiometry and 
-% may viewed as the incidence matrix of a directed hypergraph. We are assume that 
-% there are less molecular species than there are net reactions, i.e., $m<n$. 
-% We assume the cardinality of each row of $F$ and $R$ is at least one and the 
-% cardinality of each column of $N$ is at least two. We also assume that $\text{rank}([F,R])=m$, 
-% which is a requirement for kinetic consistency.
+% Let us consider  a biochemical network with $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">m</mi></mrow></math>$ molecular 
+% species and $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
+% mathvariant="italic">n</mi></mrow></math>$ reversiable elementary reactions. 
+% We define forward and reverse stoichiometry matrices  $(F,R \in Z_{+}^{m\times 
+% n})$ respectively, where $F_{ij}$ denotes the stoichiometry of the $i^{th}$ 
+% molecular species in the $j^{th}$ forward reaction and $R_{ij}$ denotes the 
+% the stoichiometry of the $i^{th}$ molecular species in the $j^{th}$ reverse 
+% reaction. We assume that every reaction conservs mass, that is, there exists 
+% at least one positive vector $l\in R_{++}^{m}$ satisfying $(R-F)^{T}l=0$. The 
+% matrix $N=R-F$ represents net reaction stoichiometry and may viewed as the incidence 
+% matrix of a directed hypergraph. We are assume that there are less molecular 
+% species than there are net reactions, i.e., $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">m</mi><mo>&lt;</mo><mi mathvariant="italic">n</mi></mrow></math>$. 
+% We assume the cardinality of each row of $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">F</mi></mrow></math>$ and $<math 
+% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi mathvariant="italic">R</mi></mrow></math>$ 
+% is at least one and the cardinality of each column of $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">N</mi></mrow></math>$ is at 
+% least two. We also assume that $\text{rank}([F,R])=m$, which is a requirement 
+% for kinetic consistency.
 %% 
 %% Steady state nonlinear system
 % Let $c\in R_{++}^{m}$ denote a variable vector of species concentrations. 
@@ -38,23 +46,34 @@
 % 
 % $$f(x)=0.$$
 %% Moiety conserved steady state nonlinear system
-% Let us emphasize that a vector $c^\ast $ is a steady state of the biochemical 
-% system if and only if
+% Let us emphasize that a vector $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><msup><mrow><mi mathvariant="italic">c</mi></mrow><mrow><mo>*</mo></mrow></msup></mrow></math>$ 
+% is a steady state of the biochemical system if and only if
 % 
 % $$s(k_{f},c^{*})-r(k_{r},c^{*})\in\mathcal{N}(N),$$
 % 
-% where $\mathcal{N}(N)$denotes the nul space of $N$. THerefore, the set 
-% of steady states $\Omega=\left\{ c\in R_{++}^{m},\,f(c)=0\right\}$ is unchanged 
-% if we replace the matrix $N$ with $\overline{N}$ with the same kernel. Suppose 
-% that $\bar{N}\in Z^{r\times n}$ is the submatrix of $N$ whose rows are linearly 
-% independent, then $\mathrm{rank}\left(\bar{N}\right)=\mathrm{rank}(N):=r$. If 
-% one replaces $N$ by $\overline{N}$ and considers the logarithmic scale, by setting 
-% $x=\ln(c)\in R^{m}$ and $k=[\ln(k_{f})^{T},\,\ln(k_{r})^{T}]^{T}\in R^{2n}$, 
-% then we have
+% where $\mathcal{N}(N)$denotes the nul space of $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">N</mi></mrow></math>$. THerefore, 
+% the set of steady states $\Omega=\left\{ c\in R_{++}^{m},\,f(c)=0\right\}$ is 
+% unchanged if we replace the matrix $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">N</mi></mrow></math>$ with $<math 
+% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mover><mrow><mi 
+% mathvariant="italic">N</mi></mrow><mrow><mo stretchy="false">&strns;</mo></mrow></mover></mrow></math>$ 
+% with the same kernel. Suppose that $\bar{N}\in Z^{r\times n}$ is the submatrix 
+% of $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
+% mathvariant="italic">N</mi></mrow></math>$ whose rows are linearly independent, 
+% then $\mathrm{rank}\left(\bar{N}\right)=\mathrm{rank}(N):=r$. If one replaces 
+% $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
+% mathvariant="italic">N</mi></mrow></math>$ by $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mover><mrow><mi mathvariant="italic">N</mi></mrow><mrow><mo 
+% stretchy="false">&strns;</mo></mrow></mover></mrow></math>$ and considers the 
+% logarithmic scale, by setting $x=\ln(c)\in R^{m}$ and $k=[\ln(k_{f})^{T},\,\ln(k_{r})^{T}]^{T}\in 
+% R^{2n}$, then we have
 % 
 % $$\bar{f}(x):=\left[\bar{N},-\bar{N}\right]\exp\left(k+[F,\,R]^{T}x\right).$$
 % 
-% Let also $L\in R^{m-r,m}$denote a basis for the left nullspace of $N$, 
+% Let also $L\in R^{m-r,m}$denote a basis for the left nullspace of $<math 
+% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi mathvariant="italic">N</mi></mrow></math>$, 
 % which implies $N^TL=0$. We also have $\mathrm{rank}(L)=m-r$. WE say that the 
 % system satisfies moiety conservation if for any initial concentration $c_{0}\in 
 % R_{++}^{m}$, it holds 
@@ -106,9 +125,11 @@
 % The mandatory inputs for computing steady states are a model involving F and 
 % R, the name of a solver to solve the nonlinear system, an initial point $x_0$, 
 % and parameters for the considered solvers. We first need to load data from a 
-% ".mat" file involve $F$, $R$, and $kin$ (kinetic vector). For example, for "Ecoli 
-% core" model, we have
-%%
+% ".mat" file involve $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
+% mathvariant="italic">F</mi></mrow></math>$, $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">R</mi></mrow></math>$, and $kin$ 
+% (kinetic vector). For example, for "Ecoli core" model, we have
+
 global CBTDIR
 tutorialPath = fileparts(which('tutorial_variationalKinetics.mlx'));
 load([tutorialpath filesep 'Ecoli_core_data.mat']);
@@ -129,10 +150,10 @@ parms.adaptive = 1;
 parms.kin = kin;
 %% 
 % otherwise, the selected algorithm will be run by the default parameters 
-% assigned in the codes. We finally need to run the function "optimizeVKmodel.m" 
+% assigned in the codes. We finally need to run the function "optimizeVKmodels.m" 
 % like
 
-output = optimizeVKmodel(model, solver, x0, parms);
+output = optimizeVKmodels(model, solver, x0, parms);
 %% 
 % Let us emphasize that all the slovers (LLM_YF, LLM_FY, LLM_F, LLM,GLM_YF, 
 % GLM_FY, LevMar, LMLS, LMTR, DCA, BDCA, BDF, CSDF, DBDF) can be used to find 
@@ -143,11 +164,15 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % The mandatory inputs for computing moiety conserved steady states are a model 
 % involving F, R, L, and $l_0$, the name of a solver to solve the nonlinear system, 
 % an initial point $x_0$, and parameters for the considered solvers. We first 
-% need to load data from a ".mat" file involve $F$, $R$, $L$, $l_0$, and $kin$ 
-% (kinetic vector). For example, for "Ecoli core" model, we have
+% need to load data from a ".mat" file involve $<math xmlns="http://www.w3.org/1998/Math/MathML" 
+% display="inline"><mrow><mi mathvariant="italic">F</mi></mrow></math>$, $<math 
+% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi mathvariant="italic">R</mi></mrow></math>$, 
+% $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
+% mathvariant="italic">L</mi></mrow></math>$, $l_0$, and $kin$ (kinetic vector). 
+% For example, for "Ecoli core" model, we have
 % 
 % Then, we need to make a struture "model" by
-%%
+
 model.F = F;
 model.R = R;
 model.L = L;
@@ -164,10 +189,10 @@ parms.adaptive = 1;
 parms.kin = kin;
 %% 
 % otherwise, the selected algorithm will be run by the default parameters 
-% assigned in the codes. We finally need to run the function "optimizeVKmodel.m" 
+% assigned in the codes. We finally need to run the function "optimizeVKmodels.m" 
 % like
 
-output = optimizeVKmodel(model, solver, x0, parms);
+output = optimizeVKmodels(model, solver, x0, parms);
 %% 
 % Let us emphasize that among above-mentioned solvers one can use the Levenberg-Marquardt 
 % slovers (LLM_YF, LLM_FY, LLM_F, LLM,GLM_YF, GLM_FY, LevMar, LMLS, LMTR) to find 
@@ -282,12 +307,12 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % 
 % For a complete list of optional inputs and their definition, you can also 
 % run the following command.
-%%
-help optimizeVKmodel
+
+help optimizeVKmodels
 %% 
 % 
 %% Output
-% The output of optimizeVKmodel|.m |is a structure "output"| |involving the 
+% The output of |optimizeVKmodels.m |is a structure "output"| |involving the 
 % fields
 % 
 % * x_best: is the best approximation of the optimizer;
@@ -308,8 +333,8 @@ help optimizeVKmodel
 %% ANTICIPATED RESULTS
 % Finding steady states or moiety conserved steady state with one of the above-mentioned 
 % solvers (e.g., solver = 'LMTR') leads to the following results.
-%%
-output = optimizeVKmodel(model, solver, x0, parms)
+
+output = optimizeVKmodels(model, solver, x0, parms)
 %% _TROUBLESHOOTING_
 % _In order to compute moiety conserved steady states, one should not use DC 
 % programming algorithms (DCA and BDCA) or derivative-free algorithms (BDF, CSDF, 

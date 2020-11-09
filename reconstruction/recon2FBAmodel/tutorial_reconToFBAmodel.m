@@ -35,7 +35,7 @@
 %% Select reconstruction to convert into a model and enter parameters
 % Load the ReconX reconstruction, and save the original reconstruction in the 
 % workspace, unless it is already loaded into the workspace. 
-%%
+
 clear model
 if ~exist('modelOrig','var')
     %select your own model, or use Recon2.0model instead
@@ -82,7 +82,7 @@ end
 %% Overview some of the key properties of the reconstruction
 % Noting the initial size of the reconstruction is useful for comparisons later 
 % with subsets derived according to mathematical specifications.
-%%
+
 [nMet,nRxn]=size(model.S);
 fprintf('%6s\t%6s\n','#mets','#rxns')
 fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
@@ -193,7 +193,7 @@ end
 %% 
 % Check for duplicate columns by detecting the columns of the  S matrix 
 % that are identical upto scalar multiplication.
-%%
+
 modelOrig=model;
 dupDetectMethod='FR';
 dupDetectMethod='S';
@@ -230,7 +230,7 @@ end
 % as substrates or products. Also remove exclusively involved reactants.
 % 
 % Save a temporary model for testing, before making any changes.
-%%
+
 modelH=model;
 %% 
 % Find the proton indicies in different compartments. A proton, with index 
@@ -289,7 +289,7 @@ end
 % The findSExRxnInd function finds the external reactions in the model which export 
 % or import mass from or to the model, e.g. Exchange reactions, Demand reactions, 
 % Sink reactions.
-%%
+
 if ~isfield(model,'SIntMetBool')  ||  ~isfield(model,'SIntRxnBool')
      model = findSExRxnInd(model,[],printLevel-1);
 end
@@ -308,7 +308,7 @@ end
 % the stoichiometrically consistent subset can be demanding for large models so 
 % first we identify the subset of reactions that are flux consistent and focus 
 % on them.
-%%
+
 modelOrig=model;
 model.lb(~model.SIntRxnBool)=-1000;
 model.ub(~model.SIntRxnBool)= 1000;
@@ -361,7 +361,7 @@ if 1
     end
 end
 %% Find mass leaks or siphons within the heuristically internal part, without using the bounds given by the model
-%%
+
 if 1
     modelBoundsFlag=0;
     leakParams.epsilon=1e-4;
@@ -372,7 +372,7 @@ if 1
         modelBoundsFlag,leakParams,printLevel);
 end
 %% Find the maximal set of reactions that are stoichiometrically consistent
-%%
+
 if ~isfield(model,'SConsistentMetBool') || ~isfield(model,'SConsistentRxnBool')
     if strcmp(model.modelID,'HMRdatabase2_00')
         massBalanceCheck=0;
@@ -420,7 +420,7 @@ if any(rxnBool)
     end
 end
 %% Sanity check of stoichiometric and flux consistency of model with open external reactions
-%%
+
     if  all(model.SIntMetBool & model.SConsistentMetBool)...
             && nnz(model.SIntRxnBool & model.SConsistentRxnBool)==nnz(model.SIntRxnBool)...
             && all(model.fluxConsistentMetBool)...

@@ -17,12 +17,12 @@ tutorialPath = fileparts(which('tutorial_microbeMicrobeInteractions'));
 cd(tutorialPath);
 %% 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
-% Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at www.vmh.life. 
+% Jan;35(1):81-89) in this tutorial. AGORA version 1.03 is available at https://github.com/VirtualMetabolicHuman/AGORA.
 % Download AGORA and place the models into a folder.
 %%
-system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
-unzip('Agora-1.02.zip','AGORA')
-modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
+system('curl -LJO https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
+unzip('AGORA-master')
+modPath = [tutorialPath filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_03' filesep' 'AGORA_1_03_mat'];
 %% 
 % Import a file with information on the AGORA organisms including reconstruction 
 % names and taxonomy.
@@ -45,6 +45,7 @@ modelList = infoFile(randi([2 length(infoFile)],1,10),1);
 % 
 % Load the AGORA reconstructions to be joined.
 %%
+% Load the AGORA reconstructions.
 for i=1:size(modelList,1)
     model=readCbModel(strcat(modPath,modelList{i,1},'.mat'));
     inputModels{i,1}=model;

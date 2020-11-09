@@ -36,16 +36,18 @@
 %  where $$p,q\in\mathcal{R}^{n}$$ denote the relaxations of the lower and 
 % upper bounds on reaction rates of the reaction rates vector  v, and where $$r\in\mathcal{R}^{m}$$ 
 % denotes a relaxation of the mass balance constraint. Non-negative scalar parameters   
-% λ   and   $\alpha \text{ }$ can be used to trade off between relaxation of mass 
+% λ   and   $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>&alpha;</mi><mtext> 
+% </mtext></mrow></math>$ can be used to trade off between relaxation of mass 
 % balance or bound constraints. A non-negative vector parameter   λ   can be used 
 % to prioritise relaxation of one mass balance constraint over another, e.g, to 
 % avoid relaxation of a mass balance constraint on a metabolite that is not desired 
 % to be exchanged across the boundary of the system. A non-negative vector parameter   
-% $\alpha \text{ }$  may be used to prioritise relaxation of bounds on some reactions 
-% rather than others, e.g., relaxation of bounds on exchange reactions rather 
-% than internal reactions. The optimal choice of parameters depends heavily on 
-% the biochemical context. A relaxation of the minimum number of constraints is 
-% desirable because ideally one should be able to justify the choice of bounds 
+% $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>&alpha;</mi><mtext> 
+% </mtext></mrow></math>$  may be used to prioritise relaxation of bounds on some 
+% reactions rather than others, e.g., relaxation of bounds on exchange reactions 
+% rather than internal reactions. The optimal choice of parameters depends heavily 
+% on the biochemical context. A relaxation of the minimum number of constraints 
+% is desirable because ideally one should be able to justify the choice of bounds 
 % or choice of metabolites to be exchanged across the boundary of the system by 
 % recourse to experimental literature. This task is magnified by the number of 
 % constraints proposed to be relaxed.

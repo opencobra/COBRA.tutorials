@@ -31,27 +31,34 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-%%
-initCobraToolbox(false) % false, as we don't want to update
+
+initCobraToolbox
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
 % the Recon 2.04$^2$, which is provided in the COBRA Toolbox. The Recon 2.04 model 
-% can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
-% Metabolic Human> webpage. You can also select your own model to work with. Before 
-% proceeding with the simulations, the path for the model needs to be set up:      
-%%
+% can also be downloaded from the <https://vmh.uni.lu/#downloadview Virtual Metabolic 
+% Human> webpage. You can also select your own model to work with. Before proceeding 
+% with the simulations, the path for the model needs to be set up:      
+
 global CBTDIR
 modelFileName = 'Recon2.v04.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
 modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
 model = readCbModel(modelFileName);
+
+%% 
+% Recon 2.04 is written in the "old style" COBRA format, and we thus use 
+% the function |convertOldStyleModel| to convert it to the new COBRA Toolbox format.
+
+    model = convertOldStyleModel(model);
+end
 %% 
 % *NOTE: The following text, code, and results are shown for the Recon 2.04 
 % model*
 %% PROCEDURE
 % Set the tolerance to distinguish between zero and non-zero flux, based on 
 % the numerical tolerance of the currently installed optimisation solver.
-%%
+
 feasTol = getCobraSolverParams('LP', 'feasTol');
 %% 
 % Display the constraints
@@ -92,7 +99,7 @@ formulas = printRxnFormula(model, rxnAbbrList, printFlag);
 % 
 % First choose whether to maximize ('max') or minimize ('min') the FBA objective. 
 % Here we choose maximise
-%%
+
 osenseStr='max';
 %% 
 % Choose to minimize the zero norm of the optimal flux vector
@@ -133,7 +140,7 @@ fprintf('%u%s\n',nnz(v),' active reactions in the sparse flux balance analysis s
 % Build a linear programming problem structure (LPproblem) that is compatible 
 % with the interface function (solveCobraLP) to any installed linear optimisation 
 % solver.
-%%
+
 [c,S,b,lb,ub,csense] = deal(model.c,model.S,model.b,model.lb,model.ub,model.csense);
 [m,n] = size(S);
 
@@ -187,7 +194,7 @@ fprintf('%u%s\n',nnz(vFBA),' active reactions in the flux balance analysis solut
 % 
 % Here we prepare a cell array of strings which indicate the set of step 
 % function approximations we wish to compare.
-%%
+
 approximations = {'cappedL1','exp','log','SCAD','lp-','lp+'};
 %% Run the sparse linear optimisation solver
 % First we must build a problem structure to pass to the sparse solver, by adding 
@@ -252,7 +259,7 @@ end
 % a combinatorial issue.
 % 
 % Identify the set of predicted active reactions
-%%
+
 activeRxnBool = abs(vBest)>feasTol;
 nActiveRnxs = nnz(activeRxnBool);
 activeRxns = false(n,1);

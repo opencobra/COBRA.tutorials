@@ -52,7 +52,7 @@
 % network. 
 % 
 % Ensure that the Gurobi MILP and LP solvers are working:
-%%
+
 test1 = changeCobraSolver('gurobi', 'MILP');
 test2 = changeCobraSolver('gurobi', 'LP');
 test3 = changeCobraSolver('gurobi', 'QP');
@@ -72,7 +72,7 @@ model = readCbModel(modelFileName);
 %% 
 % The biomass function is then removed from the model using the COBRA function 
 % |removeRxns|.
-%%
+
 bmName = {'Biomass_Ecoli_core_w_GAM'};
 model = removeRxns(model, bmName);
 %% 
