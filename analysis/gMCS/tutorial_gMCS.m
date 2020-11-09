@@ -1,12 +1,12 @@
-%% *genetic Minimal Cut Sets - gMCSs*
-%% Authors: Iñigo Apaolaza, University of Navarra, TECNUN School of Engineering, Spain
+%% *genetic Minimal Cut Sets - gMCS*
+%% Authors: IÃ±igo Apaolaza, University of Navarra, TECNUN School of Engineering, Spain
 %% Luis V. Valcarcel, University of Navarra, TECNUN School of Engineering, Spain
 %% Francisco J. Planes, University of Navarra, TECNUN School of Engineering, Spain
 %% Reviewer(s): 
 %% INTRODUCTION
 % Minimal Cut Sets (MCSs) are minimal sets of reaction knockouts which deprive 
 % a network from accomplishing a given metabolic task$$^1$. On the other hand, 
-% genetic Minimal Cut Sets consist of minimal sets of genes whose simultaneous 
+% genetic Minimal Cut Sets (gMCSs) consist of minimal sets of genes whose simultaneous 
 % inhibition would render the functioning of a given metabolic task impossible$$ 
 % ^2$. Therefore, the concepts of MCSs and gMCSs are equivalent but at different 
 % levels: at the reaction level for the former and at the gene level for the latter.
@@ -20,37 +20,36 @@
 % undesired metabolic effects, as we may have reactions (included in a particular 
 % MCS) catalyzed by an enzyme that additionally participate in other relevant 
 % reactions (not included in the MCS under consideration). This fact is further 
-% discussed in Apaolaza et al., 2017(b)$$^3$.
+% discussed in Apaolaza et al., 2017 (a)$$ ^2$, (b)$$^3$.
 % 
-% Moreover, state-of-the-art methods that search for efficient gene knockout 
-% interventions use a combinatorial strategy  and, as a consequence, are not viable 
-% for seeking for high order solutions in large metabolic networks. This tutorial 
-% aims also to demonstrate this is possible with the function provided.
+% Moreover, state-of-the-art methods which calculate combined gene intervention 
+% strategies are based on combinatorial approaches and, as a consequence, are 
+% not viable for seeking for high order therapeutic strategies in large metabolic 
+% networks. This tutorial aims also to demonstrate that the calculation gMCSs 
+% involving a large number of genes is viable with the function provided.
 %% EQUIPMENT SETUP
-%% Initialize The Cobra Toolbox and select the solver (~20 sec)
-% If necessary, initialise the cobre toolbox:
-
-initCobraToolbox
+%% Initialize The Cobra Toolbox and select the solver (~25 sec)
+% If necessary, initialise the Cobra Toolbox:
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% 
-% Select the appropriate solver removing the "%" symbol only for the desired 
-% solver. Note that the approaches to search for MCS and gMCS problems are based 
-% on Mixed Integer Linear Programming (MILP).
+% Note that the approaches to search for MCS and gMCS problems are based 
+% on Mixed Integer Linear Programming (MILP). The solver selected will be Cplex.
 
 changeCobraSolver('ibm_cplex', 'all');
-% changeCobraSolver('gurobi', 'all');
 %% PROCEDURE
-% This tutorial will be divided into two different parts. First, a toy example 
+% This tutorial will be divided in two different parts. First, a toy example 
 % will be used to illustrate the difference between MCSs and gMCSs and, second, 
 % gMCSs will be calculated for Recon2.v04 metabolic model$$^4$.
-%% 1. Toy example (10 sec ~ 1 min)
+%% 1. Toy example (~5 sec)
 % The toy example under study is presented below:
 % 
 % 
 % 
 % First, we are going to load the MAT-file which contains the metabolic network 
 % in the toy example.
-
-model = readCbModel('gMCStoyExample.mat');
+%%
+load('gMCStoyExample.mat');
 %% 
 % As different metabolic models in COBRA format, it contains the following 
 % fields: _S_, _ub_, _lb_, _rxns_, _mets_, _genes_, _rules_, _grRules_, _rxnGeneMat 
@@ -70,17 +69,19 @@ grRules = model.grRules
 % via the function named _calculateMCS()_. Therefore, the desired target metabolic 
 % task (represented in the field _c_ of the structure) will be the biomass reaction.
 
-metab_task = model.rxns(logical(model.c))
+model.rxns(logical(model.c))
 %% 
-% We will calculate 10 MCSs.
+% We will calculate 10 MCSs and we will set the length of the largest MCS 
+% to be calculated to 7 (the number of reactions), in order to calculate all the 
+% existing MCSs.
 
 n_MCS = 10;
+max_len_MCS = 7;
 %% 
-%  If needed, we can change the different optional arguments of the functions. 
-% In this case, we will calculate MCSs involving reactions 1 to 6. The biomass 
-% reaction (_rBio_) is omitted since it is the target metabolic task. 
+% Now, the different optional arguments of the function must be set, if 
+% needed. In this case, we will calculate MCSs involving reactions 1 to 6. The 
+% biomass reaction (_rBio_) is omitted since it is the target metabolic task. 
 
-optional_inputs = struct();
 optional_inputs.rxn_set = {'r1'; 'r2'; 'r3'; 'r4'; 'r5'; 'r6'};
 %% 
 % The time limit for the calculation of each MCS will be set to 30 seconds.
@@ -92,11 +93,10 @@ optional_inputs.timelimit = 30;
 % 
 % We will now proceed with the calculation of the MCSs.
 
-[MCSs, MCS_time] = calculateMCS(model, n_MCS, optional_inputs);
+[MCSs, MCS_time] = calculateMCS(model, n_MCS, max_len_MCS, optional_inputs);
 %% 
-% Despite having tried to calculate 10 MCSs, only 6 will be calculated. 
-% Notice that there only exist 6 MCSs for this toy example. The results are shown 
-% in the following piece of code:
+% Despite having tried to calculate 10 MCSs, only 6 exist for this Toy Example. 
+% The results are shown in the following piece of code:
 
 MCSs{1}
 MCSs{2}
@@ -106,9 +106,8 @@ MCSs{5}
 MCSs{6}
 %% 
 % We now translate these minimal reaction knockout strategies to the gene 
-% level following the _grRules_. The following table shows the 8 possible genetic 
-% interventions which must be fulfilled to accomplish the respective reaction 
-% knockouts:
+% level following the _grRules_. The following table shows the genetic interventions 
+% which must be fulfiilled to accomplish the respective reaction knockouts:
 % 
 % 
 % 
@@ -122,31 +121,40 @@ MCSs{6}
 % The subset of genes associated with each row in G is interrelated and their 
 % simultaneous knockout is required to delete at least one of the reactions in 
 % the metabolic network. This matrix may be needed for other calculations. We 
-% will name here 'toy_example_gMCS' and again will calculate 10 gMCSs.
+% will name here 'toy_example_gMCS' and again will calculate 10 gMCSs. The function 
+% will look for the G matrix in ['G_' model_name '.mat'] (here â€œG_toy_example_gMCS.mat). 
+% If this structure is not available, the function buildGmatrix() is called and 
+% the G matrix for the model under consideration generated and saved. In this 
+% case, the length of the largest gMCS calculated will be set to 6 (the number 
+% of genes).
 
 model_name = 'toy_example_gMCS';
 n_gMCS = 10;
+max_len_gMCS = 6;
 %% 
 % Next, we set the optional inputs. The maximum time for the calculation 
 % of each gMCS will be 30 seconds.
 
 optional_inputs.timelimit = 30;
 %% 
+% Note that, again, some more optional inputs may be set, as detailed in 
+% the documentation of the function. However, they are not needed for the calculation 
+% of the problem presented in this tutorial.
+% 
 % We will now proceed with the calculation of the gMCSs.
 
-[gMCSs, gMCS_time] = calculateGeneMCS(model_name, model, n_gMCS, optional_inputs);
+[gMCSs, gMCS_time] = calculateGeneMCS(model_name, model, n_gMCS, max_len_gMCS, optional_inputs);
 %% 
-% In the same way as with MCSs, 3 gMCSs have been calculated in total, as 
-% there are no more feasible solutions. 
+% In the same way as with MCSs, 3 gMCSs have been calculated in total.
 
 gMCSs{1}
 gMCSs{2}
 gMCSs{3}
 %% 
 % As shown in the previous table, calculating MCSs would result in 8 different 
-% genetic intervention strategies, even when, as we have just demonstrated, only 
+% genetic intervention strategies even when, as we have just demonstrated, only 
 % 3 minimal genetic interventions exist. Moving on to gMCSs seems, therefore, 
-% a more efficient strategy to calculate optimal gene knockout interventions.
+% a more efficient strategy to calculate minimal gene knockout strategies.
 %% 2. gMCSs in large metabolic networks (20 min ~ 1 hour)
 % The algorithm presented in this tutorial is able to calculate intervention 
 % strategies in large metabolic networks. In addition, it is sufficiently flexible 
@@ -158,21 +166,23 @@ gMCSs{3}
 % has to be executed.
 % 
 % First, we are going to load the metabolic model.
-
-modelR204 = getDistributedModel('Recon2.v04.mat');
+%%
+global CBTDIR
+load([CBTDIR filesep 'test' filesep 'models' filesep 'mat' filesep 'Recon2.v04.mat']);
 %% 
 % Next, in the same way as in the toy example, we will proceed to set the 
-% name of the model ('Recon2'), the number of gMCSs to be calculated (6) and the 
-% optional input variables. Regarding the latter, the maximum time for the calculation 
-% of gMCSs will be set to 2 minutes (120 seconds), the KO will be '6240', namely 
-% the Entrez ID of RRM1. In this case, we will also have to set the  "separate_transcript" 
+% name of the model ('Recon2'), the number of gMCSs to be calculated (6), the 
+% length of the largest gMCS we want to calculate (10) and the optional input 
+% variables. Regarding the latter, the maximum time for the calculation of gMCSs 
+% will be set to 2 minutes (120 seconds), the KO will be '6240', namely the Entrez 
+% ID of RRM1. In this case, we will also have to set the  "separate_transcript" 
 % field to '.', because, if we do not, the calculation of gMCSs will be done at 
 % the transcript level as a consequence of the usage of the aforementioned character 
 % in Recon2.v04 to differentiate the transcripts of the same gene.
 
 model_name = 'Recon2';
 n_gMCS = 6;
-optional_inputs = struct();
+max_len_gMCS = 10;
 optional_inputs.KO = '6240';
 optional_inputs.separate_transcript = '.';
 optional_inputs.timelimit = 2*60;
@@ -181,7 +191,7 @@ optional_inputs.timelimit = 2*60;
 % recommended if the G matrix has not been calculated yet.
 
 % parpool;
-[gMCSs, gMCS_time] = calculateGeneMCS(model_name, modelR204, n_gMCS, optional_inputs);
+[gMCSs, gMCS_time] = calculateGeneMCS(model_name, modelR204, n_gMCS, max_len_gMCS, optional_inputs);
 %% 
 % The results obtained are the following:
 
@@ -190,18 +200,18 @@ gMCSs{2}
 gMCSs{3}
 gMCSs{4}
 gMCSs{5}
+gMCSs{6}
 %% 
-% 5 gMCSs have been calculated involving 2, 3, 4, 4 and 5 genes, respectively. 
+% 6 gMCSs have been calculated involving 2, 3, 3, 4, 4 and 5 genes, respectively. 
 % It is important to note that no more gMCSs have been found as a consequence 
-% of setting the time limit to 2 minutes. If we increase the time limit, more 
-% gMCSs involving RRM1 will be calculated, which will involve a higher number 
-% of genes. It is important to note that the calculation of a minimal intervention 
-% strategy involving 5 genes with an exhaustive combinatorial strategy is actually 
-% inviable.
+% of setting the number of gMCSs to be calculated to 6. If we increase the aforementiones 
+% input, more gMCSs involving RRM1 will be calculated. It is important to note 
+% that the calculation of a minimal intervention strategy involving 5 genes with 
+% an exhaustive combinatorial strategy is actually inviable.
 %% TIMING
-% # Equipment Setup: ~20 sec.
-% # Toy Example: 10 sec ~ 1 min.
-% # gMCSs in large metabolic networks: ~20 min -1 hour.
+% # Equipment Setup: ~25 sec.
+% # Toy Example: ~5 sec.
+% # gMCSs in large metabolic networks: ~5 min.
 % 
 % Note that both _calculateMCS()_ and _calculateGeneMCS()_ functions return 
 % MCS_time and gMCS_time, respectively, which contain the timing for all the solving 
@@ -213,11 +223,11 @@ gMCSs{5}
 % 
 % _2. _Apaolaza, I., _et al_. An in-silico approach to predict and exploit 
 % synthetic lethality in cancer metabolism. _Nature Communications_, _8_(1), 459 
-% (2017). 
+% (2017 (a)). 
 % 
-% _3. _Apaolaza, I., José-Eneriz, E. S., Agirre, X., Prósper, F. & Planes, 
+% _3. _Apaolaza, I., JosÃ©-Eneriz, E. S., Agirre, X., PrÃ³sper, F. & Planes, 
 % F. J. COBRA methods and metabolic drug targets in cancer. _Molecular & Cellular 
-% Oncology_, (just-accepted), 00-00 (2017).
+% Oncology_, (just-accepted), 00-00 (2017 (b)).
 % 
 % _4. _Thiele, I., _et al_. A community-driven global reconstruction of human 
 % metabolism. _Nature biotechnology_, _31_(5), 419-425 (2013). 

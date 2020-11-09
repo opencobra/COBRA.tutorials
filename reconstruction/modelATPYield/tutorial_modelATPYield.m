@@ -10,21 +10,18 @@
 % models are still able to produce physiologically relevant ATP yields.
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox with
-
-% initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% 
 % For solving linear programming problems in FBA analysis, certain solvers 
 % are required:
 
 changeCobraSolver ('glpk', 'all', 1);
 %% 
-% This tutorial can be run with <https://opencobra.github.io/cobratoolbox/latest/modules/solvers.html 
-% glpk> package as linear programming solver, which does not require additional 
-% installation and configuration. However, for the analysis of large models, such 
-% as Recon 3, it is not recommended to use <https://opencobra.github.io/cobratoolbox/latest/modules/solvers.html 
-% glpk> but rather industrial strength solvers, such as the <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% GUROBI> package. For detail information, refer to the solver<https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md  
-% installation guide>.
+% This tutorial can be run with GLPK package as linear programming solver, 
+% which does not require additional installation and configuration. However, for 
+% the analysis of large models, such as Recon 3, it is not recommended to use 
+% GLPK, but rather industrial-strength solvers, such as the GUROBI package. 
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up:
@@ -43,7 +40,7 @@ tol = 1e-6;
 %% Harmonization of abbreviation usage
 % First, we will harmonize different bracket types used in different model versions, 
 % e.g., different version of the human metabolic reconstruction. 
-
+%%
 model.rxns = regexprep(model.rxns, '\(', '\[');
 model.rxns = regexprep(model.rxns, '\)', '\]');
 model.mets = regexprep(model.mets, '\(', '\[');
@@ -130,7 +127,7 @@ modelClosedOri = modelClosed;
 % the option 'zero', which approximates the sparsest possible flux distribution 
 % with an maximal ATP yield.
 %% Carbon source: Glucose (VMH ID: <http://vmh.life/#metabolite/glc_D glc_D>), Oxygen: Yes
-
+%%
 modelClosed = modelClosedOri;
 modelClosed.lb(find(ismember(modelClosed.rxns, 'EX_o2[e]'))) = -1000;
 modelClosed.lb(find(ismember(modelClosed.rxns, 'EX_h2o[e]'))) = -1000;
@@ -168,7 +165,7 @@ ReactionsInSparseSolution = modelClosed.rxns(find(FBA.x));
 
 k = k+1; clear FBA
 %% Carbon source: Glucose (VMH ID: <http://vmh.life/#metabolite/glc_D glc_D>), Oxygen: No
-
+%%
 modelClosed = modelClosedOri;
 modelClosed.lb(find(ismember(modelClosed.rxns,'EX_o2[e]'))) = 0;
 modelClosed.ub(find(ismember(modelClosed.rxns,'EX_o2[e]'))) = 0;

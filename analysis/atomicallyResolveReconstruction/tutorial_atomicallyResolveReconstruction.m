@@ -24,38 +24,29 @@
 % Metabolites chemical structures can be obtained by different approaches 
 % such as draw them based on the literature using chemoinformatic software, or 
 % obtain them from metabolic databases either manually or using a computational 
-% software as suggested in$<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mtext> 
-% </mtext></mrow><mrow><mn>1</mn></mrow></msup></mrow></math>$. Here we recommend 
-% downloading the metabolites structures in MDL MOL format for the latest human 
-% metabolic reconstruction Recon 3$<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mtext> </mtext></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>$ 
-% via the Virtual Metabolic Human database (VMH, <http://vmh.life http://vmh.life>). 
-% Chemical structures and reaction stoichiometries from COBRA models are used 
-% to generate an MDL RXN file, which contains the information of a chemical reaction. 
-% Atom mapped reactions from Recon 3 can also be found in the VMH database in 
-% MDL RXN format. However, here we will atom map the chemical reactions using 
-% the Reaction Decoder Tool (RDT) algorithm$<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mtext> </mtext></mrow><mrow><mn>3</mn></mrow></msup></mrow></math>$, 
-% which was selected after comparing the performance of recently published algorithms 
-% $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mtext> 
-% </mtext></mrow><mrow><mn>4</mn></mrow></msup></mrow></math>$. However, despite 
-% its good performance (accuracy and availability) RDT algorithm does not atom 
-% map hydrogen atoms.
+% software as suggested in${\text{ }}^1$. Here we recommend downloading the metabolites 
+% structures in MDL MOL format for the latest human metabolic reconstruction Recon 
+% 3${\text{ }}^2$ via the Virtual Metabolic Human database (VMH, <http://vmh.life 
+% http://vmh.life>). Chemical structures and reaction stoichiometries from COBRA 
+% models are used to generate an MDL RXN file, which contains the information 
+% of a chemical reaction. Atom mapped reactions from Recon 3 can also be found 
+% in the VMH database in MDL RXN format. However, here we will atom map the chemical 
+% reactions using the Reaction Decoder Tool (RDT) algorithm${\text{ }}^3$, which 
+% was selected after comparing the performance of recently published algorithms 
+% ${\text{ }}^4$. However, despite its good performance (accuracy and availability) 
+% RDT algorithm does not atom map hydrogen atoms.
 % 
 % In this tutorial, we will identify the conserved moieties using atom mapping 
-% data for the dopamine synthesis network (DAS) extracted from Recon 3 $<math 
-% xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mtext> 
-% </mtext></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>$ (Figure 2). Section 
-% 1 of the tutorial will cover obtaining and visualising an atom map of metabolic 
-% reactions, and section 2 of the tutorial covers the identification of conserved 
-% metabolic moieties.
+% data for the dopamine synthesis network (DAS) extracted from Recon 3 ${\text{ 
+% }}^2$ (Figure 2). Section 1 of the tutorial will cover obtaining and visualising 
+% an atom map of metabolic reactions, and section 2 of the tutorial covers the 
+% identification of conserved metabolic moieties.
 % 
 % 
 % 
 % Figure 2: DAS: a small metabolic network consisting of reactions in the 
-% human dopamine synthesis pathway$<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mtext> </mtext></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>$. 
-% Atoms belonging to the same conserved moiety have identically coloured backgrounds.
+% human dopamine synthesis pathway${\text{ }}^2$. Atoms belonging to the same 
+% conserved moiety have identically coloured backgrounds.
 %% MATERIALS
 % To atom map reactions it is required to have Java version 8 and Linux. The 
 % atom mapping does not run on Windows at present. 
@@ -85,7 +76,7 @@
 % MDL MOL format. For this tutorial, using the RDT algorithm, the atom mappings 
 % are generated based on the molecular structures contained in cobratoolbox/tutorials/atomicallyResolveReconstruction/data/molFiles 
 % (|molFileDir|) and the reconstructed DAS network without hydrogen atoms (|model|).
-
+%%
 global CBTDIR
 tutorialdir = fileparts(which('tutorial_atomicallyResolveReconstruction.mlx'));
 model = readCbModel([tutorialdir filesep 'data' filesep 'subDas.mat']); % The subnetwork of the dopamine synthesis network
@@ -145,9 +136,7 @@ end
 % The _images_ directory contains a graphical representation of the atom mapped 
 % reactions. They show the bijection between atoms and each of the metabolite 
 % pools are coloured for an easy visualisation. Figure 3 shows the atom mapped 
-% reaction to produce dopamine and $<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi 
-% mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></math>$ from 
-% L-DOPA.
+% reaction to produce dopamine and ${\text{CO}}_2$ from L-DOPA.
 % 
 % 
 % 
@@ -175,7 +164,7 @@ end
 % detailed information on the coordinates, element, charge and atom mapping number 
 % for each of the atoms, and then finally, the bond block connects all the atoms 
 % in the metabolite.
-
+%%
 regexp(fileread([outputDir filesep 'atomMapped' filesep 'R3.rxn']), '\n', 'split')'
 %% 
 % The _txtData _directory contains the TXT information of the reaction including 
@@ -190,8 +179,7 @@ regexp(fileread([outputDir filesep 'txtData' filesep 'R3.txt']), '\n', 'split')'
 % include the AMP and NAD moieties. With the set of atom mappings for a metabolic 
 % network the set of linearly independent conserved moieties for the metabolic 
 % network can be identified, each of which corresponds to a particular identifiable 
-% molecular substructure$<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mrow><mtext> 
-% </mtext></mrow><mrow><mn>5</mn></mrow></msup></mrow></math>$.
+% molecular substructure${\text{ }}^5$.
 % 
 % 
 % 
@@ -199,26 +187,21 @@ regexp(fileread([outputDir filesep 'txtData' filesep 'R3.txt']), '\n', 'split')'
 % 
 % In this section, we will identify conserved moieties in a subnetwork of 
 % the DAS network (Figure 2) by graph theoretical analysis of its atom transition 
-% network. The method is described in$<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mtext> </mtext></mrow><mrow><mn>5</mn></mrow></msup></mrow></math>$. 
-% This section consists of two parts: 
+% network. The method is described in${\text{ }}^5$. This section consists of 
+% two parts: 
 % 
 % Part 1 covers basic usage of the code. 
 % 
 % Part 2 covers decomposition of a composite moiety resulting from variable 
-% atom mappings between the recurring metabolite pair $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msub><mrow><mi mathvariant="italic">O</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></math>$ 
-% and $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mrow><mi 
-% mathvariant="italic">H</mi></mrow><mrow><mn>2</mn></mrow></msub><mi mathvariant="italic">O</mi></mrow></math>$.
+% atom mappings between the recurring metabolite pair $O_2$ and $H_2 O$.
 %% Part 1: Identify conserved moieties in DAS
 % *Step 1: Generate an atom transition network for DAS based on atom mappings 
 % for internal (mass and charge balanced) reactions.*
 % 
 % The atom transition network is generated based on the reconstructed DAS 
 % network (|model|) and atom mappings for internal reactions, obtained in the 
-% previous section and predicted with the RDT algorithm$<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mtext> </mtext></mrow><mrow><mn>3</mn></mrow></msup></mrow></math>$.
-
+% previous section and predicted with the RDT algorithm${\text{ }}^3$.
+%%
 if ~isChemaxonInstalled
     copyfile([tutorialdir filesep 'data' filesep 'atomMapped'],[outputDir filesep 'atomMapped'])
 end    
@@ -229,9 +212,7 @@ ATN = buildAtomTransitionNetwork(model, atomMappedDir);
 % |ATN.A| is the incidence matrix of the directed graph representing the atom 
 % transition network. Each row represents a particular atom in one of the 11 DAS 
 % metabolites. |ATN.mets| indicates which metabolite in DAS each atom belongs 
-% to. To find rows of |ATN.A |corresponding to atoms in $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msub><mrow><mi mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></math>$, 
-% run:
+% to. To find rows of |ATN.A |corresponding to atoms in ${CO}_2$, run:
 
 ico2 = find(ismember(ATN.mets, 'co2[c]'))'
 %% 
@@ -243,9 +224,7 @@ ico2 = find(ismember(ATN.mets, 'co2[c]'))'
 % 
 % 
 % 
-% Figure 6: Rows for $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mrow><mi 
-% mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></math>$ 
-% atoms in |ATN.A| are ordered as shown.
+% Figure 6: Rows for ${CO}_2$ atoms in |ATN.A| are ordered as shown.
 % 
 % ||
 % 
@@ -255,30 +234,25 @@ ATN.elements{90}
 %% 
 % Each column of |ATN.A| represents a particular atom transition in one 
 % of the four internal reactions in DAS. Reaction identifiers of atom transitions 
-% are given in |ATN.rxns|. To find all atom transitions that involve $<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi 
-% mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></math>$ atoms, 
-% run:
+% are given in |ATN.rxns|. To find all atom transitions that involve ${\text{CO}}_2$ 
+% atoms, run:
 
 tco2 = find(any(ATN.A(ico2,:), 1))
 ATN.rxns(tco2)'
 %% 
 % i.e., three atom transitions in each of the reactions R3 and R4 involve 
-% atoms in $<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></math>$. 
-% To find atoms connected to $<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi 
-% mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></math>$ atoms 
-% via these atom transitions, run:
+% atoms in ${\text{CO}}_2$. To find atoms connected to ${\text{CO}}_2$ atoms via 
+% these atom transitions, run:
 
 cco2 = find(any(ATN.A(:, tco2) < 0,2));
 ATN.mets(cco2)'
 %% 
-% i.e., $<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi 
-% mathvariant="normal">CO</mi></mrow><mrow><mn>2</mn></mrow></msub></math>$ atoms 
-% are connected to atoms in the metabolites L-DOPA (VMH ID: 34dhphe) and formate 
-% (VMH ID: for).
+% i.e., ${\text{CO}}_2$ atoms are connected to atoms in the metabolites 
+% L-DOPA (VMH ID: 34dhphe) and formate (VMH ID: for).
 % 
 % *Step 2: Identify conserved moieties in DAS by graph theoretical analysis 
 % of the atom transition network generated in Step 1.*
-
+%%
 tic
 [L,Lambda,moietyFormulas,moieties2mets,moieties2vectors,atoms2moieties] = ...
     identifyConservedMoieties(model, ATN);
@@ -340,8 +314,7 @@ types = classifyMoieties(L, model.S)
 %% 
 % The internal moiety (λ3 in Figure 3) is conserved in both the open and 
 % closed DAS network, whereas the transitive and integrative moieties are only 
-% conserved in the closed network$<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><msup><mrow><mtext> </mtext></mrow><mrow><mn>6</mn></mrow></msup></mrow></math>$.
+% conserved in the closed network${\text{ }}^6$.
 %% Part 2: Effects of variable atom mappings between recurring metabolite pairs
 % Here, we will again identify conserved moieties in DAS but with a slightly 
 % different set of atom mappings (Figure 8). The different atom mappings gives 
@@ -363,7 +336,7 @@ types = classifyMoieties(L, model.S)
 % in (b).
 % 
 % *Step 1: Identify conserved moieties with the alternative set of atom mappings.*
-
+%%
 % Create an alternative MDL RXN file
 R2rxn = regexp(fileread([outputDir filesep 'atomMapped' filesep 'R2.rxn']), '\n', 'split')';
 R2rxn{2} = 'alternativeR2';
@@ -385,7 +358,7 @@ ATN = buildAtomTransitionNetwork(alternativeModel, atomMappedDir);
 % *Step 2: Decompose the composite moiety vector*
 % 
 % First, extract the internal stoichiometric matrix for DAS, by running:
-
+%%
 rbool = ismember(alternativeModel.rxns, ATN.rxns);
 mbool = any(alternativeModel.S(:,rbool), 2);
 N = alternativeModel.S(mbool, rbool);

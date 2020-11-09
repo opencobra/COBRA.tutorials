@@ -1,4 +1,4 @@
-%% *Visualisation and map manipulation in Cell Designer (    PART 1) *
+%% *Visualisation and map manipulation in Cell Designer (PART 1) *
 %% Authors: 
 %% Jennifer Modamio, Anna Danielsdottir, Systems Biochemistry group, University of Luxembourg.
 %% Nicolas Sompairac, Bioinformatics and Computational Systems Biology of Cancer, Institut Curie.
@@ -43,13 +43,12 @@
 % <http://www.celldesigner.org/download.html http://www.celldesigner.org/download.html>
 %% Initialise The Cobra Toolbox and set the solver. 
 % If needed, initialise the cobra toolbox.
-
-initCobraToolbox
+%%
+initCobraToolbox(false) %don't update the toolbox
 %% 
-% The present tutorial can run with <https://opencobra.github.io/cobratoolbox/deprecated/docs/cobra/solvers/changeCobraSolver.html 
-% glpk package>, which does not require additional installation and configuration. 
-% Although, for the analysis of large models it is recommended to use the <https://github.com/opencobra/cobratoolbox/blob/master/docs/source/installation/solvers.md 
-% GUROBI> package.
+% The present tutorial can run with glpk package, which does not require 
+% additional installation and configuration. Although, for the analysis of large 
+% models it is recommended to use the GUROBI package.
 
 if changeCobraSolver('gurobi', 'LP', 0)
     changeCobraSolver('gurobi6','all')
@@ -83,7 +82,7 @@ model = readCbModel(modelFileName);
 % 
 % # A small metabolic model representative of glycolysis and citric acid cycle. 
 % # A bigger metabolic map representative of the mitochondrial metabolism. 
-
+%%
 [xmlGly, mapGly] = transformXML2Map('glycolysisAndTCA.xml');
 [xmlMitoMetab, mapMitoMetab] = ...
     transformXML2Map('metabolicMitochondria.xml');
@@ -100,7 +99,7 @@ model = readCbModel(modelFileName);
 % (CD) into a Matlab structure. The resultant structure contains all the information 
 % commonly stored in a metabolic map, plus extra information corresponding to 
 % proteins and complexes.
-
+%%
 [xmlPPI, mapPPI] = transformFullXML2Map('metabolicPPIMitochondria.xml');
 %% 
 % _*NOTE! *The XML file to be parsed must be in the current folder in MATLAB 
@@ -150,7 +149,7 @@ model = readCbModel(modelFileName);
 % * Errors in reaction names can be manually corrected in the Matlab structure 
 % with the function |correctRxnNameCD|. In the example one of the most common 
 % errors is shown: spaces in names are identified as errors.
-
+%%
 correctRxns = diffReactions.extraRxnModel;
 mapGlyCorrected = correctRxnNameCD(mapGly, ...
     diffReactions, correctRxns);
@@ -159,7 +158,7 @@ mapGlyCorrected = correctRxnNameCD(mapGly, ...
 % function |correctErrorMets| by giving a list of correct metabolite names. In 
 % the example, |"diffMetabolites.extraMetsModel"| correspond to the correct name 
 % of wrong metabolites in "|diffMetabolites.extraMetsMap"|.
-
+%%
 correctMets = diffMetabolites.extraMetsModel;
 mapGlyCorrected = correctMetNameCD(mapGlyCorrected, ...
     diffMetabolites, correctMets);
@@ -170,7 +169,7 @@ mapGlyCorrected = correctMetNameCD(mapGlyCorrected, ...
 % can be used as an input of the next functions.
 % 
 % To correct a reversible reaction in the map, irreversible in the model. 
-
+%%
 mapGlyCorrected = transformToIrreversibleMap(mapGlyCorrected, ...
     diffReversibility.wrongReversibleRxnsMap);
 %% 
@@ -218,7 +217,7 @@ correctedFormula = mapFormula(mapGlyCorrected, ...
 %% A) Parse a metabolic MATLAB structure
 % The "|transformMap2XML|" function parsed a MATLAB structure (from a simple 
 % metabolic map) into a XML file.  In order to save the previous corrections made.
-
+%%
 transformMap2XML(xmlGly, ...
     mapGlyCorrected,'GlycolysisAndTCACorrected.xml');
 %% B) Parse a metabolic MATLAB structure combined with PPI
@@ -231,7 +230,7 @@ transformMap2XML(xmlGly, ...
 % contains all references for different colours HTML code to be directly recognised 
 % in Cell Designer and associated to a specific name. Therefore, users wont need 
 % to give a code but a colour name in capitals (143 colors are recognized).
-
+%%
 % Check the list of available colours to use in Cell designer (retrieve 143 colors) 
 % open createColorsMap.m
 %% 
@@ -253,7 +252,7 @@ transformMap2XML(xmlGly, ...
 % In the example, all reactions in the map will be coloured as Light-salmon 
 % and have a width of 10 (width=1 by default). Furthermore, the newly generated 
 % map will be transformed to be opened in CD.
-
+%%
 mapGlyColoured = changeRxnColorAndWidth(mapGlyCorrected, ...
     mapGlyCorrected.rxnName, 'LIGHTSALMON',10);
 transformMap2XML(xmlGly, mapGlyColoured,'mapGlyRxnColoured.xml');
@@ -268,7 +267,7 @@ transformMap2XML(xmlGly, mapGlyColoured,'mapGlyRxnColoured.xml');
 % list of reactions. Taking as an example the previous list we can modify the 
 % colour of all those nodes in the map in Light-steel-blue. Furthermore, the newly 
 % generated map will be transformed into a XML file.
-
+%%
 mapGlyColouredNodes = addColourNode(mapGlyColoured, ...
     mapGlyColoured.rxnName, 'LIGHTSTEELBLUE');
 transformMap2XML(xmlGly, ...
@@ -285,7 +284,7 @@ transformMap2XML(xmlGly, ...
 % be coloured in white. Afterwards, selected metabolites "mitochondrial ATP and 
 % ADP" will be coloured in Red. Finally, the newly generated map will be transformed 
 % into a XML file. 
-
+%%
 mapATPADP = changeMetColor(mapGly, ...
     mapGly.specName, 'WHITE'); % Change the colour of all nodes in the map to white
 mapATPADP = changeMetColor(mapATPADP, ...

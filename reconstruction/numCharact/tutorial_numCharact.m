@@ -18,8 +18,8 @@
 %% *Initialize the COBRA Toolbox.*
 % Please ensure that The COBRA Toolbox has been properly installed, and initialized 
 % using the |initCobraToolbox| function.
-
-% initCobraToolbox
+%%
+initCobraToolbox(false) % false, as we don't want to update
 %% PROCEDURE 
 % TIMING: 5 seconds - several hours (depending on the model size)
 % 
@@ -31,7 +31,7 @@
 % as separate variables. Therefore, we propose that within the |modelFile|, there 
 % is a structure named |modelName| with a field |matrixName| that contains the 
 % stoichiometric matrix |S| (or |A|).
-
+%%
 % If this is a distributed model, get the folder for the model. Commonly if you use your own model, this is unnecessary
 % As the file would be in the current folder. But for this tutorial we need to make sure, that the right model is used, 
 % and that no other model with the same name is above it in the path.
@@ -50,7 +50,7 @@ matrixName = 'S';
 % 
 % In order to use the model, we need to read the |modelFile| that contains 
 % a COBRA model structure  |modelName|:
-
+%%
 % load the modelName structure from the modelFile
 model = readCbModel(modelFile, 'modelName','model');
 %% 
@@ -72,7 +72,7 @@ end
 % The number of rows represents the *number of metabolites* in the metabolic 
 % network. The number of columns corresponds to the *number of biochemical reactions* 
 % in the network.
-
+%%
 % determine the number of reactions and metabolites in S
 [nMets, nRxns] = size(S)
 % determine the number of elements in S
@@ -90,7 +90,7 @@ nNz = nnz(S)
 % and the total number of elements. The sparser a stoichiometric matrix, the fewer 
 % metabolites participate in each reaction. The sparsity ratio is particularly 
 % useful to compare models by how many metabolites participate in each reaction.
-
+%%
 % determine the sparsity ratio of S (in percent)
 sparsityRatio = (1 - nNz / nElem) * 100.0  % [%]
 %% 
@@ -138,7 +138,7 @@ colDensityRel = colDensityAv / nMets * 100  % [%]
 % spot inconsistencies, or identify patterns visually. In addition to the standard 
 % sparsity pattern, the magnitude of the elements of the stoichiometric matrix 
 % (stoichiometric coefficients) is shown as proportional to the size of the dot.
-
+%%
 % print a colorful spy map of the S matrix
 spyc(S, colormap(advancedColormap('cobratoolbox')));
 
@@ -157,7 +157,7 @@ set(gca, 'fontsize', 14);
 % independent rows, and is equivalent to the number of linearly independent columns. 
 % The rank is a measurement of how many reactions and metabolites are linearly 
 % independent. 
-
+%%
 % determine the rank of the stoichiometric matrix
 if ispc
     rankS = rank(full(S))
@@ -175,19 +175,13 @@ rankDeficiencyS = (1 - rankS / min(nMets, nRxns)) * 100  % [%]
 % *Singular Values and Condition Number*
 % 
 % A singular value decomposition of the stoichiometric matrix is the decomposition 
-% into orthonormal matrices $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi mathvariant="italic">U</mi></mrow></math>$ (of dimension 
-% |nMets| by |nMets|) and $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
-% mathvariant="italic">V</mi></mrow></math>$ (of dimension |nRxns| by |nRxns|), 
-% and a matrix with nonnegative diagonal elements $<math xmlns="http://www.w3.org/1998/Math/MathML" 
-% display="inline"><mrow><mi mathvariant="italic">D</mi></mrow></math>$ such that 
-% $<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi 
-% mathvariant="normal">S = UD</mi><msup><mrow><mi mathvariant="italic">V</mi></mrow><mrow><mi 
-% mathvariant="italic">T</mi></mrow></msup></mrow></math>$.
+% into orthonormal matrices $U$ (of dimension |nMets| by |nMets|) and $V$ (of 
+% dimension |nRxns| by |nRxns|), and a matrix with nonnegative diagonal elements 
+% $D$ such that $S = UDV^T$.
 % 
 % Note that the calculation of singular values is numerically expensive, 
 % especially for large stoichiometric matrices.
-
+%%
 % calculate the singular values
 svVect = svds(S, rankS);
 %% 
@@ -285,7 +279,7 @@ condNumber = maxSingVal / minSingVal
 % * *Condition number*: the condition number of the stoichiometric matrix is 
 % the ratio of the maximum and minimum singular values. The higher this ratio, 
 % the more ill-conditioned the stoichiometric matrix is (numerical issues).
-
+%%
 fprintf([' --- SUMMARY ---\n',...
     'Model file/Model name/Matrix name    %s/%s/%s\n',...
     'Size is [nMets, nRxns]               [%d, %d]\n',...
@@ -346,7 +340,7 @@ fprintf([' --- SUMMARY ---\n',...
 % to solve a linear program.
 % 
 % The scaling properties of the stoichiometric matrix can be determined using:
-
+%%
 [precisionEstimate, solverRecommendation] = checkScaling(model);
 %% 
 % The |precisionEstimate| yields a recommended estimate of the precision 
@@ -377,7 +371,7 @@ solverRecommendation
 %% 
 % The solver then can be set as suggested to use the quad-precision solver 
 % [5]:
-
+%%
 % changeCobraSolver('dqqMinos');
 %% 
 % Note that the timing for obtaining a solution using a quad-precision solver 

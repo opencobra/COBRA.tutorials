@@ -27,7 +27,7 @@
 % # Append your message with the result of running |generateSystemConfigReport| 
 % so that we know what system we are helping you to debug. That is often the first 
 % question that comes to mind when considering to respond.
-
+%%
 generateSystemConfigReport
 %% ANTICIPATED RESULTS
 % Generally, responses to questions can be expected within 1-2 days of posting, 
