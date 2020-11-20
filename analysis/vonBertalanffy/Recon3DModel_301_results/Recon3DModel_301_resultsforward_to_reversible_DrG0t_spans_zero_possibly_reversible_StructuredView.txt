@@ -1,0 +1,13 @@
+Metabolites which force 1 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line; Between 0.7 and 0.3probability of being forward.
+75:	1	h[e]Proton
+77:	1	hco3[e]Bicarbonate
+5212:	1	h2co3[e]Carbonic Acid
+
+
+9309	HMR_5409	HMR_5409	-28.73	 25.76
+substrates:
+5212	      -1	 -497.45	-29.69	-11.88	            h2co3[e]	Carbonic Acid
+products:
+75	       1	   43.94	-43.94	-43.94	                h[e]	Proton
+77	       1	 -542.87	-29.69	-11.88	             hco3[e]	Bicarbonate
+

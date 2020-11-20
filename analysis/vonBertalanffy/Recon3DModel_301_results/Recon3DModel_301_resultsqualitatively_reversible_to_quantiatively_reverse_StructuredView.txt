@@ -1,0 +1,339 @@
+Metabolites which force 40 qualitatively reversible -> quantiatively reverse
+35:	6	h[c]Proton
+20:	2	h2o[c]Water
+28:	2	h[m]Proton
+72:	2	nad[c]Nicotinamide Adenine Dinucleotide
+269:	2	ppcoa[m]Propanoyl Coenzyme A
+393:	2	ppcoa[c]Propanoyl Coenzyme A
+10:	1	10fthf[c]10-Formyltetrahydrofolate
+12:	1	10fthf[m]10-Formyltetrahydrofolate
+25:	1	h2o[m]Water
+41:	1	h[x]Proton
+71:	1	nadh[c]Nicotinamide Adenine Dinucleotide - Reduced
+75:	1	h[e]Proton
+78:	1	hco3[c]Bicarbonate
+79:	1	na1[e]Sodium
+80:	1	na1[c]Sodium
+84:	1	nad[m]Nicotinamide Adenine Dinucleotide
+86:	1	coa[m]Coenzyme A
+103:	1	co2[c]Carbon Dioxide
+126:	1	coa[c]Coenzyme A
+301:	1	ppi[m]Diphosphate
+332:	1	acglu[m]N-Acetyl-L-Glutamate
+392:	1	ppi[c]Diphosphate
+425:	1	crn[c]L-Carnitine
+428:	1	crn[m]L-Carnitine
+456:	1	agm[m]Agmatine
+457:	1	ptrc[m]Putrescine
+461:	1	pa_hs[c]Phosphatidate
+477:	1	succoa[m]Succinyl Coenzyme A
+602:	1	hdcoa[c]Palmitoleyl Coenzyme A
+615:	1	odecoa[c]Octadecenoyl Coenzyme A (N-C18:1 Coenzyme A)
+623:	1	tetpent6coa[c]Tetracosa-6,9,12,15,18-All-Cis-Pentaenoyl Coenzyme A
+624:	1	tetpent3coa[c](9Z,12Z,15Z,18Z,21Z)-Tetracosapentaenoyl Coenzyme A
+625:	1	tettet6coa[c](9Z,12Z,15Z,18Z)-Tetracosatetraenoyl Coenzyme A
+757:	1	hdcoa[m]Palmitoleyl Coenzyme A
+765:	1	odecoa[m]Octadecenoyl Coenzyme A (N-C18:1 Coenzyme A)
+800:	1	cdpdag_hs[c]Cytidine-5'-Diphosphate-Diacylglycerol
+803:	1	cdpdag_hs[m]Cytidine-5'-Diphosphate-Diacylglycerol
+805:	1	pa_hs[m]Phosphatidate
+862:	1	clpn_hs[c]Cardiolipin
+1021:	1	decdp[c]All Trans Decaprenyl Diphosphate
+1022:	1	decdp[m]All Trans Decaprenyl Diphosphate
+1059:	1	dhf[c]7,8-Dihydrofolate
+1061:	1	dhf[m]7,8-Dihydrofolate
+1069:	1	mlthf[c]5,10-Methylenetetrahydrofolate
+1464:	1	fald[c]Formaldehyde
+1489:	1	dcacoa[c]Decanoyl Coenzyme A (N-C10:0 Coenzyme A)
+1499:	1	ppp9[m]Protoporphyrin
+1513:	1	thf[m]5,6,7,8-Tetrahydrofolate
+1518:	1	thf[c]5,6,7,8-Tetrahydrofolate
+1667:	1	mlthf[m]5,10-Methylenetetrahydrofolate
+1816:	1	hmgcoa[c]Hydroxymethylglutaryl Coenzyme A
+1817:	1	hmgcoa[m]Hydroxymethylglutaryl Coenzyme A
+1883:	1	itacon[m]Itaconic Acid
+1961:	1	meoh[c]Methanol
+2054:	1	dtmp[m]Deoxythymidine-5'-Phosphate
+2167:	1	pppg9[c]Protoporphyrinogen Ix
+2168:	1	pppg9[m]Protoporphyrinogen Ix
+2187:	1	ptrc[c]Putrescine
+2273:	1	tetpent3coa[m](9Z,12Z,15Z,18Z,21Z)-Tetracosapentaenoyl Coenzyme A
+2276:	1	tetpent6coa[m]Tetracosa-6,9,12,15,18-All-Cis-Pentaenoyl Coenzyme A
+2279:	1	tettet6coa[m](9Z,12Z,15Z,18Z)-Tetracosatetraenoyl Coenzyme A
+2455:	1	cholcoa[c]Choloyl Coenzyme A
+2487:	1	dcacoa[m]Decanoyl Coenzyme A (N-C10:0 Coenzyme A)
+2532:	1	dtmp[c]Deoxythymidine-5'-Phosphate
+2752:	1	cholcoa[m]Choloyl Coenzyme A
+2838:	1	cholcoar[m](25R)-3Alpha,7Alpha,12Alpha-Trihydroxy-5Beta-Cholestan-26-Oyl Coenzyme A
+3037:	1	CE5947[c]20-COOH-10,11-Dihydro-Leukotriene B4
+3066:	1	CE5947[m]20-COOH-10,11-Dihydro-Leukotriene B4
+3278:	1	succoa[c]Succinyl Coenzyme A
+3603:	1	acglu[c]N-Acetyl-L-Glutamate
+4264:	1	ppp9[c]Protoporphyrin
+4437:	1	agm[c]Agmatine
+4680:	1	M02694[c]Pentanoyl Coenzyme A
+4681:	1	M02694[m]Pentanoyl Coenzyme A
+4683:	1	M02107[c]Heptanoyl Coenzyme A
+4684:	1	M02107[m]Heptanoyl Coenzyme A
+4685:	1	M02616[c]Nonanoyl Coenzyme A
+4686:	1	M02616[m]Nonanoyl Coenzyme A
+4688:	1	M03116[c]Undecanoyl Coenzyme A
+4689:	1	M03116[m]Undecanoyl Coenzyme A
+4739:	1	clpn_hs[m]Cardiolipin
+4810:	1	cholcoar[c](25R)-3Alpha,7Alpha,12Alpha-Trihydroxy-5Beta-Cholestan-26-Oyl Coenzyme A
+5249:	1	itacon[c]Itaconic Acid
+
+
+8	10-Formyltetrahydrofolate Mitochondrial Transport via Diffusion	10FTHFtm	 12.10	 47.72
+substrates:
+10	      -1	  910.38	-29.69	-11.88	           10fthf[c]	10-Formyltetrahydrofolate
+products:
+12	       1	 1010.13	-29.69	-11.88	           10fthf[m]	10-Formyltetrahydrofolate
+
+502	Intracellular Transport	CDPDAGtm	 12.10	 47.72
+substrates:
+800	      -1	  736.41	-29.69	-11.88	        cdpdag_hs[c]	Cytidine-5'-Diphosphate-Diacylglycerol
+products:
+803	       1	  817.16	-29.69	-11.88	        cdpdag_hs[m]	Cytidine-5'-Diphosphate-Diacylglycerol
+
+567	Transport of Coenzyme A	COAtm	 67.39	 72.44
+substrates:
+126	      -1	 1379.91	-26.93	-23.35	              coa[c]	Coenzyme A
+products:
+86	       1	 1531.92	-15.78	-14.30	              coa[m]	Coenzyme A
+
+714	Lipid, Flip-Flop Intracellular Transport	DECDPtm	 27.05	 62.68
+substrates:
+1021	      -1	 3516.23	-29.69	-11.88	            decdp[c]	All Trans Decaprenyl Diphosphate
+products:
+1022	       1	 3900.99	-29.69	-11.88	            decdp[m]	All Trans Decaprenyl Diphosphate
+
+756	Dihydrofolate Reversible Mitochondrial Transport	DHFtm	 12.10	 47.72
+substrates:
+1059	      -1	  823.39	-29.69	-11.88	              dhf[c]	7,8-Dihydrofolate
+products:
+1061	       1	  913.65	-29.69	-11.88	              dhf[m]	7,8-Dihydrofolate
+
+1748	H2O Transport, Mitochondrial	H2Otm	  0.00	  0.00
+substrates:
+20	      -1	 -150.54	  0.00	  0.00	              h2o[c]	Water
+products:
+25	       1	 -141.04	  0.00	  0.00	              h2o[m]	Water
+
+1797	Hydroxymethylglutaryl Coenzyme A Reversible Mitochondrial Transport	HMGCOAtm	 56.96	 92.59
+substrates:
+1816	      -1	 1677.69	-29.69	-11.88	           hmgcoa[c]	Hydroxymethylglutaryl Coenzyme A
+products:
+1817	       1	 1862.95	-29.69	-11.88	           hmgcoa[m]	Hydroxymethylglutaryl Coenzyme A
+
+1848	H Transporter, Peroxisome	Htx	  1.19	  1.19
+substrates:
+35	      -1	   42.75	-42.75	-42.75	                h[c]	Proton
+products:
+41	       1	   41.56	-41.56	-41.56	                h[x]	Proton
+
+2431	Protoporphyrinogen Ix Mitochondrial Transport	PPPG9tm	 12.10	 47.72
+substrates:
+2167	      -1	 1649.75	-29.69	-11.88	            pppg9[c]	Protoporphyrinogen Ix
+products:
+2168	       1	 1830.26	-29.69	-11.88	            pppg9[m]	Protoporphyrinogen Ix
+
+2769	5, 6, 7, 8-Tetrahydrofolate Transport, Diffusion, Mitochondrial	THFtm	 12.10	 47.72
+substrates:
+1518	      -1	  910.38	-29.69	-11.88	              thf[c]	5,6,7,8-Tetrahydrofolate
+products:
+1513	       1	 1010.13	-29.69	-11.88	              thf[m]	5,6,7,8-Tetrahydrofolate
+
+3275	Active Transport	r0907	 12.10	 47.72
+substrates:
+457	      -1	  672.44	-29.69	-11.88	             ptrc[m]	Putrescine
+products:
+2187	       1	  605.93	-29.69	-11.88	             ptrc[c]	Putrescine
+
+3352	Facilitated Diffusion	r1117	 12.10	 47.72
+substrates:
+2532	      -1	  562.44	-29.69	-11.88	             dtmp[c]	Deoxythymidine-5'-Phosphate
+products:
+2054	       1	  624.19	-29.69	-11.88	             dtmp[m]	Deoxythymidine-5'-Phosphate
+
+3392	Postulated Transport Reaction	r1291	 42.01	 77.63
+substrates:
+393	      -1	 1553.88	-29.69	-11.88	            ppcoa[c]	Propanoyl Coenzyme A
+products:
+269	       1	 1724.89	-29.69	-11.88	            ppcoa[m]	Propanoyl Coenzyme A
+
+3415	Active Transport	r1400	 24.19	 95.45
+substrates:
+393	      -1	 1553.88	-29.69	-11.88	            ppcoa[c]	Propanoyl Coenzyme A
+428	      -1	  616.73	-29.69	-11.88	              crn[m]	L-Carnitine
+products:
+269	       1	 1724.89	-29.69	-11.88	            ppcoa[m]	Propanoyl Coenzyme A
+425	       1	  545.47	-29.69	-11.88	              crn[c]	L-Carnitine
+
+3443	Postulated Transport Reaction	r1467	 42.01	 77.64
+substrates:
+615	      -1	 2771.67	-29.69	-11.88	           odecoa[c]	Octadecenoyl Coenzyme A (N-C18:1 Coenzyme A)
+products:
+765	       1	 3075.68	-29.69	-11.88	           odecoa[m]	Octadecenoyl Coenzyme A (N-C18:1 Coenzyme A)
+
+3444	Postulated Transport Reaction	r1468	 42.01	 77.64
+substrates:
+602	      -1	 2597.70	-29.69	-11.88	            hdcoa[c]	Palmitoleyl Coenzyme A
+products:
+757	       1	 2882.71	-29.69	-11.88	            hdcoa[m]	Palmitoleyl Coenzyme A
+
+5418	Transport of NAD into Mitochondria	NADtm	 13.89	 25.95
+substrates:
+72	      -1	 1539.64	-23.61	-18.53	              nad[c]	Nicotinamide Adenine Dinucleotide
+products:
+84	       1	 1663.15	-19.60	-12.62	              nad[m]	Nicotinamide Adenine Dinucleotide
+
+5428	Diphopshate Transporter, Mitochondrial	PPItm	 27.76	 48.89
+substrates:
+392	      -1	-1934.24	-15.90	-12.58	              ppi[c]	Diphosphate
+products:
+301	       1	-1929.49	-29.69	-11.88	              ppi[m]	Diphosphate
+
+6989	Transport of Phosphatidate, Mitochondrial	PA_HStm	 12.10	 47.72
+substrates:
+461	      -1	  214.50	-29.69	-11.88	            pa_hs[c]	Phosphatidate
+products:
+805	       1	  238.25	-29.69	-11.88	            pa_hs[m]	Phosphatidate
+
+6992	Transport of 5,10-Methylenetetrahydrofolate, Mitochondrial	MLTHFtm	 12.10	 47.72
+substrates:
+1069	      -1	  910.38	-29.69	-11.88	            mlthf[c]	5,10-Methylenetetrahydrofolate
+products:
+1667	       1	 1010.13	-29.69	-11.88	            mlthf[m]	5,10-Methylenetetrahydrofolate
+
+7088	Transport of N-Acetyl-L-Glutamate, Mitochondrial	ACGLUtm	 12.10	 47.72
+substrates:
+3603	      -1	  388.47	-29.69	-11.88	            acglu[c]	N-Acetyl-L-Glutamate
+products:
+332	       1	  431.22	-29.69	-11.88	            acglu[m]	N-Acetyl-L-Glutamate
+
+7294	Carboxylic Acid Dissociation	H2CO3D	  0.81	 69.66
+substrates:
+20	      -1	 -150.54	  0.00	  0.00	              h2o[c]	Water
+103	      -1	 -386.00	-29.69	-11.88	              co2[c]	Carbon Dioxide
+products:
+35	       1	   42.75	-42.75	-42.75	                h[c]	Proton
+78	       1	 -544.06	-29.69	-11.88	             hco3[c]	Bicarbonate
+
+7308	Sodium Proton Antiporter (H:Na Is 1:1)	NAt3_1	  4.30	 36.76
+substrates:
+75	      -1	   43.94	-43.94	-43.94	                h[e]	Proton
+80	      -1	   -0.74	-41.56	 -9.51	              na1[c]	Sodium
+products:
+35	       1	   42.75	-42.75	-42.75	                h[c]	Proton
+79	       1	   -0.74	 -5.21	 -4.80	              na1[e]	Sodium
+
+7420	Alcohol Dehydrogenase (Methanol)	ALCD1	 15.74	103.29
+substrates:
+72	      -1	 1539.64	-23.61	-18.53	              nad[c]	Nicotinamide Adenine Dinucleotide
+1961	      -1	   -1.39	-29.69	-11.88	             meoh[c]	Methanol
+products:
+35	       1	   42.75	-42.75	-42.75	                h[c]	Proton
+71	       1	 1598.97	-35.83	-20.29	             nadh[c]	Nicotinamide Adenine Dinucleotide - Reduced
+1464	       1	  -36.97	-29.69	-11.88	             fald[c]	Formaldehyde
+
+7911	Transport of Agmatinium into Cytosol	AGRMtm	 12.10	 47.72
+substrates:
+456	      -1	  768.92	-29.69	-11.88	              agm[m]	Agmatine
+products:
+4437	       1	  692.92	-29.69	-11.88	              agm[c]	Agmatine
+
+8195	Fatty Acid Intracellular Transport, Mitochondrial	TETTET6COAtm	 42.01	 77.64
+substrates:
+625	      -1	 3032.63	-29.69	-11.88	       tettet6coa[c]	(9Z,12Z,15Z,18Z)-Tetracosatetraenoyl Coenzyme A
+products:
+2279	       1	 3365.14	-29.69	-11.88	       tettet6coa[m]	(9Z,12Z,15Z,18Z)-Tetracosatetraenoyl Coenzyme A
+
+8196	Fatty Acid Intracellular Transport, Mitochondrial	TETPENT6COAtm	 42.01	 77.64
+substrates:
+623	      -1	 2945.64	-29.69	-11.88	      tetpent6coa[c]	Tetracosa-6,9,12,15,18-All-Cis-Pentaenoyl Coenzyme A
+products:
+2276	       1	 3268.66	-29.69	-11.88	      tetpent6coa[m]	Tetracosa-6,9,12,15,18-All-Cis-Pentaenoyl Coenzyme A
+
+8197	Fatty Acid Intracellular Transport, Mitochondrial	TETPENT3COAtm	 42.01	 77.64
+substrates:
+624	      -1	 2945.64	-29.69	-11.88	      tetpent3coa[c]	(9Z,12Z,15Z,18Z,21Z)-Tetracosapentaenoyl Coenzyme A
+products:
+2273	       1	 3268.66	-29.69	-11.88	      tetpent3coa[m]	(9Z,12Z,15Z,18Z,21Z)-Tetracosapentaenoyl Coenzyme A
+
+8283	HMR_0166	HMR_0166	 42.01	 77.64
+substrates:
+4680	      -1	 1727.85	-29.69	-11.88	           M02694[c]	Pentanoyl Coenzyme A
+products:
+4681	       1	 1917.86	-29.69	-11.88	           M02694[m]	Pentanoyl Coenzyme A
+
+8288	HMR_0172	HMR_0172	 42.01	 77.64
+substrates:
+4683	      -1	 1901.82	-29.69	-11.88	           M02107[c]	Heptanoyl Coenzyme A
+products:
+4684	       1	 2110.83	-29.69	-11.88	           M02107[m]	Heptanoyl Coenzyme A
+
+8291	HMR_0178	HMR_0178	 42.01	 77.64
+substrates:
+4685	      -1	 2075.79	-29.69	-11.88	           M02616[c]	Nonanoyl Coenzyme A
+products:
+4686	       1	 2303.80	-29.69	-11.88	           M02616[m]	Nonanoyl Coenzyme A
+
+8293	HMR_0182	HMR_0182	 42.01	 77.64
+substrates:
+1489	      -1	 2162.78	-29.69	-11.88	           dcacoa[c]	Decanoyl Coenzyme A (N-C10:0 Coenzyme A)
+products:
+2487	       1	 2400.29	-29.69	-11.88	           dcacoa[m]	Decanoyl Coenzyme A (N-C10:0 Coenzyme A)
+
+8296	HMR_0185	HMR_0185	 42.01	 77.64
+substrates:
+4688	      -1	 2249.76	-29.69	-11.88	           M03116[c]	Undecanoyl Coenzyme A
+products:
+4689	       1	 2496.77	-29.69	-11.88	           M03116[m]	Undecanoyl Coenzyme A
+
+8450	HMR_0587	HMR_0587	 12.10	 47.72
+substrates:
+862	      -1	  692.92	-29.69	-11.88	          clpn_hs[c]	Cardiolipin
+products:
+4739	       1	  768.92	-29.69	-11.88	          clpn_hs[m]	Cardiolipin
+
+8574	HMR_1243	HMR_1243	 12.10	 47.72
+substrates:
+3037	      -1	 1301.81	-29.69	-11.88	           CE5947[c]	20-COOH-10,11-Dihydro-Leukotriene B4
+products:
+3066	       1	 1444.32	-29.69	-11.88	           CE5947[m]	20-COOH-10,11-Dihydro-Leukotriene B4
+
+8637	7Alpha-Hydroxycholest-4-En-3-One 12Alpha-Hydroxylase	HMR_1630	 42.01	 77.64
+substrates:
+4810	      -1	 3293.58	-29.69	-11.88	         cholcoar[c]	(25R)-3Alpha,7Alpha,12Alpha-Trihydroxy-5Beta-Cholestan-26-Oyl Coenzyme A
+products:
+2838	       1	 3654.60	-29.69	-11.88	         cholcoar[m]	(25R)-3Alpha,7Alpha,12Alpha-Trihydroxy-5Beta-Cholestan-26-Oyl Coenzyme A
+
+9289	HMR_4756	HMR_4756	 12.10	 47.72
+substrates:
+4264	      -1	 1388.80	-29.69	-11.88	             ppp9[c]	Protoporphyrin
+products:
+1499	       1	 1540.80	-29.69	-11.88	             ppp9[m]	Protoporphyrin
+
+9406	HMR_7757	HMR_7757	 42.01	 77.63
+substrates:
+35	      -1	   42.75	-42.75	-42.75	                h[c]	Proton
+3278	      -1	 1503.73	-29.69	-11.88	           succoa[c]	Succinyl Coenzyme A
+products:
+28	       1	   47.50	-47.50	-47.50	                h[m]	Proton
+477	       1	 1669.98	-29.69	-11.88	           succoa[m]	Succinyl Coenzyme A
+
+9407	HMR_7758	HMR_7758	 27.05	 62.68
+substrates:
+35	      -1	   42.75	-42.75	-42.75	                h[c]	Proton
+2455	      -1	 3032.63	-29.69	-11.88	          cholcoa[c]	Choloyl Coenzyme A
+products:
+28	       1	   47.50	-47.50	-47.50	                h[m]	Proton
+2752	       1	 3365.14	-29.69	-11.88	          cholcoa[m]	Choloyl Coenzyme A
+
+9458	HMR_9174	HMR_9174	 12.10	 47.72
+substrates:
+5249	      -1	  171.01	-29.69	-11.88	           itacon[c]	Itaconic Acid
+products:
+1883	       1	  190.01	-29.69	-11.88	           itacon[m]	Itaconic Acid
+

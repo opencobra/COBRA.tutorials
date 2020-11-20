@@ -1,0 +1,67 @@
+H2Otg	h2o[c]  <=> h2o[g] 	-0.0	-0.0	-0.0	-0.0
+H2Otly	h2o[c]  <=> h2o[l] 	-0.0	-0.0	-0.0	-0.0
+H2Otp	h2o[c]  <=> h2o[x] 	-0.0	-0.0	-0.0	-0.0
+Htg	h[g]  <=> h[c] 	-0.0	-0.0	-0.0	-0.0
+NAt	na1[e]  <=> na1[c] 	-2.9	-2.9	-39.7	-7.2
+PHEMEtm	pheme[m]  <=> pheme[c] 	-29.9	-29.9	-47.7	-12.1
+r0838	nh4[c]  <=> nh4[m] 	-15.0	-15.0	-26.6	-8.1
+r1116	atp[c]  <=> atp[e] 	-11.6	-11.6	-27.6	-6.3
+r1401	btcoa[m] + crn[c]  <=> crn[m] + btcoa[c] 	-59.8	-59.8	-95.4	-24.2
+r1418	h[e] + hco3[e]  <=> h2o[e] + co2[e] 	-51.8	-18.6	-69.7	-0.8
+CITt4_4	4 na1[e] + cit[e]  <=> 4 na1[c] + cit[c] 	-2.9	-2.9	-167.8	-2.3
+2MB2COAc	2mb2coa[m]  <=> 2mb2coa[c] 	-59.8	-59.8	-77.6	-42.0
+3HBCOARc	3hbcoa_R[m]  <=> 3hbcoa_R[c] 	-59.8	-59.8	-77.6	-42.0
+C141ACBP	3tetd7ecoa[m]  <=> 3tetd7ecoa[c] 	-59.8	-59.8	-77.6	-42.0
+C142ACBP	3ttetddcoa[m]  <=> 3ttetddcoa[c] 	-59.8	-59.8	-77.6	-42.0
+C162ACBP	3thexddcoa[m]  <=> 3thexddcoa[c] 	-59.8	-59.8	-77.6	-42.0
+GLUTCOAACBP	glutcoa[m]  <=> glutcoa[c] 	-74.8	-74.8	-92.6	-57.0
+HDCACBP	3hdcoa[m]  <=> 3hdcoa[c] 	-59.8	-59.8	-77.6	-42.0
+HDDACBP	3hddcoa[m]  <=> 3hddcoa[c] 	-59.8	-59.8	-77.6	-42.0
+HDECAACBP	3hexdcoa[m]  <=> 3hexdcoa[c] 	-59.8	-59.8	-77.6	-42.0
+HDECEACBP	3hdeccoa[m]  <=> 3hdeccoa[c] 	-59.8	-59.8	-77.6	-42.0
+HIVCACBP	3ivcoa[m]  <=> 3ivcoa[c] 	-59.8	-59.8	-77.6	-42.0
+HOCDACBP	3hodcoa[m]  <=> 3hodcoa[c] 	-59.8	-59.8	-77.6	-42.0
+HOCTDACBP	3octdece1coa[m]  <=> 3octdece1coa[c] 	-59.8	-59.8	-77.6	-42.0
+HTDCACBP	3htdcoa[m]  <=> 3htdcoa[c] 	-59.8	-59.8	-77.6	-42.0
+OCTDEC2ACBP	3ocddcoa[m]  <=> 3ocddcoa[c] 	-59.8	-59.8	-77.6	-42.0
+MMALtm	HC00900[m]  <=> HC00900[c] 	-29.9	-29.9	-47.7	-12.1
+The	h[e]  <=> h[c] 	-2.9	-2.9	-2.9	-2.9
+H2Ot	h2o[e]  <=> h2o[c] 	-0.0	-0.0	-0.0	-0.0
+C05767te	C05767[c]  <=> C05767[e] 	-23.2	-23.2	-41.0	-5.3
+NFDLAChc	h[c] + nfdoh[c]  <=> h2o[c] + nfdlac[c] 	-246.0	-226.1	-263.8	-208.3
+3HPVSCOAitm	3hpvscoa[m]  <=> 3hpvscoa[c] 	-44.9	-44.9	-62.7	-27.1
+3HPVSTETCOAitm	3hpvstetcoa[m]  <=> 3hpvstetcoa[c] 	-59.8	-59.8	-77.6	-42.0
+DCMPtm	dcmp[m]  <=> dcmp[c] 	-29.9	-29.9	-47.7	-12.1
+
+Cytoplasmic metabolites only:
+5	h2o	h2o[c]	-150.5	1.5	
+1	nh4	nh4[c]	93.8	4.8	
+3	h	h[c]	42.8	0.0	
+1	atp	atp[c]	510.1	100000.0	
+5	na1	na1[c]	-0.7	100000.0	
+1	cit	cit[c]	210.8	100000.0	
+1	crn	crn[c]	545.5	43334.7	
+1	dcmp	dcmp[c]	518.9	100000.0	
+1	pheme	pheme[c]	1301.8	100000.0	
+1	HC00900	HC00900[c]	171.0	100000.0	
+1	btcoa	btcoa[c]	1640.9	100000.0	
+1	C05767	C05767[c]	1257.4	100000.0	
+1	2mb2coa	2mb2coa[c]	1640.9	100000.0	
+1	3hbcoa_R	3hbcoa_R[c]	1640.9	100000.0	
+1	3hdcoa	3hdcoa[c]	2162.8	100000.0	
+1	3hddcoa	3hddcoa[c]	2336.7	100000.0	
+1	3tetd7ecoa	3tetd7ecoa[c]	2423.7	100000.0	
+1	3ttetddcoa	3ttetddcoa[c]	2336.7	100000.0	
+1	3htdcoa	3htdcoa[c]	2510.7	100000.0	
+1	3hdeccoa	3hdeccoa[c]	2597.7	100000.0	
+1	3thexddcoa	3thexddcoa[c]	2510.7	100000.0	
+1	3hexdcoa	3hexdcoa[c]	2684.7	100000.0	
+1	3octdece1coa	3octdece1coa[c]	2771.7	100000.0	
+1	3ocddcoa	3ocddcoa[c]	2684.7	100000.0	
+1	3hodcoa	3hodcoa[c]	2858.7	100000.0	
+1	glutcoa	glutcoa[c]	1590.7	100000.0	
+1	3ivcoa	3ivcoa[c]	1727.9	100000.0	
+1	nfdoh	nfdoh[c]	564.7	0.0	
+1	nfdlac	nfdlac[c]	521.9	0.0	
+1	3hpvscoa	3hpvscoa[c]	2907.3	0.0	
+1	3hpvstetcoa	3hpvstetcoa[c]	2510.7	0.0	
