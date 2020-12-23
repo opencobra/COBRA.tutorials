@@ -5,7 +5,7 @@
 % aerobic and anaerobic conditions.
 %% Initialize the COBRA Toolbox
 %%
-initCobraToolbox(false)
+initCobraToolbox
 %% Prepare input data and models
 % change directory to where the tutorial is located
 %%

@@ -9,7 +9,7 @@
 % analyzed.
 %% Initialize the COBRA Toolbox
 %%
-initCobraToolbox(false) %don't update the toolbox
+initCobraToolbox
 %% Prepare input data and models
 % change directory to where the tutorial is located
 %%

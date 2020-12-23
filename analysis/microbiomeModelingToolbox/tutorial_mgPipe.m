@@ -32,7 +32,7 @@
 % inputs and outputs files and locations. 
 %% Initialize the COBRA Toolbox
 %%
-initCobraToolbox(false) %don't update the toolbox
+initCobraToolbox
 %% Prepare input data and models
 % We first set the paths to input and output files change directory to where 
 % the tutorial is located
