@@ -17,12 +17,12 @@ tutorialPath = fileparts(which('tutorial_microbeMicrobeInteractions'));
 cd(tutorialPath);
 %% 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
-% Jan;35(1):81-89) in this tutorial. AGORA version 1.02 is available at www.vmh.life. 
+% Jan;35(1):81-89) in this tutorial. AGORA version 1.03 is available at https://github.com/VirtualMetabolicHuman/AGORA. 
 % Download AGORA and place the models into a folder.
 %%
-system('curl -O https://www.vmh.life/files/reconstructions/AGORA/1.02/Agora-1.02.zip')
-unzip('Agora-1.02.zip','AGORA')
-modPath = [tutorialPath filesep 'AGORA' filesep 'mat'];
+system('curl -LJO https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
+unzip('AGORA-master')
+modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_03' filesep' 'AGORA_1_03_mat'];
 %% 
 % Import a file with information on the AGORA organisms including reconstruction 
 % names and taxonomy.
@@ -43,13 +43,7 @@ modelList = infoFile(randi([2 length(infoFile)],1,10),1);
 % You may also enter a custom selection of AGORA reconstructions as a cell 
 % array named modelList.
 % 
-% Load the AGORA reconstructions to be joined.
 %%
-for i=1:size(modelList,1)
-    model=readCbModel(strcat(modPath,modelList{i,1},'.mat'));
-    inputModels{i,1}=model;
-end
-%% 
 % Let us define some parameters for joining the models. Set the coupling 
 % factor c, which defined how the flux through all reactions in a model is coupled 
 % to the flux through its biomass reaction. Allowed flux span through each reaction= 
@@ -72,10 +66,14 @@ mergeGenes = false;
 % is not available.
 %%
 numWorkers = 4;
+
+%% path where to save results
+mkdir('Results');
+resPath = [tutorialPath filesep 'Results'];
 %% 
 % Join the models in all possible combinations.
 %%
-[pairedModels,pairedModelInfo]=joinModelsPairwiseFromList(modelList,inputModels,'c',c,'u',u,'mergeGenesFlag',mergeGenes,'numWorkers',numWorkers);
+joinModelsPairwiseFromList(modelList,modPath,'pairwiseModelFolder', resPath,'c',c,'u',u,'mergeGenesFlag',mergeGenes,'numWorkers',numWorkers);
 %% Computation of pairwise interactions
 % The interactions between all microbes joined in the first step will be simulated 
 % on given dietary conditions. Here, we will use four dietary conditions used 
@@ -107,7 +105,7 @@ sigD = 0.1;
 %%
 for i = 1:length(conditions)
     % assign dietary constraints
-    [pairwiseInteractions]=simulatePairwiseInteractions(pairedModels,pairedModelInfo,'inputDiet',dietConstraints{i},'sigD',sigD,'saveSolutionsFlag', false,'numWorkers', numWorkers);
+    [pairwiseInteractions]=simulatePairwiseInteractions(resPath,'inputDiet',dietConstraints{i},'sigD',sigD,'saveSolutionsFlag', false,'numWorkers', numWorkers);
 Interactions.(conditions{i})=pairwiseInteractions;
 end
 %% Analysis of computed pairwise interactions
@@ -231,11 +229,11 @@ dinc=0.001;
 %%
 for i=1:size(modelInd,2)
     models={};
-    model=readCbModel(strcat(modPath,infoFile{modelInd(1,i),1},'.mat'));
+    model=readCbModel([modPath filesep infoFile{modelInd(1,i),1} '.mat']);
     models{1,1}=model;
     bioID{1,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
     nameTagsModels{1,1}=strcat(infoFile{modelInd(1,i),1},'_');
-    model=readCbModel(strcat(modPath,infoFile{modelInd(2,i),1},'.mat'));
+    model=readCbModel([modPath filesep infoFile{modelInd(2,i),1} '.mat']);
     models{2,1}=model;
     nameTagsModels{2,1}=strcat(infoFile{modelInd(2,i),1},'_');
     bioID{2,1}=model.rxns(find(strncmp(model.rxns,'biomass',7)));
