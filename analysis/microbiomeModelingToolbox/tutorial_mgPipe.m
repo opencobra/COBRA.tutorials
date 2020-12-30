@@ -170,8 +170,38 @@ adaptMedium = true;
 % disease state), the samples can be stratified based on this
 % classification. To provide metadata, prepare an input file as in the
 % example 'sampInfo.csv'. The path to the file with sample information
-% needs to be provided as the variable indInfoFilePath. 
+% needs to be provided as the variable indInfoFilePath. Note that the group 
+% classification in sampInfo.csv is arbitrary.
 
 indInfoFilePath='sampInfo.csv'; 
 
 [init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'indInfoFilePath', indInfoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+
+%% Statistical analysis
+% If sample information as in sampInfo.csv is provided (e.g., healthy vs.
+% disease state), statistical analysis can be performed to identify whether
+% net secretion fluxes, net uptake fluxes, and reaction abundances can be
+% performed. If the analyzed samples can be divided into two groups,
+% Wilcoxon rank sum test will be used. If there are three or more groups,
+% Kruskal-Wallis test will be performed.
+
+% Define the input variables.
+% Path to file with sample information (required)
+infoFilePath='sampInfo.csv';
+
+% Header in the file with sample information with the stratification to 
+% analyze (required)
+sampleGroupHeaders={'Group'};
+% sampleGroupHeaders can contain more than one entry if multiple columns 
+% with sample information (e.g., disease state, age group) should be analyzed.
+
+% path with results of mgPipe that will be analyzed
+resPath = [tutorialPath filesep 'Results'];
+
+% path where to save statistical analysis results
+mkdir('Statistics');
+statPath = [tutorialPath filesep 'Statistics'];
+
+% perform the statistical analysis and save the results
+analyzeMgPipeResults(infoFilePath,resPath,statPath,sampleGroupHeaders);
+
