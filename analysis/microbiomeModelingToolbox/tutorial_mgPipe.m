@@ -32,7 +32,7 @@
 % inputs and outputs files and locations. 
 %% Initialize the COBRA Toolbox
 %%
-initCobraToolbox
+initCobraToolbox(false)
 %% Prepare input data and models
 % We first set the paths to input and output files change directory to where 
 % the tutorial is located
@@ -204,4 +204,52 @@ statPath = [tutorialPath filesep 'Statistics'];
 
 % perform the statistical analysis and save the results
 analyzeMgPipeResults(infoFilePath,resPath,statPath,sampleGroupHeaders);
+
+%% Analysis of strain-level contributions
+
+% For metabolites of particular interest (e.g., for which the
+% community-wide secretion potential was significantly different between
+% disease cases and controls), the strains consuming and secreting the
+% metabolites in each sample may be computed. This will yield insight into
+% the contribution of each strain to each metabolite. Note that for
+% metabolites for which the community wide secretion potential did not
+% differ, the strains contributing to metabolites may still be
+% significantly different.
+
+% We will define a list of metabolites to analyze. As an example, we will
+% take acetate and formate.
+
+metList = {'ac','for'};
+
+[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(modPath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'metList', metList, 'numWorkers', numWorkers, 'lowerBMBound', lowerBMBound, 'adaptMedium', adaptMedium);
+
+% The output 'minFluxes' shows the fluxes in the reverse direction through
+% all internal exchange reactions that had nonzero flux for easch analyzed
+% metabolite. The output 'maxFluxes' shows the corresponding forward
+% fluxes. 'fluxSpans' shows the distance between minimnal and maximal
+% fluxes for each internal exchange reaction with nonzero flux for each
+% metabolite.
+
+%% Computation of shadow prices
+
+% Shadow prices are routinely retrieved with each flux balance analysis
+% solution. They depict the value of a metabolite for the flux through the 
+% objective function. In the case of community modeling, this will enable
+% us to determine which metabolites are bottlenecks for the community's
+% potential to secrete a metabolite of interest.
+
+% We will compute the shadow prices for acetate and formate as an example.
+
+objectiveList={
+    'EX_ac[fe]'
+    'EX_for[fe]'
+    };
+
+% Here, we will compute all shadow prices that are nonzero. Thus, this
+% include both metabolites that would increase and decrease the flux
+% through the objective function if their availability was increased.
+
+SPDef = 'Nonzero';
+
+[objectives,shadowPrices]=analyseObjectiveShadowPrices(modPath, objectiveList, 'SPDef', SPDef, 'numWorkers', numWorkers, 'solutionFolder', resPath);
 
