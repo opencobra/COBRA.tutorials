@@ -21,8 +21,14 @@ end
 
 if ~isfield(param,'internal')
     param.internal=1;
-    param.plot=1;
+end
+
+if ~isfield(param,'n')
     param.n=10;
+end
+
+if ~isfield(param,'plot')
+    param.plot=1;
 end
 
 if param.internal
