@@ -86,14 +86,15 @@ abunFilePath='normCoverageReduced.csv';
 % The same inputs need to be set in the driver file StartMgPipe when running 
 % mgPipe outside of this tutorial or directly in the "initMgPipe" function.
 % 
-%% OPTIONAL INPUTS
+% OPTIONAL INPUTS
+
 % path to csv file for stratification criteria (if empty or not existent no criteria is used)
 indInfoFilePath = '';
 
 % name of objective function of organisms, default='EX_biomass(e)'
 objre = 'EX_biomass(e)';
 
-%the output is vectorized picture, default=-depsc, change to '-dpng' for .png
+% the output is vectorized picture, default=-depsc, change to '-dpng' for .png
 figForm = '-depsc';
 
 % number of cores dedicated for parallelization (default=2)
@@ -103,6 +104,7 @@ numWorkers = 4;
 autoFix = true;
 
 % if outputs in open formats should be produced for each section (default=false)
+
 compMod = false; 
 
 % to enable also rich diet simulations (default=false)
@@ -111,11 +113,11 @@ rDiet = false;
 % to enable personalized diet simulations (default=false)
 pDiet = false;
 
-% if to use an external solver and save models with diet (default=false)
+%% if to use an external solver and save models with diet (default=false)
 extSolve = false;
 
-% the type of FVA function to use to solve (true=fastFVA,
-% flase=fluxVariability)
+%% the type of FVA function to use to solve (true=fastFVA,
+% false=fluxVariability)
 fvaType = true;
 
 % to manually set the lower bound on flux through the community biomass
@@ -202,7 +204,7 @@ resPath = [tutorialPath filesep 'Results'];
 mkdir([tutorialPath filesep 'Statistics']);
 statPath = [tutorialPath filesep 'Statistics'];
 
-% perform the statistical analysis and save the results
+%% perform the statistical analysis and save the results
 analyzeMgPipeResults(infoFilePath,resPath,statPath,sampleGroupHeaders);
 
 %% Analysis of strain-level contributions
