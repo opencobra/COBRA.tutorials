@@ -86,23 +86,25 @@ abunFilePath='normCoverageReduced.csv';
 % The same inputs need to be set in the driver file StartMgPipe when running 
 % mgPipe outside of this tutorial or directly in the "initMgPipe" function.
 % 
-%% OPTIONAL INPUTS
+% OPTIONAL INPUTS
+
 % path to csv file for stratification criteria (if empty or not existent no criteria is used)
 indInfoFilePath = '';
 
 % name of objective function of organisms, default='EX_biomass(e)'
 objre = 'EX_biomass(e)';
 
-%the output is vectorized picture, default=-depsc, change to '-dpng' for .png
+% the output is vectorized picture, default=-depsc, change to '-dpng' for .png
 figForm = '-depsc';
 
 % number of cores dedicated for parallelization (default=2)
-numWorkers = 2;
+numWorkers = 4;
 
 % autofix for names mismatch (default=true)
 autoFix = true;
 
 % if outputs in open formats should be produced for each section (default=false)
+
 compMod = false; 
 
 % to enable also rich diet simulations (default=false)
@@ -111,11 +113,11 @@ rDiet = false;
 % to enable personalized diet simulations (default=false)
 pDiet = false;
 
-% if to use an external solver and save models with diet (default=false)
+%% if to use an external solver and save models with diet (default=false)
 extSolve = false;
 
-% the type of FVA function to use to solve (true=fastFVA,
-% flase=fluxVariability)
+%% the type of FVA function to use to solve (true=fastFVA,
+% false=fluxVariability)
 fvaType = true;
 
 % to manually set the lower bound on flux through the community biomass
@@ -199,10 +201,10 @@ sampleGroupHeaders={'Group'};
 resPath = [tutorialPath filesep 'Results'];
 
 % path where to save statistical analysis results
-mkdir('Statistics');
+mkdir([tutorialPath filesep 'Statistics']);
 statPath = [tutorialPath filesep 'Statistics'];
 
-% perform the statistical analysis and save the results
+%% perform the statistical analysis and save the results
 analyzeMgPipeResults(infoFilePath,resPath,statPath,sampleGroupHeaders);
 
 %% Analysis of strain-level contributions
@@ -218,28 +220,42 @@ analyzeMgPipeResults(infoFilePath,resPath,statPath,sampleGroupHeaders);
 
 % We will define a list of metabolites to analyze. As an example, we will
 % take acetate and formate.
-
 metList = {'ac','for'};
 
-[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(modPath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'metList', metList, 'numWorkers', numWorkers, 'lowerBMBound', lowerBMBound, 'adaptMedium', adaptMedium);
+% path with microbiome models generated through mgPipe that will be analyzed
+mmPath = [tutorialPath filesep 'Results'];
+
+% create a new folder where strain contributions will be saved
+mkdir([tutorialPath filesep 'StrainContributions']);
+contPath = [tutorialPath filesep 'StrainContributions'];
+
+[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(mmPath, 'resPath', contPath, 'dietFilePath', dietFilePath, 'metList', metList, 'numWorkers', numWorkers, 'lowerBMBound', lowerBMBound, 'adaptMedium', adaptMedium);
 
 % The output 'minFluxes' shows the fluxes in the reverse direction through
-% all internal exchange reactions that had nonzero flux for easch analyzed
+% all internal exchange reactions that had nonzero flux for each analyzed
 % metabolite. The output 'maxFluxes' shows the corresponding forward
-% fluxes. 'fluxSpans' shows the distance between minimnal and maximal
+% fluxes. 'fluxSpans' shows the distance between minimal and maximal
 % fluxes for each internal exchange reaction with nonzero flux for each
 % metabolite.
+
+% Afterwards, statistical analysis of the strain contributions can also be
+% performed.
+analyzeMgPipeResults(infoFilePath,contPath,statPath,sampleGroupHeaders);
 
 %% Computation of shadow prices
 
 % Shadow prices are routinely retrieved with each flux balance analysis
-% solution. They depict the value of a metabolite for the flux through the 
-% objective function. In the case of community modeling, this will enable
+% solution. Briefly,the shadow price is a measurement for the value of a
+% metabolite towards the optimized objective function, which indicates 
+% whether the flux through the objective function would increase or 
+% decrease when the availability of this metabolite would increase by one 
+% unit (Palsson B. Systems biology : properties of reconstructed networks).
+% For microbiome community models created through mgPipe, this will enable
 % us to determine which metabolites are bottlenecks for the community's
-% potential to secrete a metabolite of interest.
+% potential to secrete a metabolite of interest. This was performed for
+% bile acids in Heinken et al., Microbiome (2019) 7:75.
 
 % We will compute the shadow prices for acetate and formate as an example.
-
 objectiveList={
     'EX_ac[fe]'
     'EX_for[fe]'
@@ -248,8 +264,17 @@ objectiveList={
 % Here, we will compute all shadow prices that are nonzero. Thus, this
 % include both metabolites that would increase and decrease the flux
 % through the objective function if their availability was increased.
-
+% Note that the definition of the shadow price depends on the solver. 
+% To check the shadow price definitions for each solver, run the test
+% script testDualRCostDefinition.
 SPDef = 'Nonzero';
 
-[objectives,shadowPrices]=analyseObjectiveShadowPrices(modPath, objectiveList, 'SPDef', SPDef, 'numWorkers', numWorkers, 'solutionFolder', resPath);
+% create a new folder where shadow prices will be saved
+mkdir([tutorialPath filesep 'ShadowPrices']);
+spPath = [tutorialPath filesep 'ShadowPrices'];
 
+[objectives,shadowPrices]=analyseObjectiveShadowPrices(mmPath, objectiveList, 'resultsFolder', spPath, 'SPDef', SPDef, 'numWorkers', numWorkers, 'dietFilePath', dietFilePath, 'lowerBMBound', lowerBMBound, 'adaptMedium', adaptMedium);
+
+% Similar to the previous results, we can also perform statistical analysis
+% on the computed shadow prices.
+analyzeMgPipeResults(infoFilePath,spPath,statPath,sampleGroupHeaders);
