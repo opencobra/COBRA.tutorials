@@ -263,6 +263,8 @@ objectiveList={
 % include both metabolites that would increase and decrease the flux
 % through the objective function if their availability was increased.
 % Note that the definition of the shadow price depends on the solver. 
+% To check the shadow price definitions for each solver, run the test
+% script testDualRCostDefinition.
 SPDef = 'Nonzero';
 
 % create a new folder where shadow prices will be saved
