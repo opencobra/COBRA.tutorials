@@ -47,7 +47,7 @@
 % available at xx. 
 % Next, please place all draft reconstructions that you want to refine into 
 % one folder.
-% For the sake of this tutorial, we will use two AGORA2 strains as well as
+% For the sake of this tutorial, we will use four AGORA2 strains as well as
 % six example strains that were randomly chosen from genomes present at 
 % KBase and are not present in AGORA2. Draft reconstructions for these 
 % strains have already been retrieved from KBase and placed into the folder 
@@ -56,6 +56,12 @@
 
 % To start DEMETER, define the path to the folder where the draft 
 % reconstructions are located.
+
+% initialize the COBRA
+initCobraToolbox
+
+% set a solver (recommended: IBM CPLEX)
+solverOK=changeCobraSolver('ibm_cplex','LP');
 
 global CBTDIR
 draftFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exampleDraftReconstructions'];
@@ -234,12 +240,6 @@ numWorkers = 4;
 % Define a name for the reconstruction resource (optional)
 reconVersion = 'TutorialExample';
 
-% initialize the COBRA
-initCobraToolbox
-
-% set a solver (recommended: IBM CPLEX)
-solverOK=changeCobraSolver('ibm_cplex','LP');
-
 % Run the pipeline.
 runPipeline(draftFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML, 'sbmlFolder', sbmlFolder)
 
@@ -333,6 +333,10 @@ testResults2 = table2cell(testResults2);
 % used otherwise)
 propertiesFolder = [pwd filesep 'modelProperties'];
 
+% Define whether properties for draft reconstructions should also be
+% computed (default=false)
+analyzeDrafts = false;
+
 % Run the computation and visualization of model properties.
-computeModelProperties(translatedDraftsFolder, refinedFolder, 'infoFilePath', adaptedInfoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion)
+computeModelProperties(translatedDraftsFolder, refinedFolder, 'infoFilePath', adaptedInfoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion, 'analyzeDrafts', analyzeDrafts)
 
