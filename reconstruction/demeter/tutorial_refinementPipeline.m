@@ -10,6 +10,11 @@
 % microbial organisms [1]. More recently, DEMETER was used to reconstruct
 % 7,206 human microbial strains, resulting in AGORA2, an update to AGORA
 % both in size and scope [2].
+% While DEMETER was built with reconstructing human gut microbial
+% reconstructions in mind and is tailored towards this purpose, it can be
+% applied to any types of bacterial or archaeal microorganisms. The 
+% minimal prerequisite is the availability of a sequenced genome for the 
+% target organism.
 % The tutorial demonstrates how to use DEMETER to build a refined 
 % genome-scale reconstruction for one or more target organisms from a draft 
 % reconstruction retrieved from KBase.
@@ -52,7 +57,6 @@
 % To start DEMETER, define the path to the folder where the draft 
 % reconstructions are located.
 
-initCobraToolbox
 global CBTDIR
 draftFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exampleDraftReconstructions'];
 
@@ -186,7 +190,7 @@ writetable(cell2table(data),[inputDataFolder filesep 'FermentationTable'],'FileT
 % Alternatively, you can inspect the files manually and edit as needed.
 
 %% Step 3: Iterative refinement 
-%% Running the DEMETER pipeline
+%% 3.1. Running the DEMETER pipeline
 % With the experimental and comparative genomic data in place, the pipeline
 % can be run. This will result in a refined reconstruction for each strain
 % in the draft reconstruction folder as a mat file and optionally as a SBML
@@ -208,17 +212,17 @@ refinedFolder = [pwd filesep 'RefinedReconstructions'];
 
 % Define the path to a folder where the refined reconstructions will be
 % stored in SBML file format
-sbmlFolder = [pwd filesep 'refinedReconstructions_SBML'];
+sbmlFolder = [pwd filesep 'RefinedReconstructions_SBML'];
 
 % Define the path where translated versions of the draft reconstructions
 % will be stored. These reconstructions will not undergo the pipeline
 % except for the translation step, which will enable them to pass the
 % DEMETER test suite.
-translatedDraftsFolder = [pwd filesep 'translatedDraftsFolder'];
+translatedDraftsFolder = [pwd filesep 'TranslatedDraftReconstructions'];
 
 % Define the folder where reports on performed gap-filling, QA/QC,
 % and expansion the reconstructions will be saved.
-summaryFolder = [pwd filesep 'refinementSummary'];
+summaryFolder = [pwd filesep 'RefinementSummary'];
 
 % Define whether the refined reconstructions will additionally be exported
 % as SBML files (default = false).
@@ -230,17 +234,105 @@ numWorkers = 4;
 % Define a name for the reconstruction resource (optional)
 reconVersion = 'TutorialExample';
 
+% initialize the COBRA
+initCobraToolbox
+
+% set a solver (recommended: IBM CPLEX)
+solverOK=changeCobraSolver('ibm_cplex','LP');
+
 % Run the pipeline.
 runPipeline(draftFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML, 'sbmlFolder', sbmlFolder)
 
-% run test suite
-% draft folder for testing
-createMatfileKBaseDraftModels
-draftFolder = [rootDir filesep 'Current_Version_AGORA2' filesep 'Draft_Reconstructions_Matfiles'];
-runTestSuiteTools(draftFolder, refinedFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder, 'reconVersion', reconVersion)
+%% Inspection of the output of the pipeline
+% Let us have a look at the results of the pipeline run.
+% The refined reconstruction in mat format are located in the folder
+% "RefinedReconstructions", and in SBML format in
+% "RefinedReconstructions_SBML".
+% The folder "TranslatedDraftReconstructions" contains the draft
+% reconstructions with exchange reactions translated (no other changes were
+% made to this version).
+% The folder "RefinementSummary" contains a detailed overview of the
+% gap-filling and expansion performed for each refined reconstruction.
+% If the files "untranslatedMets.txt" and "untranslatedRxns.txt", are
+% present and contain any entries, it is recommended to translate these
+% metabolites and/or reactions. Go to Part 3.3 for more details.
 
-% get model properties
-draftFolder = [rootDir filesep 'Current_Version_AGORA2' filesep 'Draft_Reconstructions_Matfiles'];
-computeModelProperties(draftFolder, refinedFolder, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion)
+%% 3.2. Testing the refined reconstructions
+% DEMETER includes a comprehensive test suite that was developed to ensure
+% good quality and agreement with known metabolic traits of the
+% reconstructed strains in AGORA2 [2].
 
+%% Biomass production
+% Test and plot whether all reconstructions can produce reasonable amounts
+% of biomass on the Western diet and on "rich" medium (consisting of every
+% metabolite the model can consume) aerobically and anaerobically.
+plotBiomassTestResults(translatedDraftsFolder,refinedFolder,pwd,numWorkers,reconVersion)
+
+% You can see that for the examples, all refined reconstructions produce
+% biomass under anaerobic conditions and on Western diet while this is not
+% the case for all draft reconstructions.
+% If the refined reconstructions for your own organisms are unable to 
+% produce biomass under any conditions, proceed to Step 3.3 of the pipeline.
+
+%% ATP production
+% % Test and plot whether all reconstructions produce reasonable amounts
+% of ATP on the Western diet aerobically and anaerobically.
+plotATPTestResults(translatedDraftsFolder,refinedFolder,pwd,numWorkers,reconVersion)
+
+% Define the folder where test results should be saved (optional, default
+% folder will be used otherwise)
+testResultsFolder = [pwd filesep 'TestResults'];
+
+% You can see that for the examples, all refined reconstructions produce
+% realistic amounts of ATP on Western diet while the draft reconstructions
+% produce near unlimited amounts of ATP.
+% If the refined reconstructions for your own organisms produce too much 
+% ATP, proceed to Step 3.3 of the pipeline below.
+
+%% QC/QA and test against available experimental and comparative genomic data
+
+% Run the test suite.
+runTestSuiteTools(translatedDraftsFolder, refinedFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder, 'reconVersion', reconVersion)
+
+% The folder "TestResults" contains information on tests agianst the
+% available experimental data that passed or failed the test suite.
+% Carefully inspect these results. If there are any false negative
+% predictions for your organism(s), proceed to Step 3.3 of the pipeline
+% below.
+
+% To view the results for the tutorial example, run the following code.
+% Sensitivity of reconstructions for capturing the experimental data
+testResults1 = readtable([testResultsFolder filesep reconVersion '_refined' filesep 'TutorialExample_Properties.xls'], 'ReadVariableNames', false);
+testResults1 = table2cell(testResults1);
+
+% Fraction of refined reconstructions that agree with all experimental data
+testResults2 = readtable([testResultsFolder filesep reconVersion '_refined' filesep 'TutorialExample_PercentagesAgreement.xls'], 'ReadVariableNames', false);
+testResults2 = table2cell(testResults2);
+
+% The test suite also reports any cases of leaking metabolites, mass- and
+% charge-imbalanced reactions, incorrectly formulated gene rules. Inspect 
+% these cases. Note that some mass- and charge-imbalamnced reactions
+% currently cannot be corrected.
+
+%% 3.3. Debugging the refined reconstructions
+% Check the files "untranslatedMets.txt" and "untranslatedRxns.txt", if
+% present, for any KBase metabolites and reactions that are not yet
+% translated to VMH nomenclature.
+
+%% 4. Analysis and vidualization of model properties and features
+% Once refined reconstructions have been successfully created, the DEMETER 
+% pipeline also provides functions to retrieve properties of the
+% reconstructions, e.g., average size and gene count and stochiometric
+% consistency. Moreover, the pipeline enables the computation of reaction 
+% content, uptake and secretion profiles, and internal metabolite 
+% biosynthesis profiles per reconstruction and their subssequent clustering 
+% by taxon.
+
+% Define the folder where computed model properties of the finished 
+% reconstruction resource should be saved (optional, default folder will be 
+% used otherwise)
+propertiesFolder = [pwd filesep 'modelProperties'];
+
+% Run the computation and visualization of model properties.
+computeModelProperties(translatedDraftsFolder, refinedFolder, 'infoFilePath', adaptedInfoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion)
 
