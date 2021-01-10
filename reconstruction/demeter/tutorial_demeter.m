@@ -60,6 +60,9 @@
 % initialize the COBRA
 initCobraToolbox
 
+% Please ensure that the COBRA/papers folder is up to date and in the 
+% MATLAB path as DEMETER depends on files located in COBRA/papers/demeter.
+
 % set a solver (recommended: IBM CPLEX)
 solverOK=changeCobraSolver('ibm_cplex','LP');
 
