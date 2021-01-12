@@ -28,6 +28,9 @@ modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_
 % names and taxonomy.
 %%
 [~,infoFile,~]=xlsread('AGORA_infoFile.xlsx');
+% Note: if you get a 'file not found' error for AGORA_infoFile.xlsx, please
+% run initCobraToolbox and ensure that the cobratoolbox/papers folder is in
+% the MATLAB path.
 %% Creation of pairwise models
 % For the sake of this tutorial, we will use ten random AGORA reconstructions 
 % from the info file.
