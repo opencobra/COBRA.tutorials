@@ -89,7 +89,7 @@ abunFilePath='normCoverageReduced.csv';
 % OPTIONAL INPUTS
 
 % path to csv file for stratification criteria (if empty or not existent no criteria is used)
-indInfoFilePath = '';
+infoFilePath = '';
 
 % name of objective function of organisms, default='EX_biomass(e)'
 objre = 'EX_biomass(e)';
@@ -134,7 +134,7 @@ adaptMedium = true;
 %% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'indInfoFilePath', indInfoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 
 %% Computed outputs
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -172,27 +172,29 @@ adaptMedium = true;
 % disease state), the samples can be stratified based on this
 % classification. To provide metadata, prepare an input file as in the
 % example 'sampInfo.csv'. The path to the file with sample information
-% needs to be provided as the variable indInfoFilePath. Note that the group 
+% needs to be provided as the variable infoFilePath. Note that the group 
 % classification in sampInfo.csv is arbitrary.
 
-indInfoFilePath='sampInfo.csv'; 
+infoFilePath='sampInfo.csv'; 
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'indInfoFilePath', indInfoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 
-%% Statistical analysis
+%% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs.
 % disease state), statistical analysis can be performed to identify whether
 % net secretion fluxes, net uptake fluxes, and reaction abundances can be
 % performed. If the analyzed samples can be divided into two groups,
 % Wilcoxon rank sum test will be used. If there are three or more groups,
 % Kruskal-Wallis test will be performed.
+% Moreover, violin plots that show the computed fluxes separate by group
+% will be generated.
 
 % Define the input variables.
 % Path to file with sample information (required)
 infoFilePath='sampInfo.csv';
 
 % Header in the file with sample information with the stratification to 
-% analyze (required)
+% analyze (if not provided, the second column will be chosen by default)
 sampleGroupHeaders={'Group'};
 % sampleGroupHeaders can contain more than one entry if multiple columns 
 % with sample information (e.g., disease state, age group) should be analyzed.
@@ -200,12 +202,23 @@ sampleGroupHeaders={'Group'};
 % path with results of mgPipe that will be analyzed
 resPath = [tutorialPath filesep 'Results'];
 
-% path where to save statistical analysis results
-mkdir([tutorialPath filesep 'Statistics']);
+% define where results will be saved (optional, default folders will be
+% generated otherwise)
 statPath = [tutorialPath filesep 'Statistics'];
+violinPath = [tutorialPath filesep 'ViolinPlots'];
 
 %% perform the statistical analysis and save the results
-analyzeMgPipeResults(infoFilePath,resPath,statPath,sampleGroupHeaders);
+analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
+
+% Afterwards, the results of the statistical analysis will be available in
+% the folder "Statistics". The files ending in "Statistics.txt" contain the
+% calculated p-values and test results. If there are any fluxes or
+% abundances that significantly differed between groups, there will be
+% files ending in "significantFeatures.txt" listing only these instances.
+% Created violin plots will be found in the folder "ViolinPlots". There
+% will be an image in png and pdf format for each predicted metabolite's
+% uptake and secretion potential. There will also be a file ending in
+% "All_plots.pdf" containing all plots.
 
 %% Analysis of strain-level contributions
 
@@ -240,7 +253,7 @@ contPath = [tutorialPath filesep 'StrainContributions'];
 
 % Afterwards, statistical analysis of the strain contributions can also be
 % performed.
-analyzeMgPipeResults(infoFilePath,contPath,statPath,sampleGroupHeaders);
+analyzeMgPipeResults(infoFilePath,contPath, 'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
 
 %% Computation of shadow prices
 
@@ -277,4 +290,4 @@ spPath = [tutorialPath filesep 'ShadowPrices'];
 
 % Similar to the previous results, we can also perform statistical analysis
 % on the computed shadow prices.
-analyzeMgPipeResults(infoFilePath,spPath,statPath,sampleGroupHeaders);
+analyzeMgPipeResults(infoFilePath,spPath,'statPath', statPath, 'violinPath', violinPath,'sampleGroupHeaders', sampleGroupHeaders);
