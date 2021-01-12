@@ -322,7 +322,7 @@ testResults2 = table2cell(testResults2);
 % present, for any KBase metabolites and reactions that are not yet
 % translated to VMH nomenclature.
 
-%% 4. Analysis and vidualization of model properties and features
+%% 4.1 Analysis and vidualization of model properties and features
 % Once refined reconstructions have been successfully created, the DEMETER 
 % pipeline also provides functions to retrieve properties of the
 % reconstructions, e.g., average size and gene count and stochiometric
@@ -338,8 +338,51 @@ propertiesFolder = [pwd filesep 'modelProperties'];
 
 % Define whether properties for draft reconstructions should also be
 % computed (default=false)
-analyzeDrafts = false;
+analyzeDrafts = true;
 
 % Run the computation and visualization of model properties.
-computeModelProperties(translatedDraftsFolder, refinedFolder, 'infoFilePath', adaptedInfoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion, 'analyzeDrafts', analyzeDrafts)
+computeModelProperties(refinedFolder, adaptedInfoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion, 'analyzeDrafts', analyzeDrafts, 'translatedDraftsFolder', translatedDraftsFolder)
+
+%% 4.2. Visualization of the features of large-scale reconstruction resources and their subsets
+% We can also use the properties module in DEMETER to analyze and visualize
+% the features of large-scale reconstruction resources, e.g., AGORA [1].
+% We can also do this for a subset of AGORA reconstructions.
+% For instance, we can cluster all representatives of a given taxon, e.g.,
+% Bacteroidetes, by similarity.
+
+% Download all AGORA reconstructions.
+system('curl -LJO https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
+unzip('AGORA-master')
+modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_03' filesep' 'AGORA_1_03_mat'];
+
+% define the path to the file with taxonomic information on AGORA.
+infoFilePath = 'AGORA_infoFile.xlsx';
+
+% define the column header which contain the information that should be
+% used to extract a subset.
+subHeader = 'Phylum';
+
+% define the feature for which the subset of reconstructions should be 
+% extracted.
+subFeature = 'Bacteroidetes';
+
+% define the folder where the results from the extracted subset should be
+% saved (optional, default folder will be used otherwise).
+subsetFolder = [pwd filesep 'extractedModels'];
+
+% run the extraction of the subset and its analysis
+[extractedSubset,subsetFolder] = extractReconstructionResourceSubset(modPath, infoFilePath, subHeader, subFeature, subsetFolder);
+
+% Define the folder where the results from the extracted subset will be
+% saved (optional).
+subsetPropertiesFolder = [pwd filesep 'subsetProperties'];
+
+% Define a name for the subset (optional).
+subsetVersion = 'Bacteroidetes';
+
+% We will now compute the properties of the extracted reconstruction
+% subset. If the subset contains enough reconstructions, tSNE plots, a
+% visual representation of the similarity between the reconstructed
+% strains, are also generated.
+computeModelProperties(subsetFolder, 'infoFilePath', 'numWorkers', numWorkers, 'propertiesFolder', subsetPropertiesFolder, 'reconVersion', subsetVersion)
 
