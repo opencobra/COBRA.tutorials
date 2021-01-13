@@ -360,11 +360,11 @@ infoFilePath = 'AGORA_infoFile.xlsx';
 
 % define the column header which contain the information that should be
 % used to extract a subset.
-subHeader = 'Phylum';
+subHeader = 'Genus';
 
 % define the feature for which the subset of reconstructions should be 
 % extracted.
-subFeature = 'Bacteroidetes';
+subFeature = 'Bacteroides';
 
 % define the folder where the results from the extracted subset should be
 % saved (optional, default folder will be used otherwise).
@@ -378,11 +378,11 @@ subsetFolder = [pwd filesep 'extractedModels'];
 subsetPropertiesFolder = [pwd filesep 'subsetProperties'];
 
 % Define a name for the subset (optional).
-subsetVersion = 'Bacteroidetes';
+subsetVersion = 'Bacteroides';
 
 % We will now compute the properties of the extracted reconstruction
 % subset. If the subset contains enough reconstructions, tSNE plots, a
 % visual representation of the similarity between the reconstructed
 % strains, are also generated.
-computeModelProperties(subsetFolder, 'infoFilePath', 'numWorkers', numWorkers, 'propertiesFolder', subsetPropertiesFolder, 'reconVersion', subsetVersion)
+computeModelProperties(subsetFolder, infoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', subsetPropertiesFolder, 'reconVersion', subsetVersion)
 
