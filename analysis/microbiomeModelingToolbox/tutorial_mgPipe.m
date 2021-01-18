@@ -1,9 +1,9 @@
 %% Creation and simulation of personalized microbiota models through metagenomic data integration
 %% Author: Federico Baldini, Molecular Systems Physiology Group, University of Luxembourg.
-% Almut Heinken, 12/2020: streamlined the pipeline and added new features.
+% Almut Heinken, 12/2020: Rewrote the tutorial to streamline it and add new features.
 %% INTRODUCTION
 % This tutorial shows the steps that MgPipe automatically performs to create 
-% and simulate personalized microbiota models trough metagenomic data integration. 
+% and simulate personalized microbiota models through metagenomic data integration. 
 % Please note that this tutorial uses as an example a small dataset (4 columns 
 % and 30 rows) with the purpose of demonstrating the functionalities of the pipeline. 
 % We recommend using high-performance computing clusters when assembling and simulating 
@@ -91,6 +91,10 @@ abunFilePath='normCoverageReduced.csv';
 % path to csv file for stratification criteria (if empty or not existent no criteria is used)
 infoFilePath = '';
 
+% path to a model of the host (e.g., human) to be joined with the
+% microbioomes (default: no host)
+hostPath = '';
+
 % name of objective function of organisms, default='EX_biomass(e)'
 objre = 'EX_biomass(e)';
 
@@ -134,7 +138,7 @@ adaptMedium = true;
 %% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 
 %% Computed outputs
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -166,14 +170,14 @@ adaptMedium = true;
 % (using the net secretion potential as features) between individuals is also 
 % evaluated with classical multidimensional scaling. 
 % 
-%
 %% Stratification of samples
 % If metadata for the analyzed samples is available (e.g.,
 % disease state), the samples can be stratified based on this
 % classification. To provide metadata, prepare an input file as in the
 % example 'sampInfo.csv'. The path to the file with sample information
 % needs to be provided as the variable infoFilePath. Note that the group 
-% classification in sampInfo.csv is arbitrary.
+% classification into groups in sampInfo.csv is arbitrary and not
+% biological meaningful.
 
 infoFilePath='sampInfo.csv'; 
 
@@ -186,6 +190,8 @@ infoFilePath='sampInfo.csv';
 % performed. If the analyzed samples can be divided into two groups,
 % Wilcoxon rank sum test will be used. If there are three or more groups,
 % Kruskal-Wallis test will be performed.
+% Note that no statistically significant differences will be found in the
+% tutorial example due to the small sample sizes.
 % Moreover, violin plots that show the computed fluxes separate by group
 % will be generated.
 
@@ -221,7 +227,6 @@ analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', vi
 % "All_plots.pdf" containing all plots.
 
 %% Analysis of strain-level contributions
-
 % For metabolites of particular interest (e.g., for which the
 % community-wide secretion potential was significantly different between
 % disease cases and controls), the strains consuming and secreting the
@@ -256,7 +261,6 @@ contPath = [tutorialPath filesep 'StrainContributions'];
 analyzeMgPipeResults(infoFilePath,contPath, 'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
 
 %% Computation of shadow prices
-
 % Shadow prices are routinely retrieved with each flux balance analysis
 % solution. Briefly,the shadow price is a measurement for the value of a
 % metabolite towards the optimized objective function, which indicates 
@@ -291,3 +295,31 @@ spPath = [tutorialPath filesep 'ShadowPrices'];
 % Similar to the previous results, we can also perform statistical analysis
 % on the computed shadow prices.
 analyzeMgPipeResults(infoFilePath,spPath,'statPath', statPath, 'violinPath', violinPath,'sampleGroupHeaders', sampleGroupHeaders);
+
+%% Using mgPipe to model host-microbiome co-metabolism
+% If desired, the sample-specific microbiome models created by mgPipe can
+% also be joined with a model of the host, e.g., with the human
+% reconstruction Recon3D. 
+% Let us create the same four microbiome models as before joined with
+% Recon3D.
+%
+system('curl -LJO https://www.vmh.life/files/reconstructions/Recon/3D.01/Recon3D_301.zip')
+unzip('Recon3D_301')
+hostPath = [pwd filesep 'Recon3D_301' filesep 'Recon3DModel_301.mat'];
+%
+% Since host metabolites can now enter from the host model itself, the 
+% adaptMedium input can be set to false.                 
+adaptMedium = false; 
+%
+% overwrite the previous simulation for the purpose of the tutorial
+repeatSim = true;
+%
+% If a host model is entered, it is also highly recommended to enter the
+% host biomass reaction to generate coupling constraints for the host.
+hostBiomassRxn = 'biomass_reaction';
+
+% Run the pipeline including the host. Note that this will be more
+% computationally intensive and take some time.
+
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+
