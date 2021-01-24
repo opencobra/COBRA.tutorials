@@ -314,13 +314,54 @@ testResults2 = table2cell(testResults2);
 
 % The test suite also reports any cases of leaking metabolites, mass- and
 % charge-imbalanced reactions, incorrectly formulated gene rules. Inspect 
-% these cases. Note that some mass- and charge-imbalamnced reactions
+% these cases. Note that some mass- and charge-imbalanced reactions
 % currently cannot be corrected.
 
 %% 3.3. Debugging the refined reconstructions
+%% 3.3.1. Translation from KBase to VMH nomenclature
 % Check the files "untranslatedMets.txt" and "untranslatedRxns.txt", if
 % present, for any KBase metabolites and reactions that are not yet
 % translated to VMH nomenclature.
+
+%% Translating reactions
+[translatedRxns]=propagateKBaseTranslation('Reactions_To_Translate.xlsx');
+
+% When translated from KBase to VMH nomenclature, some reactions will
+% afterwards be mass-and charge-imbalanced. Especially the proton in the
+% reaction will need to be adjusted.To test if any translated reactions are
+% now unbalanced, use the reconsturction tool rBioNet [4]. To prepare the
+% use of rBioNet, run the function
+createRBioNetDBFromVMHDB
+
+% Afterwards, run the command
+ReconstructionTool
+% This opens an interface. Choose File -> Add Text File -> With Reactions
+% -> Load text file.
+% Choose the text file translatedRxns_ToCheck.txt that was just generated.
+% When it says "Metabolites not in Database", choose Yes. When it says
+% "Unbalanced reactions", carefully inspect every reaction with unbalance
+% charge or atoms. Adjust the formulas in the file
+% translatedRxns_ToCheck.txt accordingly and save the file afterwards. 
+% Note that some mass- and charge-imbalanced reactions currently cannot be 
+% corrected.
+
+% Now we will check if the mass-and charge-balanced but untranslated
+% reactions are already present in the VMH database but not yet translated.
+% To check which of the translated reactions are already present in the VMH
+% reaction database, run the function
+[sameReactions,similarReactions] = mapKBaseToVMHReactions('translatedRxns_ToCheck.txt');
+
+% After verifying the content of sameReactions, add the KBase reaction IDs
+% with the corresponding VMH reaction IDs to the file
+% cobratoolbox/papers/2021_demeter/input/ReactionTranslationTable.txt
+% Note that multiple KBase reactions may translate to the same VMH
+% reaction.
+% Now inspect the copntent of similar reactions. Typically, this will
+% contain reactions that are reversible in KBase but irreversible in VMH.
+% It is optional but recommended that you also add these reactions to 
+% ReactionTranslationTable.txt.
+% Reactions that could not be translated this way need to be formulated
+% manually.
 
 %% 4.1 Analysis and vidualization of model properties and features
 % Once refined reconstructions have been successfully created, the DEMETER 
