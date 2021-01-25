@@ -329,7 +329,7 @@ createRBioNetDBFromVMHDB
 
 %% Translating metabolites
 % If the files 'untranslatedMets.txt' contains metabolites, run the code
-[translatedMets]=propagateKBaseMetsTranslation('untranslatedMets.txt');
+[translatedMets]=translateKBaseToVMHMets('untranslatedMets.txt');
 
 % Carefully inspect the output 'translatedMets.txt'. If you are satisfied
 % with the translation, add the KBase IDs with the corresponding VMH IDs to 
@@ -349,7 +349,7 @@ createRBioNetDBFromVMHDB
 
 %% Translating reactions
 % If the files 'untranslatedRxns.txt' contains reactions, run the code
-[translatedRxns]=propagateKBaseRxnTranslation('untranslatedRxns.txt');
+[translatedRxns]=propagateKBaseMetTranslationToRxns('untranslatedRxns.txt');
 
 % When translated from KBase to VMH nomenclature, some reactions will
 % afterwards be mass-and charge-imbalanced. Especially the proton in the
