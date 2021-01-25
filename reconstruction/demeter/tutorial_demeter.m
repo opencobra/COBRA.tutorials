@@ -324,7 +324,7 @@ testResults2 = table2cell(testResults2);
 % translated to VMH nomenclature.
 
 %% Translating reactions
-[translatedRxns]=propagateKBaseTranslation('Reactions_To_Translate.xlsx');
+[translatedRxns]=propagateKBaseTranslation('untranslatedRxns.txt');
 
 % When translated from KBase to VMH nomenclature, some reactions will
 % afterwards be mass-and charge-imbalanced. Especially the proton in the
@@ -337,11 +337,11 @@ createRBioNetDBFromVMHDB
 ReconstructionTool
 % This opens an interface. Choose File -> Add Text File -> With Reactions
 % -> Load text file.
-% Choose the text file translatedRxns_ToCheck.txt that was just generated.
+% Choose the text file translatedRxns.txt that was just generated.
 % When it says "Metabolites not in Database", choose Yes. When it says
 % "Unbalanced reactions", carefully inspect every reaction with unbalance
 % charge or atoms. Adjust the formulas in the file
-% translatedRxns_ToCheck.txt accordingly and save the file afterwards. 
+% translatedRxns.txt accordingly and save the file afterwards. 
 % Note that some mass- and charge-imbalanced reactions currently cannot be 
 % corrected.
 
@@ -349,7 +349,7 @@ ReconstructionTool
 % reactions are already present in the VMH database but not yet translated.
 % To check which of the translated reactions are already present in the VMH
 % reaction database, run the function
-[sameReactions,similarReactions] = mapKBaseToVMHReactions('translatedRxns_ToCheck.txt');
+[sameReactions,similarReactions] = mapKBaseToVMHReactions('translatedRxns.txt');
 
 % After verifying the content of sameReactions, add the KBase reaction IDs
 % with the corresponding VMH reaction IDs to the file
