@@ -44,7 +44,7 @@
 %% KBase draft reconstruction-required
 % Create KBase draft reconstruction(s) for the target organism(s) by using
 % the apps at kbase.us/. A template narrative to facilitate this is 
-% available at xx. 
+% available at https://narrative.kbase.us/narrative/81207. 
 % Next, please place all draft reconstructions that you want to refine into 
 % one folder.
 % For the sake of this tutorial, we will use four AGORA2 strains as well as
@@ -52,7 +52,8 @@
 % KBase and are not present in AGORA2. Draft reconstructions for these 
 % strains have already been retrieved from KBase and placed into the folder 
 % cobratoolbox/papers/2021_demeter/exampleDraftReconstructions.
-% Alternatively, they are available in the template narrative xx.
+% Alternatively, they are available in the template narrative 
+% https://narrative.kbase.us/narrative/81207.
 
 % To start DEMETER, define the path to the folder where the draft 
 % reconstructions are located.
@@ -244,7 +245,7 @@ numWorkers = 4;
 reconVersion = 'TutorialExample';
 
 % Run the pipeline.
-runPipeline(draftFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML, 'sbmlFolder', sbmlFolder)
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder,sbmlFolder] = runPipeline(draftFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML, 'sbmlFolder', sbmlFolder);
 
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run.
@@ -265,11 +266,15 @@ runPipeline(draftFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder',
 % good quality and agreement with known metabolic traits of the
 % reconstructed strains in AGORA2 [2].
 
+% Define the folder where test results should be saved (optional, default
+% folder will be used otherwise)
+testResultsFolder = [pwd filesep 'TestResults'];
+
 %% Biomass production
 % Test and plot whether all reconstructions can produce reasonable amounts
 % of biomass on the Western diet and on "rich" medium (consisting of every
 % metabolite the model can consume) aerobically and anaerobically.
-plotBiomassTestResults(translatedDraftsFolder,refinedFolder,pwd,numWorkers,reconVersion)
+notGrowing = plotBiomassTestResults(refinedFolder,reconVersion,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
 
 % You can see that for the examples, all refined reconstructions produce
 % biomass under anaerobic conditions and on Western diet while this is not
@@ -280,11 +285,7 @@ plotBiomassTestResults(translatedDraftsFolder,refinedFolder,pwd,numWorkers,recon
 %% ATP production
 % % Test and plot whether all reconstructions produce reasonable amounts
 % of ATP on the Western diet aerobically and anaerobically.
-plotATPTestResults(translatedDraftsFolder,refinedFolder,pwd,numWorkers,reconVersion)
-
-% Define the folder where test results should be saved (optional, default
-% folder will be used otherwise)
-testResultsFolder = [pwd filesep 'TestResults'];
+tooHighATP = plotATPTestResults(refinedFolder,reconVersion,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
 
 % You can see that for the examples, all refined reconstructions produce
 % realistic amounts of ATP on Western diet while the draft reconstructions
@@ -295,7 +296,7 @@ testResultsFolder = [pwd filesep 'TestResults'];
 %% QC/QA and test against available experimental and comparative genomic data
 
 % Run the test suite.
-runTestSuiteTools(translatedDraftsFolder, refinedFolder, 'infoFilePath', adaptedInfoFilePath, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder, 'reconVersion', reconVersion)
+runTestSuiteTools(refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder, 'infoFilePath', infoFilePath, 'reconVersion', reconVersion);
 
 % The folder "TestResults" contains information on tests agianst the
 % available experimental data that passed or failed the test suite.
@@ -322,16 +323,38 @@ testResults2 = table2cell(testResults2);
 % Check the files "untranslatedMets.txt" and "untranslatedRxns.txt", if
 % present, for any KBase metabolites and reactions that are not yet
 % translated to VMH nomenclature.
+% This requires the reconstruction tool rBioNet [4]. To prepare the
+% use of rBioNet, run the function
+createRBioNetDBFromVMHDB
+
+%% Translating metabolites
+% If the files 'untranslatedMets.txt' contains metabolites, run the code
+[translatedMets]=propagateKBaseMetsTranslation('untranslatedMets.txt');
+
+% Carefully inspect the output 'translatedMets.txt'. If you are satisfied
+% with the translation, add the KBase IDs with the corresponding VMH IDs to 
+% the file
+% cobratoolbox/papers/2021_demeter/input/MetaboliteTranslationTable.txt.
+
+% Metabolites that could not be translated this way will need to be
+% inspected manually. Try finding them in the VMH database by consulting
+% KEGG (https://www.genome.jp/kegg/) or HMDB (https://hmdb.ca/) IDs.
+% For metabolites that are not yet present in the VMH database, formulate a
+% metabolite ID following the standards of the field as described in Thiele
+% and Palsson [5]. Afterwards, add the new metabolites to the file
+% cobratoolbox/papers/2021_demeter/input/MetaboliteDatabase.txt
+% while ensuring that the format of the file is kept. Also add the KBase to 
+% VMH metabolite translation to the file
+% cobratoolbox/papers/2021_demeter/input/MetaboliteTranslationTable.txt.
 
 %% Translating reactions
-[translatedRxns]=propagateKBaseTranslation('untranslatedRxns.txt');
+% If the files 'untranslatedRxns.txt' contains reactions, run the code
+[translatedRxns]=propagateKBaseRxnTranslation('untranslatedRxns.txt');
 
 % When translated from KBase to VMH nomenclature, some reactions will
 % afterwards be mass-and charge-imbalanced. Especially the proton in the
 % reaction will need to be adjusted.To test if any translated reactions are
-% now unbalanced, use the reconsturction tool rBioNet [4]. To prepare the
-% use of rBioNet, run the function
-createRBioNetDBFromVMHDB
+% now unbalanced, use the reconstruction tool rBioNet.
 
 % Afterwards, run the command
 ReconstructionTool
@@ -340,10 +363,9 @@ ReconstructionTool
 % Choose the text file translatedRxns.txt that was just generated.
 % When it says "Metabolites not in Database", choose Yes. When it says
 % "Unbalanced reactions", carefully inspect every reaction with unbalance
-% charge or atoms. Adjust the formulas in the file
-% translatedRxns.txt accordingly and save the file afterwards. 
-% Note that some mass- and charge-imbalanced reactions currently cannot be 
-% corrected.
+% charge or atoms. Adjust the formulas in the file translatedRxns.txt 
+% accordingly and save the file afterwards. Note that some mass- and 
+% charge-imbalanced reactions currently cannot be corrected.
 
 % Now we will check if the mass-and charge-balanced but untranslated
 % reactions are already present in the VMH database but not yet translated.
@@ -360,8 +382,33 @@ ReconstructionTool
 % contain reactions that are reversible in KBase but irreversible in VMH.
 % It is optional but recommended that you also add these reactions to 
 % ReactionTranslationTable.txt.
-% Reactions that could not be translated this way need to be formulated
-% manually.
+
+% For reactions that are not yet present in the VMH database, formulate a
+% reaction ID following the standards of the field as described in Thiele
+% and Palsson [5]. Import the reactions in ReconstructionTool as described 
+% above to ensure they are mass-and charge-balanced.
+% Afterwards, add the new reactions to the file
+% cobratoolbox/papers/2021_demeter/input/ReactionDatabase.txt
+% while ensuring that the format of the file is kept. Also assign 
+% subsystems to the reactions following the existing nomenclature in the
+% database. Also add the KBase to VMH reaction translation to
+% cobratoolbox/papers/2021_demeter/input/ReactionTranslationTable.txt.
+
+%% 3.3.2 Debugging the reconstructions
+% After performing the data-driven refinement, there may still be
+% reconstructions that cannot grow anaerobically and/or on Western diet,
+% produce unrealistic amounts of ATP on Western diet, or do not agree with
+% experimental data.
+
+% Too inspect and attempt to correct these reconstructions, a suite of
+% debugging tools is available. The suite will gap-fill the reconsturctions
+% that fail tests and re-test them afterwards.
+
+% Define a folder where debugged models and results of the repeated test
+% will be saved (optional, default path will be used otherwise).
+debuggingFolder = [pwd filesep 'DebuggedModels'];
+
+[debuggingFolder,debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,numWorkers,reconVersion,'debuggingFolder',debuggingFolder);
 
 %% 4.1 Analysis and vidualization of model properties and features
 % Once refined reconstructions have been successfully created, the DEMETER 
@@ -401,11 +448,11 @@ infoFilePath = 'AGORA_infoFile.xlsx';
 
 % define the column header which contain the information that should be
 % used to extract a subset.
-subHeader = 'Genus';
+subHeader = 'Phylum';
 
 % define the feature for which the subset of reconstructions should be 
 % extracted.
-subFeature = 'Bacteroides';
+subFeature = 'Bacteroidetes';
 
 % define the folder where the results from the extracted subset should be
 % saved (optional, default folder will be used otherwise).
@@ -419,7 +466,7 @@ subsetFolder = [pwd filesep 'extractedModels'];
 subsetPropertiesFolder = [pwd filesep 'subsetProperties'];
 
 % Define a name for the subset (optional).
-subsetVersion = 'Bacteroides';
+subsetVersion = 'Bacteroidetes';
 
 % We will now compute the properties of the extracted reconstruction
 % subset. If the subset contains enough reconstructions, tSNE plots, a
