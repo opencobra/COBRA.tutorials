@@ -225,11 +225,6 @@ writetable(cell2table(data),[inputDataFolder filesep 'FermentationTable'],'FileT
 
 refinedFolder = [pwd filesep 'RefinedReconstructions'];
 %% 
-% Define the path to a folder where the refined reconstructions will be stored 
-% in SBML file format
-
-sbmlFolder = [pwd filesep 'RefinedReconstructions_SBML'];
-%% 
 % Define the path where translated versions of the draft reconstructions will 
 % be stored. These reconstructions will not undergo the pipeline except for the 
 % translation step, which will enable them to pass the DEMETER test suite.
@@ -244,7 +239,7 @@ summaryFolder = [pwd filesep 'RefinementSummary'];
 % Define whether the refined reconstructions will additionally be exported as 
 % SBML files (default = false).
 
-createSBML = true;
+createSBML = false;
 %% 
 % Define the number of workers for parallel computing.
 
@@ -281,27 +276,27 @@ testResultsFolder = [pwd filesep 'TestResults'];
 % biomass on the Western diet and on "rich" medium (consisting of every metabolite 
 % the model can consume) aerobically and anaerobically.
 
-notGrowing = plotBiomassTestResults(refinedFolder,reconVersion,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
+notGrowing = plotBiomassTestResults(refinedFolder,reconVersion,'translatedDraftsFolder',translatedDraftsFolder,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
 %% 
 % You can see that for the examples, all refined reconstructions produce biomass 
-% under anaerobic conditions and on Western diet while this is not the case for 
-% all draft reconstructions. If the refined reconstructions for your own organisms 
-% are unable to produce biomass under any conditions, proceed to Step 2.3 of the 
-% pipeline.
+% under anaerobic conditions and on Western diet while no draft 
+% reconstruction can grow anaerobically. If the refined reconstructions for your 
+% own organisms are unable to produce biomass under any conditions, proceed to 
+% Step 2.3 of the pipeline.
 %% ATP production
 % % Test and plot whether all reconstructions produce reasonable amounts of 
 % ATP on the Western diet aerobically and anaerobically.
 
-tooHighATP = plotATPTestResults(refinedFolder,reconVersion,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
+tooHighATP = plotATPTestResults(refinedFolder,reconVersion,'translatedDraftsFolder',translatedDraftsFolder,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
 %% 
 % You can see that for the examples, all refined reconstructions produce realistic 
-% amounts of ATP on Western diet while the draft reconstructions produce near 
+% amounts of ATP on Western diet while some draft reconstructions produce near 
 % unlimited amounts of ATP. If the refined reconstructions for your own organisms 
 % produce too much ATP, proceed to Step 2.3 of the pipeline below.
 %% QC/QA and test against available experimental and comparative genomic data
 % Run the test suite.
 
-runTestSuiteTools(refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder, 'infoFilePath', infoFilePath, 'reconVersion', reconVersion);
+testResultsFolder = runTestSuiteTools(refinedFolder, infoFilePath, inputDataFolder, reconVersion, 'translatedDraftsFolder', translatedDraftsFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder);
 %% 
 % The folder "TestResults" contains information on tests against the available 
 % experimental data that passed or failed the test suite. Carefully inspect these 
@@ -422,7 +417,7 @@ debuggingFolder = [pwd filesep 'DebuggedModels'];
 %% 
 % Run the debugging suite.
 
-[debuggingFolder,debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,numWorkers,reconVersion,'debuggingFolder',debuggingFolder);
+[debuggingFolder,debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,reconVersion,'numWorkers',numWorkers,'debuggingFolder',debuggingFolder);
 %% 
 % If any models still fail a test as indicated by the output variable failedModels, 
 % inspect the results in debuggingFolder -> Retest. If this should be unsuccessful, 
@@ -447,7 +442,7 @@ analyzeDrafts = true;
 %% 
 % Run the computation and visualization of model properties.
 
-computeModelProperties(refinedFolder, infoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'reconVersion', reconVersion, 'analyzeDrafts', analyzeDrafts, 'translatedDraftsFolder', translatedDraftsFolder)
+propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'analyzeDrafts', analyzeDrafts, 'translatedDraftsFolder', translatedDraftsFolder);
 %% 3.2. Visualization of the features of large-scale reconstruction resources and their subsets
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 
@@ -495,7 +490,7 @@ subsetVersion = 'Bacteroidetes';
 % If the subset contains enough reconstructions, tSNE plots, a visual representation 
 % of the similarity between the reconstructed strains, are also generated.
 
-computeModelProperties(subsetFolder, infoFilePath, 'numWorkers', numWorkers, 'propertiesFolder', subsetPropertiesFolder, 'reconVersion', subsetVersion)
+propertiesFolder = computeModelProperties(subsetFolder, infoFilePath, subsetVersion, 'numWorkers', numWorkers, 'propertiesFolder', subsetPropertiesFolder);
 %% References
 % [1] Magnúsdóttir S, Heinken A, Kutt L, Ravcheev DA et al, Generation of genome-scale 
 % metabolic reconstructions for 773 members of the human gut microbiota. Nat Biotechnol. 
