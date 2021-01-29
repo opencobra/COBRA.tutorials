@@ -254,8 +254,7 @@ reconVersion = 'TutorialExample';
 [reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder,sbmlFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML, 'sbmlFolder', sbmlFolder);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
-% in mat format are located in the folder "RefinedReconstructions", and in SBML 
-% format in "RefinedReconstructions_SBML". The folder "TranslatedDraftReconstructions" 
+% in mat format are located in the folder "RefinedReconstructions". The folder "TranslatedDraftReconstructions" 
 % contains the draft reconstructions with exchange reactions translated (no other 
 % changes were made to this version). The folder "RefinementSummary" contains 
 % a detailed overview of the gap-filling and expansion performed for each refined 
@@ -435,14 +434,9 @@ debuggingFolder = [pwd filesep 'DebuggedModels'];
 
 propertiesFolder = [pwd filesep 'modelProperties'];
 %% 
-% Define whether properties for draft reconstructions should also be computed 
-% (default=false).
-
-analyzeDrafts = true;
-%% 
 % Run the computation and visualization of model properties.
 
-propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'analyzeDrafts', analyzeDrafts, 'translatedDraftsFolder', translatedDraftsFolder);
+propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'translatedDraftsFolder', translatedDraftsFolder);
 %% 3.2. Visualization of the features of large-scale reconstruction resources and their subsets
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 
