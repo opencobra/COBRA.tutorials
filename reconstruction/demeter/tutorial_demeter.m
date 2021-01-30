@@ -251,7 +251,7 @@ reconVersion = 'TutorialExample';
 %% 
 % Run the pipeline.
 
-[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder,sbmlFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML, 'sbmlFolder', sbmlFolder);
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder,sbmlFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
 % in mat format are located in the folder "RefinedReconstructions". The folder "TranslatedDraftReconstructions" 
