@@ -204,6 +204,11 @@ data{findRow,findCol}='1';
 writetable(cell2table(data),[inputDataFolder filesep 'FermentationTable'],'FileType','text','WriteVariableNames',false,'Delimiter','tab');
 %% 
 % Alternatively, you can inspect the files manually and edit as needed.
+% 
+% To check the experimental data available that will be used for refinement 
+% for each strain to reconstruct, run the function:
+
+curationStatus = getCurationStatus(infoFilePath,inputDataFolder,getComparativeGenomics);
 %% Step 2: Iterative refinement
 %% 2.1. Running the DEMETER pipeline
 % With the experimental and comparative genomic data in place, the pipeline 
@@ -296,8 +301,11 @@ tooHighATP = plotATPTestResults(refinedFolder,reconVersion,'translatedDraftsFold
 %% QC/QA and test against available experimental and comparative genomic data
 % Run the test suite.
 
-testResultsFolder = runTestSuiteTools(refinedFolder, infoFilePath, inputDataFolder, reconVersion, 'translatedDraftsFolder', translatedDraftsFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder);
+[testResultsFolder,curationReport] = runTestSuiteTools(refinedFolder, infoFilePath, inputDataFolder, reconVersion, 'translatedDraftsFolder', translatedDraftsFolder, 'numWorkers', numWorkers, 'testResultsFolder', testResultsFolder);
 %% 
+% The variable curationReport contains a summary of the results of performed 
+% quality control and quality assurance tests.
+% 
 % The folder "TestResults" contains information on tests against the available 
 % experimental data that passed or failed the test suite. Carefully inspect these 
 % results. If there are any false negative predictions for your organism(s), proceed 
@@ -359,9 +367,9 @@ end
 % reconstruction tool rBioNet [5].
 % 
 % Afterwards, run the command
-
-ReconstructionTool
-%% 
+% 
+% _ReconstructionTool_
+% 
 % This opens an interface. Choose File -> Add Text File -> With Reactions -> 
 % Load text file.
 % 
@@ -420,8 +428,17 @@ debuggingFolder = [pwd filesep 'DebuggedModels'];
 [debuggingFolder,debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,reconVersion,'numWorkers',numWorkers,'debuggingFolder',debuggingFolder);
 %% 
 % If any models still fail a test as indicated by the output variable failedModels, 
-% inspect the results in debuggingFolder -> Retest. If this should be unsuccessful, 
-% feel free to open an issue at the COBRA Toolbox GitHub.
+% inspect the results in debuggingFolder -> Retest. 
+% 
+% For models that still produce too much ATP, run the debugging function
+% 
+% _futileCycleReactions = identifyFutileCycles(model);_
+% 
+% Inspect the models that do not agree with experimental data manually to find 
+% out which steps of the biosynthesis pathway are blocked.
+% 
+% If this should be unsuccessful, feel free to open an issue at the COBRA Toolbox 
+% GitHub.
 %% 3.1 Analysis and vidualization of model properties and features
 % Once refined reconstructions have been successfully created, the DEMETER pipeline 
 % also provides functions to retrieve properties of the reconstructions, e.g., 
@@ -442,7 +459,8 @@ propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVers
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 
 % also do this for a subset of AGORA reconstructions. For instance, we can cluster 
-% all representatives of a given taxon, e.g., Bacteroidetes, by similarity.
+% all representatives of a given taxon, e.g., Bacteroides, by similarity. Note 
+% that this part of the tutorial is time-consuming.
 % 
 % Download all AGORA reconstructions.
 
@@ -457,11 +475,11 @@ infoFilePath = 'AGORA_infoFile.xlsx';
 % Define the column header which contain the information that should be used 
 % to extract a subset.
 
-subHeader = 'Phylum';
+subHeader = 'Genus';
 %% 
 % Define the feature for which the subset of reconstructions should be extracted.
 
-subFeature = 'Bacteroidetes';
+subFeature = 'Bacteroides';
 %% 
 % Define the folder where the results from the extracted subset should be saved 
 % (optional, default folder will be used otherwise).
@@ -479,7 +497,7 @@ subsetPropertiesFolder = [pwd filesep 'subsetProperties'];
 %% 
 % Define a name for the subset (optional).
 
-subsetVersion = 'Bacteroidetes';
+subsetVersion = 'Bacteroides';
 %% 
 % We will now compute the properties of the extracted reconstruction subset. 
 % If the subset contains enough reconstructions, tSNE plots, a visual representation 
