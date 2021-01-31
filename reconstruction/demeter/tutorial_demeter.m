@@ -251,10 +251,11 @@ reconVersion = 'TutorialExample';
 %% 
 % Run the pipeline.
 
-[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder,sbmlFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'createSBML', createSBML);
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
-% in mat format are located in the folder "RefinedReconstructions". The folder "TranslatedDraftReconstructions" 
+% in mat format are located in the folder "RefinedReconstructions", and in SBML 
+% format in "RefinedReconstructions_SBML". The folder "TranslatedDraftReconstructions" 
 % contains the draft reconstructions with exchange reactions translated (no other 
 % changes were made to this version). The folder "RefinementSummary" contains 
 % a detailed overview of the gap-filling and expansion performed for each refined 
@@ -278,10 +279,10 @@ testResultsFolder = [pwd filesep 'TestResults'];
 notGrowing = plotBiomassTestResults(refinedFolder,reconVersion,'translatedDraftsFolder',translatedDraftsFolder,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
 %% 
 % You can see that for the examples, all refined reconstructions produce biomass 
-% under anaerobic conditions and on Western diet while no draft 
-% reconstruction can grow anaerobically. If the refined reconstructions for your 
-% own organisms are unable to produce biomass under any conditions, proceed to 
-% Step 2.3 of the pipeline.
+% under anaerobic conditions and on Western diet while no draft reconstruction 
+% can grow anaerobically. If the refined reconstructions for your own organisms 
+% are unable to produce biomass under any conditions, proceed to Step 2.3 of the 
+% pipeline.
 %% ATP production
 % % Test and plot whether all reconstructions produce reasonable amounts of 
 % ATP on the Western diet aerobically and anaerobically.
@@ -289,7 +290,7 @@ notGrowing = plotBiomassTestResults(refinedFolder,reconVersion,'translatedDrafts
 tooHighATP = plotATPTestResults(refinedFolder,reconVersion,'translatedDraftsFolder',translatedDraftsFolder,'testResultsFolder',testResultsFolder, 'numWorkers', numWorkers);
 %% 
 % You can see that for the examples, all refined reconstructions produce realistic 
-% amounts of ATP on Western diet while some draft reconstructions produce near 
+% amounts of ATP on Western diet while the draft reconstructions produce near 
 % unlimited amounts of ATP. If the refined reconstructions for your own organisms 
 % produce too much ATP, proceed to Step 2.3 of the pipeline below.
 %% QC/QA and test against available experimental and comparative genomic data
@@ -436,7 +437,7 @@ propertiesFolder = [pwd filesep 'modelProperties'];
 %% 
 % Run the computation and visualization of model properties.
 
-propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder, 'translatedDraftsFolder', translatedDraftsFolder);
+propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder);
 %% 3.2. Visualization of the features of large-scale reconstruction resources and their subsets
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 
