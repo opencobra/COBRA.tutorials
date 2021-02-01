@@ -98,18 +98,17 @@ hostPath = '';
 % name of objective function of organisms, default='EX_biomass(e)'
 objre = 'EX_biomass(e)';
 
-% the output is vectorized picture, default=-depsc, change to '-dpng' for .png
-figForm = '-depsc';
+% strategy used to build personalzied models. If true: create a global
+% setup model that is pruned, if false, create each personalized mdoel one
+% by one. The latter is recommended if there are 500 or more individual
+% organisms.
+buildSetupAll = true;
+
+% if to save models with diet constrains implemented (default=false)
+saveConstrModels = false;
 
 % number of cores dedicated for parallelization (default=2)
 numWorkers = 4;
-
-% autofix for names mismatch (default=true)
-autoFix = true;
-
-% if outputs in open formats should be produced for each section (default=false)
-
-compMod = false; 
 
 % to enable also rich diet simulations (default=false)
 rDiet = false;
@@ -117,10 +116,7 @@ rDiet = false;
 % to enable personalized diet simulations (default=false)
 pDiet = false;
 
-%% if to use an external solver and save models with diet (default=false)
-extSolve = false;
-
-%% the type of FVA function to use to solve (true=fastFVA,
+% the type of FVA function to use to solve (true=fastFVA,
 % false=fluxVariability)
 fvaType = true;
 
@@ -138,7 +134,7 @@ adaptMedium = true;
 %% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 
 %% Computed outputs
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -181,7 +177,7 @@ adaptMedium = true;
 
 infoFilePath='sampInfo.csv'; 
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs.
