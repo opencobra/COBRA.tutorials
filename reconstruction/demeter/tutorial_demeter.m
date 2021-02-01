@@ -137,8 +137,8 @@ spreadsheetFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exa
 
 inputDataFolder = [pwd filesep 'InputData'];
 %% 
-% To propagate available gram staining information and experimental data to 
-% your organism(s), use the code
+% To propagate available gram staining information, comparative genomics data, 
+% and experimental data to your organism(s), use the code
 
 [infoFilePath,inputDataFolder] = prepareInputData(infoFilePath,'inputDataFolder', inputDataFolder, 'spreadsheetFolder',spreadsheetFolder);
 %% 
@@ -208,7 +208,11 @@ writetable(cell2table(data),[inputDataFolder filesep 'FermentationTable'],'FileT
 % To check the experimental data available that will be used for refinement 
 % for each strain to reconstruct, run the function:
 
-curationStatus = getCurationStatus(infoFilePath,inputDataFolder,getComparativeGenomics);
+curationStatus = getCurationStatus(infoFilePath,inputDataFolder,false);
+%% 
+% 2 indicates that experimental data is available to curate the reconstruction. 
+% 1 indicates that published literature is available but contains no usable data. 
+% 0 indicates no available experimental data.
 %% Step 2: Iterative refinement
 %% 2.1. Running the DEMETER pipeline
 % With the experimental and comparative genomic data in place, the pipeline 
