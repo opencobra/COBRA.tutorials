@@ -245,11 +245,6 @@ translatedDraftsFolder = [pwd filesep 'TranslatedDraftReconstructions'];
 
 summaryFolder = [pwd filesep 'RefinementSummary'];
 %% 
-% Define whether the refined reconstructions will additionally be exported as 
-% SBML files (default = false).
-
-createSBML = false;
-%% 
 % Define the number of workers for parallel computing.
 
 numWorkers = 4;
