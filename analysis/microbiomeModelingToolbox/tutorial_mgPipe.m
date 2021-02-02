@@ -67,18 +67,38 @@ dietFilePath='AverageEuropeanDiet';
 % that abundances are normalized to a total sum of one. 
 
 abunFilePath='normCoverageReduced.csv';
-%% 
+%% Preparing the input file with normalized abundances
+% Preparing an input file suitable for mgPipe requires mapping the organisms 
+% to the nomenclature of the AGORA models. A function that can help with this 
+% is available in the COBRA Toolbox.
+% 
+% _[translatedAbundances,normalizedAbundances,unmappedRows] = translateMetagenome2AGORA(MetagenomeAbundancePath,sequencingDepth)_
+% 
+% _translateMetagenome2AGORA_ translates the output of common sequencing pipelines 
+% (e.g., MetaPhlAn) to the names of the AGORA models. However, it doesn't not 
+% work for the nomenclature of every input file. Manual inspection to map taxa 
+% may still be needed.
+% 
+% To normalize the relative abundances from the input file that had been mapped 
+% to AGORA organisms, run the function normalizeCoverage. It is recommended to 
+% set the input variable cutoff (e.g., 0.0001), which removes all strains below 
+% a certain normalized relative abundance in a sample. Removing taxa with very 
+% low normalized coverage will result in faster simulations.
+% 
+% _cutoff = 0.0001;_
+% 
+% _[normalizedCoverage,abunFilePath] = normalizeCoverage(abunFilePath,cutoff);_
+%% Setting inputs
 % Next inputs will define:
 %% 
 % # name of the objective function of organisms
-% # format to use to save images
-% # number of cores to use for the pipeline execution 
-% # if to enable automatic detection and correction of possible bugs
-% # if to enable compatibility mode 
+% # number of cores to use for the pipeline execution
 % # if stratification criteria are available
 % # if to simulate also a rich diet
-% # if to use an external solver and save models with diet
+% # if to save models with diet constraints implemented
 % # the type of FVA function to use to solve 
+% # whether to create the personalized models by pruning a global setup model 
+% (default) or one by one
 %% 
 % The following setting should work for almost any system, but please check 
 % carefully to be sure these options are valid for you. A more detailed description 
@@ -327,4 +347,4 @@ hostBiomassRxn = 'biomass_reaction';
 % Run the pipeline including the host. Note that this will be more computationally 
 % intensive and take some time.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'objre', objre, 'figForm', figForm, 'numWorkers', numWorkers, 'autoFix', autoFix, 'compMod', compMod, 'rDiet', rDiet, 'pDiet', pDiet, 'extSolve', extSolve, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'fvaType', fvaType, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);

@@ -41,7 +41,7 @@
 %% 1.1. KBase draft reconstructions-required
 % Create KBase draft reconstruction(s) for the target organism(s) by using the 
 % apps at kbase.us/. A template narrative to facilitate this is available at <https://narrative.kbase.us/narrative/81207 
-% https://narrative.kbase.us/narrative/81207>.  The narrative assumes that the 
+% https://narrative.kbase.us/narrative/ws.82195.obj.8>.  The narrative assumes that the 
 % genomes to reconstruct are available as FASTA files and imported into the Staging 
 % Area as a zipped file. Alternatively, genomes available in KBase can be directly 
 % imported into the Narrative. Note that it will not be possible to reconstruct 
