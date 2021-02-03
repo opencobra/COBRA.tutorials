@@ -191,11 +191,31 @@ adaptMedium = true;
 %% 
 % Finally, the net uptake and secretion potential are computed in a metabolite 
 % resolved manner and saved in the files 'netSecretionFluxes.csv' and 'netUptakeFluxes.csv' 
-% results folder. They indicate the maximal uptakr and production, respectively, 
+% results folder. They indicate the maximal uptake and production, respectively, 
 % of each metabolite and are computed as the absolute value of the sum of the 
 % maximal secretion flux with the maximal uptake flux. The similarity of metabolic 
 % secretion profiles (using the net secretion potential as features) between individuals 
 % is also evaluated with classical multidimensional scaling. 
+%% Calculating subsystem abundances
+% The out file "reactions.csv" in the Results folder cotnain the relative abundance 
+% of each reaction in each sample. A description of each reaction can be found 
+% by searching for the reaction ID in the file
+% 
+% cobratoolbox/papers/2021_demeter/input/ReactionDatabase.txt
+% 
+% or on the Virtual Metabolic Human website (https://www.vmh.life/).
+% 
+% For a more convenient overview of pathways altered in their relative abundances 
+% across samples, the relative abundances can also be calculated for each sample 
+% on the subsystem level by entering the code
+
+reactionAbundancePath=[resPath filesep 'reactions.csv'];
+subsystemAbundance = calculateSubsystemAbundance(reactionAbundancePath);
+%% 
+% The calculated subsystem abundances can be found in the output variable subsystemAbundance 
+% and in the file "SubsystemAbundance.txt". A subsystem abundance of 1 indicates 
+% that each reaction in the subsystem found in at least one sample is present 
+% at a relative abundance of 1 in the sample.
 %% Stratification of samples
 % If metadata for the analyzed samples is available (e.g., disease state), the 
 % samples can be stratified based on this classification. To provide metadata, 
