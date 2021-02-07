@@ -72,6 +72,7 @@ dietFilePath='AverageEuropeanDiet';
 % the following code:
 
 system('curl -LJO https://www.ebi.ac.uk/metagenomics/api/v1/studies/MGYS00001248/pipelines/3.0/file/SRP065497_taxonomy_abundances_v3.0.tsv')
+
 [translatedAbundances,normalizedAbundances,unmappedRows] = translateMetagenome2AGORA('SRP065497_taxonomy_abundances_v3.0.tsv','Species');
 %% 
 % _translateMetagenome2AGORA_ translates the output of common sequencing pipelines 
@@ -82,6 +83,13 @@ system('curl -LJO https://www.ebi.ac.uk/metagenomics/api/v1/studies/MGYS00001248
 % correcting by adding nomenclature corrections after line 115 of the _translateMetagenome2AGORA_ 
 % function. It is requested to also submit such nomenclature corrections as a 
 % pull request.
+% 
+% If there are entries in unmappedRows because the strain or species is not 
+% captured by the AGORA resource, you are directed to the tutorial for DEMETER 
+% (cobratoolbox/tutorials/reconstruction/demeter). DEMETER is a efficient reconstruction 
+% refinement pipeline that was previously used to reconstruct AGORA.  DEMETER 
+% enables fast, data-driven reconstruction of new strains following the same quality 
+% standards as AGORA.
 % 
 % To normalize the relative abundances from the input file that had been mapped 
 % to AGORA organisms, run the function normalizeCoverage. It is recommended to 
@@ -301,6 +309,9 @@ subsystemAbundance = calculateSubsystemAbundance(reactionAbundancePath);
 % with sample information needs to be provided as the variable infoFilePath. Note 
 % that the group classification into groups in sampInfo.csv is arbitrary and not 
 % biological meaningful.
+% 
+% Run the pipeline agian, this time with sample stratification into groups provided. 
+% The PCoAs will now be labelled with sample stratification into groups.
 
 infoFilePath='sampInfo.csv'; 
 saveConstrModels = false;
@@ -360,12 +371,12 @@ analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', vi
 % different.
 % 
 % The first step for the preparation of targeted analyses is the export of models 
-% that ahd already been constrained with the simulated dietary regime. This had 
+% that had already been constrained with the simulated dietary regime. This had 
 % already been done above through the saveConstrModels input in mgPipe above. 
 % Now, will set the input variable modPath to the folder with personalized models 
 % constrained with the simulated diet.
 
-modPath = constrModelsPath;
+constrModPath = [resPath filesep 'Diet'];
 %% 
 % We will define a list of metabolites to analyze. As an example, we will take 
 % acetate and formate.
@@ -377,7 +388,7 @@ metList = {'ac','for'};
 mkdir([tutorialPath filesep 'StrainContributions']);
 contPath = [tutorialPath filesep 'StrainContributions'];
 
-[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(modPath, 'resPath', contPath, 'dietFilePath', dietFilePath, 'metList', metList, 'numWorkers', numWorkers, 'lowerBMBound', lowerBMBound, 'adaptMedium', adaptMedium);
+[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(constrModPath, 'resPath', contPath, 'metList', metList, 'numWorkers', numWorkers);
 %% 
 % The output 'minFluxes' shows the fluxes in the reverse direction through all 
 % internal exchange reactions that had nonzero flux for each analyzed metabolite. 
@@ -421,7 +432,7 @@ SPDef = 'Nonzero';
 mkdir([tutorialPath filesep 'ShadowPrices']);
 spPath = [tutorialPath filesep 'ShadowPrices'];
 
-[objectives,shadowPrices]=analyseObjectiveShadowPrices(modPath, objectiveList, 'resultsFolder', spPath, 'SPDef', SPDef, 'numWorkers', numWorkers, 'dietFilePath', dietFilePath, 'lowerBMBound', lowerBMBound, 'adaptMedium', adaptMedium);
+[objectives,shadowPrices]=analyseObjectiveShadowPrices(constrModPath, objectiveList, 'resultsFolder', spPath, 'SPDef', SPDef, 'numWorkers', numWorkers);
 %% 
 % Similar to the previous results, we can also perform statistical analysis 
 % on the computed shadow prices.
@@ -435,6 +446,10 @@ analyzeMgPipeResults(infoFilePath,spPath,'statPath', statPath, 'violinPath', vio
 system('curl -LJO https://www.vmh.life/files/reconstructions/Recon/3D.01/Recon3D_301.zip')
 unzip('Recon3D_301')
 hostPath = [pwd filesep 'Recon3D_301' filesep 'Recon3DModel_301.mat'];
+%% 
+% First, we will delete the previously created setup model so it can be overwritten/
+
+delete([resPath filesep 'mapInfo.mat'],[resPath filesep 'Setup_allbacs.mat'])
 %% 
 % Since host metabolites can now enter from the host model itself, the  adaptMedium 
 % input can be set to false.                 
@@ -452,7 +467,9 @@ hostBiomassRxn = 'biomass_reaction';
 hostBiomassRxnFlux = 1;
 %% 
 % For the sake of this tutorial, we will only create personalized models combined 
-% with Recon3D and constrained with the Average European diet, not run FVA again.
+% with Recon3D and constrained with the Average European diet, not run FVA again. 
+% Naturally, all analyses shown in this tutorial can also be performed with the 
+% host present.
 
 fvaType = 'none';
 %% 
