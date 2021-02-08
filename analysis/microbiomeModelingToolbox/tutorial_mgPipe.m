@@ -49,20 +49,6 @@ cd(tutorialPath);
 system('curl -LJO https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
 unzip('AGORA-master')
 modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_03' filesep' 'AGORA_1_03_mat'];
-%% 
-% path where to save results
-
-mkdir('Results');
-resPath = [tutorialPath filesep 'Results'];
-%% 
-% path to and name of the file with dietary information. Here, we will use an 
-% "Average European" diet that is located in the folder
-% 
-% cobratoolbox/papers/2018_microbiomeModelingToolbox/input
-% 
-% The folder also contains various other simulated diets, e.g., Vegan, gluten-free.
-
-dietFilePath='AverageEuropeanDiet';
 %% Preparing the input file with normalized abundances
 % Preparing an input file suitable for mgPipe requires mapping the organisms 
 % to the nomenclature of the AGORA models. A function that can help with this 
@@ -136,7 +122,22 @@ createPanModels(modPath,panPath,taxonLevel);
 % in each sample is computed (value of 0 to 1 with 1 indicating that every organism 
 % in the sample has the reaction).
 %% 
-% First, we set the path and the name of the file from which to load the abundances. 
+% First, we will set the path where to save results.
+
+mkdir('Results');
+resPath = [tutorialPath filesep 'Results'];
+%% 
+% Then, we will define the simulated dietary regime that will be implemented 
+% on the personalized models. Here, we will use an "Average European" diet that 
+% is located in the folder
+% 
+% cobratoolbox/papers/2018_microbiomeModelingToolbox/input
+% 
+% The folder also contains various other simulated diets, e.g., Vegan, gluten-free.
+
+dietFilePath='AverageEuropeanDiet';
+%% 
+% Next, we set the path and the name of the file from which to load the abundances. 
 % For this tutorial, to reduce the time of computations, we will use a reduced 
 % version of the example file (normCoverageReduced.csv) provided in the folder 
 % Resources: only 4 individuals and 10 strains will be considered.
@@ -157,18 +158,18 @@ abunFilePath='normCoverageReduced.csv';
 % transported by at least one microbe in the study is computed for each personalized 
 % model. The PCoA of computed fluxes is also plotted. If this is not neccessary 
 % and targeted analyses are instead planned (see later sections in the tutorial), 
-% the computation can be disabled through the input variable fvaType. In either 
-% case, the personalized models with dietary constraints implemented can be exported 
-% through the variable saveConstrModels. Exporting the constrained models will 
-% also enable customized analyses outside mgPipe.
+% the computation can be disabled through the input variable computeProfiles. 
+% In either case, the personalized models with dietary constraints implemented 
+% can be exported through the variable saveConstrModels. Exporting the constrained 
+% models will also enable customized analyses outside mgPipe.
 % 
 % To define whether flux variability analysis to compute the metabolic profiles 
-% should be performed, and which FVA function should be used, set the input variable 
-% fvaType. Allowed inputs are 'fastFVA', 'fluxVariability', 'none'. Please note 
-% that it is highly recommended to use fastFVA as this drastically reduces computation 
-% times in large datasets. For the sake of this tutorial, we will use fluxVariability.
+% should be performed, and set the input variable computeProfiles. If fastFVA 
+% is installed, it will be used, otherwise, fluxVariability will be used. It is 
+% highly recommended to install fastFVA as this drastically reduces computation 
+% times in large datasets.
 
-fvaType = 'fluxVariability';
+computeProfiles = true;
 %% Setting optional inputs
 % Next inputs will define:
 %% 
@@ -246,7 +247,7 @@ adaptMedium = true;
 %% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, fvaType, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 %% Computed outputs
 %% 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -316,7 +317,7 @@ subsystemAbundance = calculateSubsystemAbundance(reactionAbundancePath);
 infoFilePath='sampInfo.csv'; 
 saveConstrModels = false;
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, fvaType, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs. disease 
 % state), statistical analysis can be performed to identify whether net secretion 
@@ -471,8 +472,8 @@ hostBiomassRxnFlux = 1;
 % Naturally, all analyses shown in this tutorial can also be performed with the 
 % host present.
 
-fvaType = 'none';
+computeProfiles = false;
 %% 
 % Run the pipeline to create personalized host-microbiome models.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, fvaType, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'hostBiomassRxnFlux', hostBiomassRxnFlux, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'hostBiomassRxnFlux', hostBiomassRxnFlux, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
