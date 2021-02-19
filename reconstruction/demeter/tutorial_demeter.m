@@ -40,13 +40,13 @@
 % the already collected data, and comparative genomic analyses.
 %% 1.1. KBase draft reconstructions-required
 % Create KBase draft reconstruction(s) for the target organism(s) by using the 
-% apps at kbase.us/. A template narrative to facilitate this is available at <https://narrative.kbase.us/narrative/81207 
-% https://narrative.kbase.us/narrative/ws.82195.obj.8>.  The narrative assumes that the 
-% genomes to reconstruct are available as FASTA files and imported into the Staging 
-% Area as a zipped file. Alternatively, genomes available in KBase can be directly 
-% imported into the Narrative. Note that it will not be possible to reconstruct 
-% organisms without a sequenced genome. Export the generated draft reconstructions 
-% by downloading them.
+% apps at kbase.us/. A template narrative to facilitate this is available at <https://narrative.kbase.us/narrative/ws.82195.obj.8 
+% https://narrative.kbase.us/narrative/ws.82195.obj.8>. The narrative assumes 
+% that the genomes to reconstruct are available as FASTA files and imported into 
+% the Staging Area as a zipped file. Alternatively, genomes available in KBase 
+% can be directly imported into the Narrative. Note that it will not be possible 
+% to reconstruct organisms without a sequenced genome. Export the generated draft 
+% reconstructions by downloading them.
 % 
 % Next, please place all draft reconstructions that you want to refine into 
 % one folder. For the sake of this tutorial, we will use four AGORA2 strains as 
@@ -117,11 +117,18 @@ refinedModelIDs = printRefinedModelIDs(draftFolder);
 % It is possible to inform the reconstruction with comparative genomics data 
 % retrieved from PubSEED. This will require either retrieving publicly available 
 % spreadsheets from PubSEED or the generation of such spreadsheets through PubSEED 
-% (<https://pubseed.theseed.org https://pubseed.theseed.org>). See cobratoolbox/papers/2021_demeter/exampleSpreadsheets 
-% for an example of the required format.
+% (<https://pubseed.theseed.org https://pubseed.theseed.org>). Under <https://pubseed.theseed.org/seedviewer.cgi?page=SubsystemSelect, 
+% https://pubseed.theseed.org/seedviewer.cgi?page=SubsystemSelect,> over 1,000 
+% curated subsystems for thousands of bacteria are available that can serve as 
+% input for DEMETER. See "Subsystem Spreadsheet" tab on PubSeed or cobratoolbox/papers/2021_demeter/exampleSpreadsheets 
+% for an example. To map the strains in subsystems to strains to reconstruct, 
+% the column PubSeedID needs to contain the translation to the respective IDs 
+% in the PubSeed spreadsheets. 
 % 
-% Annotated genes need to be provided as columns and mapped to corresponding 
-% reactions through the file cobratoolbox/papers/2021_demeter/input/InReactions.txt. 
+% Moreover, appropriate reactions in VMH nomenclature need to be mapped to each 
+% functional role in the spreadsheet (see "Functional Role" tab on PubSeed). Functional 
+% roles need to be provided as columns and mapped to corresponding reactions through 
+% the file cobratoolbox/papers/2021_demeter/input/InReactions.txt. 
 % 
 % If comparative genomics data is available for your organism(s), please place 
 % it in a folder and provide the path to the folder as the variable spreadsheetFolder.
@@ -253,9 +260,15 @@ numWorkers = 4;
 
 reconVersion = 'TutorialExample';
 %% 
+% If the pipeline gets interrupted, already finished refined reconstructions 
+% are skipped by default. If you want to overwrite already finished reconstructions, 
+% set the optional input overwriteModels to true.
+
+overwriteModels=false;
+%% 
 % Run the pipeline.
 
-[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'overwriteModels', overwriteModels);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
 % in mat format are located in the folder "RefinedReconstructions", and in SBML 

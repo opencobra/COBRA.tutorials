@@ -1,5 +1,5 @@
 %% Creation, interrogation, and analysis of personalized microbiota models from the AGORA models through metagenomic data integration
-%% Author: Almut Heinken, National University of Ireland Galway and Federico Baldini, Luxembourg Centre for Systems Biomedicine 
+%% Author: Almut Heinken, National University of Ireland Galway, and Federico Baldini, Luxembourg Centre for Systems Biomedicine 
 %% INTRODUCTION
 % This tutorial demonstrates the various function of the Microbiome Modeling 
 % Toolbox for the creation, interrogation, analysis, and stratification of personalized 
@@ -9,8 +9,11 @@
 % to the AGORA models
 % # Creating pan-models from AGORA on different taxonomical levels
 % # Building personalized models
+% # Reporting personalized model sizes
 % # Computing net fecal uptake and secretion potential for all microbial metabolites
 % # Calculating subsystem abundances on the microbiome level
+% # Correlation between computed fluxes and abundances and different taxon levels
+% # Metabolite-resolved plots of metabolite-strain correlations
 % # Clustering and statistical analysis of net uptake and net secretion fluxes 
 % based on subgroups in samples
 % # Targeted analysis: computation of strain-level contributions in each sample 
@@ -29,7 +32,7 @@
 % variables in startMgPipe with your own dataset and modifiy as needed.
 %% Initialize the COBRA Toolbox
 
-initCobraToolbox(false)
+initCobraToolbox
 %% 
 % Set a solver (recommended: ibm_cplex)
 
@@ -84,11 +87,11 @@ system('curl -LJO https://www.ebi.ac.uk/metagenomics/api/v1/studies/MGYS00001248
 % low normalized coverage will result in faster simulations.
 
 cutoff = 0.0001;
-[normalizedCoverage,abunFilePath] = normalizeCoverage(translatedAbundances,cutoff);
+[normalizedCoverage,abundancePath] = normalizeCoverage('translatedAbundances.txt',cutoff);
 %% 
 % The file normalizedCoverage.csv now contains relative normalized abundances 
 % mapped to the nomenclature of AGORA that could serve as input for mgPipe. The 
-% output variable abunFilePath can directly serve as input for the corresponding 
+% output variable abundancePath can directly serve as input for the corresponding 
 % input variable in initMgPipe. 
 %% Creating pan-models from AGORA on different taxonomical levels
 % As the abundances in this example are provided on the species level, the AGORA 
@@ -247,14 +250,18 @@ adaptMedium = true;
 %% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 %% Computed outputs
 %% 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
 % compared to the total number of unique reactions (extrapolated by the number 
 % of reactions of each organism).Please, note that bigger circles with a number 
 % inside represent overlapping individuals for metabolic diversity. 
-% # *Classical multidimensional scaling of each individual reactions repertoire*
+% # *Classical multidimensional scaling of each individual reactions repertoire* 
+% in the Y output variable
+% # *Personalized model sizes:* reaction and metabolites numbers for all created 
+% models in the modelStats output and averages, median, minimal, and maximal values 
+% in the summary output.
 %% 
 % *If flux variability analysis is performed and net uptake and secretion potential 
 % are computed:*
@@ -303,6 +310,53 @@ subsystemAbundance = calculateSubsystemAbundance(reactionAbundancePath);
 % and in the file "SubsystemAbundance.txt". A subsystem abundance of 1 indicates 
 % that each reaction in the subsystem found in at least one sample is present 
 % at a relative abundance of 1 in the sample.
+%% Correlation between computed fluxes and abundances and different taxon levels
+% For an overview of metabolite-taxa relationships, the computed uptake and 
+% secretion profiles for each metabolite can be correlated with taxon abundances 
+% on different levels (species, genus, etc.). Note that a correlation may not 
+% neccessarily imply that the metabolite is synthesized by a given taxon. To exactly 
+% determine the relationships between metabolites and taxa in the models, organism-level 
+% contributions to metabolites can be computed (see below). However, these computations 
+% are much more computationally intensive than the calculation of correlations.
+% 
+% To calculate the Spearman correlation (alternatively: 'Pearson', 'Kendall'),  
+% between net secretion fluxes and abundances on different taxon levels, run the 
+% code:
+% 
+% taxonomy info for AGORA
+
+taxInfo = 'AGORA_infoFile.xlsx';
+%% 
+% Path to fluxes that should be correlated
+
+fluxPath = [resPath filesep 'inputDiet_net_uptake_fluxes.csv'];
+corrMethod = 'Spearman';
+[FluxCorrelations, PValues, TaxonomyInfo] = correlateFluxWithTaxonAbundance(abunFilePath, fluxPath, taxInfo, corrMethod);
+%% 
+% The output variable TaxonomyInfo will have the list of annotations for each 
+% entry on each taxon level. This can be used to plot the correlations as a heatmap 
+% with annotations, e.g., in R.
+%% Metabolite-resolved plots of metabolite-strain correlations
+% For a more detailed view of the relationships between metabolites and abundances, 
+% the fluxes can also be directly plotted against organism abundances. This may 
+% reveal microbes that are bottlenecks for the production of metabolites of interest.
+% 
+% We will define the metabolites to analyze (default: all exchanged metabolites 
+% in the models). As an example, we will take only one metabolite, acetate. Enter 
+% the VMH IDs of target metabolites as a cell array.
+
+metList = {'ac'};
+%% 
+% Define the path to net secretion fluxes.
+
+fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
+%% 
+% To plot microbe-metabolite relationships for these metabolites, execute the 
+% code
+
+plotFluxesAgainstOrganismAbundances(abunFilePath,fluxPath,metList);
+%% 
+% Afterwards, the plots will be in the subfolder Metabolite_plots.
 %% Stratification of samples
 % If metadata for the analyzed samples is available (e.g., disease state), the 
 % samples can be stratified based on this classification. To provide metadata, 
@@ -311,13 +365,13 @@ subsystemAbundance = calculateSubsystemAbundance(reactionAbundancePath);
 % that the group classification into groups in sampInfo.csv is arbitrary and not 
 % biological meaningful.
 % 
-% Run the pipeline agian, this time with sample stratification into groups provided. 
+% Run the pipeline again, this time with sample stratification into groups provided. 
 % The PCoAs will now be labelled with sample stratification into groups.
 
 infoFilePath='sampInfo.csv'; 
 saveConstrModels = false;
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs. disease 
 % state), statistical analysis can be performed to identify whether net secretion 
@@ -350,7 +404,7 @@ resPath = [tutorialPath filesep 'Results'];
 statPath = [tutorialPath filesep 'Statistics'];
 violinPath = [tutorialPath filesep 'ViolinPlots'];
 %% 
-% *To perform the statistical analysis and save the results, enter the code*
+% To perform the statistical analysis and save the results, enter the code
 
 analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
 %% 
@@ -379,8 +433,9 @@ analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', vi
 
 constrModPath = [resPath filesep 'Diet'];
 %% 
-% We will define a list of metabolites to analyze. As an example, we will take 
-% acetate and formate.
+% We will define a list of metabolites to analyze (default: all exchanged metabolites 
+% in the models). As an example, we will take acetate and formate. Enter the VMH 
+% IDs of target metabolites as a cell array.
 
 metList = {'ac','for'};
 %% 
@@ -476,4 +531,4 @@ computeProfiles = false;
 %% 
 % Run the pipeline to create personalized host-microbiome models.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'hostBiomassRxnFlux', hostBiomassRxnFlux, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'hostBiomassRxnFlux', hostBiomassRxnFlux, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
