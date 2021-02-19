@@ -12,6 +12,8 @@
 % # Reporting personalized model sizes
 % # Computing net fecal uptake and secretion potential for all microbial metabolites
 % # Calculating subsystem abundances on the microbiome level
+% # Correlation between computed fluxes and abundances and different taxon levels
+% # Metabolite-resolved plots of metabolite-strain correlations
 % # Clustering and statistical analysis of net uptake and net secretion fluxes 
 % based on subgroups in samples
 % # Targeted analysis: computation of strain-level contributions in each sample 
@@ -402,7 +404,7 @@ resPath = [tutorialPath filesep 'Results'];
 statPath = [tutorialPath filesep 'Statistics'];
 violinPath = [tutorialPath filesep 'ViolinPlots'];
 %% 
-% *To perform the statistical analysis and save the results, enter the code*
+% To perform the statistical analysis and save the results, enter the code
 
 analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
 %% 
