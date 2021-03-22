@@ -471,7 +471,7 @@ propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVers
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 
 % also do this for a subset of AGORA reconstructions. For instance, we can cluster 
-% all representatives of a given taxon, e.g., Bacteroides, by similarity. Note 
+% all representatives of a given taxon, e.g., Bacteroidetes, by similarity. Note 
 % that this part of the tutorial is time-consuming.
 % 
 % Download all AGORA reconstructions.
@@ -487,11 +487,11 @@ infoFilePath = 'AGORA_infoFile.xlsx';
 % Define the column header which contain the information that should be used 
 % to extract a subset.
 
-subHeader = 'Genus';
+subHeader = 'Phylum';
 %% 
 % Define the feature for which the subset of reconstructions should be extracted.
 
-subFeature = 'Bacteroides';
+subFeature = 'Bacteroidetes';
 %% 
 % Define the folder where the results from the extracted subset should be saved 
 % (optional, default folder will be used otherwise).
@@ -509,7 +509,7 @@ subsetPropertiesFolder = [pwd filesep 'subsetProperties'];
 %% 
 % Define a name for the subset (optional).
 
-subsetVersion = 'Bacteroides';
+subsetVersion = 'Bacteroidetes';
 %% 
 % We will now compute the properties of the extracted reconstruction subset. 
 % If the subset contains enough reconstructions, tSNE plots, a visual representation 
