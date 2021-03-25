@@ -1,51 +1,51 @@
 %% Generation of a chemoinformatic data base 
 %% Author: German Preciat, Analytical BioSciences and Metabolomics, Leiden University.
 %% INTRODUCTION
-% In a COBRA model, the molecular structure of a metabolite can be represented 
-% in different formats such as SMILES InChIs and InChIkeys (See Figure 1), as 
-% well as identifiers from different databases such as the Virtual Metabolic Human 
-% database${\;}^1$ (*VMH*), the Human Metabolome Database${\;}^2$ (*HMDB*), *PubChem* 
-% database${\;}^3$, the Kyoto Encyclopedia of Genes and Genomes${\;}^4$ (*KEEG*), 
-% and the Chemical Entities of Biological Interest${\;}^5$ (*ChEBI*). 
+% The molecular structure of a metabolite in a COBRA model can be represented 
+% in various formats such as SMILES InChIs and InChIkeys (See Figure 1), as well 
+% as identifiers from various databases such as the Virtual Metabolic Human database${\;}^1$ 
+% (*VMH*), the Human Metabolome Database${\;}^2$ (*HMDB*), *PubChem* database${\;}^3$, 
+% the Kyoto Encyclopedia of Genes and Genomes${\;}^4$ (*KEEG*), and the Chemical 
+% Entities of Biological Interest${\;}^5$ (*ChEBI*). 
 % 
 % 
 % 
 % Figure 1. Different chemoinformatic formats
 % 
-% The function |generateChemicalDatabase |generates a chemoinformatic database 
-% with the data in a COBRA model (Figure 2). It uses different external softwares 
-% among which are openBabel${\;}^6$, MarvinSuite ${\;}^7$ and JAVA. |generateChemicalDatabase| 
-% works if some of these software are not installed but for best results, it is 
-% recommended to have all of them in the system. 
+% The function generateChemicalDatabase creates a chemoinformatic database 
+% using data from a COBRA model (Figure 2). It makes use of a variety of external 
+% software, including openBabel${\;}^6$, MarvinSuite${\;}^7$, and JAVA. generateChemicalDatabase 
+% works even if some of these programs are not installed, but for the best results, 
+% all of them should be.
 % 
 % 
 % 
-% Figure 2. The pipeline can take different paths depending on the system 
-% configuration and the user-defined parameters.
+% Figure 2. Depending on the system configuration and the user-defined parameters, 
+% the pipeline can take various paths.
 % 
-% The function compares for each metabolite the molecular structure information 
-% from the different sources and the molecular structure of the source with the 
-% highest score is considered as correct. The disimilarity comparison is done 
-% by calculating the euclidean distances of the score of all molecular structures 
-% obtained. The score is assigned based on the following criteria:
-% 
-% 
+% The function compares the molecular structure information from various 
+% sources for each metabolite, and the molecular structure from the source with 
+% the highest score is considered correct. The disimilarity comparison is performed 
+% by calculating the euclidean distances of all molecular structures obtained. 
+% The following criteria are used to assign the score:
 % 
 % 
 % 
 % 
 % 
-% The comparison aims at obtaining a greater number of atomically balanced 
-% metabolic reactions. The atom mappings of each of the metabolic reactions are 
-% obtained with the Reaction Decoder Tool algorithm${\;}^8$ (*RDT*). Finally, 
-% the atom mapping data is used to calculate the number of bonds formed or broken 
-% and the energy required to break the bond of a metabolic reaction. All the information 
-% obtained is integrated into the COBRA model.
 % 
-% In this tutorial, we will obtain the chemoinformatic data on the Ecoli 
-% core model. The identifiers will be added using the funciton |addMetInfoInCBmodel|.
+% 
+% The goal of the comparison is to obtain a larger number of atomically balanced 
+% metabolic reactions. The Reaction Decoder Tool algorithm${\;}^8$ (*RDT*) is 
+% used to obtain the atom mappings of each metabolic reaction. Finally, the atom 
+% mapping data is used to calculate the number of bonds formed or broken in a 
+% metabolic reaction, as well as the energy required to break the bond. The information 
+% gathered is incorporated into the COBRA model.
+% 
+% We will obtain chemoinformatic data on the Ecoli core model in this tutorial. 
+% The identifiers will be added using the  |addMetInfoInCBmodel| function.
 %% Generate chemoinformatic database
-% Clean the workspace and set the user directory.
+% Clean up the workspace and configure the user directory.
 
 clear
 if ispc
@@ -56,51 +56,46 @@ else
     userDir = char(java.lang.System.getProperty('user.home'));
 end
 %% 
-% Add MarvinSuite to the enviroment.
-
-if ismac
-    setenv('PATH', [getenv('PATH') ':/usr/local/bin:/usr/bin:/bin:/Applications/MarvinSuite/bin']);
-end
-%% 
 % Load the ecoli core model.
 
 load ecoli_core_model.mat
 model.mets = regexprep(model.mets, '\-', '\_');
 %% 
-% From an external file, add chemoinformatic information in the ecoli core 
-% model such as SMILES, InChIs or different database identifiers.
+% Add chemoinformatic information from an external file to the ecoli core 
+% model, such as SMILES, InChIs, or different database identifiers.
 
 dataFile = which('chemoinformaticDatabaseTutorial.mlx')
 inputData = regexprep(dataFile, 'chemoinformaticDatabaseTutorial.mlx', 'metaboliteIds.xlsx');
 replace = false;
 [model, hasEffect] = addMetInfoInCBmodel(model, inputData, replace);
 %% 
-% The user-defiined parameters will activate different processes in the 
-% function |generateChemicalDatabase|. Each parameter is described as follows:
+% The user-defined parameters in the function |generateChemicalDatabase| 
+% will activate various processes. Each parameter is described in detail below:
 % 
-% * *outputDir*: Path to directory that will contain the RXN files with atom 
-% mappings (default: current directory) 
+% * *outputDir*: The path to the directory containing the RXN files with atom 
+% mappings (default: current directory)
 % * *printlevel*: Verbose level 
 % * *standardisationApproach*: String containing the type of standardisation 
-% for the molecules (default: 'explicitH' if openBabel O'Boyle et al. 2011 is 
-% installed, otherwise default: 'basic'):
+% for the molecules (default: 'explicitH' if openBabel${\;}^6$ is installed, otherwise 
+% default: 'basic'):
 % 
 % #     explicitH: Normal chemical graphs; 
 % #     implicitH: Hydrogen suppressed chemical graph; 
 % #     neutral: Chemical graphs with protonated molecules; 
 % #     basic: Update the header.  
 % 
-% * *keepMolComparison*: Logic value to keep the MDL MOL files from the different 
-% sources compared (default: FALSE) 
+% * *keepMolComparison*: Logic value for comparing MDL MOL files from various 
+% sources (default: FALSE) 
 % * *onlyUnmapped*: Logic value to select create only unmapped MDL RXN files 
 % (default: FALSE). 
-% * *adjustToModelpH*: Logic value to select if the pH of a molecule has to 
-% be adjusted according the GEM (default: TRUE, requires CXCALC ChemAxon 2015). 
+% * *adjustToModelpH*: Logic value used to determine whether a molecule's pH 
+% must be adjusted in accordance with the COBRA model. (default: TRUE, requires 
+% MarvinSuite${\;}^7$). 
 % * *addDirsToCompare*: Cell(s) with the path to directory to an existing database 
-% (default: empty) 
-% * *dirNames*: Cell(s) with the name of the directory(ies) (Default: empty) 
-% * *debug*: Logical value to establish if the results in different points of 
-% the function will be saved to debug.
+% (default: empty).
+% * *dirNames*: Cell(s) with the name of the directory(ies) (default: empty).
+% * *debug*: Logical value used to determine whether or not the results of different 
+% points in the function will be saved for debugging (default: empty).
 
 options.outputDir = [userDir '/work/code/ctf/databases/ecoliDB'];
 options.printlevel = 1;
