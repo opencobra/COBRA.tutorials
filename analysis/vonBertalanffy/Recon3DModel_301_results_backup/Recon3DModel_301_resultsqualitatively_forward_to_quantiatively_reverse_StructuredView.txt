@@ -1,0 +1,596 @@
+Metabolites which force 56 qualitatively forward -> quantiatively reverse
+35:	27	h[c]Proton
+28:	25	h[m]Proton
+25:	15	h2o[m]Water
+20:	13	h2o[c]Water
+41:	4	h[x]Proton
+384:	4	h2o[x]Water
+528:	4	o2[r]Oxygen
+729:	4	h[r]Proton
+60:	3	nadph[c]Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+61:	3	nadp[c]Nicotinamide Adenine Dinucleotide Phosphate
+265:	3	h[l]Proton
+527:	3	h2o[r]Water
+749:	3	nadph[r]Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+750:	3	nadp[r]Nicotinamide Adenine Dinucleotide Phosphate
+21:	2	o2[c]Oxygen
+40:	2	pi[c]Orthophosphate
+75:	2	h[e]Proton
+290:	2	acald[c]Acetaldehyde
+510:	2	etoh[c]Ethanol
+5493:	2	fvs[r]fluvastatin
+5782:	2	ptvst[r]pitavastatin
+23:	1	h2o2[c]Hydrogen Peroxide
+29:	1	nadph[m]Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+31:	1	nadp[m]Nicotinamide Adenine Dinucleotide Phosphate
+38:	1	atp[c]Adenosine Triphosphate
+71:	1	nadh[c]Nicotinamide Adenine Dinucleotide - Reduced
+72:	1	nad[c]Nicotinamide Adenine Dinucleotide
+87:	1	co2[m]Carbon Dioxide
+139:	1	pi[l]Orthophosphate
+293:	1	atp[m]Adenosine Triphosphate
+295:	1	pi[m]Orthophosphate
+296:	1	hco3[m]Bicarbonate
+368:	1	btcoa[m]Butanoyl Coenzyme A
+412:	1	datp[c]Deoxyadenosine Triphosphate
+807:	1	dag_hs[c]Diglyceride
+963:	1	cdp[c]Cytidine-5'-DIphosphate
+964:	1	dgtp[c]Deoxyguanosine-5'-Triphosphate
+974:	1	dctp[c]Deoxycytidine-5'-Triphosphate
+981:	1	cdp[m]Cytidine-5'-DIphosphate
+1031:	1	datp[m]Deoxyadenosine Triphosphate
+1091:	1	dctp[m]Deoxycytidine-5'-Triphosphate
+1094:	1	dgtp[m]Deoxyguanosine-5'-Triphosphate
+1096:	1	dttp[m]Deoxythymidine-5'-Triphosphate
+1136:	1	dttp[c]Deoxythymidine-5'-Triphosphate
+1306:	1	ksii_core4[e]Keratan Sulfate Ii (Core 4-Linked)
+1370:	1	s2l2fn2m2masn[e]Pa6
+1458:	1	occoa[c]Octanoyl Coenzyme A (N-C8:0 Coenzyme A)
+1469:	1	occoa[m]Octanoyl Coenzyme A (N-C8:0 Coenzyme A)
+1493:	1	glyald[c]D-Glyceraldehyde
+1532:	1	s2l2fn2m2masn[l]Pa6
+1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1651:	1	gd3_hs[c]Gd3
+1757:	1	glyc3p[m]Glycerol 3-Phosphate
+1763:	1	glyc[c]Glycerol
+1764:	1	glyc[m]Glycerol
+1891:	1	ksii_core4[l]Keratan Sulfate Ii (Core 4-Linked)
+2240:	1	sphmyln_hs[g]Sphingomyelin 
+2241:	1	sphmyln_hs[l]Sphingomyelin 
+2269:	1	thmpp[c]Thiamine Diphosphate
+2271:	1	thmpp[m]Thiamine Diphosphate
+2394:	1	glyald[m]D-Glyceraldehyde
+2562:	1	btcoa[c]Butanoyl Coenzyme A
+2903:	1	h2o2[r]Hydrogen Peroxide
+4249:	1	sphmyln_hs[e]Sphingomyelin 
+4623:	1	dag_hs[g]Diglyceride
+4637:	1	gd3_hs[m]Gd3
+4750:	1	sphmyln_hs[r]Sphingomyelin 
+4851:	1	M00603[c]4-Pregnene-11Beta,17Alpha-Diol-3,20-Dione
+4852:	1	M00285[c]11Beta-Hydroxyprogesterone
+5053:	1	M00049[x](2E)-Hexacosenoyl Coenzyme A
+5054:	1	M00783[x]3-Hydroxyhexacosanoyl Coenzyme A
+5079:	1	M00044[m](2E)-Heneicosenoyl Coenzyme A
+5080:	1	M00778[m]3-Hydroxyheneicosanoyl Coenzyme A
+5082:	1	M00054[m](2E)-Nonadecenoyl Coenzyme A
+5083:	1	M00790[m]3-Hydroxynonadecanoyl Coenzyme A
+5085:	1	M00046[m](2E)-Heptadecenoyl Coenzyme A
+5086:	1	M00780[m]3-Hydroxyheptadecanoyl Coenzyme A
+5088:	1	M00061[m](2E)-Pentadecenoyl Coenzyme A
+5089:	1	M00795[m]3-Hydroxypentadecanoyl Coenzyme A
+5091:	1	M00069[m](2E)-Tridecenoyl Coenzyme A
+5092:	1	M00804[m]3-Hydroxytridecanoyl Coenzyme A
+5094:	1	M00071[m](2E)-Undecenoyl Coenzyme A
+5095:	1	M00806[m]3-Hydroxyundecanoyl Coenzyme A
+5097:	1	M00056[m](2E)-Nonenoyl Coenzyme A
+5098:	1	M00792[m]3-Hydroxynonanoyl Coenzyme A
+5100:	1	M00048[m](2E)-Heptenoyl Coenzyme A
+5101:	1	M00782[m]3-Hydroxyheptanoyl Coenzyme A
+5103:	1	M00063[m](2E)-Pentenoyl Coenzyme A
+5104:	1	M00797[m]3-Hydroxypentanoyl Coenzyme A
+5112:	1	M03019[m]Trans,Cis-Hexadeca-2,7-Dienoyl Coenzyme A
+5113:	1	M00172[m](S)-3-Hydroxy-7-Hexadecenoyl Coenzyme A
+5115:	1	M03022[m]Trans,Cis-Myristo-2,5-Dienoyl Coenzyme A
+5116:	1	M01573[m]Cis-(3S)-Hydroxytetradec-5-Enoyl Coenzyme A
+5118:	1	M03014[m]Trans,Cis-2,13-Eicosadienoyl Coenzyme A
+5119:	1	M00702[m]3(S)-Hydroxy-13-Cis-Eicosenoyl Coenzyme A
+5121:	1	M03024[m]Trans,Cis-Octadeca-2,11-Dienoyl Coenzyme A
+5122:	1	M00170[m](S)-3-Hydroxy-11-Cis-Octadecenoyl Coenzyme A
+5124:	1	M03016[x]Trans,Cis-2,17-Hexacosadienoyl Coenzyme A
+5125:	1	M00715[x]3(S)-Hydroxy-Hexacosenoyl Coenzyme A
+5142:	1	M03019[x]Trans,Cis-Hexadeca-2,7-Dienoyl Coenzyme A
+5143:	1	M00172[x](S)-3-Hydroxy-7-Hexadecenoyl Coenzyme A
+5146:	1	M03022[x]Trans,Cis-Myristo-2,5-Dienoyl Coenzyme A
+5147:	1	M01573[x]Cis-(3S)-Hydroxytetradec-5-Enoyl Coenzyme A
+5441:	1	3hlvst[c]3''-hydroxy-lovastatin lactone form
+5442:	1	3hlvstacid[c]3''-hydroxy-lovastatin acid form
+5453:	1	3hsmv[c]3'-hydroxy-simvastatin-lactone form
+5454:	1	3hsmvacid[c]3'-hydroxy-simvastatin-acid form
+5489:	1	5ohfvs[r]5-hydroxy-fluvastatin
+5505:	1	6csmv[c]6'-beta-carboxy-simvastatin-lactone form
+5506:	1	6csmvacid[c]6'-beta-carboxy-simvastatin-acid form
+5512:	1	6hlvst[c]6'-beta-hydroxy-lovastatin lactone form
+5513:	1	6hlvstacid[c]6'-beta-hydroxy-lovastatin-acid form
+5515:	1	6hmsmv[c]6'-beta-hydroxy-methyl-simvastatin-lactone form
+5516:	1	6hmsmvacid[c]6'-beta-hydroxy-methyl-simvastatin-acid form
+5519:	1	6hsmv[c]6'-beta-hydroxy simvastatin lactone
+5520:	1	6hsmvacid[c]6'-beta-hydroxy simvastatin acid
+5522:	1	6melvst[c]6'-exomethylene-lovastatin lactone form
+5523:	1	6melvacid[c]6'-exomethylene-lovastatin-acid form
+5529:	1	6ohfvs[r]6-hydroxy-fluvastatin
+5545:	1	allop[c]allopurinol
+5554:	1	oxyp[c]oxypurinol
+5715:	1	fvs[c]fluvastatin
+5750:	1	lvstacid[c]lovastatin-hydroxyacid form
+5751:	1	lvst[c]lovastatin lactone form
+5786:	1	ptvstm13[r]pitavastatin-M13
+5788:	1	ptvstm3[r]pitavastatin-M3
+5791:	1	rsv[c]rosuvastatin
+5794:	1	rsvlac[c]rosuvastatin-5S-lactone
+5796:	1	smvacid[c]simvastatin dihydroxy acid form
+5799:	1	smv[c]simvastatin lactone form
+5803:	1	thrfvs[c]threo-isomer of fluvastain
+
+
+294	Alcohol Dehydrogenase, Forward Rxn (Ethanol -> Acetaldehyde)	ALCD2if	  7.27	 95.77
+substrates:
+72	      -1	 1543.56	-23.61	-18.53	              nad[c]	Nicotinamide Adenine Dinucleotide
+510	      -1	   79.16	-29.69	-11.88	             etoh[c]	Ethanol
+products:
+35	  1.1326	   42.75	-42.75	-42.75	                h[c]	Proton
+71	       1	 1604.70	-35.83	-20.29	             nadh[c]	Nicotinamide Adenine Dinucleotide - Reduced
+290	       1	   33.77	-29.69	-11.88	            acald[c]	Acetaldehyde
+
+295	Alcohol Dehydrogenase (Ethanol, NADP), Forward Reaction	ALCD2yf	 15.41	114.89
+substrates:
+61	      -1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+510	      -1	   79.16	-29.69	-11.88	             etoh[c]	Ethanol
+products:
+35	  1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	       1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+290	       1	   33.77	-29.69	-11.88	            acald[c]	Acetaldehyde
+
+1680	Glycerol-3-Phosphate Shuttle	GLYC3Ptm	 12.51	 48.14
+substrates:
+28	-0.0327673	   47.50	-47.50	-47.50	                h[m]	Proton
+1570	      -1	  303.95	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
+products:
+35	0.176126	   42.75	-42.75	-42.75	                h[c]	Proton
+1757	       1	  337.61	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
+
+1736	Carboxylic Acid Dissociation	H2CO3Dm	  0.34	 69.55
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+87	      -1	 -386.00	-29.69	-11.88	              co2[m]	Carbon Dioxide
+products:
+28	0.992957	   47.50	-47.50	-47.50	                h[m]	Proton
+296	       1	 -539.30	-29.69	-11.88	             hco3[m]	Bicarbonate
+
+1891	Keratan Sulfate Ii (Core 4) Transport, Extracellular to Lysosome	KSII_CORE4tly	 85.64	121.27
+substrates:
+75	-9.95001	   43.94	-43.94	-43.94	                h[e]	Proton
+1306	      -1	 5897.63	-29.69	-11.88	       ksii_core4[e]	Keratan Sulfate Ii (Core 4-Linked)
+products:
+265	 5.65075	   32.66	-32.66	-32.66	                h[l]	Proton
+1891	       1	 4394.84	-29.69	-11.88	       ksii_core4[l]	Keratan Sulfate Ii (Core 4-Linked)
+
+2221	Octanoyl Coenzyme A Transport, Diffusion	OCCOAtm	 42.37	 77.99
+substrates:
+28	-0.0267369	   47.50	-47.50	-47.50	                h[m]	Proton
+1458	      -1	 2000.22	-29.69	-11.88	            occoa[c]	Octanoyl Coenzyme A (N-C8:0 Coenzyme A)
+products:
+35	0.162513	   42.75	-42.75	-42.75	                h[c]	Proton
+1469	       1	 2219.09	-29.69	-11.88	            occoa[m]	Octanoyl Coenzyme A (N-C8:0 Coenzyme A)
+
+2536	Transport of Pa6, Lysosomal	S2L2FN2M2MASNtly	1490.18	1525.81
+substrates:
+75	-133.888	   43.94	-43.94	-43.94	                h[e]	Proton
+1370	      -1	-1193.04	-29.69	-11.88	    s2l2fn2m2masn[e]	Pa6
+products:
+265	 133.091	   32.66	-32.66	-32.66	                h[l]	Proton
+1532	       1	-1323.02	-29.69	-11.88	    s2l2fn2m2masn[l]	Pa6
+
+2774	Thiamine Diphosphate Transport in via Anion Antiport, Mitochondria	THMPPtm	  6.98	 42.60
+substrates:
+25	      -2	 -140.74	  0.00	  0.00	              h2o[m]	Water
+35	-0.678543	   42.75	-42.75	-42.75	                h[c]	Proton
+2269	      -1	  693.62	-29.69	-11.88	            thmpp[c]	Thiamine Diphosphate
+products:
+20	       2	 -150.25	  0.00	  0.00	              h2o[c]	Water
+28	 1.46228	   47.50	-47.50	-47.50	                h[m]	Proton
+2271	       1	  764.50	-29.69	-11.88	            thmpp[m]	Thiamine Diphosphate
+
+3034	Glycerol:NADP+ Oxidoreductase	r0245	 36.50	134.72
+substrates:
+61	      -1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+1763	      -1	 -149.69	-29.69	-11.88	             glyc[c]	Glycerol
+products:
+35	 1.13981	   42.75	-42.75	-42.75	                h[c]	Proton
+60	       1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+1493	       1	 -174.61	-29.69	-11.88	           glyald[c]	D-Glyceraldehyde
+
+3035	Glycerol:NADP+ Oxidoreductase	r0246	 21.87	140.64
+substrates:
+31	      -1	  774.96	-41.56	-16.77	             nadp[m]	Nicotinamide Adenine Dinucleotide Phosphate
+1764	      -1	 -111.68	-29.69	-11.88	             glyc[m]	Glycerol
+products:
+28	 1.02395	   47.50	-47.50	-47.50	                h[m]	Proton
+29	       1	  841.81	-41.56	-14.11	            nadph[m]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+2394	       1	 -146.11	-29.69	-11.88	           glyald[m]	D-Glyceraldehyde
+
+3264	Facilitated Diffusion	r0853	 18.20	 49.32
+substrates:
+35	-0.876393	   42.75	-42.75	-42.75	                h[c]	Proton
+38	      -1	  520.03	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+295	      -1	-1046.46	-29.69	-11.88	               pi[m]	Orthophosphate
+products:
+28	 0.95286	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+293	       1	  573.63	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+
+3360	Facilitated Diffusion	r1150	  5.28	 27.84
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+139	      -1	-1069.78	-29.69	-11.88	               pi[l]	Orthophosphate
+products:
+40	       1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+265	0.966085	   32.66	-32.66	-32.66	                h[l]	Proton
+
+5342	Transport of dATP into Mitochondria	DATPtm	 38.60	 74.23
+substrates:
+35	-0.516447	   42.75	-42.75	-42.75	                h[c]	Proton
+412	      -1	  520.03	-29.69	-11.88	             datp[c]	Deoxyadenosine Triphosphate
+products:
+28	0.870981	   47.50	-47.50	-47.50	                h[m]	Proton
+1031	       1	  573.63	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+
+5343	Transport of dCTP into Mitochondria	DCTPtm	 38.72	 74.34
+substrates:
+35	-0.461855	   42.75	-42.75	-42.75	                h[c]	Proton
+974	      -1	  520.02	-29.69	-11.88	             dctp[c]	Deoxycytidine-5'-Triphosphate
+products:
+28	0.863354	   47.50	-47.50	-47.50	                h[m]	Proton
+1091	       1	  573.73	-29.69	-11.88	             dctp[m]	Deoxycytidine-5'-Triphosphate
+
+5344	Transport of dGTP into Mitochondria	DGTPtm	 38.75	 74.37
+substrates:
+35	 -0.4446	   42.75	-42.75	-42.75	                h[c]	Proton
+964	      -1	  519.99	-29.69	-11.88	             dgtp[c]	Deoxyguanosine-5'-Triphosphate
+products:
+28	0.862396	   47.50	-47.50	-47.50	                h[m]	Proton
+1094	       1	  573.73	-29.69	-11.88	             dgtp[m]	Deoxyguanosine-5'-Triphosphate
+
+5356	Transport of dTTP into Mitochondria	DTTPtm	 34.91	 70.54
+substrates:
+35	 -1.0704	   42.75	-42.75	-42.75	                h[c]	Proton
+1136	      -1	  561.81	-29.69	-11.88	             dttp[c]	Deoxythymidine-5'-Triphosphate
+products:
+28	 1.79455	   47.50	-47.50	-47.50	                h[m]	Proton
+1096	       1	  616.47	-29.69	-11.88	             dttp[m]	Deoxythymidine-5'-Triphosphate
+
+8185	Vesicle Transport of Sphingomyelin from Golgi to Extracellular	SPHMYLNte	 57.05	 92.68
+substrates:
+2240	      -1	 2306.67	-29.69	-11.88	       sphmyln_hs[g]	Sphingomyelin 
+products:
+4249	       1	 2680.80	-29.69	-11.88	       sphmyln_hs[e]	Sphingomyelin 
+
+8201	Diacylglycerol Golgi Export	DAG_HStg	295.11	330.73
+substrates:
+4623	      -1	 2614.28	-29.69	-11.88	           dag_hs[g]	Diglyceride
+products:
+807	       1	 2957.49	-29.69	-11.88	           dag_hs[c]	Diglyceride
+
+8240	Transport of Gd3, Mitochondrial	GD3tm	 12.10	 47.73
+substrates:
+1651	      -1	 3824.37	-29.69	-11.88	           gd3_hs[c]	Gd3
+products:
+4637	       1	 4242.39	-29.69	-11.88	           gd3_hs[m]	Gd3
+
+8280	HMR_0157	HMR_0157	 42.39	 78.02
+substrates:
+28	-0.0286082	   47.50	-47.50	-47.50	                h[m]	Proton
+2562	      -1	 1652.26	-29.69	-11.88	            btcoa[c]	Butanoyl Coenzyme A
+products:
+35	0.172684	   42.75	-42.75	-42.75	                h[c]	Proton
+368	       1	 1833.15	-29.69	-11.88	            btcoa[m]	Butanoyl Coenzyme A
+
+8714	Steroid, Hydrogen-Donor:Oxygen Oxidoreductase (17-Alpha-Hydroxylating)	HMR_1991	198.83	313.98
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+61	      -1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4851	      -1	 1304.77	-29.69	-11.88	           M00603[c]	4-Pregnene-11Beta,17Alpha-Diol-3,20-Dione
+products:
+21	       1	   16.40	-29.69	-11.88	               o2[c]	Oxygen
+35	  1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	       1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4852	       1	 1304.77	-29.69	-11.88	           M00285[c]	11Beta-Hydroxyprogesterone
+
+8985	Enoyl Coenzyme A Hydratase	HMR_3058	216.68	258.42
+substrates:
+384	      -1	 -152.62	  0.00	  0.00	              h2o[x]	Water
+5053	      -1	 3383.75	-29.69	-11.88	           M00049[x]	(2E)-Hexacosenoyl Coenzyme A
+products:
+41	0.117495	   41.56	-41.56	-41.56	                h[x]	Proton
+5054	       1	 3468.68	-29.69	-11.88	           M00783[x]	3-Hydroxyhexacosanoyl Coenzyme A
+
+9031	Enoyl Coenzyme A Hydratase	HMR_3171	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5079	      -1	 3376.92	-29.69	-11.88	           M00044[m]	(2E)-Heneicosenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5080	       1	 3473.44	-29.69	-11.88	           M00778[m]	3-Hydroxyheneicosanoyl Coenzyme A
+
+9035	Enoyl Coenzyme A Hydratase	HMR_3175	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5082	      -1	 3183.95	-29.69	-11.88	           M00054[m]	(2E)-Nonadecenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5083	       1	 3280.47	-29.69	-11.88	           M00790[m]	3-Hydroxynonadecanoyl Coenzyme A
+
+9039	Enoyl Coenzyme A Hydratase	HMR_3179	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5085	      -1	 2990.98	-29.69	-11.88	           M00046[m]	(2E)-Heptadecenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5086	       1	 3087.50	-29.69	-11.88	           M00780[m]	3-Hydroxyheptadecanoyl Coenzyme A
+
+9043	Enoyl Coenzyme A Hydratase	HMR_3183	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5088	      -1	 2798.01	-29.69	-11.88	           M00061[m]	(2E)-Pentadecenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5089	       1	 2894.53	-29.69	-11.88	           M00795[m]	3-Hydroxypentadecanoyl Coenzyme A
+
+9047	Enoyl Coenzyme A Hydratase	HMR_3187	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5091	      -1	 2605.04	-29.69	-11.88	           M00069[m]	(2E)-Tridecenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5092	       1	 2701.56	-29.69	-11.88	           M00804[m]	3-Hydroxytridecanoyl Coenzyme A
+
+9051	Enoyl Coenzyme A Hydratase	HMR_3191	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5094	      -1	 2412.07	-29.69	-11.88	           M00071[m]	(2E)-Undecenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5095	       1	 2508.59	-29.69	-11.88	           M00806[m]	3-Hydroxyundecanoyl Coenzyme A
+
+9055	Enoyl Coenzyme A Hydratase	HMR_3195	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5097	      -1	 2219.10	-29.69	-11.88	           M00056[m]	(2E)-Nonenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5098	       1	 2315.62	-29.69	-11.88	           M00792[m]	3-Hydroxynonanoyl Coenzyme A
+
+9059	Enoyl Coenzyme A Hydratase	HMR_3199	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5100	      -1	 2026.13	-29.69	-11.88	           M00048[m]	(2E)-Heptenoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5101	       1	 2122.65	-29.69	-11.88	           M00782[m]	3-Hydroxyheptanoyl Coenzyme A
+
+9063	Enoyl Coenzyme A Hydratase	HMR_3203	216.36	258.11
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5103	      -1	 1833.15	-29.69	-11.88	           M00063[m]	(2E)-Pentenoyl Coenzyme A
+products:
+28	0.00235764	   47.50	-47.50	-47.50	                h[m]	Proton
+5104	       1	 1929.64	-29.69	-11.88	           M00797[m]	3-Hydroxypentanoyl Coenzyme A
+
+9076	Enoyl Coenzyme A Hydratase	HMR_3231	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5112	      -1	 2798.01	-29.69	-11.88	           M03019[m]	Trans,Cis-Hexadeca-2,7-Dienoyl Coenzyme A
+products:
+28	0.0141695	   47.50	-47.50	-47.50	                h[m]	Proton
+5113	       1	 2894.53	-29.69	-11.88	           M00172[m]	(S)-3-Hydroxy-7-Hexadecenoyl Coenzyme A
+
+9080	Enoyl Coenzyme A Hydratase	HMR_3235	216.36	258.10
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5115	      -1	 2605.07	-29.69	-11.88	           M03022[m]	Trans,Cis-Myristo-2,5-Dienoyl Coenzyme A
+products:
+28	0.000608566	   47.50	-47.50	-47.50	                h[m]	Proton
+5116	       1	 2701.56	-29.69	-11.88	           M01573[m]	Cis-(3S)-Hydroxytetradec-5-Enoyl Coenzyme A
+
+9084	Enoyl Coenzyme A Hydratase	HMR_3241	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5118	      -1	 3183.95	-29.69	-11.88	           M03014[m]	Trans,Cis-2,13-Eicosadienoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5119	       1	 3280.47	-29.69	-11.88	           M00702[m]	3(S)-Hydroxy-13-Cis-Eicosenoyl Coenzyme A
+
+9088	Enoyl Coenzyme A Hydratase	HMR_3245	216.39	258.14
+substrates:
+25	      -1	 -140.74	  0.00	  0.00	              h2o[m]	Water
+5121	      -1	 2990.98	-29.69	-11.88	           M03024[m]	Trans,Cis-Octadeca-2,11-Dienoyl Coenzyme A
+products:
+28	0.012985	   47.50	-47.50	-47.50	                h[m]	Proton
+5122	       1	 3087.50	-29.69	-11.88	           M00170[m]	(S)-3-Hydroxy-11-Cis-Octadecenoyl Coenzyme A
+
+9095	Enoyl Coenzyme A Hydratase	HMR_3327	216.66	258.41
+substrates:
+384	      -1	 -152.62	  0.00	  0.00	              h2o[x]	Water
+5124	      -1	 3299.14	-29.69	-11.88	           M03016[x]	Trans,Cis-2,17-Hexacosadienoyl Coenzyme A
+products:
+41	0.124371	   41.56	-41.56	-41.56	                h[x]	Proton
+5125	       1	 3384.06	-29.69	-11.88	           M00715[x]	3(S)-Hydroxy-Hexacosenoyl Coenzyme A
+
+9115	Enoyl Coenzyme A Hydratase	HMR_3347	216.71	258.45
+substrates:
+384	      -1	 -152.62	  0.00	  0.00	              h2o[x]	Water
+5142	      -1	 2453.01	-29.69	-11.88	           M03019[x]	Trans,Cis-Hexadeca-2,7-Dienoyl Coenzyme A
+products:
+41	0.127111	   41.56	-41.56	-41.56	                h[x]	Proton
+5143	       1	 2537.97	-29.69	-11.88	           M00172[x]	(S)-3-Hydroxy-7-Hexadecenoyl Coenzyme A
+
+9119	Enoyl Coenzyme A Hydratase	HMR_3351	216.37	258.12
+substrates:
+384	      -1	 -152.62	  0.00	  0.00	              h2o[x]	Water
+5146	      -1	 2284.12	-29.69	-11.88	           M03022[x]	Trans,Cis-Myristo-2,5-Dienoyl Coenzyme A
+products:
+41	0.00609779	   41.56	-41.56	-41.56	                h[x]	Proton
+5147	       1	 2368.75	-29.69	-11.88	           M01573[x]	Cis-(3S)-Hydroxytetradec-5-Enoyl Coenzyme A
+
+9304	HMR_5249	HMR_5249	103.65	139.28
+substrates:
+2241	      -1	 2003.55	-29.69	-11.88	       sphmyln_hs[l]	Sphingomyelin 
+products:
+4750	       1	 2609.54	-29.69	-11.88	       sphmyln_hs[r]	Sphingomyelin 
+
+9457	HMR_9019	HMR_9019	 23.75	 59.38
+substrates:
+35	-0.469022	   42.75	-42.75	-42.75	                h[c]	Proton
+963	      -1	  520.03	-29.69	-11.88	              cdp[c]	Cytidine-5'-DIphosphate
+products:
+28	0.863836	   47.50	-47.50	-47.50	                h[m]	Proton
+981	       1	  573.73	-29.69	-11.88	              cdp[m]	Cytidine-5'-DIphosphate
+
+9821	conversion of 3-hydroxy-lovastatin lactone to acid form	3HLVSTAChep	207.92	263.57
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5441	      -1	 1565.73	-29.69	-11.88	           3hlvst[c]	3''-hydroxy-lovastatin lactone form
+products:
+35	       1	   42.75	-42.75	-42.75	                h[c]	Proton
+5442	       1	 1608.48	-29.69	-11.88	       3hlvstacid[c]	3''-hydroxy-lovastatin acid form
+
+9831	conversion of 3-hydroxy simvastatin lactone to acid form	3HSMVACIDhep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5453	      -1	 1652.71	-29.69	-11.88	            3hsmv[c]	3'-hydroxy-simvastatin-lactone form
+products:
+35	0.999068	   42.75	-42.75	-42.75	                h[c]	Proton
+5454	       1	 1696.20	-29.69	-11.88	        3hsmvacid[c]	3'-hydroxy-simvastatin-acid form
+
+9866	oxidation of fluvastatin to 5-hydroxy-fluvastatin in hepatocytes	5OHFVShc	776.75	895.82
+substrates:
+528	      -1	   16.40	-29.69	-11.88	               o2[r]	Oxygen
+729	-26.1375	   42.75	-42.75	-42.75	                h[r]	Proton
+749	      -1	  718.23	-29.69	-11.88	            nadph[r]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+5493	      -1	   -0.01	-29.69	-11.88	              fvs[r]	fluvastatin
+products:
+527	       1	 -150.25	  0.00	  0.00	              h2o[r]	Water
+750	       1	  655.81	-29.69	-11.88	             nadp[r]	Nicotinamide Adenine Dinucleotide Phosphate
+5489	       1	 1087.31	-29.69	-11.88	           5ohfvs[r]	5-hydroxy-fluvastatin
+
+9877	conversion of 6-beta-carboxy simvastatin lactone to acid form	6CSMVACIDhep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5505	      -1	 1522.23	-29.69	-11.88	            6csmv[c]	6'-beta-carboxy-simvastatin-lactone form
+products:
+35	0.998942	   42.75	-42.75	-42.75	                h[c]	Proton
+5506	       1	 1565.72	-29.69	-11.88	        6csmvacid[c]	6'-beta-carboxy-simvastatin-acid form
+
+9884	conversion of lactone form of 6-beta-hydroxy-lovastatin to acid form	6HLVSTAChep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5512	      -1	 1565.73	-29.69	-11.88	           6hlvst[c]	6'-beta-hydroxy-lovastatin lactone form
+products:
+35	0.998978	   42.75	-42.75	-42.75	                h[c]	Proton
+5513	       1	 1609.22	-29.69	-11.88	       6hlvstacid[c]	6'-beta-hydroxy-lovastatin-acid form
+
+9886	conversion of 6-beta-hydroxy-methyl simvastatin lactone to acid form	6HMSMVACIDhep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5515	      -1	 1652.71	-29.69	-11.88	           6hmsmv[c]	6'-beta-hydroxy-methyl-simvastatin-lactone form
+products:
+35	0.998978	   42.75	-42.75	-42.75	                h[c]	Proton
+5516	       1	 1696.20	-29.69	-11.88	       6hmsmvacid[c]	6'-beta-hydroxy-methyl-simvastatin-acid form
+
+9889	conversion of 6-beta-hydroxy simvastatin lactone to acid form	6HSMVACIDhep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5519	      -1	 1652.71	-29.69	-11.88	            6hsmv[c]	6'-beta-hydroxy simvastatin lactone
+products:
+35	0.998978	   42.75	-42.75	-42.75	                h[c]	Proton
+5520	       1	 1696.20	-29.69	-11.88	        6hsmvacid[c]	6'-beta-hydroxy simvastatin acid
+
+9892	conversion of lactone form of 6-exomethylene-lovastatin to acid form	6MELACAChep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5522	      -1	 1478.74	-29.69	-11.88	          6melvst[c]	6'-exomethylene-lovastatin lactone form
+products:
+35	0.998978	   42.75	-42.75	-42.75	                h[c]	Proton
+5523	       1	 1522.23	-29.69	-11.88	        6melvacid[c]	6'-exomethylene-lovastatin-acid form
+
+9898	oxidation of fluvastatin to 6-hydroxy-fluvastatin in hepatocytes	6OHFVShc	776.75	895.82
+substrates:
+528	      -1	   16.40	-29.69	-11.88	               o2[r]	Oxygen
+729	-26.1375	   42.75	-42.75	-42.75	                h[r]	Proton
+749	      -1	  718.23	-29.69	-11.88	            nadph[r]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+5493	      -1	   -0.01	-29.69	-11.88	              fvs[r]	fluvastatin
+products:
+527	       1	 -150.25	  0.00	  0.00	              h2o[r]	Water
+750	       1	  655.81	-29.69	-11.88	             nadp[r]	Nicotinamide Adenine Dinucleotide Phosphate
+5529	       1	 1087.31	-29.69	-11.88	           6ohfvs[r]	6-hydroxy-fluvastatin
+
+9924	oxidation of allopurinol to oxypurinol in hepatocytes	ALLOPOXDhep	 37.25	136.15
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+21	      -1	   16.40	-29.69	-11.88	               o2[c]	Oxygen
+5545	      -1	  173.94	-29.69	-11.88	            allop[c]	allopurinol
+products:
+23	       1	  -47.05	-29.69	-11.88	             h2o2[c]	Hydrogen Peroxide
+35	0.0147867	   42.75	-42.75	-42.75	                h[c]	Proton
+5554	       1	  173.84	-29.69	-11.88	             oxyp[c]	oxypurinol
+
+10228	conversion of pro-durg lovastatin to active hydroxyacid form in hepatocytes	LVSTACIDhep	251.42	307.07
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5751	      -1	 1565.73	-29.69	-11.88	             lvst[c]	lovastatin lactone form
+products:
+35	8.4894e-07	   42.75	-42.75	-42.75	                h[c]	Proton
+5750	       1	 1651.97	-29.69	-11.88	         lvstacid[c]	lovastatin-hydroxyacid form
+
+10269	oxidation of pitavastatin to pitavastatin-M13 in hepatocytes	PTVSTM13hr	706.20	879.02
+substrates:
+528	      -2	   16.40	-29.69	-11.88	               o2[r]	Oxygen
+729	-23.1352	   42.75	-42.75	-42.75	                h[r]	Proton
+749	      -1	  718.23	-29.69	-11.88	            nadph[r]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+5782	      -1	 1043.81	-29.69	-11.88	            ptvst[r]	pitavastatin
+products:
+750	       1	  655.81	-29.69	-11.88	             nadp[r]	Nicotinamide Adenine Dinucleotide Phosphate
+2903	       1	  -47.05	-29.69	-11.88	             h2o2[r]	Hydrogen Peroxide
+5786	       1	 2000.65	-29.69	-11.88	         ptvstm13[r]	pitavastatin-M13
+
+10271	oxidation of pitavastatin to pitavastatin-M3 in hepatocytes	PTVSTM3hc	448.72	524.81
+substrates:
+528	      -1	   16.40	-29.69	-11.88	               o2[r]	Oxygen
+729	-21.9954	   42.75	-42.75	-42.75	                h[r]	Proton
+5782	      -1	 1043.81	-29.69	-11.88	            ptvst[r]	pitavastatin
+products:
+527	       2	 -150.25	  0.00	  0.00	              h2o[r]	Water
+5788	       1	 1826.68	-29.69	-11.88	          ptvstm3[r]	pitavastatin-M3
+
+10286	conversion of lactone to open acid form of rosuvastatin	RSVSPONhc	438.10	513.78
+substrates:
+20	      -2	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5794	      -1	 2258.65	-29.69	-11.88	           rsvlac[c]	rosuvastatin-5S-lactone
+products:
+35	       2	   42.75	-42.75	-42.75	                h[c]	Proton
+5791	       1	 2348.59	-29.69	-11.88	              rsv[c]	rosuvastatin
+
+10298	conversion of simvastatin pro-drug to active form	SMVHYDROhep	208.66	264.31
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+5799	      -1	 1652.71	-29.69	-11.88	              smv[c]	simvastatin lactone form
+products:
+35	0.998978	   42.75	-42.75	-42.75	                h[c]	Proton
+5796	       1	 1696.20	-29.69	-11.88	          smvacid[c]	simvastatin dihydroxy acid form
+
+10308	threo isomer formation of fluvastatin	THRFVShc	1069.50	1105.13
+substrates:
+35	-24.9977	   42.75	-42.75	-42.75	                h[c]	Proton
+5715	      -1	   -0.01	-29.69	-11.88	              fvs[c]	fluvastatin
+products:
+5803	       1	 1087.31	-29.69	-11.88	           thrfvs[c]	threo-isomer of fluvastain
+

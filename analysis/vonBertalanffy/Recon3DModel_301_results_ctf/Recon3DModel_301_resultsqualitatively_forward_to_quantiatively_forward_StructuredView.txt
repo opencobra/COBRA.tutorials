@@ -1,0 +1,50 @@
+Metabolites which force 4 qualitatively forward -> quantiatively forward
+231:	2	h[g]Proton
+527:	2	h2o[r]Water
+729:	2	h[r]Proton
+795:	2	pi[r]Orthophosphate
+1095:	2	dsT_antigen[g]Disialyl-T Antigen
+35:	1	h[c]Proton
+75:	1	h[e]Proton
+731:	1	dolp_L[r]Dolichyl Phosphate
+734:	1	dolp_U[r]Dolichyl Phosphate
+1140:	1	dolichol_L[r]Dolichol, Human Liver Homolog
+1141:	1	dolichol_U[r]Dolichol, Human Uterine Homolog
+4270:	1	dsT_antigen[e]Disialyl-T Antigen
+5209:	1	dsT_antigen[c]Disialyl-T Antigen
+
+
+881	Dolichyl-Phosphate-Glucose-Glycolipid Alpha-Glucosyltransferase (Liver)	DOLPGT3_Ler	-876.75	-807.48
+substrates:
+527	      -1	 -150.24	  0.00	  0.00	              h2o[r]	Water
+731	    -0.1	 1329.97	-29.69	-11.88	           dolp_L[r]	Dolichyl Phosphate
+products:
+729	0.769505	   42.75	-42.75	-42.75	                h[r]	Proton
+795	       1	-1052.14	-29.69	-11.88	               pi[r]	Orthophosphate
+1140	     0.1	 2135.73	-29.69	-11.88	       dolichol_L[r]	Dolichol, Human Liver Homolog
+
+882	Dolichyl-Phosphate-Glucose-Glycolipid Alpha-Glucosyltransferase (Uterus)	DOLPGT3_Uer	-948.30	-877.24
+substrates:
+527	      -1	 -150.24	  0.00	  0.00	              h2o[r]	Water
+734	    -0.1	 1230.77	-29.69	-11.88	           dolp_U[r]	Dolichyl Phosphate
+products:
+729	0.440085	   42.75	-42.75	-42.75	                h[r]	Proton
+795	       1	-1052.14	-29.69	-11.88	               pi[r]	Orthophosphate
+1141	     0.1	 1329.97	-29.69	-11.88	       dolichol_U[r]	Dolichol, Human Uterine Homolog
+
+7042	Dst_Antigen (Mucin O-Glycan) Export	DST_ANTIGENt	-334.49	-250.67
+substrates:
+231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
+1095	      -1	 -173.34	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+products:
+75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
+4270	       1	 -110.99	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
+
+9300	HMR_4955	HMR_4955	-274.08	-190.25
+substrates:
+231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
+1095	      -1	 -173.34	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+products:
+35	      46	   42.75	-42.75	-42.75	                h[c]	Proton
+5209	       1	 -122.87	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
+

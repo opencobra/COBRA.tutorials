@@ -1,0 +1,90 @@
+Metabolites which force 8 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line). Forward with probability greater than 0.7.
+35:	8	h[c]Proton
+28:	5	h[m]Proton
+20:	1	h2o[c]Water
+40:	1	pi[c]Orthophosphate
+109:	1	2mop[m]2-Methyl-3-Oxopropanoate
+139:	1	pi[l]Orthophosphate
+241:	1	aact[c]Ammonioacetone
+243:	1	aact[m]Ammonioacetone
+265:	1	h[l]Proton
+290:	1	acald[c]Acetaldehyde
+302:	1	ppa[m]Propionate
+394:	1	ppa[c]Propionate
+502:	1	ser_L[c]L-Serine
+714:	1	hcys_L[c]L-Homocysteine
+1162:	1	2dr5p[c]2-Deoxy-D-Ribose 5-Phosphate
+1163:	1	g3p[c]Glyceraldehyde 3-Phosphate
+1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1757:	1	glyc3p[m]Glycerol 3-Phosphate
+1899:	1	lac_L[m](S)-Lactate
+1917:	1	lac_L[c](S)-Lactate
+2462:	1	2mop[c]2-Methyl-3-Oxopropanoate
+3397:	1	cyst_L[c]L-Cystathionine
+
+
+128	Aminoacetone Transport, Mitochondrial	AACTtm	-20.78	 55.49
+substrates:
+28	-0.719661	   47.50	-47.50	-47.50	                h[m]	Proton
+243	      -1	  238.67	-29.69	-11.88	             aact[m]	Ammonioacetone
+products:
+35	0.289197	   42.75	-42.75	-42.75	                h[c]	Proton
+241	       1	  203.07	-29.69	-11.88	             aact[c]	Ammonioacetone
+
+903	Deoxyribose-Phosphate Aldolase	DRPA	-47.85	 44.27
+substrates:
+35	-0.0393522	   42.75	-42.75	-42.75	                h[c]	Proton
+1162	      -1	-1065.88	-29.69	-11.88	            2dr5p[c]	2-Deoxy-D-Ribose 5-Phosphate
+products:
+290	       1	   30.74	-29.69	-11.88	            acald[c]	Acetaldehyde
+1163	       1	-1077.62	-29.69	-11.88	              g3p[c]	Glyceraldehyde 3-Phosphate
+
+1680	Glycerol-3-Phosphate Shuttle	GLYC3Ptm	 -2.00	 62.65
+substrates:
+28	-0.0327673	   47.50	-47.50	-47.50	                h[m]	Proton
+1570	      -1	-1031.22	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
+products:
+35	0.176126	   42.75	-42.75	-42.75	                h[c]	Proton
+1757	       1	 -997.56	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
+
+1931	Transport of L-Lactate via Diffusion, Mitochondrial	L_LACtcm	-14.20	 44.11
+substrates:
+28	-6.02493e-05	   47.50	-47.50	-47.50	                h[m]	Proton
+1917	      -1	 -296.91	-29.69	-11.88	            lac_L[c]	(S)-Lactate
+products:
+35	0.000380026	   42.75	-42.75	-42.75	                h[c]	Proton
+1899	       1	 -273.16	-29.69	-11.88	            lac_L[m]	(S)-Lactate
+
+2424	Propionate Transport, Diffusion	PPAtm	-23.53	 53.46
+substrates:
+28	-0.00056199	   47.50	-47.50	-47.50	                h[m]	Proton
+394	      -1	 -138.31	-29.69	-11.88	              ppa[c]	Propionate
+products:
+35	0.00353537	   42.75	-42.75	-42.75	                h[c]	Proton
+302	       1	 -114.55	-29.69	-11.88	              ppa[m]	Propionate
+
+3360	Facilitated Diffusion	r1150	 -9.29	 42.41
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+139	      -1	-1060.05	-29.69	-11.88	               pi[l]	Orthophosphate
+products:
+40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
+265	0.966085	   32.66	-32.66	-32.66	                h[l]	Proton
+
+6993	Transport of 2-Methyl-3-Oxopropanoate, Mitochondrial	2MOPtm	-15.98	 45.90
+substrates:
+28	-9.54851e-05	   47.50	-47.50	-47.50	                h[m]	Proton
+2462	      -1	 -242.39	-29.69	-11.88	             2mop[c]	2-Methyl-3-Oxopropanoate
+products:
+35	0.000602165	   42.75	-42.75	-42.75	                h[c]	Proton
+109	       1	 -218.64	-29.69	-11.88	             2mop[m]	2-Methyl-3-Oxopropanoate
+
+7204	Cystathionine Beta-Synthase	CYSTS	-14.50	117.23
+substrates:
+35	-0.0136489	   42.75	-42.75	-42.75	                h[c]	Proton
+502	      -1	 -208.70	-29.69	-11.88	            ser_L[c]	L-Serine
+714	      -1	  115.20	-29.69	-11.88	           hcys_L[c]	L-Homocysteine
+products:
+20	       1	 -133.43	  0.00	  0.00	              h2o[c]	Water
+3397	       1	   70.51	-29.69	-11.88	           cyst_L[c]	L-Cystathionine
+

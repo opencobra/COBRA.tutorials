@@ -1,0 +1,230 @@
+Metabolites which force 20 qualitatively  forward -> quantiatively reversible by concentration (negative uncertain DrG0t)
+35:	20	h[c]Proton
+61:	18	nadp[c]Nicotinamide Adenine Dinucleotide Phosphate
+60:	17	nadph[c]Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+72:	2	nad[c]Nicotinamide Adenine Dinucleotide
+4816:	2	M01081[c]7Alpha,24-Dihydroxy-5Beta-Cholestan-3-One
+4817:	2	M01083[c]7Alpha,24Alpha-Dihydroxy-5Beta-Cholestan-3-One
+20:	1	h2o[c]Water
+28:	1	h[m]Proton
+29:	1	nadph[m]Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+31:	1	nadp[m]Nicotinamide Adenine Dinucleotide Phosphate
+40:	1	pi[c]Orthophosphate
+71:	1	nadh[c]Nicotinamide Adenine Dinucleotide - Reduced
+83:	1	nadh[m]Nicotinamide Adenine Dinucleotide - Reduced
+84:	1	nad[m]Nicotinamide Adenine Dinucleotide
+103:	1	co2[c]Carbon Dioxide
+849:	1	for[c]Formate
+4804:	1	M00966[c]4'-Methyl-5'-Cholesta-8-En-3-One
+4805:	1	M00967[c]4'-Methyl-Cholesta-8-Enol
+4814:	1	M00978[c]7Alpha,24-Dihydroxycholest-4-En-3-One
+4815:	1	M00976[c]4-Cholesten-7',12',24-Triol-3-One
+4818:	1	M01077[c]5Beta-Cholestan-3Alpha,7Alpha,12Alpha,24(S)-Tetrol
+4819:	1	M01080[c]5Beta-Cholestane-3Alpha,7Alpha,24-Triol
+4836:	1	M00979[c]7Alpha,26-Dihydroxycholest-4-En-3-One
+4837:	1	M00977[c]7Alpha,12Alpha,26-Trihydroxycholest-4-En-3-One
+4838:	1	M01082[c]5Beta-Cholestan-7Alpha,12Alpha,27-Triol-3-One
+4839:	1	M01084[c]7Alpha,26-Dihydroxy-5Beta-Cholestan-3-One
+4859:	1	M00887[c]3-Oxononadecanoyl Coenzyme A
+4860:	1	M00790[c]3-Hydroxynonadecanoyl Coenzyme A
+4862:	1	M00873[c]3-Oxoheneicosanoyl Coenzyme A
+4863:	1	M00778[c]3-Hydroxyheneicosanoyl Coenzyme A
+4865:	1	M00907[c]3-Oxotricosanoyl Coenzyme A
+4866:	1	M00802[c]3-Hydroxytricosanoyl Coenzyme A
+4868:	1	M00879[c]3-Oxo-Hexacosenoyl Coenzyme A
+4869:	1	M00715[c]3(S)-Hydroxy-Hexacosenoyl Coenzyme A
+4871:	1	M00843[c]3-Oxo-13-Cis-Eicosenoyl Coenzyme A
+4872:	1	M00702[c]3(S)-Hydroxy-13-Cis-Eicosenoyl Coenzyme A
+4874:	1	M00852[c]3-Oxo-9-Cis-Eicosenoyl Coenzyme A
+4875:	1	M00707[c]3(S)-Hydroxy-9-Cis-Eicosenoyl Coenzyme A
+4877:	1	M00839[c]3-Oxo-11Cis-Docosenoyl Coenzyme A
+4878:	1	M00699[c]3(S)-Hydroxy-11Cis-Docosenoyl Coenzyme A
+4880:	1	M00871[c]3-Oxo-Eicosadienoyl Coenzyme A
+4881:	1	M00704[c]3(S)-Hydroxy-3-Oxo-Eicosadienoyl Coenzyme A
+4887:	1	M00869[c]3-Oxoeicosa-Cis,Cis,Cis-11,14,17-Trienoyl Coenzyme A
+4888:	1	M00086[c](3S)-Hydroxy-Eicosa-Cis,Cis,Cis-11,14,17-Trienoyl Coenzyme A
+4890:	1	M00862[c]3-Oxo-Docosa-13,16,19-All-Cis-Trienoyl Coenzyme A
+4891:	1	M00712[c]3(S)-Hydroxy-Docosa-13,16,19-All-Cis-Trienoyl Coenzyme A
+
+
+1386	Formate Dehydrogenase	FDH	-67.38	 14.80
+substrates:
+72	      -1	 1543.56	-23.61	-18.53	              nad[c]	Nicotinamide Adenine Dinucleotide
+849	      -1	 -305.55	-29.69	-11.88	              for[c]	Formate
+products:
+35	0.133777	   42.75	-42.75	-42.75	                h[c]	Proton
+71	       1	 1604.70	-35.83	-20.29	             nadh[c]	Nicotinamide Adenine Dinucleotide - Reduced
+103	       1	 -386.00	-29.69	-11.88	              co2[c]	Carbon Dioxide
+
+2766	NAD (P) Transhydrogenase	THD1m	-43.03	 45.22
+substrates:
+31	      -1	  774.96	-41.56	-16.77	             nadp[m]	Nicotinamide Adenine Dinucleotide Phosphate
+35	-0.99931	   42.75	-42.75	-42.75	                h[c]	Proton
+83	      -1	 1732.95	-41.56	-17.57	             nadh[m]	Nicotinamide Adenine Dinucleotide - Reduced
+products:
+28	       1	   47.50	-47.50	-47.50	                h[m]	Proton
+29	       1	  841.81	-41.56	-14.11	            nadph[m]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+84	       1	 1667.37	-19.60	-12.62	              nad[m]	Nicotinamide Adenine Dinucleotide
+
+8624	3Beta-Hydroxysteroid 3-Dehydrogenase	HMR_1547	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4804	      -1	 2000.65	-29.69	-11.88	           M00966[c]	4'-Methyl-5'-Cholesta-8-En-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4805	       1	 2087.64	-29.69	-11.88	           M00967[c]	4'-Methyl-Cholesta-8-Enol
+
+8652	Delta4-3-Oxosteroid 5Beta-Reductase	HMR_1740	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4815	      -1	 1913.67	-29.69	-11.88	           M00976[c]	4-Cholesten-7',12',24-Triol-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4816	       1	 2000.65	-29.69	-11.88	           M01081[c]	7Alpha,24-Dihydroxy-5Beta-Cholestan-3-One
+
+8653	Delta4-3-Oxosteroid 5Beta-Reductase	HMR_1741	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4814	      -1	 1913.67	-29.69	-11.88	           M00978[c]	7Alpha,24-Dihydroxycholest-4-En-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4817	       1	 2000.65	-29.69	-11.88	           M01083[c]	7Alpha,24Alpha-Dihydroxy-5Beta-Cholestan-3-One
+
+8654	3Alpha-Hydroxysteroid 3-Dehydrogenase (Si-Specific)	HMR_1742	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4816	      -1	 2000.65	-29.69	-11.88	           M01081[c]	7Alpha,24-Dihydroxy-5Beta-Cholestan-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4818	       1	 2087.64	-29.69	-11.88	           M01077[c]	5Beta-Cholestan-3Alpha,7Alpha,12Alpha,24(S)-Tetrol
+
+8655	3Alpha-Hydroxysteroid 3-Dehydrogenase (Si-Specific)	HMR_1743	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4817	      -1	 2000.65	-29.69	-11.88	           M01083[c]	7Alpha,24Alpha-Dihydroxy-5Beta-Cholestan-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4819	       1	 2087.64	-29.69	-11.88	           M01080[c]	5Beta-Cholestane-3Alpha,7Alpha,24-Triol
+
+8677	Delta4-3-Oxosteroid 5Beta-Reductase	HMR_1768	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4837	      -1	 1913.67	-29.69	-11.88	           M00977[c]	7Alpha,12Alpha,26-Trihydroxycholest-4-En-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4838	       1	 2000.65	-29.69	-11.88	           M01082[c]	5Beta-Cholestan-7Alpha,12Alpha,27-Triol-3-One
+
+8678	Delta4-3-Oxosteroid 5Beta-Reductase	HMR_1769	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4836	      -1	 1913.67	-29.69	-11.88	           M00979[c]	7Alpha,26-Dihydroxycholest-4-En-3-One
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4839	       1	 2000.65	-29.69	-11.88	           M01084[c]	7Alpha,26-Dihydroxy-5Beta-Cholestan-3-One
+
+8742	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2260	-68.39	 21.28
+substrates:
+35	-1.14735	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4859	      -1	 2870.30	-29.69	-11.88	           M00887[c]	3-Oxononadecanoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4860	       1	 2957.28	-29.69	-11.88	           M00790[c]	3-Hydroxynonadecanoyl Coenzyme A
+
+8746	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2264	-68.39	 21.28
+substrates:
+35	-1.14735	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4862	      -1	 3044.27	-29.69	-11.88	           M00873[c]	3-Oxoheneicosanoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4863	       1	 3131.25	-29.69	-11.88	           M00778[c]	3-Hydroxyheneicosanoyl Coenzyme A
+
+8750	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2268	-80.03	  9.64
+substrates:
+35	-1.06886	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4865	      -1	 3218.24	-29.69	-11.88	           M00907[c]	3-Oxotricosanoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4866	       1	 3293.58	-29.69	-11.88	           M00802[c]	3-Hydroxytricosanoyl Coenzyme A
+
+8766	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2334	-65.56	 24.11
+substrates:
+35	-1.19614	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4868	      -1	 3389.36	-29.69	-11.88	           M00879[c]	3-Oxo-Hexacosenoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4869	       1	 3479.17	-29.69	-11.88	           M00715[c]	3(S)-Hydroxy-Hexacosenoyl Coenzyme A
+
+8770	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2343	-68.39	 21.28
+substrates:
+35	-1.14735	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4871	      -1	 2870.30	-29.69	-11.88	           M00843[c]	3-Oxo-13-Cis-Eicosenoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4872	       1	 2957.28	-29.69	-11.88	           M00702[c]	3(S)-Hydroxy-13-Cis-Eicosenoyl Coenzyme A
+
+8774	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2348	-68.39	 21.28
+substrates:
+35	-1.14735	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4874	      -1	 2870.30	-29.69	-11.88	           M00852[c]	3-Oxo-9-Cis-Eicosenoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4875	       1	 2957.28	-29.69	-11.88	           M00707[c]	3(S)-Hydroxy-9-Cis-Eicosenoyl Coenzyme A
+
+8778	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2354	-68.39	 21.28
+substrates:
+35	-1.14735	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4877	      -1	 3044.27	-29.69	-11.88	           M00839[c]	3-Oxo-11Cis-Docosenoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4878	       1	 3131.25	-29.69	-11.88	           M00699[c]	3(S)-Hydroxy-11Cis-Docosenoyl Coenzyme A
+
+8783	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2362	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4880	      -1	 2771.67	-29.69	-11.88	           M00871[c]	3-Oxo-Eicosadienoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4881	       1	 2858.66	-29.69	-11.88	           M00704[c]	3(S)-Hydroxy-3-Oxo-Eicosadienoyl Coenzyme A
+
+8805	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2533	-68.39	 21.28
+substrates:
+35	 -1.1398	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4887	      -1	 2684.69	-29.69	-11.88	           M00869[c]	3-Oxoeicosa-Cis,Cis,Cis-11,14,17-Trienoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4888	       1	 2771.67	-29.69	-11.88	           M00086[c]	(3S)-Hydroxy-Eicosa-Cis,Cis,Cis-11,14,17-Trienoyl Coenzyme A
+
+8809	Very-Long-Chain 3-Oxoacyl Coenzyme A Reductase	HMR_2541	-68.39	 21.28
+substrates:
+35	-1.14735	   42.75	-42.75	-42.75	                h[c]	Proton
+60	      -1	  718.23	-41.56	-20.34	            nadph[c]	Nicotinamide Adenine Dinucleotide Phosphate - Reduced
+4890	      -1	 2870.30	-29.69	-11.88	           M00862[c]	3-Oxo-Docosa-13,16,19-All-Cis-Trienoyl Coenzyme A
+products:
+61	       1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+4891	       1	 2957.28	-29.69	-11.88	           M00712[c]	3(S)-Hydroxy-Docosa-13,16,19-All-Cis-Trienoyl Coenzyme A
+
+9276	Acid Phosphatase	HMR_4270	-34.09	  5.41
+substrates:
+20	      -1	 -150.25	  0.00	  0.00	              h2o[c]	Water
+35	-0.320509	   42.75	-42.75	-42.75	                h[c]	Proton
+61	      -1	  655.81	-41.56	-31.08	             nadp[c]	Nicotinamide Adenine Dinucleotide Phosphate
+products:
+40	       1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+72	       1	 1543.56	-23.61	-18.53	              nad[c]	Nicotinamide Adenine Dinucleotide
+

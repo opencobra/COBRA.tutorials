@@ -1,0 +1,44 @@
+2DR1PP	h2o[c] + 0.214742 h[c] + 2dr1p[c]  -> pi[c] + drib[c] 	-45.7	-1.9	-81.4	2.9
+ACNAM9PL	h2o[c] + 0.410768 h[c] + acmanap[c] + pep[c]  -> pi[c] + acnamp[c] 	-85.7	-18.9	-109.5	15.6
+ACNAM9PL2	h2o[c] + 0.369988 h[c] + pep[c] + man6p[c]  -> pi[c] + kdnp[c] 	-71.7	-27.0	-95.5	7.4
+AGTim	ala_L[m] + glx[m]  -> 0.0371766 h[m] + pyr[m] + gly[m] 	-46.2	-3.0	-81.9	32.6
+AGTix	ala_L[x] + glx[x]  -> 0.00423472 h[x] + pyr[x] + gly[x] 	-46.1	-2.9	-81.8	32.7
+DPGase	h2o[c] + 0.367301 h[c] + 23dpg[c]  -> pi[c] + 3pg[c] 	-43.5	-0.1	-79.1	4.6
+GUR1PP	h2o[c] + 0.245731 h[c] + glcur1p[c]  -> pi[c] + glcur[c] 	-43.9	-2.9	-79.5	1.8
+NACASPtm	0.056046 h[c] + Nacasp[m]  -> 0.00908108 h[m] + Nacasp[c] 	-49.6	-10.4	-67.5	7.4
+PPD2CSPp	6a2ohxnt[x]  -> 0.997212 h[x] + 1pipdn2c[x] + h2o[x] 	-78.1	-9.4	-95.9	8.4
+3HMPtm	0.00147684 h[c] + 3hmp[m]  -> 0.000234354 h[m] + 3hmp[c] 	-24.6	-5.3	-42.4	12.5
+2M3HBUtm	0.00203746 h[c] + 2m3hbu[m]  -> 0.00032347 h[m] + 2m3hbu[c] 	-28.4	-1.6	-46.2	16.3
+3MGLUTACtm	0.00288012 h[c] + 3mglutac[m]  -> 0.000456966 h[m] + 3mglutac[c] 	-49.0	-10.8	-66.8	7.0
+3OHGLUTACtm	0.0012296 h[c] + 3ohglutac[m]  -> 0.000194958 h[m] + 3ohglutac[c] 	-43.1	-16.7	-60.9	1.1
+GLUTCONtm	0.0020871 h[c] + glutcon[m]  -> 0.000331059 h[m] + glutcon[c] 	-44.5	-15.4	-62.3	2.4
+3HIVActm	0.00223359 h[c] + 3hivac[m]  -> 0.000354666 h[m] + 3hivac[c] 	-29.6	-0.3	-47.4	17.5
+4OHBUTtmc	0.00173468 h[c] + 4ohbut[m]  -> 0.000275331 h[m] + 4ohbut[c] 	-29.5	-0.5	-47.3	17.4
+HMR_8585	0.0134824 h[c] + g1p[c] + 13dpg[c]  -> 3pg[c] + M01966[c] 	-82.4	-27.0	-118.0	8.6
+
+Cytoplasmic metabolites only:
+5	h2o	h2o[c]	-133.4	4.4	
+1.691739e+00	h	h[c]	42.8	0.0	
+5	pi	pi[c]	-1042.4	5.3	
+1	2dr1p	2dr1p[c]	-1037.3	6.9	
+1	drib	drib[c]	-152.1	5.6	
+1	acmanap	acmanap[c]	-1141.2	11.3	
+2	pep	pep[c]	-1199.1	5.3	
+1	acnamp	acnamp[c]	-1483.6	9.4	
+1	man6p	man6p[c]	-1277.6	4.0	
+1	kdnp	kdnp[c]	-1617.1	6.2	
+1	g1p	g1p[c]	-1268.9	4.5	
+2	3pg	3pg[c]	-1333.1	4.7	
+1	23dpg	23dpg[c]	-2220.2	7.3	
+1	13dpg	13dpg[c]	-2191.8	7.9	
+1	glcur	glcur[c]	-693.6	6.1	
+1	glcur1p	glcur1p[c]	-1579.1	5.1	
+1	Nacasp	Nacasp[c]	-520.8	7.1	
+1	3hmp	3hmp[c]	-188.9	3.5	
+1	2m3hbu	2m3hbu[c]	-102.8	4.8	
+1	3mglutac	3mglutac[c]	-337.1	6.9	
+1	3ohglutac	3ohglutac[c]	-562.4	4.8	
+1	glutcon	glutcon[c]	-425.0	5.2	
+1	3hivac	3hivac[c]	-109.9	5.3	
+1	4ohbut	4ohbut[c]	-172.4	5.2	
+1	M01966	M01966[c]	-2182.4	9.8	

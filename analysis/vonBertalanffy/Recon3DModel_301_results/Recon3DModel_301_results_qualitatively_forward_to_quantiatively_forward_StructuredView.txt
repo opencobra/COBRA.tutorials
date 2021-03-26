@@ -1,0 +1,111 @@
+Metabolites which force 10 qualitatively forward -> quantiatively forward
+35:	8	h[c]Proton
+40:	4	pi[c]Orthophosphate
+28:	3	h[m]Proton
+20:	2	h2o[c]Water
+75:	2	h[e]Proton
+231:	2	h[g]Proton
+242:	2	mthgxl[c]Methylglyoxal
+520:	2	dhap[c]Dihydroxyacetone Phosphate
+1095:	2	dsT_antigen[g]Disialyl-T Antigen
+191:	1	h2o[e]Water
+338:	1	cit[c]Citrate
+378:	1	cit[m]Citrate
+504:	1	thr_L[c]L-Threonine
+541:	1	glc_D[e]D-Glucose
+1154:	1	3pg[c]3-Phospho-D-Glycerate
+1163:	1	g3p[c]Glyceraldehyde 3-Phosphate
+1495:	1	f6p[c]D-Fructose 6-Phosphate
+1496:	1	f26bp[c]Beta-D-Fructofuranose 2,6-Bisphosphate
+1516:	1	fru[e]D-Fructose
+2261:	1	sucr[e]Sucrose
+2403:	1	3pg[m]3-Phospho-D-Glycerate
+3355:	1	dhap[m]Dihydroxyacetone Phosphate
+4270:	1	dsT_antigen[e]Disialyl-T Antigen
+4304:	1	phom[c]O-Phosphonato-L-Homoserine
+5209:	1	dsT_antigen[c]Disialyl-T Antigen
+
+
+1383	Fructose-2, 6-Bisphosphate 2-Phosphatase	FBP26	-121.13	-30.50
+substrates:
+20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
+35	-0.303966	   42.75	-42.75	-42.75	                h[c]	Proton
+1496	      -1	-2127.81	-29.69	-11.88	            f26bp[c]	Beta-D-Fructofuranose 2,6-Bisphosphate
+products:
+40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
+1495	       1	-1279.21	-29.69	-11.88	              f6p[c]	D-Fructose 6-Phosphate
+
+2022	Methylglyoxal Synthase	MGSA	-100.33	-26.64
+substrates:
+35	-0.265135	   42.75	-42.75	-42.75	                h[c]	Proton
+520	      -1	-1081.30	-29.69	-11.88	             dhap[c]	Dihydroxyacetone Phosphate
+products:
+40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
+242	       1	  -86.94	-29.69	-11.88	           mthgxl[c]	Methylglyoxal
+
+2023	Methyglyoxylate Synthase 2 (from G3P)	MGSA2	-104.27	-30.05
+substrates:
+35	-0.217592	   42.75	-42.75	-42.75	                h[c]	Proton
+1163	      -1	-1077.62	-29.69	-11.88	              g3p[c]	Glyceraldehyde 3-Phosphate
+products:
+40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
+242	       1	  -86.94	-29.69	-11.88	           mthgxl[c]	Methylglyoxal
+
+2729	Sucrose Hydrolyzing Enxyme, Extracellular	SUCRe	-137.03	-35.08
+substrates:
+191	      -1	 -131.05	  0.00	  0.00	              h2o[e]	Water
+2261	      -1	 -543.10	-29.69	-11.88	             sucr[e]	Sucrose
+products:
+75	0.00249497	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.26	-29.69	-11.88	            glc_D[e]	D-Glucose
+1516	       1	 -368.17	-29.69	-11.88	              fru[e]	D-Fructose
+
+3284	Postulated Transport Reaction	r0926	-76.15	-14.32
+substrates:
+35	-0.160139	   42.75	-42.75	-42.75	                h[c]	Proton
+2403	      -1	-1313.69	-29.69	-11.88	              3pg[m]	3-Phospho-D-Glycerate
+products:
+28	0.0293097	   47.50	-47.50	-47.50	                h[m]	Proton
+1154	       1	-1333.07	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
+
+5345	Transport of Dihydroxyacetone Phosphate into Cytosol	DHAPtc	-58.57	 -1.68
+substrates:
+35	-0.0947802	   42.75	-42.75	-42.75	                h[c]	Proton
+3355	      -1	-1057.33	-29.69	-11.88	             dhap[m]	Dihydroxyacetone Phosphate
+products:
+28	0.0163207	   47.50	-47.50	-47.50	                h[m]	Proton
+520	       1	-1081.30	-29.69	-11.88	             dhap[c]	Dihydroxyacetone Phosphate
+
+7042	Dst_Antigen (Mucin O-Glycan) Export	DST_ANTIGENt	-325.80	-259.36
+substrates:
+231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
+1095	      -1	 -202.61	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+products:
+75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
+4270	       1	 -140.26	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
+
+7362	Threonine Synthase	THRS	-98.17	-10.26
+substrates:
+20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
+35	-0.0124452	   42.75	-42.75	-42.75	                h[c]	Proton
+4304	      -1	-1017.12	-29.69	-11.88	             phom[c]	O-Phosphonato-L-Homoserine
+products:
+40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
+504	       1	 -146.92	-29.69	-11.88	            thr_L[c]	L-Threonine
+
+9300	HMR_4955	HMR_4955	-265.39	-198.94
+substrates:
+231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
+1095	      -1	 -202.61	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+products:
+35	      46	   42.75	-42.75	-42.75	                h[c]	Proton
+5209	       1	 -152.14	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
+
+9301	HMR_4957	HMR_4957	-84.76	 -5.04
+substrates:
+35	-0.0154092	   42.75	-42.75	-42.75	                h[c]	Proton
+378	      -1	 -919.90	-29.69	-11.88	              cit[m]	Citrate
+products:
+28	0.00245045	   47.50	-47.50	-47.50	                h[m]	Proton
+338	       1	 -943.69	-29.69	-11.88	              cit[c]	Citrate
+

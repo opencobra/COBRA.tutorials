@@ -1,0 +1,15 @@
+Metabolites which force 1 qualitatively forward -> quantiatively reverse
+75:	1	h[e]Proton
+265:	1	h[l]Proton
+1370:	1	s2l2fn2m2masn[e]Pa6
+1532:	1	s2l2fn2m2masn[l]Pa6
+
+
+2536	Transport of Pa6, Lysosomal	S2L2FN2M2MASNtly	1474.02	1541.97
+substrates:
+75	-133.888	   43.94	-43.94	-43.94	                h[e]	Proton
+1370	      -1	-1193.04	-29.69	-11.88	    s2l2fn2m2masn[e]	Pa6
+products:
+265	 133.091	   32.66	-32.66	-32.66	                h[l]	Proton
+1532	       1	-1323.02	-29.69	-11.88	    s2l2fn2m2masn[l]	Pa6
+

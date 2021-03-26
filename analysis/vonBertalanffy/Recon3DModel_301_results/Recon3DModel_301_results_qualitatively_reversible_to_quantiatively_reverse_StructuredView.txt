@@ -1,0 +1,39 @@
+Metabolites which force 4 qualitatively reversible -> quantiatively reverse
+28:	1	h[m]Proton
+35:	1	h[c]Proton
+301:	1	ppi[m]Diphosphate
+346:	1	acnacngal14acglcgalgluside_hs[e]3',8'-LD1
+347:	1	acnacngal14acglcgalgluside_hs[c]3',8'-LD1
+392:	1	ppi[c]Diphosphate
+1250:	1	fuc13galacglcgal14acglcgalgluside_hs[e]Iii3Fuc-Nlc6Cer
+1253:	1	fucacngal14acglcgalgluside_hs[e]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+1519:	1	fuc13galacglcgal14acglcgalgluside_hs[c]Iii3Fuc-Nlc6Cer
+1525:	1	fucacngal14acglcgalgluside_hs[c]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+
+
+192	Blood Group Intracellular Transport	ACNACNGAL14ACGLCGALGLUSIDEte	 76.72	177.09
+substrates:
+346	      -1	  195.69	-29.69	-11.88	acnacngal14acglcgalgluside_hs[e]	3',8'-LD1
+products:
+347	       1	  184.99	-29.69	-11.88	acnacngal14acglcgalgluside_hs[c]	3',8'-LD1
+
+1418	Blood Group Intracellular Transport	FUC13GALACGLCGAL14ACGLCGALGLUSIDEte	 90.12	147.39
+substrates:
+1250	      -1	 -368.17	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[e]	Iii3Fuc-Nlc6Cer
+products:
+1519	       1	 -382.42	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[c]	Iii3Fuc-Nlc6Cer
+
+1424	Blood Group Intracellular Transport	FUCACNGAL14ACGLCGALGLUSIDEte	 79.80	146.88
+substrates:
+1253	      -1	 -218.28	-29.69	-11.88	fucacngal14acglcgalgluside_hs[e]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+products:
+1525	       1	 -232.53	-29.69	-11.88	fucacngal14acglcgalgluside_hs[c]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+
+5428	Diphopshate Transporter, Mitochondrial	PPItm	  3.58	 71.79
+substrates:
+392	      -1	-1935.58	-15.90	-12.58	              ppi[c]	Diphosphate
+products:
+28	0.481328	   47.50	-47.50	-47.50	                h[m]	Proton
+35	0.229996	   42.75	-42.75	-42.75	                h[c]	Proton
+301	       1	-1931.47	-29.69	-11.88	              ppi[m]	Diphosphate
+

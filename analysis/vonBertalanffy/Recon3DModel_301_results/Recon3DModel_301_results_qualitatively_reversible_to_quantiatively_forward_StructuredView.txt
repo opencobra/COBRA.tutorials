@@ -1,0 +1,74 @@
+Metabolites which force 7 qualitatively reversible -> quantiatively forward
+35:	4	h[c]Proton
+20:	3	h2o[c]Water
+122:	2	glu_L[c]L-Glutamate
+500:	2	gly[c]Glycine
+75:	1	h[e]Proton
+347:	1	acnacngal14acglcgalgluside_hs[c]3',8'-LD1
+348:	1	acnacngal14acglcgalgluside_hs[g]3',8'-LD1
+502:	1	ser_L[c]L-Serine
+504:	1	thr_L[c]L-Threonine
+1519:	1	fuc13galacglcgal14acglcgalgluside_hs[c]Iii3Fuc-Nlc6Cer
+1520:	1	fuc13galacglcgal14acglcgalgluside_hs[g]Iii3Fuc-Nlc6Cer
+1525:	1	fucacngal14acglcgalgluside_hs[c]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+1526:	1	fucacngal14acglcgalgluside_hs[g]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+3317:	1	glygly[c]Glycyl-Glycine
+4072:	1	gluthr[c]Glutamyl-Threonine
+4174:	1	serglyglu[c]Seryl-Glycyl-Glutamate
+4270:	1	dsT_antigen[e]Disialyl-T Antigen
+5209:	1	dsT_antigen[c]Disialyl-T Antigen
+
+
+193	Blood Group Intracellular Transport	ACNACNGAL14ACGLCGALGLUSIDEtg	-564.74	-464.37
+substrates:
+348	      -1	  139.32	-29.69	-11.88	acnacngal14acglcgalgluside_hs[g]	3',8'-LD1
+products:
+347	       1	  184.99	-29.69	-11.88	acnacngal14acglcgalgluside_hs[c]	3',8'-LD1
+
+1419	Blood Group Intracellular Transport	FUC13GALACGLCGAL14ACGLCGALGLUSIDEtg	-533.35	-476.07
+substrates:
+1520	      -1	 -442.98	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[g]	Iii3Fuc-Nlc6Cer
+products:
+1519	       1	 -382.42	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[c]	Iii3Fuc-Nlc6Cer
+
+1425	Blood Group Intracellular Transport	FUCACNGAL14ACGLCGALGLUSIDEtg	-502.92	-435.84
+substrates:
+1526	      -1	 -293.10	-29.69	-11.88	fucacngal14acglcgalgluside_hs[g]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+products:
+1525	       1	 -232.53	-29.69	-11.88	fucacngal14acglcgalgluside_hs[c]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+
+5260	Hydrolysis of Glycylycine for Uptake	GLYGLYCNc	-131.87	 -3.53
+substrates:
+20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
+3317	      -1	 -172.80	-29.69	-11.88	           glygly[c]	Glycyl-Glycine
+products:
+35	0.0199046	   42.75	-42.75	-42.75	                h[c]	Proton
+500	       2	 -176.57	-29.69	-11.88	              gly[c]	Glycine
+
+6776	Metabolism (Formation/Degradation) of GluThr	GLUTHRr	-113.75	 -1.92
+substrates:
+20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
+4072	      -1	 -325.20	-29.69	-11.88	           gluthr[c]	Glutamyl-Threonine
+products:
+35	0.0294006	   42.75	-42.75	-42.75	                h[c]	Proton
+122	       1	 -348.76	-29.69	-11.88	            glu_L[c]	L-Glutamate
+504	       1	 -146.92	-29.69	-11.88	            thr_L[c]	L-Threonine
+
+6878	Metabolism (Formation/Degradation) of SerGlyGlu	SERGLYGLUr	-150.41	 -0.97
+substrates:
+20	      -2	 -133.43	  0.00	  0.00	              h2o[c]	Water
+4174	      -1	 -433.06	-29.69	-11.88	        serglyglu[c]	Seryl-Glycyl-Glutamate
+products:
+35	0.0298589	   42.75	-42.75	-42.75	                h[c]	Proton
+122	       1	 -348.76	-29.69	-11.88	            glu_L[c]	L-Glutamate
+500	       1	 -176.57	-29.69	-11.88	              gly[c]	Glycine
+502	       1	 -208.70	-29.69	-11.88	            ser_L[c]	L-Serine
+
+9373	HMR_7173	HMR_7173	-93.64	-27.20
+substrates:
+35	     -46	   42.75	-42.75	-42.75	                h[c]	Proton
+5209	      -1	 -152.14	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
+products:
+75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
+4270	       1	 -140.26	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
+

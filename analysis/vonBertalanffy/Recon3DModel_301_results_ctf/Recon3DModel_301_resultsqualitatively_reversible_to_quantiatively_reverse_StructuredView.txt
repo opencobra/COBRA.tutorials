@@ -1,0 +1,11 @@
+Metabolites which force 1 qualitatively reversible -> quantiatively reverse
+1250:	1	fuc13galacglcgal14acglcgalgluside_hs[e]Iii3Fuc-Nlc6Cer
+1519:	1	fuc13galacglcgal14acglcgalgluside_hs[c]Iii3Fuc-Nlc6Cer
+
+
+1418	Blood Group Intracellular Transport	FUC13GALACGLCGAL14ACGLCGALGLUSIDEte	 85.33	152.19
+substrates:
+1250	      -1	 -375.34	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[e]	Iii3Fuc-Nlc6Cer
+products:
+1519	       1	 -389.59	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[c]	Iii3Fuc-Nlc6Cer
+

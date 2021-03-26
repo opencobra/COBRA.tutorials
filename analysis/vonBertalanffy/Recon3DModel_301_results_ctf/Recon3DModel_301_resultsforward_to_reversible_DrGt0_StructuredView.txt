@@ -1,0 +1,497 @@
+Metabolites which force 50 qualitatively forward -> quantiatively reversible  (DrGt0 from component contribution).
+35:	40	h[c]Proton
+75:	19	h[e]Proton
+265:	9	h[l]Proton
+28:	8	h[m]Proton
+541:	5	glc_D[e]D-Glucose
+20:	4	h2o[c]Water
+191:	4	h2o[e]Water
+729:	4	h[r]Proton
+40:	3	pi[c]Orthophosphate
+41:	3	h[x]Proton
+707:	3	glc_D[c]D-Glucose
+1770:	3	sarcs[c]Sarcosine
+111:	2	3aib[c](S)-3-Aminoisobutyric Acid
+231:	2	h[g]Proton
+315:	2	acgal[c]N-Acetyl-D-Galactosamine
+497:	2	ala_D[c]D-Alanine
+502:	2	ser_L[c]L-Serine
+504:	2	thr_L[c]L-Threonine
+1659:	2	glc_D[l]D-Glucose
+1896:	2	lcts[e]Lactose
+1948:	2	malt[c]Maltose
+58:	1	2amac[c]2-Aminoacrylic Acid
+108:	1	3aib[m](S)-3-Aminoisobutyric Acid
+138:	1	h2o[l]Water
+139:	1	pi[l]Orthophosphate
+154:	1	4abut[c]4-Aminobutanoate
+223:	1	man[c]D-Mannose
+225:	1	man[l]D-Mannose
+242:	1	mthgxl[c]Methylglyoxal
+262:	1	abt[c]L-Arabinitol
+264:	1	abt[e]L-Arabinitol
+290:	1	acald[c]Acetaldehyde
+305:	1	acetone[e]Acetone
+307:	1	acetone[m]Acetone
+320:	1	acgal[l]N-Acetyl-D-Galactosamine
+323:	1	acgam[c]N-Acetyl-D-Glucosamine
+325:	1	acgam[l]N-Acetyl-D-Glucosamine
+462:	1	ala_L[m]L-Alanine
+491:	1	ala_L[c]L-Alanine
+492:	1	asn_L[c]L-Asparagine
+496:	1	ala_D[e]D-Alanine
+498:	1	gln_L[c]L-Glutamine
+500:	1	gly[c]Glycine
+638:	1	asn_L[m]L-Asparagine
+653:	1	pi[e]Orthophosphate
+731:	1	dolp_L[r]Dolichyl Phosphate
+734:	1	dolp_U[r]Dolichyl Phosphate
+741:	1	3aib_D[c]D-3-Amino-Isobutanoate
+791:	1	glc_D[r]D-Glucose
+958:	1	h[n]Proton
+985:	1	3aib_D[e]D-3-Amino-Isobutanoate
+996:	1	ala_D[x]D-Alanine
+1119:	1	sarcs[m]Sarcosine
+1142:	1	dolp_L[c]Dolichyl Phosphate
+1143:	1	dolp_U[c]Dolichyl Phosphate
+1232:	1	3aib[e](S)-3-Aminoisobutyric Acid
+1324:	1	mthgxl[e]Methylglyoxal
+1360:	1	rbt[e]D-Ribitol
+1372:	1	sarcs[e]Sarcosine
+1373:	1	ser_D[e]D-Serine
+1381:	1	tagat_D[e]D-Tagatose
+1504:	1	fuc_L[c]L-Fucose
+1516:	1	fru[e]D-Fructose
+1517:	1	fru[c]D-Fructose
+1529:	1	fuc_L[l]L-Fucose
+1584:	1	gal[l]D-Galactose
+1640:	1	gal[c]D-Galactose
+1643:	1	gal[e]D-Galactose
+1649:	1	malt[e]Maltose
+1692:	1	ser_L[m]L-Serine
+1749:	1	gln_L[m]L-Glutamine
+1858:	1	hxan[c]Hypoxanthine
+1859:	1	hxan[x]Hypoxanthine
+1870:	1	tyr_L[c]L-Tyrosine
+1887:	1	tagat_D[c]D-Tagatose
+1900:	1	lcts[g]Lactose
+1912:	1	xyl_D[l]Aldehydo-D-Xylose
+1947:	1	malt[l]Maltose
+2031:	1	pi[g]Orthophosphate
+2197:	1	rbt[c]D-Ribitol
+2227:	1	sarcs[x]Sarcosine
+2232:	1	sbt_D[c]D-Sorbitol
+2234:	1	ser_D[c]D-Serine
+2261:	1	sucr[e]Sucrose
+2295:	1	tre[c]Trehalose
+2296:	1	tre[e]Trehalose
+2311:	1	tyr_L[m]L-Tyrosine
+2341:	1	xyl_D[c]Aldehydo-D-Xylose
+2343:	1	acmana[e]N-Acetyl-D-Mannosamine
+2385:	1	acmana[r]N-Acetyl-D-Mannosamine
+2529:	1	thr_L[m]L-Threonine
+3317:	1	glygly[c]Glycyl-Glycine
+3318:	1	glygly[e]Glycyl-Glycine
+3345:	1	sbt_D[e]D-Sorbitol
+3349:	1	4abut[n]4-Aminobutanoate
+4265:	1	acgal[e]N-Acetyl-D-Galactosamine
+
+
+53	3-Amino-Isobutyrate Transport, Mitochondrial	3AIBtmi	-35.19	 35.22
+substrates:
+28	-0.00828125	   47.50	-47.50	-47.50	                h[m]	Proton
+108	      -1	   66.44	-29.69	-11.88	             3aib[m]	(S)-3-Aminoisobutyric Acid
+products:
+35	0.000413138	   42.75	-42.75	-42.75	                h[c]	Proton
+111	       1	   23.70	-29.69	-11.88	             3aib[c]	(S)-3-Aminoisobutyric Acid
+
+142	L-Arabinitol Transport via Passive Diffusion	ABTti	-37.75	 37.75
+substrates:
+35	-4.89183e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+262	      -1	 -273.92	-29.69	-11.88	              abt[c]	L-Arabinitol
+products:
+75	7.75301e-06	   43.94	-43.94	-43.94	                h[e]	Proton
+264	       1	 -259.66	-29.69	-11.88	              abt[e]	L-Arabinitol
+
+175	N-Acetyl-Galactosamine Lysosomal Efflux	ACGALtly	-42.95	 47.90
+substrates:
+35	-0.0327169	   42.75	-42.75	-42.75	                h[c]	Proton
+320	      -1	 -427.69	-29.69	-11.88	            acgal[l]	N-Acetyl-D-Galactosamine
+products:
+265	 0.62951	   32.66	-32.66	-32.66	                h[l]	Proton
+315	       1	 -273.80	-29.69	-11.88	            acgal[c]	N-Acetyl-D-Galactosamine
+
+179	N-Acetyl-Glucosamine Lysosomal Efflux	ACGAMtly	-43.75	 48.70
+substrates:
+35	-0.0327169	   42.75	-42.75	-42.75	                h[c]	Proton
+325	      -1	 -425.94	-29.69	-11.88	            acgam[l]	N-Acetyl-D-Glucosamine
+products:
+265	 0.62951	   32.66	-32.66	-32.66	                h[l]	Proton
+323	       1	 -272.05	-29.69	-11.88	            acgam[c]	N-Acetyl-D-Glucosamine
+
+372	L-Asparagine Transport, Mitochondrial	ASNtm	-53.97	 53.74
+substrates:
+35	-0.00881563	   42.75	-42.75	-42.75	                h[c]	Proton
+492	      -1	 -178.29	-29.69	-11.88	            asn_L[c]	L-Asparagine
+products:
+28	0.0531794	   47.50	-47.50	-47.50	                h[m]	Proton
+638	       1	 -140.41	-29.69	-11.88	            asn_L[m]	L-Asparagine
+
+680	D-3-Amino-Isobutyrate Transport	D_3AIBt	-35.21	 35.20
+substrates:
+35	-0.000413138	   42.75	-42.75	-42.75	                h[c]	Proton
+741	      -1	   23.70	-29.69	-11.88	           3aib_D[c]	D-3-Amino-Isobutanoate
+products:
+75	0.00154229	   43.94	-43.94	-43.94	                h[e]	Proton
+985	       1	   34.39	-29.69	-11.88	           3aib_D[e]	D-3-Amino-Isobutanoate
+
+692	D-Alanine Transport to Perixosome	DALAxt	-37.51	 37.53
+substrates:
+35	-0.00921612	   42.75	-42.75	-42.75	                h[c]	Proton
+497	      -1	  -64.85	-29.69	-11.88	            ala_D[c]	D-Alanine
+products:
+41	0.00581714	   41.56	-41.56	-41.56	                h[x]	Proton
+996	       1	  -73.15	-29.69	-11.88	            ala_D[x]	D-Alanine
+
+884	Dolichyl-Phosphate-Mannose-Glycolipid Alpha-Mannosyltransferase (Liver)	DOLPMT4_Ler	-16.65	 16.65
+substrates:
+729	-171.271	   42.75	-42.75	-42.75	                h[r]	Proton
+731	    -0.1	 1329.97	-29.69	-11.88	           dolp_L[r]	Dolichyl Phosphate
+products:
+35	 171.271	   42.75	-42.75	-42.75	                h[c]	Proton
+1142	     0.1	 1329.97	-29.69	-11.88	           dolp_L[c]	Dolichyl Phosphate
+
+885	Dolichyl-Phosphate-Mannose-Glycolipid Alpha-Mannosyltransferase (Uterus)	DOLPMT4_Uer	-19.16	 19.16
+substrates:
+729	-162.671	   42.75	-42.75	-42.75	                h[r]	Proton
+734	    -0.1	 1230.77	-29.69	-11.88	           dolp_U[r]	Dolichyl Phosphate
+products:
+35	 162.671	   42.75	-42.75	-42.75	                h[c]	Proton
+1143	     0.1	 1230.77	-29.69	-11.88	           dolp_U[c]	Dolichyl Phosphate
+
+1448	L-Fucose Efflux from Lysosome	FUCtly	-33.69	 33.69
+substrates:
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1529	      -1	 -364.96	-29.69	-11.88	            fuc_L[l]	L-Fucose
+products:
+35	0.000141062	   42.75	-42.75	-42.75	                h[c]	Proton
+1504	       1	 -243.83	-29.69	-11.88	            fuc_L[c]	L-Fucose
+
+1545	Galactose Efflux from Lysosome	GALtly	-32.97	 32.97
+substrates:
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1584	      -1	 -510.17	-29.69	-11.88	              gal[l]	D-Galactose
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+1640	       1	 -389.04	-29.69	-11.88	              gal[c]	D-Galactose
+
+1628	Glucose Transport via Membrane Vesicle	GLCMter	-33.36	 33.36
+substrates:
+729	-0.000141063	   42.75	-42.75	-42.75	                h[r]	Proton
+791	      -1	 -392.93	-29.69	-11.88	            glc_D[r]	D-Glucose
+products:
+75	0.000223553	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -378.68	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+1644	Glucose Efflux from Lysosome	GLCtly	-33.36	 33.36
+substrates:
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1659	      -1	 -514.06	-29.69	-11.88	            glc_D[l]	D-Glucose
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       1	 -392.93	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+1655	L-Glutamine Transport via Electroneutral Transporter	GLNtm	-52.86	 52.64
+substrates:
+35	-0.00823141	   42.75	-42.75	-42.75	                h[c]	Proton
+498	      -1	  -93.70	-29.69	-11.88	            gln_L[c]	L-Glutamine
+products:
+28	0.0498058	   47.50	-47.50	-47.50	                h[m]	Proton
+1749	       1	  -46.31	-29.69	-11.88	            gln_L[m]	L-Glutamine
+
+1849	Hypoxanthine Diffusion in Peroxisome	HXANtx	-54.68	 54.72
+substrates:
+35	-0.0199847	   42.75	-42.75	-42.75	                h[c]	Proton
+1858	      -1	  265.56	-29.69	-11.88	             hxan[c]	Hypoxanthine
+products:
+41	0.0127029	   41.56	-41.56	-41.56	                h[x]	Proton
+1859	       1	  260.83	-29.69	-11.88	             hxan[x]	Hypoxanthine
+
+1898	B-Galactosidase, Extracellular	LACZe	-88.34	 23.09
+substrates:
+191	      -1	 -147.86	  0.00	  0.00	              h2o[e]	Water
+1896	      -1	 -593.76	-29.69	-11.88	             lcts[e]	Lactose
+products:
+75	0.000196264	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -378.68	-29.69	-11.88	            glc_D[e]	D-Glucose
+1643	       1	 -374.79	-29.69	-11.88	              gal[e]	D-Galactose
+
+1904	Lactose Transport from Golgi to Extracellular (Via Vesicle)	LCTStg	-47.71	 47.71
+substrates:
+231	-2.23593e-05	   37.70	-37.70	-37.70	                h[g]	Proton
+1900	      -1	 -730.92	-29.69	-11.88	             lcts[g]	Lactose
+products:
+75	0.000250843	   43.94	-43.94	-43.94	                h[e]	Proton
+1896	       1	 -593.76	-29.69	-11.88	             lcts[e]	Lactose
+
+1983	Alpha-Glucosidase, Extracellular	MALTe	-96.22	 23.19
+substrates:
+191	      -1	 -147.86	  0.00	  0.00	              h2o[e]	Water
+1649	      -1	 -593.76	-29.69	-11.88	             malt[e]	Maltose
+products:
+75	0.000196264	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       2	 -378.68	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+1984	Alpha-Glucosidase, Lysosomal	MALTly	-96.22	 23.19
+substrates:
+138	      -1	 -170.43	  0.00	  0.00	              h2o[l]	Water
+1947	      -1	 -841.95	-29.69	-11.88	             malt[l]	Maltose
+products:
+265	2.47143e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1659	       2	 -514.06	-29.69	-11.88	            glc_D[l]	D-Glucose
+
+1989	Mannose Efflux from Lysosome	MANtly	-33.82	 33.82
+substrates:
+225	      -1	 -511.61	-29.69	-11.88	              man[l]	D-Mannose
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+223	       1	 -390.48	-29.69	-11.88	              man[c]	D-Mannose
+
+2052	Methylglyoxal Transport (Cytosol to Extracellular)	MTHGXLt	-37.64	 37.64
+substrates:
+242	      -1	  -86.91	-29.69	-11.88	           mthgxl[c]	Methylglyoxal
+products:
+1324	       1	  -82.16	-29.69	-11.88	           mthgxl[e]	Methylglyoxal
+
+2407	Phosphate Transport, Golgi Apparatus	PItg	-22.84	 39.51
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+2031	      -1	-1060.18	-29.69	-11.88	               pi[g]	Orthophosphate
+products:
+40	       1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+231	0.799273	   37.70	-37.70	-37.70	                h[g]	Proton
+
+2495	Ribitol Transport via Passive Diffusion	RBTt	-37.75	 37.75
+substrates:
+35	-4.89183e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+2197	      -1	 -273.92	-29.69	-11.88	              rbt[c]	D-Ribitol
+products:
+75	7.75301e-06	   43.94	-43.94	-43.94	                h[e]	Proton
+1360	       1	 -259.66	-29.69	-11.88	              rbt[e]	D-Ribitol
+
+2610	Transport of Sarcosine	SARCStex	-50.86	 50.87
+substrates:
+75	-0.00198424	   43.94	-43.94	-43.94	                h[e]	Proton
+1372	      -1	  -19.27	-29.69	-11.88	            sarcs[e]	Sarcosine
+products:
+35	0.00124853	   42.75	-42.75	-42.75	                h[c]	Proton
+1770	       1	  -27.58	-29.69	-11.88	            sarcs[c]	Sarcosine
+
+2611	Transport of Sarcosine, Mitochondrial	SARCStm	-50.88	 50.85
+substrates:
+35	-0.00124853	   42.75	-42.75	-42.75	                h[c]	Proton
+1770	      -1	  -27.58	-29.69	-11.88	            sarcs[c]	Sarcosine
+products:
+28	0.0078698	   47.50	-47.50	-47.50	                h[m]	Proton
+1119	       1	    5.65	-29.69	-11.88	            sarcs[m]	Sarcosine
+
+2612	Transport of Sarcosine, Peroxisomal	SARCStp	-50.86	 50.87
+substrates:
+35	-0.00124853	   42.75	-42.75	-42.75	                h[c]	Proton
+1770	      -1	  -27.58	-29.69	-11.88	            sarcs[c]	Sarcosine
+products:
+41	0.000781229	   41.56	-41.56	-41.56	                h[x]	Proton
+2227	       1	  -35.89	-29.69	-11.88	            sarcs[x]	Sarcosine
+
+2631	L-Serine Hydro-Lyase	SERHL	-63.31	 18.14
+substrates:
+502	      -1	 -212.36	-29.69	-11.88	            ser_L[c]	L-Serine
+products:
+20	       1	 -150.24	  0.00	  0.00	              h2o[c]	Water
+35	0.0285476	   42.75	-42.75	-42.75	                h[c]	Proton
+58	       1	  -84.71	-29.69	-11.88	            2amac[c]	2-Aminoacrylic Acid
+
+2729	Sucrose Hydrolyzing Enxyme, Extracellular	SUCRe	-101.03	 17.97
+substrates:
+191	      -1	 -147.86	  0.00	  0.00	              h2o[e]	Water
+2261	      -1	 -585.41	-29.69	-11.88	             sucr[e]	Sucrose
+products:
+75	0.00249497	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -378.68	-29.69	-11.88	            glc_D[e]	D-Glucose
+1516	       1	 -375.34	-29.69	-11.88	              fru[e]	D-Fructose
+
+2732	D-Tagatose Uptake via Diffusion	TAGAT_Dt	-35.57	 35.60
+substrates:
+75	-0.0145575	   43.94	-43.94	-43.94	                h[e]	Proton
+1381	      -1	 -383.41	-29.69	-11.88	          tagat_D[e]	D-Tagatose
+products:
+35	0.00923476	   42.75	-42.75	-42.75	                h[c]	Proton
+1887	       1	 -397.65	-29.69	-11.88	          tagat_D[c]	D-Tagatose
+
+2808	Alpha, Alpha-Trehalase	TREH	-92.32	 27.81
+substrates:
+20	      -1	 -150.24	  0.00	  0.00	              h2o[c]	Water
+2295	      -1	 -624.14	-29.69	-11.88	              tre[c]	Trehalose
+products:
+35	0.000247494	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       2	 -392.93	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+2809	Alpha, Alpha-Trehalase	TREHe	-92.32	 27.81
+substrates:
+191	      -1	 -147.86	  0.00	  0.00	              h2o[e]	Water
+2296	      -1	 -598.02	-29.69	-11.88	              tre[e]	Trehalose
+products:
+75	0.00039222	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       2	 -378.68	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+2939	Xylose Efflux from Lysosome	XYLtly	-35.67	 35.67
+substrates:
+265	-2.62706e-07	   32.66	-32.66	-32.66	                h[l]	Proton
+1912	      -1	 -414.88	-29.69	-11.88	            xyl_D[l]	Aldehydo-D-Xylose
+products:
+35	1.31664e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+2341	       1	 -313.94	-29.69	-11.88	            xyl_D[c]	Aldehydo-D-Xylose
+
+3285	Free Diffusion	r0927	-39.40	 39.40
+substrates:
+307	      -1	  129.66	-29.69	-11.88	          acetone[m]	Acetone
+products:
+305	       1	  108.29	-29.69	-11.88	          acetone[e]	Acetone
+
+3300	Postulated Transport Reaction	r0968	-45.66	 45.72
+substrates:
+75	-0.0208437	   43.94	-43.94	-43.94	                h[e]	Proton
+2385	      -1	 -268.33	-29.69	-11.88	           acmana[r]	N-Acetyl-D-Mannosamine
+products:
+729	0.0327169	   42.75	-42.75	-42.75	                h[r]	Proton
+2343	       1	 -250.48	-29.69	-11.88	           acmana[e]	N-Acetyl-D-Mannosamine
+
+3346	Vesicular Transport	r1078	-55.64	 55.15
+substrates:
+35	-0.0181301	   42.75	-42.75	-42.75	                h[c]	Proton
+1870	      -1	  107.48	-29.69	-11.88	            tyr_L[c]	L-Tyrosine
+products:
+28	0.112804	   47.50	-47.50	-47.50	                h[m]	Proton
+2311	       1	  159.48	-29.69	-11.88	            tyr_L[m]	L-Tyrosine
+
+3360	Facilitated Diffusion	r1150	-14.62	 47.73
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+139	      -1	-1069.79	-29.69	-11.88	               pi[l]	Orthophosphate
+products:
+40	       1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+265	0.966085	   32.66	-32.66	-32.66	                h[l]	Proton
+
+3420	Facilitated Diffusion	r1423	-41.94	 20.41
+substrates:
+40	      -1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+75	-0.26187	   43.94	-43.94	-43.94	                h[e]	Proton
+products:
+35	0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+653	       1	-1050.59	-29.69	-11.88	               pi[e]	Orthophosphate
+
+3424	Transport Reaction	r1434	-37.12	 36.88
+substrates:
+35	-0.00921612	   42.75	-42.75	-42.75	                h[c]	Proton
+491	      -1	  -64.86	-29.69	-11.88	            ala_L[c]	L-Alanine
+products:
+28	0.0555409	   47.50	-47.50	-47.50	                h[m]	Proton
+462	       1	  -31.73	-29.69	-11.88	            ala_L[m]	L-Alanine
+
+3425	Transport Reaction	r1435	-38.18	 37.37
+substrates:
+35	-0.0320058	   42.75	-42.75	-42.75	                h[c]	Proton
+502	      -1	 -212.36	-29.69	-11.88	            ser_L[c]	L-Serine
+products:
+28	 0.17264	   47.50	-47.50	-47.50	                h[m]	Proton
+1692	       1	 -179.52	-29.69	-11.88	            ser_L[m]	L-Serine
+
+3428	Transport Reaction	r1440	-39.71	 39.01
+substrates:
+35	-0.0273674	   42.75	-42.75	-42.75	                h[c]	Proton
+504	      -1	 -136.98	-29.69	-11.88	            thr_L[c]	L-Threonine
+products:
+28	0.150816	   47.50	-47.50	-47.50	                h[m]	Proton
+2529	       1	  -94.58	-29.69	-11.88	            thr_L[m]	L-Threonine
+
+5261	Transport of Glycyl-Glycine by the Apical Pept1 Amino Acid Transporters	GLYGLYPEPT1tc	-56.21	 56.25
+substrates:
+75	-0.01978	   43.94	-43.94	-43.94	                h[e]	Proton
+3318	      -1	 -163.31	-29.69	-11.88	           glygly[e]	Glycyl-Glycine
+products:
+35	0.0119486	   42.75	-42.75	-42.75	                h[c]	Proton
+3317	       1	 -172.80	-29.69	-11.88	           glygly[c]	Glycyl-Glycine
+
+5305	Transport of Sorbitol (Diffusion)	SBTle	-44.55	 44.55
+substrates:
+75	-1.14675e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+3345	      -1	 -321.10	-29.69	-11.88	            sbt_D[e]	D-Sorbitol
+products:
+35	7.23553e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+2232	       1	 -337.73	-29.69	-11.88	            sbt_D[c]	D-Sorbitol
+
+5320	Transport of GABA	4ABUTtcn	-38.55	 38.55
+substrates:
+154	      -1	   36.55	-29.69	-11.88	            4abut[c]	4-Aminobutanoate
+958	-0.000440021	   42.75	-42.75	-42.75	                h[n]	Proton
+products:
+35	0.000440021	   42.75	-42.75	-42.75	                h[c]	Proton
+3349	       1	   36.55	-29.69	-11.88	            4abut[n]	4-Aminobutanoate
+
+5327	Secretion of D-Alanine	ALA-DTDe	-37.54	 37.51
+substrates:
+35	-0.00921612	   42.75	-42.75	-42.75	                h[c]	Proton
+497	      -1	  -64.85	-29.69	-11.88	            ala_D[c]	D-Alanine
+products:
+75	0.0145457	   43.94	-43.94	-43.94	                h[e]	Proton
+496	       1	  -56.55	-29.69	-11.88	            ala_D[e]	D-Alanine
+
+7036	N-Acetylgalactosamine Export	ACGALtr	-45.39	 45.45
+substrates:
+75	-0.0208437	   43.94	-43.94	-43.94	                h[e]	Proton
+315	      -1	 -273.80	-29.69	-11.88	            acgal[c]	N-Acetyl-D-Galactosamine
+products:
+35	0.0327169	   42.75	-42.75	-42.75	                h[c]	Proton
+4265	       1	 -255.96	-29.69	-11.88	            acgal[e]	N-Acetyl-D-Galactosamine
+
+7482	Alpha-Glucosidase	MALT	-96.22	 23.19
+substrates:
+20	      -1	 -150.24	  0.00	  0.00	              h2o[c]	Water
+1948	      -1	 -619.88	-29.69	-11.88	             malt[c]	Maltose
+products:
+35	0.000123846	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       2	 -392.93	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+9278	HMR_4284	HMR_4284	-60.15	 40.64
+substrates:
+35	-0.0114408	   42.75	-42.75	-42.75	                h[c]	Proton
+504	      -1	 -136.98	-29.69	-11.88	            thr_L[c]	L-Threonine
+products:
+290	       1	   33.78	-29.69	-11.88	            acald[c]	Acetaldehyde
+500	       1	 -159.73	-29.69	-11.88	              gly[c]	Glycine
+
+9420	HMR_8090	HMR_8090	-35.21	 35.20
+substrates:
+35	-0.000413138	   42.75	-42.75	-42.75	                h[c]	Proton
+111	      -1	   23.70	-29.69	-11.88	             3aib[c]	(S)-3-Aminoisobutyric Acid
+products:
+75	0.00154229	   43.94	-43.94	-43.94	                h[e]	Proton
+1232	       1	   34.39	-29.69	-11.88	             3aib[e]	(S)-3-Aminoisobutyric Acid
+
+9446	Alpha-Amylase	HMR_8582	-89.62	 29.93
+substrates:
+20	      -1	 -150.24	  0.00	  0.00	              h2o[c]	Water
+1948	      -1	 -619.88	-29.69	-11.88	             malt[c]	Maltose
+products:
+35	0.00279195	   42.75	-42.75	-42.75	                h[c]	Proton
+1517	       2	 -389.59	-29.69	-11.88	              fru[c]	D-Fructose
+
+9470	HMR_9191	HMR_9191	-37.31	 37.40
+substrates:
+75	-0.0497997	   43.94	-43.94	-43.94	                h[e]	Proton
+1373	      -1	 -227.55	-29.69	-11.88	            ser_D[e]	D-Serine
+products:
+35	0.0320058	   42.75	-42.75	-42.75	                h[c]	Proton
+2234	       1	 -235.81	-29.69	-11.88	            ser_D[c]	D-Serine
+

@@ -1,0 +1,5 @@
+r1150	0.359915 h[c] + pi[l]  -> pi[c] + 0.966085 h[l] 	-8.7	31.1	-14.6	47.7
+
+Cytoplasmic metabolites only:
+3.599148e-01	h	h[c]	42.8	0.0	
+1	pi	pi[c]	-1052.1	7.2	

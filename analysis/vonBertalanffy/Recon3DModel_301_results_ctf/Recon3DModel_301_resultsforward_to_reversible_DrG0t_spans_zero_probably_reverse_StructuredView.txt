@@ -1,0 +1,15 @@
+Metabolites which force 1 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line). Forward with probability greater than 0.7.
+35:	1	h[c]Proton
+40:	1	pi[c]Orthophosphate
+139:	1	pi[l]Orthophosphate
+265:	1	h[l]Proton
+
+
+3360	Facilitated Diffusion	r1150	-14.62	 47.73
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+139	      -1	-1069.79	-29.69	-11.88	               pi[l]	Orthophosphate
+products:
+40	       1	-1052.14	-17.81	-13.07	               pi[c]	Orthophosphate
+265	0.966085	   32.66	-32.66	-32.66	                h[l]	Proton
+

@@ -1,0 +1,89 @@
+3AIBtmi	0.00828125 h[m] + 3aib[m]  -> 0.000413138 h[c] + 3aib[c] 	-17.4	17.4	-35.2	35.2
+ABTti	4.89183e-06 h[c] + abt[c]  -> 7.75301e-06 h[e] + abt[e] 	-19.9	19.9	-37.7	37.7
+ACGALtly	0.0327169 h[c] + acgal[l]  -> 0.62951 h[l] + acgal[c] 	-25.1	30.1	-42.9	47.9
+ACGAMtly	0.0327169 h[c] + acgam[l]  -> 0.62951 h[l] + acgam[c] 	-25.9	30.9	-43.8	48.7
+ASNtm	0.00881563 h[c] + asn_L[c]  -> 0.0531794 h[m] + asn_L[m] 	-36.2	35.9	-54.0	53.7
+D_3AIBt	0.000413138 h[c] + 3aib_D[c]  -> 0.00154229 h[e] + 3aib_D[e] 	-17.4	17.4	-35.2	35.2
+DALAxt	0.00921612 h[c] + ala_D[c]  -> 0.00581714 h[x] + ala_D[x] 	-19.7	19.7	-37.5	37.5
+DOLPMT4_Ler	171.271 h[r] + 0.1 dolp_L[r]  -> 171.271 h[c] + 0.1 dolp_L[c] 	-14.9	14.9	-16.6	16.6
+DOLPMT4_Uer	162.671 h[r] + 0.1 dolp_U[r]  -> 162.671 h[c] + 0.1 dolp_U[c] 	-17.4	17.4	-19.2	19.2
+FUCtly	2.8149e-06 h[l] + fuc_L[l]  -> 0.000141062 h[c] + fuc_L[c] 	-15.9	15.9	-33.7	33.7
+GALtly	2.8149e-06 h[l] + gal[l]  -> 0.000141063 h[c] + gal[c] 	-15.2	15.2	-33.0	33.0
+GLCMter	0.000141063 h[r] + glc_D[r]  -> 0.000223553 h[e] + glc_D[e] 	-15.5	15.5	-33.4	33.4
+GLCtly	2.8149e-06 h[l] + glc_D[l]  -> 0.000141063 h[c] + glc_D[c] 	-15.5	15.5	-33.4	33.4
+GLNtm	0.00823141 h[c] + gln_L[c]  -> 0.0498058 h[m] + gln_L[m] 	-35.0	34.8	-52.9	52.6
+HXANtx	0.0199847 h[c] + hxan[c]  -> 0.0127029 h[x] + hxan[x] 	-36.9	36.9	-54.7	54.7
+LACZe	h2o[e] + lcts[e]  -> 0.000196264 h[e] + glc_D[e] + gal[e] 	-40.8	17.1	-88.3	23.1
+LCTStg	2.23593e-05 h[g] + lcts[g]  -> 0.000250843 h[e] + lcts[e] 	-29.9	29.9	-47.7	47.7
+MALTe	h2o[e] + malt[e]  -> 0.000196264 h[e] + 2 glc_D[e] 	-48.7	17.3	-96.2	23.2
+MALTly	h2o[l] + malt[l]  -> 2.47143e-06 h[l] + 2 glc_D[l] 	-48.7	17.3	-96.2	23.2
+MANtly	man[l] + 2.8149e-06 h[l]  -> 0.000141063 h[c] + man[c] 	-16.0	16.0	-33.8	33.8
+MTHGXLt	mthgxl[c]  -> mthgxl[e] 	-19.8	19.8	-37.6	37.6
+PItg	0.359915 h[c] + pi[g]  -> pi[c] + 0.799273 h[g] 	-16.9	22.9	-22.8	39.5
+RBTt	4.89183e-06 h[c] + rbt[c]  -> 7.75301e-06 h[e] + rbt[e] 	-19.9	19.9	-37.7	37.7
+SARCStex	0.00198424 h[e] + sarcs[e]  -> 0.00124853 h[c] + sarcs[c] 	-33.1	33.1	-50.9	50.9
+SARCStm	0.00124853 h[c] + sarcs[c]  -> 0.0078698 h[m] + sarcs[m] 	-33.1	33.0	-50.9	50.8
+SARCStp	0.00124853 h[c] + sarcs[c]  -> 0.000781229 h[x] + sarcs[x] 	-33.1	33.1	-50.9	50.9
+SERHL	ser_L[c]  -> h2o[c] + 0.0285476 h[c] + 2amac[c] 	-45.5	0.3	-63.3	18.1
+SUCRe	h2o[e] + sucr[e]  -> 0.00249497 h[e] + glc_D[e] + fru[e] 	-53.5	12.0	-101.0	18.0
+TAGAT_Dt	0.0145575 h[e] + tagat_D[e]  -> 0.00923476 h[c] + tagat_D[c] 	-17.8	17.8	-35.6	35.6
+TREH	h2o[c] + tre[c]  -> 0.000247494 h[c] + 2 glc_D[c] 	-44.8	21.9	-92.3	27.8
+TREHe	h2o[e] + tre[e]  -> 0.00039222 h[e] + 2 glc_D[e] 	-44.8	21.9	-92.3	27.8
+XYLtly	2.62706e-07 h[l] + xyl_D[l]  -> 1.31664e-05 h[c] + xyl_D[c] 	-17.9	17.9	-35.7	35.7
+r0927	acetone[m]  -> acetone[e] 	-21.6	21.6	-39.4	39.4
+r0968	0.0208437 h[e] + acmana[r]  -> 0.0327169 h[r] + acmana[e] 	-27.8	27.9	-45.7	45.7
+r1078	0.0181301 h[c] + tyr_L[c]  -> 0.112804 h[m] + tyr_L[m] 	-37.8	37.3	-55.6	55.1
+r1150	0.359915 h[c] + pi[l]  -> pi[c] + 0.966085 h[l] 	-8.7	31.1	-14.6	47.7
+r1423	pi[c] + 0.26187 h[e]  -> 0.359915 h[c] + pi[e] 	-25.3	14.5	-41.9	20.4
+r1434	0.00921612 h[c] + ala_L[c]  -> 0.0555409 h[m] + ala_L[m] 	-19.3	19.1	-37.1	36.9
+r1435	0.0320058 h[c] + ser_L[c]  -> 0.17264 h[m] + ser_L[m] 	-20.4	19.6	-38.2	37.4
+r1440	0.0273674 h[c] + thr_L[c]  -> 0.150816 h[m] + thr_L[m] 	-21.9	21.2	-39.7	39.0
+GLYGLYPEPT1tc	0.01978 h[e] + glygly[e]  -> 0.0119486 h[c] + glygly[c] 	-38.4	38.4	-56.2	56.2
+SBTle	1.14675e-05 h[e] + sbt_D[e]  -> 7.23553e-06 h[c] + sbt_D[c] 	-26.7	26.7	-44.6	44.6
+4ABUTtcn	4abut[c] + 0.000440021 h[n]  -> 0.000440021 h[c] + 4abut[n] 	-20.7	20.7	-38.6	38.6
+ALA-DTDe	0.00921612 h[c] + ala_D[c]  -> 0.0145457 h[e] + ala_D[e] 	-19.7	19.7	-37.5	37.5
+ACGALtr	0.0208437 h[e] + acgal[c]  -> 0.0327169 h[c] + acgal[e] 	-27.6	27.6	-45.4	45.5
+MALT	h2o[c] + malt[c]  -> 0.000123846 h[c] + 2 glc_D[c] 	-48.7	17.3	-96.2	23.2
+HMR_4284	0.0114408 h[c] + thr_L[c]  -> acald[c] + gly[c] 	-12.6	34.7	-60.1	40.6
+HMR_8090	0.000413138 h[c] + 3aib[c]  -> 0.00154229 h[e] + 3aib[e] 	-17.4	17.4	-35.2	35.2
+HMR_8582	h2o[c] + malt[c]  -> 0.00279195 h[c] + 2 fru[c] 	-42.1	24.0	-89.6	29.9
+HMR_9191	0.0497997 h[e] + ser_D[e]  -> 0.0320058 h[c] + ser_D[c] 	-19.5	19.6	-37.3	37.4
+
+Cytoplasmic metabolites only:
+4	h2o	h2o[c]	-150.2	6.4	
+3.353636e+02	h	h[c]	42.8	0.0	
+3	pi	pi[c]	-1052.1	7.2	
+1	2amac	2amac[c]	-84.7	6.6	
+2	3aib	3aib[c]	23.7	6.3	
+1	4abut	4abut[c]	36.6	7.5	
+1	man	man[c]	-390.5	5.8	
+1	mthgxl	mthgxl[c]	-86.9	7.2	
+1	abt	abt[c]	-273.9	7.2	
+1	acald	acald[c]	33.8	5.4	
+2	acgal	acgal[c]	-273.8	10.0	
+1	acgam	acgam[c]	-272.1	10.3	
+1	ala_L	ala_L[c]	-64.9	6.9	
+1	asn_L	asn_L[c]	-178.3	13.0	
+2	ala_D	ala_D[c]	-64.8	7.1	
+1	gln_L	gln_L[c]	-93.7	12.6	
+1	gly	gly[c]	-159.7	7.5	
+2	ser_L	ser_L[c]	-212.4	7.2	
+2	thr_L	thr_L[c]	-137.0	7.8	
+5	glc_D	glc_D[c]	-392.9	5.6	
+1	3aib_D	3aib_D[c]	23.7	6.3	
+1.000000e-01	dolp_L	dolp_L[c]	1330.0	53.6	
+1.000000e-01	dolp_U	dolp_U[c]	1230.8	62.7	
+1	fuc_L	fuc_L[c]	-243.8	5.7	
+2	fru	fru[c]	-389.6	5.6	
+1	gal	gal[c]	-389.0	5.5	
+3	sarcs	sarcs[c]	-27.6	11.9	
+1	hxan	hxan[c]	265.6	13.3	
+1	tyr_L	tyr_L[c]	107.5	13.6	
+1	tagat_D	tagat_D[c]	-397.7	6.4	
+2	malt	malt[c]	-619.9	10.8	
+1	rbt	rbt[c]	-273.9	7.2	
+1	sbt_D	sbt_D[c]	-337.7	9.6	
+1	ser_D	ser_D[c]	-235.8	7.1	
+1	tre	tre[c]	-624.1	11.1	
+1	xyl_D	xyl_D[c]	-313.9	6.4	
+1	glygly	glygly[c]	-172.8	13.9	

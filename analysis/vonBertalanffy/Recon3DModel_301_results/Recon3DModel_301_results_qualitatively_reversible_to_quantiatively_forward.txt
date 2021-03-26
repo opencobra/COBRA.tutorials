@@ -1,0 +1,22 @@
+ACNACNGAL14ACGLCGALGLUSIDEtg	acnacngal14acglcgalgluside_hs[g]  <=> acnacngal14acglcgalgluside_hs[c] 	-546.9	-482.2	-564.7	-464.4
+FUC13GALACGLCGAL14ACGLCGALGLUSIDEtg	fuc13galacglcgal14acglcgalgluside_hs[g]  <=> fuc13galacglcgal14acglcgalgluside_hs[c] 	-515.5	-493.9	-533.3	-476.1
+FUCACNGAL14ACGLCGALGLUSIDEtg	fucacngal14acglcgalgluside_hs[g]  <=> fucacngal14acglcgalgluside_hs[c] 	-485.1	-453.7	-502.9	-435.8
+GLYGLYCNc	h2o[c] + glygly[c]  <=> 0.0199046 h[c] + 2 gly[c] 	-84.4	-9.5	-131.9	-3.5
+GLUTHRr	h2o[c] + gluthr[c]  <=> 0.0294006 h[c] + glu_L[c] + thr_L[c] 	-66.3	-7.9	-113.8	-1.9
+SERGLYGLUr	2 h2o[c] + serglyglu[c]  <=> 0.0298589 h[c] + glu_L[c] + gly[c] + ser_L[c] 	-73.2	5.0	-150.4	-1.0
+HMR_7173	46 h[c] + dsT_antigen[c]  <=> 46 h[e] + dsT_antigen[e] 	-75.8	-45.0	-93.6	-27.2
+
+Cytoplasmic metabolites only:
+4	h2o	h2o[c]	-133.4	4.4	
+4.607918e+01	h	h[c]	42.8	0.0	
+2	glu_L	glu_L[c]	-348.8	6.4	
+1	acnacngal14acglcgalgluside_hs	acnacngal14acglcgalgluside_hs[c]	185.0	11.7	
+3	gly	gly[c]	-176.6	6.5	
+1	ser_L	ser_L[c]	-208.7	5.9	
+1	thr_L	thr_L[c]	-146.9	8.3	
+1	fuc13galacglcgal14acglcgalgluside_hs	fuc13galacglcgal14acglcgalgluside_hs[c]	-382.4	3.9	
+1	fucacngal14acglcgalgluside_hs	fucacngal14acglcgalgluside_hs[c]	-232.5	5.7	
+1	glygly	glygly[c]	-172.8	13.3	
+1	gluthr	gluthr[c]	-325.2	9.7	
+1	serglyglu	serglyglu[c]	-433.1	14.3	
+1	dsT_antigen	dsT_antigen[c]	-152.1	5.6	

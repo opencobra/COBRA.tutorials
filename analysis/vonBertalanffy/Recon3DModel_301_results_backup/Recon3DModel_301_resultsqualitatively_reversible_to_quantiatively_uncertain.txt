@@ -1,0 +1,2288 @@
+2HBO	nad[c] + 2hb[c]  <=> 1.13312 h[c] + nadh[c] + 2obut[c] 	-277168.9	277202.8	-277204.1	277223.9
+34DHOXPEGOX	1.13299 h[c] + nadh[c] + 34dhmald[c]  <=> nad[c] + 34dhoxpeg[c] 	-277202.8	277169.0	-277223.9	277204.1
+34DHPLACOX_NADP_	h2o[c] + nadp[c] + 34dhpac[c]  <=> 2.13889 h[c] + nadph[c] + 34dhpha[c] 	-276931.2	277440.5	-276959.5	277479.6
+34DHXMANDACOX_NADP_	h2o[c] + nadp[c] + 34dhmald[c]  <=> 2.13897 h[c] + nadph[c] + 34dhoxmand[c] 	-276931.2	277440.5	-276959.5	277479.6
+3AIBTm	0.0402376 h[m] + 2mop[m] + glu_L[m]  <=> akg[m] + 3aib[m] 	-391999.9	392000.1	-392035.5	392035.7
+3HBCDm	h2o[m] + b2coa[m]  <=> 0.0132687 h[m] + 3hbcoa_R[m] 	-276948.6	277423.1	-276966.4	277440.9
+3M4HDXPAC	h2o[c] + nad[c] + 3mox4hpac[c]  <=> 2.13218 h[c] + nadh[c] + homoval[c] 	-276932.5	277439.3	-276967.6	277460.4
+3MOX4HOXPGALDOX_NADP_	h2o[c] + nadp[c] + 3m4hpga[c]  <=> 2.13964 h[c] + nadph[c] + 3mox4hoxm[c] 	-276931.2	277440.5	-276959.5	277479.6
+4HOXPACDOX_NADP_	h2o[c] + nadp[c] + 4hoxpacd[c]  <=> 2.13897 h[c] + nadph[c] + 4hphac[c] 	-276931.2	277440.5	-276959.5	277479.6
+AATAi	L2aadp[c] + akg[c]  <=> 7.3373e-05 h[c] + 2oxoadp[c] + glu_L[c] 	-392000.0	392000.0	-392035.6	392035.6
+ABTArm	akg[m] + 4abut[m]  <=> 0.0382296 h[m] + glu_L[m] + sucsal[m] 	-366730.0	366634.9	-366765.6	366670.5
+ABTD	nad[c] + abt[c]  <=> 1.13336 h[c] + nadh[c] + xylu_L[c] 	-277169.0	277202.8	-277204.1	277223.9
+ACACT10m	0.0240113 h[m] + coa[m] + 2maacoa[m]  <=> accoa[m] + ppcoa[m] 	-392000.0	392000.0	-392033.2	392021.7
+ACGAMPM	acgam6p[c]  <=> 0.0433303 h[c] + acgam1p[c] 	-277185.7	277186.0	-277203.5	277203.8
+ACNMLr	0.003665 h[c] + acnam[c]  <=> pyr[c] + acmana[c] 	-299234.5	299555.3	-299282.0	299561.3
+ACONTm	0.000117524 h[m] + cit[m]  <=> icit[m] 	-277185.9	277185.9	-277203.7	277203.7
+ADK1m	atp[m] + amp[m]  <=> 0.888531 h[m] + 2 adp[m] 	-480105.2	480094.8	-480114.0	480115.5
+ADK3	amp[c] + gtp[c]  <=> 0.617543 h[c] + adp[c] + gdp[c] 	-392001.6	391998.4	-392043.6	392041.6
+ADK3m	amp[m] + gtp[m]  <=> 0.888531 h[m] + adp[m] + gdp[m] 	-392005.2	391994.8	-392026.5	392030.2
+ADKd	damp[c] + datp[c]  <=> 0.619664 h[c] + 2 dadp[c] 	-480101.6	480098.4	-480137.2	480134.0
+ADRNCPT1	adrncoa[c] + crn[c]  <=> 0.0626599 h[c] + coa[c] + adrncrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+ADRNCPT2	0.0239942 h[m] + coa[m] + adrncrn[m]  <=> adrncoa[m] + crn[m] 	-350054.7	349837.1	-350087.9	349858.8
+AIRCr	co2[c] + air[c]  <=> 1.47785 h[c] + 5aizc[c] 	-276802.7	277569.0	-276808.6	277616.5
+ALATA_L	0.00192296 h[c] + akg[c] + ala_L[c]  <=> pyr[c] + glu_L[c] 	-339112.7	339851.2	-339148.3	339886.9
+APAT2rm	akg[m] + ala_B[m]  <=> 0.0400532 h[m] + glu_L[m] + msa[m] 	-361401.9	361410.4	-361437.5	361446.0
+ARACHCPT1	crn[c] + arachcoa[c]  <=> 0.0590543 h[c] + coa[c] + arachcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+ARACHCPT2	0.0233756 h[m] + coa[m] + arachcrn[m]  <=> crn[m] + arachcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+ASPCTr	asp_L[c] + cbp[c]  <=> 0.175093 h[c] + pi[c] + cbasp[c] 	-340576.7	338387.2	-340600.5	338421.6
+ASPTAm	akg[m] + asp_L[m]  <=> 0.00808509 h[m] + glu_L[m] + oaa[m] 	-392000.0	392000.0	-392035.6	392035.6
+BDHm	nad[m] + bhb[m]  <=> 1.02339 h[m] + nadh[m] + acac[m] 	-277169.3	277202.5	-277216.0	277222.3
+C160CPT1	crn[c] + pmtcoa[c]  <=> 0.0590543 h[c] + coa[c] + pmtcrn[c] 	-314522.5	314582.4	-314555.4	314606.5
+C160CPT2	0.0233756 h[m] + coa[m] + pmtcrn[m]  <=> crn[m] + pmtcoa[m] 	-314582.2	314522.7	-314615.4	314544.4
+C161CPT1	crn[c] + hdcoa[c]  <=> 0.0590543 h[c] + coa[c] + hdcecrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C161CPT12	crn[c] + hdd2coa[c]  <=> 0.0525498 h[c] + coa[c] + hdd2crn[c] 	-349836.9	350054.8	-349869.8	350079.0
+C161CPT2	0.0233756 h[m] + coa[m] + hdcecrn[m]  <=> crn[m] + hdcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+C161CPT22	0.0222092 h[m] + coa[m] + hdd2crn[m]  <=> crn[m] + hdd2coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+C180CPT1	crn[c] + stcoa[c]  <=> 0.0590543 h[c] + coa[c] + stcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C180CPT2	0.0233756 h[m] + coa[m] + stcrn[m]  <=> crn[m] + stcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+C181CPT1	crn[c] + odecoa[c]  <=> 0.0590543 h[c] + coa[c] + odecrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C181CPT2	0.0233756 h[m] + coa[m] + odecrn[m]  <=> crn[m] + odecoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+C204CPT1	8.94414 h[c] + crn[c] + arachdcoa[c]  <=> coa[c] + arachdcrn[c] 	-349445.5	350446.3	-349478.3	350470.4
+C204CPT2	coa[m] + arachdcrn[m]  <=> 8.97723 h[m] + crn[m] + arachdcoa[m] 	-350488.9	349402.9	-350522.1	349424.6
+C226CPT1	crn[c] + c226coa[c]  <=> 0.0591716 h[c] + coa[c] + c226crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C226CPT2	0.0233937 h[m] + coa[m] + c226crn[m]  <=> crn[m] + c226coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+CDIPTr	cdpdag_hs[c] + inost[c]  <=> h[c] + cmp[c] + pail_hs[c] 	-379550.5	379554.3	-379586.1	379589.9
+CHAT	0.0173163 h[c] + accoa[c] + chol[c]  <=> coa[c] + ach[c] 	-277335.5	277036.2	-277368.4	277060.4
+CHATn	accoa[n] + chol[n] + 0.0173163 h[n]  <=> ach[n] + coa[n] 	-277335.5	277036.2	-277371.1	277071.8
+CITMCOAHm	h2o[m] + itaccoa[m]  <=> 0.000583681 h[m] + citmcoa_L[m] 	-276948.6	277423.1	-276966.4	277440.9
+CLPNDCPT1	crn[c] + clpndcoa[c]  <=> 0.0627735 h[c] + coa[c] + clpndcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+CLPNDCPT2	0.0240122 h[m] + coa[m] + clpndcrn[m]  <=> crn[m] + clpndcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+CSNAT2m	0.0233867 h[m] + coa[m] + pcrn[m]  <=> ppcoa[m] + crn[m] 	-350054.7	349837.1	-350087.9	349858.8
+CSNAT2x	crn[x] + dmnoncoa[x]  <=> 0.0904804 h[x] + coa[x] + dmnoncrn[x] 	-349836.8	350055.0	-349872.4	350090.6
+CSNAT3x	crn[x] + ppcoa[x]  <=> 0.0864421 h[x] + coa[x] + pcrn[x] 	-349836.8	350055.0	-349872.4	350090.6
+CSNATer	accoa[r] + 1.01709 h[r] + crn[r]  <=> coa[r] + acrn[r] 	-349793.6	350098.2	-349829.2	350133.8
+CSNATm	coa[m] + acrn[m]  <=> 0.989537 h[m] + accoa[m] + crn[m] 	-350102.9	349788.9	-350136.1	349810.6
+CSNATp	1.02847 h[x] + accoa[x] + crn[x]  <=> coa[x] + acrn[x] 	-349794.8	350096.9	-349830.5	350132.6
+CSNATr	1.01709 h[c] + accoa[c] + crn[c]  <=> coa[c] + acrn[c] 	-349793.6	350098.2	-349826.5	350122.3
+CYSGLTH	0.00581744 h[c] + Lcystin[c] + 2 gthrd[c]  <=> 2 cys_L[c] + gthox[c] 	-438280.5	438258.2	-438333.9	438311.6
+CYSTA	0.0104647 h[c] + akg[c] + cys_L[c]  <=> glu_L[c] + mercppyr[c] 	-339142.9	339821.0	-339178.5	339856.6
+CYTK10	cmp[c] + dgtp[c]  <=> 0.628981 h[c] + cdp[c] + dgdp[c] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK10n	cmp[n] + dgtp[n]  <=> 0.628981 h[n] + cdp[n] + dgdp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK11	dgtp[c] + dcmp[c]  <=> 0.637511 h[c] + dgdp[c] + dcdp[c] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK11n	dgtp[n] + dcmp[n]  <=> 0.637511 h[n] + dgdp[n] + dcdp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK12	dcmp[c] + dctp[c]  <=> 0.64371 h[c] + 2 dcdp[c] 	-480101.4	480098.6	-480137.0	480134.2
+CYTK12n	dcmp[n] + dctp[n]  <=> 0.64371 h[n] + 2 dcdp[n] 	-480101.4	480098.6	-480137.0	480134.2
+CYTK13	datp[c] + dcmp[c]  <=> 0.643729 h[c] + dadp[c] + dcdp[c] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK13n	dcmp[n] + datp[n]  <=> 0.643729 h[n] + dcdp[n] + dadp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK14	dcmp[c] + utp[c]  <=> 0.636808 h[c] + udp[c] + dcdp[c] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK14n	dcmp[n] + utp[n]  <=> 0.636808 h[n] + dcdp[n] + udp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK1m	atp[m] + cmp[m]  <=> 0.891698 h[m] + adp[m] + cdp[m] 	-392005.1	391994.9	-392028.2	392015.8
+CYTK1n	atp[n] + cmp[n]  <=> 0.635192 h[n] + cdp[n] + adp[n] 	-392001.4	391998.6	-392037.1	392034.2
+CYTK2n	atp[n] + dcmp[n]  <=> 0.643722 h[n] + dcdp[n] + adp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK3	gtp[c] + cmp[c]  <=> 0.635184 h[c] + gdp[c] + cdp[c] 	-392001.4	391998.6	-392037.1	392034.2
+CYTK3n	ctp[n] + dcmp[n]  <=> 0.637679 h[n] + cdp[n] + dcdp[n] 	-392001.4	391998.6	-392037.0	392034.3
+CYTK4	gtp[c] + dcmp[c]  <=> 0.643714 h[c] + gdp[c] + dcdp[c] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK4n	dcmp[n] + gtp[n]  <=> 0.643714 h[n] + dcdp[n] + gdp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK5	ctp[c] + dcmp[c]  <=> 0.637679 h[c] + cdp[c] + dcdp[c] 	-392001.4	391998.6	-392037.0	392034.3
+CYTK5n	cmp[n] + gtp[n]  <=> 0.635184 h[n] + cdp[n] + gdp[n] 	-392001.4	391998.6	-392037.1	392034.2
+CYTK6	cmp[c] + ctp[c]  <=> 0.629149 h[c] + 2 cdp[c] 	-480101.4	480098.6	-480137.0	480134.2
+CYTK6n	ctp[n] + cmp[n]  <=> 0.629149 h[n] + 2 cdp[n] 	-480101.4	480098.6	-480137.0	480134.2
+CYTK7	cmp[c] + utp[c]  <=> 0.628278 h[c] + udp[c] + cdp[c] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK7n	cmp[n] + utp[n]  <=> 0.628278 h[n] + cdp[n] + udp[n] 	-392001.4	391998.6	-392037.0	392034.2
+CYTK8	datp[c] + cmp[c]  <=> 0.6352 h[c] + dadp[c] + cdp[c] 	-392001.4	391998.6	-392037.1	392034.2
+CYTK8n	cmp[n] + datp[n]  <=> 0.6352 h[n] + cdp[n] + dadp[n] 	-392001.4	391998.6	-392037.1	392034.2
+CYTK9	cmp[c] + dctp[c]  <=> 0.63518 h[c] + cdp[c] + dcdp[c] 	-392001.4	391998.6	-392037.1	392034.2
+CYTK9n	cmp[n] + dctp[n]  <=> 0.63518 h[n] + cdp[n] + dcdp[n] 	-392001.4	391998.6	-392037.1	392034.2
+D3AIBTm	pyr[m] + 3aib_D[m]  <=> 0.0471726 h[m] + 2mop[m] + ala_L[m] 	-339851.4	339112.6	-339887.0	339148.2
+DCIm	dd2coa[m]  <=> dd3coa[m] 	-277185.9	277185.9	-277203.7	277203.7
+DCK1m	atp[m] + dcyt[m]  <=> 0.977905 h[m] + adp[m] + dcmp[m] 	-392000.8	391999.2	-392023.9	392020.1
+DCK1n	atp[n] + dcyt[n]  <=> 0.869131 h[n] + dcmp[n] + adp[n] 	-392001.1	391998.9	-392036.7	392034.5
+DCK2n	utp[n] + dcyt[n]  <=> 0.862217 h[n] + dcmp[n] + udp[n] 	-392001.1	391998.9	-392036.7	392034.6
+DCSPTN1CPT1	crn[c] + dcsptn1coa[c]  <=> 0.0591716 h[c] + coa[c] + dcsptn1crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+DCSPTN1CPT2	0.0233937 h[m] + coa[m] + dcsptn1crn[m]  <=> crn[m] + dcsptn1coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+DCT	L_dpchrm[c]  <=> 0.0420579 h[c] + 56dihindlcrbxlt[c] 	-277186.0	277185.7	-277203.8	277203.5
+DDPGAm	4h2oglt[m]  <=> 8.79381e-06 h[m] + pyr[m] + glx[m] 	-339482.0	339482.0	-339529.5	339487.9
+DGK2m	datp[m] + dgmp[m]  <=> 0.891832 h[m] + dadp[m] + dgdp[m] 	-392005.0	391995.0	-392040.7	392030.6
+DGULND	1.00927 h[c] + 3dhguln[c]  <=> co2[c] + xylu_L[c] 	-277571.1	276800.6	-277618.6	276806.6
+DLNLCGCPT1	crn[c] + dlnlcgcoa[c]  <=> 17.0549 h[c] + coa[c] + dlnlcgcrn[c] 	-350576.3	349315.5	-350609.2	349339.6
+DLNLCGCPT2	17.0227 h[m] + coa[m] + dlnlcgcrn[m]  <=> crn[m] + dlnlcgcoa[m] 	-349234.6	350657.2	-349267.8	350678.9
+DMHPTCRNCPT2	coa[m] + dmhptcrn[m]  <=> 0.977246 h[m] + crn[m] + dmhptcoa[m] 	-350102.9	349788.8	-350136.1	349810.5
+DMNONCOACRNCPT1	crn[c] + dmnoncoa[c]  <=> 0.0620588 h[c] + coa[c] + dmnoncrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+DMNONCRNCPT2	0.0239525 h[m] + coa[m] + dmnoncrn[m]  <=> crn[m] + dmnoncoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+DOPAQNISO1	dopaqn[c]  <=> 0.969921 h[c] + 2c23dh56dhoxin[c] 	-277186.6	277185.1	-277204.4	277202.9
+DPGM	13dpg[c]  <=> 1.10925 h[c] + 23dpg[c] 	-277186.3	277185.4	-277204.1	277203.2
+DURAD	nadp[c] + 56dura[c]  <=> 1.15066 h[c] + nadph[c] + ura[c] 	-178747.9	179097.6	-178776.1	179136.6
+DURAD2	nadp[c] + 56dthm[c]  <=> 1.17361 h[c] + nadph[c] + thym[c] 	-245781.2	245616.8	-245809.5	245655.9
+ECOAH12m	h2o[m] + 2mp2coa[m]  <=> 0.0132687 h[m] + 3hibutcoa[m] 	-276948.6	277423.1	-276966.4	277440.9
+ECOAH1m	0.0132687 h[m] + 3hbcoa[m]  <=> h2o[m] + b2coa[m] 	-277423.1	276948.6	-277440.9	276966.4
+ECOAH1x	0.118247 h[x] + 3hbcoa[x]  <=> h2o[x] + b2coa[x] 	-277423.4	276948.3	-277441.2	276966.1
+ECOAH9m	h2o[m] + 2mb2coa[m]  <=> 0.00246414 h[m] + 3hmbcoa[m] 	-276948.6	277423.1	-276966.4	277440.9
+EICOSTETCPT1	crn[c] + eicostetcoa[c]  <=> 0.0590543 h[c] + coa[c] + eicostetcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+EICOSTETCPT2	0.0233756 h[m] + coa[m] + eicostetcrn[m]  <=> crn[m] + eicostetcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+ELAIDCPT1	crn[c] + od2coa[c]  <=> 0.0524361 h[c] + coa[c] + elaidcrn[c] 	-349836.9	350054.8	-349869.8	350079.0
+ELAIDCPT2	0.0221912 h[m] + coa[m] + elaidcrn[m]  <=> crn[m] + od2coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+F1PGT	1.6591 h[c] + gtp[c] + fuc1p_L[c]  <=> ppi[c] + gdpfuc[c] 	-341461.2	337502.7	-341483.1	337537.6
+FALDH	nad[c] + gthrd[c] + fald[c]  <=> 1.14097 h[c] + nadh[c] + Sfglutth[c] 	-277046.4	277325.3	-277069.7	277376.1
+FBA4	0.00206041 h[c] + xu1p_D[c]  <=> dhap[c] + gcald[c] 	-299128.9	299661.0	-299176.4	299667.0
+FBA5	0.00306251 h[c] + tag1p_D[c]  <=> dhap[c] + glyald[c] 	-277621.4	276750.3	-277668.9	276756.2
+FUMm	h2o[m] + 0.00109014 h[m] + fum[m]  <=> mal_L[m] 	-276948.6	277423.1	-276966.4	277440.9
+G5SADrm	glu5sa[m]  <=> h2o[m] + 0.867229 h[m] + 1pyr5c[m] 	-277423.5	276948.2	-277441.3	276966.0
+G6PDH1rer	nad[r] + g6p[r]  <=> 1.11455 h[r] + nadh[r] + 6pgl[r] 	-277169.0	277202.7	-277204.6	277238.3
+G6PDH2rer	nadp[r] + g6p[r]  <=> 1.12175 h[r] + nadph[r] + 6pgl[r] 	-277167.7	277204.0	-277203.4	277239.6
+GACMTRc	amet[c] + gudac[c]  <=> 0.997933 h[c] + ahcys[c] + creat[c] 	-249786.8	248559.6	-249822.4	248595.2
+GALOR	1.13994 h[c] + nadph[c] + gal[c]  <=> nadp[c] + galt[c] 	-277204.0	277167.7	-277243.1	277196.0
+GARFT	10fthf[c] + gar[c]  <=> 0.887869 h[c] + thf[c] + fgam[c] 	-392000.3	391999.7	-392036.0	392035.3
+GCC2am	0.614487 h[m] + gly[m] + lpam[m]  <=> co2[m] + alpam[m] 	-277195.3	277176.4	-277231.0	277212.0
+GCC2cm	nad[m] + dhlam[m]  <=> 0.996493 h[m] + nadh[m] + lpam[m] 	-277169.2	277202.5	-277215.9	277222.4
+GCCam	1.09272 h[m] + gly[m] + lpro[m]  <=> co2[m] + alpro[m] 	-277194.5	277177.3	-277230.1	277212.9
+GCCcm	nad[m] + dhlpro[m]  <=> 1.02324 h[m] + nadh[m] + lpro[m] 	-277169.3	277202.5	-277216.0	277222.3
+GGT5r	h2o[r] + leuktrC4[r]  <=> 0.0499453 h[r] + glu_L[r] + leuktrD4[r] 	-339244.7	339719.2	-339292.2	339725.2
+GGT6	0.0543557 h[c] + glu_L[c] + leuktrE4[c]  <=> h2o[c] + leuktrF4[c] 	-339719.2	339244.7	-339725.2	339292.2
+GHMT2rm	0.00507174 h[m] + thf[m] + ser_L[m]  <=> h2o[m] + gly[m] + mlthf[m] 	-277284.2	277087.6	-277319.8	277123.2
+GLNLASEer	0.999785 h[r] + guln[r]  <=> h2o[r] + gullac[r] 	-277422.3	276949.4	-277440.2	276967.2
+GLRASE	nadp[c] + gullac[c]  <=> 1.13981 h[c] + nadph[c] + glac[c] 	-277167.7	277204.0	-277196.0	277243.1
+GLUDxm	h2o[m] + nad[m] + glu_L[m]  <=> 1.17151 h[m] + akg[m] + nadh[m] + nh4[m] 	-277012.7	277359.1	-277089.1	277367.0
+GLUDym	h2o[m] + nadp[m] + glu_L[m]  <=> 1.1722 h[m] + nadph[m] + akg[m] + nh4[m] 	-277011.4	277360.3	-277083.7	277393.7
+GLYAMDTRc	0.0268104 h[c] + gly[c] + arg_L[c]  <=> orn[c] + gudac[c] 	-284387.5	285859.0	-284423.1	285894.7
+GLYATm	accoa[m] + gly[m]  <=> 0.826716 h[m] + coa[m] + 2aobut[m] 	-339110.8	339853.1	-339132.5	339886.3
+GULN3D	nad[c] + guln[c]  <=> 1.14278 h[c] + nadh[c] + 3dhguln[c] 	-277169.0	277202.7	-277204.1	277223.9
+GULNDer	1.13999 h[r] + nadph[r] + glcur[r]  <=> nadp[r] + guln[r] 	-277204.0	277167.7	-277239.7	277203.3
+HACD1m	1.02385 h[m] + nadh[m] + aacoa[m]  <=> nad[m] + 3hbcoa[m] 	-277202.5	277169.3	-277222.3	277216.0
+HACD1x	1.2029 h[x] + nadh[x] + aacoa[x]  <=> nad[x] + 3hbcoa[x] 	-277203.0	277168.7	-277238.6	277204.4
+HACD9m	nad[m] + 3hmbcoa[m]  <=> 1.03622 h[m] + nadh[m] + 2maacoa[m] 	-277169.2	277202.5	-277216.0	277222.3
+HIBDm	nad[m] + 3hmp[m]  <=> 1.02338 h[m] + nadh[m] + 2mop[m] 	-277169.3	277202.5	-277216.0	277222.3
+HPDCACRNCPT1	crn[c] + hpdcacoa[c]  <=> 0.0590543 h[c] + coa[c] + hpdcacrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+HPDCACRNCPT2	0.0233756 h[m] + coa[m] + hpdcacrn[m]  <=> crn[m] + hpdcacoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+HSD11B1r	1.1398 h[r] + nadph[r] + cortsn[r]  <=> nadp[r] + crtsl[r] 	-277204.0	277167.7	-277239.7	277203.3
+HSD11B2r	1.1326 h[r] + nadh[r] + cortsn[r]  <=> nad[r] + crtsl[r] 	-277202.8	277169.0	-277238.4	277204.6
+HSD17B1	1.1398 h[c] + nadph[c] + estrone[c]  <=> nadp[c] + estradiol[c] 	-277204.0	277167.7	-277243.1	277196.0
+HSD3A1r	1.1326 h[r] + nadh[r] + andrstandn[r]  <=> andrstrn[r] + nad[r] 	-277202.8	277169.0	-277238.4	277204.6
+HSD3A2r	1.1398 h[r] + nadph[r] + andrstandn[r]  <=> andrstrn[r] + nadp[r] 	-277204.0	277167.7	-277239.7	277203.3
+ICDHyrm	nadp[m] + icit[m]  <=> 0.0264216 h[m] + nadph[m] + akg[m] + co2[m] 	-277553.2	276818.5	-277625.5	276851.9
+ILETAm	akg[m] + ile_L[m]  <=> 0.00492897 h[m] + glu_L[m] + 3mop[m] 	-339137.8	339826.1	-339173.5	339861.7
+IPDDIx	ipdp[x]  <=> 6.25456e-06 h[x] + dmpp[x] 	-277185.9	277185.9	-277203.7	277203.7
+ITCOAL1m	0.0909755 h[m] + coa[m] + gtp[m] + itacon[m]  <=> pi[m] + gdp[m] + itaccoa[m] 	-439364.0	437174.7	-439415.0	437214.2
+LALDO	nad[c] + lald_D[c] + gthrd[c]  <=> 1.14 h[c] + nadh[c] + lgt_S[c] 	-339465.0	339498.9	-339488.3	339549.7
+LCYSTAT	0.0363172 h[c] + Lcyst[c] + akg[c]  <=> glu_L[c] + 3spyr[c] 	-391999.9	392000.1	-392035.5	392035.7
+LDH_Lm	nad[m] + lac_L[m]  <=> 1.02329 h[m] + nadh[m] + pyr[m] 	-277169.3	277202.5	-277216.0	277222.3
+LEUTAm	0.0023188 h[m] + akg[m] + leu_L[m]  <=> glu_L[m] + 4mop[m] 	-339133.5	339830.4	-339169.2	339866.0
+LNELDCCPT1	crn[c] + lneldccoa[c]  <=> 0.0590543 h[c] + coa[c] + lneldccrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+LNELDCCPT2	0.0233756 h[m] + coa[m] + lneldccrn[m]  <=> crn[m] + lneldccoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+LNLCCPT1	crn[c] + lnlccoa[c]  <=> 0.0590543 h[c] + coa[c] + lnlccrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+LNLCCPT2	0.0233756 h[m] + coa[m] + lnlccrn[m]  <=> crn[m] + lnlccoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+LNLNCACPT1	crn[c] + lnlncacoa[c]  <=> 0.0591679 h[c] + coa[c] + lnlncacrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+LNLNCACPT2	0.0233937 h[m] + coa[m] + lnlncacrn[m]  <=> crn[m] + lnlncacoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+LNLNCGCPT1	crn[c] + lnlncgcoa[c]  <=> 0.0623623 h[c] + coa[c] + lnlncgcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+LNLNCGCPT2	0.0239996 h[m] + coa[m] + lnlncgcrn[m]  <=> crn[m] + lnlncgcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+LTC4CP	h2o[c] + leuktrC4[c]  <=> 0.0151425 h[c] + gly[c] + leuktrF4[c] 	-277325.8	277045.9	-277373.3	277051.8
+LTD4DP	h2o[c] + leuktrD4[c]  <=> 0.0195529 h[c] + gly[c] + leuktrE4[c] 	-277325.8	277045.9	-277373.3	277051.8
+MCLOR	nad[c] + mercplac[c]  <=> 1.13661 h[c] + nadh[c] + mercppyr[c] 	-277169.0	277202.8	-277204.1	277223.9
+MDHm	nad[m] + mal_L[m]  <=> 1.02455 h[m] + nadh[m] + oaa[m] 	-277169.3	277202.5	-277216.0	277222.3
+MECOAS1m	0.0909098 h[m] + coa[m] + gtp[m] + mescon[m]  <=> pi[m] + gdp[m] + mescoa[m] 	-439364.0	437174.7	-439415.0	437214.2
+MGACONm	0.000580412 h[m] + citmcoa_L[m]  <=> h2o[m] + mescoa[m] 	-277423.1	276948.6	-277440.9	276966.4
+MGCHrm	h2o[m] + 3mgcoa[m]  <=> 0.000637772 h[m] + hmgcoa[m] 	-276948.6	277423.1	-276966.4	277440.9
+MMEm	mmcoa_R[m]  <=> mmcoa_S[m] 	-277185.9	277185.9	-277203.7	277203.7
+MMMm	mmcoa_R[m]  <=> 3.11218e-12 h[m] + succoa[m] 	-277185.9	277185.9	-277203.7	277203.7
+MTHFCm	h2o[m] + methf[m]  <=> 10fthf[m] + 1.00598 h[m] 	-276949.3	277422.4	-276967.1	277440.2
+MTHFD2m	nad[m] + mlthf[m]  <=> 0.0132973 h[m] + nadh[m] + methf[m] 	-277168.5	277203.2	-277215.3	277223.0
+MTHFDm	nadp[m] + mlthf[m]  <=> 0.0139874 h[m] + nadph[m] + methf[m] 	-277167.3	277204.5	-277209.9	277249.7
+NDPK10	2.81754e-06 h[c] + atp[c] + didp[c]  <=> adp[c] + ditp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK10n	atp[n] + 2.81754e-06 h[n] + didp[n]  <=> adp[n] + ditp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK1m	atp[m] + gdp[m]  <=> 5.80214e-07 h[m] + adp[m] + gtp[m] 	-392000.0	392000.0	-392023.1	392020.9
+NDPK1n	atp[n] + gdp[n]  <=> 7.86639e-06 h[n] + adp[n] + gtp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK2n	atp[n] + udp[n]  <=> 0.00691387 h[n] + utp[n] + adp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK3m	atp[m] + cdp[m]  <=> 0.00272061 h[m] + adp[m] + ctp[m] 	-392000.1	391999.9	-392023.2	392020.9
+NDPK3n	atp[n] + cdp[n]  <=> ctp[n] + 0.00604274 h[n] + adp[n] 	-392000.0	392000.0	-392035.7	392035.6
+NDPK4n	atp[n] + dtdp[n]  <=> 2.30955e-06 h[n] + adp[n] + dttp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK5n	atp[n] + dgdp[n]  <=> 0.00621044 h[n] + dgtp[n] + adp[n] 	-392000.0	392000.0	-392035.7	392035.6
+NDPK6m	atp[m] + dudp[m]  <=> 3.00084e-05 h[m] + adp[m] + dutp[m] 	-392000.0	392000.0	-392023.1	392020.9
+NDPK6n	atp[n] + dudp[n]  <=> 1.77122e-06 h[n] + adp[n] + dutp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK7n	atp[n] + dcdp[n]  <=> 1.15331e-05 h[n] + dctp[n] + adp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK8n	atp[n] + 7.8655e-06 h[n] + dadp[n]  <=> datp[n] + adp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NDPK9n	atp[n] + 2.81743e-06 h[n] + idp[n]  <=> adp[n] + itp[n] 	-392000.0	392000.0	-392035.6	392035.6
+NMNATr	1.62808 h[c] + atp[c] + nmn[c]  <=> nad[c] + ppi[c] 	-295566.0	292434.0	-295579.9	292449.8
+ORNTArm	akg[m] + orn[m]  <=> 0.107302 h[m] + glu_L[m] + glu5sa[m] 	-392000.3	391999.7	-392035.9	392035.3
+ORPT	ppi[c] + orot5p[c]  <=> 0.190084 h[c] + orot[c] + prpp[c] 	-337499.7	341464.2	-337534.6	341486.1
+PGDI	0.000138728 h[c] + prostgh2[c]  <=> prostgd2[c] 	-277185.9	277185.9	-277203.7	277203.7
+PGDIr	0.000138728 h[r] + prostgh2[r]  <=> prostgd2[r] 	-277185.9	277185.9	-277203.7	277203.7
+PGESr	prostgh2[r]  <=> 0.000185999 h[r] + prostge2[r] 	-277185.9	277185.9	-277203.7	277203.7
+PGISr	0.000251995 h[r] + prostgh2[r]  <=> prostgi2[r] 	-277185.9	277185.9	-277203.7	277203.7
+PHCHGSm	h2o[m] + 0.755698 h[m] + 1p3h5c[m]  <=> 4hglusa[m] 	-276948.6	277423.1	-276966.4	277440.9
+PHETA1m	0.0106849 h[m] + akg[m] + phe_L[m]  <=> glu_L[m] + phpyr[m] 	-339274.6	339689.3	-339310.3	339724.9
+PSSA1_hs	ser_L[c] + pchol_hs[c]  <=> chol[c] + ps_hs[c] 	-308747.0	311059.5	-308782.6	311095.1
+PSSA2_hs	ser_L[c] + pe_hs[c]  <=> etha[c] + ps_hs[c] 	-338399.8	340564.1	-338435.4	340599.7
+PTDCACRNCPT1	crn[c] + ptdcacoa[c]  <=> 0.157969 h[c] + coa[c] + ptdcacrn[c] 	-349836.6	350055.1	-349869.5	350079.3
+PTDCACRNCPT2	0.0400202 h[m] + coa[m] + ptdcacrn[m]  <=> crn[m] + ptdcacoa[m] 	-350054.7	349837.0	-350087.9	349858.7
+PVD3	7dhchsterol[c]  <=> pd3[c] 	-277185.9	277185.9	-277203.7	277203.7
+PYNP2r	0.217251 h[c] + pi[c] + uri[c]  <=> ura[c] + r1p[c] 	-194409.7	197590.3	-194444.2	197614.0
+RAI3	retn[c]  <=> 13_cis_retn[c] 	-277185.9	277185.9	-277203.7	277203.7
+RAI4	2 h[c] + oretn[c]  <=> 13_cis_oretn[c] 	-277098.9	277272.8	-277116.7	277290.7
+RDH1	nad[c] + retinol[c]  <=> 1.1326 h[c] + nadh[c] + retinal[c] 	-196029.0	195971.0	-196064.1	195992.1
+RDH2	nad[c] + retinol_9_cis[c]  <=> 1.1326 h[c] + nadh[c] + retinal_cis_9[c] 	-196029.0	195971.0	-196064.1	195992.1
+RDH3	nad[c] + retinol_cis_11[c]  <=> 1.1326 h[c] + nadh[c] + retinal_11_cis[c] 	-240029.2	240070.8	-240064.3	240091.9
+RDH4	nad[c] + retinol_cis_13[c]  <=> 1.1326 h[c] + nadh[c] + retinal_cis_13[c] 	-277169.0	277202.8	-277204.1	277223.9
+RETI1	retinol[c]  <=> retinol_cis_11[c] 	-240092.1	240007.9	-240109.9	240025.7
+RETI3	retinol[c]  <=> retinol_cis_13[c] 	-240092.1	240007.9	-240109.9	240025.7
+RTOTAL3CRNCPT1	crn[c] + Rtotal3coa[c]  <=> coa[c] + Rtotal3crn[c] 	-349825.5	350066.3	-349858.3	350090.4
+RTOTAL3CRNCPT2	coa[m] + Rtotal3crn[m]  <=> crn[m] + Rtotal3coa[m] 	-350066.5	349825.3	-350099.7	349847.0
+S3TASE1ly	h2o[l] + hs_deg10[l]  <=> 0.999749 h[l] + so4[l] + hs_deg11[l] 	-277683.7	276688.0	-277731.2	276693.9
+S3TASE2ly	h2o[l] + hs_deg17[l]  <=> 0.999749 h[l] + so4[l] + hs_deg18[l] 	-277689.6	276682.1	-277737.1	276688.0
+S3TASE3ly	h2o[l] + hs_deg23[l]  <=> 0.999749 h[l] + so4[l] + hs_deg24[l] 	-277694.1	276677.6	-277741.6	276683.6
+S4TASE1ly	h2o[l] + cs_a[l]  <=> 0.999749 h[l] + so4[l] + cs_a_deg1[l] 	-277689.6	276682.1	-277737.1	276688.0
+S4TASE2ly	h2o[l] + cs_a_deg3[l]  <=> 0.999749 h[l] + so4[l] + cs_a_deg4[l] 	-277692.6	276679.1	-277740.1	276685.1
+S4TASE3ly	h2o[l] + cs_b[l]  <=> 0.999749 h[l] + so4[l] + cs_b_deg1[l] 	-277688.2	276683.6	-277735.7	276689.5
+S4TASE4ly	h2o[l] + cs_e[l]  <=> 0.999749 h[l] + so4[l] + cs_e_deg1[l] 	-277685.2	276686.5	-277732.7	276692.5
+S4TASE5ly	h2o[l] + cs_e_deg4[l]  <=> 0.999749 h[l] + so4[l] + cs_e_deg5[l] 	-277689.6	276682.1	-277737.1	276688.0
+S6TASE10ly	h2o[l] + ksi_deg4[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg5[l] 	-277679.3	276692.4	-277726.8	276698.4
+S6TASE11ly	h2o[l] + ksi_deg6[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg7[l] 	-277680.8	276691.0	-277728.3	276696.9
+S6TASE12ly	h2o[l] + ksi_deg9[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg10[l] 	-277682.2	276689.5	-277729.7	276695.4
+S6TASE13ly	h2o[l] + ksi_deg12[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg13[l] 	-277683.7	276688.0	-277731.2	276693.9
+S6TASE14ly	h2o[l] + ksi_deg15[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg16[l] 	-277685.2	276686.5	-277732.7	276692.5
+S6TASE15ly	h2o[l] + ksi_deg18[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg19[l] 	-277686.7	276685.0	-277734.2	276691.0
+S6TASE16ly	h2o[l] + ksi_deg21[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg22[l] 	-277688.2	276683.6	-277735.7	276689.5
+S6TASE17ly	h2o[l] + ksi_deg24[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg25[l] 	-277689.6	276682.1	-277737.1	276688.0
+S6TASE18ly	h2o[l] + ksi_deg27[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg28[l] 	-277691.1	276680.6	-277738.6	276686.5
+S6TASE19ly	h2o[l] + ksi_deg30[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg31[l] 	-277692.6	276679.1	-277740.1	276685.1
+S6TASE1ly	h2o[l] + hs[l]  <=> 0.999749 h[l] + so4[l] + hs_deg1[l] 	-277677.8	276693.9	-277725.3	276699.9
+S6TASE20ly	h2o[l] + ksi_deg33[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg34[l] 	-277694.1	276677.6	-277741.6	276683.6
+S6TASE21ly	h2o[l] + ksi_deg36[l]  <=> 0.999749 h[l] + so4[l] + ksi_deg37[l] 	-277695.6	276676.2	-277743.1	276682.1
+S6TASE22ly	h2o[l] + ksii_core2_deg1[l]  <=> 0.999749 h[l] + so4[l] + ksii_core2_deg2[l] 	-277692.6	276679.1	-277740.1	276685.1
+S6TASE23ly	h2o[l] + ksii_core2_deg3[l]  <=> 0.999749 h[l] + so4[l] + ksii_core2_deg4[l] 	-277694.1	276677.6	-277741.6	276683.6
+S6TASE24ly	h2o[l] + ksii_core2_deg6[l]  <=> 0.999749 h[l] + so4[l] + ksii_core2_deg7[l] 	-277695.6	276676.2	-277743.1	276682.1
+S6TASE25ly	h2o[l] + ksii_core4_deg1[l]  <=> 0.999749 h[l] + so4[l] + ksii_core4_deg2[l] 	-277692.6	276679.1	-277740.1	276685.1
+S6TASE26ly	h2o[l] + ksii_core4_deg3[l]  <=> 0.999749 h[l] + so4[l] + ksii_core4_deg4[l] 	-277694.1	276677.6	-277741.6	276683.6
+S6TASE2ly	h2o[l] + hs_deg5[l]  <=> 0.999749 h[l] + so4[l] + hs_deg6[l] 	-277680.8	276691.0	-277728.3	276696.9
+S6TASE3ly	h2o[l] + hs_deg11[l]  <=> 0.999749 h[l] + so4[l] + hs_deg12[l] 	-277685.2	276686.5	-277732.7	276692.5
+S6TASE4ly	h2o[l] + cs_c[l]  <=> 0.999749 h[l] + so4[l] + cs_c_deg1[l] 	-277689.6	276682.1	-277737.1	276688.0
+S6TASE5ly	h2o[l] + cs_c_deg3[l]  <=> 0.999749 h[l] + so4[l] + cs_c_deg4[l] 	-277692.6	276679.1	-277740.1	276685.1
+S6TASE6ly	h2o[l] + cs_d[l]  <=> 0.999749 h[l] + so4[l] + cs_d_deg1[l] 	-277686.7	276685.0	-277734.2	276691.0
+S6TASE7ly	h2o[l] + cs_d_deg4[l]  <=> 0.999749 h[l] + so4[l] + cs_d_deg5[l] 	-277691.1	276680.6	-277738.6	276686.5
+S6TASE8ly	h2o[l] + cs_e_deg1[l]  <=> 0.999749 h[l] + so4[l] + cs_e_deg2[l] 	-277686.7	276685.0	-277734.2	276691.0
+S6TASE9ly	h2o[l] + cs_e_deg5[l]  <=> 0.999749 h[l] + so4[l] + cs_e_deg6[l] 	-277691.1	276680.6	-277738.6	276686.5
+SLDx	nad[c] + sl_L[c]  <=> 1.13263 h[c] + nadh[c] + 3spyr[c] 	-277169.0	277202.8	-277204.1	277223.9
+STRDNCCPT1	crn[c] + strdnccoa[c]  <=> 0.0623623 h[c] + coa[c] + strdnccrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+STRDNCCPT2	0.0239996 h[m] + coa[m] + strdnccrn[m]  <=> crn[m] + strdnccoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+SUCD1m	fad[m] + succ[m]  <=> 0.00494927 h[m] + fadh2[m] + fum[m] 	-277223.5	277148.2	-277259.1	277183.8
+SUCOAS1m	0.0861181 h[m] + coa[m] + gtp[m] + succ[m]  <=> pi[m] + gdp[m] + succoa[m] 	-439364.0	437174.7	-439415.0	437214.2
+SUCOASm	0.0861175 h[m] + coa[m] + atp[m] + succ[m]  <=> adp[m] + pi[m] + succoa[m] 	-439364.0	437174.7	-439402.5	437199.5
+TETPENT3CPT1	crn[c] + tetpent3coa[c]  <=> 0.0590543 h[c] + coa[c] + tetpent3crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+TETPENT3CPT2	0.0233756 h[m] + coa[m] + tetpent3crn[m]  <=> crn[m] + tetpent3coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+TETPENT6CPT1	crn[c] + tetpent6coa[c]  <=> 0.0621478 h[c] + coa[c] + tetpent6crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+TETPENT6CPT2	0.0239656 h[m] + coa[m] + tetpent6crn[m]  <=> crn[m] + tetpent6coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+TETTET6CPT1	crn[c] + tettet6coa[c]  <=> 0.0590543 h[c] + coa[c] + tettet6crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+TETTET6CPT2	0.0233756 h[m] + coa[m] + tettet6crn[m]  <=> crn[m] + tettet6coa[m] 	-350054.7	349837.1	-350087.9	349858.8
+TMDPP	0.244709 h[c] + pi[c] + thymd[c]  <=> 2dr1p[c] + thym[c] 	-221347.2	223139.0	-221381.6	223162.8
+TMNDNCCPT1	crn[c] + tmndnccoa[c]  <=> 0.0558649 h[c] + coa[c] + tmndnccrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+TMNDNCCPT2	0.022775 h[m] + coa[m] + tmndnccrn[m]  <=> crn[m] + tmndnccoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+TS3	pd3[c]  <=> ts3[c] 	-277185.9	277185.9	-277203.7	277203.7
+TTDCPT2	0.0233756 h[m] + coa[m] + ttdcrn[m]  <=> crn[m] + tdcoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+TYRTAm	0.0110206 h[m] + akg[m] + tyr_L[m]  <=> 34hpp[m] + glu_L[m] 	-339111.0	339852.9	-339146.7	339888.5
+UGT1A10r	bilirub[r] + udpglcur[r]  <=> bilglcur[r] + 0.664106 h[r] + udp[r] 	-392002.2	391997.8	-392037.9	392033.4
+UMPK2	ctp[c] + ump[c]  <=> 0.752664 h[c] + udp[c] + cdp[c] 	-392002.1	391997.9	-392037.7	392033.5
+UMPK2n	ctp[n] + ump[n]  <=> 0.752664 h[n] + cdp[n] + udp[n] 	-392002.1	391997.9	-392037.7	392033.5
+UMPK3	utp[c] + ump[c]  <=> 0.751793 h[c] + 2 udp[c] 	-480102.1	480097.9	-480137.7	480133.5
+UMPK3n	utp[n] + ump[n]  <=> 0.751793 h[n] + 2 udp[n] 	-480102.1	480097.9	-480137.7	480133.5
+UMPK4	gtp[c] + ump[c]  <=> 0.758699 h[c] + udp[c] + gdp[c] 	-392002.1	391997.9	-392037.8	392033.5
+UMPK4n	gtp[n] + ump[n]  <=> 0.758699 h[n] + udp[n] + gdp[n] 	-392002.1	391997.9	-392037.8	392033.5
+UMPK5	datp[c] + ump[c]  <=> 0.758714 h[c] + udp[c] + dadp[c] 	-392002.1	391997.9	-392037.8	392033.5
+UMPK5n	datp[n] + ump[n]  <=> 0.758714 h[n] + dadp[n] + udp[n] 	-392002.1	391997.9	-392037.8	392033.5
+UMPK6	dctp[c] + ump[c]  <=> 0.758695 h[c] + udp[c] + dcdp[c] 	-392002.1	391997.9	-392037.8	392033.5
+UMPK6n	dctp[n] + ump[n]  <=> 0.758695 h[n] + dcdp[n] + udp[n] 	-392002.1	391997.9	-392037.8	392033.5
+UMPK7	dgtp[c] + ump[c]  <=> 0.752496 h[c] + udp[c] + dgdp[c] 	-392002.1	391997.9	-392037.7	392033.5
+UMPK7n	dgtp[n] + ump[n]  <=> 0.752496 h[n] + dgdp[n] + udp[n] 	-392002.1	391997.9	-392037.7	392033.5
+UMPKn	atp[n] + ump[n]  <=> 0.758706 h[n] + udp[n] + adp[n] 	-392002.1	391997.9	-392037.8	392033.5
+URIDK2m	atp[m] + dump[m]  <=> 1.00424 h[m] + adp[m] + dudp[m] 	-392006.5	391993.5	-392029.6	392014.5
+UROLACer	0.99996 h[r] + glcur[r]  <=> h2o[r] + glac[r] 	-277422.3	276949.4	-277440.2	276967.2
+VALTAm	akg[m] + val_L[m]  <=> 0.00588906 h[m] + glu_L[m] + 3mob[m] 	-339123.1	339840.9	-339158.7	339876.5
+VD3	pd3[c]  <=> vitd3[c] 	-277185.9	277185.9	-277203.7	277203.7
+XYLTD_Dr	nad[c] + xylt[c]  <=> 1.13336 h[c] + nadh[c] + xylu_D[c] 	-195198.7	196801.3	-195233.8	196822.4
+XYLUR	1.14056 h[c] + nadph[c] + xylu_L[c]  <=> nadp[c] + xylt[c] 	-196802.6	195197.4	-196841.6	195225.7
+r0021	nad[c] + 2 gthrd[c]  <=> 1.12843 h[c] + nadh[c] + gthox[c] 	-438252.3	438286.3	-438275.6	438337.2
+r0022	nad[m] + 2 gthrd[m]  <=> 0.897504 h[m] + nadh[m] + gthox[m] 	-438252.4	438286.3	-438287.3	438335.8
+r0051	amp[e] + ppi[e]  <=> 0.670291 h[e] + ade[e] + prpp[e] 	-274897.1	279474.6	-274932.8	279510.2
+r0074	h2o[m] + nad[m] + glu5sa[m]  <=> 1.95062 h[m] + nadh[m] + glu_L[m] 	-276932.6	277439.2	-276979.3	277459.0
+r0081	0.00693508 h[m] + akg[m] + ala_L[m]  <=> glu_L[m] + pyr[m] 	-339112.7	339851.3	-339148.3	339886.9
+r0129	h2o[c] + gthrd[c]  <=> 0.0491534 h[c] + glu_L[c] + cgly[c] 	-339244.7	339719.2	-339292.2	339725.2
+r0130	h2o[e] + gthrd[e]  <=> 0.0491796 h[e] + cgly[e] + glu_L[e] 	-339244.8	339719.2	-339292.3	339725.1
+r0139	h2o[e] + cdp[e]  <=> 0.0316617 h[e] + pi[e] + cmp[e] 	-278042.4	276329.3	-278089.9	276335.3
+r0149	h2o[e] + ctp[e]  <=> 0.732504 h[e] + pi[e] + cdp[e] 	-278044.6	276327.1	-278092.1	276333.1
+r0170	0.746867 h[r] + 2 frdp[r]  <=> ppi[r] + HC01118[r] 	-440249.4	436289.2	-440285.1	436324.8
+r0173	nad[x] + lac_L[x]  <=> 1.19705 h[x] + nadh[x] + pyr[x] 	-277168.8	277203.0	-277204.4	277238.6
+r0178	h2o[m] + nad[m] + sucsal[m]  <=> 2.0185 h[m] + nadh[m] + succ[m] 	-276932.8	277438.9	-276979.5	277458.8
+r0181	h2o[e] + itp[e]  <=> 0.738139 h[e] + pi[e] + idp[e] 	-278044.6	276327.1	-278092.1	276333.0
+r0193	h2o[c] + cys_L[c]  <=> nh4[c] + 1.01273 h[c] + pyr[c] + HC00250[c] 	-276690.6	277681.1	-276756.8	277669.0
+r0196	gly[m] + succoa[m]  <=> 0.82738 h[m] + coa[m] + HC01496[m] 	-339110.8	339853.1	-339132.6	339886.3
+r0202	nad[x] + glyc3p[x]  <=> 1.30728 h[x] + nadh[x] + dhap[x] 	-277168.4	277203.3	-277204.0	277238.9
+r0239	h2o[c] + nformanth[c]  <=> 0.995729 h[c] + for[c] + anth[c] 	-277298.4	277073.3	-277345.9	277079.2
+r0242	0.199899 h[e] + h2o[e] + dhap[e]  <=> pi[e] + dha[e] 	-197309.0	194691.0	-197356.5	194697.0
+r0249	0.065497 h[r] + r5p[r]  <=> ru5p_D[r] 	-277186.1	277185.7	-277203.9	277203.5
+r0276	nh4[c] + nadp[c] + imp[c]  <=> 2.01958 h[c] + nadph[c] + gmp[c] 	-277088.3	277283.4	-277098.5	277341.2
+r0309	nadp[m] + pmtcoa[m]  <=> 1.02511 h[m] + nadph[m] + hdd2coa[m] 	-277168.0	277203.7	-277210.6	277249.0
+r0317	0.00100534 h[m] + cit[m]  <=> h2o[m] + HC00342[m] 	-277423.1	276948.6	-277440.9	276966.4
+r0381	h2o[c] + nad[c] + hyptaur[c]  <=> 1.1389 h[c] + nadh[c] + taur[c] 	-276931.7	277440.0	-276966.8	277461.1
+r0391	ppi[c] + nicrnt[c]  <=> 1.75281 h[c] + nac[c] + prpp[c] 	-337502.4	341461.6	-337537.3	341483.4
+r0394	h2o[c] + nad[c] + hxan[c]  <=> 1.15824 h[c] + nadh[c] + xan[c] 	-138178.5	139007.4	-138213.6	139028.5
+r0407	HC00361[c]  <=> 0.0214364 h[c] + dhap[c] + e4p[c] 	-339481.9	339482.0	-339529.4	339487.9
+r0408	atp[c] + s7p[c]  <=> 0.878502 h[c] + adp[c] + HC00361[c] 	-392001.0	391999.0	-392046.7	392017.8
+r0409	utp[c] + s7p[c]  <=> 0.871588 h[c] + udp[c] + HC00361[c] 	-392001.0	391999.0	-392036.6	392034.6
+r0410	h2o[e] + dgtp[e]  <=> 0.24137 h[e] + dgmp[e] + ppi[e] 	-278929.0	275442.7	-278976.5	275448.7
+r0424	nadp[x] + icit[x]  <=> 1.22716 h[x] + nadph[x] + HC01434[x] 	-277167.4	277204.3	-277203.1	277239.9
+r0425	nad[m] + icit[m]  <=> 1.02483 h[m] + nadh[m] + HC01434[m] 	-277169.2	277202.5	-277216.0	277222.3
+r0431	1.02682 h[c] + crn[c] + malcoa[c]  <=> coa[c] + HC10859[c] 	-349836.4	350055.4	-349869.3	350079.5
+r0432	0.991067 h[m] + malcoa[m] + crn[m]  <=> coa[m] + HC10859[m] 	-349806.4	350085.3	-349828.2	350118.5
+r0434	crn[r] + pmtcoa[r]  <=> 0.0590543 h[r] + coa[r] + pmtcrn[r] 	-314522.5	314582.4	-314558.1	314618.0
+r0437	pmtcoa[x] + crn[x]  <=> 0.086319 h[x] + coa[x] + pmtcrn[x] 	-314522.4	314582.5	-314558.1	314618.1
+r0441	8.94414 h[r] + crn[r] + arachdcoa[r]  <=> coa[r] + arachdcrn[r] 	-349445.5	350446.3	-349481.1	350481.9
+r0450	0.00103738 h[m] + L2aadp[m] + akg[m]  <=> 2oxoadp[m] + glu_L[m] 	-392000.0	392000.0	-392035.6	392035.6
+r0463	0.964748 h[x] + coa[x] + hmgcoa[x]  <=> accoa[x] + aacoa[x] + h2o[x] 	-392236.4	391763.6	-392272.0	391799.2
+r0472	h2o[c] + dgtp[c] + trdox[c]  <=> 0.00875276 h[c] + gtp[c] + trdrd[c] 	-276889.1	277482.6	-276924.7	277518.2
+r0474	h2o[c] + dctp[c] + trdox[c]  <=> 0.0131959 h[c] + ctp[c] + trdrd[c] 	-276889.1	277482.6	-276924.8	277518.2
+r0475	h2o[c] + dutp[c] + trdox[c]  <=> 0.0591955 h[c] + utp[c] + trdrd[c] 	-276889.4	277482.3	-276925.0	277518.0
+r0480	amet[c] + ethamp[c]  <=> 1.0047 h[c] + ahcys[c] + HC00718[c] 	-366678.1	366686.8	-366713.7	366722.4
+r0483	akg[m] + 3aib_D[m]  <=> 0.0402376 h[m] + 2mop[m] + glu_L[m] 	-392000.1	391999.9	-392035.7	392035.5
+r0488	2 nadp[c] + coa[c] + mev_R[c]  <=> 2.30035 h[c] + 2 nadph[c] + hmgcoa[c] 	-339445.5	339518.4	-339461.0	339605.6
+r0494	0.125002 h[e] + h2o[e] + dtdp[e]  <=> pi[e] + dtmp[e] 	-278041.5	276330.2	-278089.0	276336.1
+r0497	h2o[e] + dttp[e]  <=> 0.738135 h[e] + pi[e] + dtdp[e] 	-278044.6	276327.1	-278092.1	276333.0
+r0512	nad[c] + dhf[c]  <=> 0.665079 h[c] + nadh[c] + fol[c] 	-277170.0	277201.7	-277205.1	277222.9
+r0517	1.19128 h[m] + HC01496[m]  <=> co2[m] + 5aop[m] 	-277568.2	276803.6	-277615.7	276809.5
+r0525	h2o[m] + nad[m] + saccrp_L[m]  <=> 1.09633 h[m] + nadh[m] + glu_L[m] + L2aadp6sa[m] 	-339228.3	339735.6	-339304.8	339743.6
+r0527	h2o[c] + nmn[c]  <=> nh4[c] + 0.190251 h[c] + nicrnt[c] 	-277028.5	277343.2	-277065.1	277342.9
+r0531	cytd[c] + dutp[c]  <=> 0.874762 h[c] + cmp[c] + dudp[c] 	-357822.4	357868.4	-357858.1	357904.0
+r0547	h2o[c] + nadp[c] + pacald[c]  <=> 2.13757 h[c] + nadph[c] + pac[c] 	-276931.2	277440.5	-276959.5	277479.6
+r0552	h2o[c] + nad[c] + betald[c]  <=> 1.13259 h[c] + nadh[c] + glyb[c] 	-276888.2	277483.5	-276923.3	277504.6
+r0553	h2o[c] + nadp[c] + betald[c]  <=> 1.13979 h[c] + nadph[c] + glyb[c] 	-276887.0	277484.8	-276915.2	277523.8
+r0558	h2o[c] + nad[c] + HC01522[c]  <=> 2.08856 h[c] + nadh[c] + HC00460[c] 	-276932.3	277439.4	-276967.5	277460.5
+r0571	h2o[m] + mmcoa_S[m]  <=> 0.991349 h[m] + coa[m] + HC00900[m] 	-339245.6	339718.4	-339279.2	339721.9
+r0575	1.88666 h[r] + nadph[r] + HC01118[r]  <=> nadp[r] + ppi[r] + sql[r] 	-279184.2	275187.6	-279249.5	275211.3
+r0584	h2o[c] + dnad[c]  <=> 1.80081 h[c] + amp[c] + nicrnt[c] 	-339246.8	339717.2	-339306.1	339717.6
+r0587	h2o[e] + HC01104[e]  <=> 0.720328 h[e] + 4nph[e] + pi[e] 	-278047.6	276324.1	-278095.1	276330.1
+r0591	h2o[c] + dpcoa[c]  <=> 2.70589 h[c] + amp[c] + pan4p[c] 	-339249.5	339714.4	-339308.9	339714.9
+r0610	ctp[c] + HC00664[c]  <=> 0.893029 h[c] + cdp[c] + HC01180[c] 	-392001.0	391999.0	-392036.6	392034.7
+r0611	itp[c] + HC00664[c]  <=> 0.899075 h[c] + idp[c] + HC01180[c] 	-392001.0	391999.0	-392036.6	392034.6
+r0615	nad[c] + 4hpro_LT[c]  <=> 2.1316 h[c] + nadh[c] + 1p3h5c[c] 	-240033.8	240066.2	-240068.9	240087.3
+r0616	nad[m] + 4hpro_LT[m]  <=> 2.01894 h[m] + nadh[m] + 1p3h5c[m] 	-240034.1	240065.9	-240080.9	240085.7
+r0617	nadp[c] + 4hpro_LT[c]  <=> 2.1388 h[c] + nadph[c] + 1p3h5c[c] 	-240032.5	240067.5	-240060.8	240106.5
+r0627	h2o[e] + HC01444[e]  <=> 0.000195844 h[e] + gal[e] + glyc[e] 	-277446.3	276925.5	-277493.8	276931.4
+r0629	gly[c] + cholcoa[c]  <=> 0.915107 h[c] + coa[c] + gchola[c] 	-339148.4	339815.5	-339181.3	339839.6
+r0630	0.102178 h[c] + taur[c] + cholcoa[c]  <=> coa[c] + tchola[c] 	-392000.2	391999.8	-392033.1	392023.9
+r0633	nadp[m] + occoa[m]  <=> 1.02511 h[m] + nadph[m] + HC01415[m] 	-277168.0	277203.7	-277210.6	277249.0
+r0634	accoa[m] + occoa[m]  <=> 0.0491073 h[m] + coa[m] + 3odcoa[m] 	-392000.1	391999.9	-392021.8	392033.1
+r0636	0.0233756 h[m] + coa[m] + c8crn[m]  <=> crn[m] + occoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+r0638	nadp[m] + ddcacoa[m]  <=> 1.02511 h[m] + nadph[m] + dd2coa[m] 	-277168.0	277203.7	-277210.6	277249.0
+r0641	h2o[c] + leuktrC4[c]  <=> 0.0499453 h[c] + glu_L[c] + leuktrD4[c] 	-339244.7	339719.2	-339292.2	339725.2
+r0642	h2o[c] + nad[c] + 2mop[c]  <=> 2.03022 h[c] + nadh[c] + HC00900[c] 	-276932.7	277439.0	-276967.8	277460.1
+r0643	h2o[m] + nad[m] + 2mop[m]  <=> 2.00546 h[m] + nadh[m] + HC00900[m] 	-276932.8	277438.9	-276979.6	277458.8
+r0645	h2o[c] + nad[c] + am6sa[c]  <=> 1.89025 h[c] + nadh[c] + amuco[c] 	-276931.6	277440.1	-276966.8	277461.2
+r0647	h2o[c] + C02470[c]  <=> 0.0232211 h[c] + 42A3HP24DB[c] 	-276948.5	277423.2	-276966.3	277441.0
+r0652	nadp[m] + tdcoa[m]  <=> 1.02511 h[m] + nadph[m] + HC01412[m] 	-277168.0	277203.7	-277210.6	277249.0
+r0660	0.012985 h[m] + 3hddcoa[m]  <=> h2o[m] + dd2coa[m] 	-277423.1	276948.6	-277440.9	276966.4
+r0672	nadp[r] + xol25oh[r]  <=> 1.1398 h[r] + nadph[r] + xol7aone[r] 	-277167.7	277204.0	-277203.3	277239.7
+r0686	2 h2o[m] + nadp[m] + 1p3h5c[m]  <=> 1.13337 h[m] + nadph[m] + e4hglu[m] 	-276693.8	277677.9	-276736.4	277723.2
+r0688	h2o[c] + nad[c] + xol7ah2al[c]  <=> 2.12836 h[c] + nadh[c] + dhcholestanate[c] 	-276932.5	277439.2	-276967.6	277460.4
+r0707	3 h2o[e] + ahdt[e]  <=> 0.581089 h[e] + 3 pi[e] + HC01361[e] 	-279758.9	274612.8	-279865.8	274595.0
+r0722	nad[m] + 3hddcoa[m]  <=> 1.04774 h[m] + nadh[m] + 3oddcoa[m] 	-277169.3	277202.4	-277216.1	277222.2
+r0724	accoa[m] + dcacoa[m]  <=> 0.0491073 h[m] + coa[m] + 3oddcoa[m] 	-392000.1	391999.9	-392021.8	392033.1
+r0726	nad[m] + 3hdcoa[m]  <=> 1.04774 h[m] + nadh[m] + 3odcoa[m] 	-277169.3	277202.4	-277216.1	277222.2
+r0728	0.012985 h[m] + 3hdcoa[m]  <=> h2o[m] + dc2coa[m] 	-277423.1	276948.6	-277440.9	276966.4
+r0735	nadp[m] + dcacoa[m]  <=> 1.02511 h[m] + nadph[m] + dc2coa[m] 	-277168.0	277203.7	-277210.6	277249.0
+r0739	nad[c] + xol7ah3[c]  <=> 1.1326 h[c] + nadh[c] + xol7ah2al[c] 	-277169.0	277202.8	-277204.1	277223.9
+r0747	nadp[c] + xol7ah2[c]  <=> 1.1398 h[c] + nadph[c] + xol7ah[c] 	-277167.7	277204.0	-277196.0	277243.1
+r0750	nadp[c] + xoltriol[c]  <=> 1.1398 h[c] + nadph[c] + xoldioloneh[c] 	-277167.7	277204.0	-277196.0	277243.1
+r0752	h2o[m] + nad[m] + 34dhmald[m]  <=> 2.01912 h[m] + nadh[m] + 34dhoxmand[m] 	-276932.8	277439.0	-276979.5	277458.8
+r0754	h2o[m] + nad[m] + 3mox4hpac[m]  <=> 2.02274 h[m] + nadh[m] + homoval[m] 	-276932.8	277439.0	-276979.5	277458.8
+r0756	h2o[m] + nad[m] + 3m4hpga[m]  <=> 2.02274 h[m] + nadh[m] + 3mox4hoxm[m] 	-276932.8	277439.0	-276979.5	277458.8
+r0758	h2o[c] + nad[c] + 5hoxindact[c]  <=> 2.13138 h[c] + nadh[c] + 5hoxindoa[c] 	-276932.5	277439.3	-276967.6	277460.4
+r0774	3.99883 h[e] + HC01609[e]  <=> cpppg1[e] + 4 co2[e] 	-278726.9	275644.8	-278863.5	275615.1
+r0783	nadp[r] + lthstrl[r]  <=> 1.1398 h[r] + nadph[r] + chlstol[r] 	-277167.7	277204.0	-277203.3	277239.7
+r0784	nad[c] + xylt[c]  <=> 1.13336 h[c] + nadh[c] + xylu_L[c] 	-195198.7	196801.3	-195233.8	196822.4
+r0788	amet[c] + HC00718[c]  <=> 2.01987 h[c] + ahcys[c] + HC01842[c] 	-366678.9	366686.0	-366714.5	366721.6
+r0789	amet[c] + HC01842[c]  <=> 0.0695419 h[c] + ahcys[c] + cholp[c] 	-366677.0	366687.8	-366712.7	366723.4
+r0791	1.02525 h[m] + nadph[m] + hx2coa[m]  <=> nadp[m] + hxcoa[m] 	-277203.7	277168.0	-277249.0	277210.6
+r0796	1.13274 h[c] + nadh[c] + rib_D[c]  <=> nad[c] + rbt[c] 	-195273.3	196726.7	-195294.4	196761.8
+r0797	0.0936431 h[c] + gly[c] + dcholcoa[c]  <=> coa[c] + dgchol[c] 	-339105.0	339858.9	-339137.8	339883.1
+r1135	2.8602 h[r] + nadp[r] + 4mzym_int2[r]  <=> nadph[r] + HC02110[r] 	-277164.7	277207.0	-277200.3	277242.6
+r1154	0.000135331 h[m] + nad[m] + coa[m] + 2obut[m]  <=> nadh[m] + co2[m] + ppcoa[m] 	-339850.6	339113.3	-339912.7	339137.1
+r1156	uri[c] + dutp[c]  <=> 0.842273 h[c] + dudp[c] + ump[c] 	-357611.4	358079.4	-357647.0	358115.0
+r1377	gthrd[c] + fald[c]  <=> 0.00169288 h[c] + HC02121[c] 	-277063.4	277308.4	-277069.3	277355.9
+r1378	nad[c] + HC02121[c]  <=> 1.13928 h[c] + nadh[c] + Sfglutth[c] 	-277168.9	277202.8	-277204.0	277223.9
+r1384	h2o[c] + 0.90564 h[c] + gsn[c]  <=> nh4[c] + xtsn[c] 	-154967.5	151473.0	-155004.1	151472.7
+RE0124C	atp[c] + glcn[c]  <=> 0.79559 h[c] + adp[c] + 6pgc[c] 	-392001.3	391998.7	-392047.0	392017.5
+RE0344C	h2o[c] + stcoa[c]  <=> 1.05351 h[c] + coa[c] + ocdca[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE0383C	nadp[c] + guln[c]  <=> 1.13999 h[c] + nadph[c] + glcur[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE0452M	datp[m] + dtmp[m]  <=> 0.998002 h[m] + dadp[m] + dtdp[m] 	-392006.5	391993.5	-392042.1	392029.1
+RE0453C	datp[c] + dtdp[c]  <=> 1.01751e-05 h[c] + dadp[c] + dttp[c] 	-392000.0	392000.0	-392035.6	392035.6
+RE0453M	datp[m] + dtdp[m]  <=> 9.9856e-07 h[m] + dadp[m] + dttp[m] 	-392000.0	392000.0	-392035.6	392035.6
+RE0453N	datp[n] + dtdp[n]  <=> 1.01751e-05 h[n] + dadp[n] + dttp[n] 	-392000.0	392000.0	-392035.6	392035.6
+RE0456N	0.0591955 h[n] + utp[n] + trdrd[n]  <=> h2o[n] + dutp[n] + trdox[n] 	-277482.3	276889.4	-277518.0	276925.0
+RE0512X	nad[x] + CE2421[x]  <=> 1.20487 h[x] + nadh[x] + CE0713[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE0549C	am6sa[c]  <=> h2o[c] + 0.630464 h[c] + C10164[c] 	-277422.8	276948.9	-277440.6	276966.8
+RE0566C	1.14735 h[c] + nadph[c] + CE2251[c]  <=> nadp[c] + CE2247[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE0567C	0.0773963 h[c] + CE2247[c]  <=> h2o[c] + CE2243[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE0568C	1.14642 h[c] + nadph[c] + CE2243[c]  <=> nadp[c] + arachcoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE0570C	1.14735 h[c] + nadph[c] + CE2250[c]  <=> nadp[c] + CE2246[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE0571C	0.0773963 h[c] + CE2246[c]  <=> h2o[c] + CE2242[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE0574C	1.14735 h[c] + nadph[c] + CE2253[c]  <=> nadp[c] + CE2249[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE0575C	0.0773963 h[c] + CE2249[c]  <=> h2o[c] + CE2245[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE0576C	1.14642 h[c] + nadph[c] + CE2245[c]  <=> nadp[c] + ttccoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE0577C	h2o[c] + arachcoa[c]  <=> 1.05351 h[c] + coa[c] + arach[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE0578C	h2o[c] + docoscoa[c]  <=> 1.05351 h[c] + coa[c] + docosac[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE0579C	h2o[c] + ttccoa[c]  <=> 1.05351 h[c] + coa[c] + lgnc[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE0581C	1.14735 h[c] + nadph[c] + 3ohodcoa[c]  <=> nadp[c] + CE2248[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE0583C	1.14642 h[c] + nadph[c] + od2coa[c]  <=> nadp[c] + stcoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE0691C	0.0026881 h[c] + 4abutn[c]  <=> h2o[c] + CE1944[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE0830C	0.018489 h[c] + thbpt4acam[c]  <=> h2o[c] + CE2705[c] 	-277423.1	276948.6	-277441.0	276966.4
+RE0830N	0.018489 h[n] + thbpt4acam[n]  <=> h2o[n] + CE2705[n] 	-277423.1	276948.6	-277441.0	276966.4
+RE0908C	h2o[c] + CE2870[c]  <=> 1.07409 h[c] + so4[c] + CE2866[c] 	-277696.5	276675.2	-277744.0	276681.2
+RE0915C	h2o[c] + maltttr[c]  <=> 0.00146298 h[c] + fru[c] + malttr[c] 	-339244.7	339719.2	-339292.2	339725.1
+RE0915E	h2o[e] + maltttr[e]  <=> 0.000204323 h[e] + glc_D[e] + malttr[e] 	-277863.5	276508.3	-277911.0	276514.2
+RE0916C	h2o[c] + CE2873[c]  <=> 1.50289 h[c] + so4[c] + CE2872[c] 	-277698.1	276673.6	-277745.6	276679.6
+RE0918C	h2o[c] + CE2875[c]  <=> 1.00612 h[c] + so4[c] + CE2874[c] 	-277696.3	276675.4	-277743.8	276681.3
+RE0926E	h2o[e] + maltpt[e]  <=> 0.00020997 h[e] + glc_D[e] + maltttr[e] 	-277863.5	276508.3	-277911.0	276514.2
+RE0935E	h2o[e] + malthx[e]  <=> 0.000209332 h[e] + glc_D[e] + maltpt[e] 	-277863.5	276508.3	-277911.0	276514.2
+RE0936E	h2o[e] + CE2915[e]  <=> 0.0124775 h[e] + ile_L[e] + CE4722[e] 	-277292.8	277078.9	-277340.3	277084.9
+RE0937E	h2o[e] + CE2916[e]  <=> 0.0125252 h[e] + ile_L[e] + CE4723[e] 	-277292.8	277078.9	-277340.3	277084.9
+RE0938E	h2o[e] + CE2917[e]  <=> 0.0165521 h[e] + phe_L[e] + CE4724[e] 	-277156.7	277215.0	-277204.2	277220.9
+RE0944E	h2o[e] + malthp[e]  <=> 0.000208662 h[e] + glc_D[e] + malthx[e] 	-277863.5	276508.3	-277911.0	276514.2
+RE0958C	h2o[c] + CE2839[c]  <=> 0.00147511 h[c] + fru[c] + CE2838[c] 	-339244.7	339719.2	-339292.2	339725.1
+RE0958E	h2o[e] + CE2839[e]  <=> 0.000223553 h[e] + glc_D[e] + CE2838[e] 	-277863.5	276508.3	-277911.0	276514.2
+RE1077C	prostgh2[c]  <=> 1.85146 h[c] + CE0737[c] + CE1243[c] 	-339484.6	339479.3	-339532.1	339485.3
+RE1099C	h2o[c] + CE1352[c]  <=> 0.999995 h[c] + so4[c] + 17ahprgnlone[c] 	-277696.3	276675.4	-277743.8	276681.4
+RE1100C	h2o[c] + chsterols[c]  <=> 0.999995 h[c] + chsterol[c] + so4[c] 	-277696.3	276675.4	-277743.8	276681.4
+RE1100R	h2o[r] + chsterols[r]  <=> 0.999995 h[r] + chsterol[r] + so4[r] 	-277696.3	276675.4	-277743.8	276681.4
+RE1135C	h2o[c] + prgnlones[c]  <=> 0.999995 h[c] + so4[c] + prgnlone[c] 	-277696.3	276675.4	-277743.8	276681.4
+RE1135R	h2o[r] + prgnlones[r]  <=> 0.999995 h[r] + prgnlone[r] + so4[r] 	-277696.3	276675.4	-277743.8	276681.4
+RE1233C	0.022467 h[c] + akg[c] + Lkynr[c]  <=> h2o[c] + glu_L[c] + kynate[c] 	-392237.2	391762.8	-392272.8	391798.5
+RE1234C	accoa[c] + spmd[c]  <=> 1.48611 h[c] + coa[c] + N1aspmd[c] 	-392003.2	391996.8	-392036.1	392020.9
+RE1235C	accoa[c] + spmd[c]  <=> 1.6856 h[c] + coa[c] + n8aspmd[c] 	-392003.5	391996.5	-392036.3	392020.7
+RE1254C	h2o[c] + 0.892234 h[c] + thp2c[c]  <=> L2aadp6sa[c] 	-276947.7	277424.1	-276965.5	277441.9
+RE1447M	h2o[m] + pail45p_hs[m]  <=> pi[m] + CE5101[m] 	-278031.5	276340.2	-278079.0	276346.2
+RE1447N	h2o[n] + pail45p_hs[n]  <=> pi[n] + pail5p_hs[n] 	-278032.4	276339.3	-278079.9	276345.2
+RE1448N	h2o[n] + pail5p_hs[n]  <=> pail_hs[n] + pi[n] 	-278038.3	276333.4	-278085.8	276339.3
+RE1448R	h2o[r] + pail5p_hs[r]  <=> pi[r] + pail_hs[r] 	-278038.3	276333.4	-278085.8	276339.3
+RE1516M	fad[m] + lnlccoa[m]  <=> 0.00151653 h[m] + fadh2[m] + CE2434[m] 	-277223.5	277148.2	-277259.2	277183.8
+RE1516X	fad[x] + lnlccoa[x]  <=> 0.0124958 h[x] + fadh2[x] + CE2434[x] 	-277223.5	277148.2	-277259.1	277183.8
+RE1517M	fad[m] + CE0849[m]  <=> 0.000950653 h[m] + fadh2[m] + CE2433[m] 	-277223.5	277148.2	-277259.2	277183.8
+RE1517X	fad[x] + CE0849[x]  <=> 0.00825906 h[x] + fadh2[x] + CE2433[x] 	-277223.5	277148.2	-277259.1	277183.8
+RE1518M	fad[m] + CE0785[m]  <=> 0.013008 h[m] + fadh2[m] + CE2432[m] 	-277223.5	277148.2	-277259.1	277183.8
+RE1519X	fad[x] + dece4coa[x]  <=> 0.116973 h[x] + fadh2[x] + dec24dicoa[x] 	-277223.2	277148.5	-277258.8	277184.1
+RE1520M	h2o[m] + C05279[m]  <=> 0.0135766 h[m] + CE2420[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE1520X	h2o[x] + C05279[x]  <=> 0.122691 h[x] + CE2420[x] 	-276948.3	277423.4	-276966.1	277441.2
+RE1521M	h2o[m] + CE2432[m]  <=> 0.0053982 h[m] + CE2417[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE1521X	h2o[x] + CE2432[x]  <=> 0.0564261 h[x] + CE2417[x] 	-276948.5	277423.2	-276966.3	277441.0
+RE1522M	h2o[m] + CE2433[m]  <=> 0.0141695 h[m] + CE2418[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE1522X	h2o[x] + CE2433[x]  <=> 0.127111 h[x] + CE2418[x] 	-276948.3	277423.4	-276966.1	277441.3
+RE1523M	h2o[m] + CE2434[m]  <=> 0.012985 h[m] + CE2421[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE1523X	h2o[x] + CE2434[x]  <=> 0.117495 h[x] + CE2421[x] 	-276948.3	277423.4	-276966.1	277441.2
+RE1525M	nad[m] + CE2418[m]  <=> 1.03515 h[m] + nadh[m] + CE2422[m] 	-277169.3	277202.4	-277216.0	277222.3
+RE1525X	nad[x] + CE2418[x]  <=> 1.20357 h[x] + nadh[x] + CE2422[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE1526M	nad[m] + CE2417[m]  <=> 1.01903 h[m] + nadh[m] + CE2424[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE1526X	nad[x] + CE2417[x]  <=> 1.15225 h[x] + nadh[x] + CE2424[x] 	-277168.9	277202.8	-277204.5	277238.5
+RE1527M	nad[m] + CE2420[m]  <=> 1.02381 h[m] + nadh[m] + CE0693[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE1527X	nad[x] + CE2420[x]  <=> 1.20244 h[x] + nadh[x] + CE0693[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE1530C	dgtp[c] + duri[c]  <=> 0.833204 h[c] + dgdp[c] + dump[c] 	-392000.6	391999.4	-392036.2	392035.0
+RE1530M	dgtp[m] + duri[m]  <=> 0.943372 h[m] + dgdp[m] + dump[m] 	-392000.1	391999.9	-392035.7	392035.5
+RE1531M	0.0497258 h[m] + coa[m] + CE0713[m]  <=> accoa[m] + CE0849[m] 	-391999.9	392000.1	-392033.1	392021.8
+RE1531X	0.112012 h[x] + coa[x] + CE0713[x]  <=> accoa[x] + CE0849[x] 	-392000.3	391999.7	-392035.9	392035.3
+RE1532M	0.0359177 h[m] + coa[m] + CE2422[m]  <=> accoa[m] + CE0785[m] 	-392000.0	392000.0	-392033.2	392021.8
+RE1532X	0.100935 h[x] + coa[x] + CE2422[x]  <=> accoa[x] + CE0785[x] 	-392000.3	391999.7	-392035.9	392035.4
+RE1533M	0.024301 h[m] + coa[m] + CE2424[m]  <=> accoa[m] + C05280[m] 	-392000.0	392000.0	-392033.2	392021.7
+RE1533X	0.0971095 h[x] + coa[x] + CE2424[x]  <=> accoa[x] + C05280[x] 	-392000.3	391999.7	-392035.9	392035.4
+RE1534M	0.0245799 h[m] + coa[m] + CE0693[m]  <=> accoa[m] + dece4coa[m] 	-392000.0	392000.0	-392033.2	392021.7
+RE1534X	0.0997859 h[x] + coa[x] + CE0693[x]  <=> accoa[x] + dece4coa[x] 	-392000.3	391999.7	-392035.9	392035.4
+RE1573M	C05280[m]  <=> C05279[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE1573X	C05280[x]  <=> C05279[x] 	-277185.9	277185.9	-277203.7	277203.7
+RE1630C	amet[c] + C05298[c]  <=> 0.99345 h[c] + ahcys[c] + C05299[c] 	-366678.1	366686.8	-366713.7	366722.4
+RE1691M	cyan[m] + tsul[m]  <=> 1.3749 h[m] + so3[m] + tcynt[m] 	-196518.9	195481.1	-196554.6	195516.7
+RE1709C	0.000271634 h[c] + thbpt4acam[c]  <=> h2o[c] + CE5236[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE1709N	0.000271634 h[n] + thbpt4acam[n]  <=> h2o[n] + CE5236[n] 	-277423.1	276948.6	-277440.9	276966.4
+RE1711C	nadp[c] + CE1918[c]  <=> 1.13998 h[c] + nadph[c] + 5hoxindact[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE1796M	nad[m] + 20ahchsterol[m]  <=> 1.02324 h[m] + nadh[m] + xol7aone[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE1796R	nad[r] + xol7a[r]  <=> 1.1326 h[r] + nadh[r] + xol7aone[r] 	-277169.0	277202.8	-277204.6	277238.4
+RE1804C	nad[c] + CE0233[c]  <=> 1.1326 h[c] + nadh[c] + xol7ah2al[c] 	-277169.0	277202.8	-277204.1	277223.9
+RE1804M	nad[m] + xol7ah3[m]  <=> 1.02324 h[m] + nadh[m] + xol7ah2al[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE1807C	h2o[c] + nadp[c] + xol7ah2al[c]  <=> 2.13556 h[c] + nadph[c] + dhcholestanate[c] 	-276931.2	277440.5	-276959.5	277479.6
+RE1807M	h2o[m] + nadp[m] + xol7ah2al[m]  <=> 2.02325 h[m] + nadph[m] + dhcholestanate[m] 	-276931.5	277440.2	-276974.1	277485.5
+RE1810M	2 nadp[m] + xol7ah2[m]  <=> 2.04786 h[m] + 2 nadph[m] + xol7aone[m] 	-277150.1	277221.6	-277217.5	277294.3
+RE1834M	h2o[m] + cholcoa[m]  <=> 1.00921 h[m] + coa[m] + cholate[m] 	-339245.5	339718.4	-339279.1	339721.9
+RE1834X	h2o[x] + cholcoa[x]  <=> 0.95879 h[x] + coa[x] + cholate[x] 	-339245.6	339718.3	-339293.1	339724.3
+RE1845C	0.112902 h[c] + taur[c] + dcholcoa[c]  <=> coa[c] + tdchola[c] 	-392000.2	391999.8	-392033.1	392023.9
+RE1845X	0.163162 h[x] + taur[x] + dcholcoa[x]  <=> coa[x] + tdchola[x] 	-392000.4	391999.6	-392036.0	392035.2
+RE1846C	taur[c] + CE1589[c]  <=> 0.882029 h[c] + coa[c] + tdechola[c] 	-392001.0	391999.0	-392033.9	392023.2
+RE1860E	h2o[e] + 23cump[e]  <=> 0.927551 h[e] + 3ump[e] 	-276949.1	277422.6	-276966.9	277440.4
+RE1897C	nad[c] + spmd[c]  <=> 1.39693 h[c] + nadh[c] + CE5586[c] 	-277169.9	277201.8	-277205.0	277222.9
+RE1898C	0.3328 h[c] + CE5586[c]  <=> 13dampp[c] + CE1944[c] 	-339480.8	339483.1	-339528.3	339489.1
+RE1901R	h2o[r] + nad[r] + retinal_cis_9[r]  <=> 2.12633 h[r] + nadh[r] + CE1617[r] 	-239792.8	240307.2	-239828.4	240342.9
+RE1903R	h2o[r] + nad[r] + retinal_cis_13[r]  <=> 2.12633 h[r] + nadh[r] + 13_cis_retn[r] 	-276932.5	277439.2	-276968.1	277474.9
+RE1915C	cys_L[c] + dopaqn[c]  <=> 0.00533869 h[c] + CE1261[c] 	-276846.9	277524.9	-276852.8	277572.4
+RE1916C	gthrd[c] + dopaqn[c]  <=> 0.0128753 h[c] + CE5026[c] 	-339481.9	339482.0	-339487.8	339529.5
+RE1918C	dopa[c] + acald[c]  <=> h2o[c] + 0.0708577 h[c] + C09642[c] 	-277283.1	277088.6	-277289.0	277136.1
+RE1919C	pyr[c] + dopa[c]  <=> h2o[c] + 0.0590572 h[c] + CE5626[c] 	-339719.3	339244.6	-339725.3	339292.1
+RE1921C	CE5626[c]  <=> 1.86271 h[c] + co2[c] + CE5629[c] 	-277573.4	276798.3	-277620.9	276804.2
+RE1925C	3moxtyr[c] + acald[c]  <=> h2o[c] + 0.386322 h[c] + CE4890[c] 	-277284.1	277087.6	-277290.1	277135.1
+RE1933C	h2o[c] + CE1401[c]  <=> 0.716918 h[c] + hcys_L[c] 	-239817.7	240282.3	-239835.5	240300.1
+RE1978C	h2o[c] + C11695[c]  <=> 0.133153 h[c] + arachd[c] + etha[c] 	-315901.8	316179.2	-315949.3	316185.1
+RE2030M	accoa[m] + met_L[m]  <=> 0.994826 h[m] + coa[m] + C02712[m] 	-392000.8	391999.2	-392022.5	392032.4
+RE2034C	0.000963303 h[c] + akg[c] + C02356[c]  <=> 2obut[c] + glu_L[c] 	-392000.0	392000.0	-392035.6	392035.6
+RE2069C	prostge2[c]  <=> h2o[c] + 0.000136573 h[c] + HC02205[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE2078M	5.16359e-05 h[m] + prostge2[m]  <=> h2o[m] + HC02203[m] 	-277423.1	276948.6	-277440.9	276966.4
+RE2079R	0.00142867 h[r] + prostgd2[r]  <=> h2o[r] + C05957[r] 	-277423.1	276948.6	-277440.9	276966.4
+RE2080C	C05957[c]  <=> h2o[c] + 0.000135112 h[c] + CE4877[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE2111M	3mb2coa[m] + gly[m]  <=> 0.900473 h[m] + coa[m] + CE2026[m] 	-339105.4	339858.5	-339127.1	339891.7
+RE2130C	dopa[c] + fald[c]  <=> h2o[c] + 0.0805436 h[c] + CE2172[c] 	-277300.8	277070.9	-277306.8	277118.4
+RE2154C	1.1326 h[c] + nadh[c] + C03681[c]  <=> nad[c] + CE2211[c] 	-277202.8	277169.0	-277223.9	277204.1
+RE2223M	accoa[m] + cys_L[m]  <=> 0.871497 h[m] + coa[m] + CE1310[m] 	-339143.4	339820.5	-339165.1	339853.7
+RE2269E	2 h2o[e] + CE5786[e]  <=> 0.025139 h[e] + leu_L[e] + phe_L[e] + CE5788[e] 	-277267.2	277104.5	-277344.4	277098.6
+RE2270E	h2o[e] + CE5786[e]  <=> 0.0128602 h[e] + leu_L[e] + CE5789[e] 	-277297.1	277074.6	-277344.6	277080.6
+RE2273E	h2o[e] + CE5797[e]  <=> 0.01473 h[e] + leu_L[e] + CE5798[e] 	-277297.1	277074.7	-277344.6	277080.6
+RE2296C	gthrd[c] + CE5276[c]  <=> 0.0256969 h[c] + CE5025[c] 	-339481.9	339482.0	-339487.9	339529.5
+RE2304E	0.0292427 h[e] + 2 h2o[e] + CE5786[e]  <=> leu_L[e] + CE5787[e] + CE5791[e] 	-339356.8	339607.2	-339433.9	339601.2
+RE2327C	q10[c] + CE5021[c]  <=> 0.00067942 h[c] + q10h2[c] + CE5022[c] 	-392000.0	392000.0	-392035.6	392035.6
+RE2346C	5.48836e-05 h[c] + CE2576[c]  <=> h2o[c] + CE2577[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE2349C	0.0380572 h[c] + akg[c] + hLkynr[c]  <=> h2o[c] + glu_L[c] + C02470[c] 	-392237.3	391762.7	-392272.9	391798.3
+RE2386C	amet[c] + C05301[c]  <=> 0.99345 h[c] + ahcys[c] + C05302[c] 	-366678.1	366686.8	-366713.7	366722.4
+RE2407C	1.1398 h[c] + nadph[c] + lanost[c]  <=> nadp[c] + C05109[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE2410C	1.1398 h[c] + nadph[c] + ddsmsterol[c]  <=> nadp[c] + dsmsterol[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE2426C	h2o[c] + melatn[c]  <=> 2.10397 h[c] + 6hoxmelatn[c] 	-276949.9	277421.8	-276967.7	277439.7
+RE2427M	ivcoa[m] + gly[m]  <=> 0.922504 h[m] + coa[m] + CE4968[m] 	-339105.3	339858.6	-339127.0	339891.8
+RE2428M	2mbcoa[m] + gly[m]  <=> 0.925022 h[m] + coa[m] + CE4970[m] 	-339105.3	339858.6	-339127.0	339891.8
+RE2429M	ibcoa[m] + gly[m]  <=> 0.924286 h[m] + coa[m] + CE4969[m] 	-339105.3	339858.6	-339127.0	339891.8
+RE2445E	h2o[e] + CE5867[e]  <=> 0.131822 h[e] + CE5868[e] + CE5869[e] 	-339245.1	339718.8	-339292.6	339724.7
+RE2514E	1.34389 h[e] + CE4633[e] + no2[e]  <=> h2o[e] + CE4881[e] 	-277388.3	276983.5	-277394.2	277031.0
+RE2526C	1.21152 h[c] + nadph[c] + CE4888[c]  <=> nadp[c] + CE5665[c] 	-277204.0	277167.7	-277243.0	277196.0
+RE2541C	h2o[c] + CE5854[c]  <=> 0.998839 h[c] + glcur[c] + CE1926[c] 	-339245.5	339718.4	-339293.0	339724.4
+RE2541E	h2o[e] + CE5854[e]  <=> 0.999377 h[e] + glcur[e] + CE1926[e] 	-339245.5	339718.4	-339293.0	339724.4
+RE2563C	h2o[c] + C13856[c]  <=> 0.99585 h[c] + arachd[c] + glyc[c] 	-277447.0	276924.7	-277494.5	276930.6
+RE2624M	CE5166[m]  <=> cholcoar[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE2624X	CE5166[x]  <=> cholcoar[x] 	-277185.9	277185.9	-277203.7	277203.7
+RE2625C	nad[c] + xoltetrol[c]  <=> 1.1326 h[c] + nadh[c] + CE4872[c] 	-277169.0	277202.8	-277204.1	277223.9
+RE2625M	nad[m] + xoltetrol[m]  <=> 1.02324 h[m] + nadh[m] + CE4872[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE2626C	h2o[c] + nadp[c] + CE4872[c]  <=> 2.13718 h[c] + nadph[c] + thcholstoic[c] 	-276931.2	277440.5	-276959.5	277479.6
+RE2626M	h2o[m] + nadp[m] + CE4872[m]  <=> 2.02351 h[m] + nadph[m] + thcholstoic[m] 	-276931.5	277440.2	-276974.1	277485.5
+RE2640C	h2o[c] + C02712[c]  <=> 0.0889427 h[c] + ac[c] + met_L[c] 	-339244.5	339719.4	-339292.0	339725.4
+RE2644C	h2o[c] + CE1556[c]  <=> 0.0458188 h[c] + ac[c] + asn_L[c] 	-277474.8	276897.0	-277522.3	276902.9
+RE2649C	h2o[c] + ppcoa[c]  <=> 1.05557 h[c] + coa[c] + ppa[c] 	-339245.3	339718.6	-339290.1	339713.1
+RE2655R	retinal[r]  <=> retinal_cis_13[r] 	-240046.1	240053.8	-240064.0	240071.7
+RE2658C	retn[c]  <=> CE1617[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE2658R	retn[r]  <=> CE1617[r] 	-277185.9	277185.9	-277203.7	277203.7
+RE2659R	retn[r]  <=> 13_cis_retn[r] 	-277185.9	277185.9	-277203.7	277203.7
+RE2660C	0.0182174 h[c] + CE5236[c]  <=> CE2705[c] 	-277185.9	277185.8	-277203.7	277203.6
+RE2660N	0.0182174 h[n] + CE5236[n]  <=> CE2705[n] 	-277185.9	277185.8	-277203.7	277203.6
+RE2705C	no2[c] + CE7047[c]  <=> 0.51119 h[c] + CE5986[c] 	-277154.7	277217.0	-277160.6	277264.5
+RE2759X	CE5125[x]  <=> CE5126[x] 	-277185.9	277185.9	-277203.7	277203.7
+RE2766C	nadp[c] + tststerone[c]  <=> 1.1398 h[c] + nadph[c] + andrstndn[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE2799C	nadp[c] + prostgf2[c]  <=> 1.1398 h[c] + nadph[c] + prostgh2[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE2814M	nad[m] + xol27oh[m]  <=> 1.02324 h[m] + nadh[m] + xol7aone[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE2814R	nad[r] + xol27oh[r]  <=> 1.1326 h[r] + nadh[r] + xol7aone[r] 	-277169.0	277202.8	-277204.6	277238.4
+RE2888C	h2o2[c] + urate[c]  <=> 1.83972 h[c] + urea[c] + CE0074[c] 	-195712.2	196287.8	-195747.8	196323.4
+RE2954C	0.938048 h[c] + pep[c] + dtdp[c]  <=> pyr[c] + dttp[c] 	-391999.1	392000.9	-392034.7	392036.5
+RE2958C	h2o[r] + prostgi2[r]  <=> 0.000825107 h[r] + CE0955[r] 	-276948.6	277423.1	-276966.4	277440.9
+RE2986X	h2o[x] + CE5114[x]  <=> 0.117495 h[x] + CE4791[x] 	-276948.3	277423.4	-276966.1	277441.2
+RE2987X	nad[x] + CE4791[x]  <=> 1.20487 h[x] + nadh[x] + CE4793[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE2988X	0.111109 h[x] + coa[x] + CE4793[x]  <=> accoa[x] + lnlncgcoa[x] 	-392000.3	391999.7	-392035.9	392035.3
+RE2989X	0.104219 h[x] + coa[x] + CE2439[x]  <=> accoa[x] + CE2440[x] 	-392000.3	391999.7	-392035.9	392035.3
+RE2990X	h2o[x] + CE2437[x]  <=> 0.122691 h[x] + CE2438[x] 	-276948.3	277423.4	-276966.1	277441.2
+RE2991X	nad[x] + CE2438[x]  <=> 1.20244 h[x] + nadh[x] + CE2439[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE2992M	0.00059285 h[m] + CE2442[m]  <=> CE2433[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE2992X	0.00441999 h[x] + CE2442[x]  <=> CE2433[x] 	-277185.9	277185.8	-277203.7	277203.7
+RE2993X	1.21656 h[x] + nadph[x] + CE2441[x]  <=> nadp[x] + CE2442[x] 	-277204.3	277167.5	-277239.9	277203.1
+RE2996X	1.32027 h[x] + nadph[x] + CE4795[x]  <=> nadp[x] + CE5116[x] 	-277204.5	277167.2	-277240.2	277202.8
+RE2999M	CE2432[m]  <=> CE5117[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE3000M	CE5117[m]  <=> 3.62323e-06 h[m] + CE5118[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE3001M	1.03602 h[m] + nadph[m] + CE5118[m]  <=> nadp[m] + CE5119[m] 	-277203.8	277168.0	-277249.0	277210.6
+RE3002X	CE5114[x]  <=> CE5116[x] 	-277185.9	277185.9	-277203.7	277203.7
+RE3003M	CE5120[m]  <=> CE5119[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE3004M	h2o[m] + CE5120[m]  <=> 0.012985 h[m] + CE4790[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE3005M	nad[m] + CE4790[m]  <=> 1.04774 h[m] + nadh[m] + CE4792[m] 	-277169.3	277202.4	-277216.1	277222.2
+RE3006M	0.0497132 h[m] + coa[m] + CE4792[m]  <=> accoa[m] + CE4794[m] 	-391999.9	392000.1	-392033.1	392021.8
+RE3010C	nad[c] + leuktrB4[c]  <=> 1.1326 h[c] + nadh[c] + CE4990[c] 	-277169.0	277202.8	-277204.1	277223.9
+RE3010M	nad[m] + leuktrB4[m]  <=> 1.02324 h[m] + nadh[m] + CE4990[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE3010X	nad[x] + leuktrB4[x]  <=> 1.19653 h[x] + nadh[x] + CE4990[x] 	-277168.8	277203.0	-277204.4	277238.6
+RE3011M	nad[m] + leuktrB4woh[m]  <=> 1.02324 h[m] + nadh[m] + CE2053[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE3011R	nad[r] + leuktrB4woh[r]  <=> 1.1326 h[r] + nadh[r] + CE2053[r] 	-277169.0	277202.8	-277204.6	277238.4
+RE3012C	h2o[c] + nad[c] + CE2053[c]  <=> 2.13005 h[c] + nadh[c] + leuktrB4wcooh[c] 	-276932.5	277439.2	-276967.6	277460.4
+RE3012M	h2o[m] + nad[m] + CE2053[m]  <=> 2.02283 h[m] + nadh[m] + leuktrB4wcooh[m] 	-276932.8	277439.0	-276979.5	277458.8
+RE3012R	h2o[r] + nad[r] + CE2053[r]  <=> 2.13005 h[r] + nadh[r] + leuktrB4wcooh[r] 	-276932.5	277439.2	-276968.1	277474.9
+RE3016R	h2o[r] + 0.997336 h[r] + leuktrB4wcooh[r]  <=> CE3554[r] 	-276947.9	277423.8	-276965.7	277441.6
+RE3017R	h2o[r] + CE2053[r]  <=> 7.75291e-06 h[r] + CE2056[r] 	-276948.6	277423.1	-276966.4	277440.9
+RE3036C	5.44758e-05 h[c] + 15HPET[c]  <=> CE7172[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3038C	h2o[c] + 0.000863739 h[c] + CE2567[c]  <=> C06315[c] 	-276948.6	277423.1	-276966.4	277440.9
+RE3040C	h2o[c] + CE2567[c]  <=> 4.48262e-05 h[c] + C06314[c] 	-276948.6	277423.1	-276966.4	277440.9
+RE3050R	h2o[r] + nad[r] + retinal_cis_13[r]  <=> 2.12633 h[r] + nadh[r] + retn[r] 	-276932.5	277439.2	-276968.1	277474.9
+RE3051C	cpppg1[c]  <=> 5.99751 h[c] + C05769[c] 	-277190.3	277181.4	-277208.1	277199.2
+RE3073X	nad[x] + h2o[x] + pristanal[x]  <=> 2.18663 h[x] + nadh[x] + prist[x] 	-276932.3	277439.4	-276967.9	277475.1
+RE3081X	h2o[x] + CE2038[x]  <=> 0.00592054 h[x] + CE5934[x] 	-276948.6	277423.1	-276966.4	277440.9
+RE3082X	nad[x] + CE5934[x]  <=> 1.20272 h[x] + nadh[x] + C07297[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE3104C	1.14642 h[c] + nadph[c] + CE5114[c]  <=> nadp[c] + dlnlcgcoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3106C	1.14642 h[c] + nadph[c] + CE4812[c]  <=> nadp[c] + eicostetcoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3108C	nadp[c] + CE2209[c]  <=> 1.1398 h[c] + nadph[c] + 5adtststerone[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE3112C	1.14735 h[c] + nadph[c] + CE4811[c]  <=> nadp[c] + CE4810[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3113C	0.0773963 h[c] + CE4810[c]  <=> h2o[c] + CE4812[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3119C	1.14341 h[c] + nadph[c] + CE4821[c]  <=> nadp[c] + clpndcoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3121C	1.1453 h[c] + nadph[c] + CE4819[c]  <=> nadp[c] + CE4817[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3122C	0.0840109 h[c] + CE4817[c]  <=> h2o[c] + CE4821[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3134C	1.1398 h[c] + nadph[c] + CE2313[c]  <=> nadp[c] + CE2314[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3136C	zymstnl[c]  <=> lthstrl[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3152C	1.1453 h[c] + nadph[c] + CE4833[c]  <=> nadp[c] + CE4831[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3153C	0.0840109 h[c] + CE4831[c]  <=> h2o[c] + CE4835[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3154C	1.14735 h[c] + nadph[c] + CE4834[c]  <=> nadp[c] + CE4849[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3156X	nad[x] + CE4832[x]  <=> 1.20487 h[x] + nadh[x] + CE4820[x] 	-277168.7	277203.0	-277204.4	277238.6
+RE3158X	2.11201 h[x] + coa[x] + CE4820[x]  <=> accoa[x] + adrncoa[x] 	-392001.2	391998.8	-392036.8	392034.4
+RE3159X	h2o[x] + CE4838[x]  <=> 0.122691 h[x] + CE4832[x] 	-276948.3	277423.4	-276966.1	277441.2
+RE3162C	1.14735 h[c] + nadph[c] + CE4841[c]  <=> nadp[c] + CE4840[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3163C	0.0773963 h[c] + CE4840[c]  <=> h2o[c] + CE4842[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3164C	1.14642 h[c] + nadph[c] + CE4842[c]  <=> nadp[c] + CE4843[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3166C	1.14735 h[c] + nadph[c] + CE4845[c]  <=> nadp[c] + CE4844[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3167C	0.0773963 h[c] + CE4844[c]  <=> h2o[c] + CE4846[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3168C	1.14642 h[c] + nadph[c] + CE4846[c]  <=> nadp[c] + CE4847[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3169C	1.14642 h[c] + nadph[c] + CE4852[c]  <=> nadp[c] + CE4854[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3171C	1.14735 h[c] + nadph[c] + CE4850[c]  <=> nadp[c] + CE4848[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3172C	0.0773963 h[c] + CE4848[c]  <=> h2o[c] + CE4852[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3173C	1.14642 h[c] + nadph[c] + CE4853[c]  <=> nadp[c] + CE4855[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3175C	1.14735 h[c] + nadph[c] + CE4851[c]  <=> nadp[c] + CE4849[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3176C	0.0773963 h[c] + CE4849[c]  <=> h2o[c] + CE4853[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3177M	nad[m] + CE4801[m]  <=> 1.0552 h[m] + nadh[m] + CE4803[m] 	-277169.3	277202.4	-277216.0	277222.3
+RE3178M	nad[m] + CE4800[m]  <=> 1.02383 h[m] + nadh[m] + CE4796[m] 	-277169.3	277202.5	-277216.0	277222.3
+RE3179M	nad[m] + CE4802[m]  <=> 1.04975 h[m] + nadh[m] + CE4804[m] 	-277169.2	277202.5	-277216.0	277222.3
+RE3180C	co2[c] + 3 C05109[c]  <=> 2 h2o[c] + 8 h[c] + 3 CE2313[c] + 4 CE5049[c] 	-1143350.4	1142382.8	-1143510.7	1142418.4
+RE3185M	fad[m] + CE4798[m]  <=> 0.0126985 h[m] + fadh2[m] + CE4799[m] 	-277223.5	277148.2	-277259.1	277183.8
+RE3186M	fad[m] + CE4808[m]  <=> 0.00161235 h[m] + fadh2[m] + CE4807[m] 	-277223.5	277148.2	-277259.2	277183.8
+RE3189M	0.0446648 h[m] + coa[m] + CE4803[m]  <=> accoa[m] + CE4797[m] 	-391999.9	392000.1	-392033.1	392021.8
+RE3190M	0.0400823 h[m] + coa[m] + CE4796[m]  <=> ppcoa[m] + CE4808[m] 	-392000.0	392000.0	-392033.2	392021.7
+RE3191M	0.040006 h[m] + coa[m] + CE4804[m]  <=> accoa[m] + ibcoa[m] 	-392000.0	392000.0	-392033.2	392021.7
+RE3192M	h2o[m] + CE4806[m]  <=> 0.00225551 h[m] + CE4801[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE3193M	h2o[m] + CE4799[m]  <=> 0.00061898 h[m] + CE4800[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE3194M	h2o[m] + CE4807[m]  <=> 0.0024225 h[m] + CE4802[m] 	-276948.6	277423.1	-276966.4	277440.9
+RE3195M	CE4798[m]  <=> CE4797[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE3198C	1.13846 h[c] + nadh[c] + L_dpchrm[c]  <=> nad[c] + 2c23dh56dhoxin[c] 	-277202.8	277168.9	-277223.9	277204.0
+RE3218C	0.999995 h[c] + 5adtststerone[c] + so4[c]  <=> h2o[c] + 5adtststerones[c] 	-276675.4	277696.3	-276681.4	277743.8
+RE3220C	0.999995 h[c] + andrstrn[c] + so4[c]  <=> h2o[c] + CE6031[c] 	-276675.4	277696.3	-276681.4	277743.8
+RE3227C	1.14735 h[c] + nadph[c] + CE5144[c]  <=> nadp[c] + CE5148[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3228C	0.0773963 h[c] + CE5148[c]  <=> h2o[c] + CE5150[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3229C	1.14642 h[c] + nadph[c] + CE5150[c]  <=> nadp[c] + CE5151[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3230C	1.14735 h[c] + nadph[c] + CE5152[c]  <=> nadp[c] + CE5153[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3231C	0.0773963 h[c] + CE5153[c]  <=> h2o[c] + CE5154[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3232C	1.14642 h[c] + nadph[c] + CE5154[c]  <=> nadp[c] + CE5155[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3234C	1.14735 h[c] + nadph[c] + CE5156[c]  <=> nadp[c] + CE5157[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3235C	0.0773963 h[c] + CE5157[c]  <=> h2o[c] + CE5158[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3236C	1.14642 h[c] + nadph[c] + CE5158[c]  <=> nadp[c] + nrvnccoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3237C	h2o[c] + nrvnccoa[c]  <=> 1.05351 h[c] + coa[c] + nrvnc[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE3238C	h2o[c] + CE5151[c]  <=> 1.05351 h[c] + coa[c] + CE2510[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE3239C	h2o[c] + CE5155[c]  <=> 1.05351 h[c] + coa[c] + doco13ac[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE3242C	1.14735 h[c] + nadph[c] + CE5160[c]  <=> nadp[c] + CE5161[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3243C	0.0773963 h[c] + CE5161[c]  <=> h2o[c] + CE5162[c] 	-277423.3	276948.4	-277441.1	276966.2
+RE3244C	1.14642 h[c] + nadph[c] + CE5162[c]  <=> nadp[c] + odecoa[c] 	-277204.1	277167.7	-277243.1	277196.0
+RE3245C	h2o[c] + odecoa[c]  <=> 1.05297 h[c] + coa[c] + ocdcea[c] 	-339245.3	339718.6	-339290.1	339713.0
+RE3252C	1.73565e-05 h[c] + CE4874[c]  <=> h2o[c] + CE4872[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE3258C	h2o[c] + C14826[c]  <=> 3.7972e-07 h[c] + CE2049[c] 	-276948.6	277423.1	-276966.4	277440.9
+RE3259C	h2o[c] + C14825[c]  <=> 3.79731e-07 h[c] + CE2047[c] 	-276948.6	277423.1	-276966.4	277440.9
+RE3268R	h2o[r] + pail345p_hs[r]  <=> pi[r] + pail35p_hs[r] 	-278026.5	276345.2	-278074.0	276351.2
+RE3269C	h2o[c] + pail35p_hs[c]  <=> pi[c] + pail5p_hs[c] 	-278032.4	276339.3	-278068.0	276344.1
+RE3270C	h2o[c] + pail3p_hs[c]  <=> pi[c] + pail_hs[c] 	-278038.3	276333.4	-278074.0	276338.1
+RE3272N	h2o[n] + pail4p_hs[n]  <=> pail_hs[n] + pi[n] 	-278038.3	276333.4	-278085.8	276339.3
+RE3273C	h2o[c] + pail_hs[c]  <=> h[c] + pa_hs[c] + inost[c] 	-324795.8	325262.6	-324843.3	325268.6
+RE3273R	h2o[r] + pail_hs[r]  <=> h[r] + pa_hs[r] + inost[r] 	-324795.8	325262.6	-324843.3	325268.6
+RE3307C	nadp[c] + CE2445[c]  <=> 1.14067 h[c] + nadph[c] + CE5178[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE3346C	2.12998 h[c] + nadh[c] + thcholstoic[c]  <=> h2o[c] + nad[c] + CE4872[c] 	-277439.2	276932.5	-277460.4	276967.6
+RE3352C	h2o[c] + 0.280684 h[c] + C11821[c]  <=> co2[c] + alltn[c] 	-277335.5	277036.2	-277383.0	277042.2
+RE3381C	h2o[c] + CE5853[c]  <=> 0.998526 h[c] + glcur[c] + CE1925[c] 	-339245.5	339718.4	-339293.0	339724.4
+RE3381E	h2o[e] + CE5853[e]  <=> 0.999191 h[e] + glcur[e] + CE1925[e] 	-339245.5	339718.4	-339293.0	339724.4
+RE3411C	h2o[c] + 1.00447 h[c] + C04717[c]  <=> CE2576[c] + C01601[c] 	-339244.0	339719.9	-339291.5	339725.9
+RE3413C	CE2006[c]  <=> CE6506[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3417C	1.00404 h[c] + CE6504[c]  <=> CE6506[c] + C08261[c] 	-339310.2	339653.7	-339357.7	339659.6
+RE3420C	CE6504[c]  <=> 0.995959 h[c] + CE2577[c] + C08261[c] 	-339311.7	339652.2	-339359.2	339658.2
+RE3421R	C05957[r]  <=> 0.000135112 h[r] + CE4876[r] 	-277185.9	277185.9	-277203.7	277203.7
+RE3422C	prostgd2[c]  <=> h2o[c] + 7.08121e-05 h[c] + CE5304[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE3423C	1.03029e-13 h[c] + CE4876[c]  <=> h2o[c] + CE4877[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE3430C	1.13219 h[c] + nadh[c] + CE4990[c]  <=> nad[c] + CE5944[c] 	-277202.8	277169.0	-277223.9	277204.1
+RE3430M	1.02317 h[m] + nadh[m] + CE4990[m]  <=> nad[m] + CE5944[m] 	-277202.5	277169.3	-277222.3	277216.0
+RE3430X	1.19587 h[x] + nadh[x] + CE4990[x]  <=> nad[x] + CE5944[x] 	-277203.0	277168.8	-277238.6	277204.4
+RE3431C	CE4987[c]  <=> CE4988[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3432C	1.1398 h[c] + nadph[c] + CE5944[c]  <=> nadp[c] + CE4987[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3432M	1.02393 h[m] + nadph[m] + CE5944[m]  <=> nadp[m] + CE4988[m] 	-277203.7	277168.0	-277249.0	277210.6
+RE3432X	1.21137 h[x] + nadph[x] + CE5944[x]  <=> nadp[x] + CE4988[x] 	-277204.2	277167.5	-277239.9	277203.1
+RE3437C	CE5946[c]  <=> h2o[c] + 0.997611 h[c] + CE5947[c] 	-277423.8	276947.9	-277441.6	276965.7
+RE3470C	nadp[c] + leuktrB4[c]  <=> 1.14067 h[c] + nadph[c] + CE7097[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE3470M	nadp[m] + leuktrB4[m]  <=> 1.02407 h[m] + nadph[m] + CE7097[m] 	-277168.0	277203.7	-277210.6	277249.0
+RE3476C	nadp[c] + C04805[c]  <=> 1.1405 h[c] + nadph[c] + CE2084[c] 	-277167.7	277204.0	-277196.0	277243.1
+RE3476M	nadp[m] + C04805[m]  <=> 1.02404 h[m] + nadph[m] + CE2084[m] 	-277168.0	277203.7	-277210.6	277249.0
+RE3486C	0.000454486 h[c] + CE6508[c]  <=> h2o[c] + CE7079[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE3490C	5.48827e-05 h[c] + 15HPET[c]  <=> h2o[c] + CE7082[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE3491C	h2o[c] + 0.000864355 h[c] + CE7079[c]  <=> CE7083[c] 	-276948.6	277423.1	-276966.4	277440.9
+RE3493C	2.0009 h[c] + CE6508[c]  <=> h2o[c] + CE7085[c] 	-277421.6	276950.1	-277439.4	276967.9
+RE3496C	CE7088[c]  <=> 0.000185999 h[c] + HC02213[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3520E	12HPET[e]  <=> 0.00109188 h[e] + C04849[e] 	-277185.9	277185.9	-277203.7	277203.7
+RE3524R	0.00129356 h[r] + prostgd2[r]  <=> h2o[r] + CE4876[r] 	-277423.1	276948.6	-277440.9	276966.4
+RE3556C	HC02202[c]  <=> 0.000263832 h[c] + HC02206[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3565C	HC02206[c]  <=> 0.000253915 h[c] + HC02204[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3566C	HC02203[c]  <=> 0.000235225 h[c] + HC02207[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3567C	HC02207[c]  <=> 0.000226371 h[c] + HC02205[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3568C	0.000364554 h[c] + prostge1[c]  <=> h2o[c] + HC02202[c] 	-277423.1	276948.6	-277440.9	276966.4
+RE3570C	2.00005 h[c] + CE6230[c]  <=> h2o[c] + CE2537[c] 	-277421.6	276950.1	-277439.4	276967.9
+RE3587C	CE6234[c]  <=> 0.000208626 h[c] + prostge1[c] 	-277185.9	277185.9	-277203.7	277203.7
+RE3597C	1.13911 h[c] + nadph[c] + leuktrB4wcooh[c]  <=> nadp[c] + CE5947[c] 	-277204.0	277167.7	-277243.1	277196.0
+RE3597M	1.02382 h[m] + nadph[m] + leuktrB4wcooh[m]  <=> nadp[m] + CE5947[m] 	-277203.7	277168.0	-277249.0	277210.6
+RE3597X	1.21027 h[x] + nadph[x] + leuktrB4wcooh[x]  <=> nadp[x] + CE5947[x] 	-277204.2	277167.5	-277239.9	277203.1
+RE3628M	dc2coa[m]  <=> dece3coa[m] 	-277185.9	277185.9	-277203.7	277203.7
+RE3630C	h2o[c] + CE2088[c]  <=> 0.0646634 h[c] + ac[c] + CE2089[c] 	-339244.7	339719.3	-339292.2	339725.2
+ADPCOACROT	0.029596 h[x] + crn[x] + adpcoa[x]  <=> coa[x] + c6dc[x] 	-349837.1	350054.6	-349872.8	350090.3
+C100CPT1	crn[c] + dcacoa[c]  <=> 0.0590543 h[c] + coa[c] + c10crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C101CPT1	0.103459 h[c] + crn[c] + c101coa[c]  <=> coa[c] + c101crn[c] 	-349825.5	350066.3	-349858.3	350090.4
+C102CPT1	0.0192721 h[c] + crn[c] + decdicoa[c]  <=> coa[c] + decdicrn[c] 	-349837.1	350054.7	-349870.0	350078.8
+C10DCc	0.016799 h[c] + crn[c] + sebcoa[c]  <=> coa[c] + c10dc[c] 	-349837.1	350054.7	-349870.0	350078.8
+C10OHc	0.0246381 h[c] + crn[c] + 3hdcoa[c]  <=> coa[c] + 3deccrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C120CPT1	crn[c] + ddcacoa[c]  <=> 0.0590543 h[c] + coa[c] + ddeccrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C121CPT1	crn[c] + dd2coa[c]  <=> 0.0524361 h[c] + coa[c] + ddece1crn[c] 	-349836.9	350054.8	-349869.8	350079.0
+C12OHc	0.0247078 h[c] + crn[c] + 3hddcoa[c]  <=> coa[c] + 3ddcrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C140CPT1	crn[c] + tdcoa[c]  <=> 0.0590543 h[c] + coa[c] + ttdcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C141CPT1	crn[c] + tetdece1coa[c]  <=> 0.0523869 h[c] + coa[c] + tetdece1crn[c] 	-349836.9	350054.8	-349869.8	350079.0
+C141OHc	0.0239142 h[c] + crn[c] + 3tetd7ecoa[c]  <=> coa[c] + 3tetd7ecoacrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C142CPT1	0.103389 h[c] + crn[c] + tetdec2coa[c]  <=> coa[c] + tetdec2crn[c] 	-349825.5	350066.3	-349858.3	350090.4
+C142OHc	0.022111 h[c] + crn[c] + 3ttetddcoa[c]  <=> coa[c] + 3ttetddcoacrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C14OHc	0.0247078 h[c] + crn[c] + 3htdcoa[c]  <=> coa[c] + 3tdcrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C161OHc	0.0246381 h[c] + crn[c] + 3hdeccoa[c]  <=> coa[c] + 3hdececrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C162OHc	0.0239142 h[c] + crn[c] + 3thexddcoa[c]  <=> coa[c] + 3thexddcoacrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C16DCc	0.0182792 h[c] + crn[c] + hexdicoa[c]  <=> coa[c] + c16dc[c] 	-349837.1	350054.7	-349870.0	350078.8
+C16OHc	0.0246381 h[c] + crn[c] + 3hexdcoa[c]  <=> coa[c] + 3hexdcrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C181OHc	0.0246381 h[c] + crn[c] + 3octdece1coa[c]  <=> coa[c] + 3octdece1crn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C182OHc	0.0247078 h[c] + crn[c] + 3ocddcoa[c]  <=> coa[c] + 3octdec2crn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C18OHc	0.0247078 h[c] + crn[c] + 3hodcoa[c]  <=> coa[c] + 3octdeccrn[c] 	-349837.1	350054.6	-349870.0	350078.8
+C30CPT1	ppcoa[c] + crn[c]  <=> 0.0591277 h[c] + coa[c] + pcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C40CPT1	crn[c] + btcoa[c]  <=> 0.0690972 h[c] + coa[c] + c4crn[c] 	-349836.9	350054.9	-349869.7	350079.0
+C4CRNCPT2	0.0252267 h[m] + coa[m] + c4crn[m]  <=> btcoa[m] + crn[m] 	-350054.7	349837.1	-350087.9	349858.8
+C4OHc	0.0191218 h[c] + crn[c] + 3hbcoa_R[c]  <=> coa[c] + 3bcrn[c] 	-349837.1	350054.7	-349870.0	350078.8
+C4x	crn[x] + btcoa[x]  <=> 0.100669 h[x] + coa[x] + c4crn[x] 	-349836.8	350055.0	-349872.4	350090.6
+C50CPT1	crn[c] + ivcoa[c]  <=> 0.0761125 h[c] + coa[c] + ivcrn[c] 	-349836.9	350054.9	-349869.7	350079.1
+C51CPT1	crn[c] + 2mb2coa[c]  <=> 0.0690134 h[c] + coa[c] + c51crn[c] 	-349836.9	350054.9	-349869.7	350079.0
+C60CPT1	crn[c] + hxcoa[c]  <=> 0.0764316 h[c] + coa[c] + c6crn[c] 	-349836.9	350054.9	-349869.7	350079.1
+C6COAt	crn[x] + hxcoa[x]  <=> 0.111187 h[x] + coa[x] + c6crn[x] 	-349836.7	350055.0	-349872.4	350090.7
+C6DCc	0.01784 h[c] + crn[c] + adpcoa[c]  <=> coa[c] + c6dc[c] 	-349837.1	350054.7	-349870.0	350078.8
+C80CPT1	crn[c] + occoa[c]  <=> 0.0590543 h[c] + coa[c] + c8crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+C81CPT1	crn[c] + c81coa[c]  <=> 0.0526317 h[c] + coa[c] + c81crn[c] 	-349836.9	350054.8	-349869.8	350079.0
+C8DCc	0.0183371 h[c] + crn[c] + sbcoa[c]  <=> coa[c] + c8dc[c] 	-349837.1	350054.7	-349870.0	350078.8
+FAOXC12DCc	0.0181256 h[c] + crn[c] + c12dccoa[c]  <=> coa[c] + c12dc[c] 	-349837.1	350054.7	-349870.0	350078.8
+FAOXC12DCx	0.0294301 h[x] + crn[x] + c12dccoa[x]  <=> coa[x] + c12dc[x] 	-349837.1	350054.6	-349872.8	350090.3
+FAOXC3DC	0.026815 h[c] + crn[c] + malcoa[c]  <=> coa[c] + c3dc[c] 	-349837.1	350054.6	-349870.0	350078.8
+FAOXC4C4DCc	0.0252237 h[c] + crn[c] + succoa[c]  <=> coa[c] + c4dc[c] 	-349837.1	350054.6	-349870.0	350078.8
+FAOXC5C5DCc	1.01534 h[c] + crn[c] + glutcoa[c]  <=> coa[c] + c5dc[c] 	-349836.4	350055.4	-349869.2	350079.6
+FAOXC5OHc	crn[c] + 3ivcoa[c]  <=> 0.0559344 h[c] + coa[c] + 3ivcrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+OCD11COACPT1	crn[c] + octd11ecoa[c]  <=> 0.0591679 h[c] + coa[c] + ocdececrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+OCD11CRNCPT2	0.0233937 h[m] + coa[m] + ocdececrn[m]  <=> crn[m] + octd11ecoa[m] 	-350054.7	349837.1	-350087.9	349858.8
+OCTDECCPT1	crn[c] + octdececoa[c]  <=> 2.05905 h[c] + coa[c] + octdececrn[c] 	-349923.9	349967.9	-349956.8	349992.0
+OCTDECCPT2	2.02338 h[m] + coa[m] + octdececrn[m]  <=> crn[m] + octdececoa[m] 	-349958.2	349933.5	-349991.4	349955.3
+SEBCOACROT	0.0271847 h[x] + crn[x] + sebcoa[x]  <=> coa[x] + c10dc[x] 	-349837.1	350054.6	-349872.8	350090.3
+SUBERCROT	0.0302733 h[x] + crn[x] + sbcoa[x]  <=> coa[x] + c8dc[x] 	-349837.1	350054.6	-349872.8	350090.3
+SUCCCROT	0.0412048 h[x] + crn[x] + succoa[x]  <=> coa[x] + c4dc[x] 	-349837.2	350054.6	-349872.8	350090.2
+ALAALACNc	h2o[c] + alaala[c]  <=> 0.0123907 h[c] + 2 ala_L[c] 	-196501.4	195498.6	-196548.9	195504.6
+GLYSARCNc	h2o[c] + 0.155185 h[c] + glysar[c]  <=> gly[c] + sarcs[c] 	-277325.3	277046.4	-277372.8	277052.3
+LEULEULAPc	h2o[c] + leuleu[c]  <=> 0.0130741 h[c] + 2 leu_L[c] 	-196459.6	195540.4	-196507.1	195546.3
+PROGLYPRO1c	h2o[c] + progly[c]  <=> 0.0121931 h[c] + gly[c] + pro_L[c] 	-277325.8	277045.9	-277373.3	277051.8
+IPDDI	ipdp[c]  <=> 3.45299e-06 h[c] + dmpp[c] 	-277185.9	277185.9	-277203.7	277203.7
+LEUGLYHYc	h2o[c] + leugly[c]  <=> 0.01969 h[c] + gly[c] + leu_L[c] 	-196488.4	195511.6	-196535.9	195517.6
+MDHx	nad[x] + mal_L[x]  <=> 1.20947 h[x] + nadh[x] + oaa[x] 	-277168.7	277203.0	-277204.4	277238.6
+RPEc	2 ru5p_D[c]  <=> 2 xu5p_D[c] 	-554371.7	554371.7	-554407.3	554407.3
+SFCYSc	so3[c] + cys_L[c]  <=> 0.41819 h[c] + slfcys[c] 	-195258.7	196741.4	-195264.6	196788.9
+15KPROSTGF2c	nad[c] + prostgf2[c]  <=> 1.1326 h[c] + nadh[c] + 15kprostgf2[c] 	-277169.0	277202.8	-277204.1	277223.9
+ADPOHc	1.13317 h[c] + nadh[c] + 2oxoadp[c]  <=> nad[c] + adpoh[c] 	-277202.8	277168.9	-277223.9	277204.1
+PHLAC	nad[c] + phlac[c]  <=> 1.13313 h[c] + nadh[c] + phpyr[c] 	-277168.9	277202.8	-277204.1	277223.9
+3MHISc	amet[c] + his_L[c]  <=> 1.04892 h[c] + ahcys[c] + 3mhis[c] 	-327066.1	327199.9	-327101.7	327235.5
+HMCRNc	lys_L[c] + cbp[c]  <=> 0.178858 h[c] + pi[c] + hmcr[c] 	-340576.7	338387.2	-340600.5	338421.6
+HXCOAc	h2o[c] + hxcoa[c]  <=> 1.06878 h[c] + coa[c] + hxa[c] 	-339245.3	339718.6	-339290.0	339713.1
+ACLYSHYc	h2o[c] + aclys[c]  <=> 0.127752 h[c] + ac[c] + lys_L[c] 	-339244.4	339719.5	-339291.9	339725.4
+METTRANSc	pyr[c] + met_L[c]  <=> 0.00914395 h[c] + ala_L[c] + 4mtob[c] 	-339851.3	339112.7	-339886.9	339148.3
+GLYC2P3Pc	0.0907734 h[c] + glyc2p[c]  <=> glyc3p[c] 	-277186.1	277185.6	-277203.9	277203.4
+ABTD1	nad[c] + abt_D[c]  <=> 1.13336 h[c] + nadh[c] + xylu_L[c] 	-277169.0	277202.8	-277204.1	277223.9
+HXCOAx	h2o[x] + hxcoa[x]  <=> 1.09911 h[x] + coa[x] + hxa[x] 	-339245.2	339718.7	-339292.7	339724.7
+PROSTGI2c	prostgi2[c]  <=> 0.000251995 h[c] + 15kprostgf2[c] 	-277185.9	277185.9	-277203.7	277203.7
+TXB2c	h2o[c] + txa2[c]  <=> 1.20078e-05 h[c] + txb2[c] 	-276948.6	277423.1	-276966.4	277440.9
+GLYNATm	gly[m] + phaccoa[m]  <=> 0.926256 h[m] + coa[m] + pheacgly[m] 	-339105.3	339858.6	-339127.0	339891.8
+ALAARGCYSr	2 h2o[c] + alaargcys[c]  <=> 0.0464006 h[c] + ala_L[c] + cys_L[c] + arg_L[c] 	-277419.8	276951.9	-277497.0	276946.0
+ALAARGGLYr	2 h2o[c] + alaarggly[c]  <=> 0.0402167 h[c] + ala_L[c] + gly[c] + arg_L[c] 	-277457.9	276913.8	-277535.1	276907.9
+ALAASNLEUr	2 h2o[c] + alaasnleu[c]  <=> 0.0218509 h[c] + ala_L[c] + asn_L[c] + leu_L[c] 	-196769.5	195230.5	-196846.7	195224.6
+ALAGLYLYSr	2 h2o[c] + alaglylys[c]  <=> 0.0288111 h[c] + ala_L[c] + gly[c] + lys_L[c] 	-277457.9	276913.8	-277535.1	276907.9
+ALAHISALAr	2 h2o[c] + alahisala[c]  <=> 0.084386 h[c] + 2 ala_L[c] + his_L[c] 	-222569.5	221916.7	-222646.7	221910.8
+ALALYSTHRr	2 h2o[c] + alalysthr[c]  <=> 0.0392975 h[c] + ala_L[c] + thr_L[c] + lys_L[c] 	-277609.1	276762.6	-277686.3	276756.7
+ARGALAALAr	arg_L[c] + alaala[c]  <=> h2o[c] + 0.0105478 h[c] + argalaala[c] 	-339719.2	339244.7	-339725.2	339292.2
+ARGALAPHEr	2 h2o[c] + argalaphe[c]  <=> 0.0025731 h[c] + ala_L[c] + arg_L[c] + phe_L[c] 	-277288.0	277083.7	-277365.2	277077.8
+ARGALATHRr	2 h2o[c] + argalathr[c]  <=> 0.0197533 h[c] + ala_L[c] + thr_L[c] + arg_L[c] 	-277609.1	276762.7	-277686.3	276756.7
+ARGARGr	h2o[c] + 0.000192095 h[c] + argarg[c]  <=> 2 arg_L[c] 	-438032.1	438506.6	-438079.6	438512.5
+ARGARGLYSr	2 h2o[c] + argarglys[c]  <=> 0.00980983 h[c] + lys_L[c] + 2 arg_L[c] 	-479625.5	480574.4	-479702.7	480568.5
+ARGARGMETr	2 h2o[c] + argargmet[c]  <=> 0.00154403 h[c] + 2 arg_L[c] + met_L[c] 	-479625.5	480574.5	-479702.7	480568.5
+ARGCYSGLYr	2 h2o[c] + argcysgly[c]  <=> 0.0217015 h[c] + cys_L[c] + gly[c] + arg_L[c] 	-277427.6	276944.1	-277504.8	276938.2
+ARGCYSSERr	2 h2o[c] + argcysser[c]  <=> 0.0372279 h[c] + cys_L[c] + ser_L[c] + arg_L[c] 	-277567.2	276804.5	-277644.4	276798.5
+ARGGLUGLUr	2 h2o[c] + 0.00258982 h[c] + arggluglu[c]  <=> 2 glu_L[c] + arg_L[c] 	-479625.5	480574.5	-479702.7	480568.5
+ARGGLUPROr	2 h2o[c] + 0.0463674 h[c] + argglupro[c]  <=> glu_L[c] + arg_L[c] + pro_L[c] 	-391525.4	392474.6	-391602.6	392468.6
+ARGGLYGLYr	arg_L[c] + glygly[c]  <=> h2o[c] + 0.005439 h[c] + argglygly[c] 	-276902.4	277469.3	-276908.3	277516.8
+ARGHISTHRr	2 h2o[c] + arghisthr[c]  <=> 0.0791912 h[c] + thr_L[c] + arg_L[c] + his_L[c] 	-296440.3	296208.0	-296517.5	296202.0
+ARGLEUPHEr	2 h2o[c] + argleuphe[c]  <=> 0.00279909 h[c] + arg_L[c] + leu_L[c] + phe_L[c] 	-277267.1	277104.6	-277344.3	277098.7
+ARGLYSASPr	2 h2o[c] + 0.00470247 h[c] + arglysasp[c]  <=> asp_L[c] + lys_L[c] + arg_L[c] 	-391525.5	392474.5	-391602.7	392468.5
+ARGPHEARGr	2 h2o[c] + argphearg[c]  <=> 0.0145404 h[c] + 2 arg_L[c] + phe_L[c] 	-438002.2	438536.5	-438079.4	438530.5
+ARGPROMETr	2 h2o[c] + 0.172406 h[c] + argpromet[c]  <=> arg_L[c] + met_L[c] + pro_L[c] 	-391525.0	392475.0	-391602.2	392469.0
+ARGPROTHRr	2 h2o[c] + 0.145754 h[c] + argprothr[c]  <=> thr_L[c] + arg_L[c] + pro_L[c] 	-339535.4	339428.5	-339612.6	339422.6
+ARGSERSERr	2 h2o[c] + argserser[c]  <=> 0.0465606 h[c] + 2 ser_L[c] + arg_L[c] 	-277745.0	276626.7	-277822.2	276620.8
+ARGTYRVALr	2 h2o[c] + 0.00123739 h[c] + argtyrval[c]  <=> arg_L[c] + tyr_L[c] + val_L[c] 	-277441.2	276930.5	-277518.4	276924.6
+ARGVALCYSr	2 h2o[c] + argvalcys[c]  <=> 0.0129094 h[c] + cys_L[c] + arg_L[c] + val_L[c] 	-277409.4	276962.4	-277486.5	276956.4
+ARGVALTRPr	2 h2o[c] + argvaltrp[c]  <=> 0.0024631 h[c] + arg_L[c] + trp_L[c] + val_L[c] 	-277184.0	277187.7	-277261.2	277181.8
+ASNASNARGr	2 h2o[c] + asnasnarg[c]  <=> 0.0457075 h[c] + 2 asn_L[c] + arg_L[c] 	-277763.9	276607.8	-277841.1	276601.9
+ASNCYSCYSr	2 h2o[c] + asncyscys[c]  <=> 0.0477178 h[c] + asn_L[c] + 2 cys_L[c] 	-196729.9	195270.1	-196807.1	195264.2
+ASNMETPROr	2 h2o[c] + 0.00484014 h[c] + asnmetpro[c]  <=> asn_L[c] + met_L[c] + pro_L[c] 	-339533.7	339430.2	-339610.9	339424.3
+ASNPHEASPr	2 h2o[c] + asnpheasp[c]  <=> 0.0254585 h[c] + asp_L[c] + asn_L[c] + phe_L[c] 	-277444.9	276926.8	-277522.1	276920.8
+ASNPHECYSr	2 h2o[c] + asnphecys[c]  <=> 0.0358899 h[c] + asn_L[c] + cys_L[c] + phe_L[c] 	-196598.2	195401.8	-196675.3	195395.9
+ASNTYRGLYr	2 h2o[c] + asntyrgly[c]  <=> 0.0282573 h[c] + asn_L[c] + gly[c] + tyr_L[c] 	-196799.9	195200.1	-196877.1	195194.2
+ASNTYRPHEr	2 h2o[c] + asntyrphe[c]  <=> 0.0225568 h[c] + asn_L[c] + tyr_L[c] + phe_L[c] 	-196630.0	195370.0	-196707.2	195364.1
+ASNTYRTHRr	2 h2o[c] + asntyrthr[c]  <=> 0.039562 h[c] + asn_L[c] + thr_L[c] + tyr_L[c] 	-196951.1	195048.9	-197028.3	195043.0
+ASPALAARGr	2 h2o[c] + aspalaarg[c]  <=> 0.0255588 h[c] + asp_L[c] + ala_L[c] + arg_L[c] 	-339376.9	339587.0	-339454.1	339581.1
+ASPASNGLUr	2 h2o[c] + aspasnglu[c]  <=> 0.0112544 h[c] + glu_L[c] + asp_L[c] + asn_L[c] 	-339533.8	339430.1	-339611.0	339424.2
+ASPGLUr	h2o[c] + aspglu[c]  <=> 0.0020889 h[c] + glu_L[c] + asp_L[c] 	-339244.8	339719.1	-339292.3	339725.1
+ASPGLUPROr	2 h2o[c] + 0.00328176 h[c] + aspglupro[c]  <=> glu_L[c] + asp_L[c] + pro_L[c] 	-391525.6	392474.4	-391602.8	392468.5
+ASPGLUTRPr	2 h2o[c] + aspglutrp[c]  <=> 0.0153233 h[c] + glu_L[c] + asp_L[c] + trp_L[c] 	-339121.3	339842.6	-339198.5	339836.7
+ASPHISCYSr	2 h2o[c] + asphiscys[c]  <=> 0.0890114 h[c] + asp_L[c] + cys_L[c] + his_L[c] 	-296251.0	296397.3	-296328.2	296391.3
+ASPHISPROr	2 h2o[c] + asphispro[c]  <=> 0.0563487 h[c] + asp_L[c] + his_L[c] + pro_L[c] 	-354868.0	355692.4	-354945.2	355686.4
+ASPLYSGLUr	2 h2o[c] + asplysglu[c]  <=> 0.0109985 h[c] + glu_L[c] + asp_L[c] + lys_L[c] 	-391525.6	392474.4	-391602.8	392468.5
+ASPLYSHISr	2 h2o[c] + asplyshis[c]  <=> 0.0751488 h[c] + asp_L[c] + lys_L[c] + his_L[c] 	-354868.0	355692.3	-354945.2	355686.4
+ASPMETASPr	2 h2o[c] + aspmetasp[c]  <=> 0.00635852 h[c] + 2 asp_L[c] + met_L[c] 	-479625.6	480574.4	-479702.7	480568.5
+ASPPROLYSr	2 h2o[c] + 0.067999 h[c] + aspprolys[c]  <=> asp_L[c] + lys_L[c] + pro_L[c] 	-391525.4	392474.6	-391602.6	392468.7
+ASPVALASNr	2 h2o[c] + aspvalasn[c]  <=> 0.0127323 h[c] + asp_L[c] + asn_L[c] + val_L[c] 	-277596.6	276775.1	-277673.8	276769.2
+CYSASNMETr	2 h2o[c] + cysasnmet[c]  <=> 0.0139118 h[c] + asn_L[c] + cys_L[c] + met_L[c] 	-277576.7	276795.1	-277653.8	276789.1
+CYSASPPHEr	2 h2o[c] + cysaspphe[c]  <=> 0.0145898 h[c] + asp_L[c] + cys_L[c] + phe_L[c] 	-277257.8	277113.9	-277335.0	277108.0
+CYSCYSr	h2o[c] + cyscys[c]  <=> 0.0260013 h[c] + 2 cys_L[c] 	-196440.9	195559.1	-196488.4	195565.1
+CYSGLNMETr	2 h2o[c] + cysglnmet[c]  <=> 0.0134698 h[c] + cys_L[c] + gln_L[c] + met_L[c] 	-277579.0	276792.7	-277656.2	276786.7
+CYSGLUHISr	2 h2o[c] + cysgluhis[c]  <=> 0.0844557 h[c] + glu_L[c] + cys_L[c] + his_L[c] 	-296251.0	296397.3	-296328.2	296391.4
+CYSGLUTRPr	2 h2o[c] + cysglutrp[c]  <=> 0.0250212 h[c] + glu_L[c] + cys_L[c] + trp_L[c] 	-277164.2	277207.5	-277241.4	277201.6
+CYSLEUTHRr	2 h2o[c] + cysleuthr[c]  <=> 0.0416749 h[c] + cys_L[c] + thr_L[c] + leu_L[c] 	-196741.4	195258.6	-196818.6	195252.7
+CYSSERMETr	2 h2o[c] + cyssermet[c]  <=> 0.036692 h[c] + cys_L[c] + ser_L[c] + met_L[c] 	-277567.2	276804.5	-277644.4	276798.5
+CYSTYRASNr	2 h2o[c] + cystyrasn[c]  <=> 0.0226468 h[c] + asn_L[c] + cys_L[c] + tyr_L[c] 	-196761.7	195238.3	-196838.9	195232.4
+GLNASNGLNr	2 h2o[c] + glnasngln[c]  <=> 0.0726985 h[c] + asn_L[c] + 2 gln_L[c] 	-197108.9	194891.1	-197186.1	194885.2
+GLNHISHISr	2 h2o[c] + 1.01672 h[c] + glnhishis[c]  <=> gln_L[c] + 2 his_L[c] 	-287091.5	286737.7	-287168.7	286731.8
+GLNHISLYSr	2 h2o[c] + glnhislys[c]  <=> 0.0831801 h[c] + gln_L[c] + lys_L[c] + his_L[c] 	-296440.6	296207.7	-296517.7	296201.8
+GLNLYSLYSr	2 h2o[c] + glnlyslys[c]  <=> 0.0208552 h[c] + gln_L[c] + 2 lys_L[c] 	-438323.5	438215.1	-438400.7	438209.2
+GLNLYSTRPr	2 h2o[c] + glnlystrp[c]  <=> 0.0235217 h[c] + gln_L[c] + lys_L[c] + trp_L[c] 	-277353.8	277018.0	-277431.0	277012.0
+GLNPROGLUr	2 h2o[c] + 0.0749991 h[c] + glnproglu[c]  <=> glu_L[c] + gln_L[c] + pro_L[c] 	-339535.9	339428.0	-339613.1	339422.1
+GLNTRPGLUr	2 h2o[c] + glntrpglu[c]  <=> 0.0224141 h[c] + glu_L[c] + gln_L[c] + trp_L[c] 	-277353.8	277018.0	-277431.0	277012.0
+GLNTYRLEUr	2 h2o[c] + glntyrleu[c]  <=> 0.0215006 h[c] + gln_L[c] + tyr_L[c] + leu_L[c] 	-196773.5	195226.5	-196850.7	195220.6
+GLUARGLEUr	2 h2o[c] + gluargleu[c]  <=> 0.0318587 h[c] + glu_L[c] + arg_L[c] + leu_L[c] 	-339356.0	339607.9	-339433.2	339602.0
+GLUASNLEUr	2 h2o[c] + gluasnleu[c]  <=> 0.0203287 h[c] + glu_L[c] + asn_L[c] + leu_L[c] 	-277586.1	276785.7	-277663.2	276779.7
+GLUGLUr	h2o[c] + gluglu[c]  <=> 0.0103628 h[c] + 2 glu_L[c] 	-438032.1	438506.5	-438079.6	438512.5
+GLUILELYSr	2 h2o[c] + gluilelys[c]  <=> 0.0193162 h[c] + glu_L[c] + lys_L[c] + ile_L[c] 	-339351.7	339612.2	-339428.9	339606.3
+GLULEUr	h2o[c] + gluleu[c]  <=> 0.0108002 h[c] + glu_L[c] + leu_L[c] 	-277297.1	277074.7	-277344.6	277080.6
+GLUMETr	h2o[c] + glumet[c]  <=> 0.00175658 h[c] + glu_L[c] + met_L[c] 	-339244.7	339719.2	-339292.2	339725.1
+GLUMETHISr	2 h2o[c] + glumethis[c]  <=> 0.0745447 h[c] + glu_L[c] + met_L[c] + his_L[c] 	-354868.0	355692.4	-354945.1	355686.5
+GLUTHRr	h2o[c] + gluthr[c]  <=> 0.0294006 h[c] + glu_L[c] + thr_L[c] 	-277477.0	276894.7	-277524.5	276900.6
+GLUTHRLYSr	2 h2o[c] + gluthrlys[c]  <=> 0.0378155 h[c] + glu_L[c] + thr_L[c] + lys_L[c] 	-339535.9	339428.0	-339613.1	339422.0
+GLUTRPALAr	2 h2o[c] + glutrpala[c]  <=> 0.0244291 h[c] + glu_L[c] + ala_L[c] + trp_L[c] 	-277194.4	277177.3	-277271.6	277171.3
+GLYHISASNr	2 h2o[c] + glyhisasn[c]  <=> 0.0857329 h[c] + asn_L[c] + gly[c] + his_L[c] 	-222734.3	221751.9	-222811.5	221746.0
+GLYHISLYSr	2 h2o[c] + glyhislys[c]  <=> 0.0853072 h[c] + gly[c] + lys_L[c] + his_L[c] 	-296289.1	296359.2	-296366.3	296353.2
+GLYLYSCYSr	2 h2o[c] + glylyscys[c]  <=> 0.0358036 h[c] + cys_L[c] + gly[c] + lys_L[c] 	-277427.7	276944.1	-277504.8	276938.1
+GLYLYSPHEr	2 h2o[c] + glylysphe[c]  <=> 0.0242412 h[c] + gly[c] + lys_L[c] + phe_L[c] 	-277295.9	277075.8	-277373.1	277069.9
+GLYTYRLYSr	2 h2o[c] + glytyrlys[c]  <=> 0.0226961 h[c] + gly[c] + lys_L[c] + tyr_L[c] 	-277459.5	276912.2	-277536.7	276906.3
+GLYVALHISr	2 h2o[c] + glyvalhis[c]  <=> 0.0842628 h[c] + gly[c] + his_L[c] + val_L[c] 	-222567.0	221919.2	-222644.2	221913.3
+HISARGCYSr	2 h2o[c] + hisargcys[c]  <=> 0.0454797 h[c] + cys_L[c] + arg_L[c] + his_L[c] 	-296251.2	296397.1	-296328.4	296391.1
+HISARGSERr	2 h2o[c] + hisargser[c]  <=> 0.0549568 h[c] + ser_L[c] + arg_L[c] + his_L[c] 	-296429.0	296219.3	-296506.2	296213.4
+HISASPr	h2o[c] + hisasp[c]  <=> 0.0159142 h[c] + asp_L[c] + his_L[c] 	-296149.3	296498.9	-296196.8	296504.9
+HISCYSCYSr	2 h2o[c] + hiscyscys[c]  <=> 0.0476488 h[c] + 2 cys_L[c] + his_L[c] 	-222509.2	221977.0	-222586.4	221971.1
+HISGLNALAr	2 h2o[c] + hisglnala[c]  <=> 0.0203311 h[c] + ala_L[c] + gln_L[c] + his_L[c] 	-222729.0	221757.2	-222806.2	221751.3
+HISGLUr	h2o[c] + hisglu[c]  <=> 0.00944753 h[c] + glu_L[c] + his_L[c] 	-296149.4	296498.9	-296196.9	296504.9
+HISGLUGLNr	2 h2o[c] + hisglugln[c]  <=> 0.0184074 h[c] + glu_L[c] + gln_L[c] + his_L[c] 	-296440.8	296207.5	-296517.9	296201.6
+HISGLYLYSr	2 h2o[c] + hisglylys[c]  <=> 7.02576 h[c] + gly[c] + lys_L[c] + his_L[c] 	-296593.8	296054.5	-296671.0	296048.6
+HISHISLYSr	2 h2o[c] + 1.85536 h[c] + hishislys[c]  <=> lys_L[c] + 2 his_L[c] 	-347034.0	347907.7	-347111.2	347901.8
+HISLYSALAr	2 h2o[c] + hislysala[c]  <=> 0.0206 h[c] + ala_L[c] + lys_L[c] + his_L[c] 	-296281.4	296366.9	-296358.6	296360.9
+HISLYSGLUr	2 h2o[c] + hislysglu[c]  <=> 0.018264 h[c] + glu_L[c] + lys_L[c] + his_L[c] 	-354868.2	355692.2	-354945.4	355686.2
+HISLYSILEr	2 h2o[c] + hislysile[c]  <=> 0.0188651 h[c] + lys_L[c] + his_L[c] + ile_L[c] 	-296256.3	296392.0	-296333.5	296386.1
+HISLYSTHRr	2 h2o[c] + hislysthr[c]  <=> 0.0385578 h[c] + thr_L[c] + lys_L[c] + his_L[c] 	-296440.5	296207.7	-296517.7	296201.8
+HISLYSVALr	2 h2o[c] + hislysval[c]  <=> 0.0185992 h[c] + lys_L[c] + his_L[c] + val_L[c] 	-296271.1	296377.2	-296348.3	296371.3
+HISMETr	h2o[c] + 0.997703 h[c] + hismet[c]  <=> met_L[c] + his_L[c] 	-296105.8	296542.4	-296153.4	296548.4
+HISMETGLNr	2 h2o[c] + hismetgln[c]  <=> 0.0112751 h[c] + gln_L[c] + met_L[c] + his_L[c] 	-296440.7	296207.6	-296517.9	296201.6
+HISPHEARGr	2 h2o[c] + hisphearg[c]  <=> 0.0333889 h[c] + arg_L[c] + his_L[c] + phe_L[c] 	-296119.5	296528.8	-296196.7	296522.9
+HISPROLYSr	2 h2o[c] + 0.203331 h[c] + hisprolys[c]  <=> lys_L[c] + his_L[c] + pro_L[c] 	-354867.7	355692.7	-354944.9	355686.7
+HISTRPHISr	2 h2o[c] + histrphis[c]  <=> 0.147471 h[c] + 2 his_L[c] + trp_L[c] 	-286678.5	287150.8	-286755.7	287144.8
+ILEARGILEr	2 h2o[c] + ileargile[c]  <=> 0.0309581 h[c] + arg_L[c] + 2 ile_L[c] 	-277399.8	276972.0	-277476.9	276966.0
+ILEASNHISr	2 h2o[c] + ileasnhis[c]  <=> 0.0828456 h[c] + asn_L[c] + his_L[c] + ile_L[c] 	-222701.3	221785.0	-222778.5	221779.0
+ILEASPr	h2o[c] + ileasp[c]  <=> 0.0375301 h[c] + asp_L[c] + ile_L[c] 	-277292.7	277079.0	-277340.2	277084.9
+ILEGLNGLUr	2 h2o[c] + ileglnglu[c]  <=> 0.0184606 h[c] + glu_L[c] + gln_L[c] + ile_L[c] 	-277584.2	276787.5	-277661.4	276781.6
+ILEGLYARGr	2 h2o[c] + ileglyarg[c]  <=> 0.0403211 h[c] + gly[c] + arg_L[c] + ile_L[c] 	-277432.8	276938.9	-277510.0	276933.0
+ILEPROLYSr	2 h2o[c] + 0.0613789 h[c] + ileprolys[c]  <=> lys_L[c] + ile_L[c] + pro_L[c] 	-339351.4	339612.5	-339428.6	339606.5
+ILESERARGr	2 h2o[c] + ileserarg[c]  <=> 0.0552062 h[c] + ser_L[c] + arg_L[c] + ile_L[c] 	-277572.4	276799.3	-277649.6	276793.4
+ILETRPTYRr	2 h2o[c] + iletrptyr[c]  <=> 0.0232543 h[c] + tyr_L[c] + ile_L[c] + trp_L[c] 	-196354.3	195645.7	-196431.5	195639.7
+LEUALAARGr	2 h2o[c] + leualaarg[c]  <=> 0.033516 h[c] + ala_L[c] + arg_L[c] + leu_L[c] 	-277429.2	276942.6	-277506.3	276936.6
+LEUASNASPr	2 h2o[c] + leuasnasp[c]  <=> 0.0202768 h[c] + asp_L[c] + asn_L[c] + leu_L[c] 	-277586.1	276785.7	-277663.2	276779.7
+LEUASPLYSr	2 h2o[c] + leuasplys[c]  <=> 0.0115402 h[c] + asp_L[c] + lys_L[c] + leu_L[c] 	-339356.0	339608.0	-339433.2	339602.0
+LEULEUTRPr	2 h2o[c] + leuleutrp[c]  <=> 0.0242877 h[c] + 2 leu_L[c] + trp_L[c] 	-196336.1	195663.9	-196413.3	195658.0
+LEUPROr	h2o[c] + 0.0856422 h[c] + leupro[c]  <=> leu_L[c] + pro_L[c] 	-277296.8	277074.9	-277344.3	277080.9
+LEUPROARGr	2 h2o[c] + 0.0611609 h[c] + leuproarg[c]  <=> arg_L[c] + leu_L[c] + pro_L[c] 	-339355.7	339608.2	-339432.9	339602.3
+LEUSERTRPr	2 h2o[c] + 0.95327 h[c] + leusertrp[c]  <=> ser_L[c] + leu_L[c] + trp_L[c] 	-196461.0	195539.0	-196538.2	195533.1
+LEUTRPr	h2o[c] + leutrp[c]  <=> 0.0149289 h[c] + leu_L[c] + trp_L[c] 	-196224.9	195775.1	-196272.4	195781.0
+LEUTRPARGr	2 h2o[c] + leutrparg[c]  <=> 0.0351384 h[c] + arg_L[c] + leu_L[c] + trp_L[c] 	-277173.6	277198.1	-277250.8	277192.2
+LEUTYRTYRr	2 h2o[c] + leutyrtyr[c]  <=> 0.0212606 h[c] + 2 tyr_L[c] + leu_L[c] 	-196615.8	195384.2	-196693.0	195378.3
+LEUVALr	h2o[c] + leuval[c]  <=> 0.0113946 h[c] + leu_L[c] + val_L[c] 	-196470.1	195529.9	-196517.6	195535.8
+LYSARGLEUr	2 h2o[c] + 2.96757 h[c] + lysargleu[c]  <=> lys_L[c] + arg_L[c] + leu_L[c] 	-339268.3	339695.7	-339345.4	339689.7
+LYSCYSHISr	2 h2o[c] + lyscyshis[c]  <=> 0.0970832 h[c] + cys_L[c] + lys_L[c] + his_L[c] 	-296251.0	296397.3	-296328.2	296391.4
+LYSGLNPHEr	2 h2o[c] + lysglnphe[c]  <=> 0.0210133 h[c] + gln_L[c] + lys_L[c] + phe_L[c] 	-277447.4	276924.4	-277524.5	276918.4
+LYSGLUGLUr	2 h2o[c] + lysgluglu[c]  <=> 18.0075 h[c] + 2 glu_L[c] + lys_L[c] 	-480408.4	479791.6	-480485.6	479785.6
+LYSLYSLYSr	2 h2o[c] + lyslyslys[c]  <=> 0.0207766 h[c] + 3 lys_L[c] 	-619332.0	620280.8	-619409.2	620274.9
+LYSPHEILEr	2 h2o[c] + lyspheile[c]  <=> 0.0212971 h[c] + lys_L[c] + ile_L[c] + phe_L[c] 	-277262.9	277108.8	-277340.1	277102.9
+LYSTRPARGr	2 h2o[c] + lystrparg[c]  <=> 0.0350768 h[c] + lys_L[c] + arg_L[c] + trp_L[c] 	-339121.3	339842.6	-339198.5	339836.7
+LYSTYRILEr	2 h2o[c] + lystyrile[c]  <=> 0.0200396 h[c] + lys_L[c] + tyr_L[c] + ile_L[c] 	-277426.5	276945.2	-277503.7	276939.3
+LYSVALPHEr	2 h2o[c] + lysvalphe[c]  <=> 0.0210762 h[c] + lys_L[c] + phe_L[c] + val_L[c] 	-277277.7	277094.1	-277354.8	277088.1
+LYSVALTRPr	2 h2o[c] + lysvaltrp[c]  <=> 0.0225313 h[c] + lys_L[c] + trp_L[c] + val_L[c] 	-277184.1	277187.7	-277261.3	277181.7
+METARGLEUr	2 h2o[c] + metargleu[c]  <=> 0.0236278 h[c] + arg_L[c] + met_L[c] + leu_L[c] 	-339356.0	339608.0	-339433.1	339602.0
+METASNTYRr	2 h2o[c] + metasntyr[c]  <=> 0.0124038 h[c] + asn_L[c] + met_L[c] + tyr_L[c] 	-277608.5	276763.2	-277685.7	276757.3
+METGLNTYRr	2 h2o[c] + metglntyr[c]  <=> gln_L[c] + met_L[c] + tyr_L[c] 	-277610.9	276760.8	-277688.1	276754.9
+METGLYARGr	2 h2o[c] + metglyarg[c]  <=> 0.0316737 h[c] + gly[c] + arg_L[c] + met_L[c] 	-339384.7	339579.2	-339461.9	339573.3
+METHISLYSr	2 h2o[c] + methislys[c]  <=> 0.0748031 h[c] + lys_L[c] + met_L[c] + his_L[c] 	-354868.0	355692.4	-354945.1	355686.5
+METMETILEr	2 h2o[c] + metmetile[c]  <=> 0.00284377 h[c] + 2 met_L[c] + ile_L[c] 	-438139.0	438399.6	-438216.2	438393.7
+METPHEARGr	2 h2o[c] + metphearg[c]  <=> 0.0256646 h[c] + arg_L[c] + met_L[c] + phe_L[c] 	-339214.9	339749.1	-339292.1	339743.1
+METTRPPHEr	2 h2o[c] + mettrpphe[c]  <=> 0.0159338 h[c] + met_L[c] + trp_L[c] + phe_L[c] 	-277032.4	277339.3	-277109.6	277333.3
+PHEASNMETr	2 h2o[c] + pheasnmet[c]  <=> 0.0126328 h[c] + asn_L[c] + met_L[c] + phe_L[c] 	-277444.9	276926.8	-277522.1	276920.8
+PHEASPr	h2o[c] + pheasp[c]  <=> 0.0209434 h[c] + asp_L[c] + phe_L[c] 	-277155.9	277215.8	-277203.4	277221.7
+PHEGLNPHEr	2 h2o[c] + pheglnphe[c]  <=> 0.0214303 h[c] + gln_L[c] + 2 phe_L[c] 	-196468.8	195531.2	-196546.0	195525.3
+PHELEUr	h2o[c] + pheleu[c]  <=> 0.0119246 h[c] + leu_L[c] + phe_L[c] 	-196318.5	195681.5	-196366.0	195687.4
+PHELEUASPr	2 h2o[c] + pheleuasp[c]  <=> 0.0308301 h[c] + asp_L[c] + leu_L[c] + phe_L[c] 	-277267.1	277104.6	-277344.3	277098.7
+PHELEUHISr	2 h2o[c] + pheleuhis[c]  <=> 0.0836556 h[c] + his_L[c] + leu_L[c] + phe_L[c] 	-222386.6	222099.6	-222463.8	222093.7
+PHELYSALAr	2 h2o[c] + phelysala[c]  <=> 0.0212295 h[c] + ala_L[c] + lys_L[c] + phe_L[c] 	-277288.0	277083.7	-277365.2	277077.8
+PHELYSPROr	2 h2o[c] + phelyspro[c]  <=> 0.00274279 h[c] + lys_L[c] + phe_L[c] + pro_L[c] 	-339214.8	339749.1	-339292.0	339743.2
+PHEPHEr	h2o[c] + phephe[c]  <=> 0.0129791 h[c] + 2 phe_L[c] 	-196177.4	195822.6	-196224.9	195828.5
+PHEPHEASNr	2 h2o[c] + phepheasn[c]  <=> 0.0222658 h[c] + asn_L[c] + 2 phe_L[c] 	-196466.4	195533.6	-196543.6	195527.7
+PHEPHETHRr	2 h2o[c] + phephethr[c]  <=> 0.0404901 h[c] + thr_L[c] + 2 phe_L[c] 	-196468.6	195531.4	-196545.8	195525.5
+PHEPROARGr	2 h2o[c] + 0.185489 h[c] + pheproarg[c]  <=> arg_L[c] + phe_L[c] + pro_L[c] 	-339214.2	339749.7	-339291.4	339743.7
+PHESERTRPr	2 h2o[c] + phesertrp[c]  <=> 0.0466906 h[c] + ser_L[c] + trp_L[c] + phe_L[c] 	-196363.4	195636.6	-196440.6	195630.7
+PHETHRLYSr	2 h2o[c] + phethrlys[c]  <=> 0.0389447 h[c] + thr_L[c] + lys_L[c] + phe_L[c] 	-277447.1	276924.6	-277524.3	276918.6
+PHETRPLEUr	2 h2o[c] + phetrpleu[c]  <=> 0.0246251 h[c] + leu_L[c] + trp_L[c] + phe_L[c] 	-196195.0	195805.0	-196272.2	195799.1
+PHETYRr	h2o[c] + phetyr[c]  <=> 0.0119224 h[c] + tyr_L[c] + phe_L[c] 	-196341.0	195659.0	-196388.5	195664.9
+PHETYRGLNr	2 h2o[c] + phetyrgln[c]  <=> 0.0209238 h[c] + gln_L[c] + tyr_L[c] + phe_L[c] 	-196632.4	195367.6	-196709.6	195361.7
+PHETYRLYSr	2 h2o[c] + phetyrlys[c]  <=> 0.0213818 h[c] + lys_L[c] + tyr_L[c] + phe_L[c] 	-277289.6	277082.1	-277366.8	277076.1
+PROARGASPr	2 h2o[c] + proargasp[c]  <=> 0.0215293 h[c] + asp_L[c] + arg_L[c] + pro_L[c] 	-391525.6	392474.4	-391602.8	392468.5
+PROARGCYSr	2 h2o[c] + proargcys[c]  <=> 0.0391309 h[c] + cys_L[c] + arg_L[c] + pro_L[c] 	-339346.6	339617.3	-339423.8	339611.4
+PROASNCYSr	2 h2o[c] + proasncys[c]  <=> 0.0272698 h[c] + asn_L[c] + cys_L[c] + pro_L[c] 	-277576.7	276795.0	-277653.9	276789.1
+PROCYSr	h2o[c] + procys[c]  <=> 0.0183805 h[c] + cys_L[c] + pro_L[c] 	-277287.7	277084.0	-277335.2	277090.0
+PROGLNPROr	2 h2o[c] + 0.000997819 h[c] + proglnpro[c]  <=> gln_L[c] + 2 pro_L[c] 	-438323.5	438215.2	-438400.7	438209.2
+PROGLULYSr	2 h2o[c] + proglulys[c]  <=> 0.0124905 h[c] + glu_L[c] + lys_L[c] + pro_L[c] 	-391525.6	392474.4	-391602.8	392468.5
+PROHISr	h2o[c] + prohis[c]  <=> 0.067558 h[c] + his_L[c] + pro_L[c] 	-296149.1	296499.2	-296196.6	296505.1
+PROHISTYRr	2 h2o[c] + prohistyr[c]  <=> 1.07769 h[c] + his_L[c] + tyr_L[c] + pro_L[c] 	-296283.6	296364.7	-296360.8	296358.8
+PROLEUARGr	2 h2o[c] + proleuarg[c]  <=> 0.0260079 h[c] + arg_L[c] + leu_L[c] + pro_L[c] 	-339356.0	339608.0	-339433.2	339602.0
+PROLYSPROr	2 h2o[c] + 0.000874678 h[c] + prolyspro[c]  <=> lys_L[c] + 2 pro_L[c] 	-479625.5	480574.5	-479702.7	480568.5
+PROPHEr	h2o[c] + prophe[c]  <=> 0.00636317 h[c] + phe_L[c] + pro_L[c] 	-277155.9	277215.8	-277203.4	277221.7
+PROPROARGr	2 h2o[c] + proproarg[c]  <=> 0.0201042 h[c] + arg_L[c] + 2 pro_L[c] 	-479625.6	480574.4	-479702.8	480568.5
+PROPROPROr	2 h2o[c] + 0.00787685 h[c] + propropro[c]  <=> 3 pro_L[c] 	-619331.9	620280.9	-619409.1	620275.0
+PROTRPLYSr	2 h2o[c] + protrplys[c]  <=> 0.0163595 h[c] + lys_L[c] + trp_L[c] + pro_L[c] 	-339121.2	339842.7	-339198.4	339836.7
+PROTRPTHRr	2 h2o[c] + protrpthr[c]  <=> 0.0350859 h[c] + thr_L[c] + trp_L[c] + pro_L[c] 	-277353.5	277018.2	-277430.7	277012.2
+PROVALGLNr	2 h2o[c] + provalgln[c]  <=> 0.0118776 h[c] + gln_L[c] + pro_L[c] + val_L[c] 	-277598.9	276772.8	-277676.1	276766.8
+SERARGALAr	2 h2o[c] + serargala[c]  <=> 0.0346254 h[c] + ala_L[c] + ser_L[c] + arg_L[c] 	-277597.5	276774.2	-277674.7	276768.3
+SERARGTRPr	2 h2o[c] + serargtrp[c]  <=> 0.0372688 h[c] + ser_L[c] + arg_L[c] + trp_L[c] 	-277341.9	277029.8	-277419.1	277023.9
+SERCYSARGr	2 h2o[c] + sercysarg[c]  <=> 0.0492456 h[c] + cys_L[c] + ser_L[c] + arg_L[c] 	-277567.3	276804.5	-277644.5	276798.5
+SERGLYGLUr	2 h2o[c] + serglyglu[c]  <=> 0.0298589 h[c] + glu_L[c] + gly[c] + ser_L[c] 	-277605.4	276766.4	-277682.5	276760.4
+SERLYSHISr	2 h2o[c] + serlyshis[c]  <=> 0.0881513 h[c] + ser_L[c] + lys_L[c] + his_L[c] 	-296428.7	296219.6	-296505.9	296213.7
+SERPHELYSr	2 h2o[c] + serphelys[c]  <=> 0.0252981 h[c] + ser_L[c] + lys_L[c] + phe_L[c] 	-277435.5	276936.2	-277512.7	276930.3
+SERTRPHISr	2 h2o[c] + sertrphis[c]  <=> 0.0905037 h[c] + ser_L[c] + his_L[c] + trp_L[c] 	-222461.4	222024.8	-222538.6	222018.9
+THRARGTYRr	2 h2o[c] + thrargtyr[c]  <=> 0.0337904 h[c] + thr_L[c] + arg_L[c] + tyr_L[c] 	-277610.7	276761.0	-277687.9	276755.1
+THRASNTYRr	2 h2o[c] + thrasntyr[c]  <=> 0.0231513 h[c] + asn_L[c] + thr_L[c] + tyr_L[c] 	-196951.0	195049.0	-197028.2	195043.0
+THRGLNGLUr	2 h2o[c] + thrglnglu[c]  <=> 0.0213375 h[c] + glu_L[c] + gln_L[c] + thr_L[c] 	-277768.4	276603.3	-277845.6	276597.4
+THRGLNTYRr	2 h2o[c] + thrglntyr[c]  <=> 0.0226279 h[c] + gln_L[c] + thr_L[c] + tyr_L[c] 	-196953.4	195046.6	-197030.6	195040.6
+THRHISHISr	2 h2o[c] + 1.02417 h[c] + thrhishis[c]  <=> thr_L[c] + 2 his_L[c] 	-287091.2	286738.0	-287168.4	286732.1
+THRILEARGr	2 h2o[c] + thrilearg[c]  <=> 0.0339346 h[c] + thr_L[c] + arg_L[c] + ile_L[c] 	-277584.0	276787.8	-277661.2	276781.8
+THRMETARGr	2 h2o[c] + thrmetarg[c]  <=> 0.0266369 h[c] + thr_L[c] + arg_L[c] + met_L[c] 	-339535.9	339428.0	-339613.1	339422.1
+THRPHEARGr	2 h2o[c] + thrphearg[c]  <=> 0.0363964 h[c] + thr_L[c] + arg_L[c] + phe_L[c] 	-277447.1	276924.6	-277524.3	276918.6
+THRSERARGr	2 h2o[c] + thrserarg[c]  <=> 0.0581429 h[c] + ser_L[c] + thr_L[c] + arg_L[c] 	-277756.6	276615.1	-277833.8	276609.2
+THRTHRARGr	2 h2o[c] + thrthrarg[c]  <=> 0.0535585 h[c] + 2 thr_L[c] + arg_L[c] 	-277768.2	276603.5	-277845.4	276597.6
+THRTYRMETr	2 h2o[c] + thrtyrmet[c]  <=> 0.0146063 h[c] + thr_L[c] + met_L[c] + tyr_L[c] 	-277610.7	276761.1	-277687.9	276755.1
+TRPALAPROr	2 h2o[c] + trpalapro[c]  <=> 0.00283588 h[c] + ala_L[c] + trp_L[c] + pro_L[c] 	-277194.4	277177.3	-277271.6	277171.4
+TRPARGALAr	2 h2o[c] + trpargala[c]  <=> 0.0327901 h[c] + ala_L[c] + arg_L[c] + trp_L[c] 	-277194.5	277177.2	-277271.7	277171.3
+TRPASPASPr	2 h2o[c] + trpaspasp[c]  <=> 0.0105753 h[c] + 2 asp_L[c] + trp_L[c] 	-437908.6	438630.0	-437985.8	438624.1
+TRPGLNGLNr	2 h2o[c] + trpglngln[c]  <=> 0.0195178 h[c] + 2 gln_L[c] + trp_L[c] 	-196696.5	195303.5	-196773.7	195297.6
+TRPGLUGLYr	2 h2o[c] + trpglugly[c]  <=> 0.027449 h[c] + glu_L[c] + gly[c] + trp_L[c] 	-277202.3	277169.4	-277279.5	277163.5
+TRPGLULEUr	2 h2o[c] + trpgluleu[c]  <=> 0.0201853 h[c] + glu_L[c] + leu_L[c] + trp_L[c] 	-277173.6	277198.2	-277250.7	277192.2
+TRPGLUPROr	2 h2o[c] + trpglupro[c]  <=> 0.00175559 h[c] + glu_L[c] + trp_L[c] + pro_L[c] 	-339121.2	339842.7	-339198.4	339836.8
+TRPGLUTYRr	2 h2o[c] + trpglutyr[c]  <=> 0.0203937 h[c] + glu_L[c] + tyr_L[c] + trp_L[c] 	-277196.0	277175.7	-277273.2	277169.7
+TRPGLYLEUr	0.0155336 h[c] + trp_L[c] + glyleu[c]  <=> h2o[c] + trpglyleu[c] 	-277309.3	277062.4	-277315.3	277109.9
+TRPGLYPHEr	0.0157259 h[c] + trp_L[c] + glyphe[c]  <=> h2o[c] + trpglyphe[c] 	-277309.3	277062.4	-277315.3	277109.9
+TRPGLYVALr	2 h2o[c] + trpglyval[c]  <=> 0.0273683 h[c] + gly[c] + trp_L[c] + val_L[c] 	-196375.4	195624.6	-196452.6	195618.7
+TRPHISMETr	2 h2o[c] + trphismet[c]  <=> 0.075061 h[c] + met_L[c] + his_L[c] + trp_L[c] 	-296025.6	296622.7	-296102.8	296616.7
+TRPILELYSr	2 h2o[c] + trpilelys[c]  <=> 0.0206076 h[c] + lys_L[c] + ile_L[c] + trp_L[c] 	-277169.3	277202.4	-277246.5	277196.5
+TRPILETRPr	2 h2o[c] + trpiletrp[c]  <=> 0.0238262 h[c] + ile_L[c] + 2 trp_L[c] 	-196097.2	195902.9	-196174.3	195896.9
+TRPLEUVALr	2 h2o[c] + trpleuval[c]  <=> 0.0213655 h[c] + leu_L[c] + trp_L[c] + val_L[c] 	-196346.6	195653.4	-196423.8	195647.5
+TRPLYSr	h2o[c] + trplys[c]  <=> 0.0114261 h[c] + lys_L[c] + trp_L[c] 	-277062.4	277309.4	-277109.9	277315.3
+TRPMETARGr	2 h2o[c] + trpmetarg[c]  <=> 0.0249011 h[c] + arg_L[c] + met_L[c] + trp_L[c] 	-339121.3	339842.7	-339198.5	339836.7
+TRPMETVALr	2 h2o[c] + trpmetval[c]  <=> 0.0121974 h[c] + met_L[c] + trp_L[c] + val_L[c] 	-277184.0	277187.7	-277261.2	277181.7
+TRPPHEr	h2o[c] + trpphe[c]  <=> 0.0131731 h[c] + trp_L[c] + phe_L[c] 	-196083.8	195916.2	-196131.3	195922.1
+TRPPROGLYr	trp_L[c] + progly[c]  <=> h2o[c] + 1.22199 h[c] + trpprogly[c] 	-277310.8	277060.9	-277316.7	277108.4
+TRPPROLEUr	2 h2o[c] + 0.216433 h[c] + trpproleu[c]  <=> leu_L[c] + trp_L[c] + pro_L[c] 	-277172.9	277198.9	-277250.0	277192.9
+TRPPROVALr	2 h2o[c] + 0.218102 h[c] + trpproval[c]  <=> trp_L[c] + pro_L[c] + val_L[c] 	-277183.4	277188.4	-277260.5	277182.4
+TRPSERTYRr	2 h2o[c] + trpsertyr[c]  <=> 0.0442136 h[c] + ser_L[c] + tyr_L[c] + trp_L[c] 	-196527.0	195473.0	-196604.2	195467.1
+TRPTHRGLUr	2 h2o[c] + trpthrglu[c]  <=> 0.0380669 h[c] + glu_L[c] + thr_L[c] + trp_L[c] 	-277353.5	277018.2	-277430.7	277012.2
+TRPTHRILEr	2 h2o[c] + trpthrile[c]  <=> 0.0384733 h[c] + thr_L[c] + ile_L[c] + trp_L[c] 	-196511.8	195488.2	-196589.0	195482.2
+TRPTHRTYRr	2 h2o[c] + trpthrtyr[c]  <=> 0.0396572 h[c] + thr_L[c] + tyr_L[c] + trp_L[c] 	-196538.6	195461.4	-196615.8	195455.5
+TRPTYRGLNr	2 h2o[c] + trptyrgln[c]  <=> 0.0204329 h[c] + gln_L[c] + tyr_L[c] + trp_L[c] 	-196538.8	195461.2	-196616.0	195455.3
+TRPTYRTYRr	2 h2o[c] + trptyrtyr[c]  <=> 0.0214361 h[c] + 2 tyr_L[c] + trp_L[c] 	-196381.1	195618.9	-196458.3	195613.0
+TRPVALASPr	2 h2o[c] + trpvalasp[c]  <=> 0.0263941 h[c] + asp_L[c] + trp_L[c] + val_L[c] 	-277184.0	277187.7	-277261.2	277181.7
+TYRALAr	h2o[c] + tyrala[c]  <=> 0.0116584 h[c] + ala_L[c] + tyr_L[c] 	-196503.0	195497.0	-196550.5	195503.0
+TYRALAPHEr	2 h2o[c] + tyralaphe[c]  <=> 0.0234926 h[c] + ala_L[c] + tyr_L[c] + phe_L[c] 	-196473.1	195526.9	-196550.3	195521.0
+TYRARGGLUr	2 h2o[c] + tyrargglu[c]  <=> 0.030403 h[c] + glu_L[c] + arg_L[c] + tyr_L[c] 	-339378.5	339585.5	-339455.7	339579.5
+TYRARGSERr	2 h2o[c] + tyrargser[c]  <=> 0.0551551 h[c] + ser_L[c] + arg_L[c] + tyr_L[c] 	-277599.2	276772.6	-277676.3	276766.6
+TYRASPARGr	2 h2o[c] + tyrasparg[c]  <=> 0.0228308 h[c] + asp_L[c] + arg_L[c] + tyr_L[c] 	-339378.5	339585.4	-339455.7	339579.5
+TYRCYSGLYr	2 h2o[c] + tyrcysgly[c]  <=> 0.0414091 h[c] + cys_L[c] + gly[c] + tyr_L[c] 	-196612.7	195387.3	-196689.9	195381.4
+TYRCYSTHRr	2 h2o[c] + tyrcysthr[c]  <=> 0.0526569 h[c] + cys_L[c] + thr_L[c] + tyr_L[c] 	-196763.9	195236.1	-196841.1	195230.1
+TYRGLUr	h2o[c] + tyrglu[c]  <=> 0.010092 h[c] + glu_L[c] + tyr_L[c] 	-277319.5	277052.2	-277367.0	277058.1
+TYRLEUARGr	2 h2o[c] + tyrleuarg[c]  <=> 0.0331091 h[c] + arg_L[c] + tyr_L[c] + leu_L[c] 	-277430.8	276940.9	-277508.0	276935.0
+TYRPHETYRr	2 h2o[c] + tyrphetyr[c]  <=> 0.0221636 h[c] + 2 tyr_L[c] + phe_L[c] 	-196474.7	195525.3	-196551.9	195519.4
+TYRTHRr	h2o[c] + tyrthr[c]  <=> 0.0296348 h[c] + thr_L[c] + tyr_L[c] 	-196662.1	195337.9	-196709.6	195343.9
+TYRTRPPHEr	2 h2o[c] + tyrtrpphe[c]  <=> 0.0252728 h[c] + tyr_L[c] + trp_L[c] + phe_L[c] 	-196217.5	195782.5	-196294.7	195776.6
+TYRTYRr	h2o[c] + tyrtyr[c]  <=> 0.0110916 h[c] + 2 tyr_L[c] 	-196504.6	195495.4	-196552.1	195501.4
+TYRVALMETr	2 h2o[c] + tyrvalmet[c]  <=> 0.0115953 h[c] + met_L[c] + tyr_L[c] + val_L[c] 	-277441.2	276930.5	-277518.4	276924.6
+VALARGGLYr	2 h2o[c] + valarggly[c]  <=> 0.0391633 h[c] + gly[c] + arg_L[c] + val_L[c] 	-277447.6	276924.2	-277524.7	276918.2
+VALHISASNr	2 h2o[c] + valhisasn[c]  <=> 0.082898 h[c] + asn_L[c] + his_L[c] + val_L[c] 	-222716.0	221770.2	-222793.2	221764.2
+VALLEUPHEr	2 h2o[c] + valleuphe[c]  <=> 0.0221541 h[c] + leu_L[c] + phe_L[c] + val_L[c] 	-196440.2	195559.8	-196517.4	195553.9
+VALLYSTYRr	2 h2o[c] + vallystyr[c]  <=> 0.0202251 h[c] + lys_L[c] + tyr_L[c] + val_L[c] 	-277441.2	276930.5	-277518.4	276924.5
+VALPHEARGr	2 h2o[c] + valphearg[c]  <=> 0.0334858 h[c] + arg_L[c] + phe_L[c] + val_L[c] 	-277277.7	277094.0	-277354.9	277088.1
+VALPROTRPr	2 h2o[c] + 0.0573242 h[c] + valprotrp[c]  <=> trp_L[c] + pro_L[c] + val_L[c] 	-277183.8	277187.9	-277261.0	277181.9
+VALSERARGr	2 h2o[c] + valserarg[c]  <=> 0.0551334 h[c] + ser_L[c] + arg_L[c] + val_L[c] 	-277587.2	276784.5	-277664.4	276778.6
+VALTRPPHEr	2 h2o[c] + valtrpphe[c]  <=> 0.0242582 h[c] + trp_L[c] + phe_L[c] + val_L[c] 	-196205.5	195794.5	-196282.7	195788.5
+VALTRPVALr	2 h2o[c] + valtrpval[c]  <=> 0.0216428 h[c] + trp_L[c] + 2 val_L[c] 	-196357.1	195642.9	-196434.3	195636.9
+VALVALr	h2o[c] + valval[c]  <=> 0.0106951 h[c] + 2 val_L[c] 	-196480.6	195519.4	-196528.1	195525.3
+TRPGLYASPr	2 h2o[c] + trpglyasp[c]  <=> 0.0269568 h[c] + asp_L[c] + gly[c] + trp_L[c] 	-277202.3	277169.4	-277279.5	277163.5
+LHCYSTIN	0.000146006 h[c] + 2 gthrd[c] + Lhcystin[c]  <=> 2 hcys_L[c] + gthox[c] 	-554381.8	554361.7	-554435.2	554415.1
+BANDMT	amet[c] + band[c]  <=> 0.99799 h[c] + ahcys[c] + bandmt[c] 	-366678.1	366686.8	-366713.7	366722.4
+UGT1A10c	bilirub[c] + udpglcur[c]  <=> 0.664106 h[c] + udp[c] + bilglcur[c] 	-392002.2	391997.8	-392037.9	392033.4
+UNK3r	0.00722098 h[c] + glu_L[c] + 2kmb[c]  <=> akg[c] + met_L[c] 	-392000.0	392000.0	-392035.6	392035.6
+ACACT1r	0.0114067 h[c] + 2 accoa[c]  <=> coa[c] + aacoa[c] 	-480100.0	480099.9	-480132.9	480124.1
+ACONT	0.000718782 h[c] + cit[c]  <=> icit[c] 	-277185.9	277185.9	-277203.7	277203.7
+ADK1	atp[c] + amp[c]  <=> 0.617551 h[c] + 2 adp[c] 	-480101.6	480098.4	-480153.7	480124.8
+ASPTA	akg[c] + asp_L[c]  <=> 0.0083072 h[c] + glu_L[c] + oaa[c] 	-392000.0	392000.0	-392035.6	392035.6
+DGK1	atp[c] + dgmp[c]  <=> 0.635175 h[c] + adp[c] + dgdp[c] 	-392001.4	391998.6	-392047.0	392017.4
+DHFR	0.831322 h[c] + nadph[c] + dhf[c]  <=> nadp[c] + thf[c] 	-277205.0	277166.7	-277244.1	277195.0
+DHORTS	h2o[c] + dhor_S[c]  <=> 1.00739 h[c] + cbasp[c] 	-276949.3	277422.4	-276967.2	277440.2
+DURIPP	0.216263 h[c] + pi[c] + duri[c]  <=> 2dr1p[c] + ura[c] 	-298039.6	300750.3	-298074.1	300774.0
+ENO	0.00263235 h[c] + 2pg[c]  <=> h2o[c] + pep[c] 	-277423.1	276948.6	-277440.9	276966.4
+FBA	0.0367456 h[c] + fdp[c]  <=> dhap[c] + g3p[c] 	-339482.1	339481.8	-339529.6	339487.8
+FBA2	0.00718886 h[c] + f1p[c]  <=> dhap[c] + glyald[c] 	-277621.4	276750.3	-277668.9	276756.2
+FUM	h2o[c] + 0.00682159 h[c] + fum[c]  <=> mal_L[c] 	-276948.6	277423.1	-276966.5	277440.9
+G3PD1	nad[c] + glyc3p[c]  <=> 1.21395 h[c] + nadh[c] + dhap[c] 	-277168.7	277203.0	-277203.8	277224.1
+G6PDH2r	nadp[c] + g6p[c]  <=> 1.12175 h[c] + nadph[c] + 6pgl[c] 	-277167.7	277204.0	-277196.0	277243.0
+GALU	1.80577 h[c] + g1p[c] + utp[c]  <=> ppi[c] + udpg[c] 	-341460.7	337503.2	-341482.5	337538.2
+GAPD	pi[c] + nad[c] + g3p[c]  <=> 1.37284 h[c] + nadh[c] + 13dpg[c] 	-276073.6	278298.1	-276095.7	278337.1
+GHMT2r	ser_L[c] + thf[c]  <=> h2o[c] + 0.0963047 h[c] + gly[c] + mlthf[c] 	-277283.9	277087.9	-277319.5	277123.5
+GK1	atp[c] + gmp[c]  <=> 0.637 h[c] + adp[c] + gdp[c] 	-392001.4	391998.6	-392047.1	392017.4
+GLYLEUHYDROc	h2o[c] + glyleu[c]  <=> 0.0135576 h[c] + gly[c] + leu_L[c] 	-196488.4	195511.6	-196535.9	195517.6
+GLYPHEHYc	h2o[c] + glyphe[c]  <=> 0.0143491 h[c] + gly[c] + phe_L[c] 	-196347.3	195652.7	-196394.8	195658.7
+GLYPROPRO1c	h2o[c] + 0.156338 h[c] + glypro[c]  <=> gly[c] + pro_L[c] 	-277325.3	277046.4	-277372.8	277052.3
+ILETA	6.41284e-06 h[c] + akg[c] + ile_L[c]  <=> glu_L[c] + 3mop[c] 	-339137.8	339826.1	-339173.4	339861.7
+LEUTA	0.00125702 h[c] + akg[c] + leu_L[c]  <=> glu_L[c] + 4mop[c] 	-339133.6	339830.4	-339169.2	339866.0
+MAN6PI	0.0704317 h[c] + man6p[c]  <=> f6p[c] 	-277186.1	277185.6	-277203.9	277203.5
+MTHFC	h2o[c] + methf[c]  <=> 10fthf[c] + 1.12564 h[c] 	-276949.1	277422.6	-276966.9	277440.4
+MTHFD	nadp[c] + mlthf[c]  <=> 0.000634652 h[c] + nadph[c] + methf[c] 	-277167.2	277204.5	-277195.5	277243.5
+NDPK1	atp[c] + gdp[c]  <=> 7.86639e-06 h[c] + adp[c] + gtp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK2	atp[c] + udp[c]  <=> 0.00691387 h[c] + adp[c] + utp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK3	atp[c] + cdp[c]  <=> 0.00604274 h[c] + adp[c] + ctp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK4	atp[c] + dtdp[c]  <=> 2.30955e-06 h[c] + adp[c] + dttp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK5	atp[c] + dgdp[c]  <=> 0.00621044 h[c] + adp[c] + dgtp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK6	atp[c] + dudp[c]  <=> 1.77122e-06 h[c] + adp[c] + dutp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK7	atp[c] + dcdp[c]  <=> 1.15331e-05 h[c] + adp[c] + dctp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK8	7.8655e-06 h[c] + atp[c] + dadp[c]  <=> adp[c] + datp[c] 	-392000.0	392000.0	-392045.7	392018.8
+NDPK9	2.81743e-06 h[c] + atp[c] + idp[c]  <=> adp[c] + itp[c] 	-392000.0	392000.0	-392045.7	392018.8
+PGI	0.0704317 h[c] + g6p[c]  <=> f6p[c] 	-277186.1	277185.6	-277203.9	277203.5
+PGK	0.101851 h[c] + atp[c] + 3pg[c]  <=> adp[c] + 13dpg[c] 	-392000.2	391999.8	-392045.9	392018.6
+PGM	0.100753 h[c] + 2pg[c]  <=> 3pg[c] 	-277186.2	277185.6	-277204.0	277203.4
+PGMT	0.00597204 h[c] + g1p[c]  <=> g6p[c] 	-277185.9	277185.8	-277203.7	277203.7
+PMANM	0.00597204 h[c] + man1p[c]  <=> man6p[c] 	-277185.9	277185.8	-277203.7	277203.7
+PNP	pi[c] + rnam[c]  <=> 1.9184 h[c] + ncam[c] + r1p[c] 	-338389.3	340574.6	-338423.7	340598.4
+PPM	0.00597271 h[c] + r1p[c]  <=> r5p[c] 	-277185.9	277185.8	-277203.7	277203.7
+PUNP1	pi[c] + adn[c]  <=> 0.241697 h[c] + ade[c] + r1p[c] 	-194403.1	197596.9	-194437.5	197620.7
+PUNP2	pi[c] + dad_2[c]  <=> 0.191337 h[c] + 2dr1p[c] + ade[c] 	-221340.5	223145.7	-221375.0	223169.4
+PUNP3	pi[c] + gsn[c]  <=> 0.263874 h[c] + gua[c] + r1p[c] 	-194400.2	197599.8	-194434.6	197623.6
+PUNP4	pi[c] + dgsn[c]  <=> 0.221366 h[c] + 2dr1p[c] + gua[c] 	-281528.7	288034.1	-281563.1	288057.9
+PUNP5	pi[c] + ins[c]  <=> 0.285064 h[c] + hxan[c] + r1p[c] 	-194402.0	197598.0	-194436.4	197621.8
+PUNP6	pi[c] + din[c]  <=> 0.23468 h[c] + 2dr1p[c] + hxan[c] 	-221342.2	223144.0	-221376.7	223167.7
+PUNP7	pi[c] + xtsn[c]  <=> 0.310642 h[c] + xan[c] + r1p[c] 	-194400.6	197599.4	-194435.1	197623.1
+RPE	ru5p_D[c]  <=> xu5p_D[c] 	-277185.9	277185.9	-277203.7	277203.7
+RPI	0.065497 h[c] + r5p[c]  <=> ru5p_D[c] 	-277186.1	277185.7	-277203.9	277203.5
+TALA	0.0341403 h[c] + g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] 	-392000.1	391999.9	-392035.7	392035.6
+TKT1	0.0395865 h[c] + xu5p_D[c] + r5p[c]  <=> g3p[c] + s7p[c] 	-392000.2	391999.8	-392035.8	392035.5
+TKT2	xu5p_D[c] + e4p[c]  <=> 0.0222795 h[c] + g3p[c] + f6p[c] 	-391999.9	392000.1	-392035.6	392035.7
+TPI	0.0475431 h[c] + dhap[c]  <=> g3p[c] 	-277186.0	277185.7	-277203.8	277203.5
+UAG4E	uacgam[c]  <=> udpacgal[c] 	-277185.9	277185.9	-277203.7	277203.7
+UDPG4E	udpg[c]  <=> udpgal[c] 	-277185.9	277185.9	-277203.7	277203.7
+UMPK	atp[c] + ump[c]  <=> 0.758706 h[c] + adp[c] + udp[c] 	-392002.1	391997.9	-392047.8	392016.7
+URIDK3	atp[c] + dump[c]  <=> 0.760666 h[c] + adp[c] + dudp[c] 	-392002.1	391997.9	-392047.8	392016.7
+VALTA	akg[c] + val_L[c]  <=> 0.000211153 h[c] + glu_L[c] + 3mob[c] 	-339123.1	339840.9	-339158.7	339876.5
+r0345	atp[c] + damp[c]  <=> 0.619657 h[c] + adp[c] + dadp[c] 	-392001.6	391998.4	-392047.3	392017.2
+r0422	nadp[c] + icit[c]  <=> 1.1498 h[c] + nadph[c] + HC01434[c] 	-277167.6	277204.1	-277195.9	277243.1
+r0570	2dr1p[c]  <=> 0.0421896 h[c] + 2dr5p[c] 	-277185.7	277186.0	-277203.5	277203.8
+AICART	10fthf[c] + 0.664805 h[c] + aicar[c]  <=> thf[c] + fprica[c] 	-391997.6	392002.4	-392033.3	392038.0
+ARGSL	argsuc[c]  <=> 0.00539329 h[c] + fum[c] + arg_L[c] 	-339481.9	339482.0	-339529.4	339487.9
+CYTK1	atp[c] + cmp[c]  <=> 0.635192 h[c] + adp[c] + cdp[c] 	-392001.4	391998.6	-392047.1	392017.4
+CYTK2	atp[c] + dcmp[c]  <=> 0.643722 h[c] + adp[c] + dcdp[c] 	-392001.4	391998.6	-392047.1	392017.4
+GALT	1.80577 h[c] + utp[c] + gal1p[c]  <=> udpgal[c] + ppi[c] 	-341460.7	337503.2	-341482.5	337538.2
+IMPC	h2o[c] + 0.00012736 h[c] + imp[c]  <=> fprica[c] 	-276948.6	277423.1	-276966.4	277440.9
+LDH_D	nad[c] + lac_D[c]  <=> 1.13293 h[c] + pyr[c] + nadh[c] 	-277168.9	277202.8	-277204.1	277223.9
+LDH_L	nad[c] + lac_L[c]  <=> 1.13293 h[c] + pyr[c] + nadh[c] 	-277168.9	277202.8	-277204.1	277223.9
+MDH	nad[c] + mal_L[c]  <=> 1.14081 h[c] + nadh[c] + oaa[c] 	-277168.9	277202.8	-277204.0	277223.9
+PHETA1	0.00265806 h[c] + akg[c] + phe_L[c]  <=> glu_L[c] + phpyr[c] 	-339274.6	339689.3	-339310.3	339724.9
+TYRTA	0.00201179 h[c] + akg[c] + tyr_L[c]  <=> 34hpp[c] + glu_L[c] 	-339111.1	339852.9	-339146.7	339888.5
+r0392	h2o[c] + nad[c] + glyald[c]  <=> 2.13243 h[c] + nadh[c] + glyc_R[c] 	-195311.0	196689.0	-195346.1	196710.1
+r0792	nad[c] + 5mthf[c]  <=> 3.23713 h[c] + nadh[c] + mlthf[c] 	-211970.8	212124.4	-212005.9	212145.6
+UGLT	udpg[c] + gal1p[c]  <=> udpgal[c] + g1p[c] 	-392000.0	392000.0	-392035.6	392035.6
+DCMPDA	h2o[c] + 0.510304 h[c] + dcmp[c]  <=> nh4[c] + dump[c] 	-277029.0	277342.7	-277065.6	277342.4
+FORTHFC	1.97886 h[c] + 5forthf[c]  <=> nh4[c] + methf[c] 	-277264.1	277107.6	-277300.7	277107.3
+MTRI	5mdr1p[c]  <=> 0.00195819 h[c] + 5mdru1p[c] 	-277185.9	277185.9	-277203.7	277203.7
+MTHFD2	0.00656571 h[c] + nad[c] + mlthf[c]  <=> nadh[c] + methf[c] 	-277168.5	277203.2	-277203.6	277224.4
+VANILPYRc	0.00256673 h[c] + akg[c] + CE2176[c]  <=> glu_L[c] + vanilpyr[c] 	-392000.0	392000.0	-392035.6	392035.6
+VANILLACc	1.13272 h[c] + nadh[c] + vanilpyr[c]  <=> nad[c] + vanillac[c] 	-277202.8	277169.0	-277223.9	277204.1
+2H3MVc	1.13352 h[c] + nadh[c] + 3mop[c]  <=> nad[c] + 2h3mv[c] 	-277202.8	277168.9	-277223.9	277204.1
+2HIVc	1.13333 h[c] + nadh[c] + 3mob[c]  <=> nad[c] + 2hiv[c] 	-277202.8	277168.9	-277223.9	277204.1
+2M3OVCOAm	2 ppcoa[m]  <=> 0.0375641 h[m] + coa[m] + 2m3ovcoa[m] 	-480100.0	480100.0	-480121.7	480133.2
+2M3HVACc	1.13397 h[c] + nadh[c] + 2m3ovac[c]  <=> nad[c] + 2m3hvac[c] 	-277202.8	277168.9	-277223.9	277204.1
+PPIOGLYc	ppcoa[m] + gly[m]  <=> 0.921205 h[m] + coa[m] + ppiogly[m] 	-339105.3	339858.6	-339127.0	339891.8
+TIGGLYc	2mb2coa[m] + gly[m]  <=> 0.903212 h[m] + coa[m] + tiggly[m] 	-339105.4	339858.5	-339127.1	339891.7
+GGTe_1	h2o[e] + CE5026[e]  <=> 0.0527216 h[e] + glu_L[e] + 5cysgly34dhphe[e] 	-339244.8	339719.1	-339292.3	339725.0
+DACT	23dh1i56dio[c]  <=> 0.0509096 h[c] + CE4888[c] 	-277186.0	277185.7	-277203.8	277203.5
+DACGST	0.0147796 h[c] + gthrd[c] + 23dh1i56dio[c]  <=> 4glu56dihdind[c] 	-339482.0	339481.9	-339487.9	339529.4
+GDA1tn	gd1a_hs[c]  <=> gda1_hs[n] 	-277265.1	277106.6	-277282.9	277124.4
+HMR_0753	h2o[c] + h[c] + dhcrm_hs[c]  <=> sphgn[c] + HC02070[c] 	-339244.0	339719.9	-339291.5	339725.8
+HMR_0873	h[c] + gdp[c] + fucgalfucgalacglcgalgluside_hs[c]  <=> gdpfuc[c] + galfucgalacglcgalgluside_hs[c] 	-391997.5	392002.5	-392033.2	392038.1
+HMR_0912	udpgal[c] + sphings[c]  <=> 1.66824 h[c] + udp[c] + C01747[c] 	-392003.0	391997.0	-392038.6	392032.6
+HMR_0979	o2[c] + 0.000501339 h[c] + 2 CE2084[c]  <=> 2 CE5178[c] 	-554388.1	554355.3	-554411.9	554420.6
+HMR_1129	nad[c] + leuktrB4woh[c]  <=> 1.1326 h[c] + nadh[c] + CE2053[c] 	-277169.0	277202.8	-277204.1	277223.9
+HMR_1280	nadp[c] + CE4988[c]  <=> 1.1398 h[c] + nadph[c] + CE5944[c] 	-277167.7	277204.0	-277196.0	277243.1
+HMR_1315	h2o[r] + txa2[r]  <=> 1.20078e-05 h[r] + HC02180[r] 	-276948.6	277423.1	-276966.4	277440.9
+HMR_1317	1.13259 h[c] + nadh[c] + CE1447[c]  <=> nad[c] + HC02180[c] 	-277202.8	277169.0	-277223.9	277204.1
+HMR_1318	0.000825107 h[c] + CE0955[c]  <=> h2o[c] + prostgi2[c] 	-277423.1	276948.6	-277440.9	276966.4
+HMR_1321	h2o[c] + HC02203[c]  <=> 0.000325022 h[c] + prostge2[c] 	-276948.6	277423.1	-276966.4	277440.9
+HMR_1329	1.13967 h[c] + nadph[c] + prostgd2[c]  <=> nadp[c] + prostgf2[c] 	-277204.0	277167.7	-277243.1	277196.0
+HMR_1332	h2o[c] + C05957[c]  <=> 0.00142867 h[c] + prostgd2[c] 	-276948.6	277423.1	-276966.4	277440.9
+HMR_1373	0.000135112 h[c] + CE4876[c]  <=> C05957[c] 	-277185.9	277185.9	-277203.7	277203.7
+HMR_1392	2.00005 h[c] + CE6232[c]  <=> h2o[r] + CE6234[c] 	-277421.6	276950.1	-277439.4	276967.9
+HMR_1465	ppi[c] + HC01118[c]  <=> 0.746867 h[c] + 2 frdp[c] 	-436289.2	440249.4	-436324.1	440271.3
+HMR_1532	ppi[c] + ttc_ggdp[c]  <=> 0.746864 h[c] + frdp[c] + dmpp[c] 	-337501.8	341462.1	-337536.8	341483.9
+HMR_1651	nad[m] + HC01459[m]  <=> 1.02383 h[m] + nadh[m] + cholcoaone[m] 	-277169.3	277202.5	-277216.0	277222.3
+HMR_1807	h2o[m] + CE4872[m]  <=> 0.000109502 h[m] + CE4874[m] 	-276948.6	277423.1	-276966.4	277440.9
+HMR_1834	1.07128 h[c] + gly[c] + dchac[c]  <=> h2o[c] + M01989[c] 	-195859.4	196140.6	-195865.4	196188.1
+HMR_2002	nadp[c] + C03681[c]  <=> 1.1398 h[c] + nadph[c] + prgstrn[c] 	-277167.7	277204.0	-277196.0	277243.1
+HMR_2014	1.1398 h[c] + nadph[c] + andrstndn[c]  <=> nadp[c] + andrstandn[c] 	-277204.0	277167.7	-277243.1	277196.0
+HMR_2088	2 h2o[c] + CE5253[c]  <=> h2o2[c] + 0.00579939 h[c] + hestratriol[c] 	-276845.4	277526.3	-276892.9	277532.2
+HMR_2089	2 h2o[l] + CE5253[l]  <=> 0.000116354 h[l] + h2o2[l] + hestratriol[l] 	-276845.4	277526.3	-276892.9	277532.2
+HMR_2560	h2o[c] + CE7081[c]  <=> 2.00005 h[c] + CE7091[c] 	-276950.1	277421.6	-276967.9	277439.4
+HMR_2571	h2o[r] + CE7081[r]  <=> 2.00005 h[r] + CE7091[r] 	-276950.1	277421.6	-276967.9	277439.4
+HMR_2602	0.0590543 h[c] + coa[c] + M01729[c]  <=> crn[c] + ddcacoa[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2604	0.0233756 h[m] + coa[m] + M01729[m]  <=> crn[m] + ddcacoa[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2608	0.0590543 h[c] + coa[c] + M02973[c]  <=> crn[c] + tdcoa[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2610	0.0233756 h[m] + coa[m] + M02973[m]  <=> crn[m] + tdcoa[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2611	1.94095 h[c] + crn[c] + M00129[c]  <=> coa[c] + ttdcrn[c] 	-349835.4	350056.3	-349868.3	350080.5
+HMR_2613	1.97662 h[m] + crn[m] + M00129[m]  <=> coa[m] + ttdcrn[m] 	-349805.7	350086.1	-349827.4	350119.3
+HMR_2620	crn[c] + M01141[c]  <=> 0.0559141 h[c] + coa[c] + M02976[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2622	crn[m] + M01141[m]  <=> 0.0227828 h[m] + coa[m] + M02976[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2633	crn[c] + M01191[c]  <=> 0.0627735 h[c] + coa[c] + hdd2crn[c] 	-349836.9	350054.9	-349869.8	350079.0
+HMR_2635	crn[m] + M01191[m]  <=> 0.0240122 h[m] + coa[m] + hdd2crn[m] 	-349837.1	350054.7	-349858.8	350087.9
+HMR_2648	crn[c] + M00004[c]  <=> 0.0590543 h[c] + coa[c] + M02102[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2650	crn[m] + M00004[m]  <=> 0.0233756 h[m] + coa[m] + M02102[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2651	crn[c] + M01237[c]  <=> 0.0590543 h[c] + coa[c] + M02103[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2653	crn[m] + M01237[m]  <=> 0.0233756 h[m] + coa[m] + M02103[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2657	crn[c] + M00020[c]  <=> 0.0590543 h[c] + coa[c] + odecrn[c] 	-349836.9	350054.9	-349869.8	350079.0
+HMR_2659	crn[m] + M00020[m]  <=> 0.0233756 h[m] + coa[m] + odecrn[m] 	-349837.1	350054.7	-349858.8	350087.9
+HMR_2660	0.0591679 h[c] + coa[c] + vacccrn[c]  <=> crn[c] + vacccoa[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2662	0.0233937 h[m] + coa[m] + vacccrn[m]  <=> crn[m] + vacccoa[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2666	30.0973 h[c] + crn[c] + M00127[c]  <=> coa[c] + elaidcrn[c] 	-348532.5	351359.2	-348565.4	351383.4
+HMR_2668	30.0024 h[m] + crn[m] + M00127[m]  <=> coa[m] + elaidcrn[m] 	-348389.8	351501.9	-348411.6	351535.1
+HMR_2669	0.93734 h[c] + crn[c] + M00116[c]  <=> coa[c] + M02638[c] 	-289754.6	290059.6	-289787.5	290083.7
+HMR_2671	0.976006 h[m] + crn[m] + M00116[m]  <=> coa[m] + M02638[m] 	-289750.0	290064.2	-289771.7	290097.4
+HMR_2675	0.0590543 h[c] + coa[c] + M02611[c]  <=> crn[c] + M02612[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2677	0.0233756 h[m] + coa[m] + M02611[m]  <=> crn[m] + M02612[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2681	crn[c] + M00018[c]  <=> 0.0590543 h[c] + coa[c] + M01776[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2683	crn[m] + M00018[m]  <=> 0.0233756 h[m] + coa[m] + M01776[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2684	crn[c] + CE5151[c]  <=> 0.0590543 h[c] + coa[c] + M01777[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2686	crn[m] + CE5151[m]  <=> 0.0233756 h[m] + coa[m] + M01777[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2687	crn[c] + M01236[c]  <=> 0.0590543 h[c] + coa[c] + M01775[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2689	crn[m] + M01236[m]  <=> 0.0233756 h[m] + coa[m] + M01775[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2690	crn[c] + M00123[c]  <=> 0.0590543 h[c] + coa[c] + M00122[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2692	crn[m] + M00123[m]  <=> 0.0233756 h[m] + coa[m] + M00122[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2693	crn[c] + M00101[c]  <=> 0.0558649 h[c] + coa[c] + M00100[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2697	crn[m] + M00101[m]  <=> 0.022775 h[m] + coa[m] + M00100[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2699	0.0590543 h[c] + coa[c] + M02051[c]  <=> crn[c] + M02052[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2701	0.0233756 h[m] + coa[m] + M02051[m]  <=> crn[m] + M02052[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2702	0.0590543 h[c] + coa[c] + M01724[c]  <=> crn[c] + docoscoa[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2704	0.0233756 h[m] + coa[m] + M01724[m]  <=> crn[m] + docoscoa[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2705	crn[c] + CE5155[c]  <=> 0.0590543 h[c] + coa[c] + M01727[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2707	crn[m] + CE5155[m]  <=> 0.0233756 h[m] + coa[m] + M01727[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2708	crn[c] + M00006[c]  <=> 0.0590543 h[c] + coa[c] + M01726[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2710	crn[m] + M00006[m]  <=> 0.0233756 h[m] + coa[m] + M01726[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2711	0.0590543 h[c] + coa[c] + M02637[c]  <=> crn[c] + lnlncacoa[c] 	-290016.1	289798.1	-290040.2	289831.0
+HMR_2713	0.0233756 h[m] + coa[m] + M02637[m]  <=> crn[m] + lnlncacoa[m] 	-290015.9	289798.3	-290049.1	289820.0
+HMR_2733	crn[c] + M00012[c]  <=> 0.0590543 h[c] + coa[c] + M00011[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2735	crn[m] + M00012[m]  <=> 0.0233756 h[m] + coa[m] + M00011[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2736	crn[c] + M00343[c]  <=> 0.0590543 h[c] + coa[c] + M00342[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2738	crn[m] + M00343[m]  <=> 0.0233756 h[m] + coa[m] + M00342[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2739	crn[c] + CE4854[c]  <=> 0.0590543 h[c] + coa[c] + M00261[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2741	crn[m] + CE4854[m]  <=> 0.0233756 h[m] + coa[m] + M00261[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2768	crn[c] + CE4843[c]  <=> 0.0590543 h[c] + coa[c] + M01770[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2770	crn[m] + CE4843[m]  <=> 0.0233756 h[m] + coa[m] + M01770[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2771	crn[c] + M00023[c]  <=> 0.0590543 h[c] + coa[c] + M00022[c] 	-289755.4	290058.8	-289788.2	290083.0
+HMR_2773	crn[m] + M00023[m]  <=> 0.0233756 h[m] + coa[m] + M00022[m] 	-289750.8	290063.4	-289772.5	290096.6
+HMR_2774	crn[c] + CE4847[c]  <=> 0.0590543 h[c] + coa[c] + M00263[c] 	-289798.1	290016.1	-289831.0	290040.2
+HMR_2776	crn[m] + CE4847[m]  <=> 0.0233756 h[m] + coa[m] + M00263[m] 	-289798.3	290015.9	-289820.0	290049.1
+HMR_2819	0.0590543 h[r] + coa[r] + stcrn[r]  <=> crn[r] + stcoa[r] 	-350054.9	349836.9	-350090.5	349872.5
+HMR_2827	0.0590543 h[r] + coa[r] + odecrn[r]  <=> crn[r] + odecoa[r] 	-350054.9	349836.9	-350090.5	349872.5
+HMR_2852	0.0590543 h[r] + coa[r] + M01724[r]  <=> crn[r] + docoscoa[r] 	-290016.1	289798.1	-290051.7	289833.7
+HMR_2859	0.0590543 h[r] + coa[r] + M02637[r]  <=> crn[r] + lnlncacoa[r] 	-290016.1	289798.1	-290051.7	289833.7
+HMR_2862	crn[r] + strdnccoa[r]  <=> 0.0623623 h[r] + coa[r] + strdnccrn[r] 	-349836.9	350054.9	-349872.5	350090.5
+HMR_2866	crn[r] + tmndnccoa[r]  <=> 0.0558649 h[r] + coa[r] + tmndnccrn[r] 	-349836.9	350054.9	-349872.5	350090.5
+HMR_2886	0.0623623 h[r] + coa[r] + lnlncgcrn[r]  <=> crn[r] + lnlncgcoa[r] 	-350054.9	349836.9	-350090.5	349872.5
+HMR_2890	17.0549 h[r] + coa[r] + dlnlcgcrn[r]  <=> crn[r] + dlnlcgcoa[r] 	-349315.5	350576.3	-349351.1	350611.9
+HMR_3454	nad[m] + CE2438[m]  <=> 1.02381 h[m] + nadh[m] + CE2439[m] 	-277169.3	277202.5	-277216.0	277222.3
+HMR_3455	accoa[m] + CE2440[m]  <=> 0.0251728 h[m] + coa[m] + CE2439[m] 	-392000.0	392000.0	-392021.7	392033.2
+HMR_3457	1.02452 h[m] + nadph[m] + CE2441[m]  <=> nadp[m] + CE2442[m] 	-277203.7	277168.0	-277249.0	277210.6
+HMR_3491	CE5126[x]  <=> pristcoa[x] 	-277185.9	277185.9	-277203.7	277203.7
+HMR_4592	1.13981 h[c] + nadph[c] + xyl_D[c]  <=> nadp[c] + xylt[c] 	-196802.6	195197.4	-196841.6	195225.7
+HMR_4700	1.13534 h[c] + nadph[c] + fald[c] + sarcs[c]  <=> h2o[c] + nadp[c] + dmgly[c] 	-277318.8	277052.9	-277346.0	277110.9
+HMR_4771	h2o[c] + 0.000206674 h[c] + HC01609[c]  <=> hmbil[c] 	-276948.6	277423.1	-276966.4	277440.9
+HMR_4831	nad[e] + lcts[e]  <=> 1.08773 h[e] + HC01446[e] + nadh[e] 	-269527.4	269225.0	-269563.1	269260.7
+HMR_6397	h[c] + nadh[c] + lipoate[c]  <=> nad[c] + dhlam[c] 	-277202.0	277169.7	-277223.2	277204.8
+HMR_6456	0.999047 h[c] + CE7047[c]  <=> yvite[c] 	-277185.1	277186.6	-277202.9	277204.4
+HMR_6500	0.00083008 h[c] + q10[m] + CE5021[c]  <=> 0.00945211 h[m] + q10h2[m] + CE5022[c] 	-392000.0	392000.0	-392035.6	392035.6
+HMR_6607	h2o[c] + CE6252[c]  <=> 0.159918 h[c] + urate[c] + oh1[c] 	-277306.7	277065.0	-277354.2	277070.9
+HMR_6611	h2o[c] + o2[c] + 0.162242 h[c] + urate[c]  <=> h2o2[c] + C11821[c] 	-195555.1	196444.9	-195590.7	196480.5
+HMR_6755	amet[c] + 34dhoxmand[c]  <=> 0.984742 h[c] + ahcys[c] + 3mox4hoxm[c] 	-366678.1	366686.8	-366713.7	366722.4
+HMR_6826	nadp[c] + i[c] + CE2866[c]  <=> 0.141719 h[c] + nadph[c] + triodthy[c] 	-339463.0	339500.9	-339479.5	339569.6
+HMR_6834	nadp[c] + i[c] + CE2866[c]  <=> 0.574307 h[c] + nadph[c] + HC02187[c] 	-339464.6	339499.3	-339481.1	339568.0
+HMR_6854	nadp[c] + i[c] + triodthy[c]  <=> 0.57887 h[c] + nadph[c] + thyox_L[c] 	-339464.7	339499.2	-339481.1	339568.0
+HMR_6876	2c23dh56dhoxin[c] + dopaqn[c]  <=> 0.00634313 h[c] + 34dhphe[c] + L_dpchrm[c] 	-392000.0	392000.0	-392035.6	392035.7
+HMR_7748	M01389[c]  <=> g6p[c] 	-196000.0	196000.0	-196017.8	196017.8
+HMR_7749	0.0704317 h[c] + M01389[c]  <=> f6p[c] 	-196000.2	195999.8	-196018.0	196017.6
+HMR_8762	HC00664[c]  <=> 0.00463905 h[c] + dhap[c] + glyald[c] 	-277621.4	276750.3	-277668.9	276756.2
+HMR_9801	0.237246 h[c] + gtp[c] + pcollg5hlys[c]  <=> gdp[c] + M03167[c] 	-339482.6	339481.3	-339518.2	339517.0
+HMR_9803	1.96331 h[m] + nadph[m] + malcoa[m]  <=> h2o[m] + nadp[m] + M03168[m] 	-196254.5	195745.5	-196299.8	195788.1
+HMR_9804	nadp[m] + 3hpcoa[m]  <=> 1.08543 h[m] + nadph[m] + M03168[m] 	-195982.3	196017.7	-196024.9	196063.0
+HMR_0980	nadp[c] + CE6246[c]  <=> h[c] + nadph[c] + CE2084[c] 	-195981.8	196018.2	-196010.1	196057.2
+HMR_1500	2.8602 h[c] + nadp[c] + 4mzym_int2[c]  <=> nadph[c] + HC02110[c] 	-277164.7	277207.0	-277193.0	277246.0
+HMR_6672	retinal_cis_13[c]  <=> retinal[c] 	-240053.8	240046.1	-240071.7	240064.0
+
+Cytoplasmic metabolites only:
+3	10fthf	10fthf[c]	911.9	100000.0	
+1	13dampp	13dampp[c]	521.6	100000.0	
+593	h2o	h2o[c]	-150.2	1.6	
+2	o2	o2[c]	16.4	4.9	
+3	h2o2	h2o2[c]	-47.0	4.9	
+6	nh4	nh4[c]	93.7	4.9	
+4.343680e+02	h	h[c]	42.8	0.0	
+22	atp	atp[c]	520.0	100000.0	
+23	adp	adp[c]	520.0	100000.0	
+16	pi	pi[c]	-1052.1	1.5	
+8	pyr	pyr[c]	130.5	100000.0	
+79	nadph	nadph[c]	718.2	50000.0	
+79	nadp	nadp[c]	655.8	50000.0	
+1	Lcyst	Lcyst[c]	260.8	100000.0	
+1	L2aadp	L2aadp[c]	434.9	100000.0	
+15	akg	akg[c]	174.0	100000.0	
+6	2dr1p	2dr1p[c]	391.0	100000.0	
+57	nadh	nadh[c]	1604.7	50000.0	
+58	nad	nad[c]	1543.6	50000.0	
+1	2hb	2hb[c]	304.4	100000.0	
+2	2obut	2obut[c]	217.5	100000.0	
+2	2oxoadp	2oxoadp[c]	261.0	100000.0	
+2	34dhmald	34dhmald[c]	347.9	100000.0	
+1	34dhoxpeg	34dhoxpeg[c]	434.9	100000.0	
+1	34dhpha	34dhpha[c]	304.4	100000.0	
+9	amet	amet[c]	1000.3	100000.0	
+9	ahcys	ahcys[c]	874.9	70710.7	
+1	homoval	homoval[c]	391.4	100000.0	
+1	34dhphe	34dhphe[c]	478.4	100000.0	
+1	34dhpac	34dhpac[c]	347.9	100000.0	
+2	34dhoxmand	34dhoxmand[c]	304.4	100000.0	
+5	co2	co2[c]	-386.0	4.9	
+1	34hpp	34hpp[c]	304.4	100000.0	
+1	sphgn	sphgn[c]	1739.7	100000.0	
+57	glu_L	glu_L[c]	347.9	100000.0	
+1	hLkynr	hLkynr[c]	521.8	100000.0	
+1	42A3HP24DB	42A3HP24DB[c]	347.9	100000.0	
+3	dopa	dopa[c]	521.9	100000.0	
+115	coa	coa[c]	1391.5	100000.0	
+1	3mox4hpac	3mox4hpac[c]	434.9	100000.0	
+2	3mob	3mob[c]	304.4	100000.0	
+2	3mop	3mop[c]	391.4	100000.0	
+1	3m4hpga	3m4hpga[c]	434.9	100000.0	
+2	3mox4hoxm	3mox4hoxm[c]	391.4	100000.0	
+1	3moxtyr	3moxtyr[c]	608.9	100000.0	
+30	asp_L	asp_L[c]	260.9	100000.0	
+1	hyptaur	hyptaur[c]	304.4	100000.0	
+1	so3	so3[c]	-488.6	4.9	
+1	4hoxpacd	4hoxpacd[c]	347.9	100000.0	
+1	4hphac	4hphac[c]	304.4	100000.0	
+1	4mop	4mop[c]	391.4	100000.0	
+1	5adtststerones	5adtststerones[c]	1261.3	100000.0	
+2	5adtststerone	5adtststerone[c]	1304.8	100000.0	
+2	5hoxindact	5hoxindact[c]	391.4	100000.0	
+1	5hoxindoa	5hoxindoa[c]	347.9	100000.0	
+1	5mthf	5mthf[c]	981.7	41286.1	
+1	7dhchsterol	7dhchsterol[c]	1913.7	100000.0	
+4	udpgal	udpgal[c]	955.4	100000.0	
+14	udp	udp[c]	474.8	100000.0	
+1	abt	abt[c]	521.9	100000.0	
+5	xylu_L	xylu_L[c]	434.9	100000.0	
+2	acald	acald[c]	33.8	3.3	
+6	accoa	accoa[c]	1478.5	100000.0	
+2	itp	itp[c]	476.5	100000.0	
+2	idp	idp[c]	476.5	100000.0	
+1	acgam6p	acgam6p[c]	608.4	100000.0	
+1	acgam1p	acgam1p[c]	608.6	100000.0	
+4	ac	ac[c]	130.5	100000.0	
+1	ach	ach[c]	620.3	70710.7	
+1	cit	cit[c]	217.4	100000.0	
+2	oaa	oaa[c]	87.0	100000.0	
+2	pep	pep[c]	86.8	100000.0	
+2	man6p	man6p[c]	478.1	100000.0	
+1	acnam	acnam[c]	782.8	100000.0	
+1	acmana	acmana[c]	812.7	57735.0	
+1	orn	orn[c]	565.4	100000.0	
+1	acrn	acrn[c]	782.9	100000.0	
+4	amp	amp[c]	521.6	100000.0	
+8	ppi	ppi[c]	-1938.5	2.0	
+2	ppcoa	ppcoa[c]	1565.3	100000.0	
+1	ppa	ppa[c]	217.5	100000.0	
+1	melatn	melatn[c]	695.3	100000.0	
+1	adn	adn[c]	373.0	2.5	
+1	ins	ins[c]	110.8	2.8	
+2	ade	ade[c]	526.7	2.8	
+8	gtp	gtp[c]	520.0	100000.0	
+8	gdp	gdp[c]	520.0	100000.0	
+2	damp	damp[c]	521.6	100000.0	
+6	datp	datp[c]	520.0	100000.0	
+8	dadp	dadp[c]	520.0	100000.0	
+3	g1p	g1p[c]	478.2	100000.0	
+1	man1p	man1p[c]	478.2	100000.0	
+1	adrncoa	adrncoa[c]	2870.1	100000.0	
+95	crn	crn[c]	543.6	43334.7	
+1	adrncrn	adrncrn[c]	2131.1	100000.0	
+2	fum	fum[c]	87.0	100000.0	
+1	aicar	aicar[c]	563.1	100000.0	
+9	cmp	cmp[c]	521.5	100000.0	
+1	pa_hs	pa_hs[c]	214.5	100000.0	
+1	air	air[c]	521.0	100000.0	
+1	5aizc	5aizc[c]	475.4	100000.0	
+2	mal_L	mal_L[c]	173.9	100000.0	
+1	prgstrn	prgstrn[c]	1304.8	100000.0	
+1	xol7ah	xol7ah[c]	2000.7	100000.0	
+1	xol7ah2	xol7ah2[c]	2087.6	100000.0	
+1	xoldioloneh	xoldioloneh[c]	2000.7	100000.0	
+1	xoltriol	xoltriol[c]	2087.6	100000.0	
+24	ala_L	ala_L[c]	-64.9	2.8	
+26	asn_L	asn_L[c]	-178.3	4.9	
+35	cys_L	cys_L[c]	-34.6	4.9	
+25	gln_L	gln_L[c]	-93.7	3.4	
+32	gly	gly[c]	-159.7	2.9	
+22	ser_L	ser_L[c]	-212.4	2.7	
+29	thr_L	thr_L[c]	-137.0	4.0	
+1	lald_D	lald_D[c]	261.0	100000.0	
+8	dhap	dhap[c]	217.2	100000.0	
+2	arachd	arachd[c]	1348.3	100000.0	
+2	15HPET	15HPET[c]	1348.3	100000.0	
+1	amuco	amuco[c]	260.7	100000.0	
+2	imp	imp[c]	478.1	100000.0	
+1	andrstrn	andrstrn[c]	1304.8	100000.0	
+54	lys_L	lys_L[c]	652.4	100000.0	
+3	arachcoa	arachcoa[c]	3044.0	100000.0	
+1	arachcrn	arachcrn[c]	2305.1	100000.0	
+1	arachdcoa	arachdcoa[c]	2696.1	100000.0	
+1	arach	arach[c]	1696.2	100000.0	
+69	arg_L	arg_L[c]	652.3	100000.0	
+1	argsuc	argsuc[c]	739.3	100000.0	
+1	Rtotal3coa	Rtotal3coa[c]	1336.4	100000.0	
+1	pmtcoa	pmtcoa[c]	2696.1	100000.0	
+1	hdcoa	hdcoa[c]	2609.1	100000.0	
+2	tdcoa	tdcoa[c]	2522.1	100000.0	
+2	lnlncacoa	lnlncacoa[c]	2609.1	100000.0	
+1	lnlncgcoa	lnlncgcoa[c]	2609.1	100000.0	
+1	strdnccoa	strdnccoa[c]	2522.1	100000.0	
+2	dlnlcgcoa	dlnlcgcoa[c]	2783.1	100000.0	
+1	tmndnccoa	tmndnccoa[c]	2609.1	100000.0	
+1	lnlccoa	lnlccoa[c]	2696.1	100000.0	
+2	clpndcoa	clpndcoa[c]	2783.1	100000.0	
+1	dcsptn1coa	dcsptn1coa[c]	2783.1	100000.0	
+1	c226coa	c226coa[c]	2696.1	100000.0	
+3	stcoa	stcoa[c]	2870.1	100000.0	
+3	odecoa	odecoa[c]	2783.1	100000.0	
+1	octd11ecoa	octd11ecoa[c]	2783.1	100000.0	
+1	lneldccoa	lneldccoa[c]	2696.1	100000.0	
+2	nrvnccoa	nrvnccoa[c]	3305.0	100000.0	
+2	od2coa	od2coa[c]	2783.1	100000.0	
+2	ttccoa	ttccoa[c]	3392.0	100000.0	
+2	eicostetcoa	eicostetcoa[c]	2696.1	100000.0	
+1	tetpent6coa	tetpent6coa[c]	2957.0	100000.0	
+1	tetpent3coa	tetpent3coa[c]	2957.1	100000.0	
+1	tettet6coa	tettet6coa[c]	3044.0	100000.0	
+1	hdd2coa	hdd2coa[c]	2609.1	100000.0	
+2	cbp	cbp[c]	85.4	100000.0	
+2	cbasp	cbasp[c]	260.9	100000.0	
+2	retinal	retinal[c]	1213.9	70710.7	
+3	hcys_L	hcys_L[c]	386.3	70710.7	
+2	glyb	glyb[c]	521.9	100000.0	
+1	dmgly	dmgly[c]	391.4	100000.0	
+30	met_L	met_L[c]	478.4	100000.0	
+1	bilglcur	bilglcur[c]	1826.3	100000.0	
+1	bilirub	bilirub[c]	1478.4	100000.0	
+1	pmtcrn	pmtcrn[c]	1878.1	75038.8	
+1	hdcecrn	hdcecrn[c]	1870.2	100000.0	
+2	hdd2crn	hdd2crn[c]	1870.2	100000.0	
+1	stcrn	stcrn[c]	2131.1	100000.0	
+2	odecrn	odecrn[c]	2044.1	100000.0	
+1	arachdcrn	arachdcrn[c]	2348.6	100000.0	
+1	c226crn	c226crn[c]	1957.2	100000.0	
+2	prostge1	prostge1[c]	1435.2	100000.0	
+2	prostge2	prostge2[c]	1348.3	100000.0	
+3	prostgf2	prostgf2[c]	1435.2	100000.0	
+1	cdpdag_hs	cdpdag_hs[c]	736.4	100000.0	
+2	inost	inost[c]	521.0	86602.5	
+3	pail_hs	pail_hs[c]	695.1	100000.0	
+6	ctp	ctp[c]	520.0	100000.0	
+1	pchol_hs	pchol_hs[c]	782.9	100000.0	
+1	pe_hs	pe_hs[c]	521.9	100000.0	
+1	cgly	cgly[c]	434.9	100000.0	
+2	chol	chol[c]	683.0	70710.7	
+1	cholp	cholp[c]	565.2	100000.0	
+1	chsterol	chsterol[c]	2000.7	100000.0	
+1	chsterols	chsterols[c]	1957.2	100000.0	
+1	creat	creat[c]	132.0	4.9	
+1	for	for[c]	-305.6	3.3	
+3	i	i[c]	0.0	100000.0	
+1	clpndcrn	clpndcrn[c]	2044.1	100000.0	
+1	pcrn	pcrn[c]	826.4	100000.0	
+1	Lcystin	Lcystin[c]	-145.0	4.9	
+13	gthrd	gthrd[c]	695.8	100000.0	
+3	gthox	gthox[c]	1304.7	100000.0	
+2	mercppyr	mercppyr[c]	130.5	100000.0	
+1	cytd	cytd[c]	541.2	57735.0	
+2	uri	uri[c]	285.6	57735.0	
+12	cdp	cdp[c]	520.0	100000.0	
+6	dgtp	dgtp[c]	520.0	100000.0	
+6	dgdp	dgdp[c]	520.0	100000.0	
+8	dcmp	dcmp[c]	521.4	100000.0	
+11	dcdp	dcdp[c]	520.0	100000.0	
+5	dctp	dctp[c]	520.0	100000.0	
+8	utp	utp[c]	474.7	100000.0	
+1	dad_2	dad_2[c]	1067.2	53452.2	
+1	din	din[c]	807.8	53452.2	
+1	dcsptn1crn	dcsptn1crn[c]	2044.1	100000.0	
+3	L_dpchrm	L_dpchrm[c]	261.0	100000.0	
+1	56dihindlcrbxlt	56dihindlcrbxlt[c]	260.8	100000.0	
+2	duri	duri[c]	520.5	100000.0	
+1	dgchol	dgchol[c]	1870.0	100000.0	
+1	dgsn	dgsn[c]	565.2	100000.0	
+2	3dhguln	3dhguln[c]	391.4	100000.0	
+1	dhcrm_hs	dhcrm_hs[c]	1652.7	100000.0	
+2	dhf	dhf[c]	826.3	100000.0	
+1	dhor_S	dhor_S[c]	217.4	100000.0	
+1	orot	orot[c]	130.5	100000.0	
+1	56dura	56dura[c]	362.9	70710.7	
+1	56dthm	56dthm[c]	347.9	100000.0	
+4	mlthf	mlthf[c]	911.9	100000.0	
+1	didp	didp[c]	476.5	100000.0	
+1	ditp	ditp[c]	476.5	100000.0	
+1	2kmb	2kmb[c]	304.4	100000.0	
+1	lac_D	lac_D[c]	217.5	100000.0	
+1	dlnlcgcrn	dlnlcgcrn[c]	1304.8	100000.0	
+1	yvite	yvite[c]	2087.6	100000.0	
+1	dmnoncrn	dmnoncrn[c]	1522.2	100000.0	
+1	dmnoncoa	dmnoncoa[c]	2261.2	100000.0	
+1	dnad	dnad[c]	1043.8	100000.0	
+3	dtdp	dtdp[c]	561.8	100000.0	
+4	dudp	dudp[c]	475.0	100000.0	
+4	dutp	dutp[c]	475.0	100000.0	
+3	dttp	dttp[c]	561.8	100000.0	
+3	2c23dh56dhoxin	2c23dh56dhoxin[c]	347.9	100000.0	
+4	dopaqn	dopaqn[c]	391.4	100000.0	
+1	dpcoa	dpcoa[c]	1434.8	100000.0	
+2	3pg	3pg[c]	173.5	100000.0	
+1	23dpg	23dpg[c]	130.1	100000.0	
+3	13dpg	13dpg[c]	173.3	100000.0	
+1	ipdp	ipdp[c]	389.6	100000.0	
+3	frdp	frdp[c]	1085.4	100000.0	
+1	2dr5p	2dr5p[c]	391.2	100000.0	
+6	g3p	g3p[c]	217.1	100000.0	
+3	dump	dump[c]	477.1	100000.0	
+3	ura	ura[c]	432.6	57735.0	
+2	thym	thym[c]	160.5	75592.9	
+1	eicostetcrn	eicostetcrn[c]	1957.2	100000.0	
+2	elaidcrn	elaidcrn[c]	2044.1	100000.0	
+1	estradiol	estradiol[c]	1043.8	100000.0	
+1	estrone	estrone[c]	956.8	100000.0	
+1	ethamp	ethamp[c]	303.9	100000.0	
+2	etha	etha[c]	347.9	100000.0	
+1	fuc1p_L	fuc1p_L[c]	478.2	100000.0	
+2	gdpfuc	gdpfuc[c]	1000.1	100000.0	
+1	ocdca	ocdca[c]	1522.2	100000.0	
+1	ocdcea	ocdcea[c]	1435.2	100000.0	
+1	ptdcacoa	ptdcacoa[c]	2608.9	100000.0	
+1	hpdcacoa	hpdcacoa[c]	2783.1	100000.0	
+1	lgnc	lgnc[c]	2044.1	100000.0	
+1	nrvnc	nrvnc[c]	1957.1	100000.0	
+1	occoa	occoa[c]	2000.2	100000.0	
+2	malcoa	malcoa[c]	1435.1	100000.0	
+4	fald	fald[c]	-35.5	2.9	
+2	Sfglutth	Sfglutth[c]	695.8	100000.0	
+1	dcacoa	dcacoa[c]	2174.2	100000.0	
+2	ddcacoa	ddcacoa[c]	2348.2	100000.0	
+1	xu1p_D	xu1p_D[c]	391.2	100000.0	
+1	gcald	gcald[c]	440.0	57735.0	
+4	glyald	glyald[c]	-174.6	2.4	
+1	tag1p_D	tag1p_D[c]	478.2	100000.0	
+5	f6p	f6p[c]	477.9	100000.0	
+1	Lkynr	Lkynr[c]	521.8	100000.0	
+1	fol	fol[c]	781.0	100000.0	
+2	fru	fru[c]	521.9	100000.0	
+4	thf	thf[c]	912.3	100000.0	
+1	fucgalfucgalacglcgalgluside_hs	fucgalfucgalacglcgalgluside_hs[c]	4740.7	100000.0	
+8	so4	so4[c]	-746.9	3.7	
+2	glyc3p	glyc3p[c]	303.9	100000.0	
+4	g6p	g6p[c]	478.1	100000.0	
+2	gudac	gudac[c]	663.0	34085.6	
+1	gal	gal[c]	521.9	100000.0	
+1	galt	galt[c]	608.9	100000.0	
+1	gar	gar[c]	608.5	100000.0	
+1	fgam	fgam[c]	565.1	100000.0	
+1	gchola	gchola[c]	1826.6	100000.0	
+2	gmp	gmp[c]	521.4	100000.0	
+3	udpg	udpg[c]	955.4	100000.0	
+1	ttc_ggdp	ttc_ggdp[c]	1433.4	100000.0	
+2	leuktrE4	leuktrE4[c]	1565.7	100000.0	
+2	leuktrF4	leuktrF4[c]	1826.6	100000.0	
+1	glac	glac[c]	347.9	100000.0	
+1	uacgam	uacgam[c]	1085.9	100000.0	
+8	ump	ump[c]	476.9	100000.0	
+3	glcur	glcur[c]	391.4	100000.0	
+1	gullac	gullac[c]	434.9	100000.0	
+1	5forthf	5forthf[c]	954.6	100000.0	
+2	2pg	2pg[c]	173.8	100000.0	
+1	glyc_R	glyc_R[c]	217.5	100000.0	
+1	glyc	glyc[c]	-149.7	4.9	
+2	sarcs	sarcs[c]	304.4	100000.0	
+2	gsn	gsn[c]	2218.3	33333.3	
+2	gua	gua[c]	2374.8	33333.3	
+2	xan	xan[c]	425.9	70710.7	
+2	guln	guln[c]	478.4	100000.0	
+1	udpglcur	udpglcur[c]	825.0	100000.0	
+1	hestratriol	hestratriol[c]	1043.8	100000.0	
+47	his_L	his_L[c]	328.4	53452.2	
+1	aacoa	aacoa[c]	1565.5	100000.0	
+1	hmgcoa	hmgcoa[c]	1696.0	100000.0	
+1	hpdcacrn	hpdcacrn[c]	2044.1	100000.0	
+1	prgnlone	prgnlone[c]	1391.8	100000.0	
+1	17ahprgnlone	17ahprgnlone[c]	1391.8	100000.0	
+3	hxan	hxan[c]	265.6	3.2	
+4	taur	taur[c]	304.4	100000.0	
+2	icit	icit[c]	217.4	100000.0	
+2	triodthy	triodthy[c]	521.7	100000.0	
+1	thyox_L	thyox_L[c]	476.5	100000.0	
+45	tyr_L	tyr_L[c]	107.5	4.9	
+19	ile_L	ile_L[c]	221.2	4.9	
+1	f1p	f1p[c]	478.2	100000.0	
+1	xylu_D	xylu_D[c]	434.9	100000.0	
+1	anth	anth[c]	260.9	100000.0	
+1	kynate	kynate[c]	261.0	100000.0	
+1	lgt_S	lgt_S[c]	869.8	100000.0	
+2	3spyr	3spyr[c]	87.0	100000.0	
+2	leuktrB4	leuktrB4[c]	1348.3	100000.0	
+2	leuktrC4	leuktrC4[c]	1957.0	100000.0	
+2	leuktrD4	leuktrD4[c]	1696.2	100000.0	
+36	leu_L	leu_L[c]	217.0	3.9	
+1	nformanth	nformanth[c]	261.0	100000.0	
+1	lipoate	lipoate[c]	608.9	100000.0	
+1	lac_L	lac_L[c]	217.5	100000.0	
+1	lneldccrn	lneldccrn[c]	1957.2	100000.0	
+1	lnlccrn	lnlccrn[c]	1957.2	100000.0	
+1	lnlncacrn	lnlncacrn[c]	1870.2	100000.0	
+1	lnlncgcrn	lnlncgcrn[c]	1870.2	100000.0	
+1	lanost	lanost[c]	2174.6	100000.0	
+3	retinol	retinol[c]	1346.9	70710.7	
+2	retinol_cis_11	retinol_cis_11[c]	1304.8	100000.0	
+1	retinol_9_cis	retinol_9_cis[c]	1346.9	70710.7	
+3	pd3	pd3[c]	1913.7	100000.0	
+56	trp_L	trp_L[c]	408.2	3.7	
+1	mercplac	mercplac[c]	217.5	100000.0	
+1	5mdru1p	5mdru1p[c]	478.2	100000.0	
+1	6hoxmelatn	6hoxmelatn[c]	695.5	100000.0	
+1	malttr	malttr[c]	1391.8	100000.0	
+1	5mdr1p	5mdr1p[c]	478.2	100000.0	
+1	nac	nac[c]	174.0	100000.0	
+1	ncam	ncam[c]	258.7	100000.0	
+3	nicrnt	nicrnt[c]	521.6	100000.0	
+2	nmn	nmn[c]	608.2	100000.0	
+2	prpp	prpp[c]	346.0	100000.0	
+7	r1p	r1p[c]	391.2	100000.0	
+1	oretn	oretn[c]	1087.3	100000.0	
+2	retn	retn[c]	1174.3	100000.0	
+1	13_cis_oretn	13_cis_oretn[c]	1174.3	100000.0	
+1	13_cis_retn	13_cis_retn[c]	1174.3	100000.0	
+1	orot5p	orot5p[c]	432.7	100000.0	
+1	pac	pac[c]	304.4	100000.0	
+1	pan4p	pan4p[c]	909.9	100000.0	
+2	am6sa	am6sa[c]	303.3	100000.0	
+1	pcollg5hlys	pcollg5hlys[c]	608.8	100000.0	
+1	pacald	pacald[c]	347.9	100000.0	
+4	prostgd2	prostgd2[c]	1348.3	100000.0	
+3	prostgh2	prostgh2[c]	1348.3	100000.0	
+48	phe_L	phe_L[c]	271.1	4.9	
+2	thbpt4acam	thbpt4acam[c]	652.4	100000.0	
+1	pail3p_hs	pail3p_hs[c]	645.7	100000.0	
+1	pail35p_hs	pail35p_hs[c]	590.4	100000.0	
+1	pail5p_hs	pail5p_hs[c]	645.7	100000.0	
+2	phpyr	phpyr[c]	304.4	100000.0	
+1	prgnlones	prgnlones[c]	1348.3	100000.0	
+2	prostgi2	prostgi2[c]	1348.3	100000.0	
+42	pro_L	pro_L[c]	391.4	100000.0	
+2	ps_hs	ps_hs[c]	1043.8	100000.0	
+1	ptdcacrn	ptdcacrn[c]	1870.2	100000.0	
+1	4abutn	4abutn[c]	434.9	100000.0	
+2	retinal_cis_13	retinal_cis_13[c]	1217.8	100000.0	
+1	retinal_11_cis	retinal_11_cis[c]	1221.6	70710.7	
+1	retinal_cis_9	retinal_cis_9[c]	1213.9	70710.7	
+4	ru5p_D	ru5p_D[c]	391.0	100000.0	
+1	rbt	rbt[c]	521.9	100000.0	
+2	retinol_cis_13	retinol_cis_13[c]	1304.8	100000.0	
+1	rib_D	rib_D[c]	-308.7	2.5	
+1	rnam	rnam[c]	652.1	100000.0	
+1	Rtotal3crn	Rtotal3crn[c]	608.9	100000.0	
+1	sl_L	sl_L[c]	174.0	100000.0	
+1	sphings	sphings[c]	1652.7	100000.0	
+3	spmd	spmd[c]	956.4	100000.0	
+1	strdnccrn	strdnccrn[c]	1783.2	100000.0	
+1	tchola	tchola[c]	1957.0	100000.0	
+1	tdchola	tdchola[c]	1957.0	100000.0	
+1	tetpent3crn	tetpent3crn[c]	2218.1	100000.0	
+1	tetpent6crn	tetpent6crn[c]	2218.1	100000.0	
+1	tettet6crn	tettet6crn[c]	2305.1	100000.0	
+1	thymd	thymd[c]	707.7	75592.9	
+1	thp2c	thp2c[c]	347.7	100000.0	
+1	tmndnccrn	tmndnccrn[c]	1870.2	100000.0	
+3	trdrd	trdrd[c]	116.7	70710.7	
+3	trdox	trdox[c]	-29.8	70710.7	
+1	q10	q10[c]	3914.3	100000.0	
+1	q10h2	q10h2[c]	4001.3	100000.0	
+1	ts3	ts3[c]	1913.7	100000.0	
+1	tststerone	tststerone[c]	1217.8	100000.0	
+2	ttdcrn	ttdcrn[c]	1783.2	100000.0	
+1	txa2	txa2[c]	1348.3	100000.0	
+1	udpacgal	udpacgal[c]	1085.9	100000.0	
+3	urate	urate[c]	-184.1	4.9	
+1	urea	urea[c]	-28.9	4.9	
+29	val_L	val_L[c]	119.5	4.9	
+1	vitd3	vitd3[c]	1913.7	100000.0	
+5	xu5p_D	xu5p_D[c]	391.0	100000.0	
+4	xylt	xylt[c]	-262.5	4.9	
+1	xyl_D	xyl_D[c]	434.9	100000.0	
+1	fdp	fdp[c]	434.4	100000.0	
+1	HC00250	HC00250[c]	43.5	100000.0	
+3	e4p	e4p[c]	304.0	100000.0	
+3	HC00361	HC00361[c]	521.1	100000.0	
+4	s7p	s7p[c]	564.9	100000.0	
+1	HC10859	HC10859[c]	739.4	100000.0	
+1	dgmp	dgmp[c]	521.4	100000.0	
+2	HC00718	HC00718[c]	390.9	100000.0	
+1	mev_R	mev_R[c]	478.4	100000.0	
+2	betald	betald[c]	521.2	100000.0	
+1	HC01522	HC01522[c]	260.8	100000.0	
+1	HC00460	HC00460[c]	217.5	100000.0	
+1	L2aadp6sa	L2aadp6sa[c]	478.4	100000.0	
+3	HC00664	HC00664[c]	478.1	100000.0	
+2	HC01180	HC01180[c]	434.4	100000.0	
+2	1p3h5c	1p3h5c[c]	261.0	100000.0	
+2	4hpro_LT	4hpro_LT[c]	391.4	70710.7	
+2	thcholstoic	thcholstoic[c]	1957.2	100000.0	
+2	cholcoa	cholcoa[c]	3044.3	100000.0	
+1	2mop	2mop[c]	217.5	100000.0	
+1	HC00900	HC00900[c]	173.7	100000.0	
+2	C02470	C02470[c]	260.8	100000.0	
+2	dcholcoa	dcholcoa[c]	3044.3	100000.0	
+2	dhcholestanate	dhcholestanate[c]	1957.1	100000.0	
+4	xol7ah2al	xol7ah2al[c]	2000.7	100000.0	
+1	xol7ah3	xol7ah3[c]	2087.6	100000.0	
+1	xoltetrol	xoltetrol[c]	2087.6	100000.0	
+2	HC01842	HC01842[c]	434.4	100000.0	
+3	r5p	r5p[c]	391.2	100000.0	
+1	c8crn	c8crn[c]	1261.3	100000.0	
+2	HC02121	HC02121[c]	782.8	100000.0	
+2	xtsn	xtsn[c]	269.9	70710.7	
+1	btcoa	btcoa[c]	1652.3	100000.0	
+1	HC02187	HC02187[c]	520.1	100000.0	
+1	HC02180	HC02180[c]	1435.2	100000.0	
+2	HC02202	HC02202[c]	1348.3	100000.0	
+2	HC02203	HC02203[c]	1261.3	100000.0	
+1	HC02204	HC02204[c]	1348.3	100000.0	
+2	HC02205	HC02205[c]	1261.3	100000.0	
+2	HC02206	HC02206[c]	1348.3	100000.0	
+2	HC02207	HC02207[c]	1261.3	100000.0	
+1	HC02213	HC02213[c]	1261.3	100000.0	
+1	c4crn	c4crn[c]	913.3	100000.0	
+1	6pgc	6pgc[c]	434.3	100000.0	
+1	glcn	glcn[c]	478.4	100000.0	
+1	C10164	C10164[c]	173.9	100000.0	
+1	CE2251	CE2251[c]	2957.3	100000.0	
+2	CE2247	CE2247[c]	3044.3	100000.0	
+2	CE2243	CE2243[c]	2957.1	100000.0	
+1	CE2250	CE2250[c]	3131.3	100000.0	
+2	CE2246	CE2246[c]	3218.2	100000.0	
+1	CE2242	CE2242[c]	3131.0	100000.0	
+1	CE2253	CE2253[c]	3305.2	100000.0	
+2	CE2249	CE2249[c]	3392.2	100000.0	
+2	CE2245	CE2245[c]	3305.0	100000.0	
+2	docoscoa	docoscoa[c]	3218.0	100000.0	
+1	docosac	docosac[c]	1870.2	100000.0	
+1	3ohodcoa	3ohodcoa[c]	2783.3	100000.0	
+1	CE2248	CE2248[c]	2870.3	100000.0	
+2	CE1944	CE1944[c]	347.9	100000.0	
+2	CE2705	CE2705[c]	565.4	100000.0	
+1	CE2870	CE2870[c]	521.9	100000.0	
+3	CE2866	CE2866[c]	565.2	100000.0	
+1	maltttr	maltttr[c]	1826.7	100000.0	
+1	CE2873	CE2873[c]	521.9	100000.0	
+1	CE2872	CE2872[c]	563.6	100000.0	
+1	CE2875	CE2875[c]	565.4	100000.0	
+1	CE2874	CE2874[c]	608.9	100000.0	
+1	CE2839	CE2839[c]	4436.2	100000.0	
+1	CE2838	CE2838[c]	4001.3	100000.0	
+1	CE0737	CE0737[c]	129.3	100000.0	
+1	CE1243	CE1243[c]	1130.8	100000.0	
+2	andrstndn	andrstndn[c]	1130.8	100000.0	
+1	CE1352	CE1352[c]	1348.3	100000.0	
+1	N1aspmd	N1aspmd[c]	997.4	100000.0	
+1	n8aspmd	n8aspmd[c]	997.2	100000.0	
+1	C05298	C05298[c]	956.8	100000.0	
+1	C05301	C05301[c]	1043.8	100000.0	
+1	C05299	C05299[c]	1043.8	100000.0	
+2	CE4888	CE4888[c]	304.3	100000.0	
+1	CE5253	CE5253[c]	956.8	100000.0	
+2	CE5236	CE5236[c]	565.4	100000.0	
+1	CE1918	CE1918[c]	478.4	100000.0	
+1	CE0233	CE0233[c]	2087.6	100000.0	
+2	CE4990	CE4990[c]	1261.3	100000.0	
+1	CE1589	CE1589[c]	3044.3	100000.0	
+1	tdechola	tdechola[c]	1913.4	100000.0	
+2	CE5586	CE5586[c]	868.4	100000.0	
+1	CE1617	CE1617[c]	1174.3	100000.0	
+1	CE1261	CE1261[c]	695.7	100000.0	
+1	CE5026	CE5026[c]	1087.2	100000.0	
+1	C09642	C09642[c]	608.7	100000.0	
+2	CE5626	CE5626[c]	565.2	100000.0	
+1	CE5629	CE5629[c]	478.2	100000.0	
+1	CE4890	CE4890[c]	694.6	100000.0	
+1	CE1401	CE1401[c]	347.0	100000.0	
+1	C11695	C11695[c]	1707.7	77459.7	
+1	C02356	C02356[c]	391.4	100000.0	
+1	no2	no2[c]	-33.0	4.9	
+1	C13856	C13856[c]	1652.7	100000.0	
+3	C05957	C05957[c]	1261.3	100000.0	
+2	CE4877	CE4877[c]	1174.3	100000.0	
+1	dchac	dchac[c]	1696.2	100000.0	
+1	CE2176	CE2176[c]	565.4	100000.0	
+1	CE2172	CE2172[c]	521.7	100000.0	
+2	C03681	C03681[c]	1391.8	100000.0	
+1	CE2211	CE2211[c]	1478.7	100000.0	
+1	CE5276	CE5276[c]	434.9	100000.0	
+1	CE5025	CE5025[c]	1130.7	100000.0	
+2	CE5021	CE5021[c]	2261.6	100000.0	
+2	CE5022	CE5022[c]	2174.6	100000.0	
+2	CE2576	CE2576[c]	695.9	100000.0	
+2	CE2577	CE2577[c]	608.9	100000.0	
+1	C05302	C05302[c]	1130.8	100000.0	
+1	CE1925	CE1925[c]	913.3	100000.0	
+1	CE5853	CE5853[c]	1261.3	100000.0	
+1	CE1926	CE1926[c]	826.4	100000.0	
+1	CE5854	CE5854[c]	1174.3	100000.0	
+4	C05109	C05109[c]	2261.6	100000.0	
+1	dsmsterol	dsmsterol[c]	1913.7	100000.0	
+1	ddsmsterol	ddsmsterol[c]	1826.7	100000.0	
+1	CE5665	CE5665[c]	391.4	100000.0	
+1	CE6252	CE6252[c]	130.5	100000.0	
+4	CE4872	CE4872[c]	2000.7	100000.0	
+1	C02712	C02712[c]	521.7	100000.0	
+1	CE1556	CE1556[c]	391.3	100000.0	
+2	CE7047	CE7047[c]	2044.1	100000.0	
+1	CE5986	CE5986[c]	2042.3	100000.0	
+1	C01747	C01747[c]	2087.6	100000.0	
+1	alltn	alltn[c]	260.1	100000.0	
+1	CE0074	CE0074[c]	-0.0	100000.0	
+2	leuktrB4wcooh	leuktrB4wcooh[c]	1217.8	100000.0	
+2	CE2053	CE2053[c]	1261.3	100000.0	
+1	leuktrB4woh	leuktrB4woh[c]	1348.3	100000.0	
+2	CE2567	CE2567[c]	1261.3	100000.0	
+1	CE7172	CE7172[c]	1348.3	100000.0	
+1	C06315	C06315[c]	1348.3	100000.0	
+1	C06314	C06314[c]	1348.3	100000.0	
+1	cpppg1	cpppg1[c]	1739.7	100000.0	
+1	C05769	C05769[c]	1478.7	100000.0	
+1	CE5114	CE5114[c]	2696.1	100000.0	
+2	CE4812	CE4812[c]	2609.1	100000.0	
+1	CE2209	CE2209[c]	1391.8	100000.0	
+1	CE4811	CE4811[c]	2609.3	100000.0	
+2	CE4810	CE4810[c]	2696.3	100000.0	
+2	CE4821	CE4821[c]	2696.1	100000.0	
+1	CE4819	CE4819[c]	2696.3	100000.0	
+2	CE4817	CE4817[c]	2783.3	100000.0	
+4	CE2313	CE2313[c]	2087.6	100000.0	
+1	CE2314	CE2314[c]	2174.6	100000.0	
+1	zymstnl	zymstnl[c]	2000.7	100000.0	
+1	lthstrl	lthstrl[c]	2000.7	100000.0	
+1	CE4833	CE4833[c]	2783.3	100000.0	
+2	CE4831	CE4831[c]	2870.3	100000.0	
+1	CE4835	CE4835[c]	2783.1	100000.0	
+1	CE4834	CE4834[c]	2957.3	100000.0	
+3	CE4849	CE4849[c]	3044.3	100000.0	
+1	CE4841	CE4841[c]	2783.3	100000.0	
+2	CE4840	CE4840[c]	2870.3	100000.0	
+2	CE4842	CE4842[c]	2783.1	100000.0	
+2	CE4843	CE4843[c]	2870.1	100000.0	
+1	CE4845	CE4845[c]	2870.3	100000.0	
+2	CE4844	CE4844[c]	2957.3	100000.0	
+2	CE4846	CE4846[c]	2870.1	100000.0	
+2	CE4847	CE4847[c]	2957.1	100000.0	
+2	CE4852	CE4852[c]	2783.1	100000.0	
+2	CE4854	CE4854[c]	2870.1	100000.0	
+1	CE4850	CE4850[c]	2783.3	100000.0	
+2	CE4848	CE4848[c]	2870.3	100000.0	
+2	CE4853	CE4853[c]	2957.1	100000.0	
+1	CE4855	CE4855[c]	3044.0	100000.0	
+1	CE4851	CE4851[c]	2957.3	100000.0	
+4	CE5049	CE5049[c]	-11.8	100000.0	
+1	CE6031	CE6031[c]	1261.3	100000.0	
+1	CE5144	CE5144[c]	2870.3	100000.0	
+3	CE5151	CE5151[c]	2957.1	100000.0	
+1	CE5152	CE5152[c]	3044.3	100000.0	
+3	CE5155	CE5155[c]	3131.0	100000.0	
+1	CE5156	CE5156[c]	3218.2	100000.0	
+2	CE5148	CE5148[c]	2957.3	100000.0	
+2	CE5150	CE5150[c]	2870.1	100000.0	
+2	CE5153	CE5153[c]	3131.3	100000.0	
+2	CE5154	CE5154[c]	3044.1	100000.0	
+2	CE5157	CE5157[c]	3305.2	100000.0	
+2	CE5158	CE5158[c]	3218.0	100000.0	
+1	CE2510	CE2510[c]	1609.2	100000.0	
+1	doco13ac	doco13ac[c]	1783.2	100000.0	
+1	CE5160	CE5160[c]	2696.3	100000.0	
+2	CE5161	CE5161[c]	2783.3	100000.0	
+2	CE5162	CE5162[c]	2696.1	100000.0	
+1	CE4874	CE4874[c]	2087.6	100000.0	
+1	C14826	C14826[c]	1348.3	100000.0	
+1	CE2049	CE2049[c]	1435.2	100000.0	
+1	C14825	C14825[c]	1348.3	100000.0	
+1	CE2047	CE2047[c]	1435.2	100000.0	
+1	CE2445	CE2445[c]	1348.3	100000.0	
+3	CE5178	CE5178[c]	1261.3	100000.0	
+2	C11821	C11821[c]	174.0	100000.0	
+2	dmpp	dmpp[c]	389.6	100000.0	
+1	C04717	C04717[c]	1304.8	100000.0	
+1	C01601	C01601[c]	739.3	100000.0	
+2	CE6504	CE6504[c]	1348.3	100000.0	
+1	CE2006	CE2006[c]	695.9	100000.0	
+2	CE6506	CE6506[c]	695.9	100000.0	
+2	C08261	C08261[c]	695.9	100000.0	
+1	CE5304	CE5304[c]	1261.3	100000.0	
+2	CE4876	CE4876[c]	1261.3	100000.0	
+3	CE5944	CE5944[c]	1348.3	100000.0	
+2	CE4987	CE4987[c]	1435.2	100000.0	
+2	CE4988	CE4988[c]	1435.2	100000.0	
+1	CE5946	CE5946[c]	1435.2	100000.0	
+2	CE5947	CE5947[c]	1304.8	100000.0	
+1	CE7097	CE7097[c]	1261.3	100000.0	
+1	C04805	C04805[c]	1348.3	100000.0	
+4	CE2084	CE2084[c]	1261.3	100000.0	
+2	CE6508	CE6508[c]	1261.3	100000.0	
+2	CE7079	CE7079[c]	1174.3	100000.0	
+1	CE7091	CE7091[c]	1261.3	100000.0	
+1	CE7082	CE7082[c]	1261.3	100000.0	
+1	CE7083	CE7083[c]	1261.3	100000.0	
+1	CE7085	CE7085[c]	1261.3	100000.0	
+1	CE7088	CE7088[c]	1261.3	100000.0	
+1	CE6230	CE6230[c]	1435.2	100000.0	
+1	CE2537	CE2537[c]	1435.2	100000.0	
+1	CE6232	CE6232[c]	1435.2	100000.0	
+2	CE6234	CE6234[c]	1435.2	100000.0	
+1	CE2089	CE2089[c]	521.3	100000.0	
+1	CE2088	CE2088[c]	564.7	100000.0	
+1	2mb2coa	2mb2coa[c]	1652.3	100000.0	
+1	3hbcoa_R	3hbcoa_R[c]	1652.5	100000.0	
+1	adpcoa	adpcoa[c]	1696.0	100000.0	
+1	3bcrn	3bcrn[c]	913.3	100000.0	
+1	c10crn	c10crn[c]	1435.2	100000.0	
+1	c101coa	c101coa[c]	2075.8	100000.0	
+1	c101crn	c101crn[c]	1348.3	100000.0	
+1	decdicoa	decdicoa[c]	2000.4	100000.0	
+1	decdicrn	decdicrn[c]	1261.3	100000.0	
+1	c10dc	c10dc[c]	1304.8	100000.0	
+1	sebcoa	sebcoa[c]	2043.9	100000.0	
+1	3hdcoa	3hdcoa[c]	2174.4	100000.0	
+1	3deccrn	3deccrn[c]	1435.2	100000.0	
+1	ddeccrn	ddeccrn[c]	1609.2	100000.0	
+1	dd2coa	dd2coa[c]	2261.2	100000.0	
+1	ddece1crn	ddece1crn[c]	1522.2	100000.0	
+1	c12dccoa	c12dccoa[c]	2217.9	100000.0	
+1	c12dc	c12dc[c]	1478.7	100000.0	
+1	3hddcoa	3hddcoa[c]	2348.4	100000.0	
+1	3ddcrn	3ddcrn[c]	1609.2	100000.0	
+1	3tetd7ecoa	3tetd7ecoa[c]	2435.4	100000.0	
+1	tetdece1coa	tetdece1coa[c]	2435.2	100000.0	
+1	tetdece1crn	tetdece1crn[c]	1696.2	100000.0	
+1	3tetd7ecoacrn	3tetd7ecoacrn[c]	1696.2	100000.0	
+1	3ttetddcoa	3ttetddcoa[c]	2348.4	100000.0	
+1	tetdec2coa	tetdec2coa[c]	2336.7	100000.0	
+1	tetdec2crn	tetdec2crn[c]	1609.2	100000.0	
+1	3ttetddcoacrn	3ttetddcoacrn[c]	1609.2	100000.0	
+1	3htdcoa	3htdcoa[c]	2522.4	100000.0	
+1	3tdcrn	3tdcrn[c]	1783.2	100000.0	
+1	3hdeccoa	3hdeccoa[c]	2609.3	100000.0	
+1	3hdececrn	3hdececrn[c]	1870.2	100000.0	
+1	3thexddcoa	3thexddcoa[c]	2522.4	100000.0	
+1	3thexddcoacrn	3thexddcoacrn[c]	1783.2	100000.0	
+1	hexdicoa	hexdicoa[c]	2565.8	100000.0	
+1	c16dc	c16dc[c]	1826.7	100000.0	
+1	3hexdcoa	3hexdcoa[c]	2696.3	100000.0	
+1	3hexdcrn	3hexdcrn[c]	1957.2	100000.0	
+1	3octdece1coa	3octdece1coa[c]	2783.3	100000.0	
+1	3octdece1crn	3octdece1crn[c]	2044.1	100000.0	
+1	3ocddcoa	3ocddcoa[c]	2696.3	100000.0	
+1	3octdec2crn	3octdec2crn[c]	1957.2	100000.0	
+1	3hodcoa	3hodcoa[c]	2870.3	100000.0	
+1	3octdeccrn	3octdeccrn[c]	2131.1	100000.0	
+1	c3dc	c3dc[c]	695.9	100000.0	
+1	c4dc	c4dc[c]	782.9	100000.0	
+1	ivcoa	ivcoa[c]	1739.2	100000.0	
+1	ivcrn	ivcrn[c]	1000.3	100000.0	
+1	c51crn	c51crn[c]	913.3	100000.0	
+1	c5dc	c5dc[c]	913.3	100000.0	
+2	hxcoa	hxcoa[c]	1826.2	100000.0	
+1	c6crn	c6crn[c]	1087.3	100000.0	
+1	c6dc	c6dc[c]	956.8	100000.0	
+1	c81coa	c81coa[c]	1913.3	100000.0	
+1	c81crn	c81crn[c]	1174.3	100000.0	
+1	sbcoa	sbcoa[c]	1870.0	100000.0	
+1	c8dc	c8dc[c]	1130.8	100000.0	
+1	succoa	succoa[c]	1522.0	100000.0	
+1	glutcoa	glutcoa[c]	1609.0	100000.0	
+1	3ivcrn	3ivcrn[c]	1000.3	100000.0	
+1	3ivcoa	3ivcoa[c]	1739.3	100000.0	
+1	ocdececrn	ocdececrn[c]	2044.1	100000.0	
+1	octdececrn	octdececrn[c]	2044.1	100000.0	
+1	octdececoa	octdececoa[c]	2870.1	100000.0	
+2	alaala	alaala[c]	521.9	100000.0	
+1	glygly	glygly[c]	-172.8	4.9	
+2	glyphe	glyphe[c]	608.9	100000.0	
+1	glypro	glypro[c]	521.4	100000.0	
+1	glysar	glysar[c]	434.4	100000.0	
+1	leugly	leugly[c]	695.9	100000.0	
+1	leuleu	leuleu[c]	1043.8	100000.0	
+2	progly	progly[c]	521.9	100000.0	
+1	oh1	oh1[c]	43.5	100000.0	
+1	6pgl	6pgl[c]	391.1	100000.0	
+1	slfcys	slfcys[c]	260.9	100000.0	
+2	15kprostgf2	15kprostgf2[c]	1348.3	100000.0	
+1	adpoh	adpoh[c]	347.9	100000.0	
+1	phlac	phlac[c]	391.4	100000.0	
+1	3mhis	3mhis[c]	478.0	100000.0	
+1	hmcr	hmcr[c]	652.4	100000.0	
+1	hxa	hxa[c]	478.4	100000.0	
+1	glyc2p	glyc2p[c]	304.2	100000.0	
+1	aclys	aclys[c]	695.5	100000.0	
+1	4mtob	4mtob[c]	304.4	100000.0	
+1	abt_D	abt_D[c]	521.9	100000.0	
+1	CE0955	CE0955[c]	1435.2	100000.0	
+1	txb2	txb2[c]	1435.2	100000.0	
+1	alaargcys	alaargcys[c]	1087.3	100000.0	
+1	alaarggly	alaarggly[c]	1000.3	100000.0	
+1	alaasnleu	alaasnleu[c]	1043.8	100000.0	
+1	alaglylys	alaglylys[c]	1000.3	100000.0	
+1	alahisala	alahisala[c]	825.5	100000.0	
+1	alalysthr	alalysthr[c]	1174.3	100000.0	
+1	argalaala	argalaala[c]	1087.2	100000.0	
+1	argalaphe	argalaphe[c]	1261.2	100000.0	
+1	argalathr	argalathr[c]	1174.2	100000.0	
+1	argarg	argarg[c]	1217.7	100000.0	
+1	argarglys	argarglys[c]	1783.1	100000.0	
+1	argargmet	argargmet[c]	1609.1	100000.0	
+1	argcysgly	argcysgly[c]	1000.2	100000.0	
+1	argcysser	argcysser[c]	1087.2	100000.0	
+1	arggluglu	arggluglu[c]	1174.2	100000.0	
+1	argglupro	argglupro[c]	1217.6	100000.0	
+1	argglygly	argglygly[c]	913.2	100000.0	
+1	arghisthr	arghisthr[c]	1260.4	100000.0	
+1	argleuphe	argleuphe[c]	1522.1	100000.0	
+1	arglysasp	arglysasp[c]	1391.6	100000.0	
+1	argphearg	argphearg[c]	1609.1	100000.0	
+1	argpromet	argpromet[c]	1347.7	100000.0	
+1	argprothr	argprothr[c]	1260.7	100000.0	
+1	argserser	argserser[c]	1087.2	100000.0	
+1	argtyrval	argtyrval[c]	1435.1	100000.0	
+1	argvalcys	argvalcys[c]	1261.2	100000.0	
+1	argvaltrp	argvaltrp[c]	1478.6	100000.0	
+1	asnasnarg	asnasnarg[c]	1174.2	100000.0	
+1	asncyscys	asncyscys[c]	782.8	100000.0	
+1	asnmetpro	asnmetpro[c]	1043.8	100000.0	
+1	asnpheasp	asnpheasp[c]	913.3	100000.0	
+1	asnphecys	asnphecys[c]	956.8	100000.0	
+1	asntyrgly	asntyrgly[c]	869.8	100000.0	
+1	asntyrphe	asntyrphe[c]	1130.8	100000.0	
+1	asntyrthr	asntyrthr[c]	1043.8	100000.0	
+1	aspalaarg	aspalaarg[c]	1043.8	100000.0	
+1	aspasnglu	aspasnglu[c]	782.8	100000.0	
+1	aspglu	aspglu[c]	521.9	100000.0	
+1	aspglupro	aspglupro[c]	826.3	100000.0	
+1	aspglutrp	aspglutrp[c]	956.8	100000.0	
+1	asphiscys	asphiscys[c]	782.0	100000.0	
+1	asphispro	asphispro[c]	869.0	100000.0	
+1	asplysglu	asplysglu[c]	1087.3	100000.0	
+1	asplyshis	asplyshis[c]	1130.0	100000.0	
+1	aspmetasp	aspmetasp[c]	826.3	100000.0	
+1	aspprolys	aspprolys[c]	1130.6	100000.0	
+1	aspvalasn	aspvalasn[c]	913.3	100000.0	
+1	cysasnmet	cysasnmet[c]	956.8	100000.0	
+1	cysaspphe	cysaspphe[c]	869.8	100000.0	
+1	cyscys	cyscys[c]	521.8	100000.0	
+1	cysglnmet	cysglnmet[c]	1043.8	100000.0	
+1	cysgluhis	cysgluhis[c]	869.0	100000.0	
+1	cysglutrp	cysglutrp[c]	1000.3	100000.0	
+1	cysleuthr	cysleuthr[c]	1087.2	100000.0	
+1	cyssermet	cyssermet[c]	913.3	100000.0	
+1	cystyrasn	cystyrasn[c]	956.8	100000.0	
+1	glnasngln	glnasngln[c]	1043.7	100000.0	
+1	glnhishis	glnhishis[c]	1040.5	100000.0	
+1	glnhislys	glnhislys[c]	1304.0	100000.0	
+1	glnlyslys	glnlyslys[c]	1565.7	100000.0	
+1	glnlystrp	glnlystrp[c]	1435.2	100000.0	
+1	glnproglu	glnproglu[c]	1000.1	100000.0	
+1	glntrpglu	glntrpglu[c]	1130.8	100000.0	
+1	glntyrleu	glntyrleu[c]	1304.7	100000.0	
+1	gluargleu	gluargleu[c]	1391.7	100000.0	
+1	gluasnleu	gluasnleu[c]	1087.3	100000.0	
+1	gluglu	gluglu[c]	608.9	100000.0	
+1	gluilelys	gluilelys[c]	1391.7	100000.0	
+1	gluleu	gluleu[c]	826.3	100000.0	
+1	glumet	glumet[c]	739.4	100000.0	
+1	glumethis	glumethis[c]	1043.0	100000.0	
+1	gluthr	gluthr[c]	652.4	100000.0	
+1	gluthrlys	gluthrlys[c]	1217.8	100000.0	
+1	glutrpala	glutrpala[c]	1000.3	100000.0	
+1	glyhisasn	glyhisasn[c]	782.0	100000.0	
+1	glyhislys	glyhislys[c]	1086.5	100000.0	
+1	glylyscys	glylyscys[c]	1000.3	100000.0	
+1	glylysphe	glylysphe[c]	1174.3	100000.0	
+1	glytyrlys	glytyrlys[c]	1174.2	100000.0	
+1	glyvalhis	glyvalhis[c]	912.5	100000.0	
+1	hisargcys	hisargcys[c]	1173.7	100000.0	
+1	hisargser	hisargser[c]	1173.7	100000.0	
+1	hisasp	hisasp[c]	564.8	100000.0	
+1	hiscyscys	hiscyscys[c]	825.7	100000.0	
+1	hisglnala	hisglnala[c]	956.2	100000.0	
+1	hisglu	hisglu[c]	651.8	100000.0	
+1	hisglugln	hisglugln[c]	999.7	100000.0	
+1	hisglylys	hisglylys[c]	1391.1	100000.0	
+1	hishislys	hishislys[c]	1172.8	100000.0	
+1	hislysala	hislysala[c]	1173.7	100000.0	
+1	hislysglu	hislysglu[c]	1217.2	100000.0	
+1	hislysile	hislysile[c]	1434.6	100000.0	
+1	hislysthr	hislysthr[c]	1260.7	100000.0	
+1	hislysval	hislysval[c]	1347.7	100000.0	
+1	hismet	hismet[c]	738.8	100000.0	
+1	hismetgln	hismetgln[c]	1130.2	100000.0	
+1	hisphearg	hisphearg[c]	1347.7	100000.0	
+1	hisprolys	hisprolys[c]	1260.2	100000.0	
+1	histrphis	histrphis[c]	1129.3	100000.0	
+1	ileargile	ileargile[c]	1609.2	100000.0	
+1	ileasnhis	ileasnhis[c]	1130.0	100000.0	
+1	ileasp	ileasp[c]	739.3	100000.0	
+1	ileglnglu	ileglnglu[c]	1174.3	100000.0	
+1	ileglyarg	ileglyarg[c]	1261.3	100000.0	
+1	ileprolys	ileprolys[c]	1435.0	100000.0	
+1	ileserarg	ileserarg[c]	1348.2	100000.0	
+1	iletrptyr	iletrptyr[c]	1391.7	100000.0	
+1	leualaarg	leualaarg[c]	1348.2	100000.0	
+1	leuasnasp	leuasnasp[c]	1000.3	100000.0	
+1	leuasplys	leuasplys[c]	1304.7	100000.0	
+1	leuleutrp	leuleutrp[c]	1478.7	100000.0	
+1	leupro	leupro[c]	869.6	100000.0	
+1	leuproarg	leuproarg[c]	1435.0	100000.0	
+1	leusertrp	leusertrp[c]	1174.3	100000.0	
+1	leutrp	leutrp[c]	1000.3	100000.0	
+1	leutrparg	leutrparg[c]	1565.7	100000.0	
+1	leutyrtyr	leutyrtyr[c]	1348.2	100000.0	
+1	leuval	leuval[c]	956.8	100000.0	
+1	lysargleu	lysargleu[c]	1565.7	100000.0	
+1	lyscyshis	lyscyshis[c]	1173.5	100000.0	
+1	lysglnphe	lysglnphe[c]	1391.7	100000.0	
+1	lysgluglu	lysgluglu[c]	1957.1	100000.0	
+1	lyslyslys	lyslyslys[c]	1783.2	100000.0	
+1	lyspheile	lyspheile[c]	1522.2	100000.0	
+1	lystrparg	lystrparg[c]	1652.7	100000.0	
+1	lystyrile	lystyrile[c]	1522.2	100000.0	
+1	lysvalphe	lysvalphe[c]	1435.2	100000.0	
+1	lysvaltrp	lysvaltrp[c]	1478.7	100000.0	
+1	metargleu	metargleu[c]	1522.2	100000.0	
+1	metasntyr	metasntyr[c]	1130.8	100000.0	
+1	metglntyr	metglntyr[c]	1217.7	100000.0	
+1	metglyarg	metglyarg[c]	1174.3	100000.0	
+1	methislys	methislys[c]	1347.4	100000.0	
+1	metmetile	metmetile[c]	1348.2	100000.0	
+1	metphearg	metphearg[c]	1435.2	100000.0	
+1	mettrpphe	mettrpphe[c]	1304.7	100000.0	
+1	pheasnmet	pheasnmet[c]	1130.8	100000.0	
+1	pheasp	pheasp[c]	652.3	100000.0	
+1	pheglnphe	pheglnphe[c]	1217.8	100000.0	
+1	pheleu	pheleu[c]	956.8	100000.0	
+1	pheleuasp	pheleuasp[c]	1130.7	100000.0	
+1	pheleuhis	pheleuhis[c]	1260.5	100000.0	
+1	phelysala	phelysala[c]	1261.3	100000.0	
+1	phelyspro	phelyspro[c]	1348.2	100000.0	
+1	phephe	phephe[c]	869.8	100000.0	
+1	phepheasn	phepheasn[c]	1130.8	100000.0	
+1	phephethr	phephethr[c]	1174.3	100000.0	
+1	pheproarg	pheproarg[c]	1347.6	100000.0	
+1	phesertrp	phesertrp[c]	1130.8	100000.0	
+1	phethrlys	phethrlys[c]	1348.2	100000.0	
+1	phetrpleu	phetrpleu[c]	1391.7	100000.0	
+1	phetyr	phetyr[c]	869.8	100000.0	
+1	phetyrgln	phetyrgln[c]	1217.7	100000.0	
+1	phetyrlys	phetyrlys[c]	1435.2	100000.0	
+1	proargasp	proargasp[c]	1130.8	100000.0	
+1	proargcys	proargcys[c]	1174.3	100000.0	
+1	proasncys	proasncys[c]	869.8	100000.0	
+1	procys	procys[c]	608.9	100000.0	
+1	proglnpro	proglnpro[c]	1043.8	100000.0	
+1	proglulys	proglulys[c]	1217.8	100000.0	
+1	prohis	prohis[c]	695.1	100000.0	
+1	prohistyr	prohistyr[c]	1130.0	100000.0	
+1	proleuarg	proleuarg[c]	1435.2	100000.0	
+1	prolyspro	prolyspro[c]	1261.3	100000.0	
+1	prophe	prophe[c]	782.8	100000.0	
+1	proproarg	proproarg[c]	1261.3	100000.0	
+1	propropro	propropro[c]	1000.3	100000.0	
+1	protrplys	protrplys[c]	1391.7	100000.0	
+1	protrpthr	protrpthr[c]	1130.8	100000.0	
+1	provalgln	provalgln[c]	1130.8	100000.0	
+1	serargala	serargala[c]	1087.2	100000.0	
+1	serargtrp	serargtrp[c]	1304.7	100000.0	
+1	sercysarg	sercysarg[c]	1087.2	100000.0	
+1	serglyglu	serglyglu[c]	695.8	100000.0	
+1	serlyshis	serlyshis[c]	1173.4	100000.0	
+1	serphelys	serphelys[c]	1261.2	100000.0	
+1	sertrphis	sertrphis[c]	1043.0	100000.0	
+1	thrargtyr	thrargtyr[c]	1348.2	100000.0	
+1	thrasntyr	thrasntyr[c]	1043.7	100000.0	
+1	thrglnglu	thrglnglu[c]	1000.3	100000.0	
+1	thrglntyr	thrglntyr[c]	1130.7	100000.0	
+1	thrhishis	thrhishis[c]	996.9	100000.0	
+1	thrilearg	thrilearg[c]	1435.2	100000.0	
+1	thrmetarg	thrmetarg[c]	1348.2	100000.0	
+1	thrphearg	thrphearg[c]	1348.2	100000.0	
+1	thrserarg	thrserarg[c]	1174.2	100000.0	
+1	thrthrarg	thrthrarg[c]	1261.2	100000.0	
+1	thrtyrmet	thrtyrmet[c]	1174.2	100000.0	
+1	trpalapro	trpalapro[c]	1043.8	100000.0	
+1	trpargala	trpargala[c]	1304.7	100000.0	
+1	trpaspasp	trpaspasp[c]	869.8	100000.0	
+1	trpglngln	trpglngln[c]	1217.8	100000.0	
+1	trpglugly	trpglugly[c]	913.3	100000.0	
+1	trpgluleu	trpgluleu[c]	1261.2	100000.0	
+1	trpglupro	trpglupro[c]	1087.3	100000.0	
+1	trpglutyr	trpglutyr[c]	1174.2	100000.0	
+1	trpglyleu	trpglyleu[c]	1130.8	100000.0	
+1	trpglyphe	trpglyphe[c]	1043.8	100000.0	
+1	trpglyval	trpglyval[c]	1043.8	100000.0	
+1	trphismet	trphismet[c]	1217.0	100000.0	
+1	trpilelys	trpilelys[c]	1565.7	100000.0	
+1	trpiletrp	trpiletrp[c]	1435.2	100000.0	
+1	trpleuval	trpleuval[c]	1391.7	100000.0	
+1	trplys	trplys[c]	1087.3	100000.0	
+1	trpmetarg	trpmetarg[c]	1478.7	100000.0	
+1	trpmetval	trpmetval[c]	1304.7	100000.0	
+1	trpphe	trpphe[c]	913.3	100000.0	
+1	trpprogly	trpprogly[c]	912.6	100000.0	
+1	trpproleu	trpproleu[c]	1304.1	100000.0	
+1	trpproval	trpproval[c]	1217.1	100000.0	
+1	trpsertyr	trpsertyr[c]	1130.8	100000.0	
+1	trpthrglu	trpthrglu[c]	1087.3	100000.0	
+1	trpthrile	trpthrile[c]	1304.7	100000.0	
+1	trpthrtyr	trpthrtyr[c]	1217.7	100000.0	
+1	trptyrgln	trptyrgln[c]	1261.2	100000.0	
+1	trptyrtyr	trptyrtyr[c]	1304.7	100000.0	
+1	trpvalasp	trpvalasp[c]	1087.2	100000.0	
+1	tyrala	tyrala[c]	695.8	100000.0	
+1	tyralaphe	tyralaphe[c]	1087.3	100000.0	
+1	tyrargglu	tyrargglu[c]	1304.7	100000.0	
+1	tyrargser	tyrargser[c]	1261.2	100000.0	
+1	tyrasparg	tyrasparg[c]	1217.7	100000.0	
+1	tyrcysgly	tyrcysgly[c]	826.3	100000.0	
+1	tyrcysthr	tyrcysthr[c]	1000.3	100000.0	
+1	tyrglu	tyrglu[c]	739.3	100000.0	
+1	tyrleuarg	tyrleuarg[c]	1522.2	100000.0	
+1	tyrphetyr	tyrphetyr[c]	1261.2	100000.0	
+1	tyrthr	tyrthr[c]	782.8	100000.0	
+1	tyrtrpphe	tyrtrpphe[c]	1304.7	100000.0	
+1	tyrtyr	tyrtyr[c]	869.8	100000.0	
+1	tyrvalmet	tyrvalmet[c]	1261.2	100000.0	
+1	valarggly	valarggly[c]	1174.3	100000.0	
+1	valhisasn	valhisasn[c]	1043.0	100000.0	
+1	valleuphe	valleuphe[c]	1348.2	100000.0	
+1	vallystyr	vallystyr[c]	1435.2	100000.0	
+1	valphearg	valphearg[c]	1435.2	100000.0	
+1	valprotrp	valprotrp[c]	1217.6	100000.0	
+1	valserarg	valserarg[c]	1261.3	100000.0	
+1	valtrpphe	valtrpphe[c]	1304.8	100000.0	
+1	valtrpval	valtrpval[c]	1304.8	100000.0	
+1	valval	valval[c]	869.8	100000.0	
+1	trpglyasp	trpglyasp[c]	826.3	100000.0	
+2	glyleu	glyleu[c]	695.8	100000.0	
+1	Lhcystin	Lhcystin[c]	695.8	100000.0	
+1	band	band[c]	43.5	100000.0	
+1	bandmt	bandmt[c]	130.5	100000.0	
+4	methf	methf[c]	868.1	100000.0	
+1	hmbil	hmbil[c]	1652.7	100000.0	
+1	HC01434	HC01434[c]	130.5	100000.0	
+2	fprica	fprica[c]	565.1	100000.0	
+2	gal1p	gal1p[c]	478.2	100000.0	
+2	vanilpyr	vanilpyr[c]	391.4	100000.0	
+1	vanillac	vanillac[c]	478.4	100000.0	
+1	2h3mv	2h3mv[c]	478.4	100000.0	
+1	2hiv	2hiv[c]	391.4	100000.0	
+1	2m3ovac	2m3ovac[c]	391.4	100000.0	
+1	2m3hvac	2m3hvac[c]	478.4	100000.0	
+1	andrstandn	andrstandn[c]	1217.8	100000.0	
+1	CE1447	CE1447[c]	1348.3	100000.0	
+1	CE7081	CE7081[c]	1261.3	100000.0	
+2	23dh1i56dio	23dh1i56dio[c]	304.4	100000.0	
+1	4glu56dihdind	4glu56dihdind[c]	1000.2	100000.0	
+1	gd1a_hs	gd1a_hs[c]	4824.7	100000.0	
+1	M00129	M00129[c]	2435.1	100000.0	
+1	M01141	M01141[c]	2435.2	100000.0	
+1	M01191	M01191[c]	2609.1	100000.0	
+1	M00004	M00004[c]	2696.1	100000.0	
+1	M01237	M01237[c]	2696.1	100000.0	
+1	M00020	M00020[c]	2783.1	100000.0	
+1	vacccoa	vacccoa[c]	2783.1	100000.0	
+1	M00127	M00127[c]	1478.7	100000.0	
+1	M00116	M00116[c]	2783.1	100000.0	
+1	M02612	M02612[c]	2957.1	100000.0	
+1	M00018	M00018[c]	2957.1	100000.0	
+1	M01236	M01236[c]	2957.1	100000.0	
+1	M00123	M00123[c]	2870.1	100000.0	
+1	M00101	M00101[c]	2783.1	100000.0	
+1	M02052	M02052[c]	3131.0	100000.0	
+1	M00006	M00006[c]	3131.0	100000.0	
+1	M00012	M00012[c]	2783.1	100000.0	
+1	M00343	M00343[c]	2957.1	100000.0	
+1	M00023	M00023[c]	3044.0	100000.0	
+1	HC02070	HC02070[c]	43.5	100000.0	
+1	galfucgalacglcgalgluside_hs	galfucgalacglcgalgluside_hs[c]	4305.8	100000.0	
+1	CE6246	CE6246[c]	1348.3	0.0	
+1	HC01118	HC01118[c]	2129.3	100000.0	
+1	4mzym_int2	4mzym_int2[c]	1913.7	100000.0	
+1	HC02110	HC02110[c]	2000.7	100000.0	
+1	M01989	M01989[c]	1870.0	0.0	
+1	M01729	M01729[c]	1609.2	0.0	
+1	M02973	M02973[c]	1783.2	0.0	
+1	M02976	M02976[c]	1696.2	0.0	
+1	M02102	M02102[c]	1957.2	0.0	
+1	M02103	M02103[c]	1957.2	0.0	
+1	vacccrn	vacccrn[c]	2044.1	0.0	
+1	M02638	M02638[c]	2087.6	0.0	
+1	M02611	M02611[c]	2218.1	0.0	
+1	M01776	M01776[c]	2218.1	0.0	
+1	M01777	M01777[c]	2218.1	0.0	
+1	M01775	M01775[c]	2218.1	0.0	
+1	M00122	M00122[c]	2131.1	0.0	
+1	M00100	M00100[c]	2044.1	0.0	
+1	M02051	M02051[c]	2392.1	0.0	
+1	M01724	M01724[c]	2479.1	0.0	
+1	M01727	M01727[c]	2392.1	0.0	
+1	M01726	M01726[c]	2392.1	0.0	
+1	M02637	M02637[c]	1870.2	0.0	
+1	M00011	M00011[c]	2044.1	0.0	
+1	M00342	M00342[c]	2218.1	0.0	
+1	M00261	M00261[c]	2131.1	0.0	
+1	M01770	M01770[c]	2131.1	0.0	
+1	M00022	M00022[c]	2305.1	0.0	
+1	M00263	M00263[c]	2218.1	0.0	
+1	HC01609	HC01609[c]	1565.7	100000.0	
+1	dhlam	dhlam[c]	739.4	100000.0	
+2	M01389	M01389[c]	478.1	0.0	
+1	M03167	M03167[c]	608.2	0.0	
