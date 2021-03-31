@@ -20,7 +20,6 @@
 % to specific metabolites
 % # Targeted analysis: computation of shadow prices that reveal metabolite dependencies 
 % for a specific objective
-% # Integration of a host organism with personalized microbiome models
 %% 
 % Please note that this tutorial uses as an example a small dataset (4 columns 
 % and 10 rows) with the purpose of demonstrating the functionalities of the pipeline. 
@@ -203,11 +202,6 @@ computeProfiles = true;
 
 infoFilePath = '';
 %% 
-% path to a model of the host (e.g., human) to be joined with the microbiomes 
-% (default: no host)
-
-hostPath = '';
-%% 
 % name of objective function of organisms, default='EX_biomass(e)'
 
 objre = 'EX_biomass(e)';
@@ -250,7 +244,7 @@ adaptMedium = true;
 %% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 %% Computed outputs
 %% 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -329,7 +323,7 @@ taxInfo = 'AGORA_infoFile.xlsx';
 %% 
 % Path to fluxes that should be correlated
 
-fluxPath = [resPath filesep 'inputDiet_net_uptake_fluxes.csv'];
+fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
 corrMethod = 'Spearman';
 [FluxCorrelations, PValues, TaxonomyInfo] = correlateFluxWithTaxonAbundance(abunFilePath, fluxPath, taxInfo, corrMethod);
 %% 
@@ -371,7 +365,7 @@ plotFluxesAgainstOrganismAbundances(abunFilePath,fluxPath,metList);
 infoFilePath='sampInfo.csv'; 
 saveConstrModels = false;
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs. disease 
 % state), statistical analysis can be performed to identify whether net secretion 
