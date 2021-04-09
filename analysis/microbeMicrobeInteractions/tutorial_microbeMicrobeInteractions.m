@@ -7,6 +7,9 @@
 % the tradeoff between the growth of different joined microbes is computed. The 
 % tutorial can be adapted to any number of AGORA models and dietary conditions 
 % analyzed.
+%% Requirements
+% This tutorial requires the Parallel Computing Toolbox, Bioinformatics Toolbox, 
+% and Statistics and Machine Learning Toolbox add-ons in MATLAB.
 %% Initialize the COBRA Toolbox
 
 initCobraToolbox

@@ -25,10 +25,13 @@
 % and 10 rows) with the purpose of demonstrating the functionalities of the pipeline. 
 % We recommend using high-performance computing clusters when assembling and simulating 
 % from bigger datasets.
-%% DRIVER
+%% Driver
 % The  pipeline driver script cobratoolbox/papers/2018_microbiomeModelingToolbox/startMgPipe.m 
 % contains the neccessary inputs to run mgPipe for your dataset. Replace the input 
 % variables in startMgPipe with your own dataset and modifiy as needed.
+%% Requirements
+% This tutorial requires the Parallel Computing Toolbox, Bioinformatics Toolbox, 
+% and Statistics and Machine Learning Toolbox add-ons in MATLAB.
 %% Initialize the COBRA Toolbox
 
 initCobraToolbox
