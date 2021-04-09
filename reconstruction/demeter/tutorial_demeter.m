@@ -32,6 +32,9 @@
 % or even thousands of draft reconstructions. This may be time-consuming. It is 
 % recommended to use parallel computing for improved efficiency. If the pipeline 
 % run is interrupted, it can be rerun and already performed steps will be skipped.
+%% Requirements
+% This tutorial requires the Parallel Computing Toolbox, Bioinformatics Toolbox, 
+% and Statistics and Machine Learning Toolbox add-ons in MATLAB.
 %% Step 1: Data collection and data integration
 % This part explains how to collect input data and convert it into a format 
 % readible by the pipeline. The minimal input for building a refined reconstruction 
