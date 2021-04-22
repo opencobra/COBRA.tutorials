@@ -1,8 +1,0 @@
-DOLPGT3_Ler	h2o[r] + 0.1 dolp_L[r]  -> 0.769505 h[r] + pi[r] + 0.1 dolichol_L[r] 	-845.3	-797.4	-876.7	-807.5
-DOLPGT3_Uer	h2o[r] + 0.1 dolp_U[r]  -> 0.440085 h[r] + pi[r] + 0.1 dolichol_U[r] 	-916.8	-867.1	-948.3	-877.2
-DST_ANTIGENt	46 h[g] + dsT_antigen[g]  -> 46 h[e] + dsT_antigen[e] 	-316.7	-268.5	-334.5	-250.7
-HMR_4955	46 h[g] + dsT_antigen[g]  -> 46 h[c] + dsT_antigen[c] 	-256.3	-208.1	-274.1	-190.3
-
-Cytoplasmic metabolites only:
-4.600001e+01	h	h[c]	42.8	0.0	
-1	dsT_antigen	dsT_antigen[c]	-122.9	8.7	

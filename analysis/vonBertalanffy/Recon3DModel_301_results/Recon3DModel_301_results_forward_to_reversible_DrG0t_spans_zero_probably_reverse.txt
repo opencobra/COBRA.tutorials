@@ -1,24 +1,32 @@
-AACTtm	0.719661 h[m] + aact[m]  -> 0.289197 h[c] + aact[c] 	-3.0	37.7	-20.8	55.5
-DRPA	0.0393522 h[c] + 2dr5p[c]  -> acald[c] + g3p[c] 	-0.3	38.3	-47.8	44.3
-GLYC3Ptm	0.0327673 h[m] + glyc3p[c]  -> 0.176126 h[c] + glyc3p[m] 	15.8	44.8	-2.0	62.7
-L_LACtcm	6.02493e-05 h[m] + lac_L[c]  -> 0.000380026 h[c] + lac_L[m] 	3.6	26.3	-14.2	44.1
-PPAtm	0.00056199 h[m] + ppa[c]  -> 0.00353537 h[c] + ppa[m] 	-5.7	35.6	-23.5	53.5
-r1150	0.359915 h[c] + pi[l]  -> pi[c] + 0.966085 h[l] 	-3.4	25.8	-9.3	42.4
-2MOPtm	9.54851e-05 h[m] + 2mop[c]  -> 0.000602165 h[c] + 2mop[m] 	1.8	28.1	-16.0	45.9
-CYSTS	0.0136489 h[c] + ser_L[c] + hcys_L[c]  -> h2o[c] + cyst_L[c] 	-8.6	69.7	-14.5	117.2
+AACTtm	0.719661 h[m] + aact[m]  -> 0.289197 h[c] + aact[c] 	3.8	30.9	-14.0	48.7
+DNDPt1m	0.000106013 h[m] + adp[m] + datp[c]  -> 4.59687e-05 h[c] + adp[c] + datp[m] 	-13.5	43.5	-60.9	60.5
+DRPA	0.0393522 h[c] + 2dr5p[c]  -> acald[c] + g3p[c] 	7.5	23.5	-40.0	29.5
+L_LACtcm	6.02493e-05 h[m] + lac_L[c]  -> 0.000380026 h[c] + lac_L[m] 	9.0	20.9	-8.8	38.7
+PPAtm	0.00056199 h[m] + ppa[c]  -> 0.00353537 h[c] + ppa[m] 	9.2	20.7	-8.6	38.5
+r0853	0.876393 h[c] + atp[c] + pi[m]  -> 0.95286 h[m] + pi[c] + atp[m] 	2.0	49.2	-5.4	72.9
+r1109	cit[m]  -> 0.00206584 h[m] + ac[m] + oaa[m] 	-3.1	23.1	-50.6	29.0
+r1150	0.359915 h[c] + pi[l]  -> pi[c] + 0.966085 h[l] 	1.7	20.8	-4.3	37.4
+2MOPtm	9.54851e-05 h[m] + 2mop[c]  -> 0.000602165 h[c] + 2mop[m] 	5.0	24.9	-12.8	42.7
+CITL	cit[c]  -> 0.0129865 h[c] + ac[c] + oaa[c] 	-3.1	23.1	-50.6	29.1
+G6PDA	h2o[c] + 0.10603 h[c] + gam6p[c]  -> nh4[c] + f6p[c] 	-2.8	40.9	-39.3	40.6
 
 Cytoplasmic metabolites only:
-1	h2o	h2o[c]	-133.4	4.4	
-8.827569e-01	h	h[c]	42.8	0.0	
-1	pi	pi[c]	-1042.4	5.3	
-1	aact	aact[c]	203.1	7.3	
-1	acald	acald[c]	30.7	4.3	
-1	ppa	ppa[c]	-138.3	7.5	
-1	ser_L	ser_L[c]	-208.7	5.9	
-1	hcys_L	hcys_L[c]	115.2	12.1	
-1	2dr5p	2dr5p[c]	-1065.9	7.8	
-1	g3p	g3p[c]	-1077.6	4.1	
-1	glyc3p	glyc3p[c]	-1031.2	5.2	
-1	lac_L	lac_L[c]	-296.9	4.1	
-1	2mop	2mop[c]	-242.4	4.7	
-1	cyst_L	cyst_L[c]	70.5	14.1	
+1	h2o	h2o[c]	-138.3	3.0	
+1	nh4	nh4[c]	103.0	4.2	
+1.688437e+00	h	h[c]	42.8	0.0	
+1	atp	atp[c]	-2278.1	7.8	
+1	adp	adp[c]	-1395.0	6.3	
+2	pi	pi[c]	-1041.2	3.4	
+1	aact	aact[c]	187.8	4.9	
+1	acald	acald[c]	36.6	1.7	
+1	gam6p	gam6p[c]	-1054.5	9.5	
+1	ac	ac[c]	-217.8	2.0	
+1	cit	cit[c]	-939.7	5.1	
+1	oaa	oaa[c]	-711.8	3.9	
+1	ppa	ppa[c]	-126.2	2.1	
+1	datp	datp[c]	-2123.0	8.1	
+1	2dr5p	2dr5p[c]	-1056.1	2.7	
+1	g3p	g3p[c]	-1077.2	2.5	
+1	f6p	f6p[c]	-1276.7	2.8	
+1	lac_L	lac_L[c]	-282.2	2.1	
+1	2mop	2mop[c]	-251.6	3.6	

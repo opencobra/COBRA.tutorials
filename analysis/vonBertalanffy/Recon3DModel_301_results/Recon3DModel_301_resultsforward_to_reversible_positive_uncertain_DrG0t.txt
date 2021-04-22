@@ -1,9 +1,0 @@
-GLYC3Ptm	0.0327673 h[m] + glyc3p[c]  -> 0.176126 h[c] + glyc3p[m] 	15.8	44.8	-2.0	62.7
-L_LACtcm	6.02493e-05 h[m] + lac_L[c]  -> 0.000380026 h[c] + lac_L[m] 	3.6	26.3	-14.2	44.1
-2MOPtm	9.54851e-05 h[m] + 2mop[c]  -> 0.000602165 h[c] + 2mop[m] 	1.8	28.1	-16.0	45.9
-
-Cytoplasmic metabolites only:
-1.771087e-01	h	h[c]	42.8	0.0	
-1	glyc3p	glyc3p[c]	-1031.3	5.2	
-1	lac_L	lac_L[c]	-296.9	4.1	
-1	2mop	2mop[c]	-242.4	4.7	

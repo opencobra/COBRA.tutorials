@@ -1,6 +1,6 @@
-%% Thermodynamically constrain a metabolic model
+%% Thermodynamically constrain a Recon3D
 %% *Author: Ronan Fleming, Leiden University*
-%% *Reviewers: *
+%% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 
 % the principal constraints are uptake or secretion rates, the steady state mass 
@@ -12,18 +12,31 @@
 % to each reaction [2], (iii) analysis of thermochemical parameters in a network 
 % context, and (iv) thermodynamically constrained flux balance analysis. The theoretical 
 % basis for each of these methods is detailed within the cited papers.
-% 
-% %% PROCEDURE
+%% PROCEDURE
 %% Configure the environment
+% The default COBRA Toolbox paths are automatically changed here to work on 
+% the new version of vonBertalanffy
+
+aPath = which('initVonBertalanffy');
+basePath = strrep(aPath,['vonBertalanffy' filesep 'initVonBertalanffy.m'],'');
+addpath(genpath(basePath))
+folderPattern=[filesep 'old'];
+method = 'remove';
+editCobraToolboxPath(basePath,folderPattern,method)
+aPath = which('initVonBertalanffy');
+basePath = strrep(aPath,['vonBertalanffy' filesep 'initVonBertalanffy.m'],'');
+addpath(genpath(basePath))
+folderPattern=[filesep 'new'];
+method = 'add';
+editCobraToolboxPath(basePath,folderPattern,method)
+%% 
 % All the installation instructions are in a separate .md file named vonBertalanffy.md 
 % in docs/source/installation
 % 
 % With all dependencies installed correctly, we configure our environment, verfy 
 % all dependencies, and add required fields and directories to the matlab path.
 
-
 initVonBertalanffy
-
 %% Select the model
 % This tutorial is tested for the E. coli model iAF1260 and the human metabolic 
 % model Recon3Dmodel. However, only the data for the former is provided within 
@@ -110,11 +123,11 @@ switch modelName
         resultsPath=[basePath '/programReconstruction/projects/recon2models/results/thermo/' modelName];
         resultsBaseFileName=[resultsPath filesep modelName '_' datestr(now,30) '_'];
     case 'Recon3DModel_301'
-        basePath='~/work/sbgCloud';
+        basePath=['~' filesep 'work' filesep 'sbgCloud'];
         resultsPath=which('tutorial_vonBertalanffy.mlx');
-        resultsPath=strrep(resultsPath,'/tutorial_vonBertalanffy.mlx','');
+        resultsPath=strrep(resultsPath,[filesep 'tutorial_vonBertalanffy.mlx'],'');
         resultsPath=[resultsPath filesep modelName '_results'];
-        resultsBaseFileName=[resultsPath filesep modelName '_results'];
+        resultsBaseFileName=[resultsPath filesep modelName '_results_'];
     otherwise
         error('setup specific parameters for your model')
 end
@@ -122,17 +135,19 @@ end
 
 switch modelName
     case 'Ec_iAF1260_flux1'
-        molfileDir = 'iAF1260Molfiles';
+        molFileDir = 'iAF1260Molfiles';
     case 'iAF1260'
-        molfileDir = 'iAF1260Molfiles';
+        molFileDir = 'iAF1260Molfiles';
     case 'Recon3DModel_Dec2017'
-        molfileDir = [basePath '/data/metDatabase/explicit/molFiles'];
-        %molfileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBimplicitHMol'];
-        %molfileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBexplicitHMol'];
+        molFileDir = [basePath '/data/metDatabase/explicit/molFiles'];
+        %molFileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBimplicitHMol'];
+        %molFileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBexplicitHMol'];
     case 'Recon3DModel_301'
-        molfileDir = [basePath '/data/metDatabase/explicit/molFiles']; 
+        ctfPath = [basePath filesep 'code' filesep 'fork-ctf'];
+        % system(['git clone https://github.com/opencobra/ctf' ctfPath])
+        molFileDir = [basePath filesep 'code' filesep 'fork-ctf' filesep 'mets' filesep 'molFiles'];
     otherwise
-        error('setup specific parameters for your model')
+        molFileDir = [basePath '/code/fork-ctf/mets/molFiles'];
 end
 %% Set the thermochemical parameters for the model
 
@@ -235,7 +250,14 @@ model=readMetRxnBoundsFiles(model,setDefaultConc,setDefaultFlux,concMinDefault,c
 %% Check inputs
 
 model = configureSetupThermoModelInputs(model,T,compartments,ph,is,chi,concMinDefault,concMaxDefault,confidenceLevel);
-%% Check elemental balancing of metabolic reactions
+%% Add InChI to model
+
+%[model, pKaErrorMets] = setupComponentContribution(model,molFileDir);
+model = addInchiToModel(model, molFileDir, 'sdf', printLevel);
+%% Add pseudoisomers to model
+
+[model, nonphysicalMetBool, pKaErrorMetBool] = addPseudoisomersToModel(model, printLevel);
+% Check elemental balancing of metabolic reactions
 
 ignoreBalancingOfSpecifiedInternalReactions=1;
 if ~exist('massImbalance','var')
@@ -284,18 +306,44 @@ if ~exist('massImbalance','var')
         model.SIntRxnBool=SIntRxnBool;
     end
 end
-%% Check that the input data necessary for the component contribution method is in place
+%% 
+%% Create the thermodynamic training model
 
-model = setupComponentContribution(model,molfileDir);
+if 1
+    %use previously generated training model
+    aPath = which('driver_createTrainingModel.mlx');
+    aPath = strrep(aPath,['new' filesep 'driver_createTrainingModel.mlx'],['cache' filesep]);
+    load([aPath 'trainingModel.mat'])
+else
+    %recreate the trainingModel
+    driver_createTrainingModel
+end
+%% Create Group Incidence Matrix
+% Create the group incidence matrix (G) for the combined set of all metabolites.
 
-%% Prepare the training data for the component contribution method
-
-training_data = prepareTrainingData(model,printLevel);
-
-%% Call the component contribution method
+save('data_prior_to_createGroupIncidenceMatrix')
+%%
+%param.fragmentationMethod='manual';
+param.fragmentationMethod='abinito';
+param.printLevel=0;
+param.modelCache=['autoFragment_' modelName];
+param.debug=1;
+%%
+combinedModel = createGroupIncidenceMatrix(model, trainingModel, param);
+%%
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool),' = number of training metabolites')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool),' = number of test metabolites')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
+save('data_prior_to_componentContribution','model','combinedModel')
+%% Apply component contribution method
 
 if ~isfield(model,'DfG0')
-    [model,~] = componentContribution(model,training_data);
+    [model,solution] = componentContribution(model,combinedModel);
 end
 %% Setup a thermodynamically constrained model
 
@@ -306,7 +354,6 @@ end
 
 if ~isfield(model,'Srecon') 
     printLevel_pHbalanceProtons=-1;
-
     model=pHbalanceProtons(model,massImbalance,printLevel_pHbalanceProtons,resultsBaseFileName);
 end
 %% Determine quantitative directionality assignments

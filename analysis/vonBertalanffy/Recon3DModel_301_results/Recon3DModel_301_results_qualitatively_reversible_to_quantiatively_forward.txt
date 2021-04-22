@@ -1,22 +1,49 @@
-ACNACNGAL14ACGLCGALGLUSIDEtg	acnacngal14acglcgalgluside_hs[g]  <=> acnacngal14acglcgalgluside_hs[c] 	-546.9	-482.2	-564.7	-464.4
-FUC13GALACGLCGAL14ACGLCGALGLUSIDEtg	fuc13galacglcgal14acglcgalgluside_hs[g]  <=> fuc13galacglcgal14acglcgalgluside_hs[c] 	-515.5	-493.9	-533.3	-476.1
-FUCACNGAL14ACGLCGALGLUSIDEtg	fucacngal14acglcgalgluside_hs[g]  <=> fucacngal14acglcgalgluside_hs[c] 	-485.1	-453.7	-502.9	-435.8
-GLYGLYCNc	h2o[c] + glygly[c]  <=> 0.0199046 h[c] + 2 gly[c] 	-84.4	-9.5	-131.9	-3.5
-GLUTHRr	h2o[c] + gluthr[c]  <=> 0.0294006 h[c] + glu_L[c] + thr_L[c] 	-66.3	-7.9	-113.8	-1.9
-SERGLYGLUr	2 h2o[c] + serglyglu[c]  <=> 0.0298589 h[c] + glu_L[c] + gly[c] + ser_L[c] 	-73.2	5.0	-150.4	-1.0
-HMR_7173	46 h[c] + dsT_antigen[c]  <=> 46 h[e] + dsT_antigen[e] 	-75.8	-45.0	-93.6	-27.2
+FUC13GALACGLCGAL14ACGLCGALGLUSIDEtg	fuc13galacglcgal14acglcgalgluside_hs[g]  <=> fuc13galacglcgal14acglcgalgluside_hs[c] 	-538.7	-470.8	-556.5	-453.0
+FUCACNGAL14ACGLCGALGLUSIDEtg	fucacngal14acglcgalgluside_hs[g]  <=> fucacngal14acglcgalgluside_hs[c] 	-476.9	-461.9	-494.7	-444.0
+GLYC2P3Pc	0.0907734 h[c] + glyc2p[c]  <=> glyc3p[c] 	-1333.9	-1316.3	-1351.7	-1298.4
+MMALtm	0.102989 h[c] + HC00900[m]  <=> 0.0178705 h[m] + HC00900[c] 	-41.3	-19.0	-59.1	-1.2
+ETHAt	0.0124173 h[e] + etha[e]  <=> 0.00787086 h[c] + etha[c] 	-211.1	-182.7	-228.9	-164.9
+r2535m	0.109425 h[m] + hom_L[m]  <=> 0.0190914 h[c] + hom_L[c] 	-513.0	-470.0	-530.8	-452.2
+XYLt	2.08672e-05 h[e] + xyl_D[e]  <=> 1.31664e-05 h[c] + xyl_D[c] 	-754.7	-740.9	-772.5	-723.0
+ETOHt	etoh[e]  <=> etoh[c] 	-175.5	-162.2	-193.3	-144.4
+ACALDt	acald[e]  <=> acald[c] 	-142.0	-132.7	-159.9	-114.9
+GLCRt1	0.00021168 h[c] + glcr[e]  <=> 0.00012682 h[e] + glcr[c] 	-1297.5	-1273.6	-1315.3	-1255.8
+AACTte	0.392034 h[e] + aact[e]  <=> 0.289197 h[c] + aact[c] 	-175.3	-148.2	-193.1	-130.4
+SPHGNte	0.022368 h[e] + sphgn[e]  <=> 0.0142308 h[c] + sphgn[c] 	-299.8	-221.7	-317.6	-203.9
+HMR_0176	0.0106009 h[c] + C01601[e]  <=> 0.00671497 h[e] + C01601[c] 	-330.7	-295.0	-348.5	-277.1
+HMR_7173	46 h[c] + dsT_antigen[c]  <=> 46 h[e] + dsT_antigen[e] 	-66.6	-54.3	-84.4	-36.5
+HMR_7748	M01389[c]  <=> 5.15143e-13 h[c] + g6p[c] 	-1764.8	-1748.2	-1782.7	-1730.4
+HMR_7749	M01389[c]  <=> 0.00132069 h[c] + f6p[c] 	-1763.2	-1746.5	-1781.0	-1728.7
+HMR_9174	0.000308965 h[m] + itacon[c]  <=> 0.00194788 h[c] + itacon[m] 	-609.5	-537.0	-627.3	-519.2
+HMR_9179	0.0101388 h[c] + orn_D[c]  <=> 0.006381 h[x] + orn_D[x] 	-386.5	-324.1	-404.3	-306.3
+HMR_9679	0.00218285 h[c] + ac[x]  <=> 0.00345518 h[x] + ac[c] 	-352.7	-341.4	-370.6	-323.6
+GLYitr	0.0159266 h[r] + gly[r]  <=> 0.0159266 h[c] + gly[c] 	-387.6	-338.7	-405.4	-320.9
+PAPSitr	0.15542 h[c] + paps[r]  <=> paps[c] + 0.15542 h[r] 	-1899.9	-1864.3	-1917.7	-1846.5
+PAPitr	0.15542 h[c] + pap[r]  <=> pap[c] + 0.15542 h[r] 	-1898.9	-1863.5	-1916.7	-1845.7
 
 Cytoplasmic metabolites only:
-4	h2o	h2o[c]	-133.4	4.4	
-4.607918e+01	h	h[c]	42.8	0.0	
-2	glu_L	glu_L[c]	-348.8	6.4	
-1	acnacngal14acglcgalgluside_hs	acnacngal14acglcgalgluside_hs[c]	185.0	11.7	
-3	gly	gly[c]	-176.6	6.5	
-1	ser_L	ser_L[c]	-208.7	5.9	
-1	thr_L	thr_L[c]	-146.9	8.3	
-1	fuc13galacglcgal14acglcgalgluside_hs	fuc13galacglcgal14acglcgalgluside_hs[c]	-382.4	3.9	
-1	fucacngal14acglcgalgluside_hs	fucacngal14acglcgalgluside_hs[c]	-232.5	5.7	
-1	glygly	glygly[c]	-172.8	13.3	
-1	gluthr	gluthr[c]	-325.2	9.7	
-1	serglyglu	serglyglu[c]	-433.1	14.3	
-1	dsT_antigen	dsT_antigen[c]	-152.1	5.6	
+4.687735e+01	h	h[c]	42.8	0.0	
+1	paps	paps[c]	-1404.1	6.4	
+1	pap	pap[c]	-1403.2	6.4	
+1	sphgn	sphgn[c]	1481.8	14.1	
+1	aact	aact[c]	187.8	4.9	
+1	acald	acald[c]	36.6	1.7	
+1	ac	ac[c]	-217.8	2.0	
+1	gly	gly[c]	-145.7	8.8	
+1	etoh	etoh[c]	92.1	2.4	
+1	etha	etha[c]	153.9	5.1	
+1	f6p	f6p[c]	-1276.7	2.8	
+1	fuc13galacglcgal14acglcgalgluside_hs	fuc13galacglcgal14acglcgalgluside_hs[c]	-381.8	12.2	
+1	fucacngal14acglcgalgluside_hs	fucacngal14acglcgalgluside_hs[c]	-228.3	2.7	
+1	glyc3p	glyc3p[c]	-1020.8	3.0	
+1	g6p	g6p[c]	-1278.4	2.7	
+1	glcr	glcr[c]	-943.4	4.3	
+1	hom_L	hom_L[c]	-100.4	7.8	
+1	xyl_D	xyl_D[c]	-312.9	2.5	
+1	HC00900	HC00900[c]	-506.3	4.0	
+1	C01601	C01601[c]	423.6	6.5	
+1	glyc2p	glyc2p[c]	304.2	3.3	
+1	orn_D	orn_D[c]	565.4	11.3	
+1	dsT_antigen	dsT_antigen[c]	434.9	2.2	
+2	M01389	M01389[c]	478.1	3.2	
+1	itacon	itacon[c]	174.0	13.1	

@@ -1,4 +1,0 @@
-FUC13GALACGLCGAL14ACGLCGALGLUSIDEte	fuc13galacglcgal14acglcgalgluside_hs[e]  <=> fuc13galacglcgal14acglcgalgluside_hs[c] 	103.1	134.4	85.3	152.2
-
-Cytoplasmic metabolites only:
-1	fuc13galacglcgal14acglcgalgluside_hs	fuc13galacglcgal14acglcgalgluside_hs[c]	-389.6	5.6	

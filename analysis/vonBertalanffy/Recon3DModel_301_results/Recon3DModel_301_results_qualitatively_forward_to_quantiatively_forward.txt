@@ -1,25 +1,49 @@
-FBP26	h2o[c] + 0.303966 h[c] + f26bp[c]  -> pi[c] + f6p[c] 	-85.5	-35.2	-121.1	-30.5
-MGSA	0.265135 h[c] + dhap[c]  -> pi[c] + mthgxl[c] 	-64.7	-31.4	-100.3	-26.6
-MGSA2	0.217592 h[c] + g3p[c]  -> pi[c] + mthgxl[c] 	-68.6	-34.8	-104.3	-30.0
-SUCRe	h2o[e] + sucr[e]  -> 0.00249497 h[e] + glc_D[e] + fru[e] 	-89.5	-41.0	-137.0	-35.1
-r0926	0.160139 h[c] + 3pg[m]  -> 0.0293097 h[m] + 3pg[c] 	-58.3	-32.1	-76.2	-14.3
-DHAPtc	0.0947802 h[c] + dhap[m]  -> 0.0163207 h[m] + dhap[c] 	-40.8	-19.5	-58.6	-1.7
-DST_ANTIGENt	46 h[g] + dsT_antigen[g]  -> 46 h[e] + dsT_antigen[e] 	-308.0	-277.2	-325.8	-259.4
-THRS	h2o[c] + 0.0124452 h[c] + phom[c]  -> pi[c] + thr_L[c] 	-62.5	-15.0	-98.2	-10.3
-HMR_4955	46 h[g] + dsT_antigen[g]  -> 46 h[c] + dsT_antigen[c] 	-247.6	-216.8	-265.4	-198.9
-HMR_4957	0.0154092 h[c] + cit[m]  -> 0.00245045 h[m] + cit[c] 	-67.0	-22.8	-84.8	-5.0
+ACNAM9PL2	h2o[c] + 0.369988 h[c] + pep[c] + man6p[c]  -> pi[c] + kdnp[c] 	-71.1	-40.8	-94.9	-6.4
+BPNT2	h2o[c] + paps[c]  -> pi[c] + aps[c] 	-563.2	-505.8	-598.8	-501.1
+CAT2p	5.36343e-05 h[x] + h2o2[x] + etoh[x]  -> acald[x] + 2 h2o[x] 	-319.5	-250.6	-325.4	-203.1
+FBP26	h2o[c] + 0.303966 h[c] + f26bp[c]  -> pi[c] + f6p[c] 	-56.3	-24.2	-91.9	-19.5
+MGSA	0.265135 h[c] + dhap[c]  -> pi[c] + mthgxl[c] 	-58.1	-38.7	-93.8	-33.9
+MGSA2	0.217592 h[c] + g3p[c]  -> pi[c] + mthgxl[c] 	-57.8	-38.1	-93.4	-33.3
+r0186	h2o[c] + 0.135206 h[c] + ethamp[c]  -> nh4[c] + pi[c] + acald[c] 	-32.4	11.2	-86.7	-2.2
+r0926	0.160139 h[c] + 3pg[m]  -> 0.0293097 h[m] + 3pg[c] 	-53.3	-37.1	-71.1	-19.3
+DHAPtc	0.0947802 h[c] + dhap[m]  -> 0.0163207 h[m] + dhap[c] 	-36.7	-23.5	-54.5	-5.7
+PSP_L	h2o[c] + 0.172624 h[c] + pser_L[c]  -> pi[c] + ser_L[c] 	-1378.7	-1332.1	-1414.3	-1327.4
+THRS	h2o[c] + 0.0124452 h[c] + phom[c]  -> pi[c] + thr_L[c] 	-1374.2	-1327.7	-1409.9	-1323.0
+r0060	ser_L[c]  -> nh4[c] + 0.00534253 h[c] + pyr[c] 	-61.1	-25.3	-97.6	-25.6
+THRD_L	thr_L[c]  -> nh4[c] + 0.00993695 h[c] + 2obut[c] 	-60.3	-24.5	-96.9	-24.8
+3OHGLUTACtm	0.0012296 h[c] + 3ohglutac[m]  -> 0.000194958 h[m] + 3ohglutac[c] 	-39.8	-20.0	-57.7	-2.2
+HMR_0647	etha[c]  -> nh4[c] + 0.0295312 h[c] + acald[c] 	-27.6	-0.9	-64.2	-1.1
+HMR_4957	0.0154092 h[c] + cit[m]  -> 0.00245045 h[m] + cit[c] 	-58.9	-30.9	-76.7	-13.0
+HMR_8578	h2o[c] + M02451[c]  -> 0.00146298 h[c] + fru[c] + malttr[c] 	-2980.7	-2902.7	-3028.2	-2896.7
+HMR_8579	h2o[e] + M02451[e]  -> 0.000204323 h[e] + glc_D[e] + malttr[e] 	-2976.5	-2914.0	-3024.0	-2908.1
 
 Cytoplasmic metabolites only:
-2	h2o	h2o[c]	-133.4	4.4	
-4.706948e+01	h	h[c]	42.8	0.0	
-4	pi	pi[c]	-1042.4	5.3	
-2	mthgxl	mthgxl[c]	-86.9	5.5	
-1	cit	cit[c]	-943.7	8.0	
-1	thr_L	thr_L[c]	-146.9	8.3	
-2	dhap	dhap[c]	-1081.3	3.8	
-1	3pg	3pg[c]	-1333.1	4.7	
-1	g3p	g3p[c]	-1077.6	4.1	
-1	f6p	f6p[c]	-1279.2	4.5	
-1	f26bp	f26bp[c]	-2127.8	9.9	
-1	phom	phom[c]	-1017.1	5.7	
-1	dsT_antigen	dsT_antigen[c]	-152.1	5.6	
+7	h2o	h2o[c]	-138.3	3.0	
+4	nh4	nh4[c]	103.0	4.2	
+1.794786e+00	h	h[c]	42.8	0.0	
+8	pi	pi[c]	-1041.2	3.4	
+1	pyr	pyr[c]	-338.3	2.3	
+1	paps	paps[c]	-1404.1	6.4	
+1	2obut	2obut[c]	-246.7	2.4	
+2	mthgxl	mthgxl[c]	-83.9	2.7	
+2	acald	acald[c]	36.6	1.7	
+1	cit	cit[c]	-939.7	5.1	
+1	pep	pep[c]	-1198.3	3.3	
+1	man6p	man6p[c]	-1267.8	3.2	
+1	kdnp	kdnp[c]	-1619.2	4.2	
+1	aps	aps[c]	-1035.7	12.3	
+2	ser_L	ser_L[c]	-192.1	7.8	
+2	thr_L	thr_L[c]	-101.2	7.8	
+2	dhap	dhap[c]	-1076.7	2.4	
+1	3pg	3pg[c]	-1331.6	2.9	
+1	g3p	g3p[c]	-1077.2	2.5	
+1	ethamp	ethamp[c]	-752.6	9.1	
+1	etha	etha[c]	153.9	5.1	
+1	f6p	f6p[c]	-1276.7	2.8	
+1	f26bp	f26bp[c]	-2139.3	6.2	
+1	fru	fru[c]	-381.8	12.2	
+1	malttr	malttr[c]	-871.5	8.9	
+1	pser_L	pser_L[c]	260.5	7.8	
+1	phom	phom[c]	346.9	7.7	
+1	3ohglutac	3ohglutac[c]	261.0	3.6	
+1	M02451	M02451[c]	1826.7	12.6	

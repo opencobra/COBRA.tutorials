@@ -1,195 +1,69 @@
-Metabolites which force 17 qualitatively  forward -> quantiatively reversible by concentration (negative uncertain DrG0t)
-35:	14	h[c]Proton
-28:	9	h[m]Proton
-20:	5	h2o[c]Water
-40:	5	pi[c]Orthophosphate
-41:	2	h[x]Proton
-353:	2	pep[c]Phosphoenolpyruvate
-1154:	2	3pg[c]3-Phospho-D-Glycerate
-42:	1	1pipdn2c[x]1-Piperideine-2-Carboxylate
-69:	1	2dr1p[c]2-Deoxy-D-Ribose 1-Phosphate
-70:	1	drib[c]2-Deoxy-D-Ribose
-121:	1	3hmp[m]3-Hydroxy-2-Methylpropanoate
-149:	1	pyr[m]Pyruvate
-352:	1	acmanap[c]N-Acetyl-D-Mannosamine 6-Phosphate
-354:	1	acnamp[c]N-Acetylneuraminate 9-Phosphate
-355:	1	man6p[c]D-Mannose 6-Phosphate
-356:	1	kdnp[c]2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid 9-Phosphate
-384:	1	h2o[x]Water
-417:	1	g1p[c]D-Glucose 1-Phosphate
-462:	1	ala_L[m]L-Alanine
-463:	1	glx[m]Glyoxylate
-464:	1	gly[m]Glycine
-465:	1	pyr[x]Pyruvate
-466:	1	ala_L[x]L-Alanine
-467:	1	glx[x]Glyoxylate
-468:	1	gly[x]Glycine
-647:	1	Nacasp[m]N-Acetyl-L-Aspartate
-1155:	1	23dpg[c]2,3-Bisphosphonato-D-Glycerate
-1156:	1	13dpg[c]3-Phospho-D-Glyceroyl Phosphate
-1743:	1	glcur[c]D-Glucuronate
-1792:	1	glcur1p[c]D-Glucuronate 1-Phosphate
-1945:	1	6a2ohxnt[x]6-Amino-2-Oxohexanoic Acid
-1991:	1	Nacasp[c]N-Acetyl-L-Aspartate
-3584:	1	3hmp[c]3-Hydroxy-2-Methylpropanoate
+Metabolites which force 6 qualitatively  forward -> quantiatively reversible by concentration (negative uncertain DrG0t)
+28:	5	h[m]Proton
+35:	5	h[c]Proton
+75:	1	h[e]Proton
+191:	1	h2o[e]Water
+541:	1	glc_D[e]D-Glucose
+1516:	1	fru[e]D-Fructose
+2261:	1	sucr[e]Sucrose
 4352:	1	2m3hbu[m]2-Methyl-3-Hydroxy-Butyrate
 4353:	1	2m3hbu[c]2-Methyl-3-Hydroxy-Butyrate
-4362:	1	3mglutac[m]3-Methyl-Glutaconate
-4363:	1	3mglutac[c]3-Methyl-Glutaconate
-4377:	1	3ohglutac[m]3-Hydroxy-Glutarate
-4378:	1	3ohglutac[c]3-Hydroxy-Glutarate
+4356:	1	2m3ovac[m]2-Methyl-3-Oxo-Valerate
+4357:	1	2m3ovac[c]2-Methyl-3-Oxo-Valerate
 4381:	1	glutcon[m]Glutaconate
 4382:	1	glutcon[c]Glutaconate
 4384:	1	3hivac[m]3-Hydroxyisovaleric Acid
 4385:	1	3hivac[c]3-Hydroxyisovaleric Acid
 4414:	1	4ohbut[m]4-Hydroxy-Butyrate
 4415:	1	4ohbut[c]4-Hydroxy-Butyrate
-5248:	1	M01966[c]D-Glucose 1,6-Bisphosphate
 
 
-34	2-Deoxy-D-Ribose 1-Phosphate Phosphorylase	2DR1PP	-81.36	  2.88
+2729	Sucrose Hydrolyzing Enxyme, Extracellular	SUCRe	-106.78	  2.26
 substrates:
-20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
-35	-0.214742	   42.75	-42.75	-42.75	                h[c]	Proton
-69	      -1	-1037.31	-29.69	-11.88	            2dr1p[c]	2-Deoxy-D-Ribose 1-Phosphate
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+2261	      -1	 -571.25	-29.69	-11.88	             sucr[e]	Sucrose
 products:
-40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
-70	       1	 -152.14	-29.69	-11.88	             drib[c]	2-Deoxy-D-Ribose
+75	0.00249497	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+1516	       1	 -367.53	-29.69	-11.88	              fru[e]	D-Fructose
 
-196	N-Acetylneuraminate 9-Phosphate Pyruvate-Lyase (Pyruvate-Phosphorylating)	ACNAM9PL	-109.48	 15.58
-substrates:
-20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
-35	-0.410768	   42.75	-42.75	-42.75	                h[c]	Proton
-352	      -1	-1141.24	-29.69	-11.88	          acmanap[c]	N-Acetyl-D-Mannosamine 6-Phosphate
-353	      -1	-1199.05	-29.69	-11.88	              pep[c]	Phosphoenolpyruvate
-products:
-40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
-354	       1	-1483.61	-29.69	-11.88	           acnamp[c]	N-Acetylneuraminate 9-Phosphate
-
-197	N-Acetylneuraminate 9-Phosphate Pyruvate-Lyase (Pyruvate-Phosphorylating)	ACNAM9PL2	-95.47	  7.41
-substrates:
-20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
-35	-0.369988	   42.75	-42.75	-42.75	                h[c]	Proton
-353	      -1	-1199.05	-29.69	-11.88	              pep[c]	Phosphoenolpyruvate
-355	      -1	-1277.63	-29.69	-11.88	            man6p[c]	D-Mannose 6-Phosphate
-products:
-40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
-356	       1	-1617.08	-29.69	-11.88	             kdnp[c]	2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid 9-Phosphate
-
-260	Alanine-Glyoxylate Transaminase (Irreversible), Mitochondrial	AGTim	-81.87	 32.64
-substrates:
-462	      -1	  -31.75	-29.69	-11.88	            ala_L[m]	L-Alanine
-463	      -1	 -428.36	-29.69	-11.88	              glx[m]	Glyoxylate
-products:
-28	0.0371766	   47.50	-47.50	-47.50	                h[m]	Proton
-149	       1	 -331.70	-29.69	-11.88	              pyr[m]	Pyruvate
-464	       1	 -153.03	-29.69	-11.88	              gly[m]	Glycine
-
-261	Alanine-Glyoxylate Transaminase (Irreversible),, Peroxisomal	AGTix	-81.78	 32.73
-substrates:
-466	      -1	  -73.19	-29.69	-11.88	            ala_L[x]	L-Alanine
-467	      -1	 -434.30	-29.69	-11.88	              glx[x]	Glyoxylate
-products:
-41	0.00423472	   41.56	-41.56	-41.56	                h[x]	Proton
-465	       1	 -349.51	-29.69	-11.88	              pyr[x]	Pyruvate
-468	       1	 -182.49	-29.69	-11.88	              gly[x]	Glycine
-
-897	Diphosphoglycerate Phosphatase	DPGase	-79.14	  4.61
-substrates:
-20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
-35	-0.367301	   42.75	-42.75	-42.75	                h[c]	Proton
-1155	      -1	-2220.21	-29.69	-11.88	            23dpg[c]	2,3-Bisphosphonato-D-Glycerate
-products:
-40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
-1154	       1	-1333.07	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
-
-1735	Glucuronate 1-Phosphate Phosphatase	GUR1PP	-79.54	  1.85
-substrates:
-20	      -1	 -133.43	  0.00	  0.00	              h2o[c]	Water
-35	-0.245731	   42.75	-42.75	-42.75	                h[c]	Proton
-1792	      -1	-1579.15	-29.69	-11.88	          glcur1p[c]	D-Glucuronate 1-Phosphate
-products:
-40	       1	-1042.41	-17.81	-13.07	               pi[c]	Orthophosphate
-1743	       1	 -693.58	-29.69	-11.88	            glcur[c]	D-Glucuronate
-
-2058	N-Acetyl-L-Aspartate Transport (Mitochondria to Cytosol)	NACASPtm	-67.46	  7.39
-substrates:
-35	-0.056046	   42.75	-42.75	-42.75	                h[c]	Proton
-647	      -1	 -487.47	-29.69	-11.88	           Nacasp[m]	N-Acetyl-L-Aspartate
-products:
-28	0.00908108	   47.50	-47.50	-47.50	                h[m]	Proton
-1991	       1	 -520.84	-29.69	-11.88	           Nacasp[c]	N-Acetyl-L-Aspartate
-
-2425	Ppd2Cspp	PPD2CSPp	-95.92	  8.42
-substrates:
-1945	      -1	   -6.13	-29.69	-11.88	         6a2ohxnt[x]	6-Amino-2-Oxohexanoic Acid
-products:
-41	0.997212	   41.56	-41.56	-41.56	                h[x]	Proton
-42	       1	   85.93	-29.69	-11.88	         1pipdn2c[x]	1-Piperideine-2-Carboxylate
-384	       1	 -135.80	  0.00	  0.00	              h2o[x]	Water
-
-7086	Transport of 3-Hydroxy-Isobutyrate, Mitochondrial	3HMPtm	-42.42	 12.51
-substrates:
-35	-0.00147684	   42.75	-42.75	-42.75	                h[c]	Proton
-121	      -1	 -155.62	-29.69	-11.88	             3hmp[m]	3-Hydroxy-2-Methylpropanoate
-products:
-28	0.000234354	   47.50	-47.50	-47.50	                h[m]	Proton
-3584	       1	 -188.88	-29.69	-11.88	             3hmp[c]	3-Hydroxy-2-Methylpropanoate
-
-7593	Transport of 2-Methyl-3-Hydroxy-Butyrate, Mitochondrial	2M3HBUtm	-46.18	 16.26
+7593	Transport of 2-Methyl-3-Hydroxy-Butyrate, Mitochondrial	2M3HBUtm	-43.37	 13.45
 substrates:
 35	-0.00203746	   42.75	-42.75	-42.75	                h[c]	Proton
-4352	      -1	  -60.00	-29.69	-11.88	           2m3hbu[m]	2-Methyl-3-Hydroxy-Butyrate
+4352	      -1	  434.18	-29.69	-11.88	           2m3hbu[m]	2-Methyl-3-Hydroxy-Butyrate
 products:
 28	0.00032347	   47.50	-47.50	-47.50	                h[m]	Proton
-4353	       1	 -102.75	-29.69	-11.88	           2m3hbu[c]	2-Methyl-3-Hydroxy-Butyrate
+4353	       1	  391.43	-29.69	-11.88	           2m3hbu[c]	2-Methyl-3-Hydroxy-Butyrate
 
-7606	Transport of 3-Methyl-Glutaconate, Mitochondrial	3MGLUTACtm	-66.83	  7.00
+7598	Transport of 2-Methyl-3-Oxo-Valerate, Mitochondrial	2M3OVACtm	-45.06	 15.15
 substrates:
-35	-0.00288012	   42.75	-42.75	-42.75	                h[c]	Proton
-4362	      -1	 -308.58	-29.69	-11.88	         3mglutac[m]	3-Methyl-Glutaconate
+35	-0.00131645	   42.75	-42.75	-42.75	                h[c]	Proton
+4356	      -1	  434.18	-29.69	-11.88	          2m3ovac[m]	2-Methyl-3-Oxo-Valerate
 products:
-28	0.000456966	   47.50	-47.50	-47.50	                h[m]	Proton
-4363	       1	 -337.09	-29.69	-11.88	         3mglutac[c]	3-Methyl-Glutaconate
+28	0.000208874	   47.50	-47.50	-47.50	                h[m]	Proton
+4357	       1	  391.43	-29.69	-11.88	          2m3ovac[c]	2-Methyl-3-Oxo-Valerate
 
-7626	Transport of 3-Hydroxy-Glutarate, Mitochondrial	3OHGLUTACtm	-60.94	  1.11
-substrates:
-35	-0.0012296	   42.75	-42.75	-42.75	                h[c]	Proton
-4377	      -1	 -533.92	-29.69	-11.88	        3ohglutac[m]	3-Hydroxy-Glutarate
-products:
-28	0.000194958	   47.50	-47.50	-47.50	                h[m]	Proton
-4378	       1	 -562.42	-29.69	-11.88	        3ohglutac[c]	3-Hydroxy-Glutarate
-
-7632	Transport of Glutaconate, Mitochondrial	GLUTCONtm	-62.27	  2.44
+7632	Transport of Glutaconate, Mitochondrial	GLUTCONtm	-63.51	  3.68
 substrates:
 35	-0.0020871	   42.75	-42.75	-42.75	                h[c]	Proton
-4381	      -1	 -405.96	-29.69	-11.88	          glutcon[m]	Glutaconate
+4381	      -1	  192.97	-29.69	-11.88	          glutcon[m]	Glutaconate
 products:
 28	0.000331059	   47.50	-47.50	-47.50	                h[m]	Proton
-4382	       1	 -424.97	-29.69	-11.88	          glutcon[c]	Glutaconate
+4382	       1	  173.96	-29.69	-11.88	          glutcon[c]	Glutaconate
 
-7636	Transport of 3-Hydroxy-Isovalerate, Mitochondrial	3HIVActm	-47.43	 17.51
+7636	Transport of 3-Hydroxy-Isovalerate, Mitochondrial	3HIVActm	-43.58	 13.66
 substrates:
 35	-0.00223359	   42.75	-42.75	-42.75	                h[c]	Proton
-4384	      -1	  -67.16	-29.69	-11.88	           3hivac[m]	3-Hydroxyisovaleric Acid
+4384	      -1	  434.18	-29.69	-11.88	           3hivac[m]	3-Hydroxyisovaleric Acid
 products:
 28	0.000354666	   47.50	-47.50	-47.50	                h[m]	Proton
-4385	       1	 -109.91	-29.69	-11.88	           3hivac[c]	3-Hydroxyisovaleric Acid
+4385	       1	  391.43	-29.69	-11.88	           3hivac[c]	3-Hydroxyisovaleric Acid
 
-7676	Transport of 4-Hydroxy-Butyrate, Mitochondrial	4OHBUTtmc	-47.28	 17.36
+7676	Transport of 4-Hydroxy-Butyrate, Mitochondrial	4OHBUTtmc	-39.83	  9.91
 substrates:
 35	-0.00173468	   42.75	-42.75	-42.75	                h[c]	Proton
-4414	      -1	 -139.13	-29.69	-11.88	           4ohbut[m]	4-Hydroxy-Butyrate
+4414	      -1	  337.70	-29.69	-11.88	           4ohbut[m]	4-Hydroxy-Butyrate
 products:
 28	0.000275331	   47.50	-47.50	-47.50	                h[m]	Proton
-4415	       1	 -172.38	-29.69	-11.88	           4ohbut[c]	4-Hydroxy-Butyrate
-
-9447	3-Phospho-D-Glyceroyl-Phosphate:Alpha-D-Glucose-1-Phosphate 6-Phosphotransferase	HMR_8585	-118.05	  8.62
-substrates:
-35	-0.0134824	   42.75	-42.75	-42.75	                h[c]	Proton
-417	      -1	-1268.95	-29.69	-11.88	              g1p[c]	D-Glucose 1-Phosphate
-1156	      -1	-2191.83	-29.69	-11.88	            13dpg[c]	3-Phospho-D-Glyceroyl Phosphate
-products:
-1154	       1	-1333.07	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
-5248	       1	-2182.42	-29.69	-11.88	           M01966[c]	D-Glucose 1,6-Bisphosphate
+4415	       1	  304.44	-29.69	-11.88	           4ohbut[c]	4-Hydroxy-Butyrate
 

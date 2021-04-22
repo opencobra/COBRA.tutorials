@@ -1,9 +1,0 @@
-ACNACNGAL14ACGLCGALGLUSIDEte	acnacngal14acglcgalgluside_hs[e]  <=> acnacngal14acglcgalgluside_hs[c] 	94.6	159.3	76.7	177.1
-FUC13GALACGLCGAL14ACGLCGALGLUSIDEte	fuc13galacglcgal14acglcgalgluside_hs[e]  <=> fuc13galacglcgal14acglcgalgluside_hs[c] 	107.9	129.6	90.1	147.4
-PPItm	ppi[c]  <=> 0.481328 h[m] + 0.229996 h[c] + ppi[m] 	20.7	67.8	3.6	71.8
-
-Cytoplasmic metabolites only:
-2.299956e-01	h	h[c]	42.8	0.0	
-1	acnacngal14acglcgalgluside_hs	acnacngal14acglcgalgluside_hs[c]	185.0	11.7	
-1	ppi	ppi[c]	-1935.5	8.5	
-1	fuc13galacglcgal14acglcgalgluside_hs	fuc13galacglcgal14acglcgalgluside_hs[c]	-382.4	3.9	
