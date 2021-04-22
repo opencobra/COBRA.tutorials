@@ -1,0 +1,1330 @@
+Metabolites which force 128 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line; Between 0.7 and 0.3probability of being forward.
+35:	107	h[c]Proton
+75:	52	h[e]Proton
+28:	20	h[m]Proton
+40:	15	pi[c]Orthophosphate
+20:	14	h2o[c]Water
+41:	11	h[x]Proton
+265:	10	h[l]Proton
+377:	9	orn[c]Ornithine
+559:	9	lys_L[c]L-Lysine
+2070:	9	orn[e]Ornithine
+588:	8	lys_L[e]L-Lysine
+729:	8	h[r]Proton
+38:	5	atp[c]Adenosine Triphosphate
+191:	5	h2o[e]Water
+541:	5	glc_D[e]D-Glucose
+39:	4	adp[c]Adenosine Diphosphate
+231:	4	h[g]Proton
+491:	4	ala_L[c]L-Alanine
+502:	4	ser_L[c]L-Serine
+504:	4	thr_L[c]L-Threonine
+801:	4	inost[c]Myo-Inositol
+110:	3	glu_L[m]L-Glutamate
+293:	3	atp[m]Adenosine Triphosphate
+294:	3	adp[m]Adenosine Diphosphate
+295:	3	pi[m]Orthophosphate
+500:	3	gly[c]Glycine
+707:	3	glc_D[c]D-Glucose
+1031:	3	datp[m]Deoxyadenosine Triphosphate
+1032:	3	dadp[m]Deoxyadenosine Diphosphate
+1575:	3	g6p[c]D-Glucose 6-Phosphate
+1659:	3	glc_D[l]D-Glucose
+1948:	3	malt[c]Maltose
+1971:	3	mi134p[c]1D-Myo-Inositol 1,3,4-Trisphosphate
+25:	2	h2o[m]Water
+64:	2	pap[c]Adenosine 3,5-Bismonophosphate
+67:	2	akg[m]2-Oxoglutarate
+77:	2	hco3[e]Bicarbonate
+78:	2	hco3[c]Bicarbonate
+111:	2	3aib[c](S)-3-Aminoisobutyric Acid
+122:	2	glu_L[c]L-Glutamate
+138:	2	h2o[l]Water
+143:	2	asp_L[c]L-Aspartate
+163:	2	e4hglu[m]Erythro-4-Hydroxy-L-Glutamate
+353:	2	pep[c]Phosphoenolpyruvate
+379:	2	icit[m]Isocitric Acid
+391:	2	amp[c]Adenosine Monophosphate
+412:	2	datp[c]Deoxyadenosine Triphosphate
+413:	2	dadp[c]Deoxyadenosine Diphosphate
+490:	2	ala_L[e]L-Alanine
+497:	2	ala_D[c]D-Alanine
+501:	2	gly[e]Glycine
+503:	2	ser_L[e]L-Serine
+505:	2	thr_L[e]L-Threonine
+842:	2	pep[m]Phosphoenolpyruvate
+853:	2	oxa[c]Oxalate
+1018:	2	4h2oglt[m]4-Hydroxy-2-Oxoglutarate
+1296:	2	hom_L[e]L-Homoserine
+1433:	2	hdca[c]Hexadecanoate (N-C16:0)
+1649:	2	malt[e]Maltose
+1775:	2	hdca[r]Hexadecanoate (N-C16:0)
+1819:	2	hom_L[c]L-Homoserine
+1896:	2	lcts[e]Lactose
+1907:	2	leu_L[e]L-Leucine
+1908:	2	leu_L[c]L-Leucine
+1947:	2	malt[l]Maltose
+1970:	2	mi1345p[c]1D-Myo-Inositol 1,3,4,5-Tetrakisphosphate
+1974:	2	mi1p_D[c]1D-Myo-Inositol 1-Phosphate
+1980:	2	mi3p_D[c]1D-Myo-Inositol 3-Phosphate
+1982:	2	malttr[c]Maltotriose
+2098:	2	pro_L[m]L-Proline
+2176:	2	pro_L[c]L-Proline
+2325:	2	val_L[e]L-Valine
+2326:	2	val_L[c]L-Valine
+2400:	2	HC00342[m]Cis-Aconitate
+4393:	2	3ohsebac[c]3-Hydroxy-Sebacic Acid
+4397:	2	3ohsubac[c]3-Hydoxy-Suberic Acid
+24:	1	nh4[c]Ammonium
+59:	1	pyr[c]Pyruvate
+68:	1	akg[c]2-Oxoglutarate
+108:	1	3aib[m](S)-3-Aminoisobutyric Acid
+144:	1	asp_L[m]L-Aspartate
+154:	1	4abut[c]4-Aminobutanoate
+223:	1	man[c]D-Mannose
+225:	1	man[l]D-Mannose
+242:	1	mthgxl[c]Methylglyoxal
+262:	1	abt[c]L-Arabinitol
+264:	1	abt[e]L-Arabinitol
+290:	1	acald[c]Acetaldehyde
+300:	1	amp[m]Adenosine Monophosphate
+305:	1	acetone[e]Acetone
+307:	1	acetone[m]Acetone
+392:	1	ppi[c]Diphosphate
+394:	1	ppa[c]Propionate
+400:	1	adn[c]Adenosine
+403:	1	adn[e]Adenosine
+411:	1	damp[c]Deoxyadenosine Monophosphate
+415:	1	camp[c]3,5-Cyclic Adenosine Monophosphate
+416:	1	adn[m]Adenosine
+420:	1	adprib[e]Adenosine-5'-Diphosphate-Ribose
+421:	1	adprib[c]Adenosine-5'-Diphosphate-Ribose
+422:	1	adp[x]Adenosine Diphosphate
+435:	1	fum[c]Fumarate
+462:	1	ala_L[m]L-Alanine
+465:	1	pyr[x]Pyruvate
+466:	1	ala_L[x]L-Alanine
+494:	1	cys_L[c]L-Cysteine
+496:	1	ala_D[e]D-Alanine
+648:	1	asp_L[e]L-Aspartate
+649:	1	oaa[m]Oxaloacetate
+653:	1	pi[e]Orthophosphate
+654:	1	amp[e]Adenosine Monophosphate
+657:	1	atp[x]Adenosine Triphosphate
+741:	1	3aib_D[c]D-3-Amino-Isobutanoate
+791:	1	glc_D[r]D-Glucose
+793:	1	g6p[r]D-Glucose 6-Phosphate
+795:	1	pi[r]Orthophosphate
+854:	1	oxa[e]Oxalate
+950:	1	cys_L[m]L-Cysteine
+958:	1	h[n]Proton
+985:	1	3aib_D[e]D-3-Amino-Isobutanoate
+987:	1	dad_2[c]2-Deoxyadenosine
+996:	1	ala_D[x]D-Alanine
+1158:	1	5dpmev[x](R)-5-Diphosphomevalonate
+1222:	1	ethamp[c]Ethanolamine Phosphate
+1223:	1	etha[c]Ethanolamine
+1232:	1	3aib[e](S)-3-Aminoisobutyric Acid
+1275:	1	glyc_S[e](S)-Glycerate
+1324:	1	mthgxl[e]Methylglyoxal
+1360:	1	rbt[e]D-Ribitol
+1373:	1	ser_D[e]D-Serine
+1381:	1	tagat_D[e]D-Tagatose
+1504:	1	fuc_L[c]L-Fucose
+1517:	1	fru[c]D-Fructose
+1529:	1	fuc_L[l]L-Fucose
+1550:	1	4fumacac[c]4-Fumarylacetoacetate
+1553:	1	so4[c]Sulfate
+1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1573:	1	glu5p[m]L-Glutamate 5-Phosphate
+1580:	1	pap[g]Adenosine 3,5-Bismonophosphate
+1584:	1	gal[l]D-Galactose
+1640:	1	gal[c]D-Galactose
+1643:	1	gal[e]D-Galactose
+1680:	1	glu_L[l]L-Glutamate
+1692:	1	ser_L[m]L-Serine
+1743:	1	glcur[c]D-Glucuronate
+1744:	1	glcur[r]D-Glucuronate
+1747:	1	guln[r]L-Gulonate
+1748:	1	gullac[r]L-Gulono-1,4-Lactone
+1750:	1	gullac[c]L-Gulono-1,4-Lactone
+1754:	1	oxa[x]Oxalate
+1757:	1	glyc3p[m]Glycerol 3-Phosphate
+1760:	1	glyclt[c]Glycolate
+1761:	1	glyclt[x]Glycolate
+1762:	1	glyc_S[c](S)-Glycerate
+1791:	1	guln[c]L-Gulonate
+1810:	1	4mlacac[c]4-Maleylacetoacetate
+1825:	1	hpyr[c]3-Hydroxypyruvate
+1827:	1	hpyr[x]3-Hydroxypyruvate
+1863:	1	icit[c]Isocitric Acid
+1880:	1	ile_L[e]L-Isoleucine
+1881:	1	ile_L[c]L-Isoleucine
+1887:	1	tagat_D[c]D-Tagatose
+1900:	1	lcts[g]Lactose
+1912:	1	xyl_D[l]Aldehydo-D-Xylose
+1917:	1	lac_L[c](S)-Lactate
+1944:	1	lys_L[x]L-Lysine
+1967:	1	5pmev[x](R)-5-Phosphonatomevalonate
+1972:	1	mi13p[c]1D-Myo-Inositol 1,3-Bisphosphate
+1973:	1	mi34p[c]1D-Myo-Inositol 3,4-Bisphosphate
+1975:	1	mi145p[c]1D-Myo-Inositol 1,4,5-Trisphosphate
+1977:	1	mi4p_D[c]1D-Myo-Inositol 4-Phosphate
+1983:	1	malttr[e]Maltotriose
+1984:	1	malttr[l]Maltotriose
+2031:	1	pi[g]Orthophosphate
+2164:	1	ppa[e]Propionate
+2183:	1	hdca[x]Hexadecanoate (N-C16:0)
+2197:	1	rbt[c]D-Ribitol
+2232:	1	sbt_D[c]D-Sorbitol
+2234:	1	ser_D[c]D-Serine
+2235:	1	ser_L[x]L-Serine
+2245:	1	so4[e]Sulfate
+2341:	1	xyl_D[c]Aldehydo-D-Xylose
+2359:	1	HC01440[e]3-Keto-Beta-D-Galactose
+2362:	1	HC01446[e]3-Ketolactose
+2388:	1	lac_L[x](S)-Lactate
+2510:	1	inost[r]Myo-Inositol
+2514:	1	atp[l]Adenosine Triphosphate
+2515:	1	adp[l]Adenosine Diphosphate
+2519:	1	hdca[l]Hexadecanoate (N-C16:0)
+2529:	1	thr_L[m]L-Threonine
+2629:	1	HC00342[c]Cis-Aconitate
+2704:	1	atp[g]Adenosine Triphosphate
+2705:	1	adp[g]Adenosine Diphosphate
+3345:	1	sbt_D[e]D-Sorbitol
+3349:	1	4abut[n]4-Aminobutanoate
+3358:	1	5dpmev[c](R)-5-Diphosphomevalonate
+3367:	1	5pmev[c](R)-5-Phosphonatomevalonate
+4339:	1	sucaceto[c]Succinylacetone
+4340:	1	sucaceto[e]Succinylacetone
+4353:	1	2m3hbu[c]2-Methyl-3-Hydroxy-Butyrate
+4354:	1	2m3hbu[e]2-Methyl-3-Hydroxy-Butyrate
+4358:	1	2m3hvac[c]2-Methyl-3-Hydroxy-Valerate
+4359:	1	2m3hvac[e]2-Methyl-3-Hydroxy-Valerate
+4365:	1	3mglutr[c]3-Methyl-Glutarate
+4366:	1	3mglutr[e]3-Methyl-Glutarate
+4370:	1	mvlac[c]Mevalonate-Lactone
+4371:	1	mvlac[e]Mevalonate-Lactone
+4382:	1	glutcon[c]Glutaconate
+4383:	1	glutcon[e]Glutaconate
+4385:	1	3hivac[c]3-Hydroxyisovaleric Acid
+4386:	1	3hivac[e]3-Hydroxyisovaleric Acid
+4388:	1	3hadpac[x]3-Hydroxy-Adipate
+4389:	1	3hadpac[c]3-Hydroxy-Adipate
+4392:	1	3ohsebac[x]3-Hydroxy-Sebacic Acid
+4394:	1	3ohsebac[e]3-Hydroxy-Sebacic Acid
+4396:	1	3ohsubac[x]3-Hydoxy-Suberic Acid
+4398:	1	3ohsubac[e]3-Hydoxy-Suberic Acid
+4400:	1	5ohhexa[c]5-Hydroxyhexanoic Acid
+4401:	1	5ohhexa[e]5-Hydroxyhexanoic Acid
+4402:	1	7ohocata[c]7-Hydroxy-Octanoate
+4403:	1	7ohocata[e]7-Hydroxy-Octanoate
+4405:	1	ethmalac[c]Ethylmalonic Acid
+4406:	1	ethmalac[e]Ethylmalonic Acid
+4410:	1	methsucc[c]Methyl-Succinate
+4411:	1	methsucc[e]Methyl-Succinate
+4415:	1	4ohbut[c]4-Hydroxy-Butyrate
+4416:	1	4ohbut[e]4-Hydroxy-Butyrate
+4668:	1	M03051[e]Tridecanoic Acid
+4690:	1	M03051[c]Tridecanoic Acid
+
+
+53	3-Amino-Isobutyrate Transport, Mitochondrial	3AIBtmi	-47.61	 47.65
+substrates:
+28	-0.00828125	   47.50	-47.50	-47.50	                h[m]	Proton
+108	      -1	   66.42	-29.69	-11.88	             3aib[m]	(S)-3-Aminoisobutyric Acid
+products:
+35	0.000413138	   42.75	-42.75	-42.75	                h[c]	Proton
+111	       1	   23.69	-29.69	-11.88	             3aib[c]	(S)-3-Aminoisobutyric Acid
+
+142	L-Arabinitol Transport via Passive Diffusion	ABTti	-28.06	 28.06
+substrates:
+35	-4.89183e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+262	      -1	 -245.39	-29.69	-11.88	              abt[c]	L-Arabinitol
+products:
+75	7.75301e-06	   43.94	-43.94	-43.94	                h[e]	Proton
+264	       1	 -231.14	-29.69	-11.88	              abt[e]	L-Arabinitol
+
+233	Adenylate Cyclase	ADNCYC	-60.57	  9.15
+substrates:
+35	-0.746991	   42.75	-42.75	-42.75	                h[c]	Proton
+38	      -1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+products:
+392	       1	-1924.64	-15.90	-12.58	              ppi[c]	Diphosphate
+415	       1	 -359.62	-29.69	-11.88	             camp[c]	3,5-Cyclic Adenosine Monophosphate
+
+240	ADPribose Transport	ADPRIBt	-31.68	 43.25
+substrates:
+35	-0.000501078	   42.75	-42.75	-42.75	                h[c]	Proton
+420	      -1	-1537.81	-29.69	-11.88	           adprib[e]	Adenosine-5'-Diphosphate-Ribose
+products:
+75	0.000178519	   43.94	-43.94	-43.94	                h[e]	Proton
+421	       1	-1562.75	-29.69	-11.88	           adprib[c]	Adenosine-5'-Diphosphate-Ribose
+
+680	D-3-Amino-Isobutyrate Transport	D_3AIBt	-54.06	 54.06
+substrates:
+35	-0.000413138	   42.75	-42.75	-42.75	                h[c]	Proton
+741	      -1	   38.01	-29.69	-11.88	           3aib_D[c]	D-3-Amino-Isobutanoate
+products:
+75	0.00154229	   43.94	-43.94	-43.94	                h[e]	Proton
+985	       1	   48.69	-29.69	-11.88	           3aib_D[e]	D-3-Amino-Isobutanoate
+
+692	D-Alanine Transport to Perixosome	DALAxt	-43.56	 43.58
+substrates:
+35	-0.00921612	   42.75	-42.75	-42.75	                h[c]	Proton
+497	      -1	  -36.21	-29.69	-11.88	            ala_D[c]	D-Alanine
+products:
+41	0.00581714	   41.56	-41.56	-41.56	                h[x]	Proton
+996	       1	  -44.51	-29.69	-11.88	            ala_D[x]	D-Alanine
+
+822	Transport of dADP via ADP Antiport	DNDPt12m	-72.75	 42.42
+substrates:
+28	-0.000104849	   47.50	-47.50	-47.50	                h[m]	Proton
+294	      -1	-1341.43	-15.35	-12.04	              adp[m]	Adenosine Diphosphate
+413	      -1	-1239.87	-29.69	-11.88	             dadp[c]	Deoxyadenosine Diphosphate
+products:
+35	2.36519e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1395.02	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+1032	       1	-1186.27	-29.69	-11.88	             dadp[m]	Deoxyadenosine Diphosphate
+
+837	Transport of dATP via ATP Antiport	DNDPt2m	-56.04	 50.36
+substrates:
+28	-7.58197e-05	   47.50	-47.50	-47.50	                h[m]	Proton
+293	      -1	-2224.54	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+412	      -1	-2122.99	-29.69	-11.88	             datp[c]	Deoxyadenosine Triphosphate
+products:
+35	3.15174e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+38	       1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+1031	       1	-2069.39	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+
+872	Transport of dATP via dADP Antiport	DNDPt7m	-49.63	 79.54
+substrates:
+28	-1.16412e-06	   47.50	-47.50	-47.50	                h[m]	Proton
+412	      -1	-2122.99	-29.69	-11.88	             datp[c]	Deoxyadenosine Triphosphate
+1032	      -1	-1186.27	-29.69	-11.88	             dadp[m]	Deoxyadenosine Diphosphate
+products:
+35	2.23168e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+413	       1	-1239.87	-29.69	-11.88	             dadp[c]	Deoxyadenosine Diphosphate
+1031	       1	-2069.39	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+
+928	L-Erythro-4-Hydroxyglutamate:2-Oxoglutarate Aminotransferase 2, Mitochondrial	EHGLAT2m	-60.08	 60.45
+substrates:
+28	-0.0688783	   47.50	-47.50	-47.50	                h[m]	Proton
+163	      -1	 -424.10	-29.69	-11.88	           e4hglu[m]	Erythro-4-Hydroxy-L-Glutamate
+649	      -1	 -702.34	-29.69	-11.88	              oaa[m]	Oxaloacetate
+products:
+144	       1	 -381.85	-29.69	-11.88	            asp_L[m]	L-Aspartate
+1018	       1	 -744.40	-29.69	-11.88	          4h2oglt[m]	4-Hydroxy-2-Oxoglutarate
+
+929	L-Erythro-4-Hydroxyglutamate:2-Oxoglutarate Aminotransferase, Mitochondrial	EHGLATm	-60.18	 60.52
+substrates:
+28	-0.0607932	   47.50	-47.50	-47.50	                h[m]	Proton
+67	      -1	 -601.21	-29.69	-11.88	              akg[m]	2-Oxoglutarate
+163	      -1	 -424.10	-29.69	-11.88	           e4hglu[m]	Erythro-4-Hydroxy-L-Glutamate
+products:
+110	       1	 -280.73	-29.69	-11.88	            glu_L[m]	L-Glutamate
+1018	       1	 -744.40	-29.69	-11.88	          4h2oglt[m]	4-Hydroxy-2-Oxoglutarate
+
+958	Ethanolamine Phosphate Phosphatase	ETHP	-54.27	 30.68
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.164737	   42.75	-42.75	-42.75	                h[c]	Proton
+1222	      -1	 -752.65	-29.69	-11.88	           ethamp[c]	Ethanolamine Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1223	       1	  153.89	-29.69	-11.88	             etha[c]	Ethanolamine
+
+1448	L-Fucose Efflux from Lysosome	FUCtly	-25.33	 25.33
+substrates:
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1529	      -1	 -349.39	-29.69	-11.88	            fuc_L[l]	L-Fucose
+products:
+35	0.000141062	   42.75	-42.75	-42.75	                h[c]	Proton
+1504	       1	 -228.26	-29.69	-11.88	            fuc_L[c]	L-Fucose
+
+1545	Galactose Efflux from Lysosome	GALtly	-30.54	 30.54
+substrates:
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1584	      -1	 -488.29	-29.69	-11.88	              gal[l]	D-Galactose
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+1640	       1	 -367.16	-29.69	-11.88	              gal[c]	D-Galactose
+
+1628	Glucose Transport via Membrane Vesicle	GLCMter	-25.11	 25.11
+substrates:
+729	-0.000141063	   42.75	-42.75	-42.75	                h[r]	Proton
+791	      -1	 -385.35	-29.69	-11.88	            glc_D[r]	D-Glucose
+products:
+75	0.000223553	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+1644	Glucose Efflux from Lysosome	GLCtly	-25.11	 25.11
+substrates:
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1659	      -1	 -506.48	-29.69	-11.88	            glc_D[l]	D-Glucose
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       1	 -385.35	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+1645	Glucuronate Endoplasmic Reticular Transport	GLCURter	-26.08	 26.08
+substrates:
+35	-3.55374e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+1743	      -1	 -695.25	-29.69	-11.88	            glcur[c]	D-Glucuronate
+products:
+729	3.55374e-05	   42.75	-42.75	-42.75	                h[r]	Proton
+1744	       1	 -695.25	-29.69	-11.88	            glcur[r]	D-Glucuronate
+
+1660	Glutamate 5-Kinase, Mitochondrial	GLU5Km	-59.32	 44.01
+substrates:
+28	-0.0198702	   47.50	-47.50	-47.50	                h[m]	Proton
+110	      -1	 -280.73	-29.69	-11.88	            glu_L[m]	L-Glutamate
+293	      -1	-2224.54	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+products:
+294	       1	-1341.43	-15.35	-12.04	              adp[m]	Adenosine Diphosphate
+1573	       1	-1170.41	-29.69	-11.88	            glu5p[m]	L-Glutamate 5-Phosphate
+
+1669	Glutamate Transport, Lysosomal	GLUt7l	-37.68	 41.59
+substrates:
+1680	      -1	 -399.51	-29.69	-11.88	            glu_L[l]	L-Glutamate
+products:
+35	0.00687932	   42.75	-42.75	-42.75	                h[c]	Proton
+122	       1	 -318.63	-29.69	-11.88	            glu_L[c]	L-Glutamate
+265	0.0554914	   32.66	-32.66	-32.66	                h[l]	Proton
+
+1684	Transport of Glycolate  into Peroxisome	GLYCLTtp	-25.52	 23.14
+substrates:
+41	-0.000338714	   41.56	-41.56	-41.56	                h[x]	Proton
+1760	      -1	 -373.06	-29.69	-11.88	           glyclt[c]	Glycolate
+products:
+35	0.000213741	   42.75	-42.75	-42.75	                h[c]	Proton
+1761	       1	 -376.62	-29.69	-11.88	           glyclt[x]	Glycolate
+
+1685	Secretion of L-Glycerate	GLYC_St	-24.54	 24.54
+substrates:
+75	-0.000103286	   43.94	-43.94	-43.94	                h[e]	Proton
+1762	      -1	 -437.49	-29.69	-11.88	           glyc_S[c]	(S)-Glycerate
+products:
+35	0.000165033	   42.75	-42.75	-42.75	                h[c]	Proton
+1275	       1	 -431.55	-29.69	-11.88	           glyc_S[e]	(S)-Glycerate
+
+1731	Gulonolactone Endoplasmic Reticular Transport	GULLACter	-27.89	 27.89
+substrates:
+35	-6.75211e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+1750	      -1	 -475.10	-29.69	-11.88	           gullac[c]	L-Gulono-1,4-Lactone
+products:
+729	6.75211e-05	   42.75	-42.75	-42.75	                h[r]	Proton
+1748	       1	 -475.10	-29.69	-11.88	           gullac[r]	L-Gulono-1,4-Lactone
+
+1734	L-Gulonate Endoplasmic Reticular Export	GULNter	-27.47	 27.47
+substrates:
+35	-0.000147615	   42.75	-42.75	-42.75	                h[c]	Proton
+1747	      -1	 -631.69	-29.69	-11.88	             guln[r]	L-Gulonate
+products:
+729	0.000147615	   42.75	-42.75	-42.75	                h[r]	Proton
+1791	       1	 -631.69	-29.69	-11.88	             guln[c]	L-Gulonate
+
+1774	Palmitate Er Export	HDCAter	-53.40	 53.40
+substrates:
+35	-0.0055916	   42.75	-42.75	-42.75	                h[c]	Proton
+1775	      -1	 1065.06	-29.69	-11.88	             hdca[r]	Hexadecanoate (N-C16:0)
+products:
+729	0.0055916	   42.75	-42.75	-42.75	                h[r]	Proton
+1433	       1	 1065.06	-29.69	-11.88	             hdca[c]	Hexadecanoate (N-C16:0)
+
+1898	B-Galactosidase, Extracellular	LACZe	-56.12	 29.54
+substrates:
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+1896	      -1	 -595.60	-29.69	-11.88	             lcts[e]	Lactose
+products:
+75	0.000196264	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+1643	       1	 -352.91	-29.69	-11.88	              gal[e]	D-Galactose
+
+1904	Lactose Transport from Golgi to Extracellular (Via Vesicle)	LCTStg	-33.20	 33.20
+substrates:
+231	-2.23593e-05	   37.70	-37.70	-37.70	                h[g]	Proton
+1900	      -1	 -732.76	-29.69	-11.88	             lcts[g]	Lactose
+products:
+75	0.000250843	   43.94	-43.94	-43.94	                h[e]	Proton
+1896	       1	 -595.60	-29.69	-11.88	             lcts[e]	Lactose
+
+1972	Transport of L-Lysine via Diffusion	LYStiDF	-48.72	 42.96
+substrates:
+75	-0.0160461	   43.94	-43.94	-43.94	                h[e]	Proton
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+products:
+35	0.0101336	   42.75	-42.75	-42.75	                h[c]	Proton
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+
+1973	Transport of L-Lysine, Peroxisomal (Irreversible)	LYStip	-44.65	 47.04
+substrates:
+35	-0.0101336	   42.75	-42.75	-42.75	                h[c]	Proton
+559	      -1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+products:
+41	0.00637282	   41.56	-41.56	-41.56	                h[x]	Proton
+1944	       1	  282.16	-29.69	-11.88	            lys_L[x]	L-Lysine
+
+1978	Maleylacetoacetate Isomerase	MACACI	-38.27	 38.27
+substrates:
+35	-7.29068e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+1810	      -1	 -571.87	-29.69	-11.88	          4mlacac[c]	4-Maleylacetoacetate
+products:
+1550	       1	 -571.87	-29.69	-11.88	         4fumacac[c]	4-Fumarylacetoacetate
+
+1983	Alpha-Glucosidase, Extracellular	MALTe	-67.28	 17.72
+substrates:
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+1649	      -1	 -602.30	-29.69	-11.88	             malt[e]	Maltose
+products:
+75	0.000196264	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       2	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+1984	Alpha-Glucosidase, Lysosomal	MALTly	-67.28	 17.72
+substrates:
+138	      -1	 -158.46	  0.00	  0.00	              h2o[l]	Water
+1947	      -1	 -850.50	-29.69	-11.88	             malt[l]	Maltose
+products:
+265	2.47143e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1659	       2	 -506.48	-29.69	-11.88	            glc_D[l]	D-Glucose
+
+1989	Mannose Efflux from Lysosome	MANtly	-25.02	 25.02
+substrates:
+225	      -1	 -505.57	-29.69	-11.88	              man[l]	D-Mannose
+265	-2.8149e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+223	       1	 -384.44	-29.69	-11.88	              man[c]	D-Mannose
+
+2025	Inositol-1, 3, 4, 5-Trisphosphate 5-Phosphatase	MI1345PP	-71.75	 20.88
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.294059	   42.75	-42.75	-42.75	                h[c]	Proton
+1970	      -1	-3961.10	-29.69	-11.88	          mi1345p[c]	1D-Myo-Inositol 1,3,4,5-Tetrakisphosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1971	       1	-3068.20	-29.69	-11.88	           mi134p[c]	1D-Myo-Inositol 1,3,4-Trisphosphate
+
+2026	Inositol-1, 3, 4-Trisphosphate 4-Phosphatase	MI134P4P	-66.19	 15.27
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.306465	   42.75	-42.75	-42.75	                h[c]	Proton
+1971	      -1	-3068.20	-29.69	-11.88	           mi134p[c]	1D-Myo-Inositol 1,3,4-Trisphosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1972	       1	-2175.33	-29.69	-11.88	            mi13p[c]	1D-Myo-Inositol 1,3-Bisphosphate
+
+2027	Inositol-1, 3, 4-Trisphosphate 1-Phosphatase	MI134PP	-67.03	 14.59
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.251309	   42.75	-42.75	-42.75	                h[c]	Proton
+1971	      -1	-3068.20	-29.69	-11.88	           mi134p[c]	1D-Myo-Inositol 1,3,4-Trisphosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1973	       1	-2176.09	-29.69	-11.88	            mi34p[c]	1D-Myo-Inositol 3,4-Bisphosphate
+
+2035	Myo-Inositol-1-Phosphate Synthase	MI1PS	-32.44	 22.76
+substrates:
+1575	      -1	-1278.38	-29.69	-11.88	              g6p[c]	D-Glucose 6-Phosphate
+products:
+35	0.0117302	   42.75	-42.75	-42.75	                h[c]	Proton
+1974	       1	-1283.22	-29.69	-11.88	           mi1p_D[c]	1D-Myo-Inositol 1-Phosphate
+
+2038	Maltodextrin Glucosidase (Maltotriose)	MLTG1	-73.24	 23.68
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+1982	      -1	 -871.50	-29.69	-11.88	           malttr[c]	Maltotriose
+products:
+35	0.000129737	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       1	 -385.35	-29.69	-11.88	            glc_D[c]	D-Glucose
+1948	       1	 -628.42	-29.69	-11.88	             malt[c]	Maltose
+
+2039	Maltodextrin Glucosidase (Maltotriose), Extracellular	MLTG1e	-73.24	 23.68
+substrates:
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+1983	      -1	 -833.50	-29.69	-11.88	           malttr[e]	Maltotriose
+products:
+75	0.0002056	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+1649	       1	 -602.30	-29.69	-11.88	             malt[e]	Maltose
+
+2040	Maltodextrin Glucosidase (Maltotriose), Lysosomal	MLTG1ly	-73.24	 23.68
+substrates:
+138	      -1	 -158.46	  0.00	  0.00	              h2o[l]	Water
+1984	      -1	-1194.51	-29.69	-11.88	           malttr[l]	Maltotriose
+products:
+265	2.58902e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1659	       1	 -506.48	-29.69	-11.88	            glc_D[l]	D-Glucose
+1947	       1	 -850.50	-29.69	-11.88	             malt[l]	Maltose
+
+2052	Methylglyoxal Transport (Cytosol to Extracellular)	MTHGXLt	-25.21	 25.21
+substrates:
+242	      -1	  -83.91	-29.69	-11.88	           mthgxl[c]	Methylglyoxal
+products:
+1324	       1	  -79.16	-29.69	-11.88	           mthgxl[e]	Methylglyoxal
+
+2159	Nucleoside-Diphosphate Kinase (ATP:dADP), Mitochondrial	NDPK8m	-51.53	 49.34
+substrates:
+293	      -1	-2224.54	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+1032	      -1	-1186.27	-29.69	-11.88	             dadp[m]	Deoxyadenosine Diphosphate
+products:
+28	2.90297e-05	   47.50	-47.50	-47.50	                h[m]	Proton
+294	       1	-1341.43	-15.35	-12.04	              adp[m]	Adenosine Diphosphate
+1031	       1	-2069.39	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+
+2199	5'-Nucleotidase (AMP), Extracellular	NTD7e	-76.13	 15.38
+substrates:
+75	-0.196016	   43.94	-43.94	-43.94	                h[e]	Proton
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+654	      -1	 -495.95	-29.69	-11.88	              amp[e]	Adenosine Monophosphate
+products:
+403	       1	  398.16	-29.69	-11.88	              adn[e]	Adenosine
+653	       1	-1039.61	-29.69	-11.88	               pi[e]	Orthophosphate
+
+2241	Ornithine Transport via Diffusion (Extracellular to Cytosol)	ORNtiDF	-48.25	 42.49
+substrates:
+75	-0.0160494	   43.94	-43.94	-43.94	                h[e]	Proton
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+35	0.0101388	   42.75	-42.75	-42.75	                h[c]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+
+2243	Oxalate Transport via Bicarbonate Antiport	OXAHCOtex	-79.09	 79.34
+substrates:
+75	-0.0829594	   43.94	-43.94	-43.94	                h[e]	Proton
+78	      -2	 -524.57	-29.69	-11.88	             hco3[c]	Bicarbonate
+854	      -1	 -682.96	-29.69	-11.88	              oxa[e]	Oxalate
+products:
+35	0.130123	   42.75	-42.75	-42.75	                h[c]	Proton
+77	       2	 -523.32	-29.69	-11.88	             hco3[e]	Bicarbonate
+853	       1	 -682.96	-29.69	-11.88	              oxa[c]	Oxalate
+
+2244	Oxalate Transport Out of Peroxisome	OXAtp	-25.26	 30.01
+substrates:
+35	-0.00081213	   42.75	-42.75	-42.75	                h[c]	Proton
+1754	      -1	 -682.96	-29.69	-11.88	              oxa[x]	Oxalate
+products:
+41	0.00128653	   41.56	-41.56	-41.56	                h[x]	Proton
+853	       1	 -682.96	-29.69	-11.88	              oxa[c]	Oxalate
+
+2309	Adenosine 3', 5'-Bisphosphate Golgi Transport	PAPtg	-33.41	 37.62
+substrates:
+35	-0.15542	   42.75	-42.75	-42.75	                h[c]	Proton
+1580	      -1	-1460.82	-29.69	-11.88	              pap[g]	Adenosine 3,5-Bismonophosphate
+products:
+64	       1	-1403.19	-29.69	-11.88	              pap[c]	Adenosine 3,5-Bismonophosphate
+231	0.816202	   37.70	-37.70	-37.70	                h[g]	Proton
+
+2407	Phosphate Transport, Golgi Apparatus	PItg	-12.50	 29.16
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+2031	      -1	-1049.20	-29.69	-11.88	               pi[g]	Orthophosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+231	0.799273	   37.70	-37.70	-37.70	                h[g]	Proton
+
+2412	Phosphomevalonate Kinase	PMEVKx	-66.37	 67.12
+substrates:
+657	      -1	-2291.85	-29.69	-11.88	              atp[x]	Adenosine Triphosphate
+1967	      -1	-1087.59	-29.69	-11.88	            5pmev[x]	(R)-5-Phosphonatomevalonate
+products:
+41	0.738637	   41.56	-41.56	-41.56	                h[x]	Proton
+422	       1	-1408.73	-29.69	-11.88	              adp[x]	Adenosine Diphosphate
+1158	       1	-1970.34	-29.69	-11.88	           5dpmev[x]	(R)-5-Diphosphomevalonate
+
+2423	Propionate Transport, Diffusion	PPAt	-20.66	 26.45
+substrates:
+35	-0.00353537	   42.75	-42.75	-42.75	                h[c]	Proton
+2164	      -1	 -120.22	-29.69	-11.88	              ppa[e]	Propionate
+products:
+75	0.00223358	   43.94	-43.94	-43.94	                h[e]	Proton
+394	       1	 -126.16	-29.69	-11.88	              ppa[c]	Propionate
+
+2457	Transport of L-Proline, Mitochondrial	PROtm	-47.16	 47.15
+substrates:
+35	-0.000126151	   42.75	-42.75	-42.75	                h[c]	Proton
+2176	      -1	   91.53	-29.69	-11.88	            pro_L[c]	L-Proline
+products:
+28	0.000829178	   47.50	-47.50	-47.50	                h[m]	Proton
+2098	       1	  134.28	-29.69	-11.88	            pro_L[m]	L-Proline
+
+2495	Ribitol Transport via Passive Diffusion	RBTt	-27.20	 27.20
+substrates:
+35	-4.89183e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+2197	      -1	 -258.27	-29.69	-11.88	              rbt[c]	D-Ribitol
+products:
+75	7.75301e-06	   43.94	-43.94	-43.94	                h[e]	Proton
+1360	       1	 -244.02	-29.69	-11.88	              rbt[e]	D-Ribitol
+
+2682	Serine-Pyruvate Aminotransferase (Irreversible), Peroxisomal	SPTix	-57.90	 57.98
+substrates:
+41	-0.0145642	   41.56	-41.56	-41.56	                h[x]	Proton
+465	      -1	 -341.86	-29.69	-11.88	              pyr[x]	Pyruvate
+2235	      -1	 -200.34	-29.69	-11.88	            ser_L[x]	L-Serine
+products:
+466	       1	  -45.02	-29.69	-11.88	            ala_L[x]	L-Alanine
+1827	       1	 -497.14	-29.69	-11.88	             hpyr[x]	3-Hydroxypyruvate
+
+2732	D-Tagatose Uptake via Diffusion	TAGAT_Dt	-26.24	 26.27
+substrates:
+75	-0.0145575	   43.94	-43.94	-43.94	                h[e]	Proton
+1381	      -1	 -362.76	-29.69	-11.88	          tagat_D[e]	D-Tagatose
+products:
+35	0.00923476	   42.75	-42.75	-42.75	                h[c]	Proton
+1887	       1	 -376.99	-29.69	-11.88	          tagat_D[c]	D-Tagatose
+
+2939	Xylose Efflux from Lysosome	XYLtly	-24.75	 24.75
+substrates:
+265	-2.62706e-07	   32.66	-32.66	-32.66	                h[l]	Proton
+1912	      -1	 -413.81	-29.69	-11.88	            xyl_D[l]	Aldehydo-D-Xylose
+products:
+35	1.31664e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+2341	       1	 -312.87	-29.69	-11.88	            xyl_D[c]	Aldehydo-D-Xylose
+
+2987	Adenosine 5-Monophosphate Phosphohydrolase	r0047	-75.70	 15.81
+substrates:
+25	      -1	 -128.77	  0.00	  0.00	              h2o[m]	Water
+28	-0.0644088	   47.50	-47.50	-47.50	                h[m]	Proton
+300	      -1	 -453.07	-29.69	-11.88	              amp[m]	Adenosine Monophosphate
+products:
+295	       1	-1035.49	-29.69	-11.88	               pi[m]	Orthophosphate
+416	       1	  444.48	-29.69	-11.88	              adn[m]	Adenosine
+
+3012	L-Serine:Pyruvate Aminotransferase	r0160	-57.88	 58.00
+substrates:
+35	-0.0227594	   42.75	-42.75	-42.75	                h[c]	Proton
+59	      -1	 -338.30	-29.69	-11.88	              pyr[c]	Pyruvate
+502	      -1	 -192.05	-29.69	-11.88	            ser_L[c]	L-Serine
+products:
+491	       1	  -36.72	-29.69	-11.88	            ala_L[c]	L-Alanine
+1825	       1	 -493.57	-29.69	-11.88	             hpyr[c]	3-Hydroxypyruvate
+
+3086	Isocitrate Hydro-Lyase 	r0426	-43.15	 26.12
+substrates:
+28	-0.000887818	   47.50	-47.50	-47.50	                h[m]	Proton
+379	      -1	 -907.36	-29.69	-11.88	             icit[m]	Isocitric Acid
+products:
+25	       1	 -128.77	  0.00	  0.00	              h2o[m]	Water
+2400	       1	 -787.10	-29.69	-11.88	          HC00342[m]	Cis-Aconitate
+
+3215	3-Ketolactose Galactohydrolase	r0737	-61.77	 23.59
+substrates:
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+2362	      -1	 -653.15	-29.69	-11.88	          HC01446[e]	3-Ketolactose
+products:
+75	0.00168966	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+2359	       1	 -416.26	-29.69	-11.88	          HC01440[e]	3-Keto-Beta-D-Galactose
+
+3252	Transport Reaction	r0826	-30.10	 30.10
+substrates:
+35	-1.44367e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+801	      -1	 -386.59	-29.69	-11.88	            inost[c]	Myo-Inositol
+products:
+729	1.44367e-05	   42.75	-42.75	-42.75	                h[r]	Proton
+2510	       1	 -386.59	-29.69	-11.88	            inost[r]	Myo-Inositol
+
+3265	Postulated Transport Reaction	r0859	-75.33	 44.81
+substrates:
+38	      -1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+265	-0.000800569	   32.66	-32.66	-32.66	                h[l]	Proton
+2515	      -1	-1514.41	-29.69	-11.88	              adp[l]	Adenosine Diphosphate
+products:
+35	1.44513e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1395.02	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+2514	       1	-2397.53	-29.69	-11.88	              atp[l]	Adenosine Triphosphate
+
+3278	Facilitated Diffusion	r0911	-87.04	 57.34
+substrates:
+28	-0.047711	   47.50	-47.50	-47.50	                h[m]	Proton
+110	      -1	 -280.73	-29.69	-11.88	            glu_L[m]	L-Glutamate
+2176	      -1	   91.53	-29.69	-11.88	            pro_L[c]	L-Proline
+products:
+35	0.00675316	   42.75	-42.75	-42.75	                h[c]	Proton
+122	       1	 -318.63	-29.69	-11.88	            glu_L[c]	L-Glutamate
+2098	       1	  134.28	-29.69	-11.88	            pro_L[m]	L-Proline
+
+3285	Free Diffusion	r0927	-25.87	 25.87
+substrates:
+307	      -1	  155.38	-29.69	-11.88	          acetone[m]	Acetone
+products:
+305	       1	  134.00	-29.69	-11.88	          acetone[e]	Acetone
+
+3289	Transport Reaction	r0936	-50.94	 55.87
+substrates:
+729	-0.0055916	   42.75	-42.75	-42.75	                h[r]	Proton
+2519	      -1	  751.51	-29.69	-11.88	             hdca[l]	Hexadecanoate (N-C16:0)
+products:
+265	0.219859	   32.66	-32.66	-32.66	                h[l]	Proton
+1775	       1	 1065.06	-29.69	-11.88	             hdca[r]	Hexadecanoate (N-C16:0)
+
+3424	Transport Reaction	r1434	-39.22	 38.98
+substrates:
+35	-0.00921612	   42.75	-42.75	-42.75	                h[c]	Proton
+491	      -1	  -36.72	-29.69	-11.88	            ala_L[c]	L-Alanine
+products:
+28	0.0555409	   47.50	-47.50	-47.50	                h[m]	Proton
+462	       1	   -3.59	-29.69	-11.88	            ala_L[m]	L-Alanine
+
+3425	Transport Reaction	r1435	-39.75	 38.95
+substrates:
+35	-0.0320058	   42.75	-42.75	-42.75	                h[c]	Proton
+502	      -1	 -192.05	-29.69	-11.88	            ser_L[c]	L-Serine
+products:
+28	 0.17264	   47.50	-47.50	-47.50	                h[m]	Proton
+1692	       1	 -159.21	-29.69	-11.88	            ser_L[m]	L-Serine
+
+3427	Transport Reaction	r1437	-46.31	 45.67
+substrates:
+35	-0.0246224	   42.75	-42.75	-42.75	                h[c]	Proton
+494	      -1	  -20.88	-29.69	-11.88	            cys_L[c]	L-Cysteine
+products:
+28	 0.14207	   47.50	-47.50	-47.50	                h[m]	Proton
+950	       1	   12.05	-29.69	-11.88	            cys_L[m]	L-Cysteine
+
+3428	Transport Reaction	r1440	-39.65	 38.95
+substrates:
+35	-0.0273674	   42.75	-42.75	-42.75	                h[c]	Proton
+504	      -1	 -101.20	-29.69	-11.88	            thr_L[c]	L-Threonine
+products:
+28	0.150816	   47.50	-47.50	-47.50	                h[m]	Proton
+2529	       1	  -58.80	-29.69	-11.88	            thr_L[m]	L-Threonine
+
+3887	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r1992	-75.72	 69.91
+substrates:
+35	-0.005793	   42.75	-42.75	-42.75	                h[c]	Proton
+500	      -1	 -145.71	-29.69	-11.88	              gly[c]	Glycine
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+products:
+75	0.00897477	   43.94	-43.94	-43.94	                h[e]	Proton
+501	       1	 -139.80	-29.69	-11.88	              gly[e]	Glycine
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+
+3888	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r1993	-73.72	 67.93
+substrates:
+75	-0.00150044	   43.94	-43.94	-43.94	                h[e]	Proton
+491	      -1	  -36.72	-29.69	-11.88	            ala_L[c]	L-Alanine
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+products:
+35	0.000917489	   42.75	-42.75	-42.75	                h[c]	Proton
+490	       1	  -28.42	-29.69	-11.88	            ala_L[e]	L-Alanine
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+
+3890	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r1995	-73.90	 68.05
+substrates:
+35	-0.0218722	   42.75	-42.75	-42.75	                h[c]	Proton
+502	      -1	 -192.05	-29.69	-11.88	            ser_L[c]	L-Serine
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+products:
+75	0.0337536	   43.94	-43.94	-43.94	                h[e]	Proton
+503	       1	 -183.79	-29.69	-11.88	            ser_L[e]	L-Serine
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+
+3896	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2001	-75.09	 69.30
+substrates:
+75	-0.0027771	   43.94	-43.94	-43.94	                h[e]	Proton
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+1908	      -1	  231.87	-29.69	-11.88	            leu_L[c]	L-Leucine
+products:
+35	0.00174347	   42.75	-42.75	-42.75	                h[c]	Proton
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+1907	       1	  247.30	-29.69	-11.88	            leu_L[e]	L-Leucine
+
+3899	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2004	-74.89	 69.11
+substrates:
+75	-0.00498511	   43.94	-43.94	-43.94	                h[e]	Proton
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+2326	      -1	  140.24	-29.69	-11.88	            val_L[c]	L-Valine
+products:
+35	0.00314579	   42.75	-42.75	-42.75	                h[c]	Proton
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+2325	       1	  153.29	-29.69	-11.88	            val_L[e]	L-Valine
+
+3900	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2005	-73.86	 68.02
+substrates:
+35	-0.0172338	   42.75	-42.75	-42.75	                h[c]	Proton
+504	      -1	 -101.20	-29.69	-11.88	            thr_L[c]	L-Threonine
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+products:
+75	0.0266541	   43.94	-43.94	-43.94	                h[e]	Proton
+505	       1	  -90.55	-29.69	-11.88	            thr_L[e]	L-Threonine
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+
+3901	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2006	-73.86	 68.04
+substrates:
+35	-0.00895779	   42.75	-42.75	-42.75	                h[c]	Proton
+588	      -1	  317.77	-29.69	-11.88	            lys_L[e]	L-Lysine
+1819	      -1	 -100.39	-29.69	-11.88	            hom_L[c]	L-Homoserine
+products:
+75	0.0138872	   43.94	-43.94	-43.94	                h[e]	Proton
+559	       1	  299.97	-29.69	-11.88	            lys_L[c]	L-Lysine
+1296	       1	  -89.73	-29.69	-11.88	            hom_L[e]	L-Homoserine
+
+3919	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2024	-75.36	 69.56
+substrates:
+35	-0.00578783	   42.75	-42.75	-42.75	                h[c]	Proton
+500	      -1	 -145.71	-29.69	-11.88	              gly[c]	Glycine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+75	0.00897152	   43.94	-43.94	-43.94	                h[e]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+501	       1	 -139.80	-29.69	-11.88	              gly[e]	Glycine
+
+3921	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2027	-73.53	 67.67
+substrates:
+35	-0.021867	   42.75	-42.75	-42.75	                h[c]	Proton
+502	      -1	 -192.05	-29.69	-11.88	            ser_L[c]	L-Serine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+75	0.0337503	   43.94	-43.94	-43.94	                h[e]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+503	       1	 -183.79	-29.69	-11.88	            ser_L[e]	L-Serine
+
+3929	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2036	-74.53	 68.75
+substrates:
+75	-0.00498837	   43.94	-43.94	-43.94	                h[e]	Proton
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+2326	      -1	  140.24	-29.69	-11.88	            val_L[c]	L-Valine
+products:
+35	0.00315095	   42.75	-42.75	-42.75	                h[c]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+2325	       1	  153.29	-29.69	-11.88	            val_L[e]	L-Valine
+
+3930	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2037	-73.49	 67.65
+substrates:
+35	-0.0172286	   42.75	-42.75	-42.75	                h[c]	Proton
+504	      -1	 -101.20	-29.69	-11.88	            thr_L[c]	L-Threonine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+75	0.0266509	   43.94	-43.94	-43.94	                h[e]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+505	       1	  -90.55	-29.69	-11.88	            thr_L[e]	L-Threonine
+
+3931	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2038	-73.48	 67.67
+substrates:
+35	-0.00895263	   42.75	-42.75	-42.75	                h[c]	Proton
+1819	      -1	 -100.39	-29.69	-11.88	            hom_L[c]	L-Homoserine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+75	0.0138839	   43.94	-43.94	-43.94	                h[e]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+1296	       1	  -89.73	-29.69	-11.88	            hom_L[e]	L-Homoserine
+
+3932	Amino Acid-Polyamine-Organocation (Apc) Tcdb:2.A.3.8.15	r2039	-77.50	 71.72
+substrates:
+75	-0.00473682	   43.94	-43.94	-43.94	                h[e]	Proton
+1881	      -1	  224.28	-29.69	-11.88	            ile_L[c]	L-Isoleucine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+35	0.00299438	   42.75	-42.75	-42.75	                h[c]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+1880	       1	  239.71	-29.69	-11.88	            ile_L[e]	L-Isoleucine
+
+4266	Mitochondrial Carrier (Mc) Tcdb:2.A.29.7.2	r2393	-52.54	 52.74
+substrates:
+28	-0.00779528	   47.50	-47.50	-47.50	                h[m]	Proton
+353	      -1	-1198.30	-29.69	-11.88	              pep[c]	Phosphoenolpyruvate
+379	      -1	 -907.36	-29.69	-11.88	             icit[m]	Isocitric Acid
+products:
+35	0.0458898	   42.75	-42.75	-42.75	                h[c]	Proton
+842	       1	-1188.66	-29.69	-11.88	              pep[m]	Phosphoenolpyruvate
+1863	       1	 -931.14	-29.69	-11.88	             icit[c]	Isocitric Acid
+
+4267	Mitochondrial Carrier (Mc) Tcdb:2.A.29.7.2	r2394	-55.01	 55.20
+substrates:
+28	-0.00690746	   47.50	-47.50	-47.50	                h[m]	Proton
+353	      -1	-1198.30	-29.69	-11.88	              pep[c]	Phosphoenolpyruvate
+2400	      -1	 -787.10	-29.69	-11.88	          HC00342[m]	Cis-Aconitate
+products:
+35	0.0405846	   42.75	-42.75	-42.75	                h[c]	Proton
+842	       1	-1188.66	-29.69	-11.88	              pep[m]	Phosphoenolpyruvate
+2629	       1	 -801.40	-29.69	-11.88	          HC00342[c]	Cis-Aconitate
+
+4288	Mitochondrial Carrier (Mc) Tcdb:2.A.29.2.7	r2419	-39.16	 47.99
+substrates:
+35	-0.359447	   42.75	-42.75	-42.75	                h[c]	Proton
+68	      -1	 -620.21	-29.69	-11.88	              akg[c]	2-Oxoglutarate
+295	      -1	-1035.49	-29.69	-11.88	               pi[m]	Orthophosphate
+products:
+28	0.0817287	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+67	       1	 -601.21	-29.69	-11.88	              akg[m]	2-Oxoglutarate
+
+4297	Zinc (Zn2+)-Iron (Fe2+) Permease (Zip), Tcdb:2.A.53.2.2	r2439	-68.89	 74.80
+substrates:
+75	-0.0417328	   43.94	-43.94	-43.94	                h[e]	Proton
+78	      -1	 -524.57	-29.69	-11.88	             hco3[c]	Bicarbonate
+2245	      -1	 -735.65	-29.69	-11.88	              so4[e]	Sulfate
+products:
+35	0.0654624	   42.75	-42.75	-42.75	                h[c]	Proton
+77	       1	 -523.32	-29.69	-11.88	             hco3[e]	Bicarbonate
+1553	       1	 -735.65	-29.69	-11.88	              so4[c]	Sulfate
+
+4302	Major Facilitator (Mfs) Tcdb:2.A.1.4.7	r2472	-36.98	 46.63
+substrates:
+35	-0.183788	   42.75	-42.75	-42.75	                h[c]	Proton
+295	      -1	-1035.49	-29.69	-11.88	               pi[m]	Orthophosphate
+1570	      -1	-1020.84	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
+products:
+28	0.0490356	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1757	       1	 -987.17	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
+
+4303	Major Facilitator (Mfs) Tcdb:2.A.1.4.5	r2473	-35.97	 46.65
+substrates:
+35	-0.259179	   42.75	-42.75	-42.75	                h[c]	Proton
+795	      -1	-1041.17	-29.69	-11.88	               pi[r]	Orthophosphate
+1575	      -1	-1278.38	-29.69	-11.88	              g6p[c]	D-Glucose 6-Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+729	0.259179	   42.75	-42.75	-42.75	                h[r]	Proton
+793	       1	-1278.38	-29.69	-11.88	              g6p[r]	D-Glucose 6-Phosphate
+
+5287	Antiport of L-Ornithine and L-Alanine by B0, +At Transporter	ORNALArBATtc	-73.34	 67.55
+substrates:
+75	-0.0015037	   43.94	-43.94	-43.94	                h[e]	Proton
+491	      -1	  -36.72	-29.69	-11.88	            ala_L[c]	L-Alanine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+35	0.00092265	   42.75	-42.75	-42.75	                h[c]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+490	       1	  -28.42	-29.69	-11.88	            ala_L[e]	L-Alanine
+
+5288	Antiport of L-Ornithine and L-Leucine by B0, +At Transporter	ORNLEUrBATtc	-74.73	 68.94
+substrates:
+75	-0.00278036	   43.94	-43.94	-43.94	                h[e]	Proton
+1908	      -1	  231.87	-29.69	-11.88	            leu_L[c]	L-Leucine
+2070	      -1	  223.76	-29.69	-11.88	              orn[e]	Ornithine
+products:
+35	0.00174863	   42.75	-42.75	-42.75	                h[c]	Proton
+377	       1	  208.33	-29.69	-11.88	              orn[c]	Ornithine
+1907	       1	  247.30	-29.69	-11.88	            leu_L[e]	L-Leucine
+
+5305	Transport of Sorbitol (Diffusion)	SBTle	-28.43	 28.43
+substrates:
+75	-1.14675e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+3345	      -1	 -305.17	-29.69	-11.88	            sbt_D[e]	D-Sorbitol
+products:
+35	7.23553e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+2232	       1	 -321.79	-29.69	-11.88	            sbt_D[c]	D-Sorbitol
+
+5320	Transport of GABA	4ABUTtcn	-42.54	 42.54
+substrates:
+154	      -1	   37.58	-29.69	-11.88	            4abut[c]	4-Aminobutanoate
+958	-0.000440021	   42.75	-42.75	-42.75	                h[n]	Proton
+products:
+35	0.000440021	   42.75	-42.75	-42.75	                h[c]	Proton
+3349	       1	   37.58	-29.69	-11.88	            4abut[n]	4-Aminobutanoate
+
+5327	Secretion of D-Alanine	ALA-DTDe	-43.58	 43.55
+substrates:
+35	-0.00921612	   42.75	-42.75	-42.75	                h[c]	Proton
+497	      -1	  -36.21	-29.69	-11.88	            ala_D[c]	D-Alanine
+products:
+75	0.0145457	   43.94	-43.94	-43.94	                h[e]	Proton
+496	       1	  -27.91	-29.69	-11.88	            ala_D[e]	D-Alanine
+
+5332	Diffusion of Aspartate into Blood	ASPte	-42.43	 36.63
+substrates:
+143	      -1	 -410.28	-29.69	-11.88	            asp_L[c]	L-Aspartate
+products:
+35	0.00120017	   42.75	-42.75	-42.75	                h[c]	Proton
+75	0.00573057	   43.94	-43.94	-43.94	                h[e]	Proton
+648	       1	 -403.16	-29.69	-11.88	            asp_L[e]	L-Aspartate
+
+5411	Lactate Transport	LACLt	-22.57	 24.94
+substrates:
+35	-0.000380026	   42.75	-42.75	-42.75	                h[c]	Proton
+2388	      -1	 -288.15	-29.69	-11.88	            lac_L[x]	(S)-Lactate
+products:
+41	0.000602167	   41.56	-41.56	-41.56	                h[x]	Proton
+1917	       1	 -282.22	-29.69	-11.88	            lac_L[c]	(S)-Lactate
+
+5425	Phosphomevalonate Kinase, Cytosol	PMEVKc	-77.28	 49.43
+substrates:
+38	      -1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+3367	      -1	-1075.29	-29.69	-11.88	            5pmev[c]	(R)-5-Phosphonatomevalonate
+products:
+35	0.740059	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1395.02	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+3358	       1	-1958.91	-29.69	-11.88	           5dpmev[c]	(R)-5-Diphosphomevalonate
+
+7196	3', 5'-Bisphosphate Nucleotidase	BPNT	-76.63	  8.40
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.305539	   42.75	-42.75	-42.75	                h[c]	Proton
+64	      -1	-1403.19	-29.69	-11.88	              pap[c]	Adenosine 3,5-Bismonophosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+391	       1	 -510.30	-41.56	-17.34	              amp[c]	Adenosine Monophosphate
+
+7404	5'-Nucleotidase (dAMP)	NTD6	-64.80	 14.20
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.257291	   42.75	-42.75	-42.75	                h[c]	Proton
+411	      -1	 -355.15	-29.69	-11.88	             damp[c]	Deoxyadenosine Monophosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+987	       1	  537.88	-29.69	-11.88	            dad_2[c]	2-Deoxyadenosine
+
+7405	5'-Nucleotidase (AMP)	NTD7	-59.06	 25.79
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.259385	   42.75	-42.75	-42.75	                h[c]	Proton
+391	      -1	 -510.30	-41.56	-17.34	              amp[c]	Adenosine Monophosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+400	       1	  382.72	-29.69	-11.88	              adn[c]	Adenosine
+
+7482	Alpha-Glucosidase	MALT	-67.28	 17.72
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+1948	      -1	 -628.42	-29.69	-11.88	             malt[c]	Maltose
+products:
+35	0.000123846	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       2	 -385.35	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+7484	Myo-Inositol 1-Phosphatase	MI1PP	-56.77	 13.36
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.270895	   42.75	-42.75	-42.75	                h[c]	Proton
+1974	      -1	-1283.22	-29.69	-11.88	           mi1p_D[c]	1D-Myo-Inositol 1-Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+801	       1	 -386.59	-29.69	-11.88	            inost[c]	Myo-Inositol
+
+7485	Myo-Inositol 3-Phosphatase	MI3PP	-56.77	 13.36
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.270895	   42.75	-42.75	-42.75	                h[c]	Proton
+1980	      -1	-1283.22	-29.69	-11.88	           mi3p_D[c]	1D-Myo-Inositol 3-Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+801	       1	 -386.59	-29.69	-11.88	            inost[c]	Myo-Inositol
+
+7486	Myo-Inositol 4-Phosphatase	MI4PP	-57.58	 12.35
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.270895	   42.75	-42.75	-42.75	                h[c]	Proton
+1977	      -1	-1282.31	-29.69	-11.88	           mi4p_D[c]	1D-Myo-Inositol 4-Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+801	       1	 -386.59	-29.69	-11.88	            inost[c]	Myo-Inositol
+
+7575	Transport of Succinylacetone	SUCACETOte	-33.76	 27.89
+substrates:
+35	-0.0252878	   42.75	-42.75	-42.75	                h[c]	Proton
+4339	      -1	  391.36	-29.69	-11.88	         sucaceto[c]	Succinylacetone
+products:
+75	0.0403021	   43.94	-43.94	-43.94	                h[e]	Proton
+4340	       1	  402.01	-29.69	-11.88	         sucaceto[e]	Succinylacetone
+
+7594	Transport of 2-Methyl-3-Hydroxy-Butyrate, Extracellular	2M3HBUte	-31.30	 25.52
+substrates:
+75	-0.00128652	   43.94	-43.94	-43.94	                h[e]	Proton
+4353	      -1	  391.43	-29.69	-11.88	           2m3hbu[c]	2-Methyl-3-Hydroxy-Butyrate
+products:
+35	0.00203746	   42.75	-42.75	-42.75	                h[c]	Proton
+4354	       1	  402.12	-29.69	-11.88	           2m3hbu[e]	2-Methyl-3-Hydroxy-Butyrate
+
+7600	Transport of 2-Methyl-3-Hydroxy-Valerate	2M3HVACte	-31.84	 26.06
+substrates:
+75	-0.00169526	   43.94	-43.94	-43.94	                h[e]	Proton
+4358	      -1	  478.41	-29.69	-11.88	          2m3hvac[c]	2-Methyl-3-Hydroxy-Valerate
+products:
+35	0.00268415	   42.75	-42.75	-42.75	                h[c]	Proton
+4359	       1	  491.48	-29.69	-11.88	          2m3hvac[e]	2-Methyl-3-Hydroxy-Valerate
+
+7610	Transport of 3-Methyl-Glutarate	3MGLUTRte	-35.52	 23.94
+substrates:
+75	-0.00194816	   43.94	-43.94	-43.94	                h[e]	Proton
+4365	      -1	  347.93	-29.69	-11.88	          3mglutr[c]	3-Methyl-Glutarate
+products:
+35	0.00308619	   42.75	-42.75	-42.75	                h[c]	Proton
+4366	       1	  357.44	-29.69	-11.88	          3mglutr[e]	3-Methyl-Glutarate
+
+7617	Transport of Mevalonate-Lactone	MVLACte	-37.76	 37.76
+substrates:
+4370	      -1	  434.92	-29.69	-11.88	            mvlac[c]	Mevalonate-Lactone
+products:
+4371	       1	  446.80	-29.69	-11.88	            mvlac[e]	Mevalonate-Lactone
+
+7633	Transport of Glutaconate, Extracellular	GLUTCONte	-39.39	 27.81
+substrates:
+75	-0.00131735	   43.94	-43.94	-43.94	                h[e]	Proton
+4382	      -1	  173.96	-29.69	-11.88	          glutcon[c]	Glutaconate
+products:
+35	0.0020871	   42.75	-42.75	-42.75	                h[c]	Proton
+4383	       1	  178.72	-29.69	-11.88	          glutcon[e]	Glutaconate
+
+7637	Transport of 3-Hydroxy-Isovalerate, Extracellular	3HIVActe	-31.51	 25.72
+substrates:
+75	-0.00141046	   43.94	-43.94	-43.94	                h[e]	Proton
+4385	      -1	  391.43	-29.69	-11.88	           3hivac[c]	3-Hydroxyisovaleric Acid
+products:
+35	0.00223359	   42.75	-42.75	-42.75	                h[c]	Proton
+4386	       1	  402.12	-29.69	-11.88	           3hivac[e]	3-Hydroxyisovaleric Acid
+
+7641	Transport of 3-Hydroxy-Adipate, Peroxisomal	3HADPACtxc	-26.12	 30.87
+substrates:
+35	-0.00181833	   42.75	-42.75	-42.75	                h[c]	Proton
+4388	      -1	  338.43	-29.69	-11.88	          3hadpac[x]	3-Hydroxy-Adipate
+products:
+41	0.00288068	   41.56	-41.56	-41.56	                h[x]	Proton
+4389	       1	  347.93	-29.69	-11.88	          3hadpac[c]	3-Hydroxy-Adipate
+
+7646	Transportof 3-Hydroxy-Sebacic Acid, Peroxisomal	3OHSEBACtxc	-33.06	 37.84
+substrates:
+35	-0.00707346	   42.75	-42.75	-42.75	                h[c]	Proton
+4392	      -1	  676.85	-29.69	-11.88	         3ohsebac[x]	3-Hydroxy-Sebacic Acid
+products:
+41	0.0112054	   41.56	-41.56	-41.56	                h[x]	Proton
+4393	       1	  695.86	-29.69	-11.88	         3ohsebac[c]	3-Hydroxy-Sebacic Acid
+
+7647	Transport of 3-Hydroxy-Sebacic Acid, Extracellular	3OHSEBACte	-41.23	 29.67
+substrates:
+75	-0.00446435	   43.94	-43.94	-43.94	                h[e]	Proton
+4393	      -1	  695.86	-29.69	-11.88	         3ohsebac[c]	3-Hydroxy-Sebacic Acid
+products:
+35	0.00707346	   42.75	-42.75	-42.75	                h[c]	Proton
+4394	       1	  714.87	-29.69	-11.88	         3ohsebac[e]	3-Hydroxy-Sebacic Acid
+
+7651	Transport of 3-Hydoxy-Suberic Acid, Peroxisomal	3OHSUBACtxc	-29.06	 33.82
+substrates:
+35	-0.00301654	   42.75	-42.75	-42.75	                h[c]	Proton
+4396	      -1	  507.65	-29.69	-11.88	         3ohsubac[x]	3-Hydoxy-Suberic Acid
+products:
+41	0.00477791	   41.56	-41.56	-41.56	                h[x]	Proton
+4397	       1	  521.90	-29.69	-11.88	         3ohsubac[c]	3-Hydoxy-Suberic Acid
+
+7652	Transport of 3-Hydoxy-Suberic Acid, Extracellular	3OHSUBACte	-37.23	 25.65
+substrates:
+75	-0.00190406	   43.94	-43.94	-43.94	                h[e]	Proton
+4397	      -1	  521.90	-29.69	-11.88	         3ohsubac[c]	3-Hydoxy-Suberic Acid
+products:
+35	0.00301654	   42.75	-42.75	-42.75	                h[c]	Proton
+4398	       1	  536.16	-29.69	-11.88	         3ohsubac[e]	3-Hydoxy-Suberic Acid
+
+7656	Transport of 5-Hydroxy-Hexanoate, Extracellular	5OHHEXAte	-30.19	 24.41
+substrates:
+75	-0.00203745	   43.94	-43.94	-43.94	                h[e]	Proton
+4400	      -1	  478.41	-29.69	-11.88	          5ohhexa[c]	5-Hydroxyhexanoic Acid
+products:
+35	0.0032253	   42.75	-42.75	-42.75	                h[c]	Proton
+4401	       1	  491.47	-29.69	-11.88	          5ohhexa[e]	5-Hydroxyhexanoic Acid
+
+7659	Transport of 7-Hydroxy-Octanoate, Extracellular	7OHOCTAte	-34.25	 28.47
+substrates:
+75	-0.00294234	   43.94	-43.94	-43.94	                h[e]	Proton
+4402	      -1	  652.37	-29.69	-11.88	         7ohocata[c]	7-Hydroxy-Octanoate
+products:
+35	0.00465528	   42.75	-42.75	-42.75	                h[c]	Proton
+4403	       1	  670.19	-29.69	-11.88	         7ohocata[e]	7-Hydroxy-Octanoate
+
+7663	Transport of Ethylmalonic Acid	ETHMALACte	-34.66	 23.47
+substrates:
+75	-0.131455	   43.94	-43.94	-43.94	                h[e]	Proton
+4405	      -1	  260.40	-29.69	-11.88	         ethmalac[c]	Ethylmalonic Acid
+products:
+35	0.193471	   42.75	-42.75	-42.75	                h[c]	Proton
+4406	       1	  267.72	-29.69	-11.88	         ethmalac[e]	Ethylmalonic Acid
+
+7670	Transport of Methyl-Succinate	METHSUCCte	-34.83	 23.30
+substrates:
+75	-0.0149293	   43.94	-43.94	-43.94	                h[e]	Proton
+4410	      -1	  260.89	-29.69	-11.88	         methsucc[c]	Methyl-Succinate
+products:
+35	0.0234754	   42.75	-42.75	-42.75	                h[c]	Proton
+4411	       1	  268.04	-29.69	-11.88	         methsucc[e]	Methyl-Succinate
+
+7677	Transport of 4-Hydroxy-Butyrate, Extracellular	4OHBUTtce	-27.76	 21.98
+substrates:
+75	-0.00109521	   43.94	-43.94	-43.94	                h[e]	Proton
+4415	      -1	  304.44	-29.69	-11.88	           4ohbut[c]	4-Hydroxy-Butyrate
+products:
+35	0.00173468	   42.75	-42.75	-42.75	                h[c]	Proton
+4416	       1	  312.76	-29.69	-11.88	           4ohbut[e]	4-Hydroxy-Butyrate
+
+8235	ADP/ATP Transporter, Golgi	ATPtg	-73.50	 46.65
+substrates:
+38	      -1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+231	-0.000103691	   37.70	-37.70	-37.70	                h[g]	Proton
+2705	      -1	-1454.09	-29.69	-11.88	              adp[g]	Adenosine Diphosphate
+products:
+35	1.44513e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1395.02	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+2704	       1	-2337.20	-29.69	-11.88	              atp[g]	Adenosine Triphosphate
+
+8299	HMR_0191	HMR_0191	-42.86	 48.63
+substrates:
+35	-0.0055916	   42.75	-42.75	-42.75	                h[c]	Proton
+4668	      -1	 1116.99	-29.69	-11.88	           M03051[e]	Tridecanoic Acid
+products:
+75	0.00353536	   43.94	-43.94	-43.94	                h[e]	Proton
+4690	       1	 1087.30	-29.69	-11.88	           M03051[c]	Tridecanoic Acid
+
+9258	Aspartate Ammonia-Lyase	HMR_3831	-56.17	 17.83
+substrates:
+143	      -1	 -410.28	-29.69	-11.88	            asp_L[c]	L-Aspartate
+products:
+24	       1	  103.04	-18.73	-18.08	              nh4[c]	Ammonium
+35	0.0369818	   42.75	-42.75	-42.75	                h[c]	Proton
+435	       1	 -514.08	-29.69	-11.88	              fum[c]	Fumarate
+
+9278	HMR_4284	HMR_4284	-78.65	 21.28
+substrates:
+35	-0.0114408	   42.75	-42.75	-42.75	                h[c]	Proton
+504	      -1	 -101.20	-29.69	-11.88	            thr_L[c]	L-Threonine
+products:
+290	       1	   36.61	-29.69	-11.88	            acald[c]	Acetaldehyde
+500	       1	 -145.71	-29.69	-11.88	              gly[c]	Glycine
+
+9330	D-Myo-Inositol 1, 3, 4, 5-Tetrakisphosphate 3-Phosphohydrolase	HMR_6564	-70.85	 21.80
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.294059	   42.75	-42.75	-42.75	                h[c]	Proton
+1970	      -1	-3961.10	-29.69	-11.88	          mi1345p[c]	1D-Myo-Inositol 1,3,4,5-Tetrakisphosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1975	       1	-3067.30	-29.69	-11.88	           mi145p[c]	1D-Myo-Inositol 1,4,5-Trisphosphate
+
+9332	1D-Myo-Inositol-3-Phosphate Lyase (Isomerizing)	HMR_6572	-32.44	 22.76
+substrates:
+1575	      -1	-1278.38	-29.69	-11.88	              g6p[c]	D-Glucose 6-Phosphate
+products:
+35	0.0117302	   42.75	-42.75	-42.75	                h[c]	Proton
+1980	       1	-1283.22	-29.69	-11.88	           mi3p_D[c]	1D-Myo-Inositol 3-Phosphate
+
+9420	HMR_8090	HMR_8090	-47.63	 47.63
+substrates:
+35	-0.000413138	   42.75	-42.75	-42.75	                h[c]	Proton
+111	      -1	   23.69	-29.69	-11.88	             3aib[c]	(S)-3-Aminoisobutyric Acid
+products:
+75	0.00154229	   43.94	-43.94	-43.94	                h[e]	Proton
+1232	       1	   34.38	-29.69	-11.88	             3aib[e]	(S)-3-Aminoisobutyric Acid
+
+9445	Alpha-Amylase	HMR_8580	-79.90	 37.47
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+1982	      -1	 -871.50	-29.69	-11.88	           malttr[c]	Maltotriose
+products:
+35	0.00146379	   42.75	-42.75	-42.75	                h[c]	Proton
+1517	       1	 -381.78	-29.69	-11.88	              fru[c]	D-Fructose
+1948	       1	 -628.42	-29.69	-11.88	             malt[c]	Maltose
+
+9470	HMR_9191	HMR_9191	-43.74	 43.83
+substrates:
+75	-0.0497997	   43.94	-43.94	-43.94	                h[e]	Proton
+1373	      -1	 -183.27	-29.69	-11.88	            ser_D[e]	D-Serine
+products:
+35	0.0320058	   42.75	-42.75	-42.75	                h[c]	Proton
+2234	       1	 -191.54	-29.69	-11.88	            ser_D[c]	D-Serine
+
+9528	HMR_9678	HMR_9678	-52.21	 54.60
+substrates:
+35	-0.0055916	   42.75	-42.75	-42.75	                h[c]	Proton
+2183	      -1	 1028.24	-29.69	-11.88	             hdca[x]	Hexadecanoate (N-C16:0)
+products:
+41	0.0088332	   41.56	-41.56	-41.56	                h[x]	Proton
+1433	       1	 1065.06	-29.69	-11.88	             hdca[c]	Hexadecanoate (N-C16:0)
+

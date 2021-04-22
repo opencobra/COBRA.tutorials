@@ -1,0 +1,216 @@
+Metabolites which force 22 qualitatively reversible -> quantiatively forward
+35:	18	h[c]Proton
+75:	7	h[e]Proton
+28:	3	h[m]Proton
+729:	3	h[r]Proton
+41:	2	h[x]Proton
+5235:	2	M01389[c]Beta-D-Glucose-6-Phosphate
+62:	1	paps[c]3'-Phosphoadenylyl Sulfate
+64:	1	pap[c]Adenosine 3,5-Bismonophosphate
+115:	1	sphgn[c]Sphinganine
+241:	1	aact[c]Ammonioacetone
+290:	1	acald[c]Acetaldehyde
+330:	1	ac[c]Acetate
+500:	1	gly[c]Glycine
+510:	1	etoh[c]Ethanol
+1150:	1	orn_D[x]D-Ornithine
+1223:	1	etha[c]Ethanolamine
+1495:	1	f6p[c]D-Fructose 6-Phosphate
+1519:	1	fuc13galacglcgal14acglcgalgluside_hs[c]Iii3Fuc-Nlc6Cer
+1520:	1	fuc13galacglcgal14acglcgalgluside_hs[g]Iii3Fuc-Nlc6Cer
+1525:	1	fucacngal14acglcgalgluside_hs[c]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+1526:	1	fucacngal14acglcgalgluside_hs[g]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1575:	1	g6p[c]D-Glucose 6-Phosphate
+1696:	1	glcr[c]D-Glucarate
+1819:	1	hom_L[c]L-Homoserine
+1883:	1	itacon[m]Itaconic Acid
+2341:	1	xyl_D[c]Aldehydo-D-Xylose
+2441:	1	HC00900[m]Methylmalonate
+2463:	1	HC00900[c]Methylmalonate
+3019:	1	C01601[c]Nonanoic Acid
+3569:	1	glyc2p[c]Glycerol 2-Phosphate
+3741:	1	hom_L[m]L-Homoserine
+4263:	1	etha[e]Ethanolamine
+4270:	1	dsT_antigen[e]Disialyl-T Antigen
+4309:	1	glcr[e]D-Glucarate
+4311:	1	xyl_D[e]Aldehydo-D-Xylose
+4320:	1	etoh[e]Ethanol
+4321:	1	acald[e]Acetaldehyde
+4503:	1	orn_D[c]D-Ornithine
+4549:	1	aact[e]Ammonioacetone
+4550:	1	sphgn[e]Sphinganine
+4672:	1	C01601[e]Nonanoic Acid
+5158:	1	ac[x]Acetate
+5209:	1	dsT_antigen[c]Disialyl-T Antigen
+5249:	1	itacon[c]Itaconic Acid
+5827:	1	gly[r]Glycine
+5829:	1	paps[r]3'-Phosphoadenylyl Sulfate
+5830:	1	pap[r]Adenosine 3,5-Bismonophosphate
+
+
+1419	Blood Group Intracellular Transport	FUC13GALACGLCGAL14ACGLCGALGLUSIDEtg	-556.47	-452.95
+substrates:
+1520	      -1	 -442.34	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[g]	Iii3Fuc-Nlc6Cer
+products:
+1519	       1	 -381.78	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[c]	Iii3Fuc-Nlc6Cer
+
+1425	Blood Group Intracellular Transport	FUCACNGAL14ACGLCGALGLUSIDEtg	-494.71	-444.05
+substrates:
+1526	      -1	 -288.82	-29.69	-11.88	fucacngal14acglcgalgluside_hs[g]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+products:
+1525	       1	 -228.26	-29.69	-11.88	fucacngal14acglcgalgluside_hs[c]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+
+5776	Formation of Glycerol-3-Phosphate	GLYC2P3Pc	-1351.66	-1298.45
+substrates:
+35	-0.0907734	   42.75	-42.75	-42.75	                h[c]	Proton
+3569	      -1	  304.22	-29.69	-11.88	           glyc2p[c]	Glycerol 2-Phosphate
+products:
+1570	       1	-1020.84	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
+
+6994	Transport of Methylmalonate, Mitochondrial	MMALtm	-59.12	 -1.17
+substrates:
+35	-0.102989	   42.75	-42.75	-42.75	                h[c]	Proton
+2441	      -1	 -487.05	-29.69	-11.88	          HC00900[m]	Methylmalonate
+products:
+28	0.0178705	   47.50	-47.50	-47.50	                h[m]	Proton
+2463	       1	 -506.28	-29.69	-11.88	          HC00900[c]	Methylmalonate
+
+7023	Ethanolamine Transport via Diffusion, Extracellular	ETHAt	-228.89	-164.93
+substrates:
+75	-0.0124173	   43.94	-43.94	-43.94	                h[e]	Proton
+4263	      -1	  357.41	-29.69	-11.88	             etha[e]	Ethanolamine
+products:
+35	0.00787086	   42.75	-42.75	-42.75	                h[c]	Proton
+1223	       1	  153.89	-29.69	-11.88	             etha[c]	Ethanolamine
+
+7090	Transport of L-Homoserine, Mitochondrial	r2535m	-530.83	-452.21
+substrates:
+28	-0.109425	   47.50	-47.50	-47.50	                h[m]	Proton
+3741	      -1	  433.89	-29.69	-11.88	            hom_L[m]	L-Homoserine
+products:
+35	0.0190914	   42.75	-42.75	-42.75	                h[c]	Proton
+1819	       1	 -100.39	-29.69	-11.88	            hom_L[c]	L-Homoserine
+
+7502	D-Xylose Reversible Transport	XYLt	-772.55	-723.04
+substrates:
+75	-2.08672e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+4311	      -1	  446.80	-29.69	-11.88	            xyl_D[e]	Aldehydo-D-Xylose
+products:
+35	1.31664e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+2341	       1	 -312.87	-29.69	-11.88	            xyl_D[c]	Aldehydo-D-Xylose
+
+7529	Ethanol Reversible Transport	ETOHt	-193.28	-144.40
+substrates:
+4320	      -1	  268.08	-29.69	-11.88	             etoh[e]	Ethanol
+products:
+510	       1	   92.12	-29.69	-11.88	             etoh[c]	Ethanol
+
+7531	Acetaldehyde Reversible Transport	ACALDt	-159.86	-114.86
+substrates:
+4321	      -1	  178.72	-29.69	-11.88	            acald[e]	Acetaldehyde
+products:
+290	       1	   36.61	-29.69	-11.88	            acald[c]	Acetaldehyde
+
+7868	Transport by Glut-5 Transporter into Extracellular Space	GLCRt1	-1315.31	-1255.81
+substrates:
+35	-0.00021168	   42.75	-42.75	-42.75	                h[c]	Proton
+4309	      -1	  357.44	-29.69	-11.88	             glcr[e]	D-Glucarate
+products:
+75	0.00012682	   43.94	-43.94	-43.94	                h[e]	Proton
+1696	       1	 -943.41	-29.69	-11.88	             glcr[c]	D-Glucarate
+
+8059	Assumed Passive Diffusion into Extracellular Space	AACTte	-193.12	-130.41
+substrates:
+75	-0.392034	   43.94	-43.94	-43.94	                h[e]	Proton
+4549	      -1	  356.16	-29.69	-11.88	             aact[e]	Ammonioacetone
+products:
+35	0.289197	   42.75	-42.75	-42.75	                h[c]	Proton
+241	       1	  187.79	-29.69	-11.88	             aact[c]	Ammonioacetone
+
+8062	Passive Diffusion into Extracellular Space	SPHGNte	-317.58	-203.89
+substrates:
+75	-0.022368	   43.94	-43.94	-43.94	                h[e]	Proton
+4550	      -1	 1787.14	-29.69	-11.88	            sphgn[e]	Sphinganine
+products:
+35	0.0142308	   42.75	-42.75	-42.75	                h[c]	Proton
+115	       1	 1481.80	-29.69	-11.88	            sphgn[c]	Sphinganine
+
+8289	HMR_0176	HMR_0176	-348.54	-277.14
+substrates:
+35	-0.0106009	   42.75	-42.75	-42.75	                h[c]	Proton
+4672	      -1	  759.54	-29.69	-11.88	           C01601[e]	Nonanoic Acid
+products:
+75	0.00671497	   43.94	-43.94	-43.94	                h[e]	Proton
+3019	       1	  423.62	-29.69	-11.88	           C01601[c]	Nonanoic Acid
+
+9373	HMR_7173	HMR_7173	-84.38	-36.45
+substrates:
+35	     -46	   42.75	-42.75	-42.75	                h[c]	Proton
+5209	      -1	  434.92	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
+products:
+75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
+4270	       1	  446.80	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
+
+9402	Alpha-D-Glucose 6-Phosphate Ketol-Isomerase	HMR_7748	-1782.66	-1730.38
+substrates:
+5235	      -1	  478.14	-29.69	-11.88	           M01389[c]	Beta-D-Glucose-6-Phosphate
+products:
+35	5.15143e-13	   42.75	-42.75	-42.75	                h[c]	Proton
+1575	       1	-1278.38	-29.69	-11.88	              g6p[c]	D-Glucose 6-Phosphate
+
+9403	Beta-D-Glucose 6-Phosphate Ketol-Isomerase	HMR_7749	-1780.99	-1728.68
+substrates:
+5235	      -1	  478.14	-29.69	-11.88	           M01389[c]	Beta-D-Glucose-6-Phosphate
+products:
+35	0.00132069	   42.75	-42.75	-42.75	                h[c]	Proton
+1495	       1	-1276.70	-29.69	-11.88	              f6p[c]	D-Fructose 6-Phosphate
+
+9458	HMR_9174	HMR_9174	-627.28	-519.20
+substrates:
+28	-0.000308965	   47.50	-47.50	-47.50	                h[m]	Proton
+5249	      -1	  173.96	-29.69	-11.88	           itacon[c]	Itaconic Acid
+products:
+35	0.00194788	   42.75	-42.75	-42.75	                h[c]	Proton
+1883	       1	 -410.18	-29.69	-11.88	           itacon[m]	Itaconic Acid
+
+9463	HMR_9179	HMR_9179	-404.34	-306.32
+substrates:
+35	-0.0101388	   42.75	-42.75	-42.75	                h[c]	Proton
+4503	      -1	  565.38	-29.69	-11.88	            orn_D[c]	D-Ornithine
+products:
+41	0.006381	   41.56	-41.56	-41.56	                h[x]	Proton
+1150	       1	  193.42	-29.69	-11.88	            orn_D[x]	D-Ornithine
+
+9529	HMR_9679	HMR_9679	-370.56	-323.58
+substrates:
+35	-0.00218285	   42.75	-42.75	-42.75	                h[c]	Proton
+5158	      -1	  126.91	-29.69	-11.88	               ac[x]	Acetate
+products:
+41	0.00345518	   41.56	-41.56	-41.56	                h[x]	Proton
+330	       1	 -217.79	-29.69	-11.88	               ac[c]	Acetate
+
+10458	GLYitr	GLYitr	-405.39	-320.88
+substrates:
+729	-0.0159266	   42.75	-42.75	-42.75	                h[r]	Proton
+5827	      -1	  217.42	-29.69	-11.88	              gly[r]	Glycine
+products:
+35	0.0159266	   42.75	-42.75	-42.75	                h[c]	Proton
+500	       1	 -145.71	-29.69	-11.88	              gly[c]	Glycine
+
+10459	PAPSitr	PAPSitr	-1917.70	-1846.51
+substrates:
+35	-0.15542	   42.75	-42.75	-42.75	                h[c]	Proton
+5829	      -1	  478.01	-29.69	-11.88	             paps[r]	3'-Phosphoadenylyl Sulfate
+products:
+62	       1	-1404.10	-29.69	-11.88	             paps[c]	3'-Phosphoadenylyl Sulfate
+729	 0.15542	   42.75	-42.75	-42.75	                h[r]	Proton
+
+10460	PAPitr	PAPitr	-1916.71	-1845.68
+substrates:
+35	-0.15542	   42.75	-42.75	-42.75	                h[c]	Proton
+5830	      -1	  478.01	-29.69	-11.88	              pap[r]	Adenosine 3,5-Bismonophosphate
+products:
+64	       1	-1403.19	-29.69	-11.88	              pap[c]	Adenosine 3,5-Bismonophosphate
+729	 0.15542	   42.75	-42.75	-42.75	                h[r]	Proton
+

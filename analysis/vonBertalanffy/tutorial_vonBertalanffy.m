@@ -22,9 +22,13 @@
 % With all dependencies installed correctly, we configure our environment, verfy 
 % all dependencies, and add required fields and directories to the matlab path.
 
-
 initVonBertalanffy
-
+aPath = which('initVonBertalanffy');
+basePath = strrep(aPath,'vonBertalanffy/initVonBertalanffy.m','');
+addpath(genpath(basePath))
+folderPattern=[filesep 'new'];
+method = 'remove';
+editCobraToolboxPath(basePath,folderPattern,method)
 %% Select the model
 % This tutorial is tested for the E. coli model iAF1260 and the human metabolic 
 % model Recon3Dmodel. However, only the data for the former is provided within 
@@ -33,8 +37,11 @@ initVonBertalanffy
 % not be so useful for iAF1260.  The Recon3D example uses values from literature 
 % for input variables where they are available.
 
-modelName='iAF1260'; uncomment this line and comment the line below if you want to use the other model-  currently will not work without changes
-%modelName='Recon3DModel_Dec2017'; 
+%modelName = 'iAF1260';
+%modelName='Ec_iAF1260_flux1'; 
+%modelName='Recon3DModel_301'; 
+%modelName='Recon3DModel_Dec2017';
+modelName='Recon3.0model';
 %% Load a model
 % Load a model, and save it as the original model in the workspace, unless it 
 % is already loaded into the workspace. 
@@ -42,61 +49,133 @@ modelName='iAF1260'; uncomment this line and comment the line below if you want 
 clear model
 global CBTDIR
 modelFileName = [modelName '.mat']
-modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
-modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
+
 
 switch modelName
-    case 'iAF1260'
+    case 'Ec_iAF1260_flux1'
+        modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
+        modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
+        
+        modelFileName = [modelName '.xml']
         model = readCbModel(modelFileName);
+        if model.S(952, 350)==0
+            model.S(952, 350)=1; % One reaction needing mass balancing in iAF1260
+        end
+        model.metCharges(strcmp('asntrna[Cytosol]', model.mets))=0; % One reaction needing charge balancing
+        
+    case 'iAF1260'
+        modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
+        modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
+
+        model = readCbModel(modelFileName);
+        model.mets = cellfun(@(mets) strrep(mets,'_c','[c]'),model.mets,'UniformOutput',false);
+        model.mets = cellfun(@(mets) strrep(mets,'_e','[e]'),model.mets,'UniformOutput',false);
+        model.mets = cellfun(@(mets) strrep(mets,'_p','[p]'),model.mets,'UniformOutput',false);
+        bool = strcmp(model.mets,'lipa[c]old[c]');
+        model.mets{bool}='lipa_old_[c]';
+        bool = strcmp(model.mets,'lipa[c]old[e]');
+        model.mets{bool}='lipa_old_[e]';
+        bool = strcmp(model.mets,'lipa[c]old[p]');
+        model.mets{bool}='lipa_old_[p]';
         if model.S(952, 350)==0
             model.S(952, 350)=1; % One reaction needing mass balancing in iAF1260
         end
         model.metCharges(strcmp('asntrna[c]', model.mets))=0; % One reaction needing charge balancing
         
+    case 'Recon3.0model'
+        modelDirectory='~/work/sbgCloud/programReconstruction/projects/recon2models/data/reconXComparisonModels';
+        model = loadIdentifiedModel(modelName,modelDirectory);
+        model.csense(1:size(model.S,1),1)='E';
+        %Hack for thermodynamics
+        model.metFormulas{strcmp(model.mets,'h[i]')}='H';
+        model.metFormulas(cellfun('isempty',model.metFormulas)) = {'R'};
+        if isfield(model,'metCharge')
+            model.metCharges = double(model.metCharge);
+            model=rmfield(model,'metCharge');
+        end
+        modelOrig = model;
+        
     case 'Recon3DModel_Dec2017'
-      model = readCbModel(modelFileName);
-      model.csense(1:size(model.S,1),1)='E';
-      %Hack for thermodynamics
-      model.metFormulas{strcmp(model.mets,'h[i]')}='H';
-      model.metFormulas(cellfun('isempty',model.metFormulas)) = {'R'};
-      if isfield(model,'metCharge')
-          model.metCharges = double(model.metCharge);
-          model=rmfield(model,'metCharge');
-      end
-      modelOrig = model;
+        modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
+        modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
+
+        model = readCbModel(modelFileName);
+        model.csense(1:size(model.S,1),1)='E';
+        %Hack for thermodynamics
+        model.metFormulas{strcmp(model.mets,'h[i]')}='H';
+        model.metFormulas(cellfun('isempty',model.metFormulas)) = {'R'};
+        if isfield(model,'metCharge')
+            model.metCharges = double(model.metCharge);
+            model=rmfield(model,'metCharge');
+        end
+        modelOrig = model;
+    case 'Recon3DModel_301'
+        modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
+        modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
+
+        model = readCbModel(modelFileName);
+        %Hack for thermodynamics
+        model.metFormulas(cellfun('isempty',model.metFormulas)) = {'R'};
+        modelOrig = model;
     otherwise
             error('setup specific parameters for your model')
 end
 %% Set the directory containing the results
 
 switch modelName
+    case 'Ec_iAF1260_flux1'
+        resultsPath=which('tutorial_vonBertalanffy.mlx');
+        resultsPath=strrep(resultsPath,'/tutorial_vonBertalanffy.mlx','');
+        resultsPath=[resultsPath filesep modelName '_results'];
+        resultsBaseFileName=[resultsPath filesep modelName '_results'];
     case 'iAF1260'
         resultsPath=which('tutorial_vonBertalanffy.mlx');
         resultsPath=strrep(resultsPath,'/tutorial_vonBertalanffy.mlx','');
         resultsPath=[resultsPath filesep modelName '_results'];
         resultsBaseFileName=[resultsPath filesep modelName '_results'];
-    case 'Recon3DModel_Dec2017'
+    case 'Recon3.0model'
+        basePath='~/work/sbgCloud';
+        resultsPath=[basePath '/programReconstruction/projects/recon2models/results/thermo/new2_' modelName];
+        resultsBaseFileName=[resultsPath filesep modelName '_' datestr(now,30) '_'];
+     case 'Recon3DModel_Dec2017'
         basePath='~/work/sbgCloud';
         resultsPath=[basePath '/programReconstruction/projects/recon2models/results/thermo/' modelName];
         resultsBaseFileName=[resultsPath filesep modelName '_' datestr(now,30) '_'];
+    case 'Recon3DModel_301'
+        basePath='~/work/sbgCloud';
+        resultsPath=which('tutorial_vonBertalanffy.mlx');
+        resultsPath=strrep(resultsPath,'/tutorial_vonBertalanffy.mlx','');
+        resultsPath=[resultsPath filesep modelName '_results'];
+        resultsBaseFileName=[resultsPath filesep modelName '_results'];
     otherwise
         error('setup specific parameters for your model')
 end
 %% Set the directory containing molfiles
 
 switch modelName
+    case 'Ec_iAF1260_flux1'
+        molfileDir = 'iAF1260Molfiles';
     case 'iAF1260'
         molfileDir = 'iAF1260Molfiles';
     case 'Recon3DModel_Dec2017'
-        molfileDir = [basePath '/data/molFilesDatabases/explicitHMol'];
+        molfileDir = [basePath '/data/metDatabase/explicit/molFiles'];
         %molfileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBimplicitHMol'];
         %molfileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBexplicitHMol'];
+    case {'Recon3DModel_301','Recon3.0model'}
+        molfileDir = [basePath '/data/metDatabase/explicit/molFiles']; 
+        molfileDir = [basePath '/code/fork-ctf/mets/molFiles'];
     otherwise
         error('setup specific parameters for your model')
 end
 %% Set the thermochemical parameters for the model
 
 switch modelName
+    case 'Ec_iAF1260_flux1'
+        T = 310.15; % Temperature in Kelvin
+        compartments = {'Cytosol'; 'Extra_organism'; 'Periplasm'}; % Cell compartment identifiers
+        ph = [7.7; 7.7; 7.7]; % Compartment specific pH
+        is = [0.25; 0.25; 0.25]; % Compartment specific ionic strength in mol/L
+        chi = [0; 90; 90]; % Compartment specific electrical potential relative to cytosol in mV        
     case 'iAF1260'
         T = 310.15; % Temperature in Kelvin
         compartments = ['c'; 'e'; 'p']; % Cell compartment identifiers
@@ -114,17 +193,36 @@ switch modelName
         is = 0.15*ones(length(compartments),1); 
         % Compartment specific electrical potential relative to cytosol in mV
         chi = [0; 30; 0; 19; -155; 0; 0; -2.303*8.3144621e-3*T*(ph(compartments == 'x') - ph(compartments == 'c'))/(96485.3365e-6); 0]; 
+    case {'Recon3DModel_301','Recon3.0model'}
+        % Temperature in Kelvin
+        T = 310.15; 
+        % Cell compartment identifiers
+        compartments = ['c'; 'e'; 'g'; 'l'; 'm'; 'n'; 'r'; 'x';'i']; 
+        % Compartment specific pH
+        ph = [7.2; 7.4; 6.35; 5.5; 8; 7.2; 7.2; 7; 7.2]; 
+        % Compartment specific ionic strength in mol/L
+        is = 0.15*ones(length(compartments),1); 
+        % Compartment specific electrical potential relative to cytosol in mV
+        chi = [0; 30; 0; 19; -155; 0; 0; -2.303*8.3144621e-3*T*(ph(compartments == 'x') - ph(compartments == 'c'))/(96485.3365e-6); 0]; 
     otherwise
         error('setup specific parameters for your model')
 end
 %% Set the default range of metabolite concentrations
 
 switch modelName
+    case 'Ec_iAF1260_flux1'
+        concMinDefault = 1e-5; % Lower bounds on metabolite concentrations in mol/L
+        concMaxDefault = 0.02; % Upper bounds on metabolite concentrations in mol/L
+        metBoundsFile=[];
     case 'iAF1260'
         concMinDefault = 1e-5; % Lower bounds on metabolite concentrations in mol/L
         concMaxDefault = 0.02; % Upper bounds on metabolite concentrations in mol/L
         metBoundsFile=[];
     case 'Recon3DModel_Dec2017'
+        concMinDefault=1e-5; % Lower bounds on metabolite concentrations in mol/L
+        concMaxDefault=1e-2; % Upper bounds on metabolite concentrations in mol/L
+        metBoundsFile=which('HumanCofactorConcentrations.txt');%already in the COBRA toolbox
+    case {'Recon3DModel_301','Recon3.0model'}
         concMinDefault=1e-5; % Lower bounds on metabolite concentrations in mol/L
         concMaxDefault=1e-2; % Upper bounds on metabolite concentrations in mol/L
         metBoundsFile=which('HumanCofactorConcentrations.txt');%already in the COBRA toolbox
@@ -136,14 +234,18 @@ end
 % is used to quantitatively assign reaction directionality.
 
 switch modelName
+    case 'Ec_iAF1260_flux1'
+        confidenceLevel = 0.95; 
+        DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol    
     case 'iAF1260'
         confidenceLevel = 0.95; 
         DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
-    case 'Recon3DModel_Dec2017'
+    case {'Recon3DModel_301','Recon3.0model'}
         confidenceLevel = 0.95;
         DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
     otherwise
-        error('setup specific parameters for your model')
+        confidenceLevel = 0.95;
+        DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
 end
 %% Prepare folder for results
 
@@ -217,12 +319,13 @@ if ~exist('massImbalance','var')
 end
 %% Check that the input data necessary for the component contribution method is in place
 
+save('modelNew_prior_to_setupComponentContribution','model')
 model = setupComponentContribution(model,molfileDir);
-
+save('modelNew_after_setupComponentContribution','model')
 %% Prepare the training data for the component contribution method
 
 training_data = prepareTrainingData(model,printLevel);
-
+save('training_dataNew_after_prepareTrainingData','training_data')
 %% Call the component contribution method
 
 if ~isfield(model,'DfG0')

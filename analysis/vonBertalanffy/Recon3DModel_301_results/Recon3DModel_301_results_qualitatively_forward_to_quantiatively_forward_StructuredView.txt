@@ -1,0 +1,201 @@
+Metabolites which force 18 qualitatively forward -> quantiatively forward
+35:	15	h[c]Proton
+40:	8	pi[c]Orthophosphate
+20:	7	h2o[c]Water
+24:	4	nh4[c]Ammonium
+28:	4	h[m]Proton
+242:	2	mthgxl[c]Methylglyoxal
+290:	2	acald[c]Acetaldehyde
+502:	2	ser_L[c]L-Serine
+504:	2	thr_L[c]L-Threonine
+520:	2	dhap[c]Dihydroxyacetone Phosphate
+41:	1	h[x]Proton
+59:	1	pyr[c]Pyruvate
+62:	1	paps[c]3'-Phosphoadenylyl Sulfate
+74:	1	2obut[c]2-Oxobutanoate
+75:	1	h[e]Proton
+191:	1	h2o[e]Water
+292:	1	acald[x]Acetaldehyde
+338:	1	cit[c]Citrate
+353:	1	pep[c]Phosphoenolpyruvate
+355:	1	man6p[c]D-Mannose 6-Phosphate
+356:	1	kdnp[c]2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid 9-Phosphate
+374:	1	h2o2[x]Hydrogen Peroxide
+378:	1	cit[m]Citrate
+384:	1	h2o[x]Water
+433:	1	aps[c]5-Adenylyl Sulfate
+541:	1	glc_D[e]D-Glucose
+786:	1	etoh[x]Ethanol
+1154:	1	3pg[c]3-Phospho-D-Glycerate
+1163:	1	g3p[c]Glyceraldehyde 3-Phosphate
+1222:	1	ethamp[c]Ethanolamine Phosphate
+1223:	1	etha[c]Ethanolamine
+1495:	1	f6p[c]D-Fructose 6-Phosphate
+1496:	1	f26bp[c]Beta-D-Fructofuranose 2,6-Bisphosphate
+1517:	1	fru[c]D-Fructose
+1982:	1	malttr[c]Maltotriose
+1983:	1	malttr[e]Maltotriose
+2403:	1	3pg[m]3-Phospho-D-Glycerate
+3355:	1	dhap[m]Dihydroxyacetone Phosphate
+3724:	1	pser_L[c]O-Phospho-L-Serine
+4304:	1	phom[c]O-Phosphonato-L-Homoserine
+4377:	1	3ohglutac[m]3-Hydroxy-Glutarate
+4378:	1	3ohglutac[c]3-Hydroxy-Glutarate
+5246:	1	M02451[c]Maltotetraose
+5247:	1	M02451[e]Maltotetraose
+
+
+197	N-Acetylneuraminate 9-Phosphate Pyruvate-Lyase (Pyruvate-Phosphorylating)	ACNAM9PL2	-94.86	 -6.37
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.369988	   42.75	-42.75	-42.75	                h[c]	Proton
+353	      -1	-1198.30	-29.69	-11.88	              pep[c]	Phosphoenolpyruvate
+355	      -1	-1267.80	-29.69	-11.88	            man6p[c]	D-Mannose 6-Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+356	       1	-1619.16	-29.69	-11.88	             kdnp[c]	2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid 9-Phosphate
+
+442	3', 5'-Bisphosphate Nucleotidase (Paps)	BPNT2	-598.82	-501.10
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+62	      -1	-1404.10	-29.69	-11.88	             paps[c]	3'-Phosphoadenylyl Sulfate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+433	       1	-1035.72	-29.69	-11.88	              aps[c]	5-Adenylyl Sulfate
+
+491	Catalase A, Peroxisomal (Ethanol)	CAT2p	-325.39	-203.06
+substrates:
+41	-5.36343e-05	   41.56	-41.56	-41.56	                h[x]	Proton
+374	      -1	  -49.42	-29.69	-11.88	             h2o2[x]	Hydrogen Peroxide
+786	      -1	   84.99	-29.69	-11.88	             etoh[x]	Ethanol
+products:
+292	       1	   31.86	-29.69	-11.88	            acald[x]	Acetaldehyde
+384	       2	 -140.65	  0.00	  0.00	              h2o[x]	Water
+
+1383	Fructose-2, 6-Bisphosphate 2-Phosphatase	FBP26	-91.93	-19.50
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.303966	   42.75	-42.75	-42.75	                h[c]	Proton
+1496	      -1	-2139.31	-29.69	-11.88	            f26bp[c]	Beta-D-Fructofuranose 2,6-Bisphosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1495	       1	-1276.70	-29.69	-11.88	              f6p[c]	D-Fructose 6-Phosphate
+
+2022	Methylglyoxal Synthase	MGSA	-93.76	-33.91
+substrates:
+35	-0.265135	   42.75	-42.75	-42.75	                h[c]	Proton
+520	      -1	-1076.68	-29.69	-11.88	             dhap[c]	Dihydroxyacetone Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+242	       1	  -83.91	-29.69	-11.88	           mthgxl[c]	Methylglyoxal
+
+2023	Methyglyoxylate Synthase 2 (from G3P)	MGSA2	-93.41	-33.31
+substrates:
+35	-0.217592	   42.75	-42.75	-42.75	                h[c]	Proton
+1163	      -1	-1077.15	-29.69	-11.88	              g3p[c]	Glyceraldehyde 3-Phosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+242	       1	  -83.91	-29.69	-11.88	           mthgxl[c]	Methylglyoxal
+
+3020	Ethanolamine-Phosphate Phospho-Lyase (Deaminating)	r0186	-86.74	 -2.15
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.135206	   42.75	-42.75	-42.75	                h[c]	Proton
+1222	      -1	 -752.65	-29.69	-11.88	           ethamp[c]	Ethanolamine Phosphate
+products:
+24	       1	  103.04	-18.73	-18.08	              nh4[c]	Ammonium
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+290	       1	   36.61	-29.69	-11.88	            acald[c]	Acetaldehyde
+
+3284	Postulated Transport Reaction	r0926	-71.14	-19.34
+substrates:
+35	-0.160139	   42.75	-42.75	-42.75	                h[c]	Proton
+2403	      -1	-1312.23	-29.69	-11.88	              3pg[m]	3-Phospho-D-Glycerate
+products:
+28	0.0293097	   47.50	-47.50	-47.50	                h[m]	Proton
+1154	       1	-1331.60	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
+
+5345	Transport of Dihydroxyacetone Phosphate into Cytosol	DHAPtc	-54.55	 -5.70
+substrates:
+35	-0.0947802	   42.75	-42.75	-42.75	                h[c]	Proton
+3355	      -1	-1052.72	-29.69	-11.88	             dhap[m]	Dihydroxyacetone Phosphate
+products:
+28	0.0163207	   47.50	-47.50	-47.50	                h[m]	Proton
+520	       1	-1076.68	-29.69	-11.88	             dhap[c]	Dihydroxyacetone Phosphate
+
+7342	Phosphoserine Phosphatase (L-Serine)	PSP_L	-1414.31	-1327.38
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.172624	   42.75	-42.75	-42.75	                h[c]	Proton
+3724	      -1	  260.46	-29.69	-11.88	           pser_L[c]	O-Phospho-L-Serine
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+502	       1	 -192.05	-29.69	-11.88	            ser_L[c]	L-Serine
+
+7362	Threonine Synthase	THRS	-1409.86	-1323.00
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.0124452	   42.75	-42.75	-42.75	                h[c]	Proton
+4304	      -1	  346.89	-29.69	-11.88	             phom[c]	O-Phosphonato-L-Homoserine
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+504	       1	 -101.20	-29.69	-11.88	            thr_L[c]	L-Threonine
+
+7378	L-Serine Ammonia-Lyase Ec:4.3.1.17	r0060	-97.64	-25.59
+substrates:
+502	      -1	 -192.05	-29.69	-11.88	            ser_L[c]	L-Serine
+products:
+24	       1	  103.04	-18.73	-18.08	              nh4[c]	Ammonium
+35	0.00534253	   42.75	-42.75	-42.75	                h[c]	Proton
+59	       1	 -338.30	-29.69	-11.88	              pyr[c]	Pyruvate
+
+7499	L-Threonine Deaminase	THRD_L	-96.86	-24.82
+substrates:
+504	      -1	 -101.20	-29.69	-11.88	            thr_L[c]	L-Threonine
+products:
+24	       1	  103.04	-18.73	-18.08	              nh4[c]	Ammonium
+35	0.00993695	   42.75	-42.75	-42.75	                h[c]	Proton
+74	       1	 -246.67	-29.69	-11.88	            2obut[c]	2-Oxobutanoate
+
+7626	Transport of 3-Hydroxy-Glutarate, Mitochondrial	3OHGLUTACtm	-57.65	 -2.17
+substrates:
+35	-0.0012296	   42.75	-42.75	-42.75	                h[c]	Proton
+4377	      -1	  289.46	-29.69	-11.88	        3ohglutac[m]	3-Hydroxy-Glutarate
+products:
+28	0.000194958	   47.50	-47.50	-47.50	                h[m]	Proton
+4378	       1	  260.95	-29.69	-11.88	        3ohglutac[c]	3-Hydroxy-Glutarate
+
+8461	Ethanolamine Ammonia-Lyase (Acetaldehyde-Forming)	HMR_0647	-64.16	 -1.15
+substrates:
+1223	      -1	  153.89	-29.69	-11.88	             etha[c]	Ethanolamine
+products:
+24	       1	  103.04	-18.73	-18.08	              nh4[c]	Ammonium
+35	0.0295312	   42.75	-42.75	-42.75	                h[c]	Proton
+290	       1	   36.61	-29.69	-11.88	            acald[c]	Acetaldehyde
+
+9301	HMR_4957	HMR_4957	-76.75	-13.05
+substrates:
+35	-0.0154092	   42.75	-42.75	-42.75	                h[c]	Proton
+378	      -1	 -915.87	-29.69	-11.88	              cit[m]	Citrate
+products:
+28	0.00245045	   47.50	-47.50	-47.50	                h[m]	Proton
+338	       1	 -939.65	-29.69	-11.88	              cit[c]	Citrate
+
+9443	Alpha-Amylase	HMR_8578	-3028.22	-2896.72
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+5246	      -1	 1826.68	-29.69	-11.88	           M02451[c]	Maltotetraose
+products:
+35	0.00146298	   42.75	-42.75	-42.75	                h[c]	Proton
+1517	       1	 -381.78	-29.69	-11.88	              fru[c]	D-Fructose
+1982	       1	 -871.50	-29.69	-11.88	           malttr[c]	Maltotriose
+
+9444	Alpha-Amylase	HMR_8579	-3023.96	-2908.11
+substrates:
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+5247	      -1	 1876.56	-29.69	-11.88	           M02451[e]	Maltotetraose
+products:
+75	0.000204323	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+1983	       1	 -833.50	-29.69	-11.88	           malttr[e]	Maltotriose
+

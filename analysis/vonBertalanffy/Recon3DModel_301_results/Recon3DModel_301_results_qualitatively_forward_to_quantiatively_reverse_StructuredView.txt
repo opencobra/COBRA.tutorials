@@ -1,0 +1,92 @@
+Metabolites which force 8 qualitatively forward -> quantiatively reverse
+35:	7	h[c]Proton
+28:	3	h[m]Proton
+75:	2	h[e]Proton
+231:	2	h[g]Proton
+1095:	2	dsT_antigen[g]Disialyl-T Antigen
+68:	1	akg[c]2-Oxoglutarate
+121:	1	3hmp[m]3-Hydroxy-2-Methylpropanoate
+122:	1	glu_L[c]L-Glutamate
+412:	1	datp[c]Deoxyadenosine Triphosphate
+417:	1	g1p[c]D-Glucose 1-Phosphate
+1031:	1	datp[m]Deoxyadenosine Triphosphate
+1154:	1	3pg[c]3-Phospho-D-Glycerate
+1156:	1	13dpg[c]3-Phospho-D-Glyceroyl Phosphate
+1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1755:	1	glx[c]Glyoxylate
+1757:	1	glyc3p[m]Glycerol 3-Phosphate
+2127:	1	3php[c]3-Phosphonatooxypyruvate
+3584:	1	3hmp[c]3-Hydroxy-2-Methylpropanoate
+3724:	1	pser_L[c]O-Phospho-L-Serine
+4270:	1	dsT_antigen[e]Disialyl-T Antigen
+4328:	1	glx[e]Glyoxylate
+5209:	1	dsT_antigen[c]Disialyl-T Antigen
+5248:	1	M01966[c]D-Glucose 1,6-Bisphosphate
+
+
+1680	Glycerol-3-Phosphate Shuttle	GLYC3Ptm	  4.12	 56.53
+substrates:
+28	-0.0327673	   47.50	-47.50	-47.50	                h[m]	Proton
+1570	      -1	-1020.84	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
+products:
+35	0.176126	   42.75	-42.75	-42.75	                h[c]	Proton
+1757	       1	 -987.17	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
+
+5342	Transport of dATP into Mitochondria	DATPtm	 16.19	 96.65
+substrates:
+35	-0.516447	   42.75	-42.75	-42.75	                h[c]	Proton
+412	      -1	-2122.99	-29.69	-11.88	             datp[c]	Deoxyadenosine Triphosphate
+products:
+28	0.870981	   47.50	-47.50	-47.50	                h[m]	Proton
+1031	       1	-2069.39	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+
+7042	Dst_Antigen (Mucin O-Glycan) Export	DST_ANTIGENt	281.41	329.34
+substrates:
+231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
+1095	      -1	 -213.51	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+products:
+75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
+4270	       1	  446.80	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
+
+7086	Transport of 3-Hydroxy-Isobutyrate, Mitochondrial	3HMPtm	456.84	529.52
+substrates:
+35	-0.00147684	   42.75	-42.75	-42.75	                h[c]	Proton
+121	      -1	 -170.44	-29.69	-11.88	             3hmp[m]	3-Hydroxy-2-Methylpropanoate
+products:
+28	0.000234354	   47.50	-47.50	-47.50	                h[m]	Proton
+3584	       1	  304.44	-29.69	-11.88	             3hmp[c]	3-Hydroxy-2-Methylpropanoate
+
+7341	Phosphoserine Transaminase	PSERT	1286.08	1404.82
+substrates:
+35	-0.0717184	   42.75	-42.75	-42.75	                h[c]	Proton
+122	      -1	 -318.63	-29.69	-11.88	            glu_L[c]	L-Glutamate
+2127	      -1	-1386.57	-29.69	-11.88	             3php[c]	3-Phosphonatooxypyruvate
+products:
+68	       1	 -620.21	-29.69	-11.88	              akg[c]	2-Oxoglutarate
+3724	       1	  260.46	-29.69	-11.88	           pser_L[c]	O-Phospho-L-Serine
+
+7557	Transport of Glyoxylate, Extracellular	GLXte	444.69	493.64
+substrates:
+75	-1.62173e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+1755	      -1	 -428.57	-29.69	-11.88	              glx[c]	Glyoxylate
+products:
+35	2.57024e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+4328	       1	   44.68	-29.69	-11.88	              glx[e]	Glyoxylate
+
+9300	HMR_4955	HMR_4955	341.83	389.76
+substrates:
+231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
+1095	      -1	 -213.51	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+products:
+35	      46	   42.75	-42.75	-42.75	                h[c]	Proton
+5209	       1	  434.92	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
+
+9447	3-Phospho-D-Glyceroyl-Phosphate:Alpha-D-Glucose-1-Phosphate 6-Phosphotransferase	HMR_8585	2569.69	2675.31
+substrates:
+35	-0.0134824	   42.75	-42.75	-42.75	                h[c]	Proton
+417	      -1	-1278.36	-29.69	-11.88	              g1p[c]	D-Glucose 1-Phosphate
+1156	      -1	-2197.88	-29.69	-11.88	            13dpg[c]	3-Phospho-D-Glyceroyl Phosphate
+products:
+1154	       1	-1331.60	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
+5248	       1	  477.86	-29.69	-11.88	           M01966[c]	D-Glucose 1,6-Bisphosphate
+

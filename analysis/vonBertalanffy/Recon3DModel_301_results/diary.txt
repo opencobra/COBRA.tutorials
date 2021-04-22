@@ -1,0 +1,282 @@
+contribute
+
+
+      _____   _____   _____   _____     _____     |
+     /  ___| /  _  \ |  _  \ |  _  \   / ___ \    |   COnstraint-Based Reconstruction and Analysis
+     | |     | | | | | |_| | | |_| |  | |___| |   |   The COBRA Toolbox - 2021
+     | |     | | | | |  _  { |  _  /  |  ___  |   |
+     | |___  | |_| | | |_| | | | \ \  | |   | |   |   Documentation:
+     \_____| \_____/ |_____/ |_|  \_\ |_|   |_|   |   http://opencobra.github.io/cobratoolbox
+                                                  | 
+
+
+      (You can abort any process using CTRL+C)
+
+      [1] Start a new branch.
+      [2] Select an existing branch to work on.
+      [3] Publish a branch.
+      [4] Delete a branch.
+      [5] Update the fork.
+
+   -> Please select what you want to do (enter the number): 3
+dev>  Your Github username is: rmtfleming.  (Success) 
+dev>  Your Github email is: ronan.mt.fleming@gmail.com.  (Success) 
+dev>  Your fork directory has been set to: /home/rfleming/work/sbgCloud/code/fork-cobratoolbox.  (Success) 
+dev>   -- Configuration -------- 
+dev>      GitHub username:       rmtfleming
+dev>      GitHub email:          ronan.mt.fleming@gmail.com
+dev>      Local directory :      /home/rfleming/work/sbgCloud/code/fork-cobratoolbox
+dev>      Remote fork URL:       https://github.com/rmtfleming/cobratoolbox.git
+dev>      Remote repository URL: https://github.com/opencobra/cobratoolbox.git
+
+      Available branches are:
+      - HHsubmission
+      - cardOptNov10
+      - cardOptNov11
+      - cardOptOct23
+      - cardOptSept20
+      - cardOptSept30
+      - cardOptSept9
+      - ec
+      - moietiesNov1
+      - moietiesNov4
+      - moietiesNov6
+      - moietiesNov7
+      - moietiesNov9
+      - moietiesOct23
+      - optCardNov12
+      - optCardSept10
+      - prfixes
+      - rmtfleming-xomicsMar11
+      - testBranch
+      - testFVAsjuan
+      - tests-check
+      - thermoCore17jan
+      - thermoCoreDec15
+      - tutIntegrationNov9
+      - webUpdateJan20
+      - xomics
+      - xomicsApr6
+      - xomicsDec10
+      - xomicsDec7
+      - xomicsFeb2
+      - xomicsJan15
+      - xomicsJan18
+      - xomicsMar10
+      - xomicsMar11
+      - xomicsMar31
+      - xomicsMar4
+      - xomicsNov24
+      - xomicsfeb1
+      - xomicsfeb3
+
+   -> Please enter the name of the branch that you want to publish (example: xomicsApr6): xomicsApr6
+dev>   -> You currently have more than 10 changed files. Are you sure that you want to continue? Y/N [N]: Y
+dev>  You currently have 73 new files to add. Consider splitting them into multiple commits (typically only a few files per commit).dev>   -> You modified .gitmodules. Do you want to commit the changes? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/Transform.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/cache/kegg_inchies.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/cache/kegg_pkas.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/TECRDB.tsv. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/fixed_mappings.tsv. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/formation_energies_transformed.tsv. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/kegg_additions.tsv. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/kegg_inchi_additions.csv. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/kegg_inchi_additions.txt. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/data/redox.tsv. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/jankowski/createGroupContributionStruct.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/jankowski/webCGMtoTabDelimitedFile.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/checkForMissingStereo.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You modified src/analysis/thermo/componentContribution/new/componentContribution.m. Do you want to commit the changes? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/createGroupIncidenceMatrix.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/getInchies.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/getKeggpKas.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/getMappingScores.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/loadTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/prepareTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/reverseTransformTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/new/updateTrainingModel.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/balanceReactionsInTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/checkForMissingStereo.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/createGroupIncidenceMatrix.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/getInchies.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/getKeggpKas.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/getMappingScores.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/getTrainingDatapKas.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/loadTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/prepareTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/reverseTransformTrainingData.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/componentContribution/old/setupComponentContribution.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gc_data_Henry.txt. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gc_data_Jankowski.txt. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gcmMetList_Ecoli_core.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gcmMetList_Recon1.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gcmMetList_iAF1260.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gcmOutputFile_Ecoli_core.txt. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gcmOutputFile_Recon1.txt. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/gcmOutputFile_iAF1260.txt. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/jankowskiGroupData.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/metGroupCont_Ecoli_iAF1260.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/metGroupCont_ReconX.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/groupContribution/metSpeciespKa_Recon1.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/reconstructions/Recon1.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/reconstructions/ReconX.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/reconstructions/ecoli_core_xls2model.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/experimentalData/reconstructions/iAF1260_flux1.mat. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/groupContribution/createGroupIncidenceMatrix.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/groupContribution/new/modelMetabolitesToSDF.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/groupContribution/old/modelMetabolitesToSDF.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You deleted src/analysis/thermo/groupContribution/plotConcVSdGft0GroupContUncertainty.m. Do you want to commit this deletion? Y/N [N]: Y
+dev>   -> You modified src/analysis/thermo/inchi/createInChIStruct.m. Do you want to commit the changes? Y/N [N]: Y
+dev>   -> You modified src/analysis/thermo/protons/new/estimate_pKa.m. Do you want to commit the changes? Y/N [N]: Y
+dev>   -> You modified src/base/solvers/solveCobraLP.m. Do you want to commit the changes? Y/N [N]: Y
+dev>   -> You modified test/verifiedTests/analysis/testSampling/testSampleCbModel.m. Do you want to commit the changes? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/jankowski/? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/new/createGroupIncidenceMatrix.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/new/getMappingScores.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/new/regulariseGroupIncidenceMatrix.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/old/createGroupIncidenceMatrix.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/old/getMappingScores.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/groupContribution/wang/? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/molFiles/new/modelMetabolitesToSDF.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/molFiles/old/modelMetabolitesToSDF.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/analysis/thermo/trainingModel/? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/base/io/python/? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/base/paths/comparePaths.m? Y/N [N]: Y
+dev>   -> Do you want to add the new file src/base/utilities/duplicates.m? Y/N [N]: Y
+dev>  You have selected 72 files to be added in one commit.
+dev>   -> Please enter a commit message (example: "Fixing bug with input arguments"): vonB + dGPredictor v0.1
+dev>  Your commit message has been set. (Success) 
+dev>  Pushing 72 change(s) to your branch <xomicsApr6>
+dev>   -> Do you want to open a pull request (PR) and submit your branch <xomicsApr6>? Y/N [N]: Y
+dev>  You can open a pull request (PR) by clicking on 
+<a href = "https://github.com/opencobra/cobratoolbox/compare/develop...rmtfleming:xomicsApr6?expand=1">https://github.com/opencobra/cobratoolbox/compare/develop...rmtfleming:xomicsApr6?expand=1</a>
+dev>  Please start a new branch by running "contribute" and selecting "1" after your pull request (PR) has been reviewed and merged.
+which setupComponentContribution
+/home/rfleming/work/sbgCloud/code/fork-cobratoolbox/src/analysis/thermo/groupContribution/jankowski/setupComponentContribution.m
+edit src/analysis/thermo/groupContribution/new/createGroupIncidenceMatrix.m
+which setupComponentContribution.m
+/home/rfleming/work/sbgCloud/code/fork-cobratoolbox/src/analysis/thermo/groupContribution/jankowski/setupComponentContribution.m
+cd /home/rfleming/work/sbgCloud/code/fork-cobratoolbox/src/analysis/thermo/groupContribution/jankowski/
+contribute
+
+
+      _____   _____   _____   _____     _____     |
+     /  ___| /  _  \ |  _  \ |  _  \   / ___ \    |   COnstraint-Based Reconstruction and Analysis
+     | |     | | | | | |_| | | |_| |  | |___| |   |   The COBRA Toolbox - 2021
+     | |     | | | | |  _  { |  _  /  |  ___  |   |
+     | |___  | |_| | | |_| | | | \ \  | |   | |   |   Documentation:
+     \_____| \_____/ |_____/ |_|  \_\ |_|   |_|   |   http://opencobra.github.io/cobratoolbox
+                                                  | 
+
+
+      (You can abort any process using CTRL+C)
+
+      [1] Start a new branch.
+      [2] Select an existing branch to work on.
+      [3] Publish a branch.
+      [4] Delete a branch.
+      [5] Update the fork.
+
+   -> Please select what you want to do (enter the number): 1
+   -> Please enter a name of the new branch that you want to work on (example: add-constraints): xomicsApr22
+dev>  Your Github username is: rmtfleming.  (Success) 
+dev>  Your Github email is: ronan.mt.fleming@gmail.com.  (Success) 
+dev>  Your fork directory has been set to: /home/rfleming/work/sbgCloud/code/fork-cobratoolbox.  (Success) 
+dev>   -- Configuration -------- 
+dev>      GitHub username:       rmtfleming
+dev>      GitHub email:          ronan.mt.fleming@gmail.com
+dev>      Local directory :      /home/rfleming/work/sbgCloud/code/fork-cobratoolbox
+dev>      Remote fork URL:       https://github.com/rmtfleming/cobratoolbox.git
+dev>      Remote repository URL: https://github.com/opencobra/cobratoolbox.git
+dev>  
+dev>   -> You may now start working on your new branch <xomicsApr22>.
+dev>  
+dev>      For future reference:
+dev>   -> Run "contribute" and select "2" to choose the branch to work on.
+dev>   -> Run "contribute" and select "3" to publish your branch named <xomicsApr22>.
+dev>   -> Run "contribute" and select "4" to delete your branch named <xomicsApr22>.
+contribute
+
+
+      _____   _____   _____   _____     _____     |
+     /  ___| /  _  \ |  _  \ |  _  \   / ___ \    |   COnstraint-Based Reconstruction and Analysis
+     | |     | | | | | |_| | | |_| |  | |___| |   |   The COBRA Toolbox - 2021
+     | |     | | | | |  _  { |  _  /  |  ___  |   |
+     | |___  | |_| | | |_| | | | \ \  | |   | |   |   Documentation:
+     \_____| \_____/ |_____/ |_|  \_\ |_|   |_|   |   http://opencobra.github.io/cobratoolbox
+                                                  | 
+
+
+      (You can abort any process using CTRL+C)
+
+      [1] Start a new branch.
+      [2] Select an existing branch to work on.
+      [3] Publish a branch.
+      [4] Delete a branch.
+      [5] Update the fork.
+
+   -> Please select what you want to do (enter the number): 3
+dev>  Your Github username is: rmtfleming.  (Success) 
+dev>  Your Github email is: ronan.mt.fleming@gmail.com.  (Success) 
+dev>  Your fork directory has been set to: /home/rfleming/work/sbgCloud/code/fork-cobratoolbox.  (Success) 
+dev>   -- Configuration -------- 
+dev>      GitHub username:       rmtfleming
+dev>      GitHub email:          ronan.mt.fleming@gmail.com
+dev>      Local directory :      /home/rfleming/work/sbgCloud/code/fork-cobratoolbox
+dev>      Remote fork URL:       https://github.com/rmtfleming/cobratoolbox.git
+dev>      Remote repository URL: https://github.com/opencobra/cobratoolbox.git
+
+      Available branches are:
+      - HHsubmission
+      - cardOptNov10
+      - cardOptNov11
+      - cardOptOct23
+      - cardOptSept20
+      - cardOptSept30
+      - cardOptSept9
+      - ec
+      - moietiesNov1
+      - moietiesNov4
+      - moietiesNov6
+      - moietiesNov7
+      - moietiesNov9
+      - moietiesOct23
+      - optCardNov12
+      - optCardSept10
+      - prfixes
+      - rmtfleming-xomicsApr6
+      - rmtfleming-xomicsApr6b
+      - rmtfleming-xomicsMar11
+      - testBranch
+      - testFVAsjuan
+      - tests-check
+      - thermoCore17jan
+      - thermoCoreDec15
+      - tutIntegrationNov9
+      - webUpdateJan20
+      - xomics
+      - xomicsApr22
+      - xomicsApr6
+      - xomicsDec10
+      - xomicsDec7
+      - xomicsFeb2
+      - xomicsJan15
+      - xomicsJan18
+      - xomicsMar10
+      - xomicsMar11
+      - xomicsMar31
+      - xomicsMar4
+      - xomicsNov24
+      - xomicsfeb1
+      - xomicsfeb3
+
+   -> Please enter the name of the branch that you want to publish (example: xomicsApr22): xomicsApr22
+dev>   -> You modified src/analysis/thermo/groupContribution/new/createGroupIncidenceMatrix.m. Do you want to commit the changes? Y/N [N]: Y
+dev>  You have selected 1 files to be added in one commit.
+dev>   -> Please enter a commit message (example: "Fixing bug with input arguments"): updated G
+dev>  Your commit message has been set. (Success) 
+dev>  Pushing 1 change(s) to your branch <xomicsApr22>
+dev>   -> Do you want to open a pull request (PR) and submit your branch <xomicsApr22>? Y/N [N]: Y
+dev>  You can open a pull request (PR) by clicking on 
+<a href = "https://github.com/opencobra/cobratoolbox/compare/develop...rmtfleming:xomicsApr22?expand=1">https://github.com/opencobra/cobratoolbox/compare/develop...rmtfleming:xomicsApr22?expand=1</a>
+dev>  Please start a new branch by running "contribute" and selecting "1" after your pull request (PR) has been reviewed and merged.
