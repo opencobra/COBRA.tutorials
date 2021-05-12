@@ -1,0 +1,708 @@
+Metabolites which force 67 qualitatively forward -> quantiatively forward
+20:	28	h2o[c]Water
+40:	19	pi[c]Orthophosphate
+35:	16	h[c]Proton
+191:	9	h2o[e]Water
+75:	8	h[e]Proton
+28:	6	h[m]Proton
+735:	6	h2o[n]Water
+2146:	6	pi[n]Orthophosphate
+138:	5	h2o[l]Water
+541:	5	glc_D[e]D-Glucose
+707:	5	glc_D[c]D-Glucose
+23:	4	h2o2[c]Hydrogen Peroxide
+21:	3	o2[c]Oxygen
+25:	3	h2o[m]Water
+41:	3	h[x]Proton
+265:	3	h[l]Proton
+374:	3	h2o2[x]Hydrogen Peroxide
+1659:	3	glc_D[l]D-Glucose
+2106:	3	pail45p_hs[c]Phosphatidylinositol 4,5-Bisphosphate
+2108:	3	pail4p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+2145:	3	pail345p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+2148:	3	pail34p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+2149:	3	pail34p_hs[n]1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+24:	2	nh4[c]Ammonium
+295:	2	pi[m]Orthophosphate
+373:	2	o2[x]Oxygen
+384:	2	h2o[x]Water
+527:	2	h2o[r]Water
+544:	2	glygn4[e]Glycogen, Structure 4 (Glycogenin-1,6-{2[1,4-Glc], [1,4-Glc]})
+631:	2	crm_hs[l]N-Acylsphingosine
+653:	2	pi[e]Orthophosphate
+729:	2	h[r]Proton
+802:	2	pail_hs[c]1-Phosphatidyl-1D-Myo-Inositol
+810:	2	crm_hs[c]N-Acylsphingosine
+1154:	2	3pg[c]3-Phospho-D-Glycerate
+1276:	2	glygn5[e]Glycogen, Structure 5 (Glycogenin-2[1,4-Glc])
+1464:	2	fald[c]Formaldehyde
+1649:	2	malt[e]Maltose
+1745:	2	dxtrn[c]Phosphorylase-Limit Dextrin (Glycogenin-1,6{4[1,4-Glc], 4[1,4-Glc]})
+1746:	2	glygn3[c]Glycogen, Structure 3 (Glycogenin-7[1,4-Glc])
+2107:	2	pail45p_hs[n]Phosphatidylinositol 4,5-Bisphosphate
+2109:	2	pail4p_hs[n]1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+2147:	2	pail345p_hs[n]1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+2150:	2	pail3p_hs[n]1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+2151:	2	pail3p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+2152:	2	pail35p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+2153:	2	pail5p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+26:	1	o2[m]Oxygen
+64:	1	pap[c]Adenosine 3,5-Bismonophosphate
+139:	1	pi[l]Orthophosphate
+140:	1	adn[l]Adenosine
+152:	1	mma[c]Methylammonium
+292:	1	acald[x]Acetaldehyde
+300:	1	amp[m]Adenosine Monophosphate
+329:	1	acgpail_hs[c]6-(N-Acetyl-Alpha-D-Glucosaminyl)-1-Phosphatidyl-1D-Myo-Inositol
+330:	1	ac[c]Acetate
+331:	1	gpail_hs[c]D-Glucosaminylphosphatidylinositol
+338:	1	cit[c]Citrate
+378:	1	cit[m]Citrate
+391:	1	amp[c]Adenosine Monophosphate
+402:	1	nh4[e]Ammonium
+403:	1	adn[e]Adenosine
+416:	1	adn[m]Adenosine
+417:	1	g1p[c]D-Glucose 1-Phosphate
+467:	1	glx[x]Glyoxylate
+520:	1	dhap[c]Dihydroxyacetone Phosphate
+528:	1	o2[r]Oxygen
+543:	1	glygn2[e]Glycogen, Structure 2 (Glycogenin-1,6-{7[1,4-Glc], 4[1,4-Glc]})
+595:	1	galside_hs[l]D-Galactosyl-N-Acylsphingosine
+654:	1	amp[e]Adenosine Monophosphate
+686:	1	h2o[g]Water
+786:	1	etoh[x]Ethanol
+787:	1	h2o2[m]Hydrogen Peroxide
+791:	1	glc_D[r]D-Glucose
+793:	1	g6p[r]D-Glucose 6-Phosphate
+795:	1	pi[r]Orthophosphate
+811:	1	crmp_hs[c]Ceramide 1-Phosphate
+814:	1	gluside_hs[c]D-Glucosyl-N-Acylsphingosine
+861:	1	pglyc_hs[c]Phosphatidylglycerol
+936:	1	cspg_d[g]Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan
+937:	1	cspg_d[e]Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan
+938:	1	cspg_e[g]Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan
+939:	1	cspg_e[e]Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan
+1155:	1	23dpg[c]2,3-Bisphosphonato-D-Glycerate
+1287:	1	h2o2[e]Hydrogen Peroxide
+1298:	1	hspg[e]Heparan Sulfate Proteoglycan
+1340:	1	octa[e]Octanoate (N-C8:0)
+1406:	1	Tyr_ggn[e]Tyr-194 Of Apo-Glycogenin Protein (Primer For Glycogen Synthesis)
+1466:	1	fald[l]Formaldehyde
+1495:	1	f6p[c]D-Fructose 6-Phosphate
+1497:	1	fe2[m]Iron (Fe2+)
+1502:	1	fe2[c]Iron (Fe2+)
+1660:	1	gluside_hs[l]D-Glucosyl-N-Acylsphingosine
+1683:	1	Tyr_ggn[c]Tyr-194 Of Apo-Glycogenin Protein (Primer For Glycogen Synthesis)
+1698:	1	glygn2[c]Glycogen, Structure 2 (Glycogenin-1,6-{7[1,4-Glc], 4[1,4-Glc]})
+1755:	1	glx[c]Glyoxylate
+1760:	1	glyclt[c]Glycolate
+1761:	1	glyclt[x]Glycolate
+1796:	1	h2o2[l]Hydrogen Peroxide
+1856:	1	hspg[g]Heparan Sulfate Proteoglycan
+1896:	1	lcts[e]Lactose
+1947:	1	malt[l]Maltose
+1948:	1	malt[c]Maltose
+1961:	1	meoh[c]Methanol
+1962:	1	meoh[l]Methanol
+2031:	1	pi[g]Orthophosphate
+2056:	1	amp[l]Adenosine Monophosphate
+2105:	1	pail_hs[n]1-Phosphatidyl-1D-Myo-Inositol
+2134:	1	pgp_hs[c]Phosphatidyl Glycerol Phosphate
+2187:	1	ptrc[c]Putrescine
+2188:	1	4abutn[c]4-Aminobutanal
+2249:	1	o2[e]Oxygen
+2295:	1	tre[c]Trehalose
+2296:	1	tre[e]Trehalose
+2342:	1	4abutn[e]4-Aminobutanal
+2360:	1	HC01441[e]Lactose-6P
+2389:	1	fdp[c]D-Fructose 1,6-Bisphosphate
+2396:	1	ptrc[e]Putrescine
+2403:	1	3pg[m]3-Phospho-D-Glycerate
+2578:	1	dca[e]Decanoate (N-C10:0)
+2590:	1	but[e]Butyrate
+2706:	1	pail_hs[g]1-Phosphatidyl-1D-Myo-Inositol
+2852:	1	crm_hs[e]N-Acylsphingosine
+2903:	1	h2o2[r]Hydrogen Peroxide
+3355:	1	dhap[m]Dihydroxyacetone Phosphate
+4257:	1	pglyc_hs[m]Phosphatidylglycerol
+4258:	1	pgp_hs[m]Phosphatidyl Glycerol Phosphate
+4593:	1	gluside_hs[e]D-Glucosyl-N-Acylsphingosine
+4672:	1	C01601[e]Nonanoic Acid
+4673:	1	M02909[e]Smcfa-Blood-Pool
+4674:	1	M02108[e]Heptylic Acid
+4675:	1	M03117[e]Undecylic Acid
+4676:	1	M03134[e]Valeric Acid
+4740:	1	HC02050[c]Phosphatidate-Ld-Pc-Pool
+4741:	1	HC02051[c]Phosphatidate-Ld-Pe-Pool
+4742:	1	HC02054[c]Phosphatidate-Ld-Sm-Pool
+4743:	1	HC02056[c]1,2-Diacylglycerol-Ld-Pc-Pool
+4744:	1	HC02057[c]1,2-Diacylglycerol-Ld-Pe-Pool
+4745:	1	HC02060[c]1,2-Diacylglycerol-Ld-Sm-Pool
+4881:	1	M00704[c]3(S)-Hydroxy-3-Oxo-Eicosadienoyl Coenzyme A
+4882:	1	M03017[c]Trans,Cis-2,8,11-Eicosatrienoyl Coenzyme A
+5214:	1	pail5p_hs[g]1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+5831:	1	caproic[e]Caproic Acid
+
+
+182	N-Acetylglucosaminylphosphatidylinositol Deacetylase	ACGPID	-173.44	-120.00
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+329	      -1	 1260.54	-29.69	-11.88	       acgpail_hs[c]	6-(N-Acetyl-Alpha-D-Glucosaminyl)-1-Phosphatidyl-1D-Myo-Inositol
+products:
+330	       1	 -233.65	-29.69	-11.88	               ac[c]	Acetate
+331	       1	 1217.79	-29.69	-11.88	         gpail_hs[c]	D-Glucosaminylphosphatidylinositol
+
+318	Alpha-Amylase, Extracellular (Glygn2 -> Glygn4)	AMY2e	-5686.87	-5508.73
+substrates:
+191	      -8	 -148.09	  0.00	  0.00	              h2o[e]	Water
+543	      -1	 4959.48	-29.69	-11.88	           glygn2[e]	Glycogen, Structure 2 (Glycogenin-1,6-{7[1,4-Glc], 4[1,4-Glc]})
+products:
+75	0.00178843	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       8	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
+544	       1	 1385.08	-29.69	-11.88	           glygn4[e]	Glycogen, Structure 4 (Glycogenin-1,6-{2[1,4-Glc], [1,4-Glc]})
+
+491	Catalase A, Peroxisomal (Ethanol)	CAT2p	-313.65	-260.21
+substrates:
+41	-5.36343e-05	   41.56	-41.56	-41.56	                h[x]	Proton
+374	      -1	  -49.42	-29.69	-11.88	             h2o2[x]	Hydrogen Peroxide
+786	      -1	   99.30	-29.69	-11.88	             etoh[x]	Ethanol
+products:
+292	       1	   47.84	-29.69	-11.88	            acald[x]	Acetaldehyde
+384	       2	 -152.84	  0.00	  0.00	              h2o[x]	Water
+
+493	Catalase	CATm	-196.37	-142.93
+substrates:
+28	-0.00107217	   47.50	-47.50	-47.50	                h[m]	Proton
+787	      -2	  -37.55	-29.69	-11.88	             h2o2[m]	Hydrogen Peroxide
+products:
+25	       2	 -140.96	  0.00	  0.00	              h2o[m]	Water
+26	       1	   16.40	-29.69	-11.88	               o2[m]	Oxygen
+
+494	Catalase A, Peroxisomal	CATp	-196.37	-142.93
+substrates:
+41	-0.000107269	   41.56	-41.56	-41.56	                h[x]	Proton
+374	      -2	  -49.42	-29.69	-11.88	             h2o2[x]	Hydrogen Peroxide
+products:
+373	       1	   16.40	-29.69	-11.88	               o2[x]	Oxygen
+384	       2	 -152.84	  0.00	  0.00	              h2o[x]	Water
+
+623	Chondroitin Sulfate D Transport, Golgi to Extracellular	CSPG_Dt	-38.07	 -2.45
+substrates:
+936	      -1	 2424.22	-29.69	-11.88	           cspg_d[g]	Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan
+products:
+937	       1	 2823.24	-29.69	-11.88	           cspg_d[e]	Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan
+
+625	Chondroitin Sulfate E Transport, Golgi to Extracellular	CSPG_Et	-40.97	 -5.34
+substrates:
+938	      -1	 2374.67	-29.69	-11.88	           cspg_e[g]	Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan
+products:
+939	       1	 2767.45	-29.69	-11.88	           cspg_e[e]	Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan
+
+897	Diphosphoglycerate Phosphatase	DPGase	-50.61	-10.24
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+35	-0.367301	   42.75	-42.75	-42.75	                h[c]	Proton
+1155	      -1	-2227.09	-29.69	-11.88	            23dpg[c]	2,3-Bisphosphonato-D-Glycerate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+1154	       1	-1339.10	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
+
+1490	Glucose-6-Phosphate Phosphatase, Edoplasmic Reticular	G6PPer	-58.35	 -4.91
+substrates:
+527	      -1	 -150.46	  0.00	  0.00	              h2o[r]	Water
+729	-0.259038	   42.75	-42.75	-42.75	                h[r]	Proton
+793	      -1	-1286.61	-29.69	-11.88	              g6p[r]	D-Glucose 6-Phosphate
+products:
+791	       1	 -394.48	-29.69	-11.88	            glc_D[r]	D-Glucose
+795	       1	-1053.44	-29.69	-11.88	               pi[r]	Orthophosphate
+
+1547	Glucoamylase, Extracellular (Glygn5 -> Malt)	GAMYe	-1389.86	-1336.42
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+1276	      -1	  938.28	-29.69	-11.88	           glygn5[e]	Glycogen, Structure 5 (Glycogenin-2[1,4-Glc])
+products:
+75	0.000250843	   43.94	-43.94	-43.94	                h[e]	Proton
+1406	       1	   44.68	-29.69	-11.88	          Tyr_ggn[e]	Tyr-194 Of Apo-Glycogenin Protein (Primer For Glycogen Synthesis)
+1649	       1	 -596.84	-29.69	-11.88	             malt[e]	Maltose
+
+1556	Glucosylceramidase	GBA	-726.44	-673.00
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+814	      -1	 2000.65	-29.69	-11.88	       gluside_hs[c]	D-Glucosyl-N-Acylsphingosine
+products:
+707	       1	 -394.48	-29.69	-11.88	            glc_D[c]	D-Glucose
+810	       1	 1565.73	-29.69	-11.88	           crm_hs[c]	N-Acylsphingosine
+
+1557	Glucosylceramidase	GBAl	-726.44	-673.00
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1660	      -1	 1536.32	-29.69	-11.88	       gluside_hs[l]	D-Glucosyl-N-Acylsphingosine
+products:
+631	       1	 1202.34	-29.69	-11.88	           crm_hs[l]	N-Acylsphingosine
+1659	       1	 -515.61	-29.69	-11.88	            glc_D[l]	D-Glucose
+
+1647	Glycogen Debranching Enzyme	GLDBRAN	-726.44	-673.00
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+1745	      -1	 3522.89	-29.69	-11.88	            dxtrn[c]	Phosphorylase-Limit Dextrin (Glycogenin-1,6{4[1,4-Glc], 4[1,4-Glc]})
+products:
+35	0.000141063	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       1	 -394.48	-29.69	-11.88	            glc_D[c]	D-Glucose
+1746	       1	 3087.96	-29.69	-11.88	           glygn3[c]	Glycogen, Structure 3 (Glycogenin-7[1,4-Glc])
+
+1657	Glycogen Phosphorylase (Glygn2 -> Dxtrn)	GLPASE1	-2064.48	-1961.18
+substrates:
+40	      -3	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+1698	      -1	 4827.66	-29.69	-11.88	           glygn2[c]	Glycogen, Structure 2 (Glycogenin-1,6-{7[1,4-Glc], 4[1,4-Glc]})
+products:
+35	0.795453	   42.75	-42.75	-42.75	                h[c]	Proton
+417	       3	-1284.12	-29.69	-11.88	              g1p[c]	D-Glucose 1-Phosphate
+1745	       1	 3522.89	-29.69	-11.88	            dxtrn[c]	Phosphorylase-Limit Dextrin (Glycogenin-1,6{4[1,4-Glc], 4[1,4-Glc]})
+
+1658	Glycogen Phosphorylase (Amyls -> Glc-D)	GLPASE2	-4978.23	-4817.91
+substrates:
+20	      -7	 -150.46	  0.00	  0.00	              h2o[c]	Water
+1746	      -1	 3087.96	-29.69	-11.88	           glygn3[c]	Glycogen, Structure 3 (Glycogenin-7[1,4-Glc])
+products:
+35	0.000987438	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       7	 -394.48	-29.69	-11.88	            glc_D[c]	D-Glucose
+1683	       1	   43.49	-29.69	-11.88	          Tyr_ggn[c]	Tyr-194 Of Apo-Glycogenin Protein (Primer For Glycogen Synthesis)
+
+1687	Glycolate Oxidase, Peroxisome	GLYCTO1p	-128.79	-57.53
+substrates:
+373	      -1	   16.40	-29.69	-11.88	               o2[x]	Oxygen
+1761	      -1	 -403.42	-29.69	-11.88	           glyclt[x]	Glycolate
+products:
+41	0.000351613	   41.56	-41.56	-41.56	                h[x]	Proton
+374	       1	  -49.42	-29.69	-11.88	             h2o2[x]	Hydrogen Peroxide
+467	       1	 -430.75	-29.69	-11.88	              glx[x]	Glyoxylate
+
+1843	Heparan Sulfate Transport, Golgi to Extracellular	HSPGt	-55.44	-19.81
+substrates:
+1856	      -1	 4219.19	-29.69	-11.88	             hspg[g]	Heparan Sulfate Proteoglycan
+products:
+1298	       1	 4923.71	-29.69	-11.88	             hspg[e]	Heparan Sulfate Proteoglycan
+
+1983	Alpha-Glucosidase, Extracellular	MALTe	-63.03	 -9.59
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+1649	      -1	 -596.84	-29.69	-11.88	             malt[e]	Maltose
+products:
+75	0.000196264	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       2	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+1984	Alpha-Glucosidase, Lysosomal	MALTly	-63.03	 -9.59
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1947	      -1	 -845.04	-29.69	-11.88	             malt[l]	Maltose
+products:
+265	2.47143e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1659	       2	 -515.61	-29.69	-11.88	            glc_D[l]	D-Glucose
+
+1991	Methylamine Oxidase	MAOX	-136.28	-64.38
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+21	      -1	   16.40	-29.69	-11.88	               o2[c]	Oxygen
+152	      -1	  220.16	-29.69	-11.88	              mma[c]	Methylammonium
+products:
+23	       1	  -47.05	-29.69	-11.88	             h2o2[c]	Hydrogen Peroxide
+24	       1	   90.26	-18.73	-18.08	              nh4[c]	Ammonium
+35	0.0351512	   42.75	-42.75	-42.75	                h[c]	Proton
+1464	       1	  -39.04	-29.69	-11.88	             fald[c]	Formaldehyde
+
+2199	5'-Nucleotidase (AMP), Extracellular	NTD7e	-58.08	 -4.64
+substrates:
+75	-0.196016	   43.94	-43.94	-43.94	                h[e]	Proton
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+654	      -1	 -501.08	-29.69	-11.88	              amp[e]	Adenosine Monophosphate
+products:
+403	       1	  392.14	-29.69	-11.88	              adn[e]	Adenosine
+653	       1	-1051.88	-29.69	-11.88	               pi[e]	Orthophosphate
+
+2200	5'-Nucleotidase (AMP), Lysosomal	NTD7l	-61.26	 -7.82
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+265	-0.0987884	   32.66	-32.66	-32.66	                h[l]	Proton
+2056	      -1	 -641.26	-29.69	-11.88	              amp[l]	Adenosine Monophosphate
+products:
+139	       1	-1071.08	-29.69	-11.88	               pi[l]	Orthophosphate
+140	       1	  245.41	-29.69	-11.88	              adn[l]	Adenosine
+
+2206	Oligo-1, 6-Glucosidase (Glygn4 -> Glygn5), Extracellular	O16G1e	-726.44	-673.01
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+544	      -1	 1385.08	-29.69	-11.88	           glygn4[e]	Glycogen, Structure 4 (Glycogenin-1,6-{2[1,4-Glc], [1,4-Glc]})
+products:
+75	0.000223553	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
+1276	       1	  938.28	-29.69	-11.88	           glygn5[e]	Glycogen, Structure 5 (Glycogenin-2[1,4-Glc])
+
+2352	Phosphatidylglycerol Phosphate Phosphatase (Homo Sapiens)	PGPP_hs	-895.11	-854.74
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2134	      -1	  478.42	-29.69	-11.88	           pgp_hs[c]	Phosphatidyl Glycerol Phosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+861	       1	  521.91	-29.69	-11.88	         pglyc_hs[c]	Phosphatidylglycerol
+
+2369	Phosphatidylinositol-3, 4, 5-Trisphosphate 3-Phosphatase	PI345P3P	-877.34	-836.97
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2145	      -1	  529.12	-29.69	-11.88	      pail345p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2106	       1	  590.38	-29.69	-11.88	       pail45p_hs[c]	Phosphatidylinositol 4,5-Bisphosphate
+
+2370	Phosphatidylinositol-3, 4, 5-Trisphosphate 3-Phosphatase, Nuclear	PI345P3Pn	-889.22	-835.78
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2147	      -1	  529.12	-29.69	-11.88	      pail345p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+products:
+2107	       1	  590.38	-29.69	-11.88	       pail45p_hs[n]	Phosphatidylinositol 4,5-Bisphosphate
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+
+2371	Phosphatidylinositol-3, 4, 5-Trisphosphate 5-Phosphatase	PI345P5P	-877.34	-836.97
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2145	      -1	  529.12	-29.69	-11.88	      pail345p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2148	       1	  590.38	-29.69	-11.88	       pail34p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+
+2372	Phosphatidylinositol-3, 4, 5-Trisphosphate 5-Phosphatase, Nuclear	PI345P5Pn	-889.22	-835.78
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2147	      -1	  529.12	-29.69	-11.88	      pail345p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+products:
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+2149	       1	  590.38	-29.69	-11.88	       pail34p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+
+2373	Phosphatidylinositol-3, 4-Bisphosphate 3-Phosphatase, Nuclear	PI34P3Pn	-895.14	-841.70
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2149	      -1	  590.38	-29.69	-11.88	       pail34p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+products:
+2109	       1	  645.72	-29.69	-11.88	        pail4p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+
+2374	Phosphatidylinositol-3, 4-Bisphosphate 4-Phosphatase, Nuclear	PI34P4Pn	-895.14	-841.70
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2149	      -1	  590.38	-29.69	-11.88	       pail34p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+products:
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+2150	       1	  645.72	-29.69	-11.88	        pail3p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+
+2377	Phosphatidylinositol-3-Phosphate 3-Phosphatase, Nuclear	PI3P3Pn	-901.06	-847.62
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2150	      -1	  645.72	-29.69	-11.88	        pail3p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+products:
+2105	       1	  695.14	-29.69	-11.88	          pail_hs[n]	1-Phosphatidyl-1D-Myo-Inositol
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+
+2383	Phosphatidylinositol-4, 5-Bisphosphate 4-Phosphatase	PI45P4P	-883.26	-842.89
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2106	      -1	  590.38	-29.69	-11.88	       pail45p_hs[c]	Phosphatidylinositol 4,5-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2153	       1	  645.72	-29.69	-11.88	        pail5p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+
+2384	Phosphatidylinositol-4, 5-Bisphosphate 5-Phosphatase	PI45P5P	-883.26	-842.89
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2106	      -1	  590.38	-29.69	-11.88	       pail45p_hs[c]	Phosphatidylinositol 4,5-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2108	       1	  645.72	-29.69	-11.88	        pail4p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+
+2385	Phosphatidylinositol-4, 5-Bisphosphate 5-Phosphatase, Nuclear	PI45P5Pn	-895.14	-841.70
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2107	      -1	  590.38	-29.69	-11.88	       pail45p_hs[n]	Phosphatidylinositol 4,5-Bisphosphate
+products:
+2109	       1	  645.72	-29.69	-11.88	        pail4p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+
+2393	Phosphatidylinositol-4-Phosphate 4-Phosphatase	PI4PP	-889.19	-848.81
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2108	      -1	  645.72	-29.69	-11.88	        pail4p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+802	       1	  695.14	-29.69	-11.88	          pail_hs[c]	1-Phosphatidyl-1D-Myo-Inositol
+
+2435	Peroxidase (Multiple Substrates)	PRDX	-241.41	-187.97
+substrates:
+23	      -1	  -47.05	-29.69	-11.88	             h2o2[c]	Hydrogen Peroxide
+35	-8.50019e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+1961	      -1	  -57.45	-29.69	-11.88	             meoh[c]	Methanol
+products:
+20	       2	 -150.46	  0.00	  0.00	              h2o[c]	Water
+1464	       1	  -39.04	-29.69	-11.88	             fald[c]	Formaldehyde
+
+2436	Peroxidase (Multiple Substrates)	PRDXl	-241.41	-187.97
+substrates:
+265	-1.69615e-06	   32.66	-32.66	-32.66	                h[l]	Proton
+1796	      -1	  -67.23	-29.69	-11.88	             h2o2[l]	Hydrogen Peroxide
+1962	      -1	  -97.82	-29.69	-11.88	             meoh[l]	Methanol
+products:
+138	       2	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1466	       1	  -59.23	-29.69	-11.88	             fald[l]	Formaldehyde
+
+2473	Putrescine:Oxygen Oxidoreductase (Deaminating)	PTRCOX1	-148.71	-76.81
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+21	      -1	   16.40	-29.69	-11.88	               o2[c]	Oxygen
+2187	      -1	  557.84	-29.69	-11.88	             ptrc[c]	Putrescine
+products:
+23	       1	  -47.05	-29.69	-11.88	             h2o2[c]	Hydrogen Peroxide
+24	       1	   90.26	-18.73	-18.08	              nh4[c]	Ammonium
+35	0.0384894	   42.75	-42.75	-42.75	                h[c]	Proton
+2188	       1	  286.21	-29.69	-11.88	           4abutn[c]	4-Aminobutanal
+
+2808	Alpha, Alpha-Trehalase	TREH	-58.55	 -5.11
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2295	      -1	 -627.45	-29.69	-11.88	              tre[c]	Trehalose
+products:
+35	0.000247494	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       2	 -394.48	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+2809	Alpha, Alpha-Trehalase	TREHe	-58.55	 -5.11
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+2296	      -1	 -601.33	-29.69	-11.88	              tre[e]	Trehalose
+products:
+75	0.00039222	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       2	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+2987	Adenosine 5-Monophosphate Phosphohydrolase	r0047	-57.64	 -4.20
+substrates:
+25	      -1	 -140.96	  0.00	  0.00	              h2o[m]	Water
+28	-0.0644088	   47.50	-47.50	-47.50	                h[m]	Proton
+300	      -1	 -458.20	-29.69	-11.88	              amp[m]	Adenosine Monophosphate
+products:
+295	       1	-1047.76	-29.69	-11.88	               pi[m]	Orthophosphate
+416	       1	  438.46	-29.69	-11.88	              adn[m]	Adenosine
+
+3039	Putrescine:Oxygen Oxidoreductase (Deaminating)	r0281	-159.72	-70.66
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+2249	      -1	   16.40	-29.69	-11.88	               o2[e]	Oxygen
+2396	      -1	  574.46	-29.69	-11.88	             ptrc[e]	Putrescine
+products:
+75	0.0597149	   43.94	-43.94	-43.94	                h[e]	Proton
+402	       1	   94.95	-29.69	-11.88	              nh4[e]	Ammonium
+1287	       1	  -44.67	-29.69	-11.88	             h2o2[e]	Hydrogen Peroxide
+2342	       1	  298.08	-29.69	-11.88	           4abutn[e]	4-Aminobutanal
+
+3063	Lactose 6-Phosphate Galactohydrolase	r0380	-62.83	 -9.40
+substrates:
+75	-0.19576	   43.94	-43.94	-43.94	                h[e]	Proton
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+2360	      -1	-1480.78	-29.69	-11.88	          HC01441[e]	Lactose-6P
+products:
+653	       1	-1051.88	-29.69	-11.88	               pi[e]	Orthophosphate
+1896	       1	 -592.31	-29.69	-11.88	             lcts[e]	Lactose
+
+3284	Postulated Transport Reaction	r0926	-63.05	-27.43
+substrates:
+35	-0.160139	   42.75	-42.75	-42.75	                h[c]	Proton
+2403	      -1	-1319.73	-29.69	-11.88	              3pg[m]	3-Phospho-D-Glycerate
+products:
+28	0.0293097	   47.50	-47.50	-47.50	                h[m]	Proton
+1154	       1	-1339.10	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
+
+5345	Transport of Dihydroxyacetone Phosphate into Cytosol	DHAPtc	-47.94	-12.31
+substrates:
+35	-0.0947802	   42.75	-42.75	-42.75	                h[c]	Proton
+3355	      -1	-1056.46	-29.69	-11.88	             dhap[m]	Dihydroxyacetone Phosphate
+products:
+28	0.0163207	   47.50	-47.50	-47.50	                h[m]	Proton
+520	       1	-1080.43	-29.69	-11.88	             dhap[c]	Dihydroxyacetone Phosphate
+
+6997	Transport of Phosphatidyl Glycerol Phosphate, Mitochondrial	PGPP_hsc	-876.15	-822.71
+substrates:
+25	      -1	 -140.96	  0.00	  0.00	              h2o[m]	Water
+4258	      -1	  530.67	-29.69	-11.88	           pgp_hs[m]	Phosphatidyl Glycerol Phosphate
+products:
+295	       1	-1047.76	-29.69	-11.88	               pi[m]	Orthophosphate
+4257	       1	  578.91	-29.69	-11.88	         pglyc_hs[m]	Phosphatidylglycerol
+
+7196	3', 5'-Bisphosphate Nucleotidase	BPNT	-74.93	-28.15
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+35	-0.305539	   42.75	-42.75	-42.75	                h[c]	Proton
+64	      -1	-1390.98	-29.69	-11.88	              pap[c]	Adenosine 3,5-Bismonophosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+391	       1	 -515.43	-41.56	-17.34	              amp[c]	Adenosine Monophosphate
+
+7267	Fructose-Bisphosphatase	FBP	-44.15	 -3.77
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+35	-0.258972	   42.75	-42.75	-42.75	                h[c]	Proton
+2389	      -1	-2177.37	-29.69	-11.88	              fdp[c]	D-Fructose 1,6-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+1495	       1	-1282.91	-29.69	-11.88	              f6p[c]	D-Fructose 6-Phosphate
+
+7482	Alpha-Glucosidase	MALT	-63.03	 -9.59
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+1948	      -1	 -622.97	-29.69	-11.88	             malt[c]	Maltose
+products:
+35	0.000123846	   42.75	-42.75	-42.75	                h[c]	Proton
+707	       2	 -394.48	-29.69	-11.88	            glc_D[c]	D-Glucose
+
+8148	Beta-Glucosidase, Plasma Membrane (Gba2)	GBA2e	-726.44	-673.01
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+4593	      -1	 2055.28	-29.69	-11.88	       gluside_hs[e]	D-Glucosyl-N-Acylsphingosine
+products:
+541	       1	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
+2852	       1	 1608.48	-29.69	-11.88	           crm_hs[e]	N-Acylsphingosine
+
+8243	Catalase	CATr	-196.37	-142.93
+substrates:
+729	-0.000170004	   42.75	-42.75	-42.75	                h[r]	Proton
+2903	      -2	  -47.05	-29.69	-11.88	             h2o2[r]	Hydrogen Peroxide
+products:
+527	       2	 -150.46	  0.00	  0.00	              h2o[r]	Water
+528	       1	   16.40	-29.69	-11.88	               o2[r]	Oxygen
+
+8275	HMR_0017	HMR_0017	-134.54	-98.91
+substrates:
+4673	      -1	   44.68	-29.69	-11.88	           M02909[e]	Smcfa-Blood-Pool
+products:
+1340	   0.125	  346.21	-29.69	-11.88	             octa[e]	Octanoate (N-C8:0)
+2578	   0.125	  540.60	-29.69	-11.88	              dca[e]	Decanoate (N-C10:0)
+2590	   0.125	  -42.55	-29.69	-11.88	              but[e]	Butyrate
+4672	   0.125	  759.54	-29.69	-11.88	           C01601[e]	Nonanoic Acid
+4674	   0.125	  580.83	-29.69	-11.88	           M02108[e]	Heptylic Acid
+4675	   0.125	  938.27	-29.69	-11.88	           M03117[e]	Undecylic Acid
+4676	   0.125	  402.11	-29.69	-11.88	           M03134[e]	Valeric Acid
+5831	   0.125	  491.47	-29.69	-11.88	          caproic[e]	Caproic Acid
+
+8452	Phosphatidate Phosphatase	HMR_0597	-892.15	-851.78
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+4740	      -1	  214.50	-29.69	-11.88	          HC02050[c]	Phosphatidate-Ld-Pc-Pool
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+4743	       1	  260.95	-29.69	-11.88	          HC02056[c]	1,2-Diacylglycerol-Ld-Pc-Pool
+
+8453	Phosphatidate Phosphatase	HMR_0598	-892.15	-851.78
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+4741	      -1	  214.50	-29.69	-11.88	          HC02051[c]	Phosphatidate-Ld-Pe-Pool
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+4744	       1	  260.95	-29.69	-11.88	          HC02057[c]	1,2-Diacylglycerol-Ld-Pe-Pool
+
+8454	Phosphatidate Phosphatase	HMR_0601	-892.15	-851.78
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+4742	      -1	  214.50	-29.69	-11.88	          HC02054[c]	Phosphatidate-Ld-Sm-Pool
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+4745	       1	  260.95	-29.69	-11.88	          HC02060[c]	1,2-Diacylglycerol-Ld-Sm-Pool
+
+8473	Phosphatidate Phosphatase	HMR_0767	-892.15	-851.78
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+811	      -1	 1519.27	-29.69	-11.88	          crmp_hs[c]	Ceramide 1-Phosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+810	       1	 1565.73	-29.69	-11.88	           crm_hs[c]	N-Acylsphingosine
+
+8479	Galactosylceramidase	HMR_0793	-726.44	-673.00
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+595	      -1	 1536.32	-29.69	-11.88	       galside_hs[l]	D-Galactosyl-N-Acylsphingosine
+products:
+631	       1	 1202.34	-29.69	-11.88	           crm_hs[l]	N-Acylsphingosine
+1659	       1	 -515.61	-29.69	-11.88	            glc_D[l]	D-Glucose
+
+8784	Very-Long-Chain (3R)-3-Hydroxyacyl Coenzyme A Dehydratase	HMR_2363	-255.26	-219.63
+substrates:
+4881	      -1	 2858.66	-29.69	-11.88	           M00704[c]	3(S)-Hydroxy-3-Oxo-Eicosadienoyl Coenzyme A
+products:
+20	       1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+4882	       1	 2771.67	-29.69	-11.88	           M03017[c]	Trans,Cis-2,8,11-Eicosatrienoyl Coenzyme A
+
+9301	HMR_4957	HMR_4957	-62.71	-27.09
+substrates:
+35	-0.0154092	   42.75	-42.75	-42.75	                h[c]	Proton
+378	      -1	 -929.34	-29.69	-11.88	              cit[m]	Citrate
+products:
+28	0.00245045	   47.50	-47.50	-47.50	                h[m]	Proton
+338	       1	 -953.12	-29.69	-11.88	              cit[c]	Citrate
+
+9310	HMR_5420	HMR_5420	-48.92	-13.29
+substrates:
+35	-0.029917	   42.75	-42.75	-42.75	                h[c]	Proton
+1502	      -1	  -81.76	-29.69	-11.88	              fe2[c]	Iron (Fe2+)
+products:
+28	0.488301	   47.50	-47.50	-47.50	                h[m]	Proton
+1497	       1	  -82.95	-29.69	-11.88	              fe2[m]	Iron (Fe2+)
+
+9326	HMR_6545	HMR_6545	-883.26	-842.89
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2152	      -1	  590.38	-29.69	-11.88	       pail35p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2151	       1	  645.72	-29.69	-11.88	        pail3p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+
+9327	1-Phosphatidyl-1D-Myo-Inositol-3, 4-Bisphosphate 4-Phosphohydrolase	HMR_6549	-883.26	-842.89
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2148	      -1	  590.38	-29.69	-11.88	       pail34p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2151	       1	  645.72	-29.69	-11.88	        pail3p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+
+9328	Phosphatidylinositol-3, 4, 5-Trisphosphate 3-Phosphatase	HMR_6550	-883.26	-842.89
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2148	      -1	  590.38	-29.69	-11.88	       pail34p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,4-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2108	       1	  645.72	-29.69	-11.88	        pail4p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+
+9329	Phosphatidylinositol-3, 4, 5-Trisphosphate 3-Phosphatase	HMR_6558	-877.34	-836.97
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2145	      -1	  529.12	-29.69	-11.88	      pail345p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2152	       1	  590.38	-29.69	-11.88	       pail35p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+
+9333	Phosphatidylinositol-3, 4, 5-Trisphosphate 3-Phosphatase	HMR_6583	-889.19	-848.81
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2153	      -1	  645.72	-29.69	-11.88	        pail5p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+802	       1	  695.14	-29.69	-11.88	          pail_hs[c]	1-Phosphatidyl-1D-Myo-Inositol
+
+9334	Phosphatidylinositol-3, 4, 5-Trisphosphate 3-Phosphatase	HMR_6584	-904.05	-850.61
+substrates:
+686	      -1	 -160.56	  0.00	  0.00	              h2o[g]	Water
+5214	      -1	  570.02	-29.69	-11.88	        pail5p_hs[g]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+products:
+2031	       1	-1061.48	-29.69	-11.88	               pi[g]	Orthophosphate
+2706	       1	  614.39	-29.69	-11.88	          pail_hs[g]	1-Phosphatidyl-1D-Myo-Inositol
+
+9395	Glycolate:Oxygen 2-Oxidoreductase	HMR_7703	-128.79	-57.53
+substrates:
+21	      -1	   16.40	-29.69	-11.88	               o2[c]	Oxygen
+1760	      -1	 -399.85	-29.69	-11.88	           glyclt[c]	Glycolate
+products:
+23	       1	  -47.05	-29.69	-11.88	             h2o2[c]	Hydrogen Peroxide
+35	0.00027304	   42.75	-42.75	-42.75	                h[c]	Proton
+1755	       1	 -429.57	-29.69	-11.88	              glx[c]	Glyoxylate
+

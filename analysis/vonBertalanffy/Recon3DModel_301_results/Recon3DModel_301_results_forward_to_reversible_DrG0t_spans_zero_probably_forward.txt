@@ -1,0 +1,97 @@
+AQCOBALt	aqcobal[e]  -> aqcobal[c] 	-0.0	-0.0	-17.8	17.8
+ATPtm	1.44513e-05 h[c] + adp[c] + atp[m]  -> 3.01938e-05 h[m] + atp[c] + adp[m] 	-15.0	-15.0	-21.3	16.0
+CSPG_At	cspg_a[g]  -> cspg_a[e] 	-14.5	-14.5	-32.3	3.3
+CSPG_Bt	cspg_b[g]  -> cspg_b[e] 	-17.4	-17.4	-35.2	0.4
+CSPG_Ct	cspg_c[g]  -> cspg_c[e] 	-14.5	-14.5	-32.3	3.3
+FE2t	0.136793 h[e] + fe2[e]  -> 0.029917 h[c] + fe2[c] 	-5.7	-5.7	-23.5	12.1
+GACPAILter	gacpail_hs[c]  -> gacpail_hs[r] 	0.0	0.0	-17.8	17.8
+GLBRAN	glygn1[c]  -> glygn2[c] 	0.0	0.0	-17.8	17.8
+GLCAE1g	cs_a_b_pre3[g]  -> cs_b_pre4[g] 	0.0	0.0	-17.8	17.8
+GLCAE2g	hs_pre10[g]  -> hs_pre11[g] 	0.0	0.0	-17.8	17.8
+GLCMter	0.000141063 h[r] + glc_D[r]  -> 0.000223553 h[e] + glc_D[e] 	-0.0	-0.0	-17.8	17.8
+GLYCLTtp	0.000338714 h[x] + glyclt[c]  -> 0.000213741 h[c] + glyclt[x] 	-1.2	-1.2	-19.0	16.6
+H2O2tm	h2o2[c] + 8.50019e-05 h[c]  -> 0.000536084 h[m] + h2o2[m] 	-0.0	-0.0	-17.8	17.8
+H7_TAer	em2emgacpail_hs[r] + pre_prot[r]  -> gpi_sig[r] + em2emgacpail_prot_hs[r] 	0.0	0.0	-35.6	35.6
+H8TAer	gpi_hs[r] + pre_prot[r]  -> gpi_sig[r] + gpi_prot_hs[r] 	0.0	0.0	-35.6	35.6
+HDCAter	0.0055916 h[c] + hdca[r]  -> 0.0055916 h[r] + hdca[c] 	0.0	0.0	-17.8	17.8
+M4BTAer	mem2emgacpail_hs[r] + pre_prot[r]  -> gpi_sig[r] + mem2emgacpail_prot_hs[r] 	0.0	0.0	-35.6	35.6
+N2M2NMASNtly	n2m2nmasn[e]  -> n2m2nmasn[l] 	-0.0	-0.0	-17.8	17.8
+TCYNTt	1.25892e-07 h[e] + tcynt[c]  -> 1.99525e-07 h[c] + tcynt[e] 	-2.9	-2.9	-20.7	14.9
+TCYNTtm	1.99525e-07 h[c] + tcynt[m]  -> 3.16226e-08 h[m] + tcynt[c] 	-15.0	-15.0	-32.8	2.9
+XSERtg	xser[r]  -> xser[g] 	-0.0	-0.0	-17.8	17.8
+r0859	atp[c] + 0.000800569 h[l] + adp[l]  -> 1.44513e-05 h[c] + adp[c] + atp[l] 	-1.8	-1.8	-47.5	17.0
+r0927	acetone[m]  -> acetone[e] 	-0.0	-0.0	-17.8	17.8
+r1423	pi[c] + 0.26187 h[e]  -> 0.359915 h[c] + pi[e] 	-5.4	-5.4	-22.0	0.5
+r2419	0.359447 h[c] + akg[c] + pi[m]  -> 0.0817287 h[m] + pi[c] + akg[m] 	-0.9	-0.9	-24.7	33.5
+r2472	0.183788 h[c] + pi[m] + glyc3p[c]  -> 0.0490356 h[m] + pi[c] + glyc3p[m] 	-0.5	-0.5	-24.3	33.9
+SBTle	1.14675e-05 h[e] + sbt_D[e]  -> 7.23553e-06 h[c] + sbt_D[c] 	-0.0	-0.0	-17.8	17.8
+PHEMEe	pheme[c]  -> pheme[e] 	-5.8	-5.8	-23.6	12.0
+STN_ANTIGENt	sTn_antigen[g]  -> sTn_antigen[e] 	-2.9	-2.9	-20.7	14.9
+NTD7	h2o[c] + 0.259385 h[c] + amp[c]  -> pi[c] + adn[c] 	-10.8	-10.8	-41.0	5.8
+4OHBUTtmc	0.00173468 h[c] + 4ohbut[m]  -> 0.000275331 h[m] + 4ohbut[c] 	-15.0	-15.0	-32.8	2.9
+4OHBUTtce	0.00109521 h[e] + 4ohbut[c]  -> 0.00173468 h[c] + 4ohbut[e] 	-2.9	-2.9	-20.7	14.9
+DIGALSGALSIDESECt	digalsgalside_hs[c]  -> digalsgalside_hs[e] 	-2.9	-2.9	-20.7	14.9
+PAIL_hs_SECt	pail_hs[c]  -> pail_hs[e] 	-2.9	-2.9	-20.7	14.9
+AK2LGCHOLt1	ak2lgchol_hs[e]  -> ak2lgchol_hs[c] 	-0.0	-0.0	-17.8	17.8
+PAFt1	paf_hs[e]  -> paf_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOL2STE_HSt1e	pchol2ste_hs[e]  -> pchol2ste_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOLHEP_HSt1e	pcholhep_hs[e]  -> pcholhep_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOLMYR_Hst1e	pcholmyr_hs[e]  -> pcholmyr_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOLN204_HSt1e	pcholn204_hs[e]  -> pcholn204_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOLN264_HSt1e	pcholn24_hs[e]  -> pcholn24_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOLOLE_HSt1e	pcholole_hs[e]  -> pcholole_hs[c] 	-0.0	-0.0	-17.8	17.8
+PCHOLSTE_HSt1e	pcholste_hs[e]  -> pcholste_hs[c] 	-0.0	-0.0	-17.8	17.8
+PE226_HSt1e	pe226_hs[e]  -> pe226_hs[c] 	-0.0	-0.0	-17.8	17.8
+GLUTARte	0.00144444 h[e] + glutar[c]  -> 0.00228844 h[c] + glutar[e] 	-5.8	-5.8	-23.6	12.0
+GA1tl	ga1_hs[e]  -> ga1_hs[l] 	-0.0	-0.0	-17.8	17.8
+THCRMtl	thcrm_hs[c]  -> thcrm_hs[l] 	-0.0	-0.0	-17.8	17.8
+PHCRMtg	phcrm_hs[c]  -> phcrm_hs[g] 	-0.0	-0.0	-17.8	17.8
+PHCRMter	phcrm_hs[c]  -> phcrm_hs[r] 	0.0	0.0	-17.8	17.8
+DHCRMtg	dhcrm_hs[c]  -> dhcrm_hs[g] 	-0.0	-0.0	-17.8	17.8
+DHCRMter	dhcrm_hs[c]  -> dhcrm_hs[r] 	0.0	0.0	-17.8	17.8
+GD1Atn	gd1a_hs[c]  -> gd1a_hs[n] 	0.0	0.0	-17.8	17.8
+ATPtg	atp[c] + 0.000103691 h[g] + adp[g]  -> 1.44513e-05 h[c] + adp[c] + atp[g] 	-0.0	-0.0	-45.7	18.8
+HMR_0019	xolest2_hs[e]  -> xolest2_hs[l] 	-0.0	-0.0	-17.8	17.8
+HMR_7182	M01872[g]  -> M01872[e] 	0.0	0.0	-17.8	17.8
+HMR_9625	HC02057[r]  -> HC02057[c] 	0.0	0.0	-17.8	17.8
+
+Cytoplasmic metabolites only:
+1	h2o	h2o[c]	-150.5	0.9	
+1	h2o2	h2o2[c]	-47.0	3.8	
+1.204152e+00	h	h[c]	42.8	0.0	
+3	atp	atp[c]	-2271.1	2.4	
+3	adp	adp[c]	-1396.1	2.1	
+4	pi	pi[c]	-1053.4	1.0	
+1	akg	akg[c]	-619.6	1.7	
+1	thcrm_hs	thcrm_hs[c]	2870.5	0.0	
+1	amp	amp[c]	-515.4	1.4	
+1	adn	adn[c]	376.7	1.6	
+1	aqcobal	aqcobal[c]	4044.8	0.0	
+1	pail_hs	pail_hs[c]	695.1	0.0	
+2	dhcrm_hs	dhcrm_hs[c]	1652.7	0.0	
+1	digalsgalside_hs	digalsgalside_hs[c]	2391.3	0.0	
+1	hdca	hdca[c]	1086.9	3.8	
+1	fe2	fe2[c]	-81.8	3.8	
+1	glyc3p	glyc3p[c]	-1032.5	1.3	
+1	gacpail_hs	gacpail_hs[c]	2522.6	0.0	
+1	glygn2	glygn2[c]	4827.7	0.0	
+1	glygn1	glygn1[c]	4827.7	0.0	
+1	glyclt	glyclt[c]	-399.9	1.9	
+1	pheme	pheme[c]	1301.8	0.0	
+2	tcynt	tcynt[c]	91.8	3.8	
+1	ak2lgchol_hs	ak2lgchol_hs[c]	913.3	0.0	
+1	paf_hs	paf_hs[c]	1000.3	0.0	
+1	sbt_D	sbt_D[c]	-334.1	1.2	
+1	pcholmyr_hs	pcholmyr_hs[c]	2044.1	0.0	
+1	pcholole_hs	pcholole_hs[c]	2305.1	0.0	
+1	pcholste_hs	pcholste_hs[c]	2392.1	0.0	
+1	pchol2ste_hs	pchol2ste_hs[c]	2392.1	0.0	
+1	pcholn204_hs	pcholn204_hs[c]	2218.1	0.0	
+1	pe226_hs	pe226_hs[c]	2000.7	0.0	
+1	pcholn24_hs	pcholn24_hs[c]	2914.0	0.0	
+1	pcholhep_hs	pcholhep_hs[c]	2305.1	0.0	
+2	4ohbut	4ohbut[c]	304.4	3.7	
+1	glutar	glutar[c]	260.9	3.2	
+2	phcrm_hs	phcrm_hs[c]	1652.7	0.0	
+1	gd1a_hs	gd1a_hs[c]	4824.7	0.0	
+1	HC02057	HC02057[c]	261.0	0.0	

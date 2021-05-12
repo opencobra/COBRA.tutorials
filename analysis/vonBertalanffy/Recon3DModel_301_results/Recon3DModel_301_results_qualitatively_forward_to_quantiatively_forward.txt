@@ -1,0 +1,123 @@
+ACGPID	h2o[c] + acgpail_hs[c]  -> ac[c] + gpail_hs[c] 	-125.9	-125.9	-173.4	-120.0
+AMY2e	8 h2o[e] + glygn2[e]  -> 0.00178843 h[e] + 8 glc_D[e] + glygn4[e] 	-5431.5	-5431.5	-5686.9	-5508.7
+CAT2p	5.36343e-05 h[x] + h2o2[x] + etoh[x]  -> acald[x] + 2 h2o[x] 	-307.7	-307.7	-313.6	-260.2
+CATm	0.00107217 h[m] + 2 h2o2[m]  -> 2 h2o[m] + o2[m] 	-190.4	-190.4	-196.4	-142.9
+CATp	0.000107269 h[x] + 2 h2o2[x]  -> o2[x] + 2 h2o[x] 	-190.4	-190.4	-196.4	-142.9
+CSPG_Dt	cspg_d[g]  -> cspg_d[e] 	-20.3	-20.3	-38.1	-2.4
+CSPG_Et	cspg_e[g]  -> cspg_e[e] 	-23.2	-23.2	-41.0	-5.3
+DPGase	h2o[c] + 0.367301 h[c] + 23dpg[c]  -> pi[c] + 3pg[c] 	-15.0	-15.0	-50.6	-10.2
+G6PPer	h2o[r] + 0.259038 h[r] + g6p[r]  -> glc_D[r] + pi[r] 	-10.8	-10.8	-58.3	-4.9
+GAMYe	h2o[e] + glygn5[e]  -> 0.000250843 h[e] + Tyr_ggn[e] + malt[e] 	-1342.4	-1342.4	-1389.9	-1336.4
+GBA	h2o[c] + gluside_hs[c]  -> glc_D[c] + crm_hs[c] 	-678.9	-678.9	-726.4	-673.0
+GBAl	h2o[l] + gluside_hs[l]  -> crm_hs[l] + glc_D[l] 	-678.9	-678.9	-726.4	-673.0
+GLDBRAN	h2o[c] + dxtrn[c]  -> 0.000141063 h[c] + glc_D[c] + glygn3[c] 	-678.9	-678.9	-726.4	-673.0
+GLPASE1	3 pi[c] + glygn2[c]  -> 0.795453 h[c] + 3 g1p[c] + dxtrn[c] 	-1996.8	-1996.8	-2064.5	-1961.2
+GLPASE2	7 h2o[c] + glygn3[c]  -> 0.000987438 h[c] + 7 glc_D[c] + Tyr_ggn[c] 	-4752.6	-4752.6	-4978.2	-4817.9
+GLYCTO1p	o2[x] + glyclt[x]  -> 0.000351613 h[x] + h2o2[x] + glx[x] 	-93.2	-93.2	-128.8	-57.5
+HSPGt	hspg[g]  -> hspg[e] 	-37.6	-37.6	-55.4	-19.8
+MALTe	h2o[e] + malt[e]  -> 0.000196264 h[e] + 2 glc_D[e] 	-15.5	-15.5	-63.0	-9.6
+MALTly	h2o[l] + malt[l]  -> 2.47143e-06 h[l] + 2 glc_D[l] 	-15.5	-15.5	-63.0	-9.6
+MAOX	h2o[c] + o2[c] + mma[c]  -> h2o2[c] + nh4[c] + 0.0351512 h[c] + fald[c] 	-81.9	-81.9	-136.3	-64.4
+NTD7e	0.196016 h[e] + h2o[e] + amp[e]  -> adn[e] + pi[e] 	-10.6	-10.6	-58.1	-4.6
+NTD7l	h2o[l] + 0.0987884 h[l] + amp[l]  -> pi[l] + adn[l] 	-13.8	-13.8	-61.3	-7.8
+O16G1e	h2o[e] + glygn4[e]  -> 0.000223553 h[e] + glc_D[e] + glygn5[e] 	-678.9	-678.9	-726.4	-673.0
+PGPP_hs	h2o[c] + pgp_hs[c]  -> pi[c] + pglyc_hs[c] 	-859.5	-859.5	-895.1	-854.7
+PI345P3P	h2o[c] + pail345p_hs[c]  -> pi[c] + pail45p_hs[c] 	-841.7	-841.7	-877.3	-837.0
+PI345P3Pn	h2o[n] + pail345p_hs[n]  -> pail45p_hs[n] + pi[n] 	-841.7	-841.7	-889.2	-835.8
+PI345P5P	h2o[c] + pail345p_hs[c]  -> pi[c] + pail34p_hs[c] 	-841.7	-841.7	-877.3	-837.0
+PI345P5Pn	h2o[n] + pail345p_hs[n]  -> pi[n] + pail34p_hs[n] 	-841.7	-841.7	-889.2	-835.8
+PI34P3Pn	h2o[n] + pail34p_hs[n]  -> pail4p_hs[n] + pi[n] 	-847.6	-847.6	-895.1	-841.7
+PI34P4Pn	h2o[n] + pail34p_hs[n]  -> pi[n] + pail3p_hs[n] 	-847.6	-847.6	-895.1	-841.7
+PI3P3Pn	h2o[n] + pail3p_hs[n]  -> pail_hs[n] + pi[n] 	-853.6	-853.6	-901.1	-847.6
+PI45P4P	h2o[c] + pail45p_hs[c]  -> pi[c] + pail5p_hs[c] 	-847.6	-847.6	-883.3	-842.9
+PI45P5P	h2o[c] + pail45p_hs[c]  -> pi[c] + pail4p_hs[c] 	-847.6	-847.6	-883.3	-842.9
+PI45P5Pn	h2o[n] + pail45p_hs[n]  -> pail4p_hs[n] + pi[n] 	-847.6	-847.6	-895.1	-841.7
+PI4PP	h2o[c] + pail4p_hs[c]  -> pi[c] + pail_hs[c] 	-853.6	-853.6	-889.2	-848.8
+PRDX	h2o2[c] + 8.50019e-05 h[c] + meoh[c]  -> 2 h2o[c] + fald[c] 	-235.5	-235.5	-241.4	-188.0
+PRDXl	1.69615e-06 h[l] + h2o2[l] + meoh[l]  -> 2 h2o[l] + fald[l] 	-235.5	-235.5	-241.4	-188.0
+PTRCOX1	h2o[c] + o2[c] + ptrc[c]  -> h2o2[c] + nh4[c] + 0.0384894 h[c] + 4abutn[c] 	-94.4	-94.4	-148.7	-76.8
+TREH	h2o[c] + tre[c]  -> 0.000247494 h[c] + 2 glc_D[c] 	-11.0	-11.0	-58.5	-5.1
+TREHe	h2o[e] + tre[e]  -> 0.00039222 h[e] + 2 glc_D[e] 	-11.0	-11.0	-58.5	-5.1
+r0047	h2o[m] + 0.0644088 h[m] + amp[m]  -> pi[m] + adn[m] 	-10.1	-10.1	-57.6	-4.2
+r0281	h2o[e] + o2[e] + ptrc[e]  -> 0.0597149 h[e] + nh4[e] + h2o2[e] + 4abutn[e] 	-94.4	-94.4	-159.7	-70.7
+r0380	0.19576 h[e] + h2o[e] + HC01441[e]  -> pi[e] + lcts[e] 	-15.3	-15.3	-62.8	-9.4
+r0926	0.160139 h[c] + 3pg[m]  -> 0.0293097 h[m] + 3pg[c] 	-45.2	-45.2	-63.1	-27.4
+DHAPtc	0.0947802 h[c] + dhap[m]  -> 0.0163207 h[m] + dhap[c] 	-30.1	-30.1	-47.9	-12.3
+PGPP_hsc	h2o[m] + pgp_hs[m]  -> pi[m] + pglyc_hs[m] 	-828.6	-828.6	-876.1	-822.7
+BPNT	h2o[c] + 0.305539 h[c] + pap[c]  -> pi[c] + amp[c] 	-27.4	-27.4	-74.9	-28.1
+FBP	h2o[c] + 0.258972 h[c] + fdp[c]  -> pi[c] + f6p[c] 	-8.5	-8.5	-44.1	-3.8
+MALT	h2o[c] + malt[c]  -> 0.000123846 h[c] + 2 glc_D[c] 	-15.5	-15.5	-63.0	-9.6
+GBA2e	h2o[e] + gluside_hs[e]  -> glc_D[e] + crm_hs[e] 	-678.9	-678.9	-726.4	-673.0
+CATr	0.000170004 h[r] + 2 h2o2[r]  -> 2 h2o[r] + o2[r] 	-190.4	-190.4	-196.4	-142.9
+HMR_0017	M02909[e]  -> 0.125 octa[e] + 0.125 dca[e] + 0.125 but[e] + 0.125 C01601[e] + 0.125 M02108[e] + 0.125 M03117[e] + 0.125 M03134[e] + 0.125 caproic[e] 	-116.7	-116.7	-134.5	-98.9
+HMR_0597	h2o[c] + HC02050[c]  -> pi[c] + HC02056[c] 	-856.5	-856.5	-892.1	-851.8
+HMR_0598	h2o[c] + HC02051[c]  -> pi[c] + HC02057[c] 	-856.5	-856.5	-892.1	-851.8
+HMR_0601	h2o[c] + HC02054[c]  -> pi[c] + HC02060[c] 	-856.5	-856.5	-892.1	-851.8
+HMR_0767	h2o[c] + crmp_hs[c]  -> pi[c] + crm_hs[c] 	-856.5	-856.5	-892.1	-851.8
+HMR_0793	h2o[l] + galside_hs[l]  -> crm_hs[l] + glc_D[l] 	-678.9	-678.9	-726.4	-673.0
+HMR_2363	M00704[c]  -> h2o[c] + M03017[c] 	-237.4	-237.4	-255.3	-219.6
+HMR_4957	0.0154092 h[c] + cit[m]  -> 0.00245045 h[m] + cit[c] 	-44.9	-44.9	-62.7	-27.1
+HMR_5420	0.029917 h[c] + fe2[c]  -> 0.488301 h[m] + fe2[m] 	-31.1	-31.1	-48.9	-13.3
+HMR_6545	h2o[c] + pail35p_hs[c]  -> pi[c] + pail3p_hs[c] 	-847.6	-847.6	-883.3	-842.9
+HMR_6549	h2o[c] + pail34p_hs[c]  -> pi[c] + pail3p_hs[c] 	-847.6	-847.6	-883.3	-842.9
+HMR_6550	h2o[c] + pail34p_hs[c]  -> pi[c] + pail4p_hs[c] 	-847.6	-847.6	-883.3	-842.9
+HMR_6558	h2o[c] + pail345p_hs[c]  -> pi[c] + pail35p_hs[c] 	-841.7	-841.7	-877.3	-837.0
+HMR_6583	h2o[c] + pail5p_hs[c]  -> pi[c] + pail_hs[c] 	-853.6	-853.6	-889.2	-848.8
+HMR_6584	h2o[g] + pail5p_hs[g]  -> pi[g] + pail_hs[g] 	-856.6	-856.6	-904.1	-850.6
+HMR_7703	o2[c] + glyclt[c]  -> h2o2[c] + 0.00027304 h[c] + glx[c] 	-93.2	-93.2	-128.8	-57.5
+
+Cytoplasmic metabolites only:
+35	h2o	h2o[c]	-150.5	0.9	
+3	o2	o2[c]	16.4	3.8	
+4	h2o2	h2o2[c]	-47.0	3.8	
+2	nh4	nh4[c]	90.3	1.3	
+2.103010e+00	h	h[c]	42.8	0.0	
+21	pi	pi[c]	-1053.4	1.0	
+1	pap	pap[c]	-1391.0	4.1	
+1	mma	mma[c]	220.2	3.8	
+1	acgpail_hs	acgpail_hs[c]	1260.5	0.0	
+1	ac	ac[c]	-233.6	1.2	
+1	gpail_hs	gpail_hs[c]	1217.8	0.0	
+1	cit	cit[c]	-953.1	1.5	
+1	amp	amp[c]	-515.4	1.4	
+3	g1p	g1p[c]	-1284.1	2.1	
+1	dhap	dhap[c]	-1080.4	0.7	
+13	glc_D	glc_D[c]	-394.5	0.8	
+2	pail_hs	pail_hs[c]	695.1	0.0	
+2	crm_hs	crm_hs[c]	1565.7	0.0	
+1	crmp_hs	crmp_hs[c]	1519.3	0.0	
+1	gluside_hs	gluside_hs[c]	2000.7	0.0	
+1	pglyc_hs	pglyc_hs[c]	521.9	0.0	
+2	3pg	3pg[c]	-1339.1	1.0	
+1	23dpg	23dpg[c]	-2227.1	1.4	
+2	fald	fald[c]	-39.0	1.9	
+1	f6p	f6p[c]	-1282.9	0.8	
+1	fe2	fe2[c]	-81.8	3.8	
+1	Tyr_ggn	Tyr_ggn[c]	43.5	0.0	
+1	glygn2	glygn2[c]	4827.7	0.0	
+2	dxtrn	dxtrn[c]	3522.9	0.0	
+2	glygn3	glygn3[c]	3088.0	0.0	
+1	glx	glx[c]	-429.6	1.7	
+1	glyclt	glyclt[c]	-399.9	1.9	
+1	malt	malt[c]	-623.0	2.2	
+1	meoh	meoh[c]	-57.4	3.1	
+3	pail45p_hs	pail45p_hs[c]	590.4	0.0	
+3	pail4p_hs	pail4p_hs[c]	645.7	0.0	
+1	pgp_hs	pgp_hs[c]	478.4	0.0	
+3	pail345p_hs	pail345p_hs[c]	529.1	0.0	
+3	pail34p_hs	pail34p_hs[c]	590.4	0.0	
+2	pail3p_hs	pail3p_hs[c]	645.7	0.0	
+2	pail35p_hs	pail35p_hs[c]	590.4	0.0	
+2	pail5p_hs	pail5p_hs[c]	645.7	0.0	
+1	ptrc	ptrc[c]	557.8	8.1	
+1	4abutn	4abutn[c]	286.2	7.2	
+1	tre	tre[c]	-627.5	1.7	
+1	fdp	fdp[c]	-2177.4	1.3	
+1	HC02050	HC02050[c]	214.5	0.0	
+1	HC02051	HC02051[c]	214.5	0.0	
+1	HC02054	HC02054[c]	214.5	0.0	
+1	HC02056	HC02056[c]	261.0	0.0	
+1	HC02057	HC02057[c]	261.0	0.0	
+1	HC02060	HC02060[c]	261.0	0.0	
+1	M00704	M00704[c]	2858.7	0.0	
+1	M03017	M03017[c]	2771.7	0.0	

@@ -1,0 +1,252 @@
+Metabolites which force 26 qualitatively reversible -> quantiatively forward
+20:	6	h2o[c]Water
+35:	6	h[c]Proton
+75:	5	h[e]Proton
+191:	3	h2o[e]Water
+735:	3	h2o[n]Water
+2146:	3	pi[n]Orthophosphate
+40:	2	pi[c]Orthophosphate
+527:	2	h2o[r]Water
+795:	2	pi[r]Orthophosphate
+2105:	2	pail_hs[n]1-Phosphatidyl-1D-Myo-Inositol
+2156:	2	pail5p_hs[n]1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+24:	1	nh4[c]Ammonium
+25:	1	h2o[m]Water
+28:	1	h[m]Proton
+38:	1	atp[c]Adenosine Triphosphate
+41:	1	h[x]Proton
+64:	1	pap[c]Adenosine 3,5-Bismonophosphate
+138:	1	h2o[l]Water
+290:	1	acald[c]Acetaldehyde
+295:	1	pi[m]Orthophosphate
+330:	1	ac[c]Acetate
+384:	1	h2o[x]Water
+510:	1	etoh[c]Ethanol
+541:	1	glc_D[e]D-Glucose
+637:	1	nh4[m]Ammonium
+652:	1	atp[e]Adenosine Triphosphate
+653:	1	pi[e]Orthophosphate
+686:	1	h2o[g]Water
+729:	1	h[r]Proton
+802:	1	pail_hs[c]1-Phosphatidyl-1D-Myo-Inositol
+1498:	1	pheme[m]Protoheme
+1820:	1	pheme[c]Protoheme
+2107:	1	pail45p_hs[n]Phosphatidylinositol 4,5-Bisphosphate
+2109:	1	pail4p_hs[n]1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+2151:	1	pail3p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+2152:	1	pail35p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+2153:	1	pail5p_hs[c]1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+2154:	1	pail35p_hs[r]1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+2155:	1	pail5p_hs[r]1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+2157:	1	pail_hs[r]1-Phosphatidyl-1D-Myo-Inositol
+2348:	1	dha[e]Glycerone
+2349:	1	dhap[e]Dihydroxyacetone Phosphate
+2355:	1	isomal[e]Isomaltose,  Brachiose
+2707:	1	pail45p_hs[m]Phosphatidylinositol 4,5-Bisphosphate
+2708:	1	CE5101[m]1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+2774:	1	pail345p_hs[r]1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+3019:	1	C01601[c]Nonanoic Acid
+4270:	1	dsT_antigen[e]Disialyl-T Antigen
+4320:	1	etoh[e]Ethanol
+4321:	1	acald[e]Acetaldehyde
+4610:	1	gd1a_hs[c]N-Acetylneuraminosyl-D-Galactosyl-N-Acetyl-D-Galactosaminyl-(N-Acetylneuraminosyl)-D-Galactosyl-D-Glucosylceramide Dianion
+4634:	1	gda1_hs[n]Gda1 Hs
+4672:	1	C01601[e]Nonanoic Acid
+5158:	1	ac[x]Acetate
+5209:	1	dsT_antigen[c]Disialyl-T Antigen
+5444:	1	3hpvscoa[m]3'-S-hydroxy-pravastatin-CoA
+5445:	1	3hpvstetcoa[m]3'-S-hydroxy-pravastatin-tetranor-CoA
+5819:	1	3hpvscoa[c]3'-S-hydroxy-pravastatin-CoA
+5820:	1	3hpvstetcoa[c]3'-S-hydroxy-pravastatin-tetranor-CoA
+5830:	1	pap[r]Adenosine 3,5-Bismonophosphate
+
+
+1746	H2O Transport, Golgi Apparatus	H2Otg	 -0.00	 -0.00
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+products:
+686	       1	 -160.56	  0.00	  0.00	              h2o[g]	Water
+
+1747	H2O Transport, Lysosomal	H2Otly	 -0.00	 -0.00
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+products:
+138	       1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+
+1750	H2O Transport, Peroxisomal	H2Otp	 -0.00	 -0.00
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+products:
+384	       1	 -152.84	  0.00	  0.00	              h2o[x]	Water
+
+2360	Transport of Heme	PHEMEtm	-47.72	-12.10
+substrates:
+1498	      -1	 1444.32	-29.69	-11.88	            pheme[m]	Protoheme
+products:
+1820	       1	 1301.81	-29.69	-11.88	            pheme[c]	Protoheme
+
+3033	Glycerone Phosphate Phosphohydrolase (Alkaline Optimum)	r0242	-65.94	-12.50
+substrates:
+75	-0.199899	   43.94	-43.94	-43.94	                h[e]	Proton
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+2349	      -1	-1074.40	-29.69	-11.88	             dhap[e]	Dihydroxyacetone Phosphate
+products:
+653	       1	-1051.88	-29.69	-11.88	               pi[e]	Orthophosphate
+2348	       1	 -189.04	-29.69	-11.88	              dha[e]	Glycerone
+
+3070	Isomaltose 6-Alpha-D-Glucanohydrolase	r0390	-56.33	 -2.89
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+2355	      -1	 -603.55	-29.69	-11.88	           isomal[e]	Isomaltose,  Brachiose
+products:
+75	0.000196261	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       2	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
+
+3258	Free Diffusion	r0838	-27.03	 -8.56
+substrates:
+24	      -1	   90.26	-18.73	-18.08	              nh4[c]	Ammonium
+35	-0.037402	   42.75	-42.75	-42.75	                h[c]	Proton
+products:
+28	0.196891	   47.50	-47.50	-47.50	                h[m]	Proton
+637	       1	  108.79	-29.69	-11.88	              nh4[m]	Ammonium
+
+3351	ATP Exporter (ATP-E) Tcdb:9.A.6.1.1	r1116	-28.23	 -6.98
+substrates:
+35	-0.516478	   42.75	-42.75	-42.75	                h[c]	Proton
+38	      -1	-2271.09	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+products:
+75	 0.62886	   43.94	-43.94	-43.94	                h[e]	Proton
+652	       1	-2257.52	-29.69	-11.88	              atp[e]	Adenosine Triphosphate
+
+4418	Phosphatidylinositol-3,4-Bisphosphate 4-Phosphatase	RE1447M	-894.21	-840.77
+substrates:
+25	      -1	 -140.96	  0.00	  0.00	              h2o[m]	Water
+2707	      -1	  656.89	-29.69	-11.88	       pail45p_hs[m]	Phosphatidylinositol 4,5-Bisphosphate
+products:
+295	       1	-1047.76	-29.69	-11.88	               pi[m]	Orthophosphate
+2708	       1	  716.98	-29.69	-11.88	           CE5101[m]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+
+4419	Phosphatidylinositol-3,4-Bisphosphate 4-Phosphatase	RE1447N	-895.14	-841.70
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2107	      -1	  590.38	-29.69	-11.88	       pail45p_hs[n]	Phosphatidylinositol 4,5-Bisphosphate
+products:
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+2156	       1	  645.72	-29.69	-11.88	        pail5p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+
+4420	Phosphatidylinositol-3,4,5-Trisphosphate 3-Phosphatase	RE1448N	-901.06	-847.62
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2156	      -1	  645.72	-29.69	-11.88	        pail5p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+products:
+2105	       1	  695.14	-29.69	-11.88	          pail_hs[n]	1-Phosphatidyl-1D-Myo-Inositol
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+
+4421	Phosphatidylinositol-3,4,5-Trisphosphate 3-Phosphatase	RE1448R	-901.06	-847.62
+substrates:
+527	      -1	 -150.46	  0.00	  0.00	              h2o[r]	Water
+2155	      -1	  645.72	-29.69	-11.88	        pail5p_hs[r]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+products:
+795	       1	-1053.44	-29.69	-11.88	               pi[r]	Orthophosphate
+2157	       1	  695.14	-29.69	-11.88	          pail_hs[r]	1-Phosphatidyl-1D-Myo-Inositol
+
+4728	Phosphatidylinositol-3,4,5-Trisphosphate 3-Phosphatase	RE3268R	-889.22	-835.78
+substrates:
+527	      -1	 -150.46	  0.00	  0.00	              h2o[r]	Water
+2774	      -1	  529.12	-29.69	-11.88	      pail345p_hs[r]	1-Phosphatidyl-1D-Myo-Inositol 3,4,5-Trisphosphate
+products:
+795	       1	-1053.44	-29.69	-11.88	               pi[r]	Orthophosphate
+2154	       1	  590.38	-29.69	-11.88	       pail35p_hs[r]	1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+
+4729	Phosphatidylinositol-3,4-Bisphosphate 4-Phosphatase	RE3269C	-883.26	-842.89
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2152	      -1	  590.38	-29.69	-11.88	       pail35p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3,5-Bisphosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+2153	       1	  645.72	-29.69	-11.88	        pail5p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 5-Phosphate
+
+4730	RE3270C	RE3270C	-889.19	-848.81
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+2151	      -1	  645.72	-29.69	-11.88	        pail3p_hs[c]	1-Phosphatidyl-1D-Myo-Inositol 3-Phosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+802	       1	  695.14	-29.69	-11.88	          pail_hs[c]	1-Phosphatidyl-1D-Myo-Inositol
+
+4731	Phosphatidylinositol-3,4-Bisphosphate 4-Phosphatase	RE3272N	-901.06	-847.62
+substrates:
+735	      -1	 -150.46	  0.00	  0.00	              h2o[n]	Water
+2109	      -1	  645.72	-29.69	-11.88	        pail4p_hs[n]	1-Phosphatidyl-1D-Myo-Inositol 4-Phosphate
+products:
+2105	       1	  695.14	-29.69	-11.88	          pail_hs[n]	1-Phosphatidyl-1D-Myo-Inositol
+2146	       1	-1053.44	-29.69	-11.88	               pi[n]	Orthophosphate
+
+7295	H2O Transport via Diffusion	H2Ot	 -0.00	 -0.00
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+products:
+20	       1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+
+7529	Ethanol Reversible Transport	ETOHt	-172.34	-136.71
+substrates:
+4320	      -1	  268.08	-29.69	-11.88	             etoh[e]	Ethanol
+products:
+510	       1	  106.43	-29.69	-11.88	             etoh[c]	Ethanol
+
+7531	Acetaldehyde Reversible Transport	ACALDt	-139.19	-103.56
+substrates:
+4321	      -1	  178.72	-29.69	-11.88	            acald[e]	Acetaldehyde
+products:
+290	       1	   52.59	-29.69	-11.88	            acald[c]	Acetaldehyde
+
+8213	Transport of Gd1A 	GDA1tn	-97.07	-61.44
+substrates:
+4610	      -1	 4824.70	-29.69	-11.88	          gd1a_hs[c]	N-Acetylneuraminosyl-D-Galactosyl-N-Acetyl-D-Galactosaminyl-(N-Acetylneuraminosyl)-D-Galactosyl-D-Glucosylceramide Dianion
+products:
+4634	       1	    0.00	-29.69	-11.88	          gda1_hs[n]	Gda1 Hs
+
+8289	HMR_0176	HMR_0176	-331.07	-295.45
+substrates:
+35	-0.0106009	   42.75	-42.75	-42.75	                h[c]	Proton
+4672	      -1	  759.54	-29.69	-11.88	           C01601[e]	Nonanoic Acid
+products:
+75	0.00671497	   43.94	-43.94	-43.94	                h[e]	Proton
+3019	       1	  423.20	-29.69	-11.88	           C01601[c]	Nonanoic Acid
+
+9373	HMR_7173	HMR_7173	-78.23	-42.60
+substrates:
+35	     -46	   42.75	-42.75	-42.75	                h[c]	Proton
+5209	      -1	  434.92	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
+products:
+75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
+4270	       1	  446.80	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
+
+9529	HMR_9679	HMR_9679	-380.74	-345.11
+substrates:
+35	-0.00218285	   42.75	-42.75	-42.75	                h[c]	Proton
+5158	      -1	  126.91	-29.69	-11.88	               ac[x]	Acetate
+products:
+41	0.00345518	   41.56	-41.56	-41.56	                h[x]	Proton
+330	       1	 -233.65	-29.69	-11.88	               ac[c]	Acetate
+
+10349	3HPVSCOAitm	3HPVSCOAitm	-62.68	-27.05
+substrates:
+5444	      -1	 3225.60	-29.69	-11.88	         3hpvscoa[m]	3'-S-hydroxy-pravastatin-CoA
+products:
+5819	       1	 2907.33	-29.69	-11.88	         3hpvscoa[c]	3'-S-hydroxy-pravastatin-CoA
+
+10351	3HPVSTETCOAitm	3HPVSTETCOAitm	-77.64	-42.01
+substrates:
+5445	      -1	 2786.23	-29.69	-11.88	      3hpvstetcoa[m]	3'-S-hydroxy-pravastatin-tetranor-CoA
+products:
+5820	       1	 2510.72	-29.69	-11.88	      3hpvstetcoa[c]	3'-S-hydroxy-pravastatin-tetranor-CoA
+
+10460	PAPitr	PAPitr	-1886.80	-1851.18
+substrates:
+35	-0.15542	   42.75	-42.75	-42.75	                h[c]	Proton
+5830	      -1	  478.01	-29.69	-11.88	              pap[r]	Adenosine 3,5-Bismonophosphate
+products:
+64	       1	-1390.98	-29.69	-11.88	              pap[c]	Adenosine 3,5-Bismonophosphate
+729	 0.15542	   42.75	-42.75	-42.75	                h[r]	Proton
+

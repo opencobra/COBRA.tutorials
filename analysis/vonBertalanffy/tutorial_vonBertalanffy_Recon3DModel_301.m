@@ -1,6 +1,6 @@
-%% Thermodynamically constrain a metabolic model
+%% Thermodynamically constrain a Recon3D
 %% *Author: Ronan Fleming, Leiden University*
-%% *Reviewers: *
+%% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 
 % the principal constraints are uptake or secretion rates, the steady state mass 
@@ -12,18 +12,31 @@
 % to each reaction [2], (iii) analysis of thermochemical parameters in a network 
 % context, and (iv) thermodynamically constrained flux balance analysis. The theoretical 
 % basis for each of these methods is detailed within the cited papers.
-% 
-% %% PROCEDURE
+%% PROCEDURE
 %% Configure the environment
+% The default COBRA Toolbox paths are automatically changed here to work on 
+% the new version of vonBertalanffy
+
+aPath = which('initVonBertalanffy');
+basePath = strrep(aPath,['vonBertalanffy' filesep 'initVonBertalanffy.m'],'');
+addpath(genpath(basePath))
+folderPattern=[filesep 'old'];
+method = 'remove';
+editCobraToolboxPath(basePath,folderPattern,method)
+aPath = which('initVonBertalanffy');
+basePath = strrep(aPath,['vonBertalanffy' filesep 'initVonBertalanffy.m'],'');
+addpath(genpath(basePath))
+folderPattern=[filesep 'new'];
+method = 'add';
+editCobraToolboxPath(basePath,folderPattern,method)
+%% 
 % All the installation instructions are in a separate .md file named vonBertalanffy.md 
 % in docs/source/installation
 % 
 % With all dependencies installed correctly, we configure our environment, verfy 
 % all dependencies, and add required fields and directories to the matlab path.
 
-
 initVonBertalanffy
-
 %% Select the model
 % This tutorial is tested for the E. coli model iAF1260 and the human metabolic 
 % model Recon3Dmodel. However, only the data for the former is provided within 
@@ -110,11 +123,11 @@ switch modelName
         resultsPath=[basePath '/programReconstruction/projects/recon2models/results/thermo/' modelName];
         resultsBaseFileName=[resultsPath filesep modelName '_' datestr(now,30) '_'];
     case 'Recon3DModel_301'
-        basePath='~/work/sbgCloud';
+        basePath=['~' filesep 'work' filesep 'sbgCloud'];
         resultsPath=which('tutorial_vonBertalanffy.mlx');
-        resultsPath=strrep(resultsPath,'/tutorial_vonBertalanffy.mlx','');
+        resultsPath=strrep(resultsPath,[filesep 'tutorial_vonBertalanffy.mlx'],'');
         resultsPath=[resultsPath filesep modelName '_results'];
-        resultsBaseFileName=[resultsPath filesep modelName '_results'];
+        resultsBaseFileName=[resultsPath filesep modelName '_results_'];
     otherwise
         error('setup specific parameters for your model')
 end
@@ -122,17 +135,19 @@ end
 
 switch modelName
     case 'Ec_iAF1260_flux1'
-        molfileDir = 'iAF1260Molfiles';
+        molFileDir = 'iAF1260Molfiles';
     case 'iAF1260'
-        molfileDir = 'iAF1260Molfiles';
+        molFileDir = 'iAF1260Molfiles';
     case 'Recon3DModel_Dec2017'
-        molfileDir = [basePath '/data/metDatabase/explicit/molFiles'];
-        %molfileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBimplicitHMol'];
-        %molfileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBexplicitHMol'];
+        molFileDir = [basePath '/data/metDatabase/explicit/molFiles'];
+        %molFileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBimplicitHMol'];
+        %molFileDir = [basePath '/programModelling/projects/atomMapping/results/molFilesDatabases/DBexplicitHMol'];
     case 'Recon3DModel_301'
-        molfileDir = [basePath '/data/metDatabase/explicit/molFiles']; 
+        ctfPath = [basePath filesep 'code' filesep 'fork-ctf'];
+        % system(['git clone https://github.com/opencobra/ctf' ctfPath])
+        molFileDir = [basePath filesep 'code' filesep 'fork-ctf' filesep 'mets' filesep 'molFiles'];
     otherwise
-        error('setup specific parameters for your model')
+        molFileDir = [basePath '/code/fork-ctf/mets/molFiles'];
 end
 %% Set the thermochemical parameters for the model
 
@@ -211,7 +226,8 @@ switch modelName
         confidenceLevel = 0.95;
         DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
     otherwise
-        confidenceLevel = 0.95;
+        confidenceLevel = -1;%bypass addition of uncertainty temporarily
+        %confidenceLevel = 0.95;
         DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
 end
 %% Prepare folder for results
@@ -235,7 +251,14 @@ model=readMetRxnBoundsFiles(model,setDefaultConc,setDefaultFlux,concMinDefault,c
 %% Check inputs
 
 model = configureSetupThermoModelInputs(model,T,compartments,ph,is,chi,concMinDefault,concMaxDefault,confidenceLevel);
-%% Check elemental balancing of metabolic reactions
+%% Add InChI to model
+
+%[model, pKaErrorMets] = setupComponentContribution(model,molFileDir);
+model = addInchiToModel(model, molFileDir, 'sdf', printLevel);
+%% Add pseudoisomers to model
+
+[model, nonphysicalMetBool, pKaErrorMetBool] = addPseudoisomersToModel(model, printLevel);
+% Check elemental balancing of metabolic reactions
 
 ignoreBalancingOfSpecifiedInternalReactions=1;
 if ~exist('massImbalance','var')
@@ -284,36 +307,122 @@ if ~exist('massImbalance','var')
         model.SIntRxnBool=SIntRxnBool;
     end
 end
-%% Check that the input data necessary for the component contribution method is in place
+%% 
+%% Create the thermodynamic training model
 
-model = setupComponentContribution(model,molfileDir);
+if 1
+    %use previously generated training model
+    aPath = which('driver_createTrainingModel.mlx');
+    aPath = strrep(aPath,['new' filesep 'driver_createTrainingModel.mlx'],['cache' filesep]);
+    load([aPath 'trainingModel.mat'])
+else
+    %recreate the trainingModel
+    driver_createTrainingModel
+end
+%%
+figure
+histogram(trainingModel.DrGt0)
+title('$Experimental \smallskip \Delta_{r} G^{\prime0}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',nnz(trainingModel.DrGt0==0),' = number of zero DrGt0, i.e. experimental apparent equilibrium constant equal to one') 
+formulas = printRxnFormula(trainingModel,trainingModel.rxns(trainingModel.DrGt0==0));
+figure
+histogram(trainingModel.DrG0)
+title('$Experimental \medskip \Delta_{r} G^{0}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',nnz(trainingModel.DrG0==0),' = number of zero DrG0. i.e. equilibrium constant equal to one and same number of hydrogens on both sides') 
+formulas = printRxnFormula(trainingModel,trainingModel.rxns(trainingModel.DrG0==0));
 
-%% Prepare the training data for the component contribution method
+%% Create Group Incidence Matrix
+% Create the group incidence matrix (G) for the combined set of all metabolites.
 
-training_data = prepareTrainingData(model,printLevel);
-
-%% Call the component contribution method
+save('data_prior_to_createGroupIncidenceMatrix')
+%%
+%param.fragmentationMethod='manual';
+param.fragmentationMethod='abinito';
+param.printLevel=0;
+param.modelCache=['autoFragment_' modelName];
+param.debug=1;
+param.radius=2;
+%%
+combinedModel = createGroupIncidenceMatrix(model, trainingModel, param);
+%%
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool),' = number of training metabolites')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool),' = number of test metabolites')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
+fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
+fprintf('%u%s\n',size(combinedModel.S,1),' combined model metabolites.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & ~combinedModel.testMetBool),' ... of which are exclusively training metabolites.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.testMetBool),' ... of which are both training and test metabolites.')
+fprintf('%u%s\n',nnz(~combinedModel.trainingMetBool & combinedModel.testMetBool),' ... of which are exclusively test metabolites.')
+save('data_prior_to_componentContribution','model','combinedModel')
+%% Apply component contribution method
 
 if ~isfield(model,'DfG0')
-    [model,~] = componentContribution(model,training_data);
+    [model,solution] = componentContribution(model,combinedModel);
 end
+%%
+figure
+histogram(solution.DfG0_rc)
+title('$\textrm{Reactant contribution } \Delta_{f} G^{0}_{rc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_rc)),' formation energies')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_rc)),' of which DfG0_rc(j) are NaN. i.e., number of formation energies that cannot be estimated by reactant contribution')
+fprintf('%g%s\n',nnz(isnan(solution.DfG0_rc))/length(solution.DfG0_rc),' = fraction of DfG0_rc(j)==NaN')
+figure
+histogram(solution.DfG0_gc)
+title('$\textrm{Group formation energies } \Delta_{f} G^{0}_{gc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(solution.DfG0_gc),' estimated group formation energies')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_gc)),' of which have DfG0_gc(j)==NaN. i.e., number of formation energies that cannot be estimated by group contribution')
+fprintf('%g%s\n',nnz(isnan(solution.DfG0_gc))/length(solution.DfG0_gc),' fraction of DfG0_gc(j)==NaN')
+figure
+histogram(solution.DfG0_cc)
+title('$\textrm{Component contribution } \Delta_{f} G^{0}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(solution.DfG0_cc),' estimated reactant formation energies.')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_cc)),' of which have DfG0_cc(j)==NaN. i.e., number of formation energies that cannot be estimated by component contribution')
+fprintf('%g%s\n',nnz(isnan(solution.DfG0_cc))/length(solution.DfG0_cc),' = fraction of zero DfG0_cc')
+fprintf('%u%s\n',length(model.DfGt0),' model metabolites') 
+fprintf('%u%s\n',nnz(isnan(model.DfGt0)),' of which are DfG0_cc(j)==NaN. i.e., number of formation energies that cannot be estimated by component contribution')
+fprintf('%g%s\n',nnz(isnan(model.DfG0_cc))/length(model.DfG0_cc),' = fraction of zero DfG0_cc')
+
+figure
+histogram(model.DrG0)
+title('$\Delta_{r} G^{0}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(model.DrG0),' model reactions') 
+fprintf('%u%s\n',nnz(isnan(model.DrG0)),' of which have DrG0(j)==NaN. i.e. estimated equilibrium constant equal to one') 
+formulas = printRxnFormula(model,model.rxns(isnan(model.DrG0)));
+
 %% Setup a thermodynamically constrained model
 
+save('debug_prior_to_setupThermoModel')
+%%
 if ~isfield(model,'DfGt0')
     model = setupThermoModel(model,confidenceLevel);
 end
+%%
+figure
+histogram(model.DfGt0)
+title('$\Delta_{f} G^{0\prime}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+
 %% Generate a model with reactants instead of major microspecies
 
 if ~isfield(model,'Srecon') 
     printLevel_pHbalanceProtons=-1;
-
     model=pHbalanceProtons(model,massImbalance,printLevel_pHbalanceProtons,resultsBaseFileName);
 end
 %% Determine quantitative directionality assignments
 
-if ~exist('directions','var')
+if ~exist('directions','var') |  1
     fprintf('Quantitatively assigning reaction directionality.\n');
-    [modelThermo, directions] = thermoConstrainFluxBounds(model,confidenceLevel,DrGt0_Uncertainty_Cutoff,printLevel);
+    [model, directions] = thermoConstrainFluxBounds(model,confidenceLevel,DrGt0_Uncertainty_Cutoff,printLevel);
 end
 %% Analyse thermodynamically constrained model
 % Choose the cutoff for probablity that reaction is reversible
@@ -322,7 +431,7 @@ cumNormProbCutoff=0.2;
 %% 
 % Build Boolean vectors with reaction directionality statistics
 
-[modelThermo,directions]=directionalityStats(modelThermo,directions,cumNormProbCutoff,printLevel);
+[model,directions]=directionalityStats(model,directions,cumNormProbCutoff,printLevel);
 % directions    a structue of boolean vectors with different directionality
 %               assignments where some vectors contain subsets of others
 %
@@ -357,7 +466,7 @@ cumNormProbCutoff=0.2;
 % results folder.
 
 fprintf('%s\n','directionalityChangeReport...');
-directionalityChangeReport(modelThermo,directions,cumNormProbCutoff,printLevel,resultsBaseFileName)
+directionalityChangeReport(model,directions,cumNormProbCutoff,printLevel,resultsBaseFileName)
 %% 
 % Generate pie charts with proportions of reaction directionalities and changes 
 % in directionality
@@ -370,13 +479,15 @@ directionalityStatsFigures(directions,resultsBaseFileName)
 
 if any(directions.forward2Reversible)
     fprintf('%s\n','forwardReversibleFigures...');
-    forwardReversibleFigures(modelThermo,directions,confidenceLevel)
+    forwardReversibleFigures(model,directions,confidenceLevel)
 end
 %% 
 % Write out tables of experimental and estimated thermochemical parameters for 
 % the model
 
-generateThermodynamicTables(modelThermo,resultsBaseFileName);
+generateThermodynamicTables(model,resultsBaseFileName);
+save([datestr(now,30) '_' modelName '_thermo'],'model')
+save([datestr(now,30) '_vonB_tutorial_complete'])
 %% 
 % *REFERENCES*
 % 

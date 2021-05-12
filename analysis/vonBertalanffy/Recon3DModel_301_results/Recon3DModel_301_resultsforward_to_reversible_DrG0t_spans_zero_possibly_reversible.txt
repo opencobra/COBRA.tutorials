@@ -1,3 +1,0 @@
-HMR_5409	h2co3[e]  -> h[e] + hco3[e] 	-10.9	8.0	-28.7	25.8
-
-Cytoplasmic metabolites only:
