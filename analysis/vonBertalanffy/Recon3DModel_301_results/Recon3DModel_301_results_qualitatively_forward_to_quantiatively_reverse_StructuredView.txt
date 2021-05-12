@@ -1,92 +1,215 @@
-Metabolites which force 8 qualitatively forward -> quantiatively reverse
-35:	7	h[c]Proton
-28:	3	h[m]Proton
+Metabolites which force 20 qualitatively forward -> quantiatively reverse
+138:	9	h2o[l]Water
+913:	6	Ser_Gly_Ala_X_Gly[l]Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+35:	5	h[c]Proton
+191:	3	h2o[e]Water
+639:	3	Asn_X_Ser_Thr[l]Protein Asparagine
+28:	2	h[m]Proton
+40:	2	pi[c]Orthophosphate
 75:	2	h[e]Proton
 231:	2	h[g]Proton
 1095:	2	dsT_antigen[g]Disialyl-T Antigen
-68:	1	akg[c]2-Oxoglutarate
-121:	1	3hmp[m]3-Hydroxy-2-Methylpropanoate
-122:	1	glu_L[c]L-Glutamate
-412:	1	datp[c]Deoxyadenosine Triphosphate
-417:	1	g1p[c]D-Glucose 1-Phosphate
-1031:	1	datp[m]Deoxyadenosine Triphosphate
-1154:	1	3pg[c]3-Phospho-D-Glycerate
-1156:	1	13dpg[c]3-Phospho-D-Glyceroyl Phosphate
+4640:	2	M00234[e]1,2-Diacylglycerol-Chylomicron-Pool
+4641:	2	M01807[e]Fatty-Acid-Chylomicron-Pool
+20:	1	h2o[c]Water
+38:	1	atp[c]Adenosine Triphosphate
+139:	1	pi[l]Orthophosphate
+265:	1	h[l]Proton
+293:	1	atp[m]Adenosine Triphosphate
+295:	1	pi[m]Orthophosphate
+912:	1	cspg_a[l]Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan
+914:	1	cs_a[l]Chondroitin Sulfate A (GalNac4S-Glca), Free Chain
+915:	1	cspg_b[l]Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S) Proteoglycan
+916:	1	cs_b[l]Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S), Free Chain
+917:	1	cspg_c[l]Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan
+918:	1	cs_c[l]Chondroitin Sulfate C (GalNac6S-Glca), Free Chain
+919:	1	cspg_d[l]Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan
+920:	1	cs_d[l]Chondroitin Sulfate D (GlcNac6S-Glca2S), Free Chain
+921:	1	cspg_e[l]Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan
+922:	1	cs_e[l]Chondroitin Sulfate E (GalNac4,6Dis-Glca), Free Chain
+1197:	1	n2m2nm[l]N2M2Nmasn (W/O Peptide Linkage)
+1198:	1	ksi_deg2[l]Keratan Sulfate I, Degradation Product 2
+1200:	1	s2l2n2m2m[l]De-Fuc Form Of Pa6 (Wo Peptide Linkage)
+1531:	1	ksi_deg1[l]Keratan Sulfate I, Degradation Product 1
+1533:	1	s2l2n2m2masn[l]De-Fuc Form Of Pa6
 1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1651:	1	gd3_hs[c]Gd3
+1658:	1	n2m2nmasn[l]N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,3-(N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,6)-(N-Acetyl-Beta-D-Glucosaminyl-1,4)-Beta-D-Mannosyl-1,4-N-Acetyl-Beta-D-Glucosaminyl-R
 1755:	1	glx[c]Glyoxylate
 1757:	1	glyc3p[m]Glycerol 3-Phosphate
-2127:	1	3php[c]3-Phosphonatooxypyruvate
-3584:	1	3hmp[c]3-Hydroxy-2-Methylpropanoate
-3724:	1	pser_L[c]O-Phospho-L-Serine
+1854:	1	hspg[l]Heparan Sulfate Proteoglycan
+1855:	1	hs[l]Heparan Sulfate, Free Chain
 4270:	1	dsT_antigen[e]Disialyl-T Antigen
 4328:	1	glx[e]Glyoxylate
+4637:	1	gd3_hs[m]Gd3
+4639:	1	M02956[e]Tags-Chylomicron-Pool
+4642:	1	M00503[e]Monoacylglycerol-Chylomicron-Pool
+4643:	1	M00241[e]1,2-Diacylglycerol-VLDL-Pool
+4644:	1	M01820[e]Fatty-Acid-VLDL-Pool
+4645:	1	M00510[e]1-Acylglycerol-VLDL-Pool
+4745:	1	HC02060[c]1,2-Diacylglycerol-Ld-Sm-Pool
+4748:	1	HC02076[c]1-Acylglycerol-Ld-Sm-Pool
+4749:	1	HC02070[c]Fatty-Acid-Ld-Sm-Pool
 5209:	1	dsT_antigen[c]Disialyl-T Antigen
-5248:	1	M01966[c]D-Glucose 1,6-Bisphosphate
 
 
-1680	Glycerol-3-Phosphate Shuttle	GLYC3Ptm	  4.12	 56.53
+603	Chondroitin Sulfate A Proteoglycan Protease, Lysosomal (Endosome)	CSAPASEly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+912	      -1	 2185.77	-29.69	-11.88	           cspg_a[l]	Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan
+products:
+913	       1	   33.40	-29.69	-11.88	Ser_Gly_Ala_X_Gly[l]	Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+914	       1	 2219.17	-29.69	-11.88	             cs_a[l]	Chondroitin Sulfate A (GalNac4S-Glca), Free Chain
+
+604	Chondroitin Sulfate B Proteoglycan Protease, Lysosomal (Endosome)	CSBPASEly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+915	      -1	 2144.23	-29.69	-11.88	           cspg_b[l]	Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S) Proteoglycan
+products:
+913	       1	   33.40	-29.69	-11.88	Ser_Gly_Ala_X_Gly[l]	Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+916	       1	 2177.63	-29.69	-11.88	             cs_b[l]	Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S), Free Chain
+
+605	Chondroitin Sulfate C Proteoglycan Protease, Lysosomal (Endosome)	CSCPASEly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+917	      -1	 2185.77	-29.69	-11.88	           cspg_c[l]	Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan
+products:
+913	       1	   33.40	-29.69	-11.88	Ser_Gly_Ala_X_Gly[l]	Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+918	       1	 2219.17	-29.69	-11.88	             cs_c[l]	Chondroitin Sulfate C (GalNac6S-Glca), Free Chain
+
+606	Chondroitin Sulfate D Proteoglycan Protease, Lysosomal (Endosome)	CSDPASEly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+919	      -1	 2101.21	-29.69	-11.88	           cspg_d[l]	Chondroitin Sulfate D (GlcNac6S-Glca2S) Proteoglycan
+products:
+913	       1	   33.40	-29.69	-11.88	Ser_Gly_Ala_X_Gly[l]	Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+920	       1	 2134.60	-29.69	-11.88	             cs_d[l]	Chondroitin Sulfate D (GlcNac6S-Glca2S), Free Chain
+
+607	Chondroitin Sulfate E Proteoglycan Protease, Lysosomal (Endosome)	CSEPASEly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+921	      -1	 2056.70	-29.69	-11.88	           cspg_e[l]	Chondroitin Sulfate E (GalNac4,6Dis-Glca) Proteoglycan
+products:
+913	       1	   33.40	-29.69	-11.88	Ser_Gly_Ala_X_Gly[l]	Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+922	       1	 2090.10	-29.69	-11.88	             cs_e[l]	Chondroitin Sulfate E (GalNac4,6Dis-Glca), Free Chain
+
+1553	Glycosylasparaginase, Lysosomal	GASNASE2ly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1658	      -1	 3206.23	-29.69	-11.88	        n2m2nmasn[l]	N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,3-(N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,6)-(N-Acetyl-Beta-D-Glucosaminyl-1,4)-Beta-D-Mannosyl-1,4-N-Acetyl-Beta-D-Glucosaminyl-R
+products:
+639	       1	   33.40	-29.69	-11.88	    Asn_X_Ser_Thr[l]	Protein Asparagine
+1197	       1	 3239.63	-29.69	-11.88	           n2m2nm[l]	N2M2Nmasn (W/O Peptide Linkage)
+
+1554	Glycosylasparaginase, Lysosomal	GASNASE3ly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1531	      -1	12666.39	-29.69	-11.88	         ksi_deg1[l]	Keratan Sulfate I, Degradation Product 1
+products:
+639	       1	   33.40	-29.69	-11.88	    Asn_X_Ser_Thr[l]	Protein Asparagine
+1198	       1	12699.79	-29.69	-11.88	         ksi_deg2[l]	Keratan Sulfate I, Degradation Product 2
+
+1555	Glycosylasparaginase, Lysosomal	GASNASEly	189.95	243.39
+substrates:
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1533	      -1	 4505.80	-29.69	-11.88	     s2l2n2m2masn[l]	De-Fuc Form Of Pa6
+products:
+639	       1	   33.40	-29.69	-11.88	    Asn_X_Ser_Thr[l]	Protein Asparagine
+1200	       1	 4539.20	-29.69	-11.88	        s2l2n2m2m[l]	De-Fuc Form Of Pa6 (Wo Peptide Linkage)
+
+1680	Glycerol-3-Phosphate Shuttle	GLYC3Ptm	 12.51	 48.14
 substrates:
 28	-0.0327673	   47.50	-47.50	-47.50	                h[m]	Proton
-1570	      -1	-1020.84	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
+1570	      -1	-1032.50	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
 products:
 35	0.176126	   42.75	-42.75	-42.75	                h[c]	Proton
-1757	       1	 -987.17	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
+1757	       1	 -998.83	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
 
-5342	Transport of dATP into Mitochondria	DATPtm	 16.19	 96.65
+1842	Heparan Sulfate Proteoglycan Protease, Lysosomal (Endosome)	HSPASEly	189.95	243.39
 substrates:
-35	-0.516447	   42.75	-42.75	-42.75	                h[c]	Proton
-412	      -1	-2122.99	-29.69	-11.88	             datp[c]	Deoxyadenosine Triphosphate
+138	      -1	 -170.65	  0.00	  0.00	              h2o[l]	Water
+1854	      -1	 3648.87	-29.69	-11.88	             hspg[l]	Heparan Sulfate Proteoglycan
 products:
-28	0.870981	   47.50	-47.50	-47.50	                h[m]	Proton
-1031	       1	-2069.39	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+913	       1	   33.40	-29.69	-11.88	Ser_Gly_Ala_X_Gly[l]	Protein-Linked Serine Residue (Glycosaminoglycan Attachment Site)
+1855	       1	 3682.26	-29.69	-11.88	               hs[l]	Heparan Sulfate, Free Chain
 
-7042	Dst_Antigen (Mucin O-Glycan) Export	DST_ANTIGENt	281.41	329.34
+3264	Facilitated Diffusion	r0853	 18.20	 49.32
+substrates:
+35	-0.876393	   42.75	-42.75	-42.75	                h[c]	Proton
+38	      -1	-2271.09	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+295	      -1	-1047.76	-29.69	-11.88	               pi[m]	Orthophosphate
+products:
+28	 0.95286	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+293	       1	-2217.49	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+
+3360	Facilitated Diffusion	r1150	  5.28	 27.84
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+139	      -1	-1071.08	-29.69	-11.88	               pi[l]	Orthophosphate
+products:
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+265	0.966085	   32.66	-32.66	-32.66	                h[l]	Proton
+
+7042	Dst_Antigen (Mucin O-Glycan) Export	DST_ANTIGENt	278.29	313.92
 substrates:
 231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
-1095	      -1	 -213.51	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+1095	      -1	 -204.23	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
 products:
 75	      46	   43.94	-43.94	-43.94	                h[e]	Proton
 4270	       1	  446.80	-29.69	-11.88	      dsT_antigen[e]	Disialyl-T Antigen
 
-7086	Transport of 3-Hydroxy-Isobutyrate, Mitochondrial	3HMPtm	456.84	529.52
-substrates:
-35	-0.00147684	   42.75	-42.75	-42.75	                h[c]	Proton
-121	      -1	 -170.44	-29.69	-11.88	             3hmp[m]	3-Hydroxy-2-Methylpropanoate
-products:
-28	0.000234354	   47.50	-47.50	-47.50	                h[m]	Proton
-3584	       1	  304.44	-29.69	-11.88	             3hmp[c]	3-Hydroxy-2-Methylpropanoate
-
-7341	Phosphoserine Transaminase	PSERT	1286.08	1404.82
-substrates:
-35	-0.0717184	   42.75	-42.75	-42.75	                h[c]	Proton
-122	      -1	 -318.63	-29.69	-11.88	            glu_L[c]	L-Glutamate
-2127	      -1	-1386.57	-29.69	-11.88	             3php[c]	3-Phosphonatooxypyruvate
-products:
-68	       1	 -620.21	-29.69	-11.88	              akg[c]	2-Oxoglutarate
-3724	       1	  260.46	-29.69	-11.88	           pser_L[c]	O-Phospho-L-Serine
-
-7557	Transport of Glyoxylate, Extracellular	GLXte	444.69	493.64
+7557	Transport of Glyoxylate, Extracellular	GLXte	452.35	487.98
 substrates:
 75	-1.62173e-05	   43.94	-43.94	-43.94	                h[e]	Proton
-1755	      -1	 -428.57	-29.69	-11.88	              glx[c]	Glyoxylate
+1755	      -1	 -429.57	-29.69	-11.88	              glx[c]	Glyoxylate
 products:
 35	2.57024e-05	   42.75	-42.75	-42.75	                h[c]	Proton
 4328	       1	   44.68	-29.69	-11.88	              glx[e]	Glyoxylate
 
-9300	HMR_4955	HMR_4955	341.83	389.76
+8240	Transport of Gd3, Mitochondrial	GD3tm	 12.10	 47.73
+substrates:
+1651	      -1	 3824.37	-29.69	-11.88	           gd3_hs[c]	Gd3
+products:
+4637	       1	 4242.39	-29.69	-11.88	           gd3_hs[m]	Gd3
+
+8270	Lipoprotein Lipase	HMR_0002	189.95	243.39
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+4639	      -1	  223.40	-29.69	-11.88	           M02956[e]	Tags-Chylomicron-Pool
+products:
+4640	       1	  268.08	-29.69	-11.88	           M00234[e]	1,2-Diacylglycerol-Chylomicron-Pool
+4641	       1	   44.68	-29.69	-11.88	           M01807[e]	Fatty-Acid-Chylomicron-Pool
+
+8271	Triacylglycerol Lipase	HMR_0003	189.95	243.39
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+4640	      -1	  268.08	-29.69	-11.88	           M00234[e]	1,2-Diacylglycerol-Chylomicron-Pool
+products:
+4641	       1	   44.68	-29.69	-11.88	           M01807[e]	Fatty-Acid-Chylomicron-Pool
+4642	       1	  312.76	-29.69	-11.88	           M00503[e]	Monoacylglycerol-Chylomicron-Pool
+
+8272	Lipoprotein Lipase	HMR_0008	189.95	243.39
+substrates:
+191	      -1	 -148.09	  0.00	  0.00	              h2o[e]	Water
+4643	      -1	  268.08	-29.69	-11.88	           M00241[e]	1,2-Diacylglycerol-VLDL-Pool
+products:
+4644	       1	   44.68	-29.69	-11.88	           M01820[e]	Fatty-Acid-VLDL-Pool
+4645	       1	  312.76	-29.69	-11.88	           M00510[e]	1-Acylglycerol-VLDL-Pool
+
+8465	Triacylglycerol Lipase	HMR_0672	189.95	243.39
+substrates:
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+4745	      -1	  260.95	-29.69	-11.88	          HC02060[c]	1,2-Diacylglycerol-Ld-Sm-Pool
+products:
+4748	       1	  304.45	-29.69	-11.88	          HC02076[c]	1-Acylglycerol-Ld-Sm-Pool
+4749	       1	   43.49	-29.69	-11.88	          HC02070[c]	Fatty-Acid-Ld-Sm-Pool
+
+9300	HMR_4955	HMR_4955	338.71	374.33
 substrates:
 231	     -46	   37.70	-37.70	-37.70	                h[g]	Proton
-1095	      -1	 -213.51	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
+1095	      -1	 -204.23	-29.69	-11.88	      dsT_antigen[g]	Disialyl-T Antigen
 products:
 35	      46	   42.75	-42.75	-42.75	                h[c]	Proton
 5209	       1	  434.92	-29.69	-11.88	      dsT_antigen[c]	Disialyl-T Antigen
-
-9447	3-Phospho-D-Glyceroyl-Phosphate:Alpha-D-Glucose-1-Phosphate 6-Phosphotransferase	HMR_8585	2569.69	2675.31
-substrates:
-35	-0.0134824	   42.75	-42.75	-42.75	                h[c]	Proton
-417	      -1	-1278.36	-29.69	-11.88	              g1p[c]	D-Glucose 1-Phosphate
-1156	      -1	-2197.88	-29.69	-11.88	            13dpg[c]	3-Phospho-D-Glyceroyl Phosphate
-products:
-1154	       1	-1331.60	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
-5248	       1	  477.86	-29.69	-11.88	           M01966[c]	D-Glucose 1,6-Bisphosphate
 

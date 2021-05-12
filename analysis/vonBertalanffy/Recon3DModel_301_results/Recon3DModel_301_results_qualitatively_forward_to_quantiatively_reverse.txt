@@ -1,24 +1,33 @@
-GLYC3Ptm	0.0327673 h[m] + glyc3p[c]  -> 0.176126 h[c] + glyc3p[m] 	21.9	38.7	4.1	56.5
-DATPtm	0.516447 h[c] + datp[c]  -> 0.870981 h[m] + datp[m] 	34.0	78.8	16.2	96.6
-DST_ANTIGENt	46 h[g] + dsT_antigen[g]  -> 46 h[e] + dsT_antigen[e] 	299.2	311.5	281.4	329.3
-3HMPtm	0.00147684 h[c] + 3hmp[m]  -> 0.000234354 h[m] + 3hmp[c] 	474.7	511.7	456.8	529.5
-PSERT	0.0717184 h[c] + glu_L[c] + 3php[c]  -> akg[c] + pser_L[c] 	1321.7	1369.2	1286.1	1404.8
-GLXte	1.62173e-05 h[e] + glx[c]  -> 2.57024e-05 h[c] + glx[e] 	462.5	475.8	444.7	493.6
-HMR_4955	46 h[g] + dsT_antigen[g]  -> 46 h[c] + dsT_antigen[c] 	359.6	371.9	341.8	389.8
-HMR_8585	0.0134824 h[c] + g1p[c] + 13dpg[c]  -> 3pg[c] + M01966[c] 	2605.3	2639.7	2569.7	2675.3
+CSAPASEly	h2o[l] + cspg_a[l]  -> Ser_Gly_Ala_X_Gly[l] + cs_a[l] 	237.4	237.4	189.9	243.4
+CSBPASEly	h2o[l] + cspg_b[l]  -> Ser_Gly_Ala_X_Gly[l] + cs_b[l] 	237.4	237.4	189.9	243.4
+CSCPASEly	h2o[l] + cspg_c[l]  -> Ser_Gly_Ala_X_Gly[l] + cs_c[l] 	237.4	237.4	189.9	243.4
+CSDPASEly	h2o[l] + cspg_d[l]  -> Ser_Gly_Ala_X_Gly[l] + cs_d[l] 	237.4	237.4	189.9	243.4
+CSEPASEly	h2o[l] + cspg_e[l]  -> Ser_Gly_Ala_X_Gly[l] + cs_e[l] 	237.4	237.4	189.9	243.4
+GASNASE2ly	h2o[l] + n2m2nmasn[l]  -> Asn_X_Ser_Thr[l] + n2m2nm[l] 	237.4	237.4	189.9	243.4
+GASNASE3ly	h2o[l] + ksi_deg1[l]  -> Asn_X_Ser_Thr[l] + ksi_deg2[l] 	237.4	237.4	189.9	243.4
+GASNASEly	h2o[l] + s2l2n2m2masn[l]  -> Asn_X_Ser_Thr[l] + s2l2n2m2m[l] 	237.4	237.4	189.9	243.4
+GLYC3Ptm	0.0327673 h[m] + glyc3p[c]  -> 0.176126 h[c] + glyc3p[m] 	30.3	30.3	12.5	48.1
+HSPASEly	h2o[l] + hspg[l]  -> Ser_Gly_Ala_X_Gly[l] + hs[l] 	237.4	237.4	189.9	243.4
+r0853	0.876393 h[c] + atp[c] + pi[m]  -> 0.95286 h[m] + pi[c] + atp[m] 	25.6	25.6	18.2	49.3
+r1150	0.359915 h[c] + pi[l]  -> pi[c] + 0.966085 h[l] 	11.2	11.2	5.3	27.8
+DST_ANTIGENt	46 h[g] + dsT_antigen[g]  -> 46 h[e] + dsT_antigen[e] 	296.1	296.1	278.3	313.9
+GLXte	1.62173e-05 h[e] + glx[c]  -> 2.57024e-05 h[c] + glx[e] 	470.2	470.2	452.4	488.0
+GD3tm	gd3_hs[c]  -> gd3_hs[m] 	29.9	29.9	12.1	47.7
+HMR_0002	h2o[e] + M02956[e]  -> M00234[e] + M01807[e] 	237.4	237.4	189.9	243.4
+HMR_0003	h2o[e] + M00234[e]  -> M01807[e] + M00503[e] 	237.4	237.4	189.9	243.4
+HMR_0008	h2o[e] + M00241[e]  -> M01820[e] + M00510[e] 	237.4	237.4	189.9	243.4
+HMR_0672	h2o[c] + HC02060[c]  -> HC02076[c] + HC02070[c] 	237.4	237.4	189.9	243.4
+HMR_4955	46 h[g] + dsT_antigen[g]  -> 46 h[c] + dsT_antigen[c] 	356.5	356.5	338.7	374.3
 
 Cytoplasmic metabolites only:
-4.677929e+01	h	h[c]	42.8	0.0	
-1	akg	akg[c]	-620.2	3.9	
-1	glu_L	glu_L[c]	-318.6	7.9	
-1	datp	datp[c]	-2123.0	8.1	
-1	g1p	g1p[c]	-1278.4	2.7	
-1	3pg	3pg[c]	-1331.6	2.9	
-1	13dpg	13dpg[c]	-2197.9	4.9	
-1	glyc3p	glyc3p[c]	-1020.8	3.0	
-1	glx	glx[c]	-428.6	2.4	
-1	3php	3php[c]	-1386.6	3.0	
-1	3hmp	3hmp[c]	304.4	6.7	
-1	pser_L	pser_L[c]	260.5	7.8	
-1	dsT_antigen	dsT_antigen[c]	434.9	2.2	
-1	M01966	M01966[c]	477.9	6.0	
+1	h2o	h2o[c]	-150.5	0.9	
+4.741247e+01	h	h[c]	42.8	0.0	
+1	atp	atp[c]	-2271.1	2.4	
+2	pi	pi[c]	-1053.4	1.0	
+1	glyc3p	glyc3p[c]	-1032.5	1.3	
+1	gd3_hs	gd3_hs[c]	3824.4	0.0	
+1	glx	glx[c]	-429.6	1.7	
+1	HC02060	HC02060[c]	261.0	0.0	
+1	HC02076	HC02076[c]	304.4	0.0	
+1	HC02070	HC02070[c]	43.5	0.0	
+1	dsT_antigen	dsT_antigen[c]	434.9	2.3	

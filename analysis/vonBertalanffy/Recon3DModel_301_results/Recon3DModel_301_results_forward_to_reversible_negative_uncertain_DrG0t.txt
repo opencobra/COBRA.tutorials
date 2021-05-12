@@ -1,14 +1,2 @@
-SUCRe	h2o[e] + sucr[e]  -> 0.00249497 h[e] + glc_D[e] + fru[e] 	-59.3	-3.7	-106.8	2.3
-2M3HBUtm	0.00203746 h[c] + 2m3hbu[m]  -> 0.00032347 h[m] + 2m3hbu[c] 	-25.6	-4.4	-43.4	13.5
-2M3OVACtm	0.00131645 h[c] + 2m3ovac[m]  -> 0.000208874 h[m] + 2m3ovac[c] 	-27.2	-2.7	-45.1	15.1
-GLUTCONtm	0.0020871 h[c] + glutcon[m]  -> 0.000331059 h[m] + glutcon[c] 	-45.7	-14.1	-63.5	3.7
-3HIVActm	0.00223359 h[c] + 3hivac[m]  -> 0.000354666 h[m] + 3hivac[c] 	-25.8	-4.2	-43.6	13.7
-4OHBUTtmc	0.00173468 h[c] + 4ohbut[m]  -> 0.000275331 h[m] + 4ohbut[c] 	-22.0	-7.9	-39.8	9.9
 
 Cytoplasmic metabolites only:
-9.409273e-03	h	h[c]	42.8	0.0	
-1	2m3hbu	2m3hbu[c]	391.4	3.8	
-1	2m3ovac	2m3ovac[c]	391.4	4.4	
-1	glutcon	glutcon[c]	174.0	5.7	
-1	3hivac	3hivac[c]	391.4	3.9	
-1	4ohbut	4ohbut[c]	304.4	2.5	

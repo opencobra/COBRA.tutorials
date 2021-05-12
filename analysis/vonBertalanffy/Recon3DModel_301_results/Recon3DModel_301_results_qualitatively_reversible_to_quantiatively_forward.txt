@@ -1,49 +1,47 @@
-FUC13GALACGLCGAL14ACGLCGALGLUSIDEtg	fuc13galacglcgal14acglcgalgluside_hs[g]  <=> fuc13galacglcgal14acglcgalgluside_hs[c] 	-538.7	-470.8	-556.5	-453.0
-FUCACNGAL14ACGLCGALGLUSIDEtg	fucacngal14acglcgalgluside_hs[g]  <=> fucacngal14acglcgalgluside_hs[c] 	-476.9	-461.9	-494.7	-444.0
-GLYC2P3Pc	0.0907734 h[c] + glyc2p[c]  <=> glyc3p[c] 	-1333.9	-1316.3	-1351.7	-1298.4
-MMALtm	0.102989 h[c] + HC00900[m]  <=> 0.0178705 h[m] + HC00900[c] 	-41.3	-19.0	-59.1	-1.2
-ETHAt	0.0124173 h[e] + etha[e]  <=> 0.00787086 h[c] + etha[c] 	-211.1	-182.7	-228.9	-164.9
-r2535m	0.109425 h[m] + hom_L[m]  <=> 0.0190914 h[c] + hom_L[c] 	-513.0	-470.0	-530.8	-452.2
-XYLt	2.08672e-05 h[e] + xyl_D[e]  <=> 1.31664e-05 h[c] + xyl_D[c] 	-754.7	-740.9	-772.5	-723.0
-ETOHt	etoh[e]  <=> etoh[c] 	-175.5	-162.2	-193.3	-144.4
-ACALDt	acald[e]  <=> acald[c] 	-142.0	-132.7	-159.9	-114.9
-GLCRt1	0.00021168 h[c] + glcr[e]  <=> 0.00012682 h[e] + glcr[c] 	-1297.5	-1273.6	-1315.3	-1255.8
-AACTte	0.392034 h[e] + aact[e]  <=> 0.289197 h[c] + aact[c] 	-175.3	-148.2	-193.1	-130.4
-SPHGNte	0.022368 h[e] + sphgn[e]  <=> 0.0142308 h[c] + sphgn[c] 	-299.8	-221.7	-317.6	-203.9
-HMR_0176	0.0106009 h[c] + C01601[e]  <=> 0.00671497 h[e] + C01601[c] 	-330.7	-295.0	-348.5	-277.1
-HMR_7173	46 h[c] + dsT_antigen[c]  <=> 46 h[e] + dsT_antigen[e] 	-66.6	-54.3	-84.4	-36.5
-HMR_7748	M01389[c]  <=> 5.15143e-13 h[c] + g6p[c] 	-1764.8	-1748.2	-1782.7	-1730.4
-HMR_7749	M01389[c]  <=> 0.00132069 h[c] + f6p[c] 	-1763.2	-1746.5	-1781.0	-1728.7
-HMR_9174	0.000308965 h[m] + itacon[c]  <=> 0.00194788 h[c] + itacon[m] 	-609.5	-537.0	-627.3	-519.2
-HMR_9179	0.0101388 h[c] + orn_D[c]  <=> 0.006381 h[x] + orn_D[x] 	-386.5	-324.1	-404.3	-306.3
-HMR_9679	0.00218285 h[c] + ac[x]  <=> 0.00345518 h[x] + ac[c] 	-352.7	-341.4	-370.6	-323.6
-GLYitr	0.0159266 h[r] + gly[r]  <=> 0.0159266 h[c] + gly[c] 	-387.6	-338.7	-405.4	-320.9
-PAPSitr	0.15542 h[c] + paps[r]  <=> paps[c] + 0.15542 h[r] 	-1899.9	-1864.3	-1917.7	-1846.5
-PAPitr	0.15542 h[c] + pap[r]  <=> pap[c] + 0.15542 h[r] 	-1898.9	-1863.5	-1916.7	-1845.7
+H2Otg	h2o[c]  <=> h2o[g] 	-0.0	-0.0	-0.0	-0.0
+H2Otly	h2o[c]  <=> h2o[l] 	-0.0	-0.0	-0.0	-0.0
+H2Otp	h2o[c]  <=> h2o[x] 	-0.0	-0.0	-0.0	-0.0
+PHEMEtm	pheme[m]  <=> pheme[c] 	-29.9	-29.9	-47.7	-12.1
+r0242	0.199899 h[e] + h2o[e] + dhap[e]  <=> pi[e] + dha[e] 	-18.4	-18.4	-65.9	-12.5
+r0390	h2o[e] + isomal[e]  <=> 0.000196261 h[e] + 2 glc_D[e] 	-8.8	-8.8	-56.3	-2.9
+r0838	nh4[c] + 0.037402 h[c]  <=> 0.196891 h[m] + nh4[m] 	-15.4	-15.4	-27.0	-8.6
+r1116	0.516478 h[c] + atp[c]  <=> 0.62886 h[e] + atp[e] 	-12.3	-12.3	-28.2	-7.0
+RE1447M	h2o[m] + pail45p_hs[m]  <=> pi[m] + CE5101[m] 	-846.7	-846.7	-894.2	-840.8
+RE1447N	h2o[n] + pail45p_hs[n]  <=> pi[n] + pail5p_hs[n] 	-847.6	-847.6	-895.1	-841.7
+RE1448N	h2o[n] + pail5p_hs[n]  <=> pail_hs[n] + pi[n] 	-853.6	-853.6	-901.1	-847.6
+RE1448R	h2o[r] + pail5p_hs[r]  <=> pi[r] + pail_hs[r] 	-853.6	-853.6	-901.1	-847.6
+RE3268R	h2o[r] + pail345p_hs[r]  <=> pi[r] + pail35p_hs[r] 	-841.7	-841.7	-889.2	-835.8
+RE3269C	h2o[c] + pail35p_hs[c]  <=> pi[c] + pail5p_hs[c] 	-847.6	-847.6	-883.3	-842.9
+RE3270C	h2o[c] + pail3p_hs[c]  <=> pi[c] + pail_hs[c] 	-853.6	-853.6	-889.2	-848.8
+RE3272N	h2o[n] + pail4p_hs[n]  <=> pail_hs[n] + pi[n] 	-853.6	-853.6	-901.1	-847.6
+H2Ot	h2o[e]  <=> h2o[c] 	-0.0	-0.0	-0.0	-0.0
+ETOHt	etoh[e]  <=> etoh[c] 	-154.5	-154.5	-172.3	-136.7
+ACALDt	acald[e]  <=> acald[c] 	-121.4	-121.4	-139.2	-103.6
+GDA1tn	gd1a_hs[c]  <=> gda1_hs[n] 	-79.3	-79.3	-97.1	-61.4
+HMR_0176	0.0106009 h[c] + C01601[e]  <=> 0.00671497 h[e] + C01601[c] 	-313.3	-313.3	-331.1	-295.4
+HMR_7173	46 h[c] + dsT_antigen[c]  <=> 46 h[e] + dsT_antigen[e] 	-60.4	-60.4	-78.2	-42.6
+HMR_9679	0.00218285 h[c] + ac[x]  <=> 0.00345518 h[x] + ac[c] 	-362.9	-362.9	-380.7	-345.1
+3HPVSCOAitm	3hpvscoa[m]  <=> 3hpvscoa[c] 	-44.9	-44.9	-62.7	-27.1
+3HPVSTETCOAitm	3hpvstetcoa[m]  <=> 3hpvstetcoa[c] 	-59.8	-59.8	-77.6	-42.0
+PAPitr	0.15542 h[c] + pap[r]  <=> pap[c] + 0.15542 h[r] 	-1869.0	-1869.0	-1886.8	-1851.2
 
 Cytoplasmic metabolites only:
-4.687735e+01	h	h[c]	42.8	0.0	
-1	paps	paps[c]	-1404.1	6.4	
-1	pap	pap[c]	-1403.2	6.4	
-1	sphgn	sphgn[c]	1481.8	14.1	
-1	aact	aact[c]	187.8	4.9	
-1	acald	acald[c]	36.6	1.7	
-1	ac	ac[c]	-217.8	2.0	
-1	gly	gly[c]	-145.7	8.8	
-1	etoh	etoh[c]	92.1	2.4	
-1	etha	etha[c]	153.9	5.1	
-1	f6p	f6p[c]	-1276.7	2.8	
-1	fuc13galacglcgal14acglcgalgluside_hs	fuc13galacglcgal14acglcgalgluside_hs[c]	-381.8	12.2	
-1	fucacngal14acglcgalgluside_hs	fucacngal14acglcgalgluside_hs[c]	-228.3	2.7	
-1	glyc3p	glyc3p[c]	-1020.8	3.0	
-1	g6p	g6p[c]	-1278.4	2.7	
-1	glcr	glcr[c]	-943.4	4.3	
-1	hom_L	hom_L[c]	-100.4	7.8	
-1	xyl_D	xyl_D[c]	-312.9	2.5	
-1	HC00900	HC00900[c]	-506.3	4.0	
-1	C01601	C01601[c]	423.6	6.5	
-1	glyc2p	glyc2p[c]	304.2	3.3	
-1	orn_D	orn_D[c]	565.4	11.3	
-1	dsT_antigen	dsT_antigen[c]	434.9	2.2	
-2	M01389	M01389[c]	478.1	3.2	
-1	itacon	itacon[c]	174.0	13.1	
+6	h2o	h2o[c]	-150.5	0.9	
+1	nh4	nh4[c]	90.3	1.3	
+4.672210e+01	h	h[c]	42.8	0.0	
+1	atp	atp[c]	-2271.1	2.4	
+2	pi	pi[c]	-1053.4	1.0	
+1	pap	pap[c]	-1391.0	4.1	
+1	acald	acald[c]	52.6	1.4	
+1	ac	ac[c]	-233.6	1.2	
+1	etoh	etoh[c]	106.4	1.5	
+1	pail_hs	pail_hs[c]	695.1	0.0	
+1	pheme	pheme[c]	1301.8	0.0	
+1	pail3p_hs	pail3p_hs[c]	645.7	0.0	
+1	pail35p_hs	pail35p_hs[c]	590.4	0.0	
+1	pail5p_hs	pail5p_hs[c]	645.7	0.0	
+1	C01601	C01601[c]	423.2	1.9	
+1	gd1a_hs	gd1a_hs[c]	4824.7	0.0	
+1	dsT_antigen	dsT_antigen[c]	434.9	2.3	
+1	3hpvscoa	3hpvscoa[c]	2907.3	0.0	
+1	3hpvstetcoa	3hpvstetcoa[c]	2510.7	0.0	

@@ -1,342 +1,351 @@
-Metabolites which force 32 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line). Forward with probability less than 0.3. (Lower cutoff for probability of a reaction to be forward)
-35:	25	h[c]Proton
-20:	11	h2o[c]Water
-40:	11	pi[c]Orthophosphate
-28:	9	h[m]Proton
-75:	9	h[e]Proton
-191:	3	h2o[e]Water
-1976:	3	mi14p[c](1R,2R,3R,4R,5R,6S)-2,3,5,6-Tetrahydroxy-4-(Phosphonatooxy)Cyclohexyl Phosphate
-38:	2	atp[c]Adenosine Triphosphate
-293:	2	atp[m]Adenosine Triphosphate
-541:	2	glc_D[e]D-Glucose
-653:	2	pi[e]Orthophosphate
-1974:	2	mi1p_D[c]1D-Myo-Inositol 1-Phosphate
-39:	1	adp[c]Adenosine Diphosphate
+Metabolites which force 56 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line). Forward with probability less than 0.3. (Lower cutoff for probability of a reaction to be forward)
+35:	17	h[c]Proton
+75:	7	h[e]Proton
+28:	6	h[m]Proton
+40:	4	pi[c]Orthophosphate
+38:	3	atp[c]Adenosine Triphosphate
+39:	3	adp[c]Adenosine Diphosphate
+1099:	3	gpi_sig[r]Glycophosphatidylinositol (Gpi) Signal Sequence (C-Terminal Peptide)
+1805:	3	pre_prot[r]Glycophosphatidylinositol (Gpi)-Anchored Protein Precursor
+295:	2	pi[m]Orthophosphate
+729:	2	h[r]Proton
+1050:	2	dhcrm_hs[c]Dihydroceramide
+1955:	2	tcynt[c]Thiocyanate
+4415:	2	4ohbut[c]4-Hydroxy-Butyrate
+4600:	2	phcrm_hs[c]Phytoceramide
+20:	1	h2o[c]Water
+23:	1	h2o2[c]Hydrogen Peroxide
 41:	1	h[x]Proton
-65:	1	L2aadp[c]L-2-Aminoadipate
-66:	1	L2aadp[m]L-2-Aminoadipate
 67:	1	akg[m]2-Oxoglutarate
 68:	1	akg[c]2-Oxoglutarate
-69:	1	2dr1p[c]2-Deoxy-D-Ribose 1-Phosphate
-70:	1	drib[c]2-Deoxy-D-Ribose
-138:	1	h2o[l]Water
-139:	1	pi[l]Orthophosphate
-140:	1	adn[l]Adenosine
-149:	1	pyr[m]Pyruvate
+229:	1	thcrm_hs[c]Trihexosyl Ceramide
+231:	1	h[g]Proton
 265:	1	h[l]Proton
+293:	1	atp[m]Adenosine Triphosphate
 294:	1	adp[m]Adenosine Diphosphate
-356:	1	kdnp[c]2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid 9-Phosphate
-413:	1	dadp[c]Deoxyadenosine Diphosphate
-462:	1	ala_L[m]L-Alanine
-463:	1	glx[m]Glyoxylate
-464:	1	gly[m]Glycine
-465:	1	pyr[x]Pyruvate
-466:	1	ala_L[x]L-Alanine
-467:	1	glx[x]Glyoxylate
-468:	1	gly[x]Glycine
-527:	1	h2o[r]Water
-707:	1	glc_D[c]D-Glucose
-729:	1	h[r]Proton
+305:	1	acetone[e]Acetone
+307:	1	acetone[m]Acetone
+391:	1	amp[c]Adenosine Monophosphate
+400:	1	adn[c]Adenosine
+541:	1	glc_D[e]D-Glucose
+572:	1	aqcobal[e]Aquacob(III)Alamin
+573:	1	aqcobal[c]Aquacob(III)Alamin
+653:	1	pi[e]Orthophosphate
+787:	1	h2o2[m]Hydrogen Peroxide
 791:	1	glc_D[r]D-Glucose
-793:	1	g6p[r]D-Glucose 6-Phosphate
-795:	1	pi[r]Orthophosphate
-1032:	1	dadp[m]Deoxyadenosine Diphosphate
-1101:	1	kdn[c]2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid
-1154:	1	3pg[c]3-Phospho-D-Glycerate
-1155:	1	23dpg[c]2,3-Bisphosphonato-D-Glycerate
-1495:	1	f6p[c]D-Fructose 6-Phosphate
-1516:	1	fru[e]D-Fructose
-1743:	1	glcur[c]D-Glucuronate
-1792:	1	glcur1p[c]D-Glucuronate 1-Phosphate
-1896:	1	lcts[e]Lactose
-1972:	1	mi13p[c]1D-Myo-Inositol 1,3-Bisphosphate
-1973:	1	mi34p[c]1D-Myo-Inositol 3,4-Bisphosphate
-1975:	1	mi145p[c]1D-Myo-Inositol 1,4,5-Trisphosphate
-1977:	1	mi4p_D[c]1D-Myo-Inositol 4-Phosphate
-1980:	1	mi3p_D[c]1D-Myo-Inositol 3-Phosphate
-2056:	1	amp[l]Adenosine Monophosphate
-2261:	1	sucr[e]Sucrose
-2295:	1	tre[c]Trehalose
-2296:	1	tre[e]Trehalose
-2360:	1	HC01441[e]Lactose-6P
-2389:	1	fdp[c]D-Fructose 1,6-Bisphosphate
+802:	1	pail_hs[c]1-Phosphatidyl-1D-Myo-Inositol
+930:	1	cspg_a[g]Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan
+931:	1	cspg_a[e]Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan
+932:	1	cspg_b[g]Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S) Proteoglycan
+933:	1	cspg_b[e]Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S) Proteoglycan
+934:	1	cspg_c[g]Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan
+935:	1	cspg_c[e]Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan
+1072:	1	digalsgalside_hs[c]Digalactosylceramidesulfate
+1104:	1	mem2emgacpail_prot_hs[r]({[(mannosyl),(phosphoethanolaminyl)]-dimannosyl},{phosphoethanolaminyl})-mannosyl-glucosaminyl-acylphosphatidylinositol-Protein (M4B)
+1109:	1	sTn_antigen[g]Sialyl-Tn Antigen
+1242:	1	ak2lgchol_hs[e]1-Alkyl 2-Lysoglycerol 3-Phosphocholine
+1249:	1	digalsgalside_hs[e]Digalactosylceramidesulfate
+1325:	1	n2m2nmasn[e]N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,3-(N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,6)-(N-Acetyl-Beta-D-Glucosaminyl-1,4)-Beta-D-Mannosyl-1,4-N-Acetyl-Beta-D-Glucosaminyl-R
+1343:	1	paf_hs[e]1-Alkyl 2-Acteylglycerol 3-Phosphocholine
+1384:	1	tcynt[e]Thiocyanate
+1418:	1	xolest2_hs[e]Cholesterol Ester
+1433:	1	hdca[c]Hexadecanoate (N-C16:0)
+1501:	1	fe2[e]Iron (Fe2+)
+1502:	1	fe2[c]Iron (Fe2+)
+1570:	1	glyc3p[c]Glycerol 3-Phosphate
+1577:	1	gacpail_hs[c]Glucosaminyl-Acylphosphatidylinositol
+1578:	1	gacpail_hs[r]Glucosaminyl-Acylphosphatidylinositol
+1632:	1	cs_a_b_pre3[g]Chondroitin Sulfate A (GalNac4S-Glca) And B (Idoa2S-GalNac4S), Precursor 3
+1646:	1	xser[g]Xyl-L-Ser (Protein)
+1658:	1	n2m2nmasn[l]N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,3-(N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,6)-(N-Acetyl-Beta-D-Glucosaminyl-1,4)-Beta-D-Mannosyl-1,4-N-Acetyl-Beta-D-Glucosaminyl-R
+1698:	1	glygn2[c]Glycogen, Structure 2 (Glycogenin-1,6-{7[1,4-Glc], 4[1,4-Glc]})
+1699:	1	glygn1[c]Glycogen, Structure 1 (Glycogenin-11[1,4-Glc])
+1714:	1	cs_b_pre4[g]Chondroitin Sulfate B (Idoa2S-GalNac4S), Precursor 4
+1715:	1	hs_pre10[g](Glcn2S-Glca)4-GlcNac-Glca-Gal-Gal-Xyl-L-Ser (Protein)
+1716:	1	hs_pre11[g](Glcn2S-Idoa-Glcn2S-Glca)2-GlcNac-Glca-Gal-Gal-Xyl-L-Ser (Protein)
+1757:	1	glyc3p[m]Glycerol 3-Phosphate
+1760:	1	glyclt[c]Glycolate
+1761:	1	glyclt[x]Glycolate
+1775:	1	hdca[r]Hexadecanoate (N-C16:0)
+1776:	1	em2emgacpail_prot_hs[r](Phosphoethanolaminyl-Dimannosyl),(Phosphoethanolaminyl)-Mannosyl-Glucosaminyl-Acylphosphatidylinositol
+1777:	1	gpi_prot_hs[r]{[(Prot-PE-Man),(PE)-Man],[PE]}-Man-GlcN-AcylPI
+1801:	1	em2emgacpail_hs[r](Phosphoethanolaminyl-Dimannosyl),(Phosphoethanolaminyl)-Mannosyl-Glucosaminyl-Acylphosphatidylinositol (H7)
+1803:	1	gpi_hs[r]Gpi Heparan Sulfate
+1804:	1	mem2emgacpail_hs[r]({[(Mannosyl),(Phosphoethanolaminyl)]-Dimannosyl},{Phosphoethanolaminyl})-Mannosyl-Glucosaminyl-Acylphosphatidylinositol (M4B) (Mem2Emgacpail Heparan Sulfate)
+1820:	1	pheme[c]Protoheme
+2103:	1	ak2lgchol_hs[c]1-Alkyl 2-Lysoglycerol 3-Phosphocholine
+2104:	1	paf_hs[c]1-Alkyl 2-Acteylglycerol 3-Phosphocholine
+2232:	1	sbt_D[c]D-Sorbitol
+2265:	1	tcynt[m]Thiocyanate
+2337:	1	xser[r]Xyl-L-Ser (Protein)
+2514:	1	atp[l]Adenosine Triphosphate
+2515:	1	adp[l]Adenosine Diphosphate
+2704:	1	atp[g]Adenosine Triphosphate
+2705:	1	adp[g]Adenosine Diphosphate
+3345:	1	sbt_D[e]D-Sorbitol
+3369:	1	pheme[e]Protoheme
+3435:	1	pcholmyr_hs[e]1-Myristoylglycerophosphocholine
+3436:	1	pcholole_hs[e]1-Oleoylglycerophosphocholine (Delta 9)
+3441:	1	pail_hs[e]1-Phosphatidyl-1D-Myo-Inositol
+3443:	1	pcholste_hs[e]1-Stearoylglycerophosphocholine
+3450:	1	pchol2ste_hs[e]2-Stearoylglycerophosphocholine
+3462:	1	pcholn204_hs[e]1-Eicosatetraenoylglycerophosphocholine (Delta 8, 11, 14, 17), Sn1-Lpc (20:4)
+3470:	1	pe226_hs[e]1-Docosahexenoylglyceroethanolamine (Delta 4, 7, 10, 13, 16, 19), Lpe (22:6)
+3481:	1	pcholn24_hs[e]1-Lignocericylglycerophosphocholine (24:0), Lysopc A C24
+3488:	1	pcholhep_hs[e]1-Heptadecanoylglycerophosphocholine
+3518:	1	pcholmyr_hs[c]1-Myristoylglycerophosphocholine
+3519:	1	pcholole_hs[c]1-Oleoylglycerophosphocholine (Delta 9)
+3525:	1	pcholste_hs[c]1-Stearoylglycerophosphocholine
+3530:	1	pchol2ste_hs[c]2-Stearoylglycerophosphocholine
+3537:	1	pcholn204_hs[c]1-Eicosatetraenoylglycerophosphocholine (Delta 8, 11, 14, 17), Sn1-Lpc (20:4)
+3545:	1	pe226_hs[c]1-Docosahexenoylglyceroethanolamine (Delta 4, 7, 10, 13, 16, 19), Lpe (22:6)
+3556:	1	pcholn24_hs[c]1-Lignocericylglycerophosphocholine (24:0), Lysopc A C24
+3563:	1	pcholhep_hs[c]1-Heptadecanoylglycerophosphocholine
+4282:	1	sTn_antigen[e]Sialyl-Tn Antigen
 4296:	1	glutar[e]Glutarate
-4352:	1	2m3hbu[m]2-Methyl-3-Hydroxy-Butyrate
-4353:	1	2m3hbu[c]2-Methyl-3-Hydroxy-Butyrate
-4356:	1	2m3ovac[m]2-Methyl-3-Oxo-Valerate
-4357:	1	2m3ovac[c]2-Methyl-3-Oxo-Valerate
-4360:	1	3h3mglt[c]3-Hydroxy-3-Methyl-Glutarate
-4361:	1	3h3mglt[e]3-Hydroxy-3-Methyl-Glutarate
-4378:	1	3ohglutac[c]3-Hydroxy-Glutarate
-4379:	1	3ohglutac[e]3-Hydroxy-Glutarate
-4381:	1	glutcon[m]Glutaconate
-4382:	1	glutcon[c]Glutaconate
-4384:	1	3hivac[m]3-Hydroxyisovaleric Acid
-4385:	1	3hivac[c]3-Hydroxyisovaleric Acid
-4389:	1	3hadpac[c]3-Hydroxy-Adipate
-4390:	1	3hadpac[e]3-Hydroxy-Adipate
 4414:	1	4ohbut[m]4-Hydroxy-Butyrate
-4415:	1	4ohbut[c]4-Hydroxy-Butyrate
-4418:	1	2hydog[c]2-Hydroxy-Glutarate
-4419:	1	2hydog[e]2-Hydroxy-Glutarate
+4416:	1	4ohbut[e]4-Hydroxy-Butyrate
 4420:	1	glutar[c]Glutarate
+4583:	1	dhcrm_hs[r]Dihydroceramide
+4587:	1	dhcrm_hs[g]Dihydroceramide
+4588:	1	phcrm_hs[g]Phytoceramide
+4590:	1	phcrm_hs[r]Phytoceramide
+4597:	1	ga1_hs[l]Gibberellin A1
+4603:	1	ga1_hs[e]Gibberellin A1
+4605:	1	thcrm_hs[l]Trihexosyl Ceramide
+4610:	1	gd1a_hs[c]N-Acetylneuraminosyl-D-Galactosyl-N-Acetyl-D-Galactosaminyl-(N-Acetylneuraminosyl)-D-Galactosyl-D-Glucosylceramide Dianion
+4622:	1	gd1a_hs[n]N-Acetylneuraminosyl-D-Galactosyl-N-Acetyl-D-Galactosaminyl-(N-Acetylneuraminosyl)-D-Galactosyl-D-Glucosylceramide Dianion
+4677:	1	xolest2_hs[l]Cholesterol Ester
+4744:	1	HC02057[c]1,2-Diacylglycerol-Ld-Pe-Pool
+5225:	1	M01872[g](Gal)1 (GalNAc)1 (GlcNAc)1 (Ser/Thr)1
+5226:	1	M01872[e](Gal)1 (GalNAc)1 (GlcNAc)1 (Ser/Thr)1
+5239:	1	HC02057[r]1,2-Diacylglycerol-Ld-Pe-Pool
 
 
-33	L-2-Aminoadipate Shuttle (Cytosol/Mitochondria)	2AMADPTm	-75.44	 45.32
+333	Aquacob-(III)-Alamin Uptake	AQCOBALt	-17.81	 17.81
 substrates:
-35	-0.0070496	   42.75	-42.75	-42.75	                h[c]	Proton
-65	      -1	 -227.00	-29.69	-11.88	           L2aadp[c]	L-2-Aminoadipate
-67	      -1	 -601.21	-29.69	-11.88	              akg[m]	2-Oxoglutarate
+572	      -1	 4155.24	-29.69	-11.88	          aqcobal[e]	Aquacob(III)Alamin
 products:
-28	0.0496162	   47.50	-47.50	-47.50	                h[m]	Proton
-66	       1	 -179.60	-29.69	-11.88	           L2aadp[m]	L-2-Aminoadipate
-68	       1	 -620.21	-29.69	-11.88	              akg[c]	2-Oxoglutarate
+573	       1	 4044.80	-29.69	-11.88	          aqcobal[c]	Aquacob(III)Alamin
 
-34	2-Deoxy-D-Ribose 1-Phosphate Phosphorylase	2DR1PP	-56.64	  6.29
-substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.214742	   42.75	-42.75	-42.75	                h[c]	Proton
-69	      -1	-1056.19	-29.69	-11.88	            2dr1p[c]	2-Deoxy-D-Ribose 1-Phosphate
-products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-70	       1	 -163.03	-29.69	-11.88	             drib[c]	2-Deoxy-D-Ribose
-
-260	Alanine-Glyoxylate Transaminase (Irreversible), Mitochondrial	AGTim	-78.28	 40.65
-substrates:
-462	      -1	   -3.59	-29.69	-11.88	            ala_L[m]	L-Alanine
-463	      -1	 -423.82	-29.69	-11.88	              glx[m]	Glyoxylate
-products:
-28	0.0371766	   47.50	-47.50	-47.50	                h[m]	Proton
-149	       1	 -324.05	-29.69	-11.88	              pyr[m]	Pyruvate
-464	       1	 -122.17	-29.69	-11.88	              gly[m]	Glycine
-
-261	Alanine-Glyoxylate Transaminase (Irreversible),, Peroxisomal	AGTix	-78.18	 40.74
-substrates:
-466	      -1	  -45.02	-29.69	-11.88	            ala_L[x]	L-Alanine
-467	      -1	 -429.75	-29.69	-11.88	              glx[x]	Glyoxylate
-products:
-41	0.00423472	   41.56	-41.56	-41.56	                h[x]	Proton
-465	       1	 -341.86	-29.69	-11.88	              pyr[x]	Pyruvate
-468	       1	 -151.63	-29.69	-11.88	              gly[x]	Glycine
-
-386	ADP/ATP Transporter, Mitochondrial	ATPtm	-49.10	 43.85
+386	ADP/ATP Transporter, Mitochondrial	ATPtm	-21.27	 16.02
 substrates:
 35	-1.44513e-05	   42.75	-42.75	-42.75	                h[c]	Proton
-39	      -1	-1395.02	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
-293	      -1	-2224.54	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+39	      -1	-1396.08	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+293	      -1	-2217.49	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
 products:
 28	3.01938e-05	   47.50	-47.50	-47.50	                h[m]	Proton
-38	       1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
-294	       1	-1341.43	-15.35	-12.04	              adp[m]	Adenosine Diphosphate
+38	       1	-2271.09	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+294	       1	-1342.48	-15.35	-12.04	              adp[m]	Adenosine Diphosphate
 
-823	Transport of dADP via ATP Antiport	DNDPt13m	-68.19	 32.61
+617	Chondroitin Sulfate A Transport, Golgi to Extracellular	CSPG_At	-32.28	  3.34
 substrates:
-28	-7.46555e-05	   47.50	-47.50	-47.50	                h[m]	Proton
-293	      -1	-2224.54	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
-413	      -1	-1239.87	-29.69	-11.88	             dadp[c]	Deoxyadenosine Diphosphate
+930	      -1	 2518.88	-29.69	-11.88	           cspg_a[g]	Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan
 products:
-35	9.20069e-06	   42.75	-42.75	-42.75	                h[c]	Proton
-38	       1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
-1032	       1	-1186.27	-29.69	-11.88	             dadp[m]	Deoxyadenosine Diphosphate
+931	       1	 2930.37	-29.69	-11.88	           cspg_a[e]	Chondroitin Sulfate A (GalNac4S-Glca) Proteoglycan
 
-897	Diphosphoglycerate Phosphatase	DPGase	-60.11	  8.87
+619	Chondroitin Sulfate B Transport, Golgi to Extracellular	CSPG_Bt	-35.18	  0.45
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.367301	   42.75	-42.75	-42.75	                h[c]	Proton
-1155	      -1	-2224.31	-29.69	-11.88	            23dpg[c]	2,3-Bisphosphonato-D-Glycerate
+932	      -1	 2472.29	-29.69	-11.88	           cspg_b[g]	Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S) Proteoglycan
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1154	       1	-1331.60	-29.69	-11.88	              3pg[c]	3-Phospho-D-Glycerate
+933	       1	 2877.55	-29.69	-11.88	           cspg_b[e]	Chondroitin Sulfate B / Dermatan Sulfate (Idoa2S-GalNac4S) Proteoglycan
 
-1490	Glucose-6-Phosphate Phosphatase, Edoplasmic Reticular	G6PPer	-68.98	  7.68
+621	Chondroitin Sulfate C Transport, Golgi to Extracellular	CSPG_Ct	-32.28	  3.34
 substrates:
-527	      -1	 -138.27	  0.00	  0.00	              h2o[r]	Water
-729	-0.259038	   42.75	-42.75	-42.75	                h[r]	Proton
-793	      -1	-1278.38	-29.69	-11.88	              g6p[r]	D-Glucose 6-Phosphate
+934	      -1	 2518.88	-29.69	-11.88	           cspg_c[g]	Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan
 products:
-791	       1	 -385.35	-29.69	-11.88	            glc_D[r]	D-Glucose
-795	       1	-1041.17	-29.69	-11.88	               pi[r]	Orthophosphate
+935	       1	 2930.37	-29.69	-11.88	           cspg_c[e]	Chondroitin Sulfate C (GalNac6S-Glca) Proteoglycan
 
-1735	Glucuronate 1-Phosphate Phosphatase	GUR1PP	-59.77	  5.60
+1387	Transport of Iron (Fe2+) 	FE2t	-23.50	 12.12
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.245731	   42.75	-42.75	-42.75	                h[c]	Proton
-1792	      -1	-1586.50	-29.69	-11.88	          glcur1p[c]	D-Glucuronate 1-Phosphate
+75	-0.136793	   43.94	-43.94	-43.94	                h[e]	Proton
+1501	      -1	  -81.85	-29.69	-11.88	              fe2[e]	Iron (Fe2+)
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1743	       1	 -695.25	-29.69	-11.88	            glcur[c]	D-Glucuronate
+35	0.029917	   42.75	-42.75	-42.75	                h[c]	Proton
+1502	       1	  -81.76	-29.69	-11.88	              fe2[c]	Iron (Fe2+)
 
-1884	2-Keto-3Deoxy-D-Glycero-D-Galactononic Acid Phosphohydrolase	KDNH	-59.88	  9.70
+1494	Glucosaminyl-Acylphosphatidylinositol Flippase, Endoplasmatic Reticulum	GACPAILter	-17.81	 17.81
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.187122	   42.75	-42.75	-42.75	                h[c]	Proton
-356	      -1	-1619.16	-29.69	-11.88	             kdnp[c]	2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid 9-Phosphate
+1577	      -1	 2522.56	-29.69	-11.88	       gacpail_hs[c]	Glucosaminyl-Acylphosphatidylinositol
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1101	       1	 -725.92	-29.69	-11.88	              kdn[c]	2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid
+1578	       1	 2522.56	-29.69	-11.88	       gacpail_hs[r]	Glucosaminyl-Acylphosphatidylinositol
 
-2028	Inositol-1, 3-Bisphosphate 3-Phosphatase	MI13PP	-62.68	 10.24
+1609	1, 4-Alpha-Glucan Branching Enzyme (Glygn1 -> Glygn2)	GLBRAN	-17.81	 17.81
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.256458	   42.75	-42.75	-42.75	                h[c]	Proton
-1972	      -1	-2175.33	-29.69	-11.88	            mi13p[c]	1D-Myo-Inositol 1,3-Bisphosphate
+1699	      -1	 4827.66	-29.69	-11.88	           glygn1[c]	Glycogen, Structure 1 (Glycogenin-11[1,4-Glc])
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1974	       1	-1283.22	-29.69	-11.88	           mi1p_D[c]	1D-Myo-Inositol 1-Phosphate
+1698	       1	 4827.66	-29.69	-11.88	           glygn2[c]	Glycogen, Structure 2 (Glycogenin-1,6-{7[1,4-Glc], 4[1,4-Glc]})
 
-2030	Inositol-1, 4, 5-Trisphosphate 5-Phosphatase	MI145PP	-67.11	 14.38
+1617	Chondroitin-Glucuronate 5-Epimerase	GLCAE1g	-17.81	 17.81
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.306465	   42.75	-42.75	-42.75	                h[c]	Proton
-1975	      -1	-3067.30	-29.69	-11.88	           mi145p[c]	1D-Myo-Inositol 1,4,5-Trisphosphate
+1632	      -1	 2563.99	-29.69	-11.88	      cs_a_b_pre3[g]	Chondroitin Sulfate A (GalNac4S-Glca) And B (Idoa2S-GalNac4S), Precursor 3
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1976	       1	-2175.33	-29.69	-11.88	            mi14p[c]	(1R,2R,3R,4R,5R,6S)-2,3,5,6-Tetrahydroxy-4-(Phosphonatooxy)Cyclohexyl Phosphate
+1714	       1	 2563.99	-29.69	-11.88	        cs_b_pre4[g]	Chondroitin Sulfate B (Idoa2S-GalNac4S), Precursor 4
 
-2031	Inositol-1, 4-Bisphosphate 4-Phosphatase	MI14P4P	-62.68	 10.24
+1618	Heparosan-N-Sulfate-Glucuronate 5-Epimerase	GLCAE2g	-17.81	 17.81
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.256458	   42.75	-42.75	-42.75	                h[c]	Proton
-1976	      -1	-2175.33	-29.69	-11.88	            mi14p[c]	(1R,2R,3R,4R,5R,6S)-2,3,5,6-Tetrahydroxy-4-(Phosphonatooxy)Cyclohexyl Phosphate
+1715	      -1	 4633.38	-29.69	-11.88	         hs_pre10[g]	(Glcn2S-Glca)4-GlcNac-Glca-Gal-Gal-Xyl-L-Ser (Protein)
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1974	       1	-1283.22	-29.69	-11.88	           mi1p_D[c]	1D-Myo-Inositol 1-Phosphate
+1716	       1	 4633.38	-29.69	-11.88	         hs_pre11[g]	(Glcn2S-Idoa-Glcn2S-Glca)2-GlcNac-Glca-Gal-Gal-Xyl-L-Ser (Protein)
 
-2032	Inositol-1, 4-Bisphosphate 1-Phosphatase	MI14PP	-61.68	 11.06
+1628	Glucose Transport via Membrane Vesicle	GLCMter	-17.81	 17.81
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.256458	   42.75	-42.75	-42.75	                h[c]	Proton
-1976	      -1	-2175.33	-29.69	-11.88	            mi14p[c]	(1R,2R,3R,4R,5R,6S)-2,3,5,6-Tetrahydroxy-4-(Phosphonatooxy)Cyclohexyl Phosphate
+729	-0.000141063	   42.75	-42.75	-42.75	                h[r]	Proton
+791	      -1	 -394.48	-29.69	-11.88	            glc_D[r]	D-Glucose
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1977	       1	-1282.31	-29.69	-11.88	           mi4p_D[c]	1D-Myo-Inositol 4-Phosphate
+75	0.000223553	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -380.23	-29.69	-11.88	            glc_D[e]	D-Glucose
 
-2036	Inositol-3, 4-Bisphosphate 4-Phosphatase	MI34PP	-62.01	 11.09
+1684	Transport of Glycolate  into Peroxisome	GLYCLTtp	-19.00	 16.63
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.311614	   42.75	-42.75	-42.75	                h[c]	Proton
-1973	      -1	-2176.09	-29.69	-11.88	            mi34p[c]	1D-Myo-Inositol 3,4-Bisphosphate
+41	-0.000338714	   41.56	-41.56	-41.56	                h[x]	Proton
+1760	      -1	 -399.85	-29.69	-11.88	           glyclt[c]	Glycolate
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1980	       1	-1283.22	-29.69	-11.88	           mi3p_D[c]	1D-Myo-Inositol 3-Phosphate
+35	0.000213741	   42.75	-42.75	-42.75	                h[c]	Proton
+1761	       1	 -403.42	-29.69	-11.88	           glyclt[x]	Glycolate
 
-2200	5'-Nucleotidase (AMP), Lysosomal	NTD7l	-79.32	 12.19
+1742	Hydrogen Peroxide Mitochondrial Transport	H2O2tm	-17.81	 17.81
 substrates:
-138	      -1	 -158.46	  0.00	  0.00	              h2o[l]	Water
-265	-0.0987884	   32.66	-32.66	-32.66	                h[l]	Proton
-2056	      -1	 -636.13	-29.69	-11.88	              amp[l]	Adenosine Monophosphate
+23	      -1	  -47.05	-29.69	-11.88	             h2o2[c]	Hydrogen Peroxide
+35	-8.50019e-05	   42.75	-42.75	-42.75	                h[c]	Proton
 products:
-139	       1	-1058.81	-29.69	-11.88	               pi[l]	Orthophosphate
-140	       1	  251.43	-29.69	-11.88	              adn[l]	Adenosine
+28	0.000536084	   47.50	-47.50	-47.50	                h[m]	Proton
+787	       1	  -37.55	-29.69	-11.88	             h2o2[m]	Hydrogen Peroxide
 
-2729	Sucrose Hydrolyzing Enxyme, Extracellular	SUCRe	-106.78	  2.26
+1763	H7' Transamidase, Endoplasmic Reticulum	H7_TAer	-35.63	 35.63
 substrates:
-191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
-2261	      -1	 -571.25	-29.69	-11.88	             sucr[e]	Sucrose
+1801	      -1	 4349.25	-29.69	-11.88	  em2emgacpail_hs[r]	(Phosphoethanolaminyl-Dimannosyl),(Phosphoethanolaminyl)-Mannosyl-Glucosaminyl-Acylphosphatidylinositol (H7)
+1805	      -1	    0.00	-29.69	-11.88	         pre_prot[r]	Glycophosphatidylinositol (Gpi)-Anchored Protein Precursor
 products:
-75	0.00249497	   43.94	-43.94	-43.94	                h[e]	Proton
-541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
-1516	       1	 -367.53	-29.69	-11.88	              fru[e]	D-Fructose
+1099	       1	    0.00	-29.69	-11.88	          gpi_sig[r]	Glycophosphatidylinositol (Gpi) Signal Sequence (C-Terminal Peptide)
+1776	       1	 4349.25	-29.69	-11.88	em2emgacpail_prot_hs[r]	(Phosphoethanolaminyl-Dimannosyl),(Phosphoethanolaminyl)-Mannosyl-Glucosaminyl-Acylphosphatidylinositol
 
-2808	Alpha, Alpha-Trehalase	TREH	-78.31	  7.59
+1764	H8 Transamidase, Endoplasmic Reticulum	H8TAer	-35.63	 35.63
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-2295	      -1	 -617.84	-29.69	-11.88	              tre[c]	Trehalose
+1803	      -1	 4610.20	-29.69	-11.88	           gpi_hs[r]	Gpi Heparan Sulfate
+1805	      -1	    0.00	-29.69	-11.88	         pre_prot[r]	Glycophosphatidylinositol (Gpi)-Anchored Protein Precursor
 products:
-35	0.000247494	   42.75	-42.75	-42.75	                h[c]	Proton
-707	       2	 -385.35	-29.69	-11.88	            glc_D[c]	D-Glucose
+1099	       1	    0.00	-29.69	-11.88	          gpi_sig[r]	Glycophosphatidylinositol (Gpi) Signal Sequence (C-Terminal Peptide)
+1777	       1	 4610.20	-29.69	-11.88	      gpi_prot_hs[r]	{[(Prot-PE-Man),(PE)-Man],[PE]}-Man-GlcN-AcylPI
 
-2809	Alpha, Alpha-Trehalase	TREHe	-78.31	  7.59
+1774	Palmitate Er Export	HDCAter	-17.81	 17.81
 substrates:
-191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
-2296	      -1	 -591.72	-29.69	-11.88	              tre[e]	Trehalose
+35	-0.0055916	   42.75	-42.75	-42.75	                h[c]	Proton
+1775	      -1	 1086.93	-29.69	-11.88	             hdca[r]	Hexadecanoate (N-C16:0)
 products:
-75	0.00039222	   43.94	-43.94	-43.94	                h[e]	Proton
-541	       2	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+729	0.0055916	   42.75	-42.75	-42.75	                h[r]	Proton
+1433	       1	 1086.93	-29.69	-11.88	             hdca[c]	Hexadecanoate (N-C16:0)
 
-3063	Lactose 6-Phosphate Galactohydrolase	r0380	-74.69	 13.93
+1976	M4B Transamidase, Endoplasmic Reticulum	M4BTAer	-35.63	 35.63
 substrates:
-75	-0.19576	   43.94	-43.94	-43.94	                h[e]	Proton
-191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
-2360	      -1	-1489.71	-29.69	-11.88	          HC01441[e]	Lactose-6P
+1804	      -1	 4784.17	-29.69	-11.88	 mem2emgacpail_hs[r]	({[(Mannosyl),(Phosphoethanolaminyl)]-Dimannosyl},{Phosphoethanolaminyl})-Mannosyl-Glucosaminyl-Acylphosphatidylinositol (M4B) (Mem2Emgacpail Heparan Sulfate)
+1805	      -1	    0.00	-29.69	-11.88	         pre_prot[r]	Glycophosphatidylinositol (Gpi)-Anchored Protein Precursor
 products:
-653	       1	-1039.61	-29.69	-11.88	               pi[e]	Orthophosphate
-1896	       1	 -595.60	-29.69	-11.88	             lcts[e]	Lactose
+1099	       1	    0.00	-29.69	-11.88	          gpi_sig[r]	Glycophosphatidylinositol (Gpi) Signal Sequence (C-Terminal Peptide)
+1104	       1	 4784.17	-29.69	-11.88	mem2emgacpail_prot_hs[r]	({[(mannosyl),(phosphoethanolaminyl)]-dimannosyl},{phosphoethanolaminyl})-mannosyl-glucosaminyl-acylphosphatidylinositol-Protein (M4B)
 
-3420	Facilitated Diffusion	r1423	-31.60	 10.07
+2053	N2M2Nmasn Transport, Extracellular to Lysosome	N2M2NMASNtly	-17.82	 17.81
 substrates:
-40	      -1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+1325	      -1	 4289.28	-29.69	-11.88	        n2m2nmasn[e]	N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,3-(N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,6)-(N-Acetyl-Beta-D-Glucosaminyl-1,4)-Beta-D-Mannosyl-1,4-N-Acetyl-Beta-D-Glucosaminyl-R
+products:
+1658	       1	 3206.23	-29.69	-11.88	        n2m2nmasn[l]	N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,3-(N-Acetyl-Beta-D-Glucosaminyl-1,2-Alpha-D-Mannosyl-1,6)-(N-Acetyl-Beta-D-Glucosaminyl-1,4)-Beta-D-Mannosyl-1,4-N-Acetyl-Beta-D-Glucosaminyl-R
+
+2741	Thiocyanate Transport via Diffusion (Cytosol to Extracellular)	TCYNTt	-20.71	 14.92
+substrates:
+75	-1.25892e-07	   43.94	-43.94	-43.94	                h[e]	Proton
+1955	      -1	   91.80	-29.69	-11.88	            tcynt[c]	Thiocyanate
+products:
+35	1.99525e-07	   42.75	-42.75	-42.75	                h[c]	Proton
+1384	       1	   91.80	-29.69	-11.88	            tcynt[e]	Thiocyanate
+
+2742	Thiocyanate Transport via Diffusion, Mitochondrial	TCYNTtm	-32.77	  2.86
+substrates:
+35	-1.99525e-07	   42.75	-42.75	-42.75	                h[c]	Proton
+2265	      -1	   91.80	-29.69	-11.88	            tcynt[m]	Thiocyanate
+products:
+28	3.16226e-08	   47.50	-47.50	-47.50	                h[m]	Proton
+1955	       1	   91.80	-29.69	-11.88	            tcynt[c]	Thiocyanate
+
+2935	Xyl-L-Ser (Protein) Transport from Endoplasmic Reticulum to Golgi Apparatus	XSERtg	-17.81	 17.81
+substrates:
+2337	      -1	  391.43	-29.69	-11.88	             xser[r]	Xyl-L-Ser (Protein)
+products:
+1646	       1	  346.01	-29.69	-11.88	             xser[g]	Xyl-L-Ser (Protein)
+
+3265	Postulated Transport Reaction	r0859	-47.50	 16.98
+substrates:
+38	      -1	-2271.09	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+265	-0.000800569	   32.66	-32.66	-32.66	                h[l]	Proton
+2515	      -1	-1515.46	-29.69	-11.88	              adp[l]	Adenosine Diphosphate
+products:
+35	1.44513e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1396.08	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+2514	       1	-2390.48	-29.69	-11.88	              atp[l]	Adenosine Triphosphate
+
+3285	Free Diffusion	r0927	-17.81	 17.81
+substrates:
+307	      -1	  126.86	-29.69	-11.88	          acetone[m]	Acetone
+products:
+305	       1	  105.48	-29.69	-11.88	          acetone[e]	Acetone
+
+3420	Facilitated Diffusion	r1423	-22.04	  0.52
+substrates:
+40	      -1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
 75	-0.26187	   43.94	-43.94	-43.94	                h[e]	Proton
 products:
 35	0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
-653	       1	-1039.61	-29.69	-11.88	               pi[e]	Orthophosphate
+653	       1	-1051.88	-29.69	-11.88	               pi[e]	Orthophosphate
 
-7267	Fructose-Bisphosphatase	FBP	-59.29	  8.64
+4288	Mitochondrial Carrier (Mc) Tcdb:2.A.29.2.7	r2419	-24.68	 33.51
 substrates:
-20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
-35	-0.258972	   42.75	-42.75	-42.75	                h[c]	Proton
-2389	      -1	-2169.70	-29.69	-11.88	              fdp[c]	D-Fructose 1,6-Bisphosphate
+35	-0.359447	   42.75	-42.75	-42.75	                h[c]	Proton
+68	      -1	 -619.62	-29.69	-11.88	              akg[c]	2-Oxoglutarate
+295	      -1	-1047.76	-29.69	-11.88	               pi[m]	Orthophosphate
 products:
-40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
-1495	       1	-1276.70	-29.69	-11.88	              f6p[c]	D-Fructose 6-Phosphate
+28	0.0817287	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+67	       1	 -600.62	-29.69	-11.88	              akg[m]	2-Oxoglutarate
 
-7593	Transport of 2-Methyl-3-Hydroxy-Butyrate, Mitochondrial	2M3HBUtm	-43.37	 13.45
+4302	Major Facilitator (Mfs) Tcdb:2.A.1.4.7	r2472	-24.27	 33.92
 substrates:
-35	-0.00203746	   42.75	-42.75	-42.75	                h[c]	Proton
-4352	      -1	  434.18	-29.69	-11.88	           2m3hbu[m]	2-Methyl-3-Hydroxy-Butyrate
+35	-0.183788	   42.75	-42.75	-42.75	                h[c]	Proton
+295	      -1	-1047.76	-29.69	-11.88	               pi[m]	Orthophosphate
+1570	      -1	-1032.50	-29.69	-11.88	           glyc3p[c]	Glycerol 3-Phosphate
 products:
-28	0.00032347	   47.50	-47.50	-47.50	                h[m]	Proton
-4353	       1	  391.43	-29.69	-11.88	           2m3hbu[c]	2-Methyl-3-Hydroxy-Butyrate
+28	0.0490356	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+1757	       1	 -998.83	-29.69	-11.88	           glyc3p[m]	Glycerol 3-Phosphate
 
-7598	Transport of 2-Methyl-3-Oxo-Valerate, Mitochondrial	2M3OVACtm	-45.06	 15.15
+5305	Transport of Sorbitol (Diffusion)	SBTle	-17.81	 17.81
 substrates:
-35	-0.00131645	   42.75	-42.75	-42.75	                h[c]	Proton
-4356	      -1	  434.18	-29.69	-11.88	          2m3ovac[m]	2-Methyl-3-Oxo-Valerate
+75	-1.14675e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+3345	      -1	 -317.44	-29.69	-11.88	            sbt_D[e]	D-Sorbitol
 products:
-28	0.000208874	   47.50	-47.50	-47.50	                h[m]	Proton
-4357	       1	  391.43	-29.69	-11.88	          2m3ovac[c]	2-Methyl-3-Oxo-Valerate
+35	7.23553e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+2232	       1	 -334.07	-29.69	-11.88	            sbt_D[c]	D-Sorbitol
 
-7603	Transport of 3-Hydroxy-3-Methyl-Glutarate	3H3MGLTte	-34.06	 22.48
+5424	Release of Heme into the Blood	PHEMEe	-23.60	 12.02
 substrates:
-75	-0.00109595	   43.94	-43.94	-43.94	                h[e]	Proton
-4360	      -1	  347.94	-29.69	-11.88	          3h3mglt[c]	3-Hydroxy-3-Methyl-Glutarate
+1820	      -1	 1301.81	-29.69	-11.88	            pheme[c]	Protoheme
 products:
-35	0.00173654	   42.75	-42.75	-42.75	                h[c]	Proton
-4361	       1	  357.44	-29.69	-11.88	          3h3mglt[e]	3-Hydroxy-3-Methyl-Glutarate
+3369	       1	 1337.44	-29.69	-11.88	            pheme[e]	Protoheme
 
-7627	Transport of 3-Hydroxy-Glutarate, Extracellular	3OHGLUTACte	-33.53	 21.95
+7049	Stn_Antigen (Mucin O-Glycan) Export	STN_ANTIGENt	-20.71	 14.92
 substrates:
-75	-0.000775964	   43.94	-43.94	-43.94	                h[e]	Proton
-4378	      -1	  260.95	-29.69	-11.88	        3ohglutac[c]	3-Hydroxy-Glutarate
+1109	      -1	 1152.62	-29.69	-11.88	      sTn_antigen[g]	Sialyl-Tn Antigen
 products:
-35	0.0012296	   42.75	-42.75	-42.75	                h[c]	Proton
-4379	       1	  268.08	-29.69	-11.88	        3ohglutac[e]	3-Hydroxy-Glutarate
+4282	       1	 1339.66	-29.69	-11.88	      sTn_antigen[e]	Sialyl-Tn Antigen
 
-7632	Transport of Glutaconate, Mitochondrial	GLUTCONtm	-63.51	  3.68
+7405	5'-Nucleotidase (AMP)	NTD7	-41.00	  5.78
 substrates:
-35	-0.0020871	   42.75	-42.75	-42.75	                h[c]	Proton
-4381	      -1	  192.97	-29.69	-11.88	          glutcon[m]	Glutaconate
+20	      -1	 -150.46	  0.00	  0.00	              h2o[c]	Water
+35	-0.259385	   42.75	-42.75	-42.75	                h[c]	Proton
+391	      -1	 -515.43	-41.56	-17.34	              amp[c]	Adenosine Monophosphate
 products:
-28	0.000331059	   47.50	-47.50	-47.50	                h[m]	Proton
-4382	       1	  173.96	-29.69	-11.88	          glutcon[c]	Glutaconate
+40	       1	-1053.44	-17.81	-13.07	               pi[c]	Orthophosphate
+400	       1	  376.70	-29.69	-11.88	              adn[c]	Adenosine
 
-7636	Transport of 3-Hydroxy-Isovalerate, Mitochondrial	3HIVActm	-43.58	 13.66
-substrates:
-35	-0.00223359	   42.75	-42.75	-42.75	                h[c]	Proton
-4384	      -1	  434.18	-29.69	-11.88	           3hivac[m]	3-Hydroxyisovaleric Acid
-products:
-28	0.000354666	   47.50	-47.50	-47.50	                h[m]	Proton
-4385	       1	  391.43	-29.69	-11.88	           3hivac[c]	3-Hydroxyisovaleric Acid
-
-7642	Transport of 3-Hydroxy-Adipate, Extracellular	3HADPACte	-34.28	 22.71
-substrates:
-75	-0.00114758	   43.94	-43.94	-43.94	                h[e]	Proton
-4389	      -1	  347.93	-29.69	-11.88	          3hadpac[c]	3-Hydroxy-Adipate
-products:
-35	0.00181833	   42.75	-42.75	-42.75	                h[c]	Proton
-4390	       1	  357.44	-29.69	-11.88	          3hadpac[e]	3-Hydroxy-Adipate
-
-7676	Transport of 4-Hydroxy-Butyrate, Mitochondrial	4OHBUTtmc	-39.83	  9.91
+7676	Transport of 4-Hydroxy-Butyrate, Mitochondrial	4OHBUTtmc	-32.77	  2.85
 substrates:
 35	-0.00173468	   42.75	-42.75	-42.75	                h[c]	Proton
 4414	      -1	  337.70	-29.69	-11.88	           4ohbut[m]	4-Hydroxy-Butyrate
@@ -344,19 +353,161 @@ products:
 28	0.000275331	   47.50	-47.50	-47.50	                h[m]	Proton
 4415	       1	  304.44	-29.69	-11.88	           4ohbut[c]	4-Hydroxy-Butyrate
 
-7821	Transport of 2-Hydroxy-Glutarate, Extracellular	2HYDOGte	-33.53	 21.95
+7677	Transport of 4-Hydroxy-Butyrate, Extracellular	4OHBUTtce	-20.71	 14.92
 substrates:
-75	-0.000575232	   43.94	-43.94	-43.94	                h[e]	Proton
-4418	      -1	  260.95	-29.69	-11.88	           2hydog[c]	2-Hydroxy-Glutarate
+75	-0.00109521	   43.94	-43.94	-43.94	                h[e]	Proton
+4415	      -1	  304.44	-29.69	-11.88	           4ohbut[c]	4-Hydroxy-Butyrate
 products:
-35	0.000911518	   42.75	-42.75	-42.75	                h[c]	Proton
-4419	       1	  268.08	-29.69	-11.88	           2hydog[e]	2-Hydroxy-Glutarate
+35	0.00173468	   42.75	-42.75	-42.75	                h[c]	Proton
+4416	       1	  312.76	-29.69	-11.88	           4ohbut[e]	4-Hydroxy-Butyrate
 
-7823	Transport of Glutarate, Extracellular	GLUTARte	-33.91	 22.34
+7691	Transport of Digalactosylceramidesulfate 	DIGALSGALSIDESECt	-20.71	 14.92
+substrates:
+1072	      -1	 2391.34	-29.69	-11.88	 digalsgalside_hs[c]	Digalactosylceramidesulfate
+products:
+1249	       1	 2456.66	-29.69	-11.88	 digalsgalside_hs[e]	Digalactosylceramidesulfate
+
+7694	Transport of 1-Phosphatidyl-1D-Myo-Inositol	PAIL_hs_SECt	-20.71	 14.92
+substrates:
+802	      -1	  695.14	-29.69	-11.88	          pail_hs[c]	1-Phosphatidyl-1D-Myo-Inositol
+products:
+3441	       1	  714.14	-29.69	-11.88	          pail_hs[e]	1-Phosphatidyl-1D-Myo-Inositol
+
+7757	1-Alkyl 2-Acylglycerol 3-Phosphocholine Transport, Vescicular	AK2LGCHOLt1	-17.81	 17.81
+substrates:
+1242	      -1	  938.28	-29.69	-11.88	     ak2lgchol_hs[e]	1-Alkyl 2-Lysoglycerol 3-Phosphocholine
+products:
+2103	       1	  913.34	-29.69	-11.88	     ak2lgchol_hs[c]	1-Alkyl 2-Lysoglycerol 3-Phosphocholine
+
+7760	1-Alkyl 2-Acteylglycerol 3-Phosphocholine Transport, Vescicular	PAFt1	-17.81	 17.81
+substrates:
+1343	      -1	 1027.64	-29.69	-11.88	           paf_hs[e]	1-Alkyl 2-Acteylglycerol 3-Phosphocholine
+products:
+2104	       1	 1000.33	-29.69	-11.88	           paf_hs[c]	1-Alkyl 2-Acteylglycerol 3-Phosphocholine
+
+7763	Transport of 2-Stearoylglycerophosphocholine, Vescicular	PCHOL2STE_HSt1e	-17.81	 17.81
+substrates:
+3450	      -1	 2457.40	-29.69	-11.88	     pchol2ste_hs[e]	2-Stearoylglycerophosphocholine
+products:
+3530	       1	 2392.09	-29.69	-11.88	     pchol2ste_hs[c]	2-Stearoylglycerophosphocholine
+
+7768	Transport of 1-Heptadecanoylglycerophosphocholine, Vescicular	PCHOLHEP_HSt1e	-17.81	 17.81
+substrates:
+3488	      -1	 2368.04	-29.69	-11.88	      pcholhep_hs[e]	1-Heptadecanoylglycerophosphocholine
+products:
+3563	       1	 2305.10	-29.69	-11.88	      pcholhep_hs[c]	1-Heptadecanoylglycerophosphocholine
+
+7770	Transport of 1-Myristoylglycerophosphocholine, Vescicular	PCHOLMYR_Hst1e	-17.81	 17.81
+substrates:
+3435	      -1	 2099.96	-29.69	-11.88	      pcholmyr_hs[e]	1-Myristoylglycerophosphocholine
+products:
+3518	       1	 2044.15	-29.69	-11.88	      pcholmyr_hs[c]	1-Myristoylglycerophosphocholine
+
+7777	Transport of 1-Eicosatetraenoylglycerophosphocholine (Delta 8, 11, 14, 17), Sn1-Lpc (20:4), Vescicular	PCHOLN204_HSt1e	-17.81	 17.81
+substrates:
+3462	      -1	 2278.68	-29.69	-11.88	     pcholn204_hs[e]	1-Eicosatetraenoylglycerophosphocholine (Delta 8, 11, 14, 17), Sn1-Lpc (20:4)
+products:
+3537	       1	 2218.12	-29.69	-11.88	     pcholn204_hs[c]	1-Eicosatetraenoylglycerophosphocholine (Delta 8, 11, 14, 17), Sn1-Lpc (20:4)
+
+7783	Transport of 1-Lignocericylglycerophosphocholine (24:0), Lysopc A C24, Vescicular	PCHOLN264_HSt1e	-17.81	 17.81
+substrates:
+3481	      -1	 2993.56	-29.69	-11.88	      pcholn24_hs[e]	1-Lignocericylglycerophosphocholine (24:0), Lysopc A C24
+products:
+3556	       1	 2913.99	-29.69	-11.88	      pcholn24_hs[c]	1-Lignocericylglycerophosphocholine (24:0), Lysopc A C24
+
+7784	Transport of 1-Oleoylglycerophosphocholine (Delta 9), Vescicular	PCHOLOLE_HSt1e	-17.81	 17.81
+substrates:
+3436	      -1	 2368.04	-29.69	-11.88	      pcholole_hs[e]	1-Oleoylglycerophosphocholine (Delta 9)
+products:
+3519	       1	 2305.10	-29.69	-11.88	      pcholole_hs[c]	1-Oleoylglycerophosphocholine (Delta 9)
+
+7787	Transport of 1-Stearoylglycerophosphocholine, Vescicular	PCHOLSTE_HSt1e	-17.81	 17.81
+substrates:
+3443	      -1	 2457.40	-29.69	-11.88	      pcholste_hs[e]	1-Stearoylglycerophosphocholine
+products:
+3525	       1	 2392.09	-29.69	-11.88	      pcholste_hs[c]	1-Stearoylglycerophosphocholine
+
+7795	Transport of 1-Docosahexenoylglyceroethanolamine (Delta 4, 7, 10, 13, 16, 19), Lpe (22:6), Vescicular	PE226_HSt1e	-17.81	 17.81
+substrates:
+3470	      -1	 2055.28	-29.69	-11.88	         pe226_hs[e]	1-Docosahexenoylglyceroethanolamine (Delta 4, 7, 10, 13, 16, 19), Lpe (22:6)
+products:
+3545	       1	 2000.65	-29.69	-11.88	         pe226_hs[c]	1-Docosahexenoylglyceroethanolamine (Delta 4, 7, 10, 13, 16, 19), Lpe (22:6)
+
+7823	Transport of Glutarate, Extracellular	GLUTARte	-23.60	 12.03
 substrates:
 75	-0.00144444	   43.94	-43.94	-43.94	                h[e]	Proton
 4420	      -1	  260.95	-29.69	-11.88	           glutar[c]	Glutarate
 products:
 35	0.00228844	   42.75	-42.75	-42.75	                h[c]	Proton
 4296	       1	  268.08	-29.69	-11.88	           glutar[e]	Glutarate
+
+8145	Ganglioside Ga1 (Asialo Gm1) Endocytosis	GA1tl	-17.82	 17.81
+substrates:
+4603	      -1	 3529.72	-29.69	-11.88	           ga1_hs[e]	Gibberellin A1
+products:
+4597	       1	 2638.46	-29.69	-11.88	           ga1_hs[l]	Gibberellin A1
+
+8198	Trihexosyl Ceramide Transport, Lysosomal	THCRMtl	-17.82	 17.81
+substrates:
+229	      -1	 2870.50	-29.69	-11.88	         thcrm_hs[c]	Trihexosyl Ceramide
+products:
+4605	       1	 2204.28	-29.69	-11.88	         thcrm_hs[l]	Trihexosyl Ceramide
+
+8202	Phytoceramide Transport, Golgi Apparatus	PHCRMtg	-17.81	 17.81
+substrates:
+4600	      -1	 1652.71	-29.69	-11.88	         phcrm_hs[c]	Phytoceramide
+products:
+4588	       1	 1460.92	-29.69	-11.88	         phcrm_hs[g]	Phytoceramide
+
+8203	Phytoceramide Transport, Endoplasmatic Reticulum	PHCRMter	-17.81	 17.81
+substrates:
+4600	      -1	 1652.71	-29.69	-11.88	         phcrm_hs[c]	Phytoceramide
+products:
+4590	       1	 1652.71	-29.69	-11.88	         phcrm_hs[r]	Phytoceramide
+
+8211	Dihydroceramide Transport, Golgi Apparatus	DHCRMtg	-17.81	 17.81
+substrates:
+1050	      -1	 1652.71	-29.69	-11.88	         dhcrm_hs[c]	Dihydroceramide
+products:
+4587	       1	 1460.92	-29.69	-11.88	         dhcrm_hs[g]	Dihydroceramide
+
+8212	Dihydroceramide Transport, Endoplasmatic Reticulum	DHCRMter	-17.81	 17.81
+substrates:
+1050	      -1	 1652.71	-29.69	-11.88	         dhcrm_hs[c]	Dihydroceramide
+products:
+4583	       1	 1652.71	-29.69	-11.88	         dhcrm_hs[r]	Dihydroceramide
+
+8234	Transport of Gd1A 	GD1Atn	-17.81	 17.81
+substrates:
+4610	      -1	 4824.70	-29.69	-11.88	          gd1a_hs[c]	N-Acetylneuraminosyl-D-Galactosyl-N-Acetyl-D-Galactosaminyl-(N-Acetylneuraminosyl)-D-Galactosyl-D-Glucosylceramide Dianion
+products:
+4622	       1	 4824.70	-29.69	-11.88	          gd1a_hs[n]	N-Acetylneuraminosyl-D-Galactosyl-N-Acetyl-D-Galactosaminyl-(N-Acetylneuraminosyl)-D-Galactosyl-D-Glucosylceramide Dianion
+
+8235	ADP/ATP Transporter, Golgi	ATPtg	-45.66	 18.81
+substrates:
+38	      -1	-2271.09	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+231	-0.000103691	   37.70	-37.70	-37.70	                h[g]	Proton
+2705	      -1	-1455.14	-29.69	-11.88	              adp[g]	Adenosine Diphosphate
+products:
+35	1.44513e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1396.08	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+2704	       1	-2330.15	-29.69	-11.88	              atp[g]	Adenosine Triphosphate
+
+8276	HMR_0019	HMR_0019	-17.82	 17.81
+substrates:
+1418	      -1	 2010.60	-29.69	-11.88	       xolest2_hs[e]	Cholesterol Ester
+products:
+4677	       1	 1502.92	-29.69	-11.88	       xolest2_hs[l]	Cholesterol Ester
+
+9376	HMR_7182	HMR_7182	-17.81	 17.81
+substrates:
+5225	      -1	    0.00	-29.69	-11.88	           M01872[g]	(Gal)1 (GalNAc)1 (GlcNAc)1 (Ser/Thr)1
+products:
+5226	       1	    0.00	-29.69	-11.88	           M01872[e]	(Gal)1 (GalNAc)1 (GlcNAc)1 (Ser/Thr)1
+
+9497	HMR_9625	HMR_9625	-17.81	 17.81
+substrates:
+5239	      -1	  260.95	-29.69	-11.88	          HC02057[r]	1,2-Diacylglycerol-Ld-Pe-Pool
+products:
+4744	       1	  260.95	-29.69	-11.88	          HC02057[c]	1,2-Diacylglycerol-Ld-Pe-Pool
 
