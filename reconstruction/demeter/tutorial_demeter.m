@@ -3,24 +3,24 @@
 % 01/2021
 %% Introduction
 % This tutorial introduces the semi-automated reconstruction pipeline DEMETER 
-% (Data-drivEn METabolic nEtwork Refinement) [1] and its use for semi-automated, 
-% data-driven reconstruction of microbial strains. DEMETER was first applied to 
-% the reconstruction of 773 human gut microbial organisms [2]. More recently, 
-% DEMETER was used to reconstruct 7,206 human microbial strains, resulting in 
-% AGORA2, an update to AGORA both in size and scope [3]. While DEMETER was built 
-% with reconstructing human gut microbial reconstructions in mind and is tailored 
-% towards this purpose, it can be applied to any types of bacterial or archaeal 
-% microorganisms. The minimal prerequisite is the availability of a sequenced 
-% genome for the target organism. The tutorial demonstrates how to use DEMETER 
-% to build a refined genome-scale reconstruction for one or more target organisms 
-% from a draft reconstruction retrieved from KBase. Steps include input data collection, 
-% input data integration, running the refinement pipeline, and testing the refined 
-% reconstruction against the input data. Steps Figure 1 summarizes the steps used 
-% to create a curated reconstruction.
+% (Data-drivEn METabolic nEtwork Refinement) and its use for semi-automated, data-driven 
+% reconstruction of microbial strains. DEMETER was first applied to the reconstruction 
+% of 773 human gut microbial organisms [1]. More recently, DEMETER was used to 
+% reconstruct 7,206 human microbial strains, resulting in AGORA2, an update to 
+% AGORA both in size and scope [2]. While DEMETER was built with reconstructing 
+% human gut microbial reconstructions in mind and is tailored towards this purpose, 
+% it can be applied to any types of bacterial or archaeal microorganisms. The 
+% minimal prerequisite is the availability of a sequenced genome for the target 
+% organism. The tutorial demonstrates how to use DEMETER to build a refined genome-scale 
+% reconstruction for one or more target organisms from a draft reconstruction 
+% retrieved from KBase. Steps include input data collection, input data integration, 
+% running the refinement pipeline, and testing the refined reconstruction against 
+% the input data. Steps Figure 1 summarizes the steps used to create a curated 
+% reconstruction.
 % 
 % 
 % 
-% *Figure 1: Overview of the DEMETER pipeline [1].* The pipeline consists of  
+% *Figure 1: Overview of the DEMETER pipeline [2].* The pipeline consists of  
 % 1. collection of draft reconstructions, comparative genomic data, biochemical 
 % and physiological data, and drug structures and microbial conversion reactions, 
 % 2. conversion of data into a MATLAB-readable format, and integration into pipeline 
@@ -34,10 +34,7 @@
 % run is interrupted, it can be rerun and already performed steps will be skipped.
 %% Requirements
 % This tutorial requires the Parallel Computing Toolbox, Bioinformatics Toolbox, 
-% and Statistics and Machine Learning Toolbox add-ons in MATLAB. DEMETER relies 
-% on files located in the COBRA/papers repository. Please ensure that the COBRA/papers 
-% folder is up to date and the COBRa Toolbox including the papers folder are in 
-% the MATLAB path.
+% and Statistics and Machine Learning Toolbox add-ons in MATLAB.
 %% Step 1: Data collection and data integration
 % This part explains how to collect input data and convert it into a format 
 % readible by the pipeline. The minimal input for building a refined reconstruction 
@@ -74,21 +71,24 @@ initCobraToolbox
 solverOK=changeCobraSolver('ibm_cplex','LP');
 
 global CBTDIR
+%% 
+% To start DEMETER, define the path to the folder where the draft reconstructions 
+% are located (required).
+
+draftFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exampleDraftReconstructions'];
 %% 1.2. Taxonomic and strain information
 % Information on the taxonomic classification and organism properties (e.g., 
 % gram status, oxygen status, metabolism type, pathogenicity) has been collected 
 % for all 7,206 AGORA2 strains and is available in the file "input/AGORA2_infoFile.xlsx". 
-% The AGORA2 reference organism data is continuously being updated to the best 
-% of our abilities. It is highly recommmended to collect taxonomic information 
-% for your organism as this enables the propagation of experimental data from 
-% related strains that are already present in AGORA2. Moreover, it allows for 
-% the curation of the biomass objective function for gram status of the organism 
-% and inclusion of a periplasm compartment where appropriate. Taxonomic information 
-% can be retrieved from GTdb: <https://gtdb.ecogenomic.org/ https://gtdb.ecogenomic.org/> 
-% or NCBI Taxonomy: <https://www.ncbi.nlm.nih.gov/taxonomy/ https://www.ncbi.nlm.nih.gov/taxonomy/>. 
-% To provide taxonomic information for your organisms, prepare a file in the same 
-% format as cobratoolbox/papers/2021_demeter/example_infoFile.xlsx. Please provide 
-% the path to the file with taxonomic information as the variable infoFilePath.
+% It is highly recommmended to collect taxonomic information for your organism 
+% as this enables the propagation of experimental data from related strains that 
+% are already present in AGORA2. Taxonomic information can be retrieved from NCBI 
+% Taxonomy: <https://www.ncbi.nlm.nih.gov/taxonomy/ https://www.ncbi.nlm.nih.gov/taxonomy/>. 
+% Note that this step can be skipped, but will prevent informing the refined reconstructions 
+% through available experimental data. To provide taxonomic information for your 
+% organisms, prepare a file in the same format as cobratoolbox/papers/2021_demeter/example_infoFile.xlsx. 
+% Please provide the path to the file with taxonomic information as the variable 
+% infoFilePath.
 
 infoFilePath = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'example_infoFile.xlsx'];
 %% 
@@ -115,7 +115,7 @@ refinedModelIDs = printRefinedModelIDs(draftFolder);
 % reconstructions. If no related organisms are already present in DEMETER from 
 % which gram status information can be propagated, gram status can be retrieved 
 % from literature searches or by querying the Integrated Microbial Genomes Database 
-% (<https://img.jgi.doe.gov/ https://img.jgi.doe.gov/>) [4].
+% (<https://img.jgi.doe.gov/ https://img.jgi.doe.gov/>) [3].
 %% 1.4. Using compatative genomic data as input data for DEMETER
 % It is possible to inform the reconstruction with comparative genomics data 
 % retrieved from PubSEED. This will require either retrieving publicly available 
@@ -151,6 +151,9 @@ inputDataFolder = [pwd filesep 'InputData'];
 % and experimental data to your organism(s), use the code
 
 [infoFilePath,inputDataFolder] = prepareInputData(infoFilePath,'inputDataFolder', inputDataFolder, 'spreadsheetFolder',spreadsheetFolder);
+%% 
+% The variable adaptedInfoFilePath contains the path to the taxonomic information 
+% file adapted with gram staining information.
 %% 1.5. Manual gathering of experimental data as input data for DEMETER
 % In the folder inputDataFolder, you will find experimental data for your organism(s) 
 % retrieved and propagated from the already available data that had been collected 
@@ -223,36 +226,46 @@ curationStatus = getCurationStatus(infoFilePath,inputDataFolder,false);
 %% Step 2: Iterative refinement
 %% 2.1. Running the DEMETER pipeline
 % With the experimental and comparative genomic data in place, the pipeline 
-% can be run. At this step, the draft reconstructions retreived previously from 
-% KBase or ModelSEED serve as the input data and are systematically curated. This 
-% results in a refined reconstruction for each strain in the draft reconstruction 
-% folder as a mat file and optionally as a SBML file. Moreover, a summary of refinement 
-% steps, such as addition and removal of reactions during gap-filling, will be 
-% provided. Steps that are automatically carried out during this step include 
-% # translation of KBase reaction and metabolite to Virtual Metabolic Human [5] 
-% (<https://www.vmh.life https://www.vmh.life>) nomenclature, # expansion of the 
-% reconstruction by pathways supported by experimental data, # refinement of pathways 
-% and gene rules against comparative genomic data, and # quality control ensuring 
-% e.g., thermodynamic feasibility.
-% REQUIRED INPUTS
-% Define the path to the folder where the draft reconstructions are located.
+% can be run. This will result in a refined reconstruction for each strain in 
+% the draft reconstruction folder as a mat file and optionally as a SBML file. 
+% Moreover, a summary of refinement steps, such as addition and removal of reactions 
+% during gap-filling, will be provided. Steps that are automatically carried out 
+% during this step include # translation of KBase reaction and metabolite to Virtual 
+% Metabolic Human [4] (<https://www.vmh.life https://www.vmh.life>) nomenclature, 
+% # expansion of the reconstruction by pathways supported by experimental data, 
+% # refinement of pathways and gene rules against comparative genomic data, and 
+% # quality control ensuring e.g., thermodynamic feasibility.
+% 
+% First, we will define the folders where pipeline results will be stored (optional, 
+% otherwise, default paths will be used).
+% 
+% Define the path to a folder where the refined reconstructions will be stored 
+% in mat file format
 
-draftFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exampleDraftReconstructions'];
+refinedFolder = [pwd filesep 'RefinedReconstructions'];
 %% 
-% Another required input is the path to the file with organism taxonomy (infoFilePath) 
-% defined previously.
-% OPTIONAL INPUTS
+% Define the path where translated versions of the draft reconstructions will 
+% be stored. These reconstructions will not undergo the pipeline except for the 
+% translation step, which will enable them to pass the DEMETER test suite.
+
+translatedDraftsFolder = [pwd filesep 'TranslatedDraftReconstructions'];
+%% 
+% Define the folder where reports on performed gap-filling, QA/QC, and expansion 
+% the reconstructions will be saved.
+
+summaryFolder = [pwd filesep 'RefinementSummary'];
+%% 
 % Define the number of workers for parallel computing.
 
 numWorkers = 4;
 %% 
-% Define a name for the reconstruction resource (default name will be used otherwise)
+% Define a name for the reconstruction resource (optional)
 
 reconVersion = 'TutorialExample';
 %% 
-% To run the pipeline, enter the code
+% Run the pipeline.
 
-[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
 % in mat format are located in the folder "RefinedReconstructions", and in SBML 
@@ -324,15 +337,11 @@ testResults2 = table2cell(testResults2);
 % some mass- and charge-imbalanced reactions currently cannot be corrected.
 %% 2.3. Debugging the refined reconstructions
 %% 2.3.1. Translation from KBase to VMH nomenclature
-% To date, over 4,000 metabolites and over 6,700 reactions have been translated 
-% from KBase to VMH nomenclature. This includes most reactions commonly occuring 
-% in draft reconstructions for host-associated microbes. Especially for non-host-associated 
-% microbes, you may need to translate yet unmapped reactions and metabolites from 
-% KBase to VMH nomenclature. To find out if this is necessary, check the files 
-% "untranslatedMets.txt" and "untranslatedRxns.txt", if present, for any KBase 
-% metabolites and reactions that are not yet translated to VMH nomenclature. This 
-% requires the reconstruction tool rBioNet [6]. To prepare the use of rBioNet, 
-% run the function
+% For the tutorial example, all metabolites and reactions have been translated. 
+% For your own reconstructions, check the files "untranslatedMets.txt" and "untranslatedRxns.txt", 
+% if present, for any KBase metabolites and reactions that are not yet translated 
+% to VMH nomenclature. This requires the reconstruction tool rBioNet [5]. To prepare 
+% the use of rBioNet, run the function
 
 createRBioNetDBFromVMHDB
 %% Translating metabolites
@@ -348,9 +357,9 @@ end
 % 
 % Metabolites that could not be translated this way will need to be inspected 
 % manually. Try finding them in the VMH database by consulting KEGG (https://www.genome.jp/kegg) 
-% [7] or HMDB (https://hmdb.ca) [8] IDs. For metabolites that are not yet present 
+% [6] or HMDB (https://hmdb.ca) [7] IDs. For metabolites that are not yet present 
 % in the VMH database, formulate a metabolite ID following the standards of the 
-% field as described in Thiele and Palsson [9]. Afterwards, add the new metabolites 
+% field as described in Thiele and Palsson [8]. Afterwards, add the new metabolites 
 % to the file cobratoolbox/papers/2021_demeter/input/MetaboliteDatabase.txt while 
 % ensuring that the format of the file is kept. Also add the KBase to VMH metabolite 
 % translation to the file cobratoolbox/papers/2021_demeter/input/MetaboliteTranslationTable.txt.
@@ -405,9 +414,6 @@ end
 % while ensuring that the format of the file is kept. Also assign subsystems 
 % to the reactions following the existing nomenclature in the database. Also add 
 % the KBase to VMH reaction translation to cobratoolbox/papers/2021_demeter/input/ReactionTranslationTable.txt.
-% 
-% We kindly request you also propagate this information back by submitting a 
-% pull request to COBRA/papers.
 %% 2.3.2 Debugging the reconstructions
 % After performing the data-driven refinement, there may still be reconstructions 
 % that cannot grow anaerobically and/or on Western diet, produce unrealistic amounts 
@@ -421,9 +427,14 @@ end
 % tools is available. The suite will gap-fill the reconstructions that fail tests 
 % and re-test them afterwards.
 % 
-% To run the debugging suite, enter the code:
+% Define a folder where debugged models and results of the repeated test will 
+% be saved (optional, default path will be used otherwise).
 
-[debuggingFolder,debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,reconVersion,'numWorkers',numWorkers);
+debuggingFolder = [pwd filesep 'DebuggedModels'];
+%% 
+% Run the debugging suite.
+
+[debuggingFolder,debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,reconVersion,'numWorkers',numWorkers,'debuggingFolder',debuggingFolder);
 %% 
 % If any models still fail a test as indicated by the output variable failedModels, 
 % inspect the results in debuggingFolder -> Retest. 
@@ -445,9 +456,14 @@ end
 % and internal metabolite biosynthesis profiles per reconstruction and their subssequent 
 % clustering by taxon.
 % 
-% To run the computation and visualization of model properties, enter the code
+% Define the folder where computed model properties of the finished  reconstruction 
+% resource should be saved (optional, default folder will be used otherwise).
 
-propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers);
+propertiesFolder = [pwd filesep 'modelProperties'];
+%% 
+% Run the computation and visualization of model properties.
+
+computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder);
 %% 3.2. Visualization of the features of large-scale reconstruction resources and their subsets
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 
@@ -498,35 +514,31 @@ subsetVersion = 'Bacteroidetes';
 
 propertiesFolder = computeModelProperties(subsetFolder, infoFilePath, subsetVersion, 'numWorkers', numWorkers, 'propertiesFolder', subsetPropertiesFolder);
 %% References
-% [1] Heinken A, Magnúsdóttir S, Fleming R.M.T., Thiele I, DEMETER: Efficient 
-% simultaneous curation of  genome-scale reconstructions guided by experimental 
-% data and refined  gene annotations. arXiv (2021)
-% 
-% [2] Magnúsdóttir S, Heinken A, Kutt L, Ravcheev DA et al, Generation of genome-scale 
+% [1] Magnúsdóttir S, Heinken A, Kutt L, Ravcheev DA et al, Generation of genome-scale 
 % metabolic reconstructions for 773 members of the human gut microbiota. Nat Biotechnol. 
 % 35(1):81-89 (2017). 
 % 
-% [3] Heinken A, Acharya G, Ravcheev DA, Hertel J et al, AGORA2: Large scale 
+% [2] Heinken A, Acharya G, Ravcheev DA, Hertel J et al, AGORA2: Large scale 
 % reconstruction of the microbiome highlights wide-spread drug-metabolising capacities. 
 % bioRxiv (2020). 
 % 
-% [4] Chen IA, Chu K, Palaniappan K, Ratner A et al, The IMG/M data management 
+% [3] Chen IA, Chu K, Palaniappan K, Ratner A et al, The IMG/M data management 
 % and analysis system v.6.0: new tools and advanced capabilities. Nucleic Acids 
 % Res. 49(D1):D751-D763 (2021).
 % 
-% [5] Noronha A, Modamio J, Jarosz Y, Guerard E et al., The Virtual Metabolic 
+% [4] Noronha A, Modamio J, Jarosz Y, Guerard E et al., The Virtual Metabolic 
 % Human database: integrating human and gut microbiome metabolism with nutrition 
 % and disease. Nucleic Acids Res 47(D1):D614-D624 (2019). 
 % 
-% [6] Thorleifsson SG, Thiele I, rBioNet: A COBRA toolbox extension for reconstructing 
+% [5] Thorleifsson SG, Thiele I, rBioNet: A COBRA toolbox extension for reconstructing 
 % high-quality biochemical networks. Bioinformatics 27(14):2009-10 (2010). 
 % 
-% [7] Kanehisa M, Furumichi M, Sato Y, Ishiguro-Watanabe M, Tanabe M, KEGG: 
+% [6] Kanehisa M, Furumichi M, Sato Y, Ishiguro-Watanabe M, Tanabe M, KEGG: 
 % integrating viruses and cellular organisms. Nucleic Acids Res. 49(D1):D545-D551 
 % (2021). 
 % 
-% [8] Wishart DS, Feunang YD, Marcu A, Guo AC, et al., HMDB 4.0 — The Human 
+% [7] Wishart DS, Feunang YD, Marcu A, Guo AC, et al., HMDB 4.0 — The Human 
 % Metabolome Database for 2018. Nucleic Acids Res. 46(D1):D608-17 (2018). 
 % 
-% [9] Thiele I, Palsson BØ, A protocol for generating a high-quality genome-scale 
+% [8] Thiele I, Palsson BØ, A protocol for generating a high-quality genome-scale 
 % metabolic reconstruction. Nat Protoc 5(1):93-121 (2010).
