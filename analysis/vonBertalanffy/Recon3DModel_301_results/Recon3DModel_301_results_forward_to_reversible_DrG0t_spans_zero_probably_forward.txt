@@ -1,0 +1,71 @@
+2AMADPTm	0.0070496 h[c] + L2aadp[c] + akg[m]  -> 0.0496162 h[m] + L2aadp[m] + akg[c] 	-39.8	9.7	-75.4	45.3
+2DR1PP	h2o[c] + 0.214742 h[c] + 2dr1p[c]  -> pi[c] + drib[c] 	-21.0	1.5	-56.6	6.3
+AGTim	ala_L[m] + glx[m]  -> 0.0371766 h[m] + pyr[m] + gly[m] 	-42.6	5.0	-78.3	40.7
+AGTix	ala_L[x] + glx[x]  -> 0.00423472 h[x] + pyr[x] + gly[x] 	-42.6	5.1	-78.2	40.7
+ATPtm	1.44513e-05 h[c] + adp[c] + atp[m]  -> 3.01938e-05 h[m] + atp[c] + adp[m] 	-42.8	12.9	-49.1	43.9
+DNDPt13m	7.46555e-05 h[m] + atp[m] + dadp[c]  -> 9.20069e-06 h[c] + atp[c] + dadp[m] 	-43.3	13.4	-68.2	32.6
+DPGase	h2o[c] + 0.367301 h[c] + 23dpg[c]  -> pi[c] + 3pg[c] 	-24.5	4.1	-60.1	8.9
+G6PPer	h2o[r] + 0.259038 h[r] + g6p[r]  -> glc_D[r] + pi[r] 	-21.5	1.7	-69.0	7.7
+GUR1PP	h2o[c] + 0.245731 h[c] + glcur1p[c]  -> pi[c] + glcur[c] 	-24.1	0.9	-59.8	5.6
+KDNH	h2o[c] + 0.187122 h[c] + kdnp[c]  -> pi[c] + kdn[c] 	-24.3	5.0	-59.9	9.7
+MI13PP	h2o[c] + 0.256458 h[c] + mi13p[c]  -> pi[c] + mi1p_D[c] 	-27.1	5.5	-62.7	10.2
+MI145PP	h2o[c] + 0.306465 h[c] + mi145p[c]  -> pi[c] + mi14p[c] 	-31.5	9.6	-67.1	14.4
+MI14P4P	h2o[c] + 0.256458 h[c] + mi14p[c]  -> pi[c] + mi1p_D[c] 	-27.1	5.5	-62.7	10.2
+MI14PP	h2o[c] + 0.256458 h[c] + mi14p[c]  -> pi[c] + mi4p_D[c] 	-26.1	6.3	-61.7	11.1
+MI34PP	h2o[c] + 0.311614 h[c] + mi34p[c]  -> pi[c] + mi3p_D[c] 	-26.4	6.3	-62.0	11.1
+NTD7l	h2o[l] + 0.0987884 h[l] + amp[l]  -> pi[l] + adn[l] 	-31.8	6.3	-79.3	12.2
+SUCRe	h2o[e] + sucr[e]  -> 0.00249497 h[e] + glc_D[e] + fru[e] 	-59.3	-3.7	-106.8	2.3
+TREH	h2o[c] + tre[c]  -> 0.000247494 h[c] + 2 glc_D[c] 	-30.8	1.6	-78.3	7.6
+TREHe	h2o[e] + tre[e]  -> 0.00039222 h[e] + 2 glc_D[e] 	-30.8	1.6	-78.3	7.6
+r0380	0.19576 h[e] + h2o[e] + HC01441[e]  -> pi[e] + lcts[e] 	-27.2	8.0	-74.7	13.9
+r1423	pi[c] + 0.26187 h[e]  -> 0.359915 h[c] + pi[e] 	-15.0	4.1	-31.6	10.1
+FBP	h2o[c] + 0.258972 h[c] + fdp[c]  -> pi[c] + f6p[c] 	-23.7	3.9	-59.3	8.6
+2M3HBUtm	0.00203746 h[c] + 2m3hbu[m]  -> 0.00032347 h[m] + 2m3hbu[c] 	-25.6	-4.4	-43.4	13.5
+2M3OVACtm	0.00131645 h[c] + 2m3ovac[m]  -> 0.000208874 h[m] + 2m3ovac[c] 	-27.2	-2.7	-45.1	15.1
+3H3MGLTte	0.00109595 h[e] + 3h3mglt[c]  -> 0.00173654 h[c] + 3h3mglt[e] 	-16.2	4.7	-34.1	22.5
+3OHGLUTACte	0.000775964 h[e] + 3ohglutac[c]  -> 0.0012296 h[c] + 3ohglutac[e] 	-15.7	4.1	-33.5	22.0
+GLUTCONtm	0.0020871 h[c] + glutcon[m]  -> 0.000331059 h[m] + glutcon[c] 	-45.7	-14.1	-63.5	3.7
+3HIVActm	0.00223359 h[c] + 3hivac[m]  -> 0.000354666 h[m] + 3hivac[c] 	-25.8	-4.2	-43.6	13.7
+3HADPACte	0.00114758 h[e] + 3hadpac[c]  -> 0.00181833 h[c] + 3hadpac[e] 	-16.5	4.9	-34.3	22.7
+4OHBUTtmc	0.00173468 h[c] + 4ohbut[m]  -> 0.000275331 h[m] + 4ohbut[c] 	-22.0	-7.9	-39.8	9.9
+2HYDOGte	0.000575232 h[e] + 2hydog[c]  -> 0.000911518 h[c] + 2hydog[e] 	-15.7	4.1	-33.5	22.0
+GLUTARte	0.00144444 h[e] + glutar[c]  -> 0.00228844 h[c] + glutar[e] 	-16.1	4.5	-33.9	22.3
+
+Cytoplasmic metabolites only:
+11	h2o	h2o[c]	-138.3	3.0	
+3.045950e+00	h	h[c]	42.8	0.0	
+2	atp	atp[c]	-2278.1	7.8	
+1	adp	adp[c]	-1395.0	6.3	
+11	pi	pi[c]	-1041.2	3.4	
+1	L2aadp	L2aadp[c]	-227.0	8.0	
+1	akg	akg[c]	-620.2	3.9	
+1	2dr1p	2dr1p[c]	-1056.2	2.7	
+1	drib	drib[c]	-163.0	2.2	
+1	kdnp	kdnp[c]	-1619.2	4.2	
+1	dadp	dadp[c]	-1239.9	6.6	
+2	glc_D	glc_D[c]	-385.3	2.6	
+1	kdn	kdn[c]	-725.9	4.2	
+1	3pg	3pg[c]	-1331.6	2.9	
+1	23dpg	23dpg[c]	-2224.3	4.9	
+1	f6p	f6p[c]	-1276.7	2.8	
+1	glcur	glcur[c]	-695.3	3.0	
+1	glcur1p	glcur1p[c]	-1586.5	3.3	
+1	mi13p	mi13p[c]	-2175.3	5.6	
+1	mi34p	mi34p[c]	-2176.1	5.6	
+2	mi1p_D	mi1p_D[c]	-1283.2	4.2	
+1	mi145p	mi145p[c]	-3067.3	7.6	
+3	mi14p	mi14p[c]	-2175.3	5.6	
+1	mi4p_D	mi4p_D[c]	-1282.3	4.1	
+1	mi3p_D	mi3p_D[c]	-1283.2	4.2	
+1	tre	tre[c]	-617.8	5.7	
+1	fdp	fdp[c]	-2169.7	4.6	
+1	2m3hbu	2m3hbu[c]	391.4	3.8	
+1	2m3ovac	2m3ovac[c]	391.4	4.4	
+1	3h3mglt	3h3mglt[c]	347.9	3.8	
+1	3ohglutac	3ohglutac[c]	261.0	3.6	
+1	glutcon	glutcon[c]	174.0	5.7	
+1	3hivac	3hivac[c]	391.4	3.9	
+1	3hadpac	3hadpac[c]	347.9	3.9	
+1	4ohbut	4ohbut[c]	304.4	2.5	
+1	2hydog	2hydog[c]	261.0	3.6	
+1	glutar	glutar[c]	260.9	3.7	

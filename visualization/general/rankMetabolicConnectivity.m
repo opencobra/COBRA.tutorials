@@ -37,9 +37,13 @@ if param.internal
         printLevel=1;
         [SConsistentMetBool, SConsistentRxnBool, SInConsistentMetBool, SInConsistentRxnBool, unknownSConsistencyMetBool, unknownSConsistencyRxnBool, model]...
             = findStoichConsistentSubset(model,massBalanceCheck,printLevel);
-        N=model.S(:,SConsistentRxnBool)~=0;
+        N=model.S(SConsistentMetBool,SConsistentRxnBool)~=0;
+        %ignore stoichiometrically inconsistent metabolites
+        N(~SConsistentMetBool,:)=0;
     else
         N=model.S(:,model.SConsistentRxnBool)~=0;
+        %ignore stoichiometrically inconsistent metabolites
+        N(~model.SConsistentMetBool,:)=0;
     end
 else
     N=model.S~=0;

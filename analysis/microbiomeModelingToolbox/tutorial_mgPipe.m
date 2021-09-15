@@ -20,16 +20,18 @@
 % to specific metabolites
 % # Targeted analysis: computation of shadow prices that reveal metabolite dependencies 
 % for a specific objective
-% # Integration of a host organism with personalized microbiome models
 %% 
 % Please note that this tutorial uses as an example a small dataset (4 columns 
 % and 10 rows) with the purpose of demonstrating the functionalities of the pipeline. 
 % We recommend using high-performance computing clusters when assembling and simulating 
 % from bigger datasets.
-%% DRIVER
+%% Driver
 % The  pipeline driver script cobratoolbox/papers/2018_microbiomeModelingToolbox/startMgPipe.m 
 % contains the neccessary inputs to run mgPipe for your dataset. Replace the input 
 % variables in startMgPipe with your own dataset and modifiy as needed.
+%% Requirements
+% This tutorial requires the Parallel Computing Toolbox, Bioinformatics Toolbox, 
+% and Statistics and Machine Learning Toolbox add-ons in MATLAB.
 %% Initialize the COBRA Toolbox
 
 initCobraToolbox
@@ -38,19 +40,15 @@ initCobraToolbox
 
 solverOK=changeCobraSolver('ibm_cplex','LP');
 %% Prepare input data and models
-% We first set the paths to input and output files change directory to where 
-% the tutorial is located
-
-tutorialPath = fileparts(which('tutorial_mgPipe'));
-cd(tutorialPath);
-%% 
 % We will use the AGORA resource (Magnusdottir et al., Nat Biotechnol. 2017 
 % Jan;35(1):81-89) in this tutorial. AGORA version 1.03 is available at <https://github.com/VirtualMetabolicHuman/AGORA 
 % https://github.com/VirtualMetabolicHuman/AGORA>. Download AGORA and place the 
 % models into a folder.
 
-system('curl -LJO https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
-unzip('AGORA-master')
+websave('AGORA-master.zip','https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
+try
+    unzip('AGORA-master')
+end
 modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_03' filesep' 'AGORA_1_03_mat'];
 %% Preparing the input file with normalized abundances
 % Preparing an input file suitable for mgPipe requires mapping the organisms 
@@ -60,8 +58,7 @@ modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_
 % For an example of how to map metagenomic sequences to AGORA models, enter 
 % the following code:
 
-system('curl -LJO https://www.ebi.ac.uk/metagenomics/api/v1/studies/MGYS00001248/pipelines/3.0/file/SRP065497_taxonomy_abundances_v3.0.tsv')
-
+websave('SRP065497_taxonomy_abundances_v3.0.tsv','https://www.ebi.ac.uk/metagenomics/api/v1/studies/MGYS00001248/pipelines/3.0/file/SRP065497_taxonomy_abundances_v3.0.tsv')
 [translatedAbundances,normalizedAbundances,unmappedRows] = translateMetagenome2AGORA('SRP065497_taxonomy_abundances_v3.0.tsv','Species');
 %% 
 % _translateMetagenome2AGORA_ translates the output of common sequencing pipelines 
@@ -102,7 +99,7 @@ cutoff = 0.0001;
 % create pan-models on other species level up to phylum, modify the input variable 
 % taxonLevel.
 
-panPath=[tutorialPath filesep 'panSpeciesModels'];
+panPath=[pwd filesep 'panSpeciesModels'];
 mkdir(panPath)
 
 taxonLevel='Species';
@@ -128,7 +125,7 @@ createPanModels(modPath,panPath,taxonLevel);
 % First, we will set the path where to save results.
 
 mkdir('Results');
-resPath = [tutorialPath filesep 'Results'];
+resPath = [pwd filesep 'Results'];
 %% 
 % Then, we will define the simulated dietary regime that will be implemented 
 % on the personalized models. Here, we will use an "Average European" diet that 
@@ -173,7 +170,7 @@ abunFilePath='normCoverageReduced.csv';
 % times in large datasets.
 
 computeProfiles = true;
-%% Setting optional inputs
+%% 
 % Next inputs will define:
 %% 
 % # name of the objective function of organisms
@@ -196,23 +193,12 @@ computeProfiles = true;
 % The same inputs need to be set in the driver file StartMgPipe when running 
 % mgPipe outside of this tutorial or directly in the "initMgPipe" function.
 % 
-% OPTIONAL INPUTS
-% 
-% path to csv file for stratification criteria (if empty or not existent no 
+% Path to csv file for stratification criteria (if empty or not existent no 
 % criteria is used)
 
 infoFilePath = '';
 %% 
-% path to a model of the host (e.g., human) to be joined with the microbiomes 
-% (default: no host)
-
-hostPath = '';
-%% 
-% name of objective function of organisms, default='EX_biomass(e)'
-
-objre = 'EX_biomass(e)';
-%% 
-% strategy used to build personalized models. If true: create a global setup 
+% Strategy used to build personalized models. If true: create a global setup 
 % model that is pruned, if false, create each personalized model one by one. The 
 % latter is recommended if there are 300 or more individual organisms.
 
@@ -226,31 +212,9 @@ saveConstrModels = true;
 
 numWorkers = 4;
 %% 
-% to enable also rich diet simulations (default=false)
-
-rDiet = false;
-%% 
-% to enable personalized diet simulations (default=false)
-
-pDiet = false;
-%% 
-% to manually set the lower bound on flux through the community biomass reaction 
-% (default=0.4 mmol/person/day)
-
-lowerBMBound = 0.4;
-%% 
-% to set whether existing simulation results are rewritten (default=false)
-
-repeatSim = false;
-%% 
-% to set if the input medium should be adapted through the adaptVMHDietToAGORA 
-% function or used as is (default=true)                  
-
-adaptMedium = true;
-%% Pipeline run
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers);
 %% Computed outputs
 %% 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -288,28 +252,17 @@ adaptMedium = true;
 % profiles (using the net secretion potential as features) between individuals 
 % is also evaluated with classical multidimensional scaling. 
 % 
+% The output file "ReactionAbundance.csv" in the Results folder contains the 
+% relative abundance of each reaction in each sample. A description of each reaction 
+% can be found by searching for the reaction ID in the file cobratoolbox/papers/2021_demeter/input/ReactionDatabase.txt 
+% or on the Virtual Metabolic Human website (https://www.vmh.life/). For a more 
+% convenient overview of pathways altered in their relative abundances across 
+% samples, the relative abundances on the subsystem level are also computed and 
+% saved as the file SubsystemAbundance.txt. A plot of the relative subsystem abundances 
+% is also generated.
+% 
 % In the export of models with dietary constraints is desired, they will be 
 % found in the folder constrModelsPath.
-%% Calculating subsystem abundances
-% The out file "reactions.csv" in the Results folder cotnain the relative abundance 
-% of each reaction in each sample. A description of each reaction can be found 
-% by searching for the reaction ID in the file
-% 
-% cobratoolbox/papers/2021_demeter/input/ReactionDatabase.txt
-% 
-% or on the Virtual Metabolic Human website (https://www.vmh.life/).
-% 
-% For a more convenient overview of pathways altered in their relative abundances 
-% across samples, the relative abundances can also be calculated for each sample 
-% on the subsystem level by entering the code
-
-reactionAbundancePath=[resPath filesep 'reactions.csv'];
-subsystemAbundance = calculateSubsystemAbundance(reactionAbundancePath);
-%% 
-% The calculated subsystem abundances can be found in the output variable subsystemAbundance 
-% and in the file "SubsystemAbundance.txt". A subsystem abundance of 1 indicates 
-% that each reaction in the subsystem found in at least one sample is present 
-% at a relative abundance of 1 in the sample.
 %% Correlation between computed fluxes and abundances and different taxon levels
 % For an overview of metabolite-taxa relationships, the computed uptake and 
 % secretion profiles for each metabolite can be correlated with taxon abundances 
@@ -329,7 +282,7 @@ taxInfo = 'AGORA_infoFile.xlsx';
 %% 
 % Path to fluxes that should be correlated
 
-fluxPath = [resPath filesep 'inputDiet_net_uptake_fluxes.csv'];
+fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
 corrMethod = 'Spearman';
 [FluxCorrelations, PValues, TaxonomyInfo] = correlateFluxWithTaxonAbundance(abunFilePath, fluxPath, taxInfo, corrMethod);
 %% 
@@ -371,7 +324,7 @@ plotFluxesAgainstOrganismAbundances(abunFilePath,fluxPath,metList);
 infoFilePath='sampInfo.csv'; 
 saveConstrModels = false;
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers);
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs. disease 
 % state), statistical analysis can be performed to identify whether net secretion 
@@ -396,13 +349,13 @@ sampleGroupHeaders={'Group'};
 % 
 % path with results of mgPipe that will be analyzed
 
-resPath = [tutorialPath filesep 'Results'];
+resPath = [pwd filesep 'Results'];
 %% 
 % define where results will be saved (optional, default folders will be generated 
 % otherwise)
 
-statPath = [tutorialPath filesep 'Statistics'];
-violinPath = [tutorialPath filesep 'ViolinPlots'];
+statPath = [pwd filesep 'Statistics'];
+violinPath = [pwd filesep 'ViolinPlots'];
 %% 
 % To perform the statistical analysis and save the results, enter the code
 
@@ -441,8 +394,8 @@ metList = {'ac','for'};
 %% 
 % create a new folder where strain contributions will be saved
 
-mkdir([tutorialPath filesep 'StrainContributions']);
-contPath = [tutorialPath filesep 'StrainContributions'];
+mkdir([pwd filesep 'StrainContributions']);
+contPath = [pwd filesep 'StrainContributions'];
 
 [minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(constrModPath, 'resPath', contPath, 'metList', metList, 'numWorkers', numWorkers);
 %% 
@@ -485,50 +438,13 @@ SPDef = 'Nonzero';
 %% 
 % create a new folder where shadow prices will be saved
 
-mkdir([tutorialPath filesep 'ShadowPrices']);
-spPath = [tutorialPath filesep 'ShadowPrices'];
-
+mkdir([pwd filesep 'ShadowPrices']);
+spPath = [pwd filesep 'ShadowPrices'];
 [objectives,shadowPrices]=analyseObjectiveShadowPrices(constrModPath, objectiveList, 'resultsFolder', spPath, 'SPDef', SPDef, 'numWorkers', numWorkers);
 %% 
 % Similar to the previous results, we can also perform statistical analysis 
 % on the computed shadow prices.
 
 analyzeMgPipeResults(infoFilePath,spPath,'statPath', statPath, 'violinPath', violinPath,'sampleGroupHeaders', sampleGroupHeaders);
-%% Using mgPipe to model host-microbiome co-metabolism
-% If desired, the sample-specific microbiome models created by mgPipe can also 
-% be joined with a model of the host, e.g., with the human reconstruction Recon3D. 
-% Let us create the same four microbiome models as before joined with Recon3D.
-
-system('curl -LJO https://www.vmh.life/files/reconstructions/Recon/3D.01/Recon3D_301.zip')
-unzip('Recon3D_301')
-hostPath = [pwd filesep 'Recon3D_301' filesep 'Recon3DModel_301.mat'];
 %% 
-% First, we will delete the previously created setup model so it can be overwritten/
-
-delete([resPath filesep 'mapInfo.mat'],[resPath filesep 'Setup_allbacs.mat'])
-%% 
-% Since host metabolites can now enter from the host model itself, the  adaptMedium 
-% input can be set to false.                 
-
-adaptMedium = false; 
-%% 
-% If a host model is entered, it is also highly recommended to enter the host 
-% biomass reaction to generate coupling constraints for the host.
-
-hostBiomassRxn = 'biomass_reaction';
-%% 
-% The upper bound on the flux through the host biomass reaction can also be 
-% constrained by entering the input variable hostBiomassRxnFlux (default: 1).
-
-hostBiomassRxnFlux = 1;
-%% 
-% For the sake of this tutorial, we will only create personalized models combined 
-% with Recon3D and constrained with the Average European diet, not run FVA again. 
-% Naturally, all analyses shown in this tutorial can also be performed with the 
-% host present.
-
-computeProfiles = false;
-%% 
-% Run the pipeline to create personalized host-microbiome models.
-
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'hostPath', hostPath, 'hostBiomassRxn', hostBiomassRxn, 'hostBiomassRxnFlux', hostBiomassRxnFlux, 'objre', objre, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers, 'rDiet', rDiet, 'pDiet', pDiet, 'lowerBMBound', lowerBMBound, 'repeatSim', repeatSim, 'adaptMedium', adaptMedium);
+%

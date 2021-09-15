@@ -1,0 +1,129 @@
+Metabolites which force 11 qualitatively  forward -> quantiatively reversible (DrG0t span the zero line). Forward with probability greater than 0.7.
+35:	10	h[c]Proton
+28:	7	h[m]Proton
+40:	2	pi[c]Orthophosphate
+20:	1	h2o[c]Water
+24:	1	nh4[c]Ammonium
+38:	1	atp[c]Adenosine Triphosphate
+39:	1	adp[c]Adenosine Diphosphate
+109:	1	2mop[m]2-Methyl-3-Oxopropanoate
+139:	1	pi[l]Orthophosphate
+241:	1	aact[c]Ammonioacetone
+243:	1	aact[m]Ammonioacetone
+265:	1	h[l]Proton
+290:	1	acald[c]Acetaldehyde
+293:	1	atp[m]Adenosine Triphosphate
+294:	1	adp[m]Adenosine Diphosphate
+295:	1	pi[m]Orthophosphate
+302:	1	ppa[m]Propionate
+321:	1	gam6p[c]D-Glucosamine-6-Phosphate
+330:	1	ac[c]Acetate
+338:	1	cit[c]Citrate
+339:	1	oaa[c]Oxaloacetate
+378:	1	cit[m]Citrate
+394:	1	ppa[c]Propionate
+395:	1	ac[m]Acetate
+412:	1	datp[c]Deoxyadenosine Triphosphate
+649:	1	oaa[m]Oxaloacetate
+1031:	1	datp[m]Deoxyadenosine Triphosphate
+1162:	1	2dr5p[c]2-Deoxy-D-Ribose 5-Phosphate
+1163:	1	g3p[c]Glyceraldehyde 3-Phosphate
+1495:	1	f6p[c]D-Fructose 6-Phosphate
+1899:	1	lac_L[m](S)-Lactate
+1917:	1	lac_L[c](S)-Lactate
+2462:	1	2mop[c]2-Methyl-3-Oxopropanoate
+
+
+128	Aminoacetone Transport, Mitochondrial	AACTtm	-14.00	 48.71
+substrates:
+28	-0.719661	   47.50	-47.50	-47.50	                h[m]	Proton
+243	      -1	  223.39	-29.69	-11.88	             aact[m]	Ammonioacetone
+products:
+35	0.289197	   42.75	-42.75	-42.75	                h[c]	Proton
+241	       1	  187.79	-29.69	-11.88	             aact[c]	Ammonioacetone
+
+830	Transport of dATP via ADP Antiport	DNDPt1m	-60.89	 60.46
+substrates:
+28	-0.000106013	   47.50	-47.50	-47.50	                h[m]	Proton
+294	      -1	-1341.43	-15.35	-12.04	              adp[m]	Adenosine Diphosphate
+412	      -1	-2122.99	-29.69	-11.88	             datp[c]	Deoxyadenosine Triphosphate
+products:
+35	4.59687e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+39	       1	-1395.02	-41.56	-16.16	              adp[c]	Adenosine Diphosphate
+1031	       1	-2069.39	-29.69	-11.88	             datp[m]	Deoxyadenosine Triphosphate
+
+903	Deoxyribose-Phosphate Aldolase	DRPA	-39.99	 29.48
+substrates:
+35	-0.0393522	   42.75	-42.75	-42.75	                h[c]	Proton
+1162	      -1	-1056.07	-29.69	-11.88	            2dr5p[c]	2-Deoxy-D-Ribose 5-Phosphate
+products:
+290	       1	   36.61	-29.69	-11.88	            acald[c]	Acetaldehyde
+1163	       1	-1077.15	-29.69	-11.88	              g3p[c]	Glyceraldehyde 3-Phosphate
+
+1931	Transport of L-Lactate via Diffusion, Mitochondrial	L_LACtcm	 -8.80	 38.71
+substrates:
+28	-6.02493e-05	   47.50	-47.50	-47.50	                h[m]	Proton
+1917	      -1	 -282.22	-29.69	-11.88	            lac_L[c]	(S)-Lactate
+products:
+35	0.000380026	   42.75	-42.75	-42.75	                h[c]	Proton
+1899	       1	 -258.46	-29.69	-11.88	            lac_L[m]	(S)-Lactate
+
+2424	Propionate Transport, Diffusion	PPAtm	 -8.59	 38.52
+substrates:
+28	-0.00056199	   47.50	-47.50	-47.50	                h[m]	Proton
+394	      -1	 -126.16	-29.69	-11.88	              ppa[c]	Propionate
+products:
+35	0.00353537	   42.75	-42.75	-42.75	                h[c]	Proton
+302	       1	 -102.40	-29.69	-11.88	              ppa[m]	Propionate
+
+3264	Facilitated Diffusion	r0853	 -5.39	 72.91
+substrates:
+35	-0.876393	   42.75	-42.75	-42.75	                h[c]	Proton
+38	      -1	-2278.14	-17.16	-13.72	              atp[c]	Adenosine Triphosphate
+295	      -1	-1035.49	-29.69	-11.88	               pi[m]	Orthophosphate
+products:
+28	 0.95286	   47.50	-47.50	-47.50	                h[m]	Proton
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+293	       1	-2224.54	-15.16	-10.04	              atp[m]	Adenosine Triphosphate
+
+3350	Citrate Oxaloacetate-Lyase ( (Pro-3S)-Ch2Coo- ->Acetate)	r1109	-50.61	 29.03
+substrates:
+378	      -1	 -915.87	-29.69	-11.88	              cit[m]	Citrate
+products:
+28	0.00206584	   47.50	-47.50	-47.50	                h[m]	Proton
+395	       1	 -203.53	-29.69	-11.88	               ac[m]	Acetate
+649	       1	 -702.34	-29.69	-11.88	              oaa[m]	Oxaloacetate
+
+3360	Facilitated Diffusion	r1150	 -4.27	 37.39
+substrates:
+35	-0.359915	   42.75	-42.75	-42.75	                h[c]	Proton
+139	      -1	-1058.81	-29.69	-11.88	               pi[l]	Orthophosphate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+265	0.966085	   32.66	-32.66	-32.66	                h[l]	Proton
+
+6993	Transport of 2-Methyl-3-Oxopropanoate, Mitochondrial	2MOPtm	-12.81	 42.72
+substrates:
+28	-9.54851e-05	   47.50	-47.50	-47.50	                h[m]	Proton
+2462	      -1	 -251.61	-29.69	-11.88	             2mop[c]	2-Methyl-3-Oxopropanoate
+products:
+35	0.000602165	   42.75	-42.75	-42.75	                h[c]	Proton
+109	       1	 -227.86	-29.69	-11.88	             2mop[m]	2-Methyl-3-Oxopropanoate
+
+7432	Citrate Lyase	CITL	-50.59	 29.06
+substrates:
+338	      -1	 -939.65	-29.69	-11.88	              cit[c]	Citrate
+products:
+35	0.0129865	   42.75	-42.75	-42.75	                h[c]	Proton
+330	       1	 -217.79	-29.69	-11.88	               ac[c]	Acetate
+339	       1	 -711.84	-29.69	-11.88	              oaa[c]	Oxaloacetate
+
+7462	Glucosamine-6-Phosphate Deaminase	G6PDA	-39.32	 40.65
+substrates:
+20	      -1	 -138.27	  0.00	  0.00	              h2o[c]	Water
+35	-0.10603	   42.75	-42.75	-42.75	                h[c]	Proton
+321	      -1	-1054.45	-29.69	-11.88	            gam6p[c]	D-Glucosamine-6-Phosphate
+products:
+24	       1	  103.04	-18.73	-18.08	              nh4[c]	Ammonium
+1495	       1	-1276.70	-29.69	-11.88	              f6p[c]	D-Fructose 6-Phosphate
+

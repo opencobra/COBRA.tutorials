@@ -1,0 +1,424 @@
+Metabolites which force 41 qualitatively reversible -> quantiatively reverse
+35:	38	h[c]Proton
+75:	31	h[e]Proton
+28:	3	h[m]Proton
+115:	2	sphgn[c]Sphinganine
+958:	2	h[n]Proton
+2463:	2	HC00900[c]Methylmalonate
+2511:	2	HC00319[c]Malonate
+3662:	2	HC00319[e]Malonate
+3663:	2	HC00900[e]Methylmalonate
+19:	1	13dampp[c]Trimethylenediaminium
+40:	1	pi[c]Orthophosphate
+41:	1	h[x]Proton
+68:	1	akg[c]2-Oxoglutarate
+77:	1	hco3[e]Bicarbonate
+78:	1	hco3[c]Bicarbonate
+89:	1	2oxoadp[c]2-Oxoadipate
+127:	1	3hpp[c]3-Hydroxypropionate
+231:	1	h[g]Proton
+261:	1	sucsal[m]Succinic Semialdehyde
+263:	1	xylu_L[c]L-Xylulose
+301:	1	ppi[m]Diphosphate
+391:	1	amp[c]Adenosine Monophosphate
+392:	1	ppi[c]Diphosphate
+480:	1	akg[e]2-Oxoglutarate
+506:	1	12ppd_R[c](R)-Propane-1,2-Diol
+512:	1	ind3ac[c]Indole-3-Acetate
+653:	1	pi[e]Orthophosphate
+747:	1	bz[c]Benzoate
+1101:	1	kdn[c]2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid
+1151:	1	5a2opntn[x]5-Amino-2-Oxopentanoic Acid
+1250:	1	fuc13galacglcgal14acglcgalgluside_hs[e]Iii3Fuc-Nlc6Cer
+1253:	1	fucacngal14acglcgalgluside_hs[e]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+1430:	1	ddca[c]Dodecanoic Acid
+1519:	1	fuc13galacglcgal14acglcgalgluside_hs[c]Iii3Fuc-Nlc6Cer
+1525:	1	fucacngal14acglcgalgluside_hs[c]Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+1553:	1	so4[c]Sulfate
+1641:	1	galt[c]Galactitol
+1759:	1	glyc_R[c]D-Glycerate
+1760:	1	glyclt[c]Glycolate
+1886:	1	xylu_D[c]D-Xylulose
+2101:	1	pac[c]Phenylacetate
+2116:	1	pcollg5hlys[c]Erythro-5-Hydroxy-L-Lysine
+2196:	1	rbl_D[c]D-Ribulose
+2245:	1	so4[e]Sulfate
+2309:	1	tym[c]Tyramine
+2389:	1	fdp[c]D-Fructose 1,6-Bisphosphate
+2431:	1	mev_R[c](R)-Mevalonate
+2636:	1	glcn[c]D-Gluconate
+2703:	1	CE2028[c]Beta-Hydroxy-Beta-Methylbutyrate
+2772:	1	CE1401[c]Homocysteine Thiolactone
+2777:	1	C02356[c](S)-2-Aminobutanoate
+3076:	1	adpac[c]Adipic Acid
+3102:	1	dodecanac[c]Dodecanedioic Acid
+3290:	1	hexdiac[c]Hexadecanediocacid
+3293:	1	sebacid[c]Sebacicacid
+3305:	1	subeac[c]Suberic Acid
+3427:	1	adpoh[c]2-Hydroxyadipic Acid
+3581:	1	2oxoadp[e]2-Oxoadipate
+3590:	1	3hpp[e]3-Hydroxypropionate
+3614:	1	adpac[e]Adipic Acid
+3615:	1	adpoh[e]2-Hydroxyadipic Acid
+3622:	1	C02356[e](S)-2-Aminobutanoate
+3642:	1	CE2028[e]Beta-Hydroxy-Beta-Methylbutyrate
+3660:	1	dodecanac[e]Dodecanedioic Acid
+3666:	1	hexdiac[e]Hexadecanediocacid
+3676:	1	mev_R[e](R)-Mevalonate
+3681:	1	pcollg5hlys[e]Erythro-5-Hydroxy-L-Lysine
+3685:	1	sebacid[e]Sebacicacid
+3703:	1	subeac[e]Suberic Acid
+3712:	1	galt[e]Galactitol
+3713:	1	glyc_R[e]D-Glycerate
+3715:	1	glyclt[e]Glycolate
+3719:	1	ind3ac[e]Indole-3-Acetate
+3723:	1	pac[e]Phenylacetate
+3740:	1	ddca[e]Dodecanoic Acid
+3744:	1	bz[m]Benzoate
+4297:	1	glcn[e]D-Gluconate
+4324:	1	tym[e]Tyramine
+4479:	1	13dampp[e]Trimethylenediaminium
+4491:	1	sucsal[c]Succinic Semialdehyde
+4535:	1	CE1401[e]Homocysteine Thiolactone
+4542:	1	12ppd_R[e](R)-Propane-1,2-Diol
+4544:	1	xylu_L[e]L-Xylulose
+4545:	1	xylu_D[e]D-Xylulose
+4555:	1	fdp[e]D-Fructose 1,6-Bisphosphate
+4559:	1	5a2opntn[c]5-Amino-2-Oxopentanoic Acid
+4586:	1	sphgn[g]Sphinganine
+4630:	1	sphgn[n]Sphinganine
+5206:	1	amp[n]Adenosine Monophosphate
+5252:	1	rbl_D[e]D-Ribulose
+5270:	1	kdn[e]2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid
+
+
+1418	Blood Group Intracellular Transport	FUC13GALACGLCGAL14ACGLCGALGLUSIDEte	 67.00	170.52
+substrates:
+1250	      -1	 -367.53	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[e]	Iii3Fuc-Nlc6Cer
+products:
+1519	       1	 -381.78	-29.69	-11.88	fuc13galacglcgal14acglcgalgluside_hs[c]	Iii3Fuc-Nlc6Cer
+
+1424	Blood Group Intracellular Transport	FUCACNGAL14ACGLCGALGLUSIDEte	 88.00	138.67
+substrates:
+1253	      -1	 -214.01	-29.69	-11.88	fucacngal14acglcgalgluside_hs[e]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+products:
+1525	       1	 -228.26	-29.69	-11.88	fucacngal14acglcgalgluside_hs[c]	Iv3-A-Neuac,Iii3-A-Fuc-Nlc4Cer
+
+5428	Diphopshate Transporter, Mitochondrial	PPItm	 12.45	 62.93
+substrates:
+392	      -1	-1924.64	-15.90	-12.58	              ppi[c]	Diphosphate
+products:
+28	0.481328	   47.50	-47.50	-47.50	                h[m]	Proton
+35	0.229996	   42.75	-42.75	-42.75	                h[c]	Proton
+301	       1	-1920.53	-29.69	-11.88	              ppi[m]	Diphosphate
+
+5785	Transport of 2-Oxoadipate by Alpha-Ketoglutarate Antiport	2OXOADPt	737.95	841.12
+substrates:
+75	-0.000141307	   43.94	-43.94	-43.94	                h[e]	Proton
+89	      -1	 -528.58	-29.69	-11.88	          2oxoadp[c]	2-Oxoadipate
+480	      -1	 -615.46	-29.69	-11.88	              akg[e]	2-Oxoglutarate
+products:
+35	0.000223882	   42.75	-42.75	-42.75	                h[c]	Proton
+68	       1	 -620.21	-29.69	-11.88	              akg[c]	2-Oxoglutarate
+3581	       1	  268.08	-29.69	-11.88	          2oxoadp[e]	2-Oxoadipate
+
+5790	Transpot of 3-Hydroxypropionate	3HPPt	471.90	520.08
+substrates:
+75	-0.000630524	   43.94	-43.94	-43.94	                h[e]	Proton
+127	      -1	 -281.43	-29.69	-11.88	             3hpp[c]	3-Hydroxypropionate
+products:
+35	0.000998945	   42.75	-42.75	-42.75	                h[c]	Proton
+3590	       1	  223.40	-29.69	-11.88	             3hpp[e]	3-Hydroxypropionate
+
+5819	Transport of Adipic Acid, Diffusion	ADPACtd	629.08	688.08
+substrates:
+75	-0.0019935	   43.94	-43.94	-43.94	                h[e]	Proton
+3076	      -1	 -316.44	-29.69	-11.88	            adpac[c]	Adipic Acid
+products:
+35	0.00315798	   42.75	-42.75	-42.75	                h[c]	Proton
+3614	       1	  357.43	-29.69	-11.88	            adpac[e]	Adipic Acid
+
+5820	Secretion of 2-Hydroxyadipic Acid	ADPOHt	773.28	830.27
+substrates:
+75	-0.000793961	   43.94	-43.94	-43.94	                h[e]	Proton
+3427	      -1	 -459.62	-29.69	-11.88	            adpoh[c]	2-Hydroxyadipic Acid
+products:
+35	0.00125805	   42.75	-42.75	-42.75	                h[c]	Proton
+3615	       1	  357.44	-29.69	-11.88	            adpoh[e]	2-Hydroxyadipic Acid
+
+5826	(S)-2-Aminobutanoate	C02356t	297.34	375.63
+substrates:
+35	-0.00821245	   42.75	-42.75	-42.75	                h[c]	Proton
+2777	      -1	   54.91	-29.69	-11.88	           C02356[c]	(S)-2-Aminobutanoate
+products:
+75	0.0129783	   43.94	-43.94	-43.94	                h[e]	Proton
+3622	       1	  402.09	-29.69	-11.88	           C02356[e]	(S)-2-Aminobutanoate
+
+5869	Transport for Beta-Hydroxy-Beta-Methylbutyrate	CE2028t	462.01	519.24
+substrates:
+75	-1.00141	   43.94	-43.94	-43.94	                h[e]	Proton
+2703	      -1	 -100.90	-29.69	-11.88	           CE2028[c]	Beta-Hydroxy-Beta-Methylbutyrate
+products:
+35	 1.00223	   42.75	-42.75	-42.75	                h[c]	Proton
+3642	       1	  402.12	-29.69	-11.88	           CE2028[e]	Beta-Hydroxy-Beta-Methylbutyrate
+
+5891	Transport of Dodecanedioic Acid by Diffusion	DODECANACtd	588.39	673.02
+substrates:
+75	-0.00707344	   43.94	-43.94	-43.94	                h[e]	Proton
+3102	      -1	  233.34	-29.69	-11.88	        dodecanac[c]	Dodecanedioic Acid
+products:
+35	0.0112054	   42.75	-42.75	-42.75	                h[c]	Proton
+3660	       1	  893.58	-29.69	-11.88	        dodecanac[e]	Dodecanedioic Acid
+
+6068	Transport of Galactitol	GALTt	903.29	959.90
+substrates:
+35	-7.23553e-06	   42.75	-42.75	-42.75	                h[c]	Proton
+1641	      -1	 -322.70	-29.69	-11.88	             galt[c]	Galactitol
+products:
+75	1.14675e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+3712	       1	  625.52	-29.69	-11.88	             galt[e]	Galactitol
+
+6071	Transport of D-Glycerate, Diffusion	GLYC_Rt	628.37	677.56
+substrates:
+75	-0.000103286	   43.94	-43.94	-43.94	                h[e]	Proton
+1759	      -1	 -438.40	-29.69	-11.88	           glyc_R[c]	D-Glycerate
+products:
+35	0.000165033	   42.75	-42.75	-42.75	                h[c]	Proton
+3713	       1	  223.40	-29.69	-11.88	           glyc_R[e]	D-Glycerate
+
+6073	Diffusion of Glycolate	GLYCLTtd	476.31	524.97
+substrates:
+75	-0.000134872	   43.94	-43.94	-43.94	                h[e]	Proton
+1760	      -1	 -373.06	-29.69	-11.88	           glyclt[c]	Glycolate
+products:
+35	0.000213741	   42.75	-42.75	-42.75	                h[c]	Proton
+3715	       1	  134.04	-29.69	-11.88	           glyclt[e]	Glycolate
+
+6075	Malonate Transport, Antiport with Bicarbonate	HC00319t2	624.66	726.14
+substrates:
+35	-0.0156044	   42.75	-42.75	-42.75	                h[c]	Proton
+77	      -1	 -523.32	-29.69	-11.88	             hco3[e]	Bicarbonate
+2511	      -1	 -591.46	-29.69	-11.88	          HC00319[c]	Malonate
+products:
+75	0.00968543	   43.94	-43.94	-43.94	                h[e]	Proton
+78	       1	 -524.57	-29.69	-11.88	             hco3[c]	Bicarbonate
+3662	       1	   89.28	-29.69	-11.88	          HC00319[e]	Malonate
+
+6077	Transport of Methylmalonate, Antiport with Sulphate	HC00900t2	608.47	751.68
+substrates:
+75	-0.0675444	   43.94	-43.94	-43.94	                h[e]	Proton
+2245	      -1	 -735.65	-29.69	-11.88	              so4[e]	Sulfate
+2463	      -1	 -506.28	-29.69	-11.88	          HC00900[c]	Methylmalonate
+products:
+35	0.102984	   42.75	-42.75	-42.75	                h[c]	Proton
+1553	       1	 -735.65	-29.69	-11.88	              so4[c]	Sulfate
+3663	       1	  178.54	-29.69	-11.88	          HC00900[e]	Methylmalonate
+
+6079	Transport of Methylmalonate, Antiport with Phsophate	HC00900t4	641.26	728.83
+substrates:
+35	-0.256925	   42.75	-42.75	-42.75	                h[c]	Proton
+653	      -1	-1039.61	-29.69	-11.88	               pi[e]	Orthophosphate
+2463	      -1	 -506.28	-29.69	-11.88	          HC00900[c]	Methylmalonate
+products:
+40	       1	-1041.17	-17.81	-13.07	               pi[c]	Orthophosphate
+75	0.194322	   43.94	-43.94	-43.94	                h[e]	Proton
+3663	       1	  178.54	-29.69	-11.88	          HC00900[e]	Methylmalonate
+
+6084	Transport of Hexadecanediocacid by Diffusion	HEXDIACtd	559.97	664.26
+substrates:
+75	-0.00707344	   43.94	-43.94	-43.94	                h[e]	Proton
+3290	      -1	  599.87	-29.69	-11.88	          hexdiac[c]	Hexadecanediocacid
+products:
+35	0.0112054	   42.75	-42.75	-42.75	                h[c]	Proton
+3666	       1	 1251.02	-29.69	-11.88	          hexdiac[e]	Hexadecanediocacid
+
+6093	Transport of Indole-3-Acetate	IND3ACt	 50.00	151.85
+substrates:
+75	-0.00181628	   43.94	-43.94	-43.94	                h[e]	Proton
+512	      -1	  244.11	-29.69	-11.88	           ind3ac[c]	Indole-3-Acetate
+products:
+35	0.00287556	   42.75	-42.75	-42.75	                h[c]	Proton
+3719	       1	  357.44	-29.69	-11.88	           ind3ac[e]	Indole-3-Acetate
+
+6103	Transport of (R)-Mevalonate	MEV_Rt	617.30	696.91
+substrates:
+75	-0.000954026	   43.94	-43.94	-43.94	                h[e]	Proton
+2431	      -1	 -181.59	-29.69	-11.88	            mev_R[c]	(R)-Mevalonate
+products:
+35	0.00151119	   42.75	-42.75	-42.75	                h[c]	Proton
+3676	       1	  491.48	-29.69	-11.88	            mev_R[e]	(R)-Mevalonate
+
+6109	Transport of Phenylacetate by Diffusion	pac	158.98	247.79
+substrates:
+75	-0.00141046	   43.94	-43.94	-43.94	                h[e]	Proton
+2101	      -1	   98.16	-29.69	-11.88	              pac[c]	Phenylacetate
+products:
+35	0.00223359	   42.75	-42.75	-42.75	                h[c]	Proton
+3723	       1	  312.76	-29.69	-11.88	              pac[e]	Phenylacetate
+
+6110	Transport of Erythro-5-Hydroxy-L-Lysinium, Diffusion	PCOLLG5HLYStd	464.09	555.13
+substrates:
+75	-0.962418	   43.94	-43.94	-43.94	                h[e]	Proton
+2116	      -1	  143.87	-29.69	-11.88	      pcollg5hlys[c]	Erythro-5-Hydroxy-L-Lysine
+products:
+35	0.976209	   42.75	-42.75	-42.75	                h[c]	Proton
+3681	       1	  670.10	-29.69	-11.88	      pcollg5hlys[e]	Erythro-5-Hydroxy-L-Lysine
+
+6118	Transport of Sebacic Acid by Diffusion	SEBACIDtd	602.39	677.61
+substrates:
+75	-0.0083094	   43.94	-43.94	-43.94	                h[e]	Proton
+3293	      -1	   50.07	-29.69	-11.88	          sebacid[c]	Sebacicacid
+products:
+35	0.0131621	   42.75	-42.75	-42.75	                h[c]	Proton
+3685	       1	  714.86	-29.69	-11.88	          sebacid[e]	Sebacicacid
+
+6120	Transport of Suberic Acid by Diffusion	SUBEACtd	616.07	682.51
+substrates:
+75	-0.00315839	   43.94	-43.94	-43.94	                h[e]	Proton
+3305	      -1	 -133.18	-29.69	-11.88	           subeac[c]	Suberic Acid
+products:
+35	0.0050023	   42.75	-42.75	-42.75	                h[c]	Proton
+3703	       1	  536.15	-29.69	-11.88	           subeac[e]	Suberic Acid
+
+6983	Intracellular Transport of Benzoate	BZtm	 63.64	155.15
+substrates:
+28	-0.000120205	   47.50	-47.50	-47.50	                h[m]	Proton
+747	      -1	  123.02	-29.69	-11.88	               bz[c]	Benzoate
+products:
+35	0.000757962	   42.75	-42.75	-42.75	                h[c]	Proton
+3744	       1	  241.21	-29.69	-11.88	               bz[m]	Benzoate
+
+7065	Transport of Laurate into Extracellular Space	DDCAte	255.69	342.10
+substrates:
+75	-0.00353536	   43.94	-43.94	-43.94	                h[e]	Proton
+1430	      -1	  698.53	-29.69	-11.88	             ddca[c]	Dodecanoic Acid
+products:
+35	0.0055916	   42.75	-42.75	-42.75	                h[c]	Proton
+3740	       1	 1027.63	-29.69	-11.88	             ddca[e]	Dodecanoic Acid
+
+7895	Tyraminium Transport, Cytosol	TYMte	  1.56	109.12
+substrates:
+35	-0.00614426	   42.75	-42.75	-42.75	                h[c]	Proton
+2309	      -1	  469.44	-29.69	-11.88	              tym[c]	Tyramine
+products:
+75	0.00972507	   43.94	-43.94	-43.94	                h[e]	Proton
+4324	       1	  536.14	-29.69	-11.88	              tym[e]	Tyramine
+
+7896	Facilitated Diffusion Through Uniport Octs Transporters into Extracellular Space	13DAMPPte	 20.92	108.97
+substrates:
+19	      -1	  462.35	-29.69	-11.88	          13dampp[c]	Trimethylenediaminium
+35	-0.0972921	   42.75	-42.75	-42.75	                h[c]	Proton
+products:
+75	0.146453	   43.94	-43.94	-43.94	                h[e]	Proton
+4479	       1	  535.75	-29.69	-11.88	          13dampp[e]	Trimethylenediaminium
+
+7917	Transport of Succinic Semialdehyde, Mitochondrial	SUCSALtm	422.54	473.08
+substrates:
+35	-0.000850368	   42.75	-42.75	-42.75	                h[c]	Proton
+261	      -1	 -221.55	-29.69	-11.88	           sucsal[m]	Succinic Semialdehyde
+products:
+28	0.000134871	   47.50	-47.50	-47.50	                h[m]	Proton
+4491	       1	  217.46	-29.69	-11.88	           sucsal[c]	Succinic Semialdehyde
+
+8013	Transport of HomocysteineThiolactone 	CE1401te	 95.87	176.17
+substrates:
+35	-0.293953	   42.75	-42.75	-42.75	                h[c]	Proton
+2772	      -1	  213.51	-29.69	-11.88	           CE1401[c]	Homocysteine Thiolactone
+products:
+75	0.397535	   43.94	-43.94	-43.94	                h[e]	Proton
+4535	       1	  356.13	-29.69	-11.88	           CE1401[e]	Homocysteine Thiolactone
+
+8039	Assumed Passive Diffusion into Extracellular Space	12PPDRte	295.46	345.04
+substrates:
+506	      -1	   27.69	-29.69	-11.88	          12ppd_R[c]	(R)-Propane-1,2-Diol
+products:
+4542	       1	  357.44	-29.69	-11.88	          12ppd_R[e]	(R)-Propane-1,2-Diol
+
+8043	Assumed Passive Diffusion into Extracellular Space	XYLULte	724.63	773.92
+substrates:
+35	-0.000757062	   42.75	-42.75	-42.75	                h[c]	Proton
+263	      -1	 -314.36	-29.69	-11.88	           xylu_L[c]	L-Xylulose
+products:
+75	0.00119933	   43.94	-43.94	-43.94	                h[e]	Proton
+4544	       1	  446.80	-29.69	-11.88	           xylu_L[e]	L-Xylulose
+
+8045	Assumed Passive Diffusion into Extracellular Space	XYLUDte	722.94	771.98
+substrates:
+35	-0.000757062	   42.75	-42.75	-42.75	                h[c]	Proton
+1886	      -1	 -312.54	-29.69	-11.88	           xylu_D[c]	D-Xylulose
+products:
+75	0.00119933	   43.94	-43.94	-43.94	                h[e]	Proton
+4545	       1	  446.80	-29.69	-11.88	           xylu_D[e]	D-Xylulose
+
+8047	Assumed Passive Diffusion into Extracellular Space	GLCNte	1081.44	1136.63
+substrates:
+75	-8.62423e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+2636	      -1	 -633.51	-29.69	-11.88	             glcn[c]	D-Gluconate
+products:
+35	0.000147615	   42.75	-42.75	-42.75	                h[c]	Proton
+4297	       1	  491.48	-29.69	-11.88	             glcn[e]	D-Gluconate
+
+8075	Transport to Extracellular Space	FDPte	2562.13	2623.29
+substrates:
+75	-0.12701	   43.94	-43.94	-43.94	                h[e]	Proton
+2389	      -1	-2169.70	-29.69	-11.88	              fdp[c]	D-Fructose 1,6-Bisphosphate
+products:
+35	0.200358	   42.75	-42.75	-42.75	                h[c]	Proton
+4555	       1	  446.46	-29.69	-11.88	              fdp[e]	D-Fructose 1,6-Bisphosphate
+
+8082	Transport of 5-Amino-2-Oxopentanoic Acid, Peroxisome	5A2OPNTNtx	431.64	517.06
+substrates:
+41	-0.00274334	   41.56	-41.56	-41.56	                h[x]	Proton
+1151	      -1	  -93.62	-29.69	-11.88	         5a2opntn[x]	5-Amino-2-Oxopentanoic Acid
+products:
+35	0.00446314	   42.75	-42.75	-42.75	                h[c]	Proton
+4559	       1	  391.42	-29.69	-11.88	         5a2opntn[c]	5-Amino-2-Oxopentanoic Acid
+
+8204	Sphinganine Intracellular Transport	SPHGNtn	201.02	314.70
+substrates:
+35	-0.0142308	   42.75	-42.75	-42.75	                h[c]	Proton
+115	      -1	 1481.80	-29.69	-11.88	            sphgn[c]	Sphinganine
+products:
+958	0.0142308	   42.75	-42.75	-42.75	                h[n]	Proton
+4630	       1	 1739.66	-29.69	-11.88	            sphgn[n]	Sphinganine
+
+8205	Sphinganine Intracellular Transport	SPHGNtg	201.05	314.73
+substrates:
+35	-0.0142308	   42.75	-42.75	-42.75	                h[c]	Proton
+115	      -1	 1481.80	-29.69	-11.88	            sphgn[c]	Sphinganine
+products:
+231	0.00203502	   37.70	-37.70	-37.70	                h[g]	Proton
+4586	       1	 1537.81	-29.69	-11.88	            sphgn[g]	Sphinganine
+
+9397	HMR_7712	HMR_7712	1003.47	1077.74
+substrates:
+391	      -1	 -510.30	-41.56	-17.34	              amp[c]	Adenosine Monophosphate
+958	-0.101044	   42.75	-42.75	-42.75	                h[n]	Proton
+products:
+35	0.101044	   42.75	-42.75	-42.75	                h[c]	Proton
+5206	       1	  521.64	-29.69	-11.88	              amp[n]	Adenosine Monophosphate
+
+9410	HMR_7903	HMR_7903	645.47	699.67
+substrates:
+75	-0.0320505	   43.94	-43.94	-43.94	                h[e]	Proton
+2511	      -1	 -591.46	-29.69	-11.88	          HC00319[c]	Malonate
+products:
+35	0.0498631	   42.75	-42.75	-42.75	                h[c]	Proton
+3662	       1	   89.28	-29.69	-11.88	          HC00319[e]	Malonate
+
+9466	HMR_9185	HMR_9185	724.09	772.65
+substrates:
+35	-0.000757062	   42.75	-42.75	-42.75	                h[c]	Proton
+2196	      -1	 -313.45	-29.69	-11.88	            rbl_D[c]	D-Ribulose
+products:
+75	0.00119933	   43.94	-43.94	-43.94	                h[e]	Proton
+5252	       1	  446.80	-29.69	-11.88	            rbl_D[e]	D-Ribulose
+
+9515	HMR_9657	HMR_9657	1346.07	1404.76
+substrates:
+75	-1.31037e-05	   43.94	-43.94	-43.94	                h[e]	Proton
+1101	      -1	 -725.92	-29.69	-11.88	              kdn[c]	2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid
+products:
+35	3.45391e-05	   42.75	-42.75	-42.75	                h[c]	Proton
+5270	       1	  670.20	-29.69	-11.88	              kdn[e]	2-Keto-3-Deoxy-D-Glycero-D-Galactononic Acid
+

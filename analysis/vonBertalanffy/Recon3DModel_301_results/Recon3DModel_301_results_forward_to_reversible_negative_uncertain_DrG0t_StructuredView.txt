@@ -1,0 +1,69 @@
+Metabolites which force 6 qualitatively  forward -> quantiatively reversible by concentration (negative uncertain DrG0t)
+28:	5	h[m]Proton
+35:	5	h[c]Proton
+75:	1	h[e]Proton
+191:	1	h2o[e]Water
+541:	1	glc_D[e]D-Glucose
+1516:	1	fru[e]D-Fructose
+2261:	1	sucr[e]Sucrose
+4352:	1	2m3hbu[m]2-Methyl-3-Hydroxy-Butyrate
+4353:	1	2m3hbu[c]2-Methyl-3-Hydroxy-Butyrate
+4356:	1	2m3ovac[m]2-Methyl-3-Oxo-Valerate
+4357:	1	2m3ovac[c]2-Methyl-3-Oxo-Valerate
+4381:	1	glutcon[m]Glutaconate
+4382:	1	glutcon[c]Glutaconate
+4384:	1	3hivac[m]3-Hydroxyisovaleric Acid
+4385:	1	3hivac[c]3-Hydroxyisovaleric Acid
+4414:	1	4ohbut[m]4-Hydroxy-Butyrate
+4415:	1	4ohbut[c]4-Hydroxy-Butyrate
+
+
+2729	Sucrose Hydrolyzing Enxyme, Extracellular	SUCRe	-106.78	  2.26
+substrates:
+191	      -1	 -135.90	  0.00	  0.00	              h2o[e]	Water
+2261	      -1	 -571.25	-29.69	-11.88	             sucr[e]	Sucrose
+products:
+75	0.00249497	   43.94	-43.94	-43.94	                h[e]	Proton
+541	       1	 -371.10	-29.69	-11.88	            glc_D[e]	D-Glucose
+1516	       1	 -367.53	-29.69	-11.88	              fru[e]	D-Fructose
+
+7593	Transport of 2-Methyl-3-Hydroxy-Butyrate, Mitochondrial	2M3HBUtm	-43.37	 13.45
+substrates:
+35	-0.00203746	   42.75	-42.75	-42.75	                h[c]	Proton
+4352	      -1	  434.18	-29.69	-11.88	           2m3hbu[m]	2-Methyl-3-Hydroxy-Butyrate
+products:
+28	0.00032347	   47.50	-47.50	-47.50	                h[m]	Proton
+4353	       1	  391.43	-29.69	-11.88	           2m3hbu[c]	2-Methyl-3-Hydroxy-Butyrate
+
+7598	Transport of 2-Methyl-3-Oxo-Valerate, Mitochondrial	2M3OVACtm	-45.06	 15.15
+substrates:
+35	-0.00131645	   42.75	-42.75	-42.75	                h[c]	Proton
+4356	      -1	  434.18	-29.69	-11.88	          2m3ovac[m]	2-Methyl-3-Oxo-Valerate
+products:
+28	0.000208874	   47.50	-47.50	-47.50	                h[m]	Proton
+4357	       1	  391.43	-29.69	-11.88	          2m3ovac[c]	2-Methyl-3-Oxo-Valerate
+
+7632	Transport of Glutaconate, Mitochondrial	GLUTCONtm	-63.51	  3.68
+substrates:
+35	-0.0020871	   42.75	-42.75	-42.75	                h[c]	Proton
+4381	      -1	  192.97	-29.69	-11.88	          glutcon[m]	Glutaconate
+products:
+28	0.000331059	   47.50	-47.50	-47.50	                h[m]	Proton
+4382	       1	  173.96	-29.69	-11.88	          glutcon[c]	Glutaconate
+
+7636	Transport of 3-Hydroxy-Isovalerate, Mitochondrial	3HIVActm	-43.58	 13.66
+substrates:
+35	-0.00223359	   42.75	-42.75	-42.75	                h[c]	Proton
+4384	      -1	  434.18	-29.69	-11.88	           3hivac[m]	3-Hydroxyisovaleric Acid
+products:
+28	0.000354666	   47.50	-47.50	-47.50	                h[m]	Proton
+4385	       1	  391.43	-29.69	-11.88	           3hivac[c]	3-Hydroxyisovaleric Acid
+
+7676	Transport of 4-Hydroxy-Butyrate, Mitochondrial	4OHBUTtmc	-39.83	  9.91
+substrates:
+35	-0.00173468	   42.75	-42.75	-42.75	                h[c]	Proton
+4414	      -1	  337.70	-29.69	-11.88	           4ohbut[m]	4-Hydroxy-Butyrate
+products:
+28	0.000275331	   47.50	-47.50	-47.50	                h[m]	Proton
+4415	       1	  304.44	-29.69	-11.88	           4ohbut[c]	4-Hydroxy-Butyrate
+
