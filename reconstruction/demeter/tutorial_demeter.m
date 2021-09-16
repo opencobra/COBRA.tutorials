@@ -263,15 +263,9 @@ numWorkers = 4;
 
 reconVersion = 'TutorialExample';
 %% 
-% If the pipeline gets interrupted, already finished refined reconstructions 
-% are skipped by default. If you want to overwrite already finished reconstructions, 
-% set the optional input overwriteModels to true.
-
-overwriteModels=false;
-%% 
 % Run the pipeline.
 
-[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion, 'overwriteModels', overwriteModels);
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'refinedFolder', refinedFolder, 'translatedDraftsFolder', translatedDraftsFolder, 'summaryFolder', summaryFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
 % in mat format are located in the folder "RefinedReconstructions", and in SBML 
@@ -469,7 +463,7 @@ propertiesFolder = [pwd filesep 'modelProperties'];
 %% 
 % Run the computation and visualization of model properties.
 
-propertiesFolder = computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder);
+computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', numWorkers, 'propertiesFolder', propertiesFolder);
 %% 3.2. Visualization of the features of large-scale reconstruction resources and their subsets
 % We can also use the properties module in DEMETER to analyze and visualize 
 % the features of large-scale reconstruction resources, e.g., AGORA [1]. We can 

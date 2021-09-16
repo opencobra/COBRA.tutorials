@@ -226,7 +226,8 @@ switch modelName
         confidenceLevel = 0.95;
         DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
     otherwise
-        confidenceLevel = 0.95;
+        confidenceLevel = -1;%bypass addition of uncertainty temporarily
+        %confidenceLevel = 0.95;
         DrGt0_Uncertainty_Cutoff = 20; %KJ/KMol
 end
 %% Prepare folder for results
@@ -318,6 +319,20 @@ else
     %recreate the trainingModel
     driver_createTrainingModel
 end
+%%
+figure
+histogram(trainingModel.DrGt0)
+title('$Experimental \smallskip \Delta_{r} G^{\prime0}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',nnz(trainingModel.DrGt0==0),' = number of zero DrGt0, i.e. experimental apparent equilibrium constant equal to one') 
+formulas = printRxnFormula(trainingModel,trainingModel.rxns(trainingModel.DrGt0==0));
+figure
+histogram(trainingModel.DrG0)
+title('$Experimental \medskip \Delta_{r} G^{0}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',nnz(trainingModel.DrG0==0),' = number of zero DrG0. i.e. equilibrium constant equal to one and same number of hydrogens on both sides') 
+formulas = printRxnFormula(trainingModel,trainingModel.rxns(trainingModel.DrG0==0));
+
 %% Create Group Incidence Matrix
 % Create the group incidence matrix (G) for the combined set of all metabolites.
 
@@ -328,6 +343,7 @@ param.fragmentationMethod='abinito';
 param.printLevel=0;
 param.modelCache=['autoFragment_' modelName];
 param.debug=1;
+param.radius=2;
 %%
 combinedModel = createGroupIncidenceMatrix(model, trainingModel, param);
 %%
@@ -339,17 +355,63 @@ fprintf('%u%s\n',nnz(combinedModel.testMetBool),' = number of test metabolites')
 fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
 fprintf('%u%s\n',nnz(combinedModel.testMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
 fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
+fprintf('%u%s\n',size(combinedModel.S,1),' combined model metabolites.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & ~combinedModel.testMetBool),' ... of which are exclusively training metabolites.')
+fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.testMetBool),' ... of which are both training and test metabolites.')
+fprintf('%u%s\n',nnz(~combinedModel.trainingMetBool & combinedModel.testMetBool),' ... of which are exclusively test metabolites.')
 save('data_prior_to_componentContribution','model','combinedModel')
 %% Apply component contribution method
 
 if ~isfield(model,'DfG0')
     [model,solution] = componentContribution(model,combinedModel);
 end
+%%
+figure
+histogram(solution.DfG0_rc)
+title('$\textrm{Reactant contribution } \Delta_{f} G^{0}_{rc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_rc)),' formation energies')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_rc)),' of which DfG0_rc(j) are NaN. i.e., number of formation energies that cannot be estimated by reactant contribution')
+fprintf('%g%s\n',nnz(isnan(solution.DfG0_rc))/length(solution.DfG0_rc),' = fraction of DfG0_rc(j)==NaN')
+figure
+histogram(solution.DfG0_gc)
+title('$\textrm{Group formation energies } \Delta_{f} G^{0}_{gc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(solution.DfG0_gc),' estimated group formation energies')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_gc)),' of which have DfG0_gc(j)==NaN. i.e., number of formation energies that cannot be estimated by group contribution')
+fprintf('%g%s\n',nnz(isnan(solution.DfG0_gc))/length(solution.DfG0_gc),' fraction of DfG0_gc(j)==NaN')
+figure
+histogram(solution.DfG0_cc)
+title('$\textrm{Component contribution } \Delta_{f} G^{0}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(solution.DfG0_cc),' estimated reactant formation energies.')
+fprintf('%u%s\n',nnz(isnan(solution.DfG0_cc)),' of which have DfG0_cc(j)==NaN. i.e., number of formation energies that cannot be estimated by component contribution')
+fprintf('%g%s\n',nnz(isnan(solution.DfG0_cc))/length(solution.DfG0_cc),' = fraction of zero DfG0_cc')
+fprintf('%u%s\n',length(model.DfGt0),' model metabolites') 
+fprintf('%u%s\n',nnz(isnan(model.DfGt0)),' of which are DfG0_cc(j)==NaN. i.e., number of formation energies that cannot be estimated by component contribution')
+fprintf('%g%s\n',nnz(isnan(model.DfG0_cc))/length(model.DfG0_cc),' = fraction of zero DfG0_cc')
+
+figure
+histogram(model.DrG0)
+title('$\Delta_{r} G^{0}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(model.DrG0),' model reactions') 
+fprintf('%u%s\n',nnz(isnan(model.DrG0)),' of which have DrG0(j)==NaN. i.e. estimated equilibrium constant equal to one') 
+formulas = printRxnFormula(model,model.rxns(isnan(model.DrG0)));
+
 %% Setup a thermodynamically constrained model
 
+save('debug_prior_to_setupThermoModel')
+%%
 if ~isfield(model,'DfGt0')
     model = setupThermoModel(model,confidenceLevel);
 end
+%%
+figure
+histogram(model.DfGt0)
+title('$\Delta_{f} G^{0\prime}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+
 %% Generate a model with reactants instead of major microspecies
 
 if ~isfield(model,'Srecon') 
@@ -358,9 +420,9 @@ if ~isfield(model,'Srecon')
 end
 %% Determine quantitative directionality assignments
 
-if ~exist('directions','var')
+if ~exist('directions','var') |  1
     fprintf('Quantitatively assigning reaction directionality.\n');
-    [modelThermo, directions] = thermoConstrainFluxBounds(model,confidenceLevel,DrGt0_Uncertainty_Cutoff,printLevel);
+    [model, directions] = thermoConstrainFluxBounds(model,confidenceLevel,DrGt0_Uncertainty_Cutoff,printLevel);
 end
 %% Analyse thermodynamically constrained model
 % Choose the cutoff for probablity that reaction is reversible
@@ -369,7 +431,7 @@ cumNormProbCutoff=0.2;
 %% 
 % Build Boolean vectors with reaction directionality statistics
 
-[modelThermo,directions]=directionalityStats(modelThermo,directions,cumNormProbCutoff,printLevel);
+[model,directions]=directionalityStats(model,directions,cumNormProbCutoff,printLevel);
 % directions    a structue of boolean vectors with different directionality
 %               assignments where some vectors contain subsets of others
 %
@@ -404,7 +466,7 @@ cumNormProbCutoff=0.2;
 % results folder.
 
 fprintf('%s\n','directionalityChangeReport...');
-directionalityChangeReport(modelThermo,directions,cumNormProbCutoff,printLevel,resultsBaseFileName)
+directionalityChangeReport(model,directions,cumNormProbCutoff,printLevel,resultsBaseFileName)
 %% 
 % Generate pie charts with proportions of reaction directionalities and changes 
 % in directionality
@@ -417,13 +479,15 @@ directionalityStatsFigures(directions,resultsBaseFileName)
 
 if any(directions.forward2Reversible)
     fprintf('%s\n','forwardReversibleFigures...');
-    forwardReversibleFigures(modelThermo,directions,confidenceLevel)
+    forwardReversibleFigures(model,directions,confidenceLevel)
 end
 %% 
 % Write out tables of experimental and estimated thermochemical parameters for 
 % the model
 
-generateThermodynamicTables(modelThermo,resultsBaseFileName);
+generateThermodynamicTables(model,resultsBaseFileName);
+save([datestr(now,30) '_' modelName '_thermo'],'model')
+save([datestr(now,30) '_vonB_tutorial_complete'])
 %% 
 % *REFERENCES*
 % 
