@@ -222,8 +222,8 @@ numWorkers = 4;
 % compartment are performed and temporarily saved in a file called "simRes". Specifically 
 % what is temporarily saved is:
 %% 
-% # *fvaCt* a cell array containing min flux through uptake and max trough secretion 
-% exchanges
+% # *fvaCt* a cell array containing min flux through uptake and max through 
+% secretion exchanges
 % # *nsCT* a cell array containing max flux through uptake and min trough secretion 
 % exchanges
 % # *presol* an array containing the value of objectives for each microbiota 
@@ -270,7 +270,7 @@ taxInfo = 'AGORA_infoFile.xlsx';
 %% 
 % Path to fluxes that should be correlated
 
-fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
+fluxPath = [pwd filesep 'Results' filesep 'inputDiet_net_secretion_fluxes.csv'];
 corrMethod = 'Spearman';
 [FluxCorrelations, PValues, TaxonomyInfo] = correlateFluxWithTaxonAbundance(abunFilePath, fluxPath, taxInfo, corrMethod);
 %% 
@@ -290,7 +290,7 @@ metList = {'ac'};
 %% 
 % Define the path to net secretion fluxes.
 
-fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
+fluxPath = [pwd filesep 'Results' filesep 'inputDiet_net_secretion_fluxes.csv'];
 %% 
 % To plot microbe-metabolite relationships for these metabolites, execute the 
 % code
@@ -311,7 +311,7 @@ plotFluxesAgainstOrganismAbundances(abunFilePath,fluxPath,metList);
 
 infoFilePath='sampInfo.csv'; 
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'numWorkers', numWorkers);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'numWorkers', numWorkers);
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs. disease 
 % state), statistical analysis can be performed to identify whether net secretion 
@@ -391,7 +391,7 @@ contPath = [pwd filesep 'Contributions'];
 %% 
 % Run the analysis.
 
-analyzeMgPipeResults(infoFilePath,contPath, 'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
+analyzeMgPipeResults(infoFilePath,contPath, 'sampleGroupHeaders', sampleGroupHeaders);
 %% Targeted analysis: Computation of shadow prices for secreted metabolites of interest
 % Shadow prices are routinely retrieved with each flux balance analysis solution. 
 % Briefly, the shadow price is a measurement for the value of a metabolite towards 
@@ -422,7 +422,7 @@ SPDef = 'Nonzero';
 %% 
 % Run the computation.
 
-[objectives,shadowPrices]=analyseObjectiveShadowPrices(constrModPath, objectiveList, 'resultsFolder', spPath, 'SPDef', SPDef, 'numWorkers', numWorkers);
+[objectives,shadowPrices]=analyseObjectiveShadowPrices(constrModPath, objectiveList, 'SPDef', SPDef, 'numWorkers', numWorkers);
 %% 
 % Similar to the previous results, we can also perform statistical analysis 
 % on the computed shadow prices.
@@ -433,6 +433,6 @@ spPath = [pwd filesep 'ShadowPrices'];
 %% 
 % Run the analysis.
 
-analyzeMgPipeResults(infoFilePath,spPath,'statPath', statPath, 'violinPath', violinPath,'sampleGroupHeaders', sampleGroupHeaders);
+analyzeMgPipeResults(infoFilePath, spPath,'sampleGroupHeaders', sampleGroupHeaders);
 %% 
 %
