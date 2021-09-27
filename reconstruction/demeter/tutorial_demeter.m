@@ -174,8 +174,7 @@ spreadsheetFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exa
 % 
 % Read the file with carbon source information.
 
-data=readtable([inputDataFolder filesep 'CarbonSourcesTable.txt'], 'Delimiter', 'tab');
-data = [data.Properties.VariableDescriptions;table2cell(data)];
+data=readInputTableForPipeline([inputDataFolder filesep 'CarbonSourcesTable.txt']);
 %% 
 % Add information that glucose is used as a carbon source.
 
@@ -186,8 +185,7 @@ writetable(cell2table(data),[inputDataFolder filesep 'CarbonSourcesTable'],'File
 %% 
 % Read the file with information on consumed metabolites.
 
-data=readtable([inputDataFolder filesep 'uptakeTable.txt'], 'Delimiter', 'tab');
-data = [data.Properties.VariableDescriptions;table2cell(data)];
+data=readInputTableForPipeline([inputDataFolder filesep 'uptakeTable.txt']);
 %% 
 % Add information that formate is consumed.
 
@@ -198,8 +196,7 @@ writetable(cell2table(data),[inputDataFolder filesep 'uptakeTable'],'FileType','
 %% 
 % Read the file with fermentation product information.
 
-data=readtable([inputDataFolder filesep 'FermentationTable.txt'], 'Delimiter', 'tab');
-data = [data.Properties.VariableDescriptions;table2cell(data)];
+data=readInputTableForPipeline([inputDataFolder filesep 'FermentationTable.txt']);
 %% 
 % Add information that the acetogen pathway is used.
 
