@@ -100,7 +100,6 @@ cutoff = 0.0001;
 % taxonLevel.
 
 panPath=[pwd filesep 'panSpeciesModels'];
-mkdir(panPath)
 
 taxonLevel='Species';
 
@@ -122,12 +121,7 @@ createPanModels(modPath,panPath,taxonLevel);
 % in each sample is computed (value of 0 to 1 with 1 indicating that every organism 
 % in the sample has the reaction).
 %% 
-% First, we will set the path where to save results.
-
-mkdir('Results');
-resPath = [pwd filesep 'Results'];
-%% 
-% Then, we will define the simulated dietary regime that will be implemented 
+% First, we will define the simulated dietary regime that will be implemented 
 % on the personalized models. Here, we will use an "Average European" diet that 
 % is located in the folder
 % 
@@ -198,12 +192,6 @@ computeProfiles = true;
 
 infoFilePath = '';
 %% 
-% Strategy used to build personalized models. If true: create a global setup 
-% model that is pruned, if false, create each personalized model one by one. The 
-% latter is recommended if there are 300 or more individual organisms.
-
-buildSetupAll = true;
-%% 
 % if to save models with diet constrains implemented (default=false)
 
 saveConstrModels = true;
@@ -214,7 +202,7 @@ numWorkers = 4;
 %% 
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers);
 %% Computed outputs
 %% 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -234,8 +222,8 @@ numWorkers = 4;
 % compartment are performed and temporarily saved in a file called "simRes". Specifically 
 % what is temporarily saved is:
 %% 
-% # *fvaCt* a cell array containing min flux through uptake and max trough secretion 
-% exchanges
+% # *fvaCt* a cell array containing min flux through uptake and max through 
+% secretion exchanges
 % # *nsCT* a cell array containing max flux through uptake and min trough secretion 
 % exchanges
 % # *presol* an array containing the value of objectives for each microbiota 
@@ -282,7 +270,7 @@ taxInfo = 'AGORA_infoFile.xlsx';
 %% 
 % Path to fluxes that should be correlated
 
-fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
+fluxPath = [pwd filesep 'Results' filesep 'inputDiet_net_secretion_fluxes.csv'];
 corrMethod = 'Spearman';
 [FluxCorrelations, PValues, TaxonomyInfo] = correlateFluxWithTaxonAbundance(abunFilePath, fluxPath, taxInfo, corrMethod);
 %% 
@@ -302,7 +290,7 @@ metList = {'ac'};
 %% 
 % Define the path to net secretion fluxes.
 
-fluxPath = [resPath filesep 'inputDiet_net_secretion_fluxes.csv'];
+fluxPath = [pwd filesep 'Results' filesep 'inputDiet_net_secretion_fluxes.csv'];
 %% 
 % To plot microbe-metabolite relationships for these metabolites, execute the 
 % code
@@ -322,9 +310,8 @@ plotFluxesAgainstOrganismAbundances(abunFilePath,fluxPath,metList);
 % The PCoAs will now be labelled with sample stratification into groups.
 
 infoFilePath='sampInfo.csv'; 
-saveConstrModels = false;
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'resPath', resPath, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'buildSetupAll', buildSetupAll, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary, statistics] = initMgPipe(modPath, abunFilePath, computeProfiles, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'numWorkers', numWorkers);
 %% Statistical analysis and plotting of generated fluxes
 % If sample information as in sampInfo.csv is provided (e.g., healthy vs. disease 
 % state), statistical analysis can be performed to identify whether net secretion 
@@ -347,19 +334,13 @@ sampleGroupHeaders={'Group'};
 % sampleGroupHeaders can contain more than one entry if multiple columns  with 
 % sample information (e.g., disease state, age group) should be analyzed.
 % 
-% path with results of mgPipe that will be analyzed
+% Define the path with results of mgPipe that will be analyzed.
 
 resPath = [pwd filesep 'Results'];
 %% 
-% define where results will be saved (optional, default folders will be generated 
-% otherwise)
-
-statPath = [pwd filesep 'Statistics'];
-violinPath = [pwd filesep 'ViolinPlots'];
-%% 
 % To perform the statistical analysis and save the results, enter the code
 
-analyzeMgPipeResults(infoFilePath,resPath,'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
+analyzeMgPipeResults(infoFilePath,resPath, 'sampleGroupHeaders', sampleGroupHeaders);
 %% 
 % Afterwards, the results of the statistical analysis will be available in the 
 % folder "Statistics". The files ending in "Statistics.txt" contain the calculated 
@@ -392,12 +373,9 @@ constrModPath = [resPath filesep 'Diet'];
 
 metList = {'ac','for'};
 %% 
-% create a new folder where strain contributions will be saved
+% To run the computation of strain contributions:
 
-mkdir([pwd filesep 'StrainContributions']);
-contPath = [pwd filesep 'StrainContributions'];
-
-[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(constrModPath, 'resPath', contPath, 'metList', metList, 'numWorkers', numWorkers);
+[minFluxes,maxFluxes,fluxSpans] = predictMicrobeContributions(constrModPath, 'metList', metList, 'numWorkers', numWorkers);
 %% 
 % The output 'minFluxes' shows the fluxes in the reverse direction through all 
 % internal exchange reactions that had nonzero flux for each analyzed metabolite. 
@@ -406,8 +384,14 @@ contPath = [pwd filesep 'StrainContributions'];
 % with nonzero flux for each metabolite.
 % 
 % Afterwards, statistical analysis of the strain contributions can also be performed.
+% 
+% Define the path where strains contributions are located:
 
-analyzeMgPipeResults(infoFilePath,contPath, 'statPath', statPath, 'violinPath', violinPath, 'sampleGroupHeaders', sampleGroupHeaders);
+contPath = [pwd filesep 'Contributions'];
+%% 
+% Run the analysis.
+
+analyzeMgPipeResults(infoFilePath,contPath, 'sampleGroupHeaders', sampleGroupHeaders);
 %% Targeted analysis: Computation of shadow prices for secreted metabolites of interest
 % Shadow prices are routinely retrieved with each flux balance analysis solution. 
 % Briefly, the shadow price is a measurement for the value of a metabolite towards 
@@ -436,15 +420,19 @@ objectiveList={
 
 SPDef = 'Nonzero';
 %% 
-% create a new folder where shadow prices will be saved
+% Run the computation.
 
-mkdir([pwd filesep 'ShadowPrices']);
-spPath = [pwd filesep 'ShadowPrices'];
-[objectives,shadowPrices]=analyseObjectiveShadowPrices(constrModPath, objectiveList, 'resultsFolder', spPath, 'SPDef', SPDef, 'numWorkers', numWorkers);
+[objectives,shadowPrices]=analyseObjectiveShadowPrices(constrModPath, objectiveList, 'SPDef', SPDef, 'numWorkers', numWorkers);
 %% 
 % Similar to the previous results, we can also perform statistical analysis 
 % on the computed shadow prices.
+% 
+% Define path where computed shadow prices are located:
 
-analyzeMgPipeResults(infoFilePath,spPath,'statPath', statPath, 'violinPath', violinPath,'sampleGroupHeaders', sampleGroupHeaders);
+spPath = [pwd filesep 'ShadowPrices'];
+%% 
+% Run the analysis.
+
+analyzeMgPipeResults(infoFilePath, spPath,'sampleGroupHeaders', sampleGroupHeaders);
 %% 
 %
