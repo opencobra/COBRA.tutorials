@@ -1,6 +1,7 @@
 # Windows default autosave extension
 *.asv
 Thumbs.db
+*.mat
 
 # OSX / *nix default autosave extension
 *.*~
