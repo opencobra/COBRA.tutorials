@@ -24,12 +24,14 @@ Contribute a new tutorial or modify an existing tutorial
 A template for generating a new tutorial is provided `here
 <https://github.com/opencobra/COBRA.tutorials/tree/master/.template/tutorial_template.mlx>`__.
 
-Contribute using the ``MATLAB.devTools``
+There are two ways to contribute to the tutorials:
+
+A) Contribute using the ``MATLAB.devTools``
 ----------------------------------------
 
 You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
 
-Contribute using ``git`` (via command line)
+B) Contribute using ``git`` (via command line)
 -------------------------------------------
 
 Fork and checkout your branch
