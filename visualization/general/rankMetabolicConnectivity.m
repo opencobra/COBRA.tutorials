@@ -65,7 +65,7 @@ if param.plot==1
     
     n=20;
     %ind=1:round((n/100)*size(N,1));
-    ind=1:param.n;
+    ind=1:min(param.n,length(rankConnectivity));
     figure
     plot(log10(rankConnectivity(ind)),'*')
     xlabel('metabolites')
