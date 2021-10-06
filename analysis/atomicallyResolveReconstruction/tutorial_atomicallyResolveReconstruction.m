@@ -1,14 +1,266 @@
 %% Atomically resolve a metabolic reconstruction
-%% Author(s): *Hulda S. Haraldsdóttir and German A. Preciat Gonzalez, *Systems Biochemistry Group, University of Luxembourg.
-%% Reviewer(s): Catherine Clancy, Molecular Systems Physiology Group, University of Luxembourg.
-%% Francisco J. Planes, Department of Biomedical Engineering and Sciences, Tecnun, University of Navarra.
+%% Author: German Preciat, Analytical BioSciences, Leiden University
 %% INTRODUCTION
 % Genome-scale metabolic network reconstructions have become a relevant tool 
 % in modern biology to study the metabolic pathways of biological systems _in 
 % silico_. However, a more detailed representation at the underlying level of 
 % atom mappings opens the possibility for a broader range of biological, biomedical 
-% and biotechnological applications than with stoichiometry alone. 
+% and biotechnological applications than with stoichiometry alone.
 % 
+% This tutorial will demonstrate how to use the chimoinformatic tools in the 
+% COBRA Toolbox. The tutorial is divided into three sections: first, the chimoinformatic 
+% data of the metabolites in a COBRA model is processed generating metabolite 
+% structures in various chemoinfomatic formats; second, the atoms of their reactions 
+% are mapped; and finally, all of the tools demonstrated are used to generate 
+% a standardized chemoinformatic database specific to the COBRA model. The chemoinformatic 
+% database will be generated using information from the ecoliCore model.
+%% MATERIALS
+% Open Babel
+% To convert molecular structures, open babel must be installed. To install 
+% it, follow the steps below.
+% 
+% On Windows, download the <https://github.com/openbabel/openbabel/releases/download/openbabel-3-1-1/OpenBabel-3.1.1.exe 
+% OpenBabel> installation and follow the instructions.
+% 
+% On _macOS_, run the following command in the Terminal:
+% 
+% |$ brew install open-babel|
+% CXCALC
+% The CXCALC tools are used to adjust the pH and create images of the metabolic 
+% structures. To install CXCALC download <https://chemaxon.com/products/marvin/download 
+% MarvinSuite> and follow the instructions.
+% JAVA
+% To atom map reactions it is required to have Java version 8. Follow the instruction 
+% in <https://www.openlogic.com/openjdk-downloads https://www.openlogic.com/openjdk-downloads>. 
+% 
+% On _macOS_, please make sure that you run the following commands in the Terminal 
+% before continuing with this tutorial:
+% 
+% |$ /usr/bin/ruby -e "$(curl -fsSL <https://raw.githubusercontent.com/Homebrew/install/master/install 
+% |https://raw.githubusercontent.com/Homebrew/install/master/install|>|)"|
+% 
+% |$ brew install coreutils|
+% |PATH|
+% |On _Linux_|, please make sure that Java, OpenBabel and CXCALC directories 
+% are included. To do this, run the following commands:
+% 
+% |$ export PATH=$PATH:/usr/local/bin| (default location of OpenBabel)
+% 
+% |$ export PATH=$PATH:/opt/opt/chemaxon/jchemsuite/bin/| (default location 
+% of CXCALC)
+% 
+% |$ export PATH=$PATH:/usr/java/jre1.8.0_131/bin/| (default installation of 
+% Java)
+% 
+% |On Windows|:
+% 
+% |$ set path=%path%;C:\Program Files (x86)\OpenBabel-3.1.1| (default location 
+% of OpenBabel)
+% 
+% |$ set path=%path%;C:\Program Files\ChemAxon\MarvinSuite\bin| (default location 
+% of CXCALC)
+% 
+% Also, in order to standardise the chemical reaction format, it is required 
+% to have CXCALC with its respective license.
+%% Metabolites
+% Metabolite structures are represented in a variety of chemoinformatic formats, 
+% including 1) Metabolite chemical tables (MDL MOL) that list all of the atoms 
+% in a molecule, as well as their coordinates and bonds${\;}^1$; 2) The simplified 
+% molecular-input line-entry system (SMILES), which uses a string of ASCII characters 
+% to describe the structure of a molecule${\;}^2$; or 3) The International Chemical 
+% Identifier (InChI) developed by the IUPAC, provides a standard representation 
+% for encoding molecular structures using multiple layers to describe a metabolite 
+% structure${\;}^3$ (see Figure 1). Additionally, different chemical databases 
+% assing a particular identifier to represent the metabolite structures as the 
+% Virtual Metabolic Human database (*VMH*)${\;}^4$, the Human Metabolome Database 
+% (*HMDB*)${\;}^5$, *PubChem* database${\;}^6$, the Kyoto Encyclopedia of Genes 
+% and Genomes(*KEEG*)${\;}^7$, and the Chemical Entities of Biological Interest 
+% (*ChEBI*)${\;}^8$. 
+% 
+% 
+% 
+% Figure 1. L-alaninate molecule represented by a hydrogen-suppressed molecular 
+% graph (implicit hydrogens). The main branch of the molecule can be seen in green; 
+% the additional branches can be seen in brown, pink and turquoise. The stereochemistry 
+% of the molecule is highlighted in blue, the double bond with dark green and 
+% the charges are highlighted in light brown. The same colours are used to indicate 
+% where this information is represented in the different chemoinformatic formats. 
+% The InChI is divided into layers, each of which begins with a lowercase letter, 
+% except for Layers 1 and 2. Layer 1 indicates if the InChI is standardised, Layer 
+% 2 the chemical formula in a neutral state, Layer 3 the connectivity between 
+% the atoms (ignoring hydrogen atoms), Layer 4 the connectivity of hydrogen atoms, 
+% Layer 5 the charge of the molecule and Layer 6 the stereochemistry. Additional 
+% layers can be added, but they cannot be represented with a standard InChI.
+% 
+% First we clean the workspace and define the model that will be used for conserved 
+% moiety decomposition.
+
+clear
+%modelName = 'ecoli';
+modelName = 'DAS';
+%% 
+% Setup the paths and load the model.
+
+projectDir = strrep(which('tutorial_atomicallyResolveReconstruction'),'/tutorial_atomicallyResolveReconstruction.mlx','');
+resultsDir = [projectDir filesep 'results' filesep modelName '_chemoinformatics' filesep];
+switch modelName
+    case 'DAS'
+        tutorialdir = fileparts(which('tutorial_atomicallyResolveReconstruction.mlx'));
+        model = readCbModel([tutorialdir filesep 'data' filesep 'subDas.mat']); 
+    case 'ecoli'
+        load ecoli_core_model.mat
+        model.mets = regexprep(model.mets, '\-', '\_');
+end
+%% 
+% Check Open Babel and CXCALC installation
+
+[oBabelInstalled, ~] = system('obabel');
+if oBabelInstalled == 127
+    oBabelInstalled = 0;
+end
+[cxcalcInstalled, ~] = system('cxcalc');
+cxcalcInstalled = ~cxcalcInstalled;
+% Add metabolite information
+% The |addMetInfoInCBmodel| function will be used to add the identifiers. The 
+% chemoinformatic data is obtained from an external file and is added to the ecoliCore 
+% model. The chemoinformatic information includes SMILES, InChIs, or different 
+% database identifiers.
+
+dataFile = which('tutorial_atomicallyResolveReconstruction.mlx');
+inputData = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'metaboliteIds.xlsx');
+expectedResults = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'expectedResults');
+replace = false;
+[model, hasEffect] = addMetInfoInCBmodel(model, inputData, replace);
+% Download metabolites from model identifiers
+% The |obtainMetStructures| function is used to obtain MDL MOL files from different 
+% databases, including HMDB${\;}^5$, PubChem${\;}^6$, KEEG${\;}^7$ and ChEBI${\;}^8$. 
+% Alternatively, the function can be used to convert the InChI strings or SMILES 
+% in the model to MDL MOL files. A COBRA model with identifiers is required to 
+% run the function.
+% 
+% The optional variables are:
+% 
+% The variable |mets| contains a list of metabolites to be download (Default: 
+% All). To obtain the metabolite structure of glucose, we use the VMH id.
+
+switch modelName
+    case 'DAS'
+        mets = {'34dhphe'; 'dopa'; 'co2'};
+    case 'ecoli'
+        mets = {'2pg'; 'h2o'; 'pep'; 'fdp'; 'f6p'; 'pi'};
+end
+%% 
+% |outputDir|: Path to the directory that will contain the MOL files (default: 
+% current directory).
+
+outputDir = resultsDir;
+%% 
+% |sources|, is an array indicating the source of preference (default: all the 
+% sources with ID)
+%% 
+% # InChI (requires openBabel)
+% # Smiles (requires openBabel)
+% # KEGG (<https://www.genome.jp/ https://www.genome.jp/>)
+% # HMDB (<https://hmdb.ca/ https://hmdb.ca/>)
+% # PubChem (<https://pubchem.ncbi.nlm.nih.gov/ https://pubchem.ncbi.nlm.nih.gov/>)
+% # CHEBI (<https://www.ebi.ac.uk/ https://www.ebi.ac.uk/>)
+% # DrugBank (<https://go.drugbank.com/ https://go.drugbank.com/>)
+% # LipidMass (<https://www.lipidmaps.org/ https://www.lipidmaps.org/>)
+
+sources = {'inchi'; 'smiles'; 'kegg'; 'hmdb'; 'pubchem'; 'chebi'};
+%% 
+% Run the function
+
+if oBabelInstalled
+    molCollectionReport = obtainMetStructures(model, mets, outputDir, sources);
+else
+    load([expectedResults filesep 'molCollectionReport.mat'])
+end
+disp(molCollectionReport.databaseCoverage)
+% Convert metabolites
+% Open Babel${\;}^9$ is a chemical toolbox designed to translate the different 
+% chemical data languages. It is possible to convert between chemical formats 
+% such as MDL MOL files to InChI. This function |openBabelConverter| converts 
+% chemoformatic formats using OpenBabel. It requires having OpenBabel installed. 
+% 
+% The function requires the original chemoinformatic structure (|origFormat|) 
+% and the output format (|outputFormat|). The formats supported are SMILES, MD 
+% MOL, InChI, InChIKey, rxn and rinchi. Furthermore, if the optional variable 
+% |saveFileDir| is set, the new format will be saved with the name specified in 
+% the variable.
+% 
+% All of the downloaded metabolite structures are converted to an InChI as follows.
+
+switch modelName
+    case 'DAS'
+        met = 'dopa';
+    case 'ecoli'
+        met = 'f6p';
+end
+if oBabelInstalled
+    [inchis, smiles] = deal(cell(size(mets)));
+    for i = 1:length(sources)
+        metaboliteDir = [outputDir 'metabolites' filesep sources{i} filesep];
+        if isfile([metaboliteDir met '.mol'])
+            inchis{i, 1} = openBabelConverter([metaboliteDir met '.mol'], 'inchi');
+            smiles{i, 1} = openBabelConverter(inchis{i, 1}, 'smiles');
+        end
+    end
+else
+    load([expectedResults filesep 'inchisSmiles.mat'])
+end
+table(sources, inchis, smiles)
+% InChI comparison
+% With the function |compareInchis|, each InChI string is given a score based 
+% on its similarity to the chemical formula and charge of the metabolite in the 
+% model. Factors such as stereochemistry, if it is a standard inchi, and its similarity 
+% to the other inchis are also considered. The InChI with the highest score is 
+% the identifier considered as more consistent with the model.
+
+comparisonTable = compareInchis(model, inchis, met);
+display(comparisonTable)
+% Metabolite structure standardisation
+% Standardize an MDL MOL file directory by representing the reaction using normal 
+% chemical graphs, hydrogen suppressed chemical graphs, and chemical graphs with 
+% protonated molecules. The function also updates the header with the standardization 
+% information. It makes use of CXCALC and OpenBabel.
+% 
+% Standardisation
+%% 
+% # explicitH: Chemical graphs; 
+% # implicitH: Hydrogen suppressed chemical graph; 
+% # basic: Update the header. 
+
+switch modelName
+    case 'DAS'
+        standardisationApproach = 'implicitH';
+    case 'ecoli'
+        standardisationApproach = 'explicitH';
+end
+if oBabelInstalled
+    inchiDir = [outputDir 'metabolites' filesep 'inchi' filesep];
+    metList = mets;
+    standardisedDir = [outputDir 'mets' filesep];
+    standardisationReport = standardiseMolDatabase(inchiDir, metList, ...
+        standardisedDir, standardisationApproach);
+else
+    standardisedDir =[expectedResults filesep modelName '_chemoinformatics' filesep 'mets' filesep];
+end
+% Metabolite structures
+
+if cxcalcInstalled
+    imagesFolder = [standardisedDir 'images' filesep];
+else
+    imagesFolder = [expectedResults filesep modelName '_chemoinformatics' filesep 'mets' filesep 'images' filesep];
+end
+figure
+for i = 1:length(mets)
+    subplot(numel(mets)/3, 3, i)
+    imshow([imagesFolder mets{i} '.jpeg'])
+    title(mets{i})
+end
+clearvars -except model resultsDir modelName standardisedDir standardisationApproach oBabelInstalled cxcalcInstalled expectedResults
+%% Reactions
 % A set of atom mappings represents the mechanism of each chemical reaction 
 % in a metabolic network, each of which relates an atom in a substrate metabolite 
 % to an atom of the same element in a product metabolite (Figure 1). To atom map 
@@ -16,393 +268,231 @@
 % in a data file format (SMILES, MDL MOL, InChIs), reaction stoichiometries, and 
 % an atom mapping algorithm.
 % 
+% A set of atom mappings represents the mechanism of each chemical reaction 
+% in a metabolic network, each of which relates an atom in a substrate metabolite 
+% to an atom of the same element in a product metabolite (Figure 1). To atom map 
+% reactions in a metabolic network reconstruction, one requires chemical structures 
+% in a data file format (SMILES, MDL MOL and InChIs), reaction stoichiometries, 
+% and an atom mapping algorithm.
+% 
 % 
 % 
 % Figure 1. Set of atom mappings for reaction L-Cysteine L-Homocysteine-Lyase 
 % (VMH ID: r0193).
 % 
-% Metabolites chemical structures can be obtained by different approaches 
-% such as draw them based on the literature using chemoinformatic software, or 
-% obtain them from metabolic databases either manually or using a computational 
-% software as suggested in${\text{ }}^1$. Here we recommend downloading the metabolites 
-% structures in MDL MOL format for the latest human metabolic reconstruction Recon 
-% 3${\text{ }}^2$ via the Virtual Metabolic Human database (VMH, <http://vmh.life 
-% http://vmh.life>). Chemical structures and reaction stoichiometries from COBRA 
-% models are used to generate an MDL RXN file, which contains the information 
-% of a chemical reaction. Atom mapped reactions from Recon 3 can also be found 
-% in the VMH database in MDL RXN format. However, here we will atom map the chemical 
-% reactions using the Reaction Decoder Tool (RDT) algorithm${\text{ }}^3$, which 
-% was selected after comparing the performance of recently published algorithms 
-% ${\text{ }}^4$. However, despite its good performance (accuracy and availability) 
-% RDT algorithm does not atom map hydrogen atoms.
+% Metabolite structures and reaction stoichiometries from the genome-scale reconstruction 
+% are used to generate reaction chemical tables containing information about the 
+% chemical reactions (MDL RXN). The metabolic reactions are atom mapped using 
+% the Reaction Decoder Tool (RDT) algorithm${\;}^{11}$, which was chosen after 
+% comparing the performance of published atom mapping algorithms${\;}^{12}$. Atom 
+% map metabolic reactions Atom mappings for the internal reactions of a metabolic 
+% network reconstruction are performed by the function |obtainAtomMappingsRDT|. 
 % 
-% In this tutorial, we will identify the conserved moieties using atom mapping 
-% data for the dopamine synthesis network (DAS) extracted from Recon 3 ${\text{ 
-% }}^2$ (Figure 2). Section 1 of the tutorial will cover obtaining and visualising 
-% an atom map of metabolic reactions, and section 2 of the tutorial covers the 
-% identification of conserved metabolic moieties.
+% For this section, the atom mappings are generated based on the molecular structures 
+% obtained and the ecoli core model. 
 % 
-% 
-% 
-% Figure 2: DAS: a small metabolic network consisting of reactions in the 
-% human dopamine synthesis pathway${\text{ }}^2$. Atoms belonging to the same 
-% conserved moiety have identically coloured backgrounds.
-%% MATERIALS
-% To atom map reactions it is required to have Java version 8 and Linux. The 
-% atom mapping does not run on Windows at present. 
-% 
-% On _macOS_, please make sure that you run the following commands in the 
-% Terminal before continuing with this tutorial:
-% 
-% |$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"|
-% 
-% |$ brew install coreutils|
-% 
-% |On _Linux_,|please make sure that Java and ChemAxon directories are included. 
-% To do this, run the following commands:
-% 
-% |$ export PATH=$PATH:/opt/opt/chemaxon/jchemsuite/bin/ |(default location 
-% of JChem)
-% 
-% |$ export PATH=$PATH:/usr/java/jre1.8.0_131/bin/ |(default installation 
-% of Java)
-% 
-% Also, in order to standardise the chemical reaction format it is required 
-% to have JChem downloaded from ChemAxon with its respective license.
-%% SECTION 1 Atom mapping of reactions
-% Atom mappings for the internal reactions of a metabolic network reconstruction 
-% are performed by the function |obtainAtomMappingsRDT|. The main inputs are a 
-% COBRA model structure and a directory containing the molecular structures in 
-% MDL MOL format. For this tutorial, using the RDT algorithm, the atom mappings 
-% are generated based on the molecular structures contained in cobratoolbox/tutorials/atomicallyResolveReconstruction/data/molFiles 
-% (|molFileDir|) and the reconstructed DAS network without hydrogen atoms (|model|).
-%%
-global CBTDIR
-tutorialdir = fileparts(which('tutorial_atomicallyResolveReconstruction.mlx'));
-model = readCbModel([tutorialdir filesep 'data' filesep 'subDas.mat']); % The subnetwork of the dopamine synthesis network
-molFileDir = [tutorialdir filesep 'data' filesep 'molFiles']; % The chemical structures of metabolites
+% The function |obtainAtomMappingsRDT| generates 4 different directories containing: 
 %% 
-% The function |obtainAtomMappingsRDT |generates 4 different directories 
-% containing: 
-% 
 % * the atom mapped reactions in MDL RXN format (directory _atomMapped_), 
 % * the images of the atom mapped reactions (directory _images_), 
-% * additional data for the atom mapped reactions (SMILES,  and product and 
-% reactant indexes) (directory _txtData_), and 
-% * the unmapped MDL RXN files (directory _rxnFiles_).| |
-% 
-% The input variable |outputDir |indicates the directory where the folders 
-% will be generated (by default the function assigns the current directory).
-
-outputDir = [pwd filesep 'output'];
+% * additional data for the atom mapped reactions (SMILES, and product and reactant 
+% indexes) (directory _txtData_), and 
+% * the unmapped MDL RXN files (directory _rxnFiles_). 
 %% 
-% For some reactions, the RDT algorithm cannot compute the atom mappings 
-% (for a large reaction is generated an MDL RXN v3000 which is not compatible 
-% with the RDT algorithm). Therefore, it is necessary to assign a maximum time 
-% of processing |maxTime| (by default the function assign 30 minutes as a maximum 
-% time for computing an atom mapping for a reaction).
+% The input variable |outputDir| indicates the directory where the folders will 
+% be generated (by default the function assigns the current directory).
+%% Atom map a reaction
+% The main inputs of the |obtainAtomMappingsRDT function| are a COBRA model 
+% structure and a directory containing the molecular structures in MDL MOL format. 
+% The variable |molFileDir| contains the path to the directory containing MOL 
+% files of the COBRA model. 
 
-maxTime = 1800; % seconds
+molFileDir = [standardisedDir 'molFiles' filesep];
 %% 
-% The function |obtainAtomMappingsRDT| generates atom mapped reactions in 
-% a standard canonical format but it is *REQUIRED* to have a Chemaxon license 
-% installed. However, the reactions can be atom mapped without being standardised. 
-% The variable |isChemaxonInstalled| contains a logical value defined by the user 
-% if the license is installed or not.
+% The variable |rxnDir| specifies the path to the directory containing the RXN 
+% files with atom mappings.
 
-isChemaxonInstalled = false; % Change varibale to "true" if ChemAxon is installed
+rxnDir = [resultsDir 'rxns'];
+%% 
+% The input variable |rxnsToAM| indicates the reactions that will be atom mapped. 
+% By default the function atom map all the internal reactions with all of its 
+% metabolites present in the metabolite database (|molFileDir|).
+
+switch modelName
+    case 'DAS'
+        rxnsToAM = {'R3'};
+    case 'ecoli'
+        rxnsToAM = {'ENO'; 'FBP'};
+end
+%% 
+% The variable |hMapping|, indicates if the hydrogen atoms will be also atom 
+% mapped (Default: |true|).
+
+hMapping = true;
+%% 
+% Finally, the variable |onlyUnmapped| indicates if only the reaction files 
+% will be generated without atom mappings (Default: |false|).
+
+onlyUnmapped = false;
 %% 
 % Now, let's obtain the atom map using |obtainAtomMappingsRDT|: 
 
-if ispc
-    error('Error: atom mapping function should be run on Linux or MAC.')
+if oBabelInstalled
+    atomMappingReport = obtainAtomMappingsRDT(model, molFileDir, rxnDir, rxnsToAM, hMapping, onlyUnmapped);
+    imagesFolder = [rxnDir filesep 'images' filesep];
+    atomMapDir = [rxnDir filesep 'atomMapped'];
 else
-    tic
-    try
-        standardisedRxns = obtainAtomMappingsRDT(model, molFileDir, outputDir, maxTime, isChemaxonInstalled);
-    end
-    toc
+    imagesFolder = [expectedResults filesep modelName '_chemoinformatics' filesep 'rxns' filesep 'images' filesep];
+    atomMapDir = [expectedResults filesep modelName '_chemoinformatics' filesep 'rxns' filesep 'atomMapped'];
 end
 %% 
-% The output, |standardisedRxns,| is a list of atom mapped mass balanced 
-% reactions.
-% 
-% *TIMING*
-% 
-% The time to compute atom mappings for metabolic reactions depends on the 
-% size of the genome-scale model and the size of the molecules in the reactions. 
-% The above example may take ~1 min or less if |isChemaxonInstalled = false.|
-%% Visualising results
-% The _images_ directory contains a graphical representation of the atom mapped 
-% reactions. They show the bijection between atoms and each of the metabolite 
-% pools are coloured for an easy visualisation. Figure 3 shows the atom mapped 
-% reaction to produce dopamine and ${\text{CO}}_2$ from L-DOPA.
-% 
-% 
-% 
-% Figure 3: Reaction 3-hydroxy-L-tyrosine carboxy-lyase atom mapped (VMH 
-% ID: 3HLYCL) here represented as R3. Images generated by RDT algorithm, also 
-% shows where a reaction centre occurs.
-% 
-% The _rxnFiles _directory contains for all atom mapped reactions a corresponding 
-% MDL RXN file (Figure 4). Contained within these files are information of the 
-% chemical reaction, such as: 
-% 
-% * the name of the reaction (on line 2 of the file), 
-% * the chemical formula (on line 4 of the file), 
-% * the number of substrates and products (on line 5 of the file), and 
-% * specific information for each of the molecules (from line 6 onwards, after 
-% the identifier $MOL). 
-% 
-% 
-% 
-% Figure 4: A MDL RXN file stored in the _rxnFiles _directory.  
-% 
-% Specific information for each of the molecules includes the name of the 
-% metabolite, it's InChI key (if the metabolite does not contain an R group) and 
-% the number of atoms and bonds. Following this is the atom block, which contains 
-% detailed information on the coordinates, element, charge and atom mapping number 
-% for each of the atoms, and then finally, the bond block connects all the atoms 
-% in the metabolite.
-%%
-regexp(fileread([outputDir filesep 'atomMapped' filesep 'R3.rxn']), '\n', 'split')'
+% The output, |atomMappingReport,| contains a report of the reactions written 
+% which include:
 %% 
-% The _txtData _directory contains the TXT information of the reaction including 
-% the SMILES format, which holds the standard canonical format of the reaction, 
-% the reactant input atom index and the product input atom index.
+% * |rxnFilesWritten|: The MDL RXN written.
+% * |balanced|: The atomically balanced reactions.
+% * |unbalanced|: The atomically unbalanced reactions.
+% * mapped: The atom mapped reactions.
+% * |notMapped:| The unmapped reactions.
+% * |inconsistentBool|: A Boolean vector indicating the inconsistent reactions.
+% * |rinchi|: The reaction InChI for the MDL RXN files written.
+% * |rsmi|: The reaction SMILES for the MDL RXN files written.
 
-regexp(fileread([outputDir filesep 'txtData' filesep 'R3.txt']), '\n', 'split')'
-%% SECTION 2 Identifying conserved metabolic moieties
-% A conserved moiety is a group of atoms within molecules connected by reactions, 
-% that follow identical paths through a metabolic network and therefore, its amount 
-% remains constant (Figure 5). Representative examples from energy metabolism 
-% include the AMP and NAD moieties. With the set of atom mappings for a metabolic 
-% network the set of linearly independent conserved moieties for the metabolic 
-% network can be identified, each of which corresponds to a particular identifiable 
-% molecular substructure${\text{ }}^5$.
-% 
-% 
-% 
-% Figure 5: A graphical representation of a conserved moiety
-% 
-% In this section, we will identify conserved moieties in a subnetwork of 
-% the DAS network (Figure 2) by graph theoretical analysis of its atom transition 
-% network. The method is described in${\text{ }}^5$. This section consists of 
-% two parts: 
-% 
-% Part 1 covers basic usage of the code. 
-% 
-% Part 2 covers decomposition of a composite moiety resulting from variable 
-% atom mappings between the recurring metabolite pair $O_2$ and $H_2 O$.
-%% Part 1: Identify conserved moieties in DAS
-% *Step 1: Generate an atom transition network for DAS based on atom mappings 
-% for internal (mass and charge balanced) reactions.*
-% 
-% The atom transition network is generated based on the reconstructed DAS 
-% network (|model|) and atom mappings for internal reactions, obtained in the 
-% previous section and predicted with the RDT algorithm${\text{ }}^3$.
-%%
-if ~isChemaxonInstalled
-    copyfile([tutorialdir filesep 'data' filesep 'atomMapped'],[outputDir filesep 'atomMapped'])
-end    
-atomMappedDir = [outputDir filesep 'atomMapped'];
-ATN = buildAtomTransitionNetwork(model, atomMappedDir);
-%% 
-% The output variable (|ATN|) is a Matlab structure with several fields. 
-% |ATN.A| is the incidence matrix of the directed graph representing the atom 
-% transition network. Each row represents a particular atom in one of the 11 DAS 
-% metabolites. |ATN.mets| indicates which metabolite in DAS each atom belongs 
-% to. To find rows of |ATN.A |corresponding to atoms in ${CO}_2$, run:
-
-ico2 = find(ismember(ATN.mets, 'co2[c]'))'
-%% 
-% The order of atoms in |ATN.A| matches their order in MDL MOL files encoding 
-% metabolite structures (Figure 7), e.g., |ATN.A|(90,:) is the row corresponding 
-% to the second oxygen atom (number 3 in Figure 6).
-% 
-% 
-% 
-% 
-% 
-% Figure 6: Rows for ${CO}_2$ atoms in |ATN.A| are ordered as shown.
-% 
-% ||
-% 
-% |ATN.elements| contains the element symbols of atoms, e.g.,
-
-ATN.elements{90}
-%% 
-% Each column of |ATN.A| represents a particular atom transition in one 
-% of the four internal reactions in DAS. Reaction identifiers of atom transitions 
-% are given in |ATN.rxns|. To find all atom transitions that involve ${\text{CO}}_2$ 
-% atoms, run:
-
-tco2 = find(any(ATN.A(ico2,:), 1))
-ATN.rxns(tco2)'
-%% 
-% i.e., three atom transitions in each of the reactions R3 and R4 involve 
-% atoms in ${\text{CO}}_2$. To find atoms connected to ${\text{CO}}_2$ atoms via 
-% these atom transitions, run:
-
-cco2 = find(any(ATN.A(:, tco2) < 0,2));
-ATN.mets(cco2)'
-%% 
-% i.e., ${\text{CO}}_2$ atoms are connected to atoms in the metabolites 
-% L-DOPA (VMH ID: 34dhphe) and formate (VMH ID: for).
-% 
-% *Step 2: Identify conserved moieties in DAS by graph theoretical analysis 
-% of the atom transition network generated in Step 1.*
-%%
-tic
-[L,Lambda,moietyFormulas,moieties2mets,moieties2vectors,atoms2moieties] = ...
-    identifyConservedMoieties(model, ATN);
-t = toc;
-fprintf('Computation time: %.1e s\n\n', t); % Print computation time
-%% 
-% This function outputs the moiety matrix (|L|), the moiety supergraph (|Lambda|), 
-% the chemical formulas of moieties (|moietyFormulas|), and three vectors that 
-% map between the various inputs and outputs. The 10×5 moiety matrix |L| has a 
-% row for each metabolite and a column for each conserved moiety in DAS. Each 
-% column is a moiety vector, with elements corresponding to the number of instances 
-% of a conserved moiety in each metabolite. To find the number of instances of 
-% moiety 2 in L-DOPA, run
-
-iLDOPA = find(ismember(model.mets, '34dhphe[c]'))
-full(L(iLDOPA, 2))
-%% 
-% i.e., L-DOPA contains one instance of moiety 2.
-% 
-% The 19×17 moiety supergraph (|Lambda|) contains the graphs of all seven 
-% conserved moieties in DAS (Figure 7).
-% 
-% 
-% 
-% Figure 7: Graphs of the five conserved moieties in DAS. Each node represents 
-% an instance of a conserved moiety in a particular metabolite. Each directed 
-% edge represents conservation of a moiety between two metabolites. The chemical 
-% formula of each moiety is given below its graph.
-% 
-% Each row of Lambda represents a single instance of a conserved moiety in 
-% a particular metabolite. The vector moieties2vectors maps between the rows of 
-% Lambda and the columns of L. To obtain the incidence matrix of a particular 
-% moiety graph, e.g., λ2 in Figure 7, run
-
-i2 = find(moieties2vectors == 2);
-c2 = find(any(Lambda(i2, :)));
-lambda2 = full(Lambda(i2, c2))
-%% 
-% The vector |moieties2mets| maps the rows of Lambda to metabolite indices 
-% in the DAS reconstruction (|model|). To find metabolites containing instances 
-% of moiety 2, run
-
-m2 = moieties2mets(i2);
-mets2 = model.mets(m2)'
-%% 
-% The chemical formula of moiety 2 is given by,
-
-moietyFormulas{2}
-%% 
-% Finally, the vector atoms2moieties maps each atom in the atom transition 
-% network for DAS to a particular instance of a conserved moiety. To find atoms 
-% in L-DOPA that belong to moiety 2, run
-
-find(ismember(atoms2moieties, i2) & ismember(ATN.mets, '34dhphe[c]'))'
-%% 
-% *Step 3: Classify moieties*
-
-types = classifyMoieties(L, model.S)
-%% 
-% The internal moiety (λ3 in Figure 3) is conserved in both the open and 
-% closed DAS network, whereas the transitive and integrative moieties are only 
-% conserved in the closed network${\text{ }}^6$.
-%% Part 2: Effects of variable atom mappings between recurring metabolite pairs
-% Here, we will again identify conserved moieties in DAS but with a slightly 
-% different set of atom mappings (Figure 8). The different atom mappings gives 
-% rise to a different atom transition network with a different set of conserved 
-% moieties. In particular, it contains a single composite moiety, λ8 in Figure 
-% 5, in place of the two moieties λ4 and λ5 in Figure 3. The composite moiety 
-% is the result of variable atom mappings between the recurring metabolite pair 
-% O2 and H2O in reactions R1 and R2.
-% 
-% 
-% 
-% Figure 8: (a) Oxygen atom transitions used in Part 1. Oxygen atom 1 in 
-% O2 maps to the oxygen atom in H2O in both R1 and R2. These atom transitions 
-% contain two separate moieties, with two disconnected moiety graphs (λ4 and λ5 
-% in Figure 7), and two linearly independent moiety vectors (L(:,4) and L(:,5)). 
-% (b) Oxygen atom transitions used in Part 2. A different oxygen atom maps from 
-% O2 to H2O in R1 than in R2. These atom transitions contain only one composite 
-% moiety. (c) The composite moiety graph arising from the oxygen atom transitions 
-% in (b).
-% 
-% *Step 1: Identify conserved moieties with the alternative set of atom mappings.*
-%%
-% Create an alternative MDL RXN file
-R2rxn = regexp(fileread([outputDir filesep 'atomMapped' filesep 'R2.rxn']), '\n', 'split')';
-R2rxn{2} = 'alternativeR2';
-R2rxn{135}(62:63) = '18';
-R2rxn{151}(62:63) = '19';
-fid2 = fopen([outputDir filesep 'atomMapped' filesep 'alternativeR2.rxn'], 'w');
-fprintf(fid2, '%s\n', R2rxn{:});
-fclose(fid2);
-
-% Create an alternative DAS model
-alternativeModel = model;
-alternativeModel.rxns{2} = 'alternativeR2';
-
-% Identify conserved moieties
-ATN = buildAtomTransitionNetwork(alternativeModel, atomMappedDir);
-[L,Lambda,moietyFormulas,moieties2mets,moieties2vectors,atoms2moieties] = ...
-    identifyConservedMoieties(alternativeModel, ATN);
-%% 
-% *Step 2: Decompose the composite moiety vector*
-% 
-% First, extract the internal stoichiometric matrix for DAS, by running:
-%%
-rbool = ismember(alternativeModel.rxns, ATN.rxns);
-mbool = any(alternativeModel.S(:,rbool), 2);
-N = alternativeModel.S(mbool, rbool);
-%% 
-% To decompose the moiety matrix computed in Step 1, run:
-
-try
-    changeCobraSolver('gurobi6', 'milp');
+figure
+for i = 1:length(rxnsToAM)
+    subplot(1, 1/numel(rxnsToAM), i)
+    imshow([imagesFolder rxnsToAM{i} '.png'])
+    title(rxnsToAM{i})
 end
-D = decomposeMoietyVectors(L, N);
-%% 
-% Note that you can use any Mixed Integer Linear Programme (MILP) solver 
-% that is supported by the COBRA toolbox. The decomposed moiety matrix D is identical 
-% to the original moiety matrix computed in Part 1. Moiety vectors D(:,4) and 
-% D(:,5) are the linearly independent components of the composite moiety vector 
-% L(:,4) above.
+% Read atom mapping data
+% The information of an atom mapped reaction is extracted using the function 
+% |readAtomMappingFromRxnFile|, which includes a metabolite identifier, the element, 
+% the atom mapping index, the identification of substrate or product, and a vector 
+% indicating which instance of a repeated metabolite atom I belongs to. The atom 
+% mapped data for the reaction enolase is extracted in the following example.
 
-full(D(:,[4 5])')
-%% 
-% One disadvantage of decomposing moiety vectors is that it is difficult 
-% to keep track of which atoms belong to the decomposed moieties. We can, however, 
-% estimate the chemical formulas of the decomposed moieties using the elemental 
-% matrix for DAS. The elemental matrix is a numerical representation of the chemical 
-% formulas of metabolites in DAS.
+[mets, elements, metNrs, rxnNrs, isSubstrate, instances] = readAtomMappingFromRxnFile(rxnsToAM{1}, atomMapDir);
+display(table(mets, elements, metNrs, rxnNrs, isSubstrate, instances))
+% Find the enthalpy change and number of bonds broken and formed
+% The |findEnthalpyChange| and |findBondsBrokenAndFormed| functions are used 
+% to calculate the enthalpy change or the number of broken and formed bonds of 
+% each reaction in list |rxnsToAM| using the reaction mechanism identified by 
+% the atom mapping. Furthermore, the total weight of all substrates is calculated 
+% by adding the atomic weight of each atom.
 
-[E,elements] = constructElementalMatrix(alternativeModel.metFormulas,...
-    alternativeModel.metCharges);
-decomposedMoietyFormulas = estimateMoietyFormulas(D, E, elements);
-decomposedMoietyFormulas([4 5])'
+[enthalpyChange, substrateMass] = findEnthalpyChange(model, rxnsToAM, atomMapDir);
+[bondsBrokenAndFormed, ~] = findBondsBrokenAndFormed(model, rxnsToAM, atomMapDir);
 %% 
-% i.e., each decomposed moiety contains an oxygen atom.
-%% References
-% # Haraldsdóttir, H.S., Thiele, I., Fleming, R.M. Comparative evaluation of 
-% open source software for mapping between metabolite identifiers in metabolic 
-% network reconstructions: application to Recon 2. _J. Cheminform_ 6(1), 2 (2014).
-% # Elizabeth Brunk, et al. Recon 3D: A Three-Dimensional View of Human Metabolism 
-% and Disease. Submited
-% # Rahman, S.A., et al. Reaction Decoder Tool (RDT): extracting features from 
-% chemical reactions.  _Bioinformatics_ 32(13), 2065–2066 (2016).
-% # Preciat et al. Comparative evaluation of atom mapping algorithms for balanced 
-% metabolic reactions: application to Recon 3D. _J Cheminform_, 9: 39 (2017).
-% # Hulda S. Haraldsdóttir and Ronan M. T. Fleming. Identification of conserved 
-% moieties in metabolic networks by graph theoretical analysis of atom transition 
-% networks. _PLOS Comput. Biol_, 12(11) (2016).
-% # Iman Famili and B. Ø. Palsson. The convex basis of the left null space of 
-% the stoichiometric matrix leads to the definition of metabolically meaningful 
-% pools. ‎_Biophys. J_, 85(1):16–26 (2003).
+% Make a table of enthalpy change, bonds broken and formed, and sort it by modified 
+% bonds.
+
+rxnDataTable = table(rxnsToAM, bondsBrokenAndFormed, enthalpyChange, substrateMass, ...
+    'VariableNames', {'rxns','bondsBrokenAndFormed', 'enthalpyChange', 'substrateMass'});
+rxnDataTable = sortrows(rxnDataTable, {'bondsBrokenAndFormed'}, {'descend'});
+display(rxnDataTable)
+clearvars -except model resultsDir modelName standardisedDir standardisationApproach oBabelInstalled cxcalcInstalled expectedResults
+%% Chemoinformatic database
+% The function |generateChemicalDatabase| generates a chemoinformatic database 
+% of standardised metabolite structures and atom-mapped reactions on a genome-scale 
+% metabolic reconstruction using the tools described in this tutorial. In order 
+% to identify the metabolite structure that most closely resembles the metabolite 
+% in the genome-scale reconstruction, identifiers from different sources are compared 
+% based on their InChI (See Table 1). Finally, the obtained atom mapped reactions 
+% are used to identify the number of broken and formed bonds, as well as the enthalpy 
+% change of the reactions in the genome-scale reconstruction.
+% 
+% 
+% 
+% Figure 2. |generateChemicalDatabase| workflow
+% 
+% Table 1. InChI scoring criteria.
+% 
+% 
+% 
+% The goal of the comparison is to obtain a larger number of atomically balanced 
+% metabolic reactions. The Reaction Decoder Tool algorithm${\;}^8$ (*RDT*) is 
+% used to obtain the atom mappings of each metabolic reaction. The atom mapping 
+% data is used to calculate the number of bonds formed or broken in a metabolic 
+% reaction, as well as the enthalpy change. The information gathered is incorporated 
+% into the COBRA model.
+% 
+% We will obtain chemoinformatic database of the Ecoli core model in this tutorial. 
+% 
+% The user-defined parameters in the function |generateChemicalDatabase| will 
+% activate various processes. Each parameter is contained in the struct array  
+% |options| and described in detail below:
+%% 
+% * *outputDir*: The path to the directory containing the chemoinformatic database 
+% (default: current directory)
+% * *printlevel*: Verbose level 
+% * *standardisationApproach*: String containing the type of standardisation 
+% for the molecules (default: 'explicitH' if openBabel${\;}^9$ is installed, otherwise 
+% default: 'basic'):
+%% 
+% # explicitH: Chemical graphs; 
+% # implicitH: Hydrogen suppressed chemical graph; 
+% # basic: Update the header. 
+%% 
+% * *keepMolComparison*: Logical value, indicate if all metabolite structures 
+% per source will be saved or not.
+% * *onlyUnmapped*: Logic value to select create only unmapped MDL RXN files 
+% (default: FALSE, requires Java to run the RDT${\;}^{11}$). 
+% * *adjustToModelpH*: Logic value used to determine whether a molecule's pH 
+% must be adjusted in accordance with the COBRA model. (default: TRUE, requires 
+% MarvinSuite${\;}^{10}$). 
+% * *addDirsToCompare*: Cell(s) with the path to directory to an existing database 
+% (default: empty).
+% * *dirNames*: Cell(s) with the name of the directory(ies) (default: empty).
+% * *debug*: Logical value used to determine whether or not the results of different 
+% points in the function will be saved for debugging (default: empty).
+
+options.outputDir = [resultsDir 'database'];
+options.printlevel = 1;
+options.debug = true;
+options.standardisationApproach = standardisationApproach;
+options.adjustToModelpH = true;
+options.keepMolComparison = false;
+options.onlyUnmapped = false;
+%% 
+% Use the function |generateChemicalDatabase|
+
+if oBabelInstalled && cxcalcInstalled
+    info = generateChemicalDatabase(model, options);
+    metDir = [options.outputDir filesep 'mets' filesep 'molFiles'];
+else
+    load([expectedResults filesep modelName '_chemoinformatics' filesep 'database' filesep '7.debug_endOfGenerateChemicalDatabase.mat']);
+    metDir = [expectedResults filesep modelName '_chemoinformatics' filesep 'database' filesep 'mets' filesep 'molFiles'];
+end
+%% 
+% Finally, the function |metDatabaseStatus| is used to check the  consistency 
+% of the metabolites in a database in relation to a COBRA model, as well as, showing 
+% the type of identifiers in the model.
+
+[summary, status] = metDatabaseStatus(model, metDir)
+%% Bibliography
+%% 
+% # Dalby et al., "Description of several chemical structure file formats used 
+% by computer programs developed at molecular design limited", *(2002).*
+% # Anderson et al., "Smiles: A line notation and computerized interpreter for 
+% chemical structures", _Environmental research Brief_ *(1987)*.
+% # Helle et al., "Inchi, the iupac international chemical identifier", _Journal 
+% of Cheminformatics_ *(2015)*.
+% # Noronha et al., "The Virtual Metabolic Human database: integrating human 
+% and gut microbiome metabolism with nutrition and disease", _Nucleic acids research_  
+% *(2018).*
+% # Wishart et al., "HMDB 4.0 — The Human Metabolome Database for 2018_"._ _Nucleic 
+% acids research_ *(2018).*
+% # Sunghwan et al. “PubChem in 2021: new data content and improved web interfaces.”  
+% _Nucleic acids research_ *(2021).*
+% # Kanehisa, and Goto. "KEGG: Kyoto Encyclopedia of Genes and Genomes". _Nucleic 
+% acids research_ *(2000).*
+% # Hastings et al,. "ChEBI in 2016: Improved services and an expanding collection 
+% of metabolites". _Nucleic acids research_ *(2016).*
+% # O'Boyle et al,. "Open Babel: An open chemical toolbox." _Journal of Cheminformatics_  
+% *(2011).*
+% # "Marvin was used for drawing, displaying and characterizing chemical structures, 
+% substructures and reactions, ChemAxon (<http://www.chemaxon.com/ <http://www.chemaxon.com>>)"
+% # Rahman et al,. "Reaction Decoder Tool (RDT): Extracting Features from Chemical 
+% Reactions", Bioinformatics *(2016).*
+% # Preciat et al., "Comparative evaluation of atom mapping algorithms for balanced 
+% metabolic reactions: application to Recon3d", _Journal of Cheminformatics_ *(2017)*.
