@@ -428,7 +428,9 @@ computeModelProperties(refinedFolder, infoFilePath, reconVersion, 'numWorkers', 
 % Download all AGORA reconstructions.
 
 system('curl -LJO https://github.com/VirtualMetabolicHuman/AGORA/archive/master.zip')
-unzip('AGORA-master')
+try
+    unzip('AGORA-master')
+end
 modPath = [pwd filesep 'AGORA-master' filesep 'CurrentVersion' filesep 'AGORA_1_03' filesep' 'AGORA_1_03_mat'];
 %% 
 % Define the path to the file with taxonomic information on AGORA.
