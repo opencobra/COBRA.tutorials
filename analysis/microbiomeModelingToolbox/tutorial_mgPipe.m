@@ -98,6 +98,12 @@ cutoff = 0.0001;
 % created from AGORA. The following code performs this on the species level. To 
 % create pan-models on other species level up to phylum, modify the input variable 
 % taxonLevel.
+% 
+% number of cores dedicated for parallelization (default=2)
+
+numWorkers = 4;
+%% 
+% Define the taxonomical level of created pan-models
 
 panPath=[pwd filesep 'panSpeciesModels'];
 
@@ -195,10 +201,6 @@ infoFilePath = '';
 % if to save models with diet constrains implemented (default=false)
 
 saveConstrModels = true;
-%% 
-% number of cores dedicated for parallelization (default=2)
-
-numWorkers = 4;
 %% 
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
