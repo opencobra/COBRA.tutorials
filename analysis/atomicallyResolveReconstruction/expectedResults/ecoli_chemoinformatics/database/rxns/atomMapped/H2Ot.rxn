@@ -1,0 +1,27 @@
+$RXN
+H2Ot
+COBRA Toolbox v3.0 - Atom mapped - 08-Oct-2021 14:14:37
+h2o[e] -> h2o[c]
+  1  1
+$MOL
+h2o[e]
+COBRA Toolbox v3.0 - explicitH molecule - 08-Oct-2021 13:28:02
+InChIKey=XLYOFNOQVPJJNP-UHFFFAOYSA-N
+  3  2  0  0  0  0            999 V2000
+    0.7145    0.4125    0.0000 H   0  0  0  0  0  0  0  0  0  1  0  0
+    1.4289    0.8250    0.0000 O   0  0  0  0  0  0  0  0  0  2  0  0
+    2.1434    0.4125    0.0000 H   0  0  0  0  0  0  0  0  0  3  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+M  END
+$MOL
+h2o[c]
+COBRA Toolbox v3.0 - explicitH molecule - 08-Oct-2021 13:28:02
+InChIKey=XLYOFNOQVPJJNP-UHFFFAOYSA-N
+  3  2  0  0  0  0            999 V2000
+    0.7145    0.4125    0.0000 H   0  0  0  0  0  0  0  0  0  1  0  0
+    1.4289    0.8250    0.0000 O   0  0  0  0  0  0  0  0  0  2  0  0
+    2.1434    0.4125    0.0000 H   0  0  0  0  0  0  0  0  0  3  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+M  END
