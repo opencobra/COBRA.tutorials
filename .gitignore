@@ -1,3 +1,22 @@
-.template/README.md
-*.mat
+# Windows default autosave extension
+*.asv
+Thumbs.db
+# *.mat
+
+# OSX / *nix default autosave extension
+*.*~
+
+# Compiled MEX binaries (all platforms)
+*.mex*
+
+# Simulink Code Generation
+slprj/
+
+# Session info
+octave-workspace
+
+# hidden extensions
 .DS_Store
+.MATLABDriveTag
+.ipynb_checkpoints
+
