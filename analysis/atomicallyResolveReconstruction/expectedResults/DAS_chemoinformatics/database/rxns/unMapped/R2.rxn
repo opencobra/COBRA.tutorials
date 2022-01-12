@@ -5,7 +5,7 @@ thbpt[c] + o2[c] + tyr_L[c] -> dhbpt[c] + h2o[c] + 34dhphe[c]
   3  3
 $MOL
 thbpt[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:35
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:45
 InChIKey=FNKQXYHWGSIFBK-RPDRRWSUSA-N
  17 18  0  0  1  0  0  0  0  0999 V2000
     5.1962    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
@@ -46,7 +46,7 @@ InChIKey=FNKQXYHWGSIFBK-RPDRRWSUSA-N
 M  END
 $MOL
 o2[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:24
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:29
 InChIKey=MYMOFIZGZYHOMD-UHFFFAOYSA-N
   2  1  0  0  0  0  0  0  0  0999 V2000
     1.0000   -0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
@@ -55,7 +55,7 @@ InChIKey=MYMOFIZGZYHOMD-UHFFFAOYSA-N
 M  END
 $MOL
 tyr_L[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:40
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:55
 InChIKey=OUYCCCASQSFEME-QMMMGPOBSA-N
  13 13  0  0  1  0  0  0  0  0999 V2000
     0.8660   -1.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
@@ -87,7 +87,7 @@ InChIKey=OUYCCCASQSFEME-QMMMGPOBSA-N
 M  END
 $MOL
 dhbpt[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:03
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:21:57
 InChIKey=ZHQJVZLJDXWFFX-RPDRRWSUSA-N
  17 18  0  0  1  0  0  0  0  0999 V2000
     5.1962    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
@@ -128,14 +128,14 @@ InChIKey=ZHQJVZLJDXWFFX-RPDRRWSUSA-N
 M  END
 $MOL
 h2o[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:19
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:21
 InChIKey=XLYOFNOQVPJJNP-UHFFFAOYSA-N
   1  0  0  0  0  0  0  0  0  0999 V2000
     1.0000    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
 M  END
 $MOL
 34dhphe[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:52:50
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:21:40
 InChIKey=WTDRDQBEARUVNC-LURJTMIESA-N
  14 14  0  0  1  0  0  0  0  0999 V2000
     0.0000   -2.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
