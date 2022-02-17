@@ -1,11 +1,11 @@
 $RXN
 R1
-COBRA Toolbox v3.0 - Atom mapped - 05-Oct-2021 19:54:19
+COBRA Toolbox v3.0 - Atom mapped - 08-Oct-2021 13:23:50
 phe_L[c] + thbpt[c] + o2[c] -> tyr_L[c] + dhbpt[c] + h2o[c]
   3  3
 $MOL
 phe_L[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:29
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:37
 InChIKey=COLNVLDHVKWLRT-QMMMGPOBSA-N
  12 12  0  0  1  0            999 V2000
    -0.7145    2.0625    0.0000 N   0  0  0  0  0  0  0  0  0  1  0  0
@@ -35,7 +35,7 @@ InChIKey=COLNVLDHVKWLRT-QMMMGPOBSA-N
 M  END
 $MOL
 thbpt[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:35
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:45
 InChIKey=FNKQXYHWGSIFBK-RPDRRWSUSA-N
  17 18  0  0  1  0            999 V2000
    -2.1434    1.2375    0.0000 C   0  0  0  0  0  0  0  0  0 13  0  0
@@ -76,7 +76,7 @@ InChIKey=FNKQXYHWGSIFBK-RPDRRWSUSA-N
 M  END
 $MOL
 o2[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:24
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:29
 InChIKey=MYMOFIZGZYHOMD-UHFFFAOYSA-N
   2  1  0  0  0  0            999 V2000
     0.8250    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0 30  0  0
@@ -85,7 +85,7 @@ InChIKey=MYMOFIZGZYHOMD-UHFFFAOYSA-N
 M  END
 $MOL
 tyr_L[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:40
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:55
 InChIKey=OUYCCCASQSFEME-QMMMGPOBSA-N
  13 13  0  0  1  0            999 V2000
    -0.7145    2.0625    0.0000 N   0  0  0  0  0  0  0  0  0  1  0  0
@@ -117,7 +117,7 @@ InChIKey=OUYCCCASQSFEME-QMMMGPOBSA-N
 M  END
 $MOL
 dhbpt[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:03
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:21:57
 InChIKey=ZHQJVZLJDXWFFX-RPDRRWSUSA-N
  17 18  0  0  1  0            999 V2000
    -0.7145   -2.8875    0.0000 C   0  0  0  0  0  0  0  0  0 13  0  0
@@ -158,7 +158,7 @@ InChIKey=ZHQJVZLJDXWFFX-RPDRRWSUSA-N
 M  END
 $MOL
 h2o[c]
-COBRA Toolbox v3.0 - implicitH molecule - 05-Oct-2021 19:53:19
+COBRA Toolbox v3.0 - implicitH molecule - 08-Oct-2021 13:22:21
 InChIKey=XLYOFNOQVPJJNP-UHFFFAOYSA-N
   1  0  0  0  0  0            999 V2000
     0.0000    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0 31  0  0
