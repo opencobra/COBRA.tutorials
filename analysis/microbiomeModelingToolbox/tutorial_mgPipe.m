@@ -109,7 +109,7 @@ panPath=[pwd filesep 'panSpeciesModels'];
 
 taxonLevel='Species';
 
-createPanModels(modPath,panPath,taxonLevel);
+createPanModels(modPath,panPath,taxonLevel,numWorkers);
 %% 
 % By setting panPath as the input variable modPath for initMgPipe, personalized 
 % microbiome models for the samples from the above study with the EMBL-EBI accession 
