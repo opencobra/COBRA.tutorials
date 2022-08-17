@@ -149,7 +149,7 @@ for i = 1:length(conditions)
 end
 legend1=legend(typesIA);
 set(legend1,'Position',[0.42 0.45 0.2 0.2],'FontSize',12)
-suptitle('Percentage of computed pairwise interactions')
+sgtitle('Percentage of computed pairwise interactions')
 %% 
 % Next, the percentage of interactions will be calculated on different taxon 
 % levels (genus, family, order, class, phylum) using the taxon information contained 

@@ -98,6 +98,12 @@ cutoff = 0.0001;
 % created from AGORA. The following code performs this on the species level. To 
 % create pan-models on other species level up to phylum, modify the input variable 
 % taxonLevel.
+% 
+% number of cores dedicated for parallelization (default=2)
+
+numWorkers = 4;
+%% 
+% Define the taxonomical level of created pan-models
 
 panPath=[pwd filesep 'panSpeciesModels'];
 
@@ -154,8 +160,8 @@ abunFilePath='normCoverageReduced.csv';
 % and targeted analyses are instead planned (see later sections in the tutorial), 
 % the computation can be disabled through the input variable computeProfiles. 
 % In either case, the personalized models with dietary constraints implemented 
-% can be exported through the variable saveConstrModels. Exporting the constrained 
-% models will also enable customized analyses outside mgPipe.
+% will be exported and saved in a subfolder called "Diet", which will also enable 
+% customized analyses outside mgPipe.
 % 
 % To define whether flux variability analysis to compute the metabolic profiles 
 % should be performed, and set the input variable computeProfiles. If fastFVA 
@@ -192,17 +198,9 @@ computeProfiles = true;
 
 infoFilePath = '';
 %% 
-% if to save models with diet constrains implemented (default=false)
-
-saveConstrModels = true;
-%% 
-% number of cores dedicated for parallelization (default=2)
-
-numWorkers = 4;
-%% 
 % Calling the function initMgPipe will execute Part 1 to 3 of the pipeline.
 
-[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'saveConstrModels', saveConstrModels, 'numWorkers', numWorkers);
+[init, netSecretionFluxes, netUptakeFluxes, Y, modelStats, summary] = initMgPipe(modPath, abunFilePath, computeProfiles, 'dietFilePath', dietFilePath, 'infoFilePath', infoFilePath, 'numWorkers', numWorkers);
 %% Computed outputs
 %% 
 % # *Metabolic diversity* The number of mapped organisms for each individual 
@@ -224,7 +222,7 @@ numWorkers = 4;
 %% 
 % # *fvaCt* a cell array containing min flux through uptake and max through 
 % secretion exchanges
-% # *nsCT* a cell array containing max flux through uptake and min trough secretion 
+% # *nsCt* a cell array containing max flux through uptake and min trough secretion 
 % exchanges
 % # *presol* an array containing the value of objectives for each microbiota 
 % model with rich and selected diet
@@ -360,10 +358,10 @@ analyzeMgPipeResults(infoFilePath,resPath, 'sampleGroupHeaders', sampleGroupHead
 % different.
 % 
 % The first step for the preparation of targeted analyses is the export of models 
-% that had already been constrained with the simulated dietary regime. This had 
-% already been done above through the saveConstrModels input in mgPipe above. 
-% Now, will set the input variable modPath to the folder with personalized models 
-% constrained with the simulated diet.
+% that had already been constrained with the simulated dietary regime. They can 
+% be found in a subfolder called "Diet" in the results folder. Now, will set the 
+% input variable modPath to the folder with personalized models constrained with 
+% the simulated diet.
 
 constrModPath = [resPath filesep 'Diet'];
 %% 

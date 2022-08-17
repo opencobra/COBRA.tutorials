@@ -96,8 +96,8 @@
 % moiety decomposition.
 
 clear
-%modelName = 'ecoli';
-modelName = 'DAS';
+modelName = 'ecoli';
+% modelName = 'DAS';
 %% 
 % Setup the paths and load the model.
 
@@ -127,7 +127,7 @@ cxcalcInstalled = ~cxcalcInstalled;
 % database identifiers.
 
 dataFile = which('tutorial_atomicallyResolveReconstruction.mlx');
-inputData = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'metaboliteIds.xlsx');
+inputData = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'metaboliteIds.txt');
 expectedResults = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'expectedResults');
 replace = false;
 [model, hasEffect] = addMetInfoInCBmodel(model, inputData, replace);
@@ -214,8 +214,12 @@ table(sources, inchis, smiles)
 % With the function |compareInchis|, each InChI string is given a score based 
 % on its similarity to the chemical formula and charge of the metabolite in the 
 % model. Factors such as stereochemistry, if it is a standard inchi, and its similarity 
-% to the other inchis are also considered. The InChI with the highest score is 
-% the identifier considered as more consistent with the model.
+% to the other inchis are also considered (Table 1). The InChI with the highest 
+% score is the identifier considered as more consistent with the model.
+% 
+% Table 1. InChI scoring criteria.
+% 
+% 
 
 comparisonTable = compareInchis(model, inchis, met);
 display(comparisonTable)
@@ -234,14 +238,16 @@ display(comparisonTable)
 switch modelName
     case 'DAS'
         standardisationApproach = 'implicitH';
+        dbDir = 'inchi';
     case 'ecoli'
         standardisationApproach = 'explicitH';
+        dbDir = 'hmdb';
 end
 if oBabelInstalled
-    inchiDir = [outputDir 'metabolites' filesep 'inchi' filesep];
+    dbDir = [outputDir 'metabolites' filesep dbDir filesep];
     metList = mets;
     standardisedDir = [outputDir 'mets' filesep];
-    standardisationReport = standardiseMolDatabase(inchiDir, metList, ...
+    standardisationReport = standardiseMolDatabase(dbDir, metList, ...
         standardisedDir, standardisationApproach);
 else
     standardisedDir =[expectedResults filesep modelName '_chemoinformatics' filesep 'mets' filesep];
@@ -360,7 +366,7 @@ end
 
 figure
 for i = 1:length(rxnsToAM)
-    subplot(1, 1/numel(rxnsToAM), i)
+    subplot(1, numel(rxnsToAM), i)
     imshow([imagesFolder rxnsToAM{i} '.png'])
     title(rxnsToAM{i})
 end
@@ -404,10 +410,6 @@ clearvars -except model resultsDir modelName standardisedDir standardisationAppr
 % 
 % 
 % Figure 2. |generateChemicalDatabase| workflow
-% 
-% Table 1. InChI scoring criteria.
-% 
-% 
 % 
 % The goal of the comparison is to obtain a larger number of atomically balanced 
 % metabolic reactions. The Reaction Decoder Tool algorithm${\;}^8$ (*RDT*) is 
