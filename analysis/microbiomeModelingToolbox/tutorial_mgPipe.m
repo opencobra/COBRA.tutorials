@@ -109,7 +109,7 @@ panPath=[pwd filesep 'panSpeciesModels'];
 
 taxonLevel='Species';
 
-createPanModels(modPath,panPath,taxonLevel);
+createPanModels(modPath,panPath,taxonLevel,numWorkers);
 %% 
 % By setting panPath as the input variable modPath for initMgPipe, personalized 
 % microbiome models for the samples from the above study with the EMBL-EBI accession 
@@ -217,26 +217,24 @@ infoFilePath = '';
 % are computed:*
 % 
 % Flux Variability analysis for all the exchange reactions of the diet and fecal 
-% compartment are performed and temporarily saved in a file called "simRes". Specifically 
-% what is temporarily saved is:
+% compartment are performed and saved in a file called "simRes" and exported in 
+% spreadsheet format in the following files:
 %% 
-% # *fvaCt* a cell array containing min flux through uptake and max through 
-% secretion exchanges
-% # *nsCt* a cell array containing max flux through uptake and min trough secretion 
-% exchanges
-% # *presol* an array containing the value of objectives for each microbiota 
-% model with rich and selected diet
-% # *inFesMat* cell array containing the names of the microbiota models that 
-% reported an infeasible status when solved for their objective 
+% # *netSecretionFluxes.csv* contains the maximal secretion potential of each 
+% sample for each metabolite that could be produced by at least one microbe. Note 
+% that secretion potential is substracted by dietary uptake of each metabolite, 
+% hence, only the metabolite production explicitly resulting from microbiome metabolism 
+% are quantified and shown in the table. The unit is mmol/sample/day.
+% # *netUptakeFluxes.csv* contains the maximal uptake potential of each sample 
+% for each metabolite that could be taken up by at least one microbe. Note that 
+% uptake potential is substracted by the fraction of dietary metabolites that 
+% are only passing through and being excreted, hence, only the quantities of each 
+% metabolite that are actively being consumed by at least one microbe are shown 
+% in the table. The unit is mmol/sample/day.
 %% 
-% Finally, the net uptake and secretion potential are computed in a metabolite 
-% resolved manner and saved in the output variables 'netSecretionFluxes' and netUptakeFluxes, 
-% and the files 'netSecretionFluxes.csv' and 'netUptakeFluxes.csv' in the results 
-% folder. They indicate the maximal uptake and production, respectively, of each 
-% metabolite and are computed as the absolute value of the sum of the maximal 
-% secretion flux with the maximal uptake flux. The similarity of metabolic secretion 
-% profiles (using the net secretion potential as features) between individuals 
-% is also evaluated with classical multidimensional scaling. 
+% The similarity of metabolic secretion profiles (using the net secretion potential 
+% as features) between individuals is also evaluated with classical multidimensional 
+% scaling. 
 % 
 % The output file "ReactionAbundance.csv" in the Results folder contains the 
 % relative abundance of each reaction in each sample. A description of each reaction 
@@ -249,7 +247,7 @@ infoFilePath = '';
 % 
 % In the export of models with dietary constraints is desired, they will be 
 % found in the folder constrModelsPath.
-%% Correlation between computed fluxes and abundances and different taxon levels
+%% Correlation between computed uptake and secretion fluxes and abundances and different taxon levels
 % For an overview of metabolite-taxa relationships, the computed uptake and 
 % secretion profiles for each metabolite can be correlated with taxon abundances 
 % on different levels (species, genus, etc.). Note that a correlation may not 
@@ -269,6 +267,12 @@ taxInfo = 'AGORA_infoFile.xlsx';
 % Path to fluxes that should be correlated
 
 fluxPath = [pwd filesep 'Results' filesep 'inputDiet_net_secretion_fluxes.csv'];
+%% 
+% Correlations with uptake fluxes are computed similarly by using inputDiet_net_uptake_fluxes.csv 
+% as the input file instead.
+% 
+% Run the function.
+
 corrMethod = 'Spearman';
 [FluxCorrelations, PValues, TaxonomyInfo] = correlateFluxWithTaxonAbundance(abunFilePath, fluxPath, taxInfo, corrMethod);
 %% 
@@ -277,8 +281,9 @@ corrMethod = 'Spearman';
 % with annotations, e.g., in R.
 %% Metabolite-resolved plots of metabolite-strain correlations
 % For a more detailed view of the relationships between metabolites and abundances, 
-% the fluxes can also be directly plotted against organism abundances. This may 
-% reveal microbes that are bottlenecks for the production of metabolites of interest.
+% the secretion fluxes can also be directly plotted against organism abundances. 
+% This may reveal microbes that are bottlenecks for the production of metabolites 
+% of interest.
 % 
 % We will define the metabolites to analyze (default: all exchanged metabolites 
 % in the models). As an example, we will take only one metabolite, acetate. Enter 
@@ -296,6 +301,10 @@ fluxPath = [pwd filesep 'Results' filesep 'inputDiet_net_secretion_fluxes.csv'];
 plotFluxesAgainstOrganismAbundances(abunFilePath,fluxPath,metList);
 %% 
 % Afterwards, the plots will be in the subfolder Metabolite_plots.
+% 
+% Note that the microbe-metabolite relationships for metabolite uptake can be 
+% plotted in the same way by using inputDiet_net_uptake_fluxes.csv as the input 
+% file instead.
 %% Stratification of samples
 % If metadata for the analyzed samples is available (e.g., disease state), the 
 % samples can be stratified based on this classification. To provide metadata, 
@@ -345,17 +354,18 @@ analyzeMgPipeResults(infoFilePath,resPath, 'sampleGroupHeaders', sampleGroupHead
 % p-values and test results. If there are any fluxes or abundances that significantly 
 % differed between groups, there will be files ending in "significantFeatures.txt" 
 % listing only these instances. Created violin plots will be found in the folder 
-% "ViolinPlots". There will be an image in png and pdf format for each predicted 
-% metabolite's uptake and secretion potential. There will also be a file ending 
-% in "All_plots.pdf" containing all plots.
-%% Targeted analysis: Strain-level contributions to metabolites of interest
+% "ViolinPlots". There will be an image in png format for each predicted metabolite's 
+% uptake and secretion potential.
+%% Targeted analysis: Strain-level contributions to the uptake and secretion of metabolites of interest
 % For metabolites of particular interest (e.g., for which the community-wide 
 % secretion potential was significantly different between disease cases and controls), 
 % the strains consuming and secreting the metabolites in each sample may be computed. 
 % This will yield insight into the contribution of each strain to each metabolite. 
 % Note that for metabolites for which the community wide secretion potential did 
 % not differ, the strains contributing to metabolites may still be significantly 
-% different.
+% different. The contribution of each strain to metabolite consumption is also 
+% computed through the same function. If pan-models are used, the contributions 
+% will be on the species, genus, etc. level.
 % 
 % The first step for the preparation of targeted analyses is the export of models 
 % that had already been constrained with the simulated dietary regime. They can 
@@ -379,7 +389,10 @@ metList = {'ac','for'};
 % internal exchange reactions that had nonzero flux for each analyzed metabolite. 
 % The output 'maxFluxes' shows the corresponding forward fluxes. 'fluxSpans' shows 
 % the distance between minimal and maximal fluxes for each internal exchange reaction 
-% with nonzero flux for each metabolite.
+% with nonzero flux for each metabolite. Note that contrary to conventions in 
+% the field, in this case, *minFluxes represent internal secretion fluxes* for 
+% each strain and each metabolite and *maxFluxes represent internal uptake fluxes* 
+% for each strain and each metabolite.
 % 
 % Afterwards, statistical analysis of the strain contributions can also be performed.
 % 
