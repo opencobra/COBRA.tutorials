@@ -393,7 +393,7 @@ end
 % 
 % To run the debugging suite, enter the code
 
-[debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,infoFilePath,reconVersion,'numWorkers',numWorkers);
+[debuggingReport, fixedModels, failedModels]=runDebuggingTools(refinedFolder,testResultsFolder,inputDataFolder,reconVersion,'numWorkers',numWorkers);
 %% 
 % If any models still fail a test as indicated by the output variable failedModels, 
 % inspect the results in debuggingFolder -> Retest. 
