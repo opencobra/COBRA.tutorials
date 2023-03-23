@@ -5,9 +5,9 @@
 % This tutorial introduces the semi-automated reconstruction pipeline DEMETER 
 % (Data-drivEn METabolic nEtwork Refinement) and its use for semi-automated, data-driven 
 % reconstruction of microbial strains [1]. DEMETER was first applied to the reconstruction 
-% of 773 human gut microbial organisms [2]. More recently, DEMETER was used to 
-% reconstruct 7,206 human microbial strains, resulting in AGORA2, an update to 
-% AGORA both in size and scope [3]. While DEMETER was built with reconstructing 
+% of 773 human gut microbial organisms, AGORA [2]. More recently, DEMETER was 
+% used to reconstruct 7,302 human microbial strains, resulting in AGORA2, an update 
+% to AGORA both in size and scope [3]. While DEMETER was built with reconstructing 
 % human gut microbial reconstructions in mind and is tailored towards this purpose, 
 % it can be applied to any types of bacterial or archaeal microorganisms. The 
 % minimal prerequisite is the availability of a sequenced genome for the target 
@@ -79,7 +79,7 @@ draftFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exampleDr
 %% 1.2. Taxonomic and strain information
 % Information on the taxonomic classification and organism properties (e.g., 
 % gram status, oxygen status, metabolism type, pathogenicity) has been collected 
-% for all 7,206 AGORA2 strains and is available in the file "input/AGORA2_infoFile.xlsx". 
+% for all 7,302 AGORA2 strains and is available in the file "input/AGORA2_infoFile.xlsx". 
 % It is highly recommmended to collect taxonomic information for your organism 
 % as this enables the propagation of experimental data from related strains that 
 % are already present in AGORA2. Taxonomic information can be retrieved from NCBI 
@@ -123,7 +123,7 @@ refinedModelIDs = printRefinedModelIDs(draftFolder);
 % (<https://pubseed.theseed.org https://pubseed.theseed.org>). Under <https://pubseed.theseed.org/seedviewer.cgi?page=SubsystemSelect, 
 % https://pubseed.theseed.org/seedviewer.cgi?page=SubsystemSelect,> over 1,000 
 % curated subsystems for thousands of bacteria are available that can serve as 
-% input for DEMETER. See "Subsystem Spreadsheet" tab on PubSeed or cobratoolbox/papers/2021_demeter/exampleSpreadsheets 
+% input for DEMETER. See "Subsystem Spreadsheet" tab on PubSeed or cobratoolbox/papers/2021_demeter/spreadsheets 
 % for an example. To map the strains in subsystems to strains to reconstruct, 
 % the column PubSeedID needs to contain the translation to the respective IDs 
 % in the PubSeed spreadsheets. 
@@ -134,9 +134,11 @@ refinedModelIDs = printRefinedModelIDs(draftFolder);
 % the file cobratoolbox/papers/2021_demeter/input/InReactions.txt. 
 % 
 % If comparative genomics data is available for your organism(s), please place 
-% it in a folder and provide the path to the folder as the variable spreadsheetFolder.
+% it in a folder and provide the path to the folder as the variable spreadsheetFolder. 
+% The comparative genomics data for the AGORA2 resource are available at the following 
+% path:
 
-spreadsheetFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'exampleSpreadsheets'];
+spreadsheetFolder = [CBTDIR filesep 'papers' filesep '2021_demeter' filesep 'spreadsheets'];
 %% 
 % Additionally, the PubSEED IDs for each strain to refine, as well as the annotation 
 % version, need to be added to the "PubSeedID" and "Annotation version ID" columns, 
@@ -478,9 +480,9 @@ propertiesFolder = computeModelProperties(subsetFolder, infoFilePath, subsetVers
 % metabolic reconstructions for 773 members of the human gut microbiota. Nat Biotechnol. 
 % 35(1):81-89 (2017). 
 % 
-% [3] Heinken A, Acharya G, Ravcheev DA, Hertel J et al, AGORA2: Large scale 
-% reconstruction of the microbiome highlights wide-spread drug-metabolising capacities. 
-% bioRxiv (2020). 
+% [3] Heinken A, Hertel J, Acharya G, Ravcheev DA et al, Genome-scale metabolic 
+% reconstruction of 7,302 human microorganisms for personalized medicine. Nat 
+% Biotechnol. doi: 10.1038/s41587-022-01628-0 (2023).
 % 
 % [4] Chen IA, Chu K, Palaniappan K, Ratner A et al, The IMG/M data management 
 % and analysis system v.6.0: new tools and advanced capabilities. Nucleic Acids 
