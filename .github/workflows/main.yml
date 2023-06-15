@@ -2,7 +2,7 @@ name: Sync MLX Files
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths:
     - '**.mlx'
 
@@ -50,5 +50,3 @@ jobs:
             counter=$((counter+1))
           done
         if: steps.getfile.outputs.file != ''
-
-
