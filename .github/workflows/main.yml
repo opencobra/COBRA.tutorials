@@ -45,7 +45,7 @@ jobs:
               ./setup.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
               ./build.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
             else
-              ./build.sh openCOBRA/cobratoolboxy ${{ secrets.DEST_REPO_TOKEN }} $file ${{ secrets.EMAIL }}
+              ./build.sh openCOBRA/cobratoolboxy ${{ secrets.DEST_REPO_TOKEN }} 
             fi
             counter=$((counter+1))
           done
