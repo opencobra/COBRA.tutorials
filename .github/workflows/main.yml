@@ -1,4 +1,4 @@
-name: Convert MLX to HTML and Sync
+name: Sync MLX Files
 
 on:
   push:
@@ -7,12 +7,13 @@ on:
     - '**.mlx'
 
 jobs:
-  convert-and-sync:
-    runs-on: self-hosted
+  copy-changes:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Repo
         uses: actions/checkout@v2
         with:
+          repository: 'openCOBRA/COBRA.tutorials'
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
@@ -20,20 +21,34 @@ jobs:
         id: files
         uses: jitterbit/get-changed-files@v1
 
-      - name: Find changed mlx files
+      - name: Find changed files
         id: getfile
         run: |
-          files=$(echo "${{ steps.files.outputs.all }}" | grep -E '\.mlx$')
+          files=$(echo "${{ steps.files.outputs.all }}" | grep -E '\.(mlx)$')
           echo "::set-output name=file::$files"
-
-      - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v1
-
-      - name: Convert .mlx to .html
-        run: matlab -batch "convertMlxToHtml('${{ steps.getfile.outputs.file }}')"
-
-      - name: Give execute permission to the build script
+      
+      
+      - name: Give execute permission to the script
         run: chmod +x build.sh
+        
+      - name: Give execute permission to the other script  
+        run: chmod +x setup.sh
 
-      - name: Run build.sh script
-        run: ./build.sh '<username>/<gh-pages-repo>' ${{ secrets.PAT }} '${{ steps.getfile.outputs.file }}'
+           
+      - name: Sync with Destination Repo
+        run: |
+          counter=0
+          for file in ${{ steps.getfile.outputs.file }}; do
+            if [ $counter -eq 0 ]
+            then
+              # This is the first iteration, handle the file differently
+              ./setup.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
+              ./build.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
+            else
+              ./build.sh openCOBRA/cobratoolboxy ${{ secrets.DEST_REPO_TOKEN }} $file ${{ secrets.EMAIL }}
+            fi
+            counter=$((counter+1))
+          done
+        if: steps.getfile.outputs.file != ''
+
+
