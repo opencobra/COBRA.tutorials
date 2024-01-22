@@ -24,8 +24,8 @@ jobs:
       - name: Find changed files
         id: getfile
         run: |
-          files=$(echo "${{ steps.files.outputs.all }}" | grep -E '\.(mlx)$')
-          echo "::set-output name=file::$files"
+            files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
+            echo "::set-output name=file::$files"
       
       
       - name: Give execute permission to the script
