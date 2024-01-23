@@ -48,8 +48,8 @@ mkdir -p "stable/tutorials/$(dirname "$HTML_FILE_PATH")"
 
 # Copy the file to the target directory in the destination repository
 echo "Copying the HTML file to the target directory..."
-cp "../$HTML_FILE_PATH" "stable/tutorials/$HTML_FILE_PATH"
-
+#cp "../$HTML_FILE_PATH" "stable/tutorials/$HTML_FILE_PATH"
+cp $HTML_FILE_PATH" "stable/tutorials/$HTML_FILE_PATH"
 # Add, commit and push the files to the destination repository
 echo "Adding changes to git..."
 git add .
