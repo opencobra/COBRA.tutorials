@@ -42,8 +42,8 @@ jobs:
             if [ $counter -eq 0 ]
             then
               # This is the first iteration, handle the file differently
-              ./setup.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
-              ./build.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
+              ./setup.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
+              ./build.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
             else
               ./build.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} 
             fi
