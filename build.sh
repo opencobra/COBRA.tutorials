@@ -8,7 +8,7 @@ FILE_PATH=$3
 # Note: Ensure that MATLAB is installed and added to the PATH
 ABSOLUTE_FILE_PATH=$(realpath "$FILE_PATH")
 HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
-
+echo $HTML_FILE_PATH
 export DISPLAY=:100
 Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null & /home/aaron/Documents/Matlab/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
 
