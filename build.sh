@@ -34,6 +34,7 @@ echo "Destination repository name: $DEST_REPO_NAME"
 echo "Changing to the destination repository directory: $DEST_REPO_NAME"
 cd $DEST_REPO_NAME
 
+echo "examining repo directories to make sure it's the same repo"
 echo ls
 
 # Set up git config
