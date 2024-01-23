@@ -34,6 +34,8 @@ echo "Destination repository name: $DEST_REPO_NAME"
 echo "Changing to the destination repository directory: $DEST_REPO_NAME"
 cd $DEST_REPO_NAME
 
+echo ls
+
 # Set up git config
 echo "Setting up git config..."
 git config user.name "GitHub Action"
