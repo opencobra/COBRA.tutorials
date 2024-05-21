@@ -240,7 +240,7 @@ reconVersion = 'TutorialExample';
 %% 
 % Run the pipeline.
 
-[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runPipeline(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
+[reconVersion,refinedFolder,translatedDraftsFolder,summaryFolder] = runDemeter(draftFolder, 'infoFilePath', infoFilePath, 'inputDataFolder', inputDataFolder, 'numWorkers', numWorkers, 'reconVersion', reconVersion);
 %% Inspection of the output of the pipeline
 % Let us have a look at the results of the pipeline run. The refined reconstruction 
 % in mat format are located in the folder "RefinedReconstructions", and in SBML 
