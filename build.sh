@@ -17,7 +17,7 @@ export DISPLAY=:100
 echo "Starting virtual frame buffer..."
 Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
 echo "Running MATLAB conversion command..."
-/home/aaron/Documents/Matlab/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
+/usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
 
 # Clone the destination repository
 echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
