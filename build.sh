@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DEST_REPO=$1
-DEST_REPO_TOKEN=$2
-FILE_PATH=$3
+
+FILE_PATH=$2
 
 echo "Starting script execution..."
 
@@ -21,7 +21,7 @@ echo "Running MATLAB conversion command..."
 
 # Clone the destination repository
 echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
-git clone https://AaronBrennan1:$DEST_REPO_TOKEN@github.com/$DEST_REPO.git
+git clone git@github.com:$DEST_REPO.git
 
 # Split the destination repository into owner and name
 IFS='/' read -ra ADDR <<< "$DEST_REPO"
