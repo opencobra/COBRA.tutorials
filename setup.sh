@@ -37,8 +37,8 @@ echo "Creating the target directory if it doesn't exist..."
 mkdir -p $TARGET_DIR
 
 # Delete all contents in the target directory
-echo "Deleting all contents in the target directory..."
-rm -rf $TARGET_DIR/*
+# echo "Deleting all contents in the target directory..."
+# rm -rf $TARGET_DIR/*
 
 # Add, commit and push the files to the destination repository
 echo "Adding changes to git..."
