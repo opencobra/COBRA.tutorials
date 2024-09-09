@@ -36,6 +36,6 @@ jobs:
 
            
       - name: Fix
-        run: ./setup.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} 
+        run: ./fix.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} 
             
               
