@@ -8,7 +8,7 @@ echo "Starting script execution..."
 
 # Clone the destination repository
 echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
-git clone https://AaronBrennan1:$DEST_REPO_TOKEN@github.com/$DEST_REPO.git
+git clone https://$DEST_REPO_TOKEN@github.com/$DEST_REPO.git
 
 # Split the destination repository into owner and name
 IFS='/' read -ra ADDR <<< "$DEST_REPO"
