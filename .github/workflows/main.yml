@@ -29,24 +29,13 @@ jobs:
       
       
       - name: Give execute permission to the script
-        run: chmod +x build.sh
+        run: chmod +x fix.sh
         
       - name: Give execute permission to the other script  
         run: chmod +x setup.sh
 
            
-      - name: Sync with Destination Repo
-        run: |
-          counter=0
-          for file in ${{ steps.getfile.outputs.file }}; do
-            if [ $counter -eq 0 ]
-            then
-              # This is the first iteration, handle the file differently
-              ./setup.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
-              ./build.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
-            else
-              ./build.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} 
-            fi
-            counter=$((counter+1))
-          done
-        if: steps.getfile.outputs.file != ''
+      - name: Fix
+        run: ./setup.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} 
+            
+              
