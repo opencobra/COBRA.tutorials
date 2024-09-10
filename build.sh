@@ -50,9 +50,10 @@ TARGET_DIR="stable/tutorials/$(dirname "$FILE_PATH")"
 echo "Creating the target directory: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
 
-# Copy the HTML file to the target directory in the destination repository
-echo "Copying the HTML file to the target directory..."
+# Copy the HTML and .mlx files to the target directory in the destination repository
+echo "Copying the HTML and .mlx files to the target directory..."
 cp "$HTML_FILE_PATH" "$TARGET_DIR/"
+cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
 
 # Add, commit, and push the changes
 echo "Adding changes to git..."
