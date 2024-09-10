@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DEST_REPO=$1
-
 FILE_PATH=$2
 
 echo "Starting script execution..."
@@ -13,9 +12,13 @@ ABSOLUTE_FILE_PATH=$(realpath "$FILE_PATH")
 HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
 echo "Absolute file path: $ABSOLUTE_FILE_PATH"
 echo "HTML file path: $HTML_FILE_PATH"
+
+# Setup virtual frame buffer
 export DISPLAY=:100
 echo "Starting virtual frame buffer..."
 Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
+
+# Run MATLAB command to convert .mlx to .html
 echo "Running MATLAB conversion command..."
 /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
 
@@ -30,12 +33,9 @@ DEST_REPO_NAME=${ADDR[1]}
 echo "Destination repository owner: $DEST_REPO_OWNER"
 echo "Destination repository name: $DEST_REPO_NAME"
 
-# Change the current directory to the destination repository
+# Change to the destination repository directory
 echo "Changing to the destination repository directory: $DEST_REPO_NAME"
 cd $DEST_REPO_NAME
-
-echo "examining repo directories to make sure it's the same repo"
-echo $ls
 
 # Set up git config
 echo "Setting up git config..."
@@ -46,14 +46,15 @@ echo "Checking out gh-pages branch..."
 git checkout gh-pages
 
 # Create the target directory in the destination repository
-echo "Creating the target directory..."
-mkdir -p "stable/tutorials/$(dirname "$HTML_FILE_PATH")"
+TARGET_DIR="stable/tutorials/$(dirname "$FILE_PATH")"
+echo "Creating the target directory: $TARGET_DIR"
+mkdir -p "$TARGET_DIR"
 
-# Copy the file to the target directory in the destination repository
+# Copy the HTML file to the target directory in the destination repository
 echo "Copying the HTML file to the target directory..."
-cp "$HTML_FILE_PATH" "stable/tutorials/$(basename "$HTML_FILE_PATH")"
+cp "$HTML_FILE_PATH" "$TARGET_DIR/"
 
-# Add, commit and push the files to the destination repository
+# Add, commit, and push the changes
 echo "Adding changes to git..."
 git add .
 echo "Committing changes..."
