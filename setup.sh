@@ -34,20 +34,16 @@ echo "Target directory: $TARGET_DIR"
 
 # Check if the target directory is exactly "stable/tutorials"
 if [[ "$TARGET_DIR" == "stable/tutorials" ]]; then
-    echo "Target directory is 'stable/tutorials'. Do not delete."
+    echo "Target directory is 'stable/tutorials'. Do not change."
 else
-    echo "Target directory is not 'stable/tutorials'. Proceeding with deletion."
+    echo "Target directory is not 'stable/tutorials'. Proceeding with creation."
 
     # Create the target directory in the destination repository if it doesn't exist
     echo "Creating the target directory if it doesn't exist..."
     mkdir -p $TARGET_DIR
-
-    # Delete all contents in the target directory
-    echo "Deleting all contents in the target directory..."
-    rm -rf $TARGET_DIR/*
 fi
 
-# Add, commit and push the files to the destination repository
+# Add, commit, and push the files to the destination repository
 echo "Adding changes to git..."
 git add .
 echo "Committing changes..."
