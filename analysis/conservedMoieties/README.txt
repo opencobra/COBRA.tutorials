@@ -1,7 +1,7 @@
 These tutorials should generally be used in the following order:
 
 1. Initialise and set the paths to inputs and outputs
-tutorial_initConservedMoietyPaths.mlx   
+driver_initConservedMoietyPaths.mlx   
 
 2. Build an atom transition graph
 tutorial_buildAtomTransitionMultigraph.mlx

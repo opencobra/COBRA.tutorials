@@ -99,6 +99,14 @@ cutoff = 0.0001;
 % create pan-models on other species level up to phylum, modify the input variable 
 % taxonLevel.
 % 
+% NOTE: It is not recommended to combine more than one taxonomical level(e.g., 
+% species and genus). This may result in taxon abundances being "counted" more 
+% than once, and also cause errors during microbiome model generation due to non-unique 
+% namespaces. It should especially be avoided to include both a pan-genus model 
+% and a pan-species model of a member of the same genus in the abundance file.
+% 
+% 
+% 
 % number of cores dedicated for parallelization (default=2)
 
 numWorkers = 4;
