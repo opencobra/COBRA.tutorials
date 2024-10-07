@@ -1,0 +1,52 @@
+name: Sync MLX Files
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+    - '**.mlx'
+
+jobs:
+  copy-changes:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Source Repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'openCOBRA/COBRA.tutorials'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Get All Changed Files
+        id: files
+        uses: jitterbit/get-changed-files@v1
+
+      - name: Find changed files
+        id: getfile
+        run: |
+            files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
+            echo "::set-output name=file::$files"
+      
+      
+      - name: Give execute permission to the script
+        run: chmod +x build.sh
+        
+      - name: Give execute permission to the other script  
+        run: chmod +x setup.sh
+
+           
+      - name: Sync with Destination Repo
+        run: |
+          counter=0
+          for file in ${{ steps.getfile.outputs.file }}; do
+            if [ $counter -eq 0 ]
+            then
+              # This is the first iteration, handle the file differently
+              ./setup.sh opencobra/cobratoolbox $file 
+              ./build.sh opencobra/cobratoolbox $file 
+            else
+              ./build.sh openCOBRA/cobratoolbox $file
+            fi
+            counter=$((counter+1))
+          done
+        if: steps.getfile.outputs.file != ''
