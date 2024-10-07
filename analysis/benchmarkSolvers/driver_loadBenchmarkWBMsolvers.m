@@ -9,12 +9,7 @@ if ~exist(modelToUse,'var')
     %modelToUse = 'Harvetta';
 end
 
-%% Set local parameters
-% If true, it will relax tight bounds
-relaxTightBounds=0;
-lowerExponent = 4; %the minimum difference between ub_j and lb_j is 10^(lowerExponent)
-higherExponent = 10;
-
+%% 
 % Load the selected model and make any adjustments necessary.
 switch modelToUse
     case 'iCoreED'
@@ -39,6 +34,7 @@ switch modelToUse
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvey_1_04c_lifted.mat')
             model=male;
             model.osenseStr='max';
+            model.ub(model.c~=0)=inf;
         else
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvey_1_04c.mat')
             %load('~/drive/sbgCloud/projects/variationalKinetics/data/WBM/Harvey_1_04c.mat')
@@ -62,6 +58,7 @@ switch modelToUse
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvetta_1_04c_lifted.mat')
             model=female;
             model.osenseStr='max';
+            model.ub(model.c~=0)=inf;
         else
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvetta_1_04c.mat')
             %load('~/drive/sbgCloud/projects/variationalKinetics/data/WBM/Harvetta_1_04c.mat')
@@ -71,7 +68,7 @@ switch modelToUse
             model = changeObjective(model,model.rxns(contains(model.rxns,'Whole')));
 
             model = homogeniseCouplingConstraints(model);
-            
+
             %% Reformulate coupling constraints
             % Using hierarchical lifting as described here
             % https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-240

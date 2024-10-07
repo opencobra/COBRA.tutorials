@@ -25,6 +25,12 @@ if 1
 else
     resultsFolder = pwd;
 end
+%% 
+% Load whole body metabolic model - change this to suit your own setup.
+
+modelToUse ='Harvey';
+modelToUse ='Harvetta';
+driver_loadBenchmarkWBMsolvers
 %% Define the methods (algorithms) available for different solvers
 
 % CPLEX
@@ -81,17 +87,111 @@ compareSolveWBMmethods = 1;
 % Select whether to compare one or a set of available methods (algorithms) for 
 % each solver
 
-compareSolverMethods = 1;
+compareSolverMethods = 0;
 %% 
 % Define the number of times to replicate the same formulation, solver, method 
 % combination.
 
-nReplicates = 10;
+nReplicates = 1;
 %% 
 % Set the maximum time limit allowed to solve a single instance. Useful for 
 % eliminating slow instances in a large batch of trials.
 
-secondsTimeLimit = 100;
+secondsTimeLimit = 30;
+% Display and (optionally) modify properties of the whole body model that may effect solve time
+
+[nMet,nRxn]=size(model.S)
+%% 
+% Identify large bounds not at the maximum
+
+boundMagnitudes = [abs(model.lb);abs(model.ub)];
+largestMagnitudeBound = max(boundMagnitudes);
+fprintf('%g%s\n',(nnz(largestMagnitudeBound==[abs(model.lb);abs(model.ub)])*100)/(length(model.lb)*2),' = percent of bounds at maximum')
+%% 
+% Display bounds that are not at the maximum
+
+if 1
+    figure
+    histogram(log10(boundMagnitudes(boundMagnitudes~=largestMagnitudeBound & boundMagnitudes~=0)))
+    xlabel('log10(abs([lb;ub])')
+    ylabel('# bounds')
+    title('Distribution of bound magnitudes')
+end
+
+%% 
+% Replace large bounds with inf or -inf. This is a good idea. Better to leave 
+% this option on.
+
+if 1
+    model.lb(-largestMagnitudeBound==model.lb)=-inf;
+    model.ub(largestMagnitudeBound==model.ub)= inf;
+end
+boolMagnitudes = boundMagnitudes~=largestMagnitudeBound & boundMagnitudes~=0 & boundMagnitudes<1e-4;
+boolRxns = boolMagnitudes(1:nRxn) | boolMagnitudes(nRxn+1:2*nRxn);
+%% 
+% Optionally, print the bounds for reactions with small magnitude
+
+if 0
+    printFluxBounds(model,model.rxns(boolRxns))
+end
+fprintf('%g%s\n',nnz(boolRxns)*100/length(boolRxns),' = percent of bounds with magnutide less than 1e-4')
+%% 
+% Optionally, print the bounds for reactions with small difference
+
+boundDifference = model.ub - model.lb;
+bool = length(model.rxns);
+Z = table(boundDifference,model.rxns,model.rxnNames,'VariableNames',{'boundDifference','rxns','rxnNames'});
+if any(boundDifference<0)
+    error(['lb > ub for ' num2str(nnz(boundDifference)) ' reactions'])
+end
+boolDifference = boundDifference<1e-5 & boundDifference~=0;
+Z = sortrows(Z(boolDifference,:),'boundDifference');
+if 0
+    printFluxBounds(model,Z.rxns,1)
+end
+fprintf('%g%s\n',nnz(boolRxns)*100/length(boolRxns), ' = percent of bounds with difference (ub - lb) less than 1e-5')
+
+forwardBoolDifference = boolDifference & model.lb>=0 & model.ub>0;
+reverseBoolDifference = boolDifference & model.lb<0 & model.ub<=0;
+reversibleBoolDifference = boolDifference & model.lb<0 & model.ub>0;
+
+if any((forwardBoolDifference | reverseBoolDifference | reversibleBoolDifference)~=boolDifference)
+    error('missing bool difference')
+end
+%% 
+% Optionally relax bounds that are very tight
+
+relaxTightBounds = 0;
+if relaxTightBounds
+    modelOld=model;
+    done=false(nRxn,1);
+    for x=higherExponent:-1:lowerExponent
+        %calulate the difference between the bounds each time
+        boundDifference = model.ub - model.lb;
+
+        %forward
+        bool = forwardBoolDifference & (boundDifference <= 10^(-x));
+        model.ub(bool & ~done) = model.ub(bool & ~done)*(10^(x-lowerExponent+1));
+        done = done | bool;
+
+        %reverse
+        bool = reverseBoolDifference & (boundDifference <= 10^(-x));
+        model.lb(bool & ~done) = model.lb(bool & ~done)*(10^(x-lowerExponent+1));
+        done = done | bool;
+
+        %reversible
+        bool = reversibleBoolDifference & (boundDifference <= 10^(-x));
+        model.lb(bool & ~done) = model.lb(bool & ~done)*(10^((x-lowerExponent+1)/2));
+        model.ub(bool & ~done) = model.ub(bool & ~done)*(10^((x-lowerExponent+1)/2));
+        done = done | bool;
+
+        %reset
+        %done=false(nRxn,1);
+    end
+    if 1
+        printFluxBounds(model,Z.rxns,1)
+    end
+end
 %% Prepare a benchmark table, choose the solver and solve
 
 VariableNames={'interface','solver','method','problem','model','stat','origStat','time','f','f1','f2','f0'};
@@ -99,6 +199,8 @@ VariableNames={'interface','solver','method','problem','model','stat','origStat'
 VariableTypes = {'string', 'string', 'string','string','string','double','string','double','double','double','double','double'};
 T = table('Size', [0 length(VariableNames)],'VariableNames',VariableNames,'VariableTypes', VariableTypes);
 
+%% 
+% Select the solvers to compare
 
 if compareSolvers
     solvers = { 'gurobi','ibm_cplex','mosek'};
@@ -110,6 +212,8 @@ else
     solvers = {'ibm_cplex'};
     % solvers = {'mosek'};
 end
+%% 
+% Select the formulations to compare
 
 if compareSolveWBMmethods
     %solveWBMmethods = {'LP','QP','QRLP','QRQP','zero','oneInternal'};
@@ -122,10 +226,11 @@ else
     %solveWBMmethods = {'QRLP'};
     %solveWBMmethods = {'QRQP'};
 end
+%% 
+% Set the min norm weight for QP problems
 
 minNormWeight = 1e-4;
 %model.c(:)=0;
-
 %% 
 % Solve the ensemble of instances
 
@@ -239,10 +344,6 @@ for ind = 1:nReplicates
                     % param.MSK_IPAR_SIM_SCALING_METHOD='MSK_SCALING_METHOD_FREE';
             end
 
-            if ~ok
-                error('problem with solver')
-            end
-
             if compareSolverMethods
                 % Solve a problem with selected solver and each method available to that solver
                 % solveWBMmethod = {'LP','QP','QRLP','QRQP','zero','oneInternal'};
@@ -283,7 +384,7 @@ for ind = 1:nReplicates
                     tic
                     solution = optimizeCbModel(model,'min', param.minNorm,1,param);
                     T = [T; {'optimizeCbModel', solver, solverMethods{k}, param.solveWBMmethod, modelToUse, solution.stat,{solution.origStat},toc,{solution.f},{solution.f1},{solution.f2},{solution.f0}}];
-                    display(T)
+                    %display(T)
                 end
             else
                 % Solve a problem with selected solver and one method available to that solver
@@ -315,7 +416,8 @@ T.solver = replace(T.solver,'ibm_','');
 T.approach = append(T.solver, ' ', T.method);
 T =sortrows(T,{'stat','time'},{'ascend','ascend'});
 display(T)
-save([resultsFolder 'results_benchmarkWBMsolvers.mat'],T)
+%%
+save([resultsFolder 'results_benchmarkWBMsolvers.mat'],'T')
 %%
 if 1
     if 0
@@ -366,8 +468,8 @@ if 1
         title('LP solve times', 'Interpreter', 'none');
 
         figure
-        %times less than 12 seconds
-        times = times(times.mean_time<12,:);
+        % fastest times 
+        times = times(times.mean_time<mean(times.mean_time),:);
         % Create a bar plot with the sorted data
         b = bar(times.mean_time, 'FaceColor', 'b', 'FaceAlpha', 0.5);
         hold on;
@@ -411,8 +513,8 @@ if 1
 
         T = T0;
         figure
-        %times less than 12 seconds
-        times = times(times.mean_time<12,:);
+        % fastest times 
+        times = times(times.mean_time<mean(times.mean_time),:);
         % Create a bar plot with the sorted data
         b = bar(times.mean_time, 'FaceColor', 'r', 'FaceAlpha', 0.5);
         hold on;
