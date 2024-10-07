@@ -34,6 +34,7 @@ switch modelToUse
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvey_1_04c_lifted.mat')
             model=male;
             model.osenseStr='max';
+            model.ub(model.c~=0)=inf;
         else
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvey_1_04c.mat')
             %load('~/drive/sbgCloud/projects/variationalKinetics/data/WBM/Harvey_1_04c.mat')
@@ -57,6 +58,7 @@ switch modelToUse
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvetta_1_04c_lifted.mat')
             model=female;
             model.osenseStr='max';
+            model.ub(model.c~=0)=inf;
         else
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvetta_1_04c.mat')
             %load('~/drive/sbgCloud/projects/variationalKinetics/data/WBM/Harvetta_1_04c.mat')
