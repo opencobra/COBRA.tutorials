@@ -29,7 +29,7 @@ end
 % Load whole body metabolic model - change this to suit your own setup.
 
 modelToUse ='Harvey';
-modelToUse ='Harvetta';
+%modelToUse ='Harvetta';
 driver_loadBenchmarkWBMsolvers
 %% Define the methods (algorithms) available for different solvers
 
@@ -59,7 +59,7 @@ cplexQPMethods ={'AUTOMATIC','PRIMAL','DUAL','NETWORK','BARRIER','CONCURRENT'};
 %    Default "FREE"
 %    Accepted "FREE", "INTPNT", "CONIC", "PRIMAL_SIMPLEX", "DUAL_SIMPLEX", "FREE_SIMPLEX", "MIXED_INT"
 %    Example param.MSK_IPAR_OPTIMIZER = 'MSK_OPTIMIZER_FREE'
-mosekMethods ={'MSK_OPTIMIZER_FREE', 'MSK_OPTIMIZER_INTPNT', 'MSK_OPTIMIZER_CONIC', 'MSK_OPTIMIZER_PRIMAL_SIMPLEX', 'MSK_OPTIMIZER_DUAL_SIMPLEX', 'MSK_OPTIMIZER_FREE_SIMPLEX'};
+mosekMethods ={'FREE', 'INTPNT', 'CONIC', 'PRIMAL_SIMPLEX', 'DUAL_SIMPLEX', 'FREE_SIMPLEX'};
 
 % Gurobi
 % https://www.gurobi.com/documentation/current/refman/method.html
@@ -68,12 +68,20 @@ mosekMethods ={'MSK_OPTIMIZER_FREE', 'MSK_OPTIMIZER_INTPNT', 'MSK_OPTIMIZER_CONI
 gurobiLPMethods = {'AUTOMATIC','PRIMAL','DUAL','BARRIER','CONCURRENT','DETERMINISTIC_CONCURRENT'};
 gurobiQPMethods = {'AUTOMATIC','PRIMAL','DUAL','BARRIER'};
 %% Set  parameters for benchmark
+% Model perturbation parameters
+
+param.replaceLargeBoundsWithInf=1;
+param.relaxTightBounds=0;
+param.relaxTightBounds_lowerExponent = 4; %the minimum difference between ub_j and lb_j is 10^(param.relaxTightBounds_lowerExponent)
+param.relaxTightBounds_higherExponent = 10;
+param.setUpperBoundOnObjectiveToInf=0;
+param.feasTol = 1e-6;
+%% 
 % COBRA toolbox parameters
 
 printLevel=1; %  {(0),1,2} 1 output from optimiseVKmode, 2 also output from solver
 changeOK = changeCobraSolverParams('LP', 'printLevel', printLevel);
-feasTol=1e-6;
-changeOK = changeCobraSolverParams('LP', 'printLevel', feasTol);
+changeOK = changeCobraSolverParams('LP', 'printLevel', param.feasTol);
 %% 
 % Select whether to compare one or a set of solvers
 
@@ -82,12 +90,12 @@ compareSolvers = 1;
 % Select whether to compare one or a set of different formulations of constraint-based 
 % modelling problems involving whole body metabolic models.
 
-compareSolveWBMmethods = 1;
+compareSolveWBMmethods = 0;
 %% 
 % Select whether to compare one or a set of available methods (algorithms) for 
 % each solver
 
-compareSolverMethods = 0;
+compareSolverMethods = 1;
 %% 
 % Define the number of times to replicate the same formulation, solver, method 
 % combination.
@@ -97,7 +105,7 @@ nReplicates = 1;
 % Set the maximum time limit allowed to solve a single instance. Useful for 
 % eliminating slow instances in a large batch of trials.
 
-secondsTimeLimit = 30;
+secondsTimeLimit = 60;
 % Display and (optionally) modify properties of the whole body model that may effect solve time
 
 [nMet,nRxn]=size(model.S)
@@ -117,12 +125,11 @@ if 1
     ylabel('# bounds')
     title('Distribution of bound magnitudes')
 end
-
 %% 
 % Replace large bounds with inf or -inf. This is a good idea. Better to leave 
 % this option on.
 
-if 1
+if param.replaceLargeBoundsWithInf
     model.lb(-largestMagnitudeBound==model.lb)=-inf;
     model.ub(largestMagnitudeBound==model.ub)= inf;
 end
@@ -150,7 +157,6 @@ if 0
     printFluxBounds(model,Z.rxns,1)
 end
 fprintf('%g%s\n',nnz(boolRxns)*100/length(boolRxns), ' = percent of bounds with difference (ub - lb) less than 1e-5')
-
 forwardBoolDifference = boolDifference & model.lb>=0 & model.ub>0;
 reverseBoolDifference = boolDifference & model.lb<0 & model.ub<=0;
 reversibleBoolDifference = boolDifference & model.lb<0 & model.ub>0;
@@ -161,35 +167,51 @@ end
 %% 
 % Optionally relax bounds that are very tight
 
-relaxTightBounds = 0;
-if relaxTightBounds
+if param.relaxTightBounds
     modelOld=model;
     done=false(nRxn,1);
-    for x=higherExponent:-1:lowerExponent
+    for x=param.relaxTightBounds_higherExponent:-1:param.relaxTightBounds_lowerExponent
         %calulate the difference between the bounds each time
         boundDifference = model.ub - model.lb;
 
         %forward
         bool = forwardBoolDifference & (boundDifference <= 10^(-x));
-        model.ub(bool & ~done) = model.ub(bool & ~done)*(10^(x-lowerExponent+1));
+        model.ub(bool & ~done) = model.ub(bool & ~done)*(10^(x-param.relaxTightBounds_lowerExponent+1));
         done = done | bool;
 
         %reverse
         bool = reverseBoolDifference & (boundDifference <= 10^(-x));
-        model.lb(bool & ~done) = model.lb(bool & ~done)*(10^(x-lowerExponent+1));
+        model.lb(bool & ~done) = model.lb(bool & ~done)*(10^(x-param.relaxTightBounds_lowerExponent+1));
         done = done | bool;
 
         %reversible
         bool = reversibleBoolDifference & (boundDifference <= 10^(-x));
-        model.lb(bool & ~done) = model.lb(bool & ~done)*(10^((x-lowerExponent+1)/2));
-        model.ub(bool & ~done) = model.ub(bool & ~done)*(10^((x-lowerExponent+1)/2));
+        model.lb(bool & ~done) = model.lb(bool & ~done)*(10^((x-param.relaxTightBounds_lowerExponent+1)/2));
+        model.ub(bool & ~done) = model.ub(bool & ~done)*(10^((x-param.relaxTightBounds_lowerExponent+1)/2));
         done = done | bool;
 
         %reset
         %done=false(nRxn,1);
     end
+    fprintf('%g%s\n',nnz(done), ' = reactions with tight bounds relaxed to at least 1e-4 ub - lb')
     if 1
         printFluxBounds(model,Z.rxns,1)
+    end
+end
+%% 
+% Optionally, remove fixed upper bound on biomass reaction
+
+% Optionally, relax bounds that are fixed for the objective
+if param.setUpperBoundOnObjectiveToInf
+    if any(contains(modelToUse,{'Harvey','Harvetta'})) && nnz(model.c)==1
+        biomassRxnAbbr = model.rxns{model.c~=0};
+        if model.ub(ismember(model.rxns,biomassRxnAbbr))==model.ub(ismember(model.rxns,biomassRxnAbbr))
+            if strcmp(model.osenseStr,'max')
+                model.ub(ismember(model.rxns,biomassRxnAbbr))=inf;
+            else
+                model.lb(ismember(model.rxns,biomassRxnAbbr))=-inf;
+            end
+        end
     end
 end
 %% Prepare a benchmark table, choose the solver and solve
@@ -210,7 +232,7 @@ else
     % Choose the solver
     % solvers = {'gurobi'};
     solvers = {'ibm_cplex'};
-    % solvers = {'mosek'};
+    solvers = {'mosek'};
 end
 %% 
 % Select the formulations to compare
@@ -221,8 +243,8 @@ if compareSolveWBMmethods
     %solveWBMmethods = {'LP','oneInternal'};
 else
     % Choose type of problem to solve
-    % solveWBMmethods = {'LP'};
-    solveWBMmethods = {'QP'};
+    solveWBMmethods = {'LP'};
+    %solveWBMmethods = {'QP'};
     %solveWBMmethods = {'QRLP'};
     %solveWBMmethods = {'QRQP'};
 end
@@ -286,7 +308,8 @@ for ind = 1:nReplicates
                     % is especially well suited for models with a wide range of coefficients in the constraint matrix rows or columns.
                     % Settings 1 and 3 are not as directly connected to any specific model characteristics, so experimentation with both
                     % settings may be needed to assess performance impact.
-                    param.scaleFlag=0;
+                    param.ScaleFlag=0;
+                    param.timelimit = secondsTimeLimit;
 
                 case 'ibm_cplex'
                     % https://www.ibm.com/docs/en/icos/12.10.0?topic=infeasibility-coping-ill-conditioned-problem-handling-unscaled-infeasibilities
@@ -308,11 +331,12 @@ for ind = 1:nReplicates
                     % 1	Exercise extreme caution in computation
                     % https://www.ibm.com/docs/en/icos/12.10.0?topic=parameters-numerical-precision-emphasis
                     param.emphasis_numerical=1;
+
+                    param.timelimit = secondsTimeLimit;
                 case 'mosek'
-                    param.MSK_DPAR_OPTIMIZER_MAX_TIME=secondsTimeLimit;
-                    param.MSK_IPAR_WRITE_DATA_PARAM='MSK_ON';
-                    param.MSK_IPAR_LOG_INTPNT=10;
-                    param.MSK_IPAR_LOG_PRESOLVE=10;
+                    param.timelimit = secondsTimeLimit;
+
+
 
                     % MSK_IPAR_INTPNT_SCALING
                     % Controls how the problem is scaled before the interior-point optimizer is used.
@@ -378,7 +402,9 @@ for ind = 1:nReplicates
                         case 'mosek'
                             %https://docs.mosek.com/latest/toolbox/parameters.html#mosek.iparam.optimizer
                             %The parameter controls which optimizer is used to optimize the task.
-                            param.MSK_IPAR_OPTIMIZER=solverMethods{k};
+                            %param.MSK_IPAR_OPTIMIZER=solverMethods{k};
+                            param.lpmethod=solverMethods{k};
+                            param.qpmethod=solverMethods{k};
                     end
 
                     tic
@@ -391,21 +417,19 @@ for ind = 1:nReplicates
                 switch solver
                     case 'gurobi'
                         param.lpmethod='BARRIER';
-                        param.qpmethod='AUTOMATIC';
-                        method = param.lpmethod;
+                        param.qpmethod='BARRIER';
                     case 'ibm_cplex'
                         param.lpmethod='BARRIER';
                         param.qpmethod='BARRIER';
-                        method = param.lpmethod;
                     case 'mosek'
-                        method = 'FREE';
-                        method = 'INTPNT';
-                        param.MSK_IPAR_OPTIMIZER=['MSK_OPTIMIZER_' method];
-                        
+                        param.lpmethod = 'FREE';
+                        param.lpmethod = 'CONIC';
+                        param.qpmethod = 'FREE';
+                        %param.MSK_IPAR_OPTIMIZER=['MSK_OPTIMIZER_' method];
                 end
                 tic
                 solution = optimizeCbModel(model,'min', param.minNorm,1,param);
-                T = [T; {'optimizeCbModel', solver, method, param.solveWBMmethod, modelToUse, solution.stat,{solution.origStat},toc,{solution.f},{solution.f1},{solution.f2},{solution.f0}}];
+                T = [T; {'optimizeCbModel', solver, method, param.solveWBMmethod, modelToUse, solution.stat,{solution.origStat},toc,{solution.f},{solution.f1},{solution.f2},{solution.f0}}]
             end
         end
     end
