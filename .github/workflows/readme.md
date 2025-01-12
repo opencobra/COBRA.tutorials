@@ -2,7 +2,7 @@
 ### High level Overview
 The whole idea of the continuous integration of the tutorials is that whenever a user contributes a tutorial in the format of a .mlx file on the [tutorials repo](https://github.com/opencobra/COBRA.tutorials) it should be converted to html and then rendered accordingly on the Cobratoolbox website in the tutorials section. This involves using MATLAB on a self-hosted server (King server) to generate the html file. This html is then pushed to the websites codebase repository which is the [./docs folder of the master branch](https://github.com/opencobra/cobratoolbox/tree/master/docs) of the main cobratoolbox repository.
 
-GitHub actions is used to detect when a push (specifically .mlx push) is made to the tutorials repo. Then once the .mlx has been converted it is pushed to the gh-branch of the main repo. Again, GitHub actions can detect this push and configures the website to incorporate the extra tutorial. 
+GitHub actions is used to detect when a push (specifically .mlx push) is made to the tutorials repo. Then once the .mlx has been converted it is pushed to the ./docs of the main repo. Again, GitHub actions can detect this push and configures the website to incorporate the extra tutorial. 
 
 ### Detailed Documentation
 **Step 1: Pushing MLX files to the tutorials repository:**
