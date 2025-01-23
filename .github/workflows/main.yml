@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Source Repo
         uses: actions/checkout@v2
         with:
-          repository: 'openCOBRA/COBRA.tutorials'
+          repository: 'pavan-kumar-s/COBRA.tutorials'
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
@@ -42,10 +42,10 @@ jobs:
             if [ $counter -eq 0 ]
             then
               # This is the first iteration, handle the file differently
-              ./setup.sh opencobra/cobratoolbox $file 
-              ./build.sh opencobra/cobratoolbox $file 
+              ./setup.sh pavan-kumar-s/cobratoolbox $file 
+              ./build.sh pavan-kumar-s/cobratoolbox $file 
             else
-              ./build.sh opencobra/cobratoolbox $file
+              ./build.sh pavan-kumar-s/cobratoolbox $file
             fi
             counter=$((counter+1))
           done
