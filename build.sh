@@ -22,9 +22,9 @@ Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
 
 # Run MATLAB command to convert .mlx to .html and .pdf
 echo "Running MATLAB conversion command..."
-/usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
+/usr/local/MATLAB/R2022b/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
 echo "Converting to PDF..."
-/usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
+/usr/local/MATLAB/R2022b/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
 
 # Clone the destination repository
 echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
