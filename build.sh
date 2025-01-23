@@ -46,11 +46,8 @@ echo "Setting up git config..."
 git config user.name "GitHub Action"
 git config user.email "action@github.com"
 
-echo "Checking out gh-pages branch..."
-git checkout gh-pages
-
 # Create the target directory in the destination repository
-TARGET_DIR="stable/tutorials/$(dirname "$FILE_PATH")"
+TARGET_DIR="docs/tutorials/$(dirname "$FILE_PATH")"
 echo "Creating the target directory: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
 
@@ -66,6 +63,6 @@ git add .
 echo "Committing changes..."
 git commit -m "Sync files from source repo" || echo "No changes to commit"
 echo "Pushing changes to gh-pages branch..."
-git push origin gh-pages
+git push origin master
 
 echo "Script execution completed."
