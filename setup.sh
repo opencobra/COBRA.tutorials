@@ -25,18 +25,15 @@ echo "Setting up git config..."
 git config user.name "GitHub Action"
 git config user.email "action@github.com"
 
-echo "Checking out gh-pages branch..."
-git checkout gh-pages
-
 # Extract the directory of the first file
-TARGET_DIR="stable/tutorials/$(dirname "$FILE_PATH")"
+TARGET_DIR="docs/tutorials/$(dirname "$FILE_PATH")"
 echo "Target directory: $TARGET_DIR"
 
-# Check if the target directory is exactly "stable/tutorials"
-if [[ "$TARGET_DIR" == "stable/tutorials" ]]; then
-    echo "Target directory is 'stable/tutorials'. Do not change."
+# Check if the target directory is exactly "docs/tutorials"
+if [[ "$TARGET_DIR" == "docs/tutorials" ]]; then
+    echo "Target directory is 'docs/tutorials'. Do not change."
 else
-    echo "Target directory is not 'stable/tutorials'. Proceeding with creation."
+    echo "Target directory is not 'docs/tutorials'. Proceeding with creation."
 
     # Create the target directory in the destination repository if it doesn't exist
     echo "Creating the target directory if it doesn't exist..."
@@ -48,7 +45,7 @@ echo "Adding changes to git..."
 git add .
 echo "Committing changes..."
 git commit -m "Sync files from source repo" || echo "No changes to commit"
-echo "Pushing changes to gh-pages branch..."
-git push origin gh-pages
+echo "Pushing changes to docs folder..."
+git push origin master
 
 echo "Setup.sh Script execution completed."
