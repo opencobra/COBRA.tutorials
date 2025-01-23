@@ -93,7 +93,7 @@ The chmod command just makes the .sh files executable.
     if: steps.getfile.outputs.file != ''
 ```
 
-Here is the code to run the setup.sh and build.sh. We loop through all the .mlx files that were pushed. If it is the first file we are looking at we also run setup.sh to create the folder locations in the cobratoolbox – ghpages branch repository. Then afterwards build,sh is ran to convert the file to html and push to the created folder location
+Here is the code to run the setup.sh and build.sh. We loop through all the .mlx files that were pushed. If it is the first file we are looking at we also run setup.sh to create the folder locations in the cobratoolbox – ./docs folder. Then afterwards build.sh is ran to convert the file to html and push to the created folder location
 
 ### Configuring the King Server
 
