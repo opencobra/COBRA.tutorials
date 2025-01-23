@@ -45,7 +45,7 @@ jobs:
               ./setup.sh opencobra/cobratoolbox $file 
               ./build.sh opencobra/cobratoolbox $file 
             else
-              ./build.sh openCOBRA/cobratoolbox $file
+              ./build.sh opencobra/cobratoolbox $file
             fi
             counter=$((counter+1))
           done
