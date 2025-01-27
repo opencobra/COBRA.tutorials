@@ -6,8 +6,8 @@ FILE_PATH=$2
 echo "Starting script execution..."
 
 # Clone the destination repository using SSH
-echo "Cloning the destination repository: git@github.com:$DEST_REPO.git"
-git clone git@github.com:$DEST_REPO.git
+echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
+git clone https://github.com/$DEST_REPO.git
 
 # Split the destination repository into owner and name
 IFS='/' read -ra ADDR <<< "$DEST_REPO"
