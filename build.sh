@@ -62,7 +62,7 @@ echo "Adding changes to git..."
 git add .
 echo "Committing changes..."
 git commit -m "Sync files from source repo" || echo "No changes to commit"
-echo "Pushing changes to gh-pages branch..."
+echo "Pushing changes to docs folder in master branch..."
 git push origin master
 
 echo "Script execution completed."
