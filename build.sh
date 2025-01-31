@@ -28,7 +28,7 @@ usr/local/MATLAB/R2024a/bin/matlab -nodisplay -nosplash -nodesktop -r "export('$
 
 # Clone the destination repository
 echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
-git clone git@github.com:$DEST_REPO.git
+git clone --depth 1 https://github.com/$DEST_REPO.git
 
 # Split the destination repository into owner and name
 IFS='/' read -ra ADDR <<< "$DEST_REPO"
