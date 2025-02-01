@@ -22,8 +22,8 @@ cd $DEST_REPO_NAME
 
 # Set up git config
 echo "Setting up git config..."
-git config user.name "GitHub Action"
-git config user.email "action@github.com"
+git config user.name "github-actions[bot]"
+git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # Extract the directory of the first file
 TARGET_DIR="docs/tutorials/$(dirname "$FILE_PATH")"
