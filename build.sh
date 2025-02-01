@@ -43,8 +43,8 @@ cd $DEST_REPO_NAME
 
 # Set up git config
 echo "Setting up git config..."
-git config user.name "GitHub Action"
-git config user.email "action@github.com"
+git config user.name "github-actions[bot]"
+git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # Create the target directory in the destination repository
 TARGET_DIR="docs/tutorials/$(dirname "$FILE_PATH")"
@@ -63,6 +63,6 @@ git add .
 echo "Committing changes..."
 git commit -m "Sync files from source repo" || echo "No changes to commit"
 echo "Pushing changes to docs folder in master branch..."
-git push origin master
+git push "https://${{ secrets.ACTIONS_PUSH_TOKEN}}@github.com/${{ github.repository }}.git" "${{ github.ref }}"
 
 echo "Script execution completed."
