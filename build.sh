@@ -28,7 +28,7 @@ echo "Converting to PDF..."
 
 # Clone the destination repository
 echo "Cloning the destination repository: https://github.com/$DEST_REPO.git"
-git clone --depth 1 https://github.com/$DEST_REPO.git
+git clone --depth 1 git@github.com:$DEST_REPO.git
 
 # Split the destination repository into owner and name
 IFS='/' read -ra ADDR <<< "$DEST_REPO"
@@ -63,6 +63,6 @@ git add .
 echo "Committing changes..."
 git commit -m "Sync files from source repo" || echo "No changes to commit"
 echo "Pushing changes to docs folder in master branch..."
-git push "https://${{ secrets.ACTIONS_PUSH_TOKEN}}@github.com/${{ github.repository }}.git" "${{ github.ref }}"
+git push origin master
 
 echo "Script execution completed."
