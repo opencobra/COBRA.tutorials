@@ -37,16 +37,5 @@ jobs:
            
       - name: Sync with Destination Repo
         run: |
-          counter=0
           for file in ${{ steps.getfile.outputs.file }}; do
-            if [ $counter -eq 0 ]
-            then
-              # This is the first iteration, handle the file differently
-              ./setup.sh pavan-kumar-s/cobratoolbox $file 
-              ./build.sh pavan-kumar-s/cobratoolbox $file 
-            else
               ./build.sh pavan-kumar-s/cobratoolbox $file
-            fi
-            counter=$((counter+1))
-          done
-        if: steps.getfile.outputs.file != ''
