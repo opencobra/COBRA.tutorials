@@ -27,6 +27,7 @@ echo "Converting to PDF..."
 /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
 
 # Clone the destination repository
+rm -rf cobratoolbox
 echo "Cloning the destination repository: git@github.com:$DEST_REPO.git"
 git clone --depth 1 git@github.com:$DEST_REPO.git
 
