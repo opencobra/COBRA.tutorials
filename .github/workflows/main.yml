@@ -28,22 +28,37 @@ jobs:
             echo "::set-output name=files::$files"
             echo ${{ steps.getfile.outputs.files}} #######
       
-      
+      - name: Find changed files
+        id: getfile
+        run: |
+          files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
+          echo "::set-output name=files::$files"
+          
       - name: Give execute permission to the script
         run: chmod +x build.sh
         
       - name: Give execute permission to the other script  
         run: chmod +x setup.sh
            
-      - name: Sync with Destination Repo
+      - name: Clone the destination repository
         run: |
-          # Clone the destination repository
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
           git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
-          for file in ${{ steps.getfile.outputs.files}}; do
-              ./build.sh pavan-kumar-s/cobratoolbox $file
-          done
+          
+      - name: Iterate through .mlx files
+        id: iterate
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const files = '${{ steps.getfile.outputs.files }}'.split('\n').filter(file => file !== '');
+            console.log(`Found ${files.length} .mlx files: ${files}`); // logging
+      
+            files.forEach(async (file) => {
+              console.log(`Processing file: ${file}`); // Log the current file
+              ./build.sh pavan-kumar-s/cobratoolbox file
+            });
 
       - name: Pushing the changes
         run: |
