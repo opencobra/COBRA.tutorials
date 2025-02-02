@@ -32,8 +32,6 @@ jobs:
       - name: Get All Changed Files
         id: files
         uses: jitterbit/get-changed-files@v1
-        run: |
-          echo ${{ steps.files.outputs.all }}
           
       # - name: Sinc with destination repo
       #   run: |
