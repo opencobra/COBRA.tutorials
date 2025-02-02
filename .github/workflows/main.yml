@@ -26,6 +26,10 @@ jobs:
       - name: Get All Changed Files
         id: files
         uses: jitterbit/get-changed-files@v1
+        
+      - name: Copy the generated files
+        run: |
+          echo ${{ steps.files.outputs.all }} > myfile.txt 
 
       # - name: Clone the destination repository
       #   run: |
