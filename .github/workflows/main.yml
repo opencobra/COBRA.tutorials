@@ -20,29 +20,29 @@ jobs:
       - name: Get All Changed Files
         id: files
         uses: jitterbit/get-changed-files@v1
-
-      - name: Sinc with destination repository
-        run: |
-          if [[ "${{ steps.files.outputs.all }}" != '' ]]; then
-            echo "::set-output name=run_job::true"
-            for file in $(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep '\.mlx$'); do
-              echo "Processing: $file"
-              ./build.sh pavan-kumar-s/cobratoolbox $file
-            done
-          else
-            echo "::set-output name=run_job::false"
-          fi
-          
         
       - name: Clone the destination repository
-        if: steps.check_msg.outputs.run_job == 'true'
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
           git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
+          
+      - name: Sinc with destination repository
+        run: |
+          # Setup virtual frame buffer
+          export DISPLAY=:100
+          echo "Starting virtual frame buffer..."
+          Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
+          for file in $(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep '\.mlx$'); do
+            if [[ "${{ steps.files.outputs.all }}" != "" ]]; then
+              echo "Processing: $file"
+              ./build.sh pavan-kumar-s/cobratoolbox $file
+            fi
+          done
+        
+
 
       - name: Pushing the changes
-        if: steps.check_msg.outputs.run_job == 'true'
         run: |
           # Set up git config
           echo "Setting up git config..."
