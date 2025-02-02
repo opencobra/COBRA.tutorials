@@ -16,43 +16,29 @@ jobs:
           repository: 'pavan-kumar-s/COBRA.tutorials'
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-
-      - name: Get All Changed Files
-        id: files
-        uses: jitterbit/get-changed-files@v1
-      
-      - name: Find changed files
-        id: getfile
-        run: |
-          files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
-          echo "::set-output name=files::$files"
           
       - name: Give execute permission to the script
         run: chmod +x build.sh
         
       - name: Give execute permission to the other script  
         run: chmod +x setup.sh
-           
+        
       - name: Clone the destination repository
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
           git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
           
-      - name: Iterate through .mlx files
-        id: iterate
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const files = '${{ steps.getfile.outputs.files }}'.split('\n').filter(file => file !== '');
-            console.log(`Found ${files.length} .mlx files: ${files}`); // logging
-      
-            files.forEach(async (file) => {
-              console.log(`Processing file: ${file}`); // Log the current file
-              ./build.sh pavan-kumar-s/cobratoolbox file
-            });
-
+      - name: Get All Changed Files and sinc with destination repo
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [[ "${changed_file##*.}" == "mlx" ]]; then
+              ./build.sh pavan-kumar-s/cobratoolbox $file
+            fi
+          done
+          
       - name: Pushing the changes
         run: |
           # Set up git config
