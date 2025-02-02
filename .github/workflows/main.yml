@@ -20,13 +20,6 @@ jobs:
       - name: Get All Changed Files
         id: files
         uses: jitterbit/get-changed-files@v1
-
-      - name: Find changed files
-        id: getfile
-        run: |
-            files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
-            echo "::set-output name=files::$files"
-            echo ${{ steps.getfile.outputs.files}} #######
       
       - name: Find changed files
         id: getfile
