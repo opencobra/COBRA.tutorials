@@ -28,11 +28,6 @@ echo "Running MATLAB conversion command..."
 /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
 /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
 
-# Clone the destination repository
-rm -rf cobratoolbox
-echo "Cloning the destination repository: git@github.com:$DEST_REPO.git"
-git clone --depth 1 git@github.com:$DEST_REPO.git
-
 # Split the destination repository into owner and name
 IFS='/' read -ra ADDR <<< "$DEST_REPO"
 DEST_REPO_OWNER=${ADDR[0]}
@@ -43,11 +38,6 @@ echo "Destination repository name: $DEST_REPO_NAME"
 # Change to the destination repository directory
 echo "Changing to the destination repository directory: $DEST_REPO_NAME"
 cd $DEST_REPO_NAME
-
-# Set up git config
-echo "Setting up git config..."
-git config user.name "github-actions[bot]"
-git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # Create the target directory in the destination repository
 TARGET_DIR="docs/tutorials/$(dirname "$FILE_PATH")"
@@ -60,13 +50,3 @@ cp "$HTML_FILE_PATH" "$TARGET_DIR/"
 cp "$PDF_FILE_PATH" "$TARGET_DIR/"
 cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
 cp "$M_FILE_PATH" "$TARGET_DIR/"
-
-# Add, commit, and push the changes
-echo "Adding changes to git..."
-git add .
-echo "Committing changes..."
-git commit -m "Sync files from source repo" || echo "No changes to commit"
-echo "Pushing changes to docs folder in master branch..."
-git push origin master
-
-echo "Script execution completed."
