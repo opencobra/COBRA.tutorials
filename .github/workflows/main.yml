@@ -38,8 +38,8 @@ jobs:
         run: |
           # Clone the destination repository
           rm -rf cobratoolbox
-          echo "Cloning the destination repository: git@github.com:$DEST_REPO.git"
-          git clone --depth 1 git@github.com:$DEST_REPO.git
+          echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
+          git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
           for file in ${{ steps.getfile.outputs.files}}; do
               ./build.sh pavan-kumar-s/cobratoolbox $file
           done
