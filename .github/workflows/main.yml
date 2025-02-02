@@ -29,10 +29,12 @@ jobs:
           echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
           git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
           
-      - name: Get All Changed Files and sinc with destination repo
-      - id: files
+      - name: Get All Changed Files
+        id: files
         uses: jitterbit/get-changed-files@v1
-      - run: |
+
+      - name: Sinc with destination repo
+        run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ "${changed_file##*.}" == "mlx" ]]; then
               ./build.sh pavan-kumar-s/cobratoolbox $file
