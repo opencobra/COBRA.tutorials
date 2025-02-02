@@ -23,36 +23,46 @@ jobs:
       - name: Give execute permission to the other script  
         run: chmod +x setup.sh
         
-      - name: Clone the destination repository
-        run: |
-          rm -rf cobratoolbox
-          echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
-          git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
+      # - name: Clone the destination repository
+      #   run: |
+      #     rm -rf cobratoolbox
+      #     echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
+      #     git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
           
       - name: Get All Changed Files
-        id: files
+        # id: files
+        # uses: jitterbit/get-changed-files@v1
+      - id: files
         uses: jitterbit/get-changed-files@v1
-
-      - name: Sinc with destination repo
-        run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            if [[ "${changed_file##*.}" == "mlx" ]]; then
-              ./build.sh pavan-kumar-s/cobratoolbox $file
-            fi
+        with:
+          format: 'csv'
+      - run: |
+          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+          for added_modified_file in "${added_modified_files[@]}"; do
+            echo "Do something with this ${added_modified_file}."
           done
+
           
-      - name: Pushing the changes
-        run: |
-          # Set up git config
-          echo "Setting up git config..."
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Add, commit, and push the changes
-          echo "Adding changes to git..."
-          cd cobratoolbox
-          git add .
-          echo "Committing changes..."
-          git commit -m "Sync files from source repo" || echo "No changes to commit"
-          echo "Pushing changes to docs folder in master branch..."
-          git push origin master
+      # - name: Sinc with destination repo
+      #   run: |
+      #     for changed_file in ${{ steps.files.outputs.all }}; do
+      #       if [[ "${changed_file##*.}" == "mlx" ]]; then
+      #         ./build.sh pavan-kumar-s/cobratoolbox $file
+      #       fi
+      #     done
+          
+      # - name: Pushing the changes
+      #   run: |
+      #     # Set up git config
+      #     echo "Setting up git config..."
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      #     # Add, commit, and push the changes
+      #     echo "Adding changes to git..."
+      #     cd cobratoolbox
+      #     git add .
+      #     echo "Committing changes..."
+      #     git commit -m "Sync files from source repo" || echo "No changes to commit"
+      #     echo "Pushing changes to docs folder in master branch..."
+      #     git push origin master
           echo "Script execution completed."
