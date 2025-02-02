@@ -27,7 +27,7 @@ jobs:
         run: |
             files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
             echo "::set-output name=files::$files"
-            echoh ${{ steps.getfile.outputs.files}} #######
+            echo ${{ steps.getfile.outputs.files}} #######
       
       
       - name: Give execute permission to the script
