@@ -1,11 +1,10 @@
 name: Sync MLX Files
 
 on:
-  workflow_dispatch: ######
-  # push:
-  #   branches: [ master ]
-  #   paths:
-  #   - '**.mlx'
+  push:
+    branches: [ master ]
+    paths:
+    - '**.mlx'
 
 jobs:
   copy-changes:
