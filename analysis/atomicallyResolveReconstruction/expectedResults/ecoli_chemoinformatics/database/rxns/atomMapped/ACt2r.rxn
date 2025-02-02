@@ -1,0 +1,61 @@
+$RXN
+ACt2r
+COBRA Toolbox v3.0 - Atom mapped - 08-Oct-2021 13:54:48
+ac[e] + h[e] -> ac[c] + h[c]
+  2  2
+$MOL
+ac[e]
+COBRA Toolbox v3.0 - explicitH molecule - 08-Oct-2021 13:25:01
+InChIKey=QTBSBXVTEAMEQO-UHFFFAOYSA-M
+  7  6  0  0  0  0            999 V2000
+    1.9520    0.3020    0.0000 H   0  0  0  0  0  0  0  0  0  1  0  0
+    1.2375    0.7145    0.0000 C   0  0  0  0  0  0  0  0  0  2  0  0
+    1.6500    1.4289    0.0000 H   0  0  0  0  0  0  0  0  0  3  0  0
+    0.5230    1.1270    0.0000 H   0  0  0  0  0  0  0  0  0  4  0  0
+    0.8250    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  5  0  0
+    1.2375   -0.7145    0.0000 O   0  5  0  0  0  0  0  0  0  6  0  0
+    0.0000    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  7  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+M  CHG  1   6  -1
+M  END
+$MOL
+h[e]
+COBRA Toolbox v3.0 - explicitH molecule - 08-Oct-2021 13:27:56
+InChIKey=GPRLSGONYQIRFK-UHFFFAOYSA-N
+  1  0  0  0  0  0            999 V2000
+    0.0000    0.0000    0.0000 H   0  3  0  0  0  0  0  0  0  8  0  0
+M  CHG  1   1   1
+M  END
+$MOL
+ac[c]
+COBRA Toolbox v3.0 - explicitH molecule - 08-Oct-2021 13:25:01
+InChIKey=QTBSBXVTEAMEQO-UHFFFAOYSA-M
+  7  6  0  0  0  0            999 V2000
+    1.9520    0.3020    0.0000 H   0  0  0  0  0  0  0  0  0  1  0  0
+    1.2375    0.7145    0.0000 C   0  0  0  0  0  0  0  0  0  2  0  0
+    1.6500    1.4289    0.0000 H   0  0  0  0  0  0  0  0  0  3  0  0
+    0.5230    1.1270    0.0000 H   0  0  0  0  0  0  0  0  0  4  0  0
+    0.8250    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  5  0  0
+    1.2375   -0.7145    0.0000 O   0  5  0  0  0  0  0  0  0  6  0  0
+    0.0000    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  7  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+M  CHG  1   6  -1
+M  END
+$MOL
+h[c]
+COBRA Toolbox v3.0 - explicitH molecule - 08-Oct-2021 13:27:56
+InChIKey=GPRLSGONYQIRFK-UHFFFAOYSA-N
+  1  0  0  0  0  0            999 V2000
+    0.0000    0.0000    0.0000 H   0  3  0  0  0  0  0  0  0  8  0  0
+M  CHG  1   1   1
+M  END
