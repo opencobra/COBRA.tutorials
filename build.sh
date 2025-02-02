@@ -17,11 +17,6 @@ echo "HTML file path: $HTML_FILE_PATH"
 echo "PDF file path: $PDF_FILE_PATH"
 echo "PDF file path: $M_FILE_PATH"
 
-# Setup virtual frame buffer
-export DISPLAY=:100
-echo "Starting virtual frame buffer..."
-Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
-
 # Run MATLAB command to convert  .mlx file to .HTML, .pdf and .m..."
 echo "Running MATLAB conversion command..."
 /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
@@ -50,3 +45,5 @@ cp "$HTML_FILE_PATH" "$TARGET_DIR/"
 cp "$PDF_FILE_PATH" "$TARGET_DIR/"
 cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
 cp "$M_FILE_PATH" "$TARGET_DIR/"
+
+cd ../
