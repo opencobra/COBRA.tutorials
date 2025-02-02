@@ -22,16 +22,16 @@ jobs:
         
       - name: Give execute permission to the other script  
         run: chmod +x setup.sh
-        
+          
+      - name: Get All Changed Files
+        id: files
+        uses: jitterbit/get-changed-files@v1
+
       # - name: Clone the destination repository
       #   run: |
       #     rm -rf cobratoolbox
       #     echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
       #     git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
-          
-      - name: Get All Changed Files
-        id: files
-        uses: jitterbit/get-changed-files@v1
           
       # - name: Sinc with destination repo
       #   run: |
@@ -55,4 +55,4 @@ jobs:
       #     git commit -m "Sync files from source repo" || echo "No changes to commit"
       #     echo "Pushing changes to docs folder in master branch..."
       #     git push origin master
-          echo "Script execution completed."
+      #     echo "Script execution completed."
