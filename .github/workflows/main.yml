@@ -23,18 +23,26 @@ jobs:
 
       - name: Sinc with destination repository
         run: |
-          for file in $(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep '\.mlx$'); do
-            echo "Processing: $file"
-            ./build.sh pavan-kumar-s/cobratoolbox $file
-          done
+          if [[ "${{ steps.files.outputs.all }}" != '' ]]; then
+            echo "::set-output name=run_job::true"
+            for file in $(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep '\.mlx$'); do
+              echo "Processing: $file"
+              ./build.sh pavan-kumar-s/cobratoolbox $file
+            done
+          else
+            echo "::set-output name=run_job::false"
+          fi
+          
         
       - name: Clone the destination repository
+        if: steps.check_msg.outputs.run_job == 'true'
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
           git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
 
       - name: Pushing the changes
+        if: steps.check_msg.outputs.run_job == 'true'
         run: |
           # Set up git config
           echo "Setting up git config..."
