@@ -30,18 +30,10 @@ jobs:
       #     git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
           
       - name: Get All Changed Files
-        # id: files
-        # uses: jitterbit/get-changed-files@v1
         id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'csv'
         run: |
-          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
-          for added_modified_file in "${added_modified_files[@]}"; do
-            echo "Do something with this ${added_modified_file}."
-          done
-
+          echo ${{ steps.files.outputs.all }}
           
       # - name: Sinc with destination repo
       #   run: |
