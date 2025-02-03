@@ -40,20 +40,20 @@ jobs:
             fi
           done
         
-
-
-      - name: Pushing the changes
+      - name: Pushing the changes to both COBRA.tutorials and cobratoolbox repos
         run: |
           # Set up git config
           echo "Setting up git config..."
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # Add, commit, and push the changes
-          echo "Adding changes to git..."
           cd cobratoolbox
           git add .
-          echo "Committing changes..."
           git commit -m "Sync files from source repo" || echo "No changes to commit"
-          echo "Pushing changes to docs folder in master branch..."
+          git push origin master
+          cd ..
+          rm -rf cobratoolbox
+          git add .
+          git commit -m "created .HTML, .pdf and .m files"
           git push origin master
           echo "Script execution completed."
