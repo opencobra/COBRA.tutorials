@@ -42,8 +42,4 @@ mkdir -p "$TARGET_DIR"
 # Copy the HTML, PDF, mlx and .m files to the target directory in the destination repository
 echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
 cp "$HTML_FILE_PATH" "$TARGET_DIR/"
-cp "$PDF_FILE_PATH" "$TARGET_DIR/"
-cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
-cp "$M_FILE_PATH" "$TARGET_DIR/"
-
 cd ../
