@@ -17,9 +17,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           
-      - name: Get All Changed Files
-        id: files
-        uses: jitterbit/get-changed-files@v1
+      - name: Get Changed mlx Files
+        id: getFile
+        run: |
+          changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx')
+          echo "::set-output name=file::$changed_files"  
         
       - name: Clone the destination repository
         run: |
@@ -33,8 +35,8 @@ jobs:
           export DISPLAY=:100
           echo "Starting virtual frame buffer..."
           Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
-          for file in $(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep '\.mlx$'); do
-            if [[ "${{ steps.files.outputs.all }}" != "" ]]; then
+          for file in ${{ steps.getfile.outputs.file }}; do
+            if [[ "${{ steps.getfile.outputs.file }}" != "" ]]; then
               echo "Processing: $file"
               ./build.sh pavan-kumar-s/cobratoolbox $file
             fi
