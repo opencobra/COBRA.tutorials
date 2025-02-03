@@ -39,61 +39,63 @@ jobs:
 - Next, we have a series of ‘jobs’ to compute.
 - The ‘runs-on’ parameter indicates where these jobs are computed. Here I specify it runs on ‘self-hosted’ because we need Matlab on King to run the .mlx to html. Generally, I would avoid using a self-hosted server but since Matlab is not an opensource programming language it needs to be ran a computer which has Matlab installed with a license.
 - There are several steps to do in the jobs section. Here the first step is to checkout the source repo i.e. get all the details about the repo and the pushes made to the repo.
+  
+```
+- name: Clone the destination repository
+        run: |
+          rm -rf cobratoolbox
+          echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
+          git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
+```
+- Here cobratoolbox repo is cloned to push the generated .html pages in further steps 
 
 ```
-- name: Get All Changed Files
-  id: files
-  uses: jitterbit/get-changed-files@v1
-
-- name: Find changed files
-  id: getfile
+- name: Get Changed mlx Files and sinc with destination repository
+  id: getFile
   run: |
-      files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
-      echo "::set-output name=file::$files"
+    changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
+    # Setup virtual frame buffer
+    export DISPLAY=:100
+    echo "Starting virtual frame buffer..."
+    Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
+    for file in $changed_files; do
+      if [[ $file != "" ]]; then
+        echo "Processing: $file"
+        ./build.sh pavan-kumar-s/cobratoolbox $file
+      fi
+    done
+```
+- Here we have two more steps. The first step in this picture (changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')) is used to find all the .mlx files that have been changed based on the most recent push.
+- The next step uses build.sh to convert the .mlx file to .HTML, .pdf and .m files. Further .html files are alone copied to the local repo of cobratoolbox.
 ```
 
+**Quick note on build.sh:**
 
-- Here we have two more steps. The first step in this picture is used to find all the files that have been changed based on the most recent push.
-- The next step is then used to find all the .mlx files that were pushed to the repository.
+• The build.sh script is designed for converting .mlx files to .HTML (.pdf and .m) format and synchronizing them with the ./docs folder of the cobratoolbox repository,. It takes three arguments: the repository identifier, a token for authentication, and the path of the .mlx file to be converted. Initially, the script converts the .mlx file to .html using MATLAB commands, assuming MATLAB is installed and accessible in the PATH. It then clones the target repository, sets up git with predefined user details. The script creates a target directory within ./docs/tutorials/, copies the converted .html file into this directory, and finalizes by committing and pushing the changes.
 
-```
-  - name: Give execute permission to the script
-    run: chmod +x build.sh
-    
-  - name: Give execute permission to the other script  
-    run: chmod +x setup.sh
-```
-
-
-The chmod command just makes the .sh files executable.
-
-**Quick note on setup.sh and build.sh:**
-
-• The setup.sh script automates the process of synchronizing .mlx files to the docs folder of the cobratoolbox GitHub repository. It requires three inputs: the repository identifier in owner/name format, a token for authentication, and the file path of the .mlx files to be synchronized. Upon execution, the script clones the cobratoolbox repository, configures git for automated operations, and targets a specific directory within ./docs/tutorials/ to update. It clears this directory and copies the new .mlx files into it, ensuring that any changes are committed and pushed. This operation keeps the ./docs folder of the cobratoolbox repository consistently updated with the latest .mlx files for documentation or tutorials.
-
-• The build.sh script is designed for converting .mlx files to .html format and synchronizing them with the ./docs folder of the cobratoolbox repository,. It takes three arguments: the repository identifier, a token for authentication, and the path of the .mlx file to be converted. Initially, the script converts the .mlx file to .html using MATLAB commands, assuming MATLAB is installed and accessible in the PATH. It then clones the target repository, sets up git with predefined user details. The script creates a target directory within ./docs/tutorials/, copies the converted .html file into this directory, and finalizes by committing and pushing the changes.
-
-• Both files can be found on the tutorial’s repository. Here are the links to [setup.sh](https://github.com/opencobra/COBRA.tutorials/blob/master/setup.sh) and [build.sh](https://github.com/opencobra/COBRA.tutorials/blob/master/build.sh)
+• Here are the links to [build.sh](https://github.com/opencobra/COBRA.tutorials/blob/master/build.sh)
 
 ```
-  - name: Sync with Destination Repo
-    run: |
-      counter=0
-      for file in ${{ steps.getfile.outputs.file }}; do
-        if [ $counter -eq 0 ]
-        then
-          # This is the first iteration, handle the file differently
-          ./setup.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
-          ./build.sh opencobra/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} $file 
-        else
-          ./build.sh openCOBRA/cobratoolbox ${{ secrets.DEST_REPO_TOKEN }} 
-        fi
-        counter=$((counter+1))
-      done
-    if: steps.getfile.outputs.file != ''
+- name: Pushing the changes to both COBRA.tutorials and cobratoolbox repos
+  run: |
+    # Set up git config
+    echo "Setting up git config..."
+    git config user.name "github-actions[bot]"
+    git config user.email "github-actions[bot]@users.noreply.github.com"
+    # Add, commit, and push the changes
+    cd cobratoolbox
+    git add .
+    git commit -m "Sync files from source repo" || echo "No changes to commit"
+    git push origin master
+    cd ..
+    rm -rf cobratoolbox
+    git add .
+    git commit -m "created .HTML, .pdf and .m files"
+    git push origin master
+    echo "Script execution completed."
 ```
 
-Here is the code to run the setup.sh and build.sh. We loop through all the .mlx files that were pushed. If it is the first file we are looking at we also run setup.sh to create the folder locations in the cobratoolbox – ./docs folder. Then afterwards build.sh is ran to convert the file to html and push to the created folder location
+The converted files are further pushed to the cobratoolbox and COBRA.tutorial repo. Note that only .html pages are pushed to cobratoolbox repository and all the other formats are stored in COBRA.tutorial repo
 
 ### Configuring the King Server
 
