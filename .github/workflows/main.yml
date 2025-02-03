@@ -46,6 +46,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # Add, commit, and push the changes
           cd cobratoolbox
+          git pull
           git add .
           git commit -m "Sync files from source repo" || echo "No changes to commit"
           git push origin master
