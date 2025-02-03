@@ -1,12 +1,11 @@
 %% Adding biological constraints to a flux balance model
-%% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
-%% Authors: Diana C. El Assal and Ronan M.T. Fleming, * *Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Luxembourg.
+% *Note: This tutorial is a draft and needs completion. Contributions welcome!*
+%% Authors: Diana C. El Assal and Ronan M.T. Fleming,  Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Luxembourg.
 %% Reviewers: 
 % Anne Richelle, Systems Biology and Cell engineering, University of California 
 % San Diego
 % 
-% Almut Heinken, Molecular Systems Physiology Group, LCSB, University of 
-% Luxembourg
+% Almut Heinken, Molecular Systems Physiology Group, LCSB, University of Luxembourg
 %% INTRODUCTION
 % A metabolic model can be converted into a condition-specific model based on 
 % the imposition of experimentally derived constraints. Constraints can be defined, 
@@ -22,8 +21,8 @@
 % (${t_{1/2}$) and represent the time required for half of the biomass precursor 
 % to be replaced [2]. 
 % 
-% Using the experimental literature, metabolite ${t_{1/2}$ were collected 
-% and converted into turnover rates ($\lambda$):
+% Using the experimental literature, metabolite ${t_{1/2}$ were collected and 
+% converted into turnover rates ($\lambda$):
 % 
 % $$\text{(1)}\ \lambda=\frac{ln(2)}{t_{1/2}}\\$$
 % 
@@ -34,17 +33,17 @@
 % 
 % $$\text{(2)}\ Sv=\frac{dx}{dt}\\$$
 % 
-% The steady-state flux vector $v$ and the change in abundance over time 
-% ($\frac{dx}{dt}\\$) share the same units, with  $x$  being the abundance of 
-% the corresponding biomass precursor. Equation (2) can thus be re-written: 
+% The steady-state flux vector $v$ and the change in abundance over time ($\frac{dx}{dt}\\$) 
+% share the same units, with  $x$  being the abundance of the corresponding biomass 
+% precursor. Equation (2) can thus be re-written: 
 % 
 % $$\text{(3)}\ Sv=\frac{dx}{dt}=\lambda x\\$$
 %% PROCEDURE
 % Initialize the Cobra Toolbox using the |initCobraToolbox| function.
 
 initCobraToolbox(false) % false, as we don't want to update
-%% *Setting the *optimization* solver*
-%%
+%% *Setting the* optimization *solver*
+
 changeCobraSolver('gurobi','LP');
 %% 
 % Here, we use Recon2.0 model (distributed by the toolbox) for illustration, 
@@ -58,8 +57,8 @@ modelOrig = model;
 %% *1. Environmental constraints*
 % 
 % 
-% Environmental constraints are typically related to nutrient availability 
-% (e.g., glucose and oxygen). They can be defined using the function _changeRxnBounds_ 
+% Environmental constraints are typically related to nutrient availability (e.g., 
+% glucose and oxygen). They can be defined using the function _changeRxnBounds_ 
 % to set the minimal and maximal uptake and/or secretion rates possible in a specific 
 % condition. For example, in the caudate-putamen of the conscious rat, glucose 
 % consumption rate was found to range between -12.00 and -11.58  $\mu mol/gDW/hr$[3]. 
@@ -70,11 +69,11 @@ modelConstrained = model;
 modelConstrained.c = 0*modelConstrained.c; % remove any objective function
 modelConstrained = changeRxnBounds(modelConstrained, 'EX_glc(e)', -12, 'l');
 %% 
-% Optionally, to further constrain the model, an upper bound can also be 
-% imposed to force the model to take up between 11.58 and 12 units of glucose 
+% Optionally, to further constrain the model, an upper bound can also be imposed 
+% to force the model to take up between 11.58 and 12 units of glucose 
 
 modelConstrained = changeRxnBounds(modelConstrained, 'EX_glc(e)', -11.58, 'u');
-%% *2. Internal enzymatic constraints *
+%% *2. Internal enzymatic constraints* 
 % 
 % 
 % By convention, the bounds set on reaction rates in a metabolic model range 
@@ -83,14 +82,14 @@ modelConstrained = changeRxnBounds(modelConstrained, 'EX_glc(e)', -11.58, 'u');
 % of the enzyme catalyzing this reaction.  Therefore, internal enzymatic constraints 
 % can be used to define the maximum capacity of a specified enzyme to catalyze 
 % a reaction (_Vmax_). For example, assuming that the reaction catalyzed by fructose-bisphosphate 
-% aldolase (<http://www.vmh.life/#reaction/FBA FBA>) has a _Vmax _of 128 units 
+% aldolase (<http://www.vmh.life/#reaction/FBA FBA>) has a _Vmax_ of 128 units 
 % in our specific cell type, we can then add this constraint on the corresponding 
 % internal reaction FBA, as an upper bound. 
 
 modelConstrained = changeRxnBounds(modelConstrained, 'FBA', 128, 'u');
 %% 
-% Optionally, if the reaction is reversible, the same constraint can be 
-% set as the lower bound, but with opposite signs.
+% Optionally, if the reaction is reversible, the same constraint can be set 
+% as the lower bound, but with opposite signs.
 % 
 % 
 
@@ -116,9 +115,9 @@ printRxnFormula(modelConstrained, 'biomass_reaction');
 % + 0.25947 phe_L[c] + 0.41248 pro_L[c] + 0.005829 ps_hs[c] + 0.017486 sphmyln_hs[c] 
 % + 0.35261 val_L[c]  -> 20.6508 h[c] + 20.6508 adp[c] + 20.6508 pi[c] 
 % 
-% Any changes or adaptations can be introduced by adding a new formulation 
-% of the biomass function, using the function _addReaction_. For example, one 
-% can add the following new biomass reaction named _biomassReactionLipids_:
+% Any changes or adaptations can be introduced by adding a new formulation of 
+% the biomass function, using the function _addReaction_. For example, one can 
+% add the following new biomass reaction named _biomassReactionLipids_:
 
 modelConstrained = addReaction(modelConstrained, 'biomasReactionLipids',  '20.6508 h2o[c] + 20.7045 atp[c] + 0.15446 pchol_hs[c] + 0.055374 pe_hs[c] + 0.020401 chsterol[c] + 0.011658 clpn_hs[c] + 0.005829 ps_hs[c] + 0.017486 sphmyln_hs[c] -> 20.6508 h[c] + 20.6508 adp[c] + 20.6508 pi[c]');
 %% *4. Biomass maintenance constraints*
@@ -133,7 +132,7 @@ modelConstrained = addReaction(modelConstrained, 'biomasReactionLipids',  '20.65
 % matter and must therefore be imposed as a lower bound on the corresponding degradation 
 % reaction(s) of the different lipids, amino acids, and nucleic acids. 
 % 
-% <#null >
+% <about:blank<#null> >
 % 
 % *Table 1: The minimum metabolic maintenance requirement for neurons.* This 
 % is a coarse-grained approximation of neuronal lipid, amino acid, and nucleic 
@@ -143,8 +142,7 @@ modelConstrained = addReaction(modelConstrained, 'biomasReactionLipids',  '20.65
 % 
 % **cardiolipin is also known as diphosphatidylglycerol
 % 
-% _*Calculation example of the minimal cholesterol maintenance requirement 
-% *_
+% _*Calculation example of the minimal cholesterol maintenance requirement*_ 
 % 
 % _*i. Identify metabolite abundance*_
 % 
@@ -170,9 +168,9 @@ n = (abundance*1000000)/M; %micromol
 %% 
 % _*iii. Calculate the corresponding flux value*_
 % 
-% Finally, we know that in the brain, cholesterol has a very slow turnover 
-% and a ${t_{1/2}$ of 4320 hours. Using equation (3), we can now calculate the 
-% minimal cholesterol maintenance requirement in flux units ($v_1$). 
+% Finally, we know that in the brain, cholesterol has a very slow turnover and 
+% a ${t_{1/2}$ of 4320 hours. Using equation (3), we can now calculate the minimal 
+% cholesterol maintenance requirement in flux units ($v_1$). 
 
 halfLife = 4320;
 turnover = log(2)/halfLife;
@@ -181,7 +179,7 @@ v1 = n * turnover
 % The minimal cholesterol maintenance requirement was calculated to be 0.0515$\mu 
 % mol/gDW/hr$(Table 1). This value can now be used as a lower bound in the corresponding 
 % reaction.
-%% *4.1. *Identification of degradation reactions for a biomass maintenance precursor
+%% *4.1.* Identification of degradation reactions for a biomass maintenance precursor
 % As previously mentioned, the degradation pathways for each biomass precursor 
 % can be identified using literature and the minimal maintenance requirements 
 % defined in section 4. can be used to constrain the first reactions of these 
@@ -238,8 +236,8 @@ sRxns = {'ASPTA'; 'GHMT2r'};
 
 [modelIrrev] = convertToIrreversible(modelConstrained,'sRxns',sRxns);
 %% 
-% You can check if the conversion as been done properly by searching the 
-% split reactions
+% You can check if the conversion as been done properly by searching the split 
+% reactions
 
 for j=1:length(sRxns)
     if isempty(findRxnIDs(modelIrrev, [sRxns{j} '_f']))
@@ -260,19 +258,18 @@ constraints = [1.590; 1.146];
 
 rxns = setdiff(modelIrrev.rxns, modelConstrained.rxns)
 %% 
-% Using this list (rxns), manually identify the corresponding reactions 
-% that should be constrained
+% Using this list (rxns), manually identify the corresponding reactions that 
+% should be constrained
 
 splitRxns= {'ASPTA_f'; 'GHMT2r_f'};
 %% 
-%  Identify the indices of these split reactions in the new model, using 
-% _findRxnIDs_
+% Identify the indices of these split reactions in the new model, using _findRxnIDs_
 
 ind = findRxnIDs(modelIrrev, splitRxns);
 %% 
-% Now, impose the constraints using a for loop. Note that you can easily 
-% account for experimental errors by defining a percentage error (e.g., _expError 
-% = 0.25_) for the constraint values. 
+% Now, impose the constraints using a for loop. Note that you can easily account 
+% for experimental errors by defining a percentage error (e.g., _expError = 0.25_) 
+% for the constraint values. 
 
 expError = 0.25;
 modelConstrained = modelIrrev;
@@ -284,7 +281,7 @@ end
 % In some cases, several degradation pathways may be available for one biomass 
 % precursor. For example, in the brain, phosphatidylcholine (PC) can be degraded 
 % by 3 different metabolic pathways [8]:
-% 
+%% 
 % * <http://www.vmh.life/#reaction/PCHOLP_hs PCHOLP_hs>: Phospholipase D acts 
 % on the choline/phosphate bond of PC to form choline and phosphatidic acid.
 % * <http://www.vmh.life/#reaction/PLA2_2 PLA2_2>: Phospholipase A2 acts on 
@@ -292,9 +289,8 @@ end
 % acid (e.g. arachidonic acid or docosahexaenoic acid) and lysophosphatidylcholine. 
 % * <http://www.vmh.life/#reaction/SMS SMS>: Ceramide and PC can also be converted 
 % to sphingomyelin by sphingomyelin synthetase. 
-% 
-% Define the set of potential reactions associated with the degradation of 
-% PC
+%% 
+% Define the set of potential reactions associated with the degradation of PC
 
 multipleRxnList={'PCHOLP_hs', 'PLA2_2', 'SMS'};
 %% 
@@ -305,21 +301,21 @@ modelConstrained.lb(findRxnIDs(modelConstrained, multipleRxnList));
 %% 
 % ans =
 % 
-%      0
+% 0
 % 
-%      0
+% 0
 % 
-%      0
+% 0
 
 modelConstrained.ub(findRxnIDs(modelConstrained, multipleRxnList));
 %% 
 % ans =
 % 
-%         1000
+% 1000
 % 
-%         1000
+% 1000
 % 
-%         1000
+% 1000
 % 
 % Constrain the weighted sum of fluxes to be above a lower bound (e.g. value 
 % of the maintenance requirement of PC in Table 1: d = 2.674 $\mu mol/gDW/hr$). 
@@ -336,8 +332,8 @@ rxnInd = findRxnIDs(modelConstrainedAb, multipleRxnList);
 [nMet,nRxn]=size(modelConstrainedAb.S);
 modelConstrainedAb
 %% 
-% Solve the FBA problem with added constraints C*v >= d , with or without 
-% objective function
+% Solve the FBA problem with added constraints C*v >= d , with or without objective 
+% function
 
 %modelConstrainedAb = changeObjective(modelConstrainedAb, 'DM_atp_c_');
 FBAsolution = optimizeCbModel(modelConstrainedAb,'max',1e-6);
@@ -346,8 +342,8 @@ FBAsolution = optimizeCbModel(modelConstrainedAb,'max',1e-6);
 
 FBAsolution.x(rxnInd)
 %% 
-% Therefore, when you solve the FBA problem with this last constraint, the 
-% sum of flux values associated with these three reactions should be greater than 
+% Therefore, when you solve the FBA problem with this last constraint, the sum 
+% of flux values associated with these three reactions should be greater than 
 % the value of _d_
 
 sum(c*FBAsolution.x(rxnInd))
@@ -387,8 +383,8 @@ for n=1:length(originalTest.rxns)
 end
  fprintf('%g%s\n',cnt,' reactions essential to fulfill the objective function DM_atp_c_')
 %% 
-% In the absence of constraints, the minimal set of reactions required to 
-% maximise the objective function is 111 essential reactions.
+% In the absence of constraints, the minimal set of reactions required to maximise 
+% the objective function is 111 essential reactions.
 
 constrainedTest = modelConstrainedAb; 
 constrainedTest = changeObjective(constrainedTest, 'DM_atp_c_');
@@ -405,8 +401,8 @@ for n=1:length(constrainedTest.rxns)
 end
  fprintf('%g%s\n',cnt,' reactions essential to fulfill the objective function DM_atp_c_')
 %% 
-% After the addition of constraints, the minimal set of reactions required 
-% is increased to 172 essential reactions. Therefore, in this example, it is useful 
+% After the addition of constraints, the minimal set of reactions required is 
+% increased to 172 essential reactions. Therefore, in this example, it is useful 
 % to integrate cell-type specific constraints to further define the minimal set 
 % of essential reactions. In most cases, constraints also allow us to alter the 
 % feasible solution space to obtain fluxes that better agree with the known physiology 
@@ -418,15 +414,15 @@ end
 % 2. Kuhar, M.J. On the use of protein turnover and half-lives. Neuropsychopharmacology. 
 % 34(5), 1172–1173 (2008). 
 % 
-% 3. Sokoloff, L. et al. The [14C]deoxyglucose method for the measurement 
-% of local cerebral  glucose utilization: theory, procedure, and normal values 
-% in the  conscious and anesthetized albino rat. J Neurochem. 28(5):897-916 (1977).
+% 3. Sokoloff, L. et al. The [14C]deoxyglucose method for the measurement of 
+% local cerebral  glucose utilization: theory, procedure, and normal values in 
+% the  conscious and anesthetized albino rat. J Neurochem. 28(5):897-916 (1977).
 % 
-% 4. Thiele, I.  and Palsson B.Ø. A protocol for generating a high-quality 
-% genome-scale metabolic reconstruction. Nat. Protocols. 5(1), 93–121(2010).
+% 4. Thiele, I.  and Palsson B.Ø. A protocol for generating a high-quality genome-scale 
+% metabolic reconstruction. Nat. Protocols. 5(1), 93–121(2010).
 % 
-% 5. Zhang, J. and Liu, Q. Cholesterol metabolism and homeostasis in the 
-% brain. Protein Cell. 6(4), 254-64 (2015). 
+% 5. Zhang, J. and Liu, Q. Cholesterol metabolism and homeostasis in the brain. 
+% Protein Cell. 6(4), 254-64 (2015). 
 % 
 % 6. Martinez-Vicente, M. Neuronal mitophagy in neurodegenerative diseases. 
 % Front. Mol. Neurosci. 8, 10:64 (2017).
@@ -435,8 +431,7 @@ end
 % topology and biochemistry of lysosomal lipid degradation. Biochim. Biophys. 
 % Acta. 1793(4), 674-83 (2009). 
 % 
-% 8. Lajtha, A. and Sylvester, V. Handbook of Neurochemistry and Molecular 
-% Neurobiology. Springer; 2008. Available <http://www.springer.com/de/book/9780387303512 
-% here>. 
+% 8. Lajtha, A. and Sylvester, V. Handbook of Neurochemistry and Molecular Neurobiology. 
+% Springer; 2008. Available <http://www.springer.com/de/book/9780387303512 here>. 
 % 
 %

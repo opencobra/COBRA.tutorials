@@ -1,6 +1,6 @@
 %% OptForce GAMS
 %% Author: Sebastián N. Mendoza,  Center for Mathematical Modeling, University of Chile. snmendoz@uc.cl
-%% *Reviewers(s): Chiam Yu Ng (Costas D. Maranas group), *Lin Wang *(Costas D. Maranas group)*
+%% *Reviewers(s): Chiam Yu Ng (Costas D. Maranas group),* Lin Wang *(Costas D. Maranas group)*
 %% *INTRODUCTION:*
 % In this tutorial we will run optForce. For a detailed description of the procedure, 
 % please see [1]. Briefly, the problem is to find a set of interventions of size 
@@ -17,6 +17,7 @@
 % how each of the steps of OptForce are solved. 
 %% MATERIALS
 %% EQUIPMENT
+%% 
 % # MATLAB
 % # GAMS
 % # A solver for Mixed Integer Linear Programming (MILP) problems. For example, 
@@ -38,23 +39,23 @@
 % 
 % 3) Perform flux variability analysis for both wild-type and mutant strain.
 % 
-% 4) Find must sets,  i.e, reactions that MUST increase or decrease their 
-% flux in order to achieve the phenotype in the mutant strain. 
+% 4) Find must sets,  i.e, reactions that MUST increase or decrease their flux 
+% in order to achieve the phenotype in the mutant strain. 
 %% Figure 1.
 % 
 % 
-% 5) Find the interventions needed that will ensure a increased production 
-% of the target of interest
+% 5) Find the interventions needed that will ensure a increased production of 
+% the target of interest
 % 
 % Now, we will approach each step in detail.
 %% STEP 1: Maximize specific growth rate and product formation
 % First, we load the model. This model comprises only 90 reactions, which describe 
 % the central metabolism of E. coli [2].
 % 
-% Then, we change the objective function to maximize biomass ("R75"). We 
-% also change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
+% Then, we change the objective function to maximize biomass ("R75"). We also 
+% change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
 % sulfate, ammomium, citrate and glycerol.
-%%
+
 global TUTORIAL_INIT_CB;
 if ~isempty(TUTORIAL_INIT_CB) && TUTORIAL_INIT_CB==1
     initCobraToolbox(false) % false, as we don't want to update
@@ -88,10 +89,10 @@ model = changeObjective(model, 'EX_suc');
 maxSucc = optimizeCbModel(model);
 fprintf('The maximum production rate of succinate is %1.2f', maxSucc.f);
 %% 
-% *TIP: *The biomass reaction is usually set to 1%-10% of maximum theoretical 
+% *TIP:* The biomass reaction is usually set to 1%-10% of maximum theoretical 
 % biomass yield when running the following steps, to prevent solutions with not 
 % biomass formation
-% 
+%% 
 % # maximizing product formation
 % # finding MUST sets of second order
 % # finding FORCE sets
@@ -105,15 +106,15 @@ fprintf('The maximum production rate of succinate is %1.2f', maxSucc.f);
 % faster but make sure to have two strains different enough, because you should 
 % be able to find differences in reactions ranges. 
 % 
-% First, we load the model. This model comprises only 90 reactions, which 
-% describe the central metabolism of E. coli [2].
+% First, we load the model. This model comprises only 90 reactions, which describe 
+% the central metabolism of E. coli [2].
 % 
-% Then, we change the objective function to maximize biomass ("R75"). We 
-% also change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
+% Then, we change the objective function to maximize biomass ("R75"). We also 
+% change the lower bounds, so E. coli will be able to consume glucose, oxygen, 
 % sulfate, ammomium, citrate and glycerol. 
 % 
 % We define constraints for each strain
-%%
+
 Constr_WT = struct('rxnList', {{'R75'}}, 'rxnValues', 14, 'rxnBoundType', 'b');
 Constr_MT = struct('rxnList', {{'R75','EX_suc'}}, 'rxnValues', [0, 155.55], 'rxnBoundType', 'bb');
 %% Step 3: Flux Variability Analysis
@@ -121,13 +122,13 @@ Constr_MT = struct('rxnList', {{'R75','EX_suc'}}, 'rxnValues', [0, 155.55], 'rxn
 % on the size of your reconstruction
 % 
 % We  run the FVA analysis for both strains
-%%
+
 [minFluxes_WT, maxFluxes_WT, minFluxes_MT, maxFluxes_MT,~,~] = FVAOptForce(model, Constr_WT, Constr_MT);
 disp([minFluxes_WT, maxFluxes_WT, minFluxes_MT, maxFluxes_MT]);
 %% 
 % Now, the run the second step of OptForce.
 %% Step 4: Find Must Sets
-% *TIMING: *This task should take from a few seconds to a few hours depending 
+% *TIMING:* This task should take from a few seconds to a few hours depending 
 % on the size of your reconstruction
 % 
 % First, we define an ID for this run. Each time you run the functions associated 
@@ -144,16 +145,16 @@ disp([minFluxes_WT, maxFluxes_WT, minFluxes_MT, maxFluxes_MT]);
 % 
 % ||   |   └── Outputs|
 % 
-% To avoid the generation of inputs and outputs folders, set keepInputs = 
-% 0, printExcel = 0, printText = 0 and keepGamsOutputs = 0
+% To avoid the generation of inputs and outputs folders, set keepInputs = 0, 
+% printExcel = 0, printText = 0 and keepGamsOutputs = 0
 % 
-% Also, a report of the run is generated each time you run the functions 
-% associated to the optForce procedure. So, the idea is to give a different runID 
-% each time you run the functions, so you will be able to see the report (inputs 
-% used, outputs generated, errors in the run) for each run.
+% Also, a report of the run is generated each time you run the functions associated 
+% to the optForce procedure. So, the idea is to give a different runID each time 
+% you run the functions, so you will be able to see the report (inputs used, outputs 
+% generated, errors in the run) for each run.
 % 
 % We define then our runID
-%%
+
 runID = 'TestOptForce';
 %% 
 % Fow now, only functions to find first and second order must sets are supported. 
@@ -166,8 +167,8 @@ runID = 'TestOptForce';
 
 constrOpt = struct('rxnList', {{'EX_gluc','R75','EX_suc'}}, 'values', [-100, 0, 155.5]');
 %% 
-% We then run the functions findMustLWithGAMS.m and findMustUWithGAMS.m 
-% that will find mustU and mustL sets, respectively.
+% We then run the functions findMustLWithGAMS.m and findMustUWithGAMS.m that 
+% will find mustU and mustL sets, respectively.
 % 
 % Important: To run these function you will need a solver able to solve Mixed 
 % Integer Linear Programming (MILP or MIP) problems. Some popular options are: 
@@ -178,45 +179,45 @@ solvers = checkGAMSSolvers('MIP'); disp(solvers);
 %% 
 % We then run findMustLWithGAMS.m and findMustUWithGAMS.m. 
 % 
-% *i) MustL Set: *
+% *i) MustL Set:* 
 
 [mustLSet, pos_mustL] = findMustLWithGAMS(model, minFluxes_WT, maxFluxes_WT, 'constrOpt', constrOpt, ...
 'solverName', 'cplex', 'runID', runID, 'outputFolder', 'OutputsFindMustL', 'outputFileName', 'MustL', ...
 'printExcel', 1, 'printText', 1, 'printReport', 1, 'keepInputs', 1, 'keepGamsOutputs', 1, 'verbose', 0);
 %% 
-% Note that the folder "TestOptForce" was created. Inside this folder, two 
-% additional folders were created: "InputsMustL" and "OutputsFindMustL". In the 
-% inputs folder you will find all the inputs required to run the GAMS function 
-% "findMustL.gms". Additionally, in the outputs folder you will find the mustL 
-% set found, which were saved in two files (.xls and .txt), as well as other files 
-% generated automatically by GAMS. Furthermore, a report which summarize all the 
-% inputs and outputs used during your running was generated. The name of the report 
-% will be in this format "report-Day-Month-Year-Hour-Minutes". So, you can mantain 
-% a chronological order of your experiments
+% Note that the folder "TestOptForce" was created. Inside this folder, two additional 
+% folders were created: "InputsMustL" and "OutputsFindMustL". In the inputs folder 
+% you will find all the inputs required to run the GAMS function "findMustL.gms". 
+% Additionally, in the outputs folder you will find the mustL set found, which 
+% were saved in two files (.xls and .txt), as well as other files generated automatically 
+% by GAMS. Furthermore, a report which summarize all the inputs and outputs used 
+% during your running was generated. The name of the report will be in this format 
+% "report-Day-Month-Year-Hour-Minutes". So, you can mantain a chronological order 
+% of your experiments
 % 
 % We display the reactions that belongs to the mustL set
 
 disp(mustLSet)
 
 %% 
-% *ii) MustU set: *
+% *ii) MustU set:* 
 
 [mustUSet, pos_mustU] = findMustUWithGAMS(model, minFluxes_WT, maxFluxes_WT, 'constrOpt', constrOpt, ...
 'solverName', 'cplex', 'runID', runID, 'outputFolder', 'OutputsFindMustU', 'outputFileName', 'MustU', ...
 'printExcel', 1, 'printText', 1, 'printReport', 1, 'keepInputs', 1, 'keepGamsOutputs', 1, 'verbose', 0);
 %% 
-% Note that the folders "InputsMustU" and "OutputsFindMustU" were created. 
-% These folders contain the inputs and outputs of findMustUWithGAMS.m, respectively. 
+% Note that the folders "InputsMustU" and "OutputsFindMustU" were created. These 
+% folders contain the inputs and outputs of findMustUWithGAMS.m, respectively. 
 % 
 % We display the reactions that belongs to the mustU set
 
 disp(mustUSet)
 %% 
-% *B) Finding second order must sets *
+% *B) Finding second order must sets* 
 % 
-% First, we define the reactions that will be excluded from the analysis. 
-% It it suggested to eliminate reactions found in the previous step as well as 
-% exchange reactions
+% First, we define the reactions that will be excluded from the analysis. It 
+% it suggested to eliminate reactions found in the previous step as well as exchange 
+% reactions
 
 constrOpt = struct('rxnList', {{'EX_gluc','R75','EX_suc'}}, 'values', [-100, 0, 155.5]');
 exchangeRxns = model.rxns(cellfun(@isempty, strfind(model.rxns, 'EX_')) == 0);
@@ -225,7 +226,7 @@ mustSetFirstOrder = unique([mustUSet; mustLSet]);
 %% 
 % Now, we run the functions for finding second order must sets
 % 
-% *i) MustUU: *
+% *i) MustUU:* 
 
 [mustUU, pos_mustUU, mustUU_linear, pos_mustUU_linear] = findMustUUWithGAMS(model, minFluxes_WT, maxFluxes_WT, ...
      'constrOpt', constrOpt, 'excludedRxns', excludedRxns, 'mustSetFirstOrder', mustSetFirstOrder, 'solverName', 'cplex',...
@@ -240,7 +241,7 @@ mustSetFirstOrder = unique([mustUSet; mustLSet]);
 disp(mustUU);
 
 %% 
-% *ii) MustLL: *
+% *ii) MustLL:* 
 
 [mustLL, pos_mustLL, mustLL_linear, pos_mustLL_linear] = findMustLLWithGAMS(model, minFluxes_WT, maxFluxes_WT, ...
      'constrOpt', constrOpt, 'excludedRxns', excludedRxns, 'mustSetFirstOrder', mustSetFirstOrder, 'solverName', 'cplex',...
@@ -250,12 +251,12 @@ disp(mustUU);
 % Note that the folders "InputsMustLL" and "OutputsFindMustLL" were created. 
 % These folders contain the inputs and outputs of findMustLLWithGAMS.m, respectively. 
 % 
-% We display the reactions that belongs to the mustLL set. In this case, 
-% MustLL is an empty array because no reaction was found in the mustLL set.
+% We display the reactions that belongs to the mustLL set. In this case, MustLL 
+% is an empty array because no reaction was found in the mustLL set.
 
 disp(mustLL);
 %% 
-% *iii) MustUL: *
+% *iii) MustUL:* 
 
 [mustUL, pos_mustUL, mustUL_linear, pos_mustUL_linear] = findMustULWithGAMS(model, minFluxes_WT, maxFluxes_WT, ...
      'constrOpt', constrOpt, 'excludedRxns', excludedRxns, 'mustSetFirstOrder', mustSetFirstOrder, 'solverName', 'cplex',...
@@ -265,28 +266,28 @@ disp(mustLL);
 % Note that the folders "InputsMustUL" and "OutputsFindMustUL" were created. 
 % These folders contain the inputs and outputs of findMustULWithGAMS.m, respectively. 
 % 
-% We display the reactions that belongs to the mustUL set. In this case, 
-% MustUL is an empty array because no reaction was found in the mustUL set.
+% We display the reactions that belongs to the mustUL set. In this case, MustUL 
+% is an empty array because no reaction was found in the mustUL set.
 
 disp(mustUL);
 %% 
-% *TROUBLESHOOTING 1: * "I didn't find any reaction in my must sets"
+% *TROUBLESHOOTING 1:*  "I didn't find any reaction in my must sets"
 % 
-% *TROUBLESHOOTING 2: * "I got an error when running the findMustXWithGAMS.m 
+% *TROUBLESHOOTING 2:*  "I got an error when running the findMustXWithGAMS.m 
 % functions (X = L or U or LL or UL or UU depending on the case)"
 %% Step 5: OptForce
-% *TIMING: *This task should take from a few seconds to a few hours depending 
+% *TIMING:* This task should take from a few seconds to a few hours depending 
 % on the size of your reconstruction
 % 
 % We define constraints and we define "K" the number of interventions allowed, 
 % "nSets" the maximum number of sets to find, and "targetRxn" the reaction producing 
 % the metabolite of interest (in this case, succinate). 
 % 
-% Additionally, we define the mustU set as the union of the reactions that 
-% must be upregulated in both first and second order must sets; and mustL set 
-% as the union of the reactions that must be downregulated in both first and second 
-% order must sets 
-%%
+% Additionally, we define the mustU set as the union of the reactions that must 
+% be upregulated in both first and second order must sets; and mustL set as the 
+% union of the reactions that must be downregulated in both first and second order 
+% must sets 
+
 mustU = unique(union(mustUSet, mustUU));
 mustL = unique(union(mustLSet, mustLL));
 targetRxn = 'EX_suc';
@@ -308,16 +309,16 @@ constrOpt = struct('rxnList', {{'EX_gluc','R75'}}, 'values', [-100, 0]);
 disp(optForceSets)
 
 %% 
-% The reaction found was "SUCt", i.e. a transporter for succinate (a very 
-% intuitive solution).
+% The reaction found was "SUCt", i.e. a transporter for succinate (a very intuitive 
+% solution).
 % 
-% Next, we will increase "k" and we will exclude "SUCt" from upregulations 
-% to found non-intuitive solutions. 
+% Next, we will increase "k" and we will exclude "SUCt" from upregulations to 
+% found non-intuitive solutions. 
 % 
-% *TIP: *Sometimes the product is at the end of a long linear pathway. In 
-% that case, the recomendation is to also exclude most reactions on the linear 
-% pathway. Essential reactions and reactions not associated with any gene should 
-% also be excluded. 
+% *TIP:* Sometimes the product is at the end of a long linear pathway. In that 
+% case, the recomendation is to also exclude most reactions on the linear pathway. 
+% Essential reactions and reactions not associated with any gene should also be 
+% excluded. 
 % 
 % We will only search for the 20 best solutions, but you can try with a higher 
 % number.
@@ -343,6 +344,7 @@ excludedRxns = struct('rxnList', {{'SUCt'}}, 'typeReg','U');
 
 disp(optForceSets)
 %% TIMING
+%% 
 % # STEP 1: < 1 second
 % # STEP 2: ~ 1-2 seconds
 % # STEP 3:  ~ 2-5 seconds
@@ -364,8 +366,7 @@ disp(optForceSets)
 % 
 % 2) problem: "I got an error when running the findMust functions"
 % 
-% possible reason: inputs are not defined well or GAMS was not installed 
-% correctly
+% possible reason: inputs are not defined well or GAMS was not installed correctly
 % 
 % solution: verify your inputs. To verify that GAMS was installed correctly, 
 % in MATLAB, use the function which('gams'). If a folder is shown, GAMS was installed 
@@ -376,8 +377,8 @@ disp(optForceSets)
 % findMustLWithGams.m, findMustUUWithGams.m, findMustLLWithGams.m, findMustULWithGams.m, 
 % optForceWithGams.m)
 % 
-% In this case runID = 'TestOptForce', so inside this folder the following 
-% folders will be created:
+% In this case runID = 'TestOptForce', so inside this folder the following folders 
+% will be created:
 % 
 % |├── CurrentFolder|
 % 
@@ -407,24 +408,24 @@ disp(optForceSets)
 % 
 % ||   |   └── OutputsOptForce|
 % 
-% ||
 % 
-% The input folders contain inputs (.txt and .gdx files) for running the 
-% GAMS functions to solve each one of the bilevel problems. Output folders contain 
+% 
+% The input folders contain inputs (.txt and .gdx files) for running the GAMS 
+% functions to solve each one of the bilevel problems. Output folders contain 
 % results of the algorithms (.xls and .txt files) as well as a report (.txt) summarizing 
 % the outcomes of the steps performed during the execution of the optForce functions. 
 % Additionally, some auto-generated files will be stored (.gdx and .lst files). 
 % These files are generated by GAMS automatically and contain values for variables 
 % and the summary of the GAMS execution, respectively.
 % 
-% The optForce algorithm will find sets of reactions that should increase 
-% the production of your target. The first sets found should be the best ones 
-% because the production rate will be the highest. The last ones should be the 
-% worse because the production rete will be slower. Be aware that some sets could 
-% not guarante a minimum production rate for your target, so you always have to 
-% check the minimum production rate. You can do this using the function testOptForceSol.m. 
-% Some sets could allow a higher growth rate than others, so keep in mind this 
-% too when deciding which set is better.
+% The optForce algorithm will find sets of reactions that should increase the 
+% production of your target. The first sets found should be the best ones because 
+% the production rate will be the highest. The last ones should be the worse because 
+% the production rete will be slower. Be aware that some sets could not guarante 
+% a minimum production rate for your target, so you always have to check the minimum 
+% production rate. You can do this using the function testOptForceSol.m. Some 
+% sets could allow a higher growth rate than others, so keep in mind this too 
+% when deciding which set is better.
 %% Acknowledgments
 % I would to thanks to the research group of Costas D. Maranas who provided 
 % the GAMS functions to solve this example. In particular I would like to thank 

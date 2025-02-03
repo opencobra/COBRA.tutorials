@@ -11,31 +11,31 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
-%% *Setting the *optimization* solver.*
+%% *Setting the* optimization *solver.*
 % This tutorial will be run with a |'glpk'| package, which is a linear programming 
 % ('|LP'|) solver. The |'glpk'| package does not require additional instalation 
 % and configuration.
-%%
+
 solverName='glpk';
 solverType='LP'; 
 changeCobraSolver(solverName,solverType);
 %% 
-% However, for the analysis of large models, such as Recon 2.04, it is not 
-% recommended to use the |'glpk'| package but rather an industrial strength solver, 
-% such as the |'gurobi'| package.
+% However, for the analysis of large models, such as Recon 2.04, it is not recommended 
+% to use the |'glpk'| package but rather an industrial strength solver, such as 
+% the |'gurobi'| package.
 % 
-% A solver package may offer different types of optimization programmes to 
-% solve a problem. The above example used a LP optimization, other types of optimization 
+% A solver package may offer different types of optimization programmes to solve 
+% a problem. The above example used a LP optimization, other types of optimization 
 % programmes include; mixed-integer linear programming ('|MILP|'), quadratic programming 
 % ('|QP|'), and mixed-integer quadratic programming ('|MIQP|').
 
 warning off MATLAB:subscripting:noSubscriptsSpecified
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
-% the Recon 2.04 [1], which is provided in the COBRA Toolbox. The Recon 2.04 model* 
-% *can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
+% the Recon 2.04 [1], which is provided in the COBRA Toolbox. The Recon 2.04 model 
+% can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
 % Metabolic Human> webpage. Before proceeding with the simulations, the path to 
 % the model needs to be set up and the model loaded:
 
@@ -45,7 +45,7 @@ modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Nece
 model = readCbModel(modelFileName);
 %% PROCEDURE
 % We first initialize the table
-%%
+
 clear TableProp
 r = 1;
 TableProp(r, :) = {'Model'}; r = r+1;
@@ -62,14 +62,14 @@ TableProp(r, 1) = {'Metabolites'};
 TableProp{r, 2} = num2str(length(model.mets));
 r = r + 1;
 %% 
-%  Determine the number of unique metabolites in the model.
+% Determine the number of unique metabolites in the model.
 
 TableProp(r, 1) = {'Metabolites (unique)'};
 [g, remR3M] = strtok(model.mets,'[');
 TableProp{r, 2} = num2str(length(unique(g)));
 r = r + 1;
 %% 
-%  Determine the number of compartments in model.
+% Determine the number of compartments in model.
 
 TableProp(r, 1) = {'Compartments (unique)'};
 TableProp{r, 2} = num2str(length(unique(remR3M)));
@@ -82,20 +82,20 @@ TableProp(r, 1) = {'Genes (unique)'};
 TableProp{r, 2} = num2str(length(unique(g)));
 r = r + 1;
 %% 
-%  Determine the number of subsystems.
+% Determine the number of subsystems.
 
 TableProp(r, 1) = {'Subsystems'};
 TableProp{r, 2} = num2str(length(unique(model.subSystems)));
 r = r + 1;
 %% 
-%  Determine the number of deadends.
+% Determine the number of deadends.
 
 TableProp(r, 1) = {'Deadends'};
 D3M = detectDeadEnds(model);
 TableProp{r, 2} = num2str(length(D3M));
 r = r + 1;
 %% 
-%  Determine the size of the S matrix.
+% Determine the size of the S matrix.
 
 TableProp(r, 1) = {'Size of S'};
 TableProp{r, 2} = strcat(num2str(size(model.S,1)),'; ',num2str(size(model.S,2)));
@@ -123,10 +123,10 @@ TableProp
 % package of IBM ILOG CPLEX is required. To install CPLEX refer to <https://opencobra.github.io/cobratoolbox/stable/installation.html 
 % solver installation guide>, and change the solver to 'ibm_cplex' using the changeCobraSolver 
 % as shown above in equipment set-up. 
-% 
+%% 
 % * Determine the number of blocked reactions using fastFVA with 4 paralell 
 % workers (optional).
-%%
+
 nworkers = 2;
 solver = 'ibm_cplex';
 setWorkerCount(nworkers);
@@ -137,7 +137,7 @@ TableProp(r, 1) = {'Blocked Reactions'};
 TableProp{r, 2} = num2str(length(intersect(find(abs(minFluxR3M) < tol), find(abs(maxFluxR3M) < tol))));
 r = r + 1;
 %% 
-% *  Determine the percentage of blocked reactions.
+% * Determine the percentage of blocked reactions.
 
 TableProp(r, 1) = {'Blocked Reactions (Percentage)'};
 TableProp{r, 2} = num2str(length(intersect(find(abs(minFluxR3M) < tol), find(abs(maxFluxR3M) < tol)))/length(model.rxns));
@@ -150,6 +150,6 @@ TableProp
 % This tutorial takes a few minutes depending on solver, computer, and model 
 % size. The most time consuming step is the flux variability analysis.
 %% References
-%  [1] <http://www.nature.com/nbt/journal/v31/n5/full/nbt.2488.html Thiele et 
+% [1] <http://www.nature.com/nbt/journal/v31/n5/full/nbt.2488.html Thiele et 
 % al., A community-driven global reconstruction of human metabolism, Nat Biotech, 
 % 2013.>

@@ -15,18 +15,18 @@
 
 emptymodel = createModel()
 %% 
-% Calling it as above, yields an empty model |struct| with all required 
-% fields defined. To add reactions or metabolites please have a look at the tutorial 
+% Calling it as above, yields an empty model |struct| with all required fields 
+% defined. To add reactions or metabolites please have a look at the tutorial 
 % for model manipulation.
 % 
-% There is also a possibility to immediately create a model with multiple 
-% reactions using |createModel|. To do so, a list of reaction identifiers, reaction 
-% names and reaction formulas has to be supplied.
+% There is also a possibility to immediately create a model with multiple reactions 
+% using |createModel|. To do so, a list of reaction identifiers, reaction names 
+% and reaction formulas has to be supplied.
 % 
 % Let's consider the following toy model:
 % 
 % 
-% 
+%% 
 % The reactions are:
 
 R1 = '1 Met1 + Met2 -> Met3'
@@ -52,12 +52,11 @@ reactionFormulas = {R1, R2}
 model1 = createModel(reactionIdentifiers, reactionNames, reactionFormulas);
 %% 
 % to create the model including the two reactions. 
-% 
+%% 
 % *2. Explanation of options for the createModel function*
 % 
-% |createModel| offers a couple of additional optional parameters. Those 
-% include:
-% 
+% |createModel| offers a couple of additional optional parameters. Those include:
+%% 
 % * |revFlagList| - a double array of indications whether the reaction is reversible 
 % or not this will overwrite the indicator from the formula. (default: 1 for reversible 
 % formulas, 0 for irreversible formulas)
@@ -75,7 +74,7 @@ model1 = createModel(reactionIdentifiers, reactionNames, reactionFormulas);
 % * |systNameList| - a List (of equal size as |geneNameList|), that is used 
 % to translate the genes from those used in the |geneNameList| to those used in 
 % this list. 
-% 
+%% 
 % *3. Creating a model with Gene-Protein-Reaction Association (GPR) rules*
 % 
 % Let's assume, our network has the following GPR associations:
@@ -100,13 +99,13 @@ model2 = createModel(reactionIdentifiers, reactionNames, reactionFormulas, ...
 printRxnFormula(model1, 'gprFlag', 1);
 printRxnFormula(model2, 'gprFlag', 1);
 %% 
-% we see, that |model2| has assigned GPR rules, while |model1| does not 
-% have those.
-% 
+% we see, that |model2| has assigned GPR rules, while |model1| does not have 
+% those.
+%% 
 % *4. Create a model of the upper part of glycolysis*
 % 
-% We will now create a slightly more complex model (essentially, the upper 
-% part of the glycolysis) which will be used in other tutorials (e.g. ModelManipulation)
+% We will now create a slightly more complex model (essentially, the upper part 
+% of the glycolysis) which will be used in other tutorials (e.g. ModelManipulation)
 % 
 % 
 % 

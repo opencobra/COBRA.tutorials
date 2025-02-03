@@ -4,8 +4,8 @@
 % 
 % *Thomas Pfau,  Systems Biology Group, LSRU, University of Luxembourg.*
 % 
-% *Reviewer(s): Ines Thiele, Systems Biochemistry Group, LCSB, University 
-% of Luxembourg. *
+% *Reviewer(s): Ines Thiele, Systems Biochemistry Group, LCSB, University of 
+% Luxembourg.* 
 % 
 % *Catherine Clancy, Systems Biochemistry Group, LCSB, University of Luxembourg.*
 % 
@@ -16,27 +16,26 @@
 % few reactions of the glycolysis metabolic pathway as created in the "Model Creation" 
 % tutorial.
 % 
-% Glycolysis is the metabolic pathway that occurs in most organisms in the 
-% cytosol of the cell. First, we will use the beginning of that pathway to create 
-% a simple constraint-based metabolic network (Figure 1).
+% Glycolysis is the metabolic pathway that occurs in most organisms in the cytosol 
+% of the cell. First, we will use the beginning of that pathway to create a simple 
+% constraint-based metabolic network (Figure 1).
 % 
 % 
 % 
-%                                                                    Figure 
-% 1: A small metabolic network consisting of the seven reactions in the glycolysis 
-% pathway. 
+% Figure 1: A small metabolic network consisting of the seven reactions in the 
+% glycolysis pathway. 
 % 
 % At the beginning of the reconstruction, the initial step is to assess the 
 % integrity of the draft reconstruction. Furthermore, an evaluation of accuracy 
 % is needed: check necessity of each reaction and metabolite,  the accuracy of 
 % the stoichiometry, and direction and reversibility of the reactions.
 % 
-% The metabolites structures and reactions are from the Virtual Metabolic 
-% Human database (VMH, <http://vmh.life/ http://vmh.life>).
+% The metabolites structures and reactions are from the Virtual Metabolic Human 
+% database (VMH, <http://vmh.life/ http://vmh.life>).
 % 
 % After creating or loading the model and to simulate different model conditions, 
 % the model can be modified, such as:
-% 
+%% 
 % * Creating, adding and handling reactions;
 % * Adding exchange, sink and demand reactions;
 % * Altering reaction bounds;
@@ -49,7 +48,7 @@
 % * Extracting a subnetwork
 %% EQUIPMENT SETUP
 % Start CobraToolbox
-%%
+
 initCobraToolbox(false) % false, as we don't want to update;
 %% PROCEDURE
 %% Generate a network
@@ -66,8 +65,8 @@ initCobraToolbox(false) % false, as we don't want to update;
 % 
 % 
 % 
-% Generate a model using the |createModel()|_ _function:
-%%
+% Generate a model using the |createModel()| function:
+
 ReactionFormulas = {'glc_D[e]  -> glc_D[c]',...
     'glc_D[c] + atp[c]  -> h[c] + adp[c] + g6p[c]',...
     'g6p[c]  <=> f6p[c]',...
@@ -85,12 +84,12 @@ model = createModel(ReactionNames, ReactionNames, ReactionFormulas,...
 % is stored in the $$S$ field of the model, which was described above. Since this 
 % is commonly a sparse matrix (i.e. it contains a lot of zeros), it may be useful 
 % for your understanding to display the full representation:
-%%
+
 full(model.S)
 %% 
 % It is required for a model to consist of the descriptive fields: |model.mets| 
 % and |model.rxns,| which represent the metabolites and the reactions respectively. 
-%%
+
 model.mets
 model.rxns
 %% 
@@ -99,8 +98,8 @@ model.rxns
 % 
 % There are a few more fields present in each COBRA model:
 % 
-% |model.lb|, indicating the lower bounds of each reaction, and |model.ub| 
-% indicating the upper bound of a reaction.  
+% |model.lb|, indicating the lower bounds of each reaction, and |model.ub| indicating 
+% the upper bound of a reaction.  
 
 % this displays an array with reaction names and flux bounds.
 [{'Reaction ID', 'Lower Bound', 'Upper Bound'};...   
@@ -108,23 +107,23 @@ model.rxns
 % This is a convenience function which does pretty much the same as the line above.
 printFluxBounds(model);
 %% 
-% Before we start to modify the model, it might be useful to store in the 
-% workspace some of the current properties of the model:
-%%
+% Before we start to modify the model, it might be useful to store in the workspace 
+% some of the current properties of the model:
+
 mets_length = length(model.mets)
 rxns_length = length(model.rxns)
 %% Creating, adding and handling reactions
 % If we want to add a reaction to the model or modify an existing reaction use 
 % the function |addReaction|. 
 % 
-% We will add to the model some more reactions from glycolysis. There are 
-% two different approaches to adding reactions to a model:
-% 
+% We will add to the model some more reactions from glycolysis. There are two 
+% different approaches to adding reactions to a model:
+%% 
 % # The formula approach
 % # The list appraoch
-% 
+%% 
 % *The formula approach*
-%%
+
 model = addReaction(model, 'GAPDH',...
        'reactionFormula', 'g3p[c] + nad[c] + 2 pi[c] -> nadh[c] + h[c] + 13bpg[c]');
 model = addReaction(model, 'PGK',...
@@ -138,28 +137,28 @@ full(model.S)
 %% 
 % * one extra column is added (for added reaction) and 5 new rows (for nadh, 
 % nad, 13bpg, 2pg and 3pg metabolites)
-% 
+%% 
 % If you want to search for the indecies of reactions in the model, and change 
 % the order of the select reactions, use the following functions:
-%%
+
 rxnID = findRxnIDs(model, model.rxns)
 model.rxns
 model = moveRxn(model, 8, 1);
 model.rxns
 %% 
-% While the function |moveRxn| does not modify the network structure it 
-% can be useful in keeping a model tidy.
-% 
+% While the function |moveRxn| does not modify the network structure it can 
+% be useful in keeping a model tidy.
+%% 
 % *The list approach*
-%%
+
 model = addReaction(model, 'GAPDH2',...
     'metaboliteList', {'g3p[c]', 'nad[c]', 'pi[c]', '13bpg[c]', 'nadh[c]', 'h[c]' },...
     'stoichCoeffList', [-1; -1; -2; 1; 1; 1], 'reversible', false);
 %% 
-% *  The |addReaction| function has the ability to recognize duplicate reactions. 
+% * The |addReaction| function has the ability to recognize duplicate reactions. 
 % No reaction added here since the reaction is recognised to already exist in 
 % the model. 
-% 
+%% 
 % Since the fourth reaction we attempted to add to the model was a duplicate, 
 % the number of the reactions in the model should only of increased by three and 
 % the number of metabolites in the model should of only increaed by five (13bpg, 
@@ -170,35 +169,35 @@ assert(length(model.mets) == mets_length + 5)
 %% Adding exchange, sink and demand reactions
 % The are three specific types of reactions in a COBRA model that use and recycle 
 % accumulated metabolites, or produce the required metabolites:
-% 
-% # _Exchange reactions _- are reactions that move metabolites across _in silico 
-% _compartments. These _in silico _compartments are representive of intra- and 
+%% 
+% # _Exchange reactions_ - are reactions that move metabolites across _in silico_ 
+% compartments. These _in silico_ compartments are representive of intra- and 
 % inter- cellular membranes.
 % # _Sink reactions_ - The metabolites, produced in reactions that are outside 
 % of an ambit of the system or in unknown reactions, are supplied to the network 
 % with reversible sink reactions.
 % # _Demand reactions_ - Irreversible reactions added to the model to consume 
 % metabolites that are deposited in the system.
-% 
+%% 
 % There are two ways to implement these type of reactions:
-% 
-% # *Use the| addReaction| function, detailing the stoichiometric coefficient:*
-%%
+%% 
+% # *Use the |addReaction| function, detailing the stoichiometric coefficient:*
+
 model = addReaction(model, 'EX_glc_D[e]', 'metaboliteList', {'glc_D[e]'} ,...
                     'stoichCoeffList', [-1]);
 %% 
-%     To find exchange reactions in the model use the |findExcRxns| function:
+% To find exchange reactions in the model use the |findExcRxns| function:
 
 % determines whether a reaction is a general exchange reaction and
 % whether its an uptake.
 [selExc, selUpt] = findExcRxns(model, 0, 1)
 %% 
-%          *2.  Use a utility function to create the specific type of reaction: 
-% |addExchangeRxn|, |addSinkReactions|, |addDemandReaction|.*
+% *2.  Use a utility function to create the specific type of reaction: |addExchangeRxn|, 
+% |addSinkReactions|, |addDemandReaction|.*
 
 model = addExchangeRxn(model, {'glc_D[e]', 'glc_D[c]'})
 %% 
-%    
+% 
 
 model = addSinkReactions(model, {'13bpg[c]', 'nad[c]'})
 %% 
@@ -211,19 +210,19 @@ model = addSinkReactions(model, {'13bpg[c]', 'nad[c]'})
 % the analysis of a model could be adversely altered and consequent results not 
 % representative of the network. 
 % 
-% For instance, if it is known that the flux of one reaction is _X_ times 
-% the flux of another reaction, it is recommended to 'couple' (i.e., set a ratio) 
+% For instance, if it is known that the flux of one reaction is _X_ times the 
+% flux of another reaction, it is recommended to 'couple' (i.e., set a ratio) 
 % the reactions in the model. 
 % 
-%  E.g. $1\text{ }v\text{ }\text{EX}_\text{glc}_D\left\lbrack c\right\rbrack 
+% E.g. $1\text{ }v\text{ }\text{EX}_\text{glc}_D\left\lbrack c\right\rbrack 
 % =2\text{ }v\text{ }\text{EX}_\text{glc}_D\left\lbrack e\right\rbrack$
-%%
+
 model = addRatioReaction (model, {'EX_glc_D[c]', 'EX_glc_D[e]'}, [1; 2])
 %% *Constraining the flux boundaries of a reaction*
 % In order to respect the transport and exchange potential of a particular metabolite, 
 % or to resemble the different conditions in the model, we frequently need to 
 % set appropriate limits of the reactions.
-%%
+
 model = changeRxnBounds(model, 'EX_glc_D[e]', -18.5, 'l');
 %% Modifying reactions
 % The |addReaction| function is also a good choice to modify reactions. By supplying 
@@ -231,7 +230,7 @@ model = changeRxnBounds(model, 'EX_glc_D[e]', -18.5, 'l');
 % 
 % For example, further up, we added the wrong stoichiometry for the GAP-Dehydrogenase 
 % with a coefficient of 2 for phosphate. Print the reaction to visulize:
-%%
+
 printRxnFormula(model, 'rxnAbbrList', 'GAPDH');
 %% 
 % Correct the reaction using |addReaction:| with the corrected stoichiometry:
@@ -242,8 +241,7 @@ model = addReaction(model, 'GAPDH',...
 %% 
 % 
 % 
-% We can add a gene rule to the reaction using the |changeGeneAssociation| 
-% function: 
+% We can add a gene rule to the reaction using the |changeGeneAssociation| function: 
 
 model = changeGeneAssociation(model, 'GAPDH', 'G1 and G2');
 printRxnFormula(model, 'rxnAbbrList', {'GAPDH'}, 'gprFlag', true);
@@ -255,7 +253,7 @@ model = addReaction(model, 'PGK', 'geneRule', 'G2 or G3', 'printLevel', 0);
 printRxnFormula(model, 'gprFlag', true);
 %% Remove reactions and metabolites
 % To delete reactions from the model, use the |removeRxns| function:
-%%
+
  model = removeRxns(model, {'EX_glc_D[c]', 'EX_glc_D[e]', 'sink_13bpg[c]', ...
                              'sink_nad[c]', 'DM_dhap[c]', 'DM_g3p[c]'});
 
@@ -263,7 +261,7 @@ printRxnFormula(model, 'gprFlag', true);
 %% 
 % * The reaction length was updated since a number of reactions were removed 
 % from the model. 
-% 
+%% 
 % To remove metabolites from the model, use the |removeMetabolites()| function:
 
   model = removeMetabolites(model, {'3pg[c]', '2pg[c]'}, false);
@@ -271,9 +269,9 @@ printRxnFormula(model, 'gprFlag', true);
 %% 
 % * The '|GAPDH|' reaction is still present in the model since there are other 
 % metabolites in the reaction, not just the metabolites we tried to delete. The 
-% 'false' input option of the| removeMetabolites| function indictes that only 
+% 'false' input option of the |removeMetabolites| function indictes that only 
 % empty reactions should be removed.
-% 
+%% 
 % To delete metabolites and reactions with zero rows and columns, the |removeTrivialStoichiometry()| 
 % function can be used:
 
@@ -283,15 +281,15 @@ printRxnFormula(model, 'gprFlag', true);
 % to compare models is also growing. The elementary functions in The Cobra Toolbox 
 % can support simultaneous structural analysis and comparison.
 % 
-% Checking for reaction duplicates with the |checkDuplicateRxn()| function 
-% (i.e. by reaction abbreviation), using either the method: 
-% 
+% Checking for reaction duplicates with the |checkDuplicateRxn()| function (i.e. 
+% by reaction abbreviation), using either the method: 
+%% 
 % * '|S|' (does not detect reverse reactions), or 
 % * '|FR|' (neglects reactions direction).
-% 
+%% 
 % For demonstration of the S method, first check for dupicates and then add 
 % the duplicate reaction to the model:
-%%
+
 [model, removedRxn, rxnRelationship] = checkDuplicateRxn(model, 'S', 1, 1);
 printRxnFormula(model, 'rxnAbbrList', {'GLCt1r'});
 model = addReaction(model, 'GLCt1r_duplicate_reverse',...
@@ -318,9 +316,9 @@ assert(rxns_length + 2 == length(model.rxns))
 %% 
 % * The GLCt1r_duplicate_reverse reaction is detected as a duplicate reaction 
 % therefore will not be removed as the FR method does detect a reverse reactions.
-% 
-% Checking for non-unique reactions and metabolites in a model using the| 
-% checkCobraModelUnique()| function: 
+%% 
+% Checking for non-unique reactions and metabolites in a model using the |checkCobraModelUnique()| 
+% function: 
 
 model = checkCobraModelUnique(model, false)
 %% 
@@ -332,9 +330,9 @@ model = checkCobraModelUnique(model, false)
 % is optimal growth [3]. The model can be modified to get different conditions 
 % by changing the model objective.
 % 
-% One reaction is set as the objective, and has an objective coefficient 
-% of 0.5:
-%%
+% One reaction is set as the objective, and has an objective coefficient of 
+% 0.5:
+
 modelNew = changeObjective(model, 'GLCt1r', 0.5);
 %% 
 % Multiple reactions are set collectively as the objective, and the default 
@@ -352,7 +350,7 @@ modelNew = changeObjective(model, {'PGI'; 'PFK'; 'FBP'});
 % stay the same. 
 % 
 % Let us see, how the glycolysis model currently looks:
-%%
+
 printRxnFormula(model);
 %% 
 % To convert a model to an irreversible model use the _convertToIrreversible_ 
@@ -366,7 +364,7 @@ printRxnFormula(modelIrrev);
 %% 
 % * You will notice, that there are more reactions in this model and that all 
 % reactions which have a lower bound < 0 are split in two. 
-% 
+%% 
 % There is also a function to convert an irreversible model to a reversible 
 % model:
 
@@ -378,14 +376,14 @@ modelRev = convertToReversible(modelIrrev);
 printRxnFormula(modelRev);
 %% Create gene-reaction-associations (GPRs) from scratch.
 % Assign the GPR '(G1) or (G2)' to the reaction HEX1
-%%
+
 model = changeGeneAssociation(model, 'HEX1', '(G1) or (G2)');
 %% Replace an existing GPRs with a new one. 
 % Here, we will search for all instances of a specific GPR ('G1 and G2 ') and 
 % replace it with a new one ('G1 or G4').
 % 
 % Define the old and the new GPRs. 
-%%
+
 GPRsReplace = {'G1 and G2'	'G1 or G4'};
 for  i = 1 : size(GPRsReplace, 1)
     oldGPRrxns = find(strcmp(model.grRules, GPRsReplace{i, 1}));%Find all reactions that have the old GPR
@@ -395,7 +393,7 @@ for  i = 1 : size(GPRsReplace, 1)
 end
 %% Remove unused genes
 % Let us assume that the reaction PGK has to be removed from the model
-%%
+
 model = removeRxns(model, 'PGK');
 %% 
 % The model now contains genes that do not participate in any GPR
@@ -425,7 +423,7 @@ end
 find(sum(model.rxnGeneMat, 1) == 0)
 %% Remove issues with GPR definitions and spaces in reaction abbreviations
 % Remove issues with quotation marks in the GPR definitions.
-%%
+
 model.grRules = strrep(model.grRules, '''', '');
 %% 
 % Remove spaces from reaction abbreviations.
@@ -442,16 +440,16 @@ end
 %% Extract subnetwork
 % Extract a subnetwork from the model consisting of the reactions HEX1, PGI, 
 % FBP, and FBA. The function will remove unused metabolites.
-%%
+
 rxnList = {'HEX1'; 'PGI'; 'FBP'; 'FBA'}
 subModel = extractSubNetwork(model, rxnList)
 %% REFERENCES
 % [1] Orth, J. D., Thiele I., and Palsson, B. Ø. What is flux balance analysis? 
-% _Nat. Biotechnol., _28(3), 245-248 (2010).
+% _Nat. Biotechnol.,_ 28(3), 245-248 (2010).
 % 
 % [2] Feist, A. M., Palsson, B. Ø. The growing scope of applications of genome-scale 
-% metabolic reconstructions: the case of _E. coli_. _Nature Biotechnology, _26(6), 
+% metabolic reconstructions: the case of _E. coli_. _Nature Biotechnology,_ 26(6), 
 % 659-667 (2008).
 % 
 % [3] Feist, A. M., Palsson, B. Ø. The Biomass Objective Function. _Current 
-% Opinion in Microbiology, _13(3), 344-349 (2010).
+% Opinion in Microbiology,_ 13(3), 344-349 (2010).

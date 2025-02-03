@@ -2,25 +2,25 @@
 % *Author(s): Ines Thiele, Ronan M. T. Fleming, Systems Biochemistry Group, 
 % LCSB, University of Luxembourg.*
 % 
-% *Reviewer(s): *
+% *Reviewer(s):* 
 % 
 % In this tutorial, we show to identify deadend metabolites and blocked reactions 
 % as well as how to fill the "gap" caused by the deadend metabolites using fastGapFill.
 % 
 % 
 % 
-% The function fastGapFill [1] identifies potential missing reactions from 
-% a model using KEGG as a reference database (as provided by fastGapFill [1], 
-% default: reaction.lst). Please note that the computed solutions needs to be 
-% manually evaluated for biological relevance. Also note that not all gaps will 
-% be filled, either due to missing mapping between model metabolite abbreviations 
-% and KEGG compound ID's (defined in 'KEGG_dictionary.xls') or due to missing 
-% matches in the reference database.
+% The function fastGapFill [1] identifies potential missing reactions from a 
+% model using KEGG as a reference database (as provided by fastGapFill [1], default: 
+% reaction.lst). Please note that the computed solutions needs to be manually 
+% evaluated for biological relevance. Also note that not all gaps will be filled, 
+% either due to missing mapping between model metabolite abbreviations and KEGG 
+% compound ID's (defined in 'KEGG_dictionary.xls') or due to missing matches in 
+% the reference database.
 % 
 % 
 % 
-% Note that the fastGapFill fills all gaps at once, eliminating the issue 
-% of combinatorics, which may be associated with other gap filling tools. However, 
+% Note that the fastGapFill fills all gaps at once, eliminating the issue of 
+% combinatorics, which may be associated with other gap filling tools. However, 
 % the optimal solution is defined as being the most compact (i.e., the least number 
 % of reactions to be added) solution. In contrast, other methods have been developed 
 % that make use of other criteria, such as sequence evidence. 
@@ -49,11 +49,11 @@
 % This tutorial is based on [1].
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox:
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% 
-% For solving linear programming problems in FBA analysis, certain solvers 
-% are required:
+% For solving linear programming problems in FBA analysis, certain solvers are 
+% required:
 
 changeCobraSolver ('gurobi', 'all', 1);
 %% 
@@ -69,7 +69,7 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up:
-%%
+
 pathModel = '~/work/sbgCloud/data/models/unpublished/Recon3D_models/';
 filename = '2017_04_28_Recon3d.mat';
 load([pathModel, filename])
@@ -80,8 +80,9 @@ clear modelRecon3model
 % the Recon 3 [2]. 
 %% 
 %% Identification of deadend metabolites
+%% 
 % * Detect deadend metabolites
-%%
+
 outputMets = detectDeadEnds(model)
 %% 
 % * print the corresponding metabolite names
@@ -115,12 +116,13 @@ model.ub(find(ismember(model.rxns,rxnList)))
 % metabolites ('downstreamGaps') as well as a combined list of these two ('allGaps').
 % * Note that gapFind may take some computation time depending on model size. 
 %% Identification of blocked reactions
+%% 
 % * Both the root and the downstream metabolites are part of reactions that 
 % cannot carry any flux (aka. blocked reactions), under the given network topology 
 % and simulation constraints.
 % * Run analysis for blocked reactions. The function returns a list of blocked 
 % reactions (‘BlockedReactions’).
-%%
+
 BlockedReactions = findBlockedReaction(model)
 %% fastGapFill
 % FastGapFill allows to set different priorities for reaction types (MetabolicRxns 
@@ -129,16 +131,16 @@ BlockedReactions = findBlockedReaction(model)
 % reactions) using the weights. The lower the weight for a reaction type, the 
 % higher is its priority. Generally, a metabolic reaction should be prioritised 
 % in a solution over transport and exchange reactions.
-%%
+
 weights.MetabolicRxns = 0.1; % Kegg metabolic reactions
 weights.ExchangeRxns = 0.5; % Exchange reactions
 weights.TransportRxns = 10; % Transport reactions
 %% 
-% In this example, the priority is given to the metabolic reactions follow 
-% by the exchange reactions and the transport reactions, because the internal 
-% reactions are better describe and annotated, but we not exclude the others.
+% In this example, the priority is given to the metabolic reactions follow by 
+% the exchange reactions and the transport reactions, because the internal reactions 
+% are better describe and annotated, but we not exclude the others.
 % 
-% _*Hint_*: The performance of algorithm is best if the weighting parameter 
+% _*Hint*_: The performance of algorithm is best if the weighting parameter 
 % is not 1.
 % 
 % *Prepare the output table with statistics.*
@@ -174,23 +176,22 @@ model.lb(EX)=-100;
 model.ub(EX)=100;
 clear EX
 %% 
-%  Get basic model statistics.
+% Get basic model statistics.
 
-Stats{cnt,i+1} = filename;cnt = cnt+1;
+Stats{cnt,2} = filename;cnt = cnt+1;
 [a,b] = size(model.S);
-Stats{cnt,i+1} = strcat(num2str(a),'x',num2str(b));cnt = cnt+1;
+Stats{cnt,2} = strcat(num2str(a),'x',num2str(b));cnt = cnt+1;
 %% 
-%  List of compartments in the model that will be considered during the 
-% gap filling.
+% List of compartments in the model that will be considered during the gap filling.
 
 [tok,rem] = strtok(model.mets,'\[');
 rem = unique(rem);
-Stats{cnt,i+1} = num2str(length(rem));cnt = cnt+1;
+Stats{cnt,2} = num2str(length(rem));cnt = cnt+1;
 Rem = rem{1};
 for j = 2:length(rem)
     Rem = strcat(Rem,',',rem{j});
 end
-Stats{cnt,i+1} = Rem;cnt = cnt+1;
+Stats{cnt,2} = Rem;cnt = cnt+1;
 clear Rem tok rem;
 %% Prepare fastGapFill.
 % Here, we are going to use the function prepareFastGapFill. This function creates 
@@ -209,16 +210,16 @@ tpre=toc;
 % compartments along with transport reactions for each metabolite from cytosol 
 % to compartment and exchange reactions for all extracellular metabolites.
 % * *BlockedRxns* – Blocked reactions in model.
-% 
-% Add on more statistics to the table. Here, we will report how many gaps 
-% cannot be filled at all in the starting reconstruction.
+%% 
+% Add on more statistics to the table. Here, we will report how many gaps cannot 
+% be filled at all in the starting reconstruction.
 
-Stats{cnt,i+1} = num2str(length(BlockedRxns.allRxns));cnt = cnt+1;
-Stats{cnt,i+1} = num2str(length(BlockedRxns.solvableRxns));cnt = cnt+1;
+Stats{cnt,2} = num2str(length(BlockedRxns.allRxns));cnt = cnt+1;
+Stats{cnt,2} = num2str(length(BlockedRxns.solvableRxns));cnt = cnt+1;
 [a,b] = size(consistModel.S);
-Stats{cnt,i+1} = strcat(num2str(a),'x',num2str(b));cnt = cnt+1;
+Stats{cnt,2} = strcat(num2str(a),'x',num2str(b));cnt = cnt+1;
 [a,b] = size(consistMatricesSUX.S);
-Stats{cnt,i+1} = strcat(num2str(a),'x',num2str(b));cnt = cnt+1;
+Stats{cnt,2} = strcat(num2str(a),'x',num2str(b));cnt = cnt+1;
 %% Perform fastGapsFill. 
 % Now our model is ready to be run by the fastGapFill function. The main aim 
 % of this function is to find the most compact set of reactions, i.e., exchange, 
@@ -250,7 +251,7 @@ clear AddedRxns;
 % * *AddedRxnsExtended*  is a structure containing the information present in 
 % _AddedRxns_ along with the statistics and if desired pathways containing the 
 % flux vectors.
-% 
+%% 
 % Add further statistics about computed solutions to the Stats table.
 
 Stats{cnt,i+1} = num2str(AddedRxnsExtended.Stats.metabolicSol);cnt = cnt+1;
@@ -261,7 +262,7 @@ Stats{cnt,i+1} = num2str(tpre);cnt = cnt+1;
 Stats{cnt,i+1} = num2str(tgap);cnt = cnt+1;
 clear a b
 %% 
-%     Generate a reaction list
+% Generate a reaction list
 
 RxnList{1,col}=filename;RxnList(2:length(AddedRxnsExtended.rxns)+1,col) = AddedRxnsExtended.rxns; col = col + 1;
 RxnList{1,col}=filename;RxnList(2:length(AddedRxnsExtended.rxns)+1,col) = AddedRxnsExtended.rxnFormula; col = col + 1;
@@ -276,8 +277,8 @@ clear AddedRxnsExtended tgap tpre j BlockedRxns i cnt consistM*
 
 RxnList
 %% 
-% Now, we are going to identify the deadend metabolites, for this we are 
-% going to use the function detectDeadEnds, which returns the indices of all deadend 
+% Now, we are going to identify the deadend metabolites, for this we are going 
+% to use the function detectDeadEnds, which returns the indices of all deadend 
 % metabolites.
 
 metid = detectDeadEnds(model,false);
@@ -286,17 +287,17 @@ metid = detectDeadEnds(model,false);
 
 horzcat(model.mets(metid),model.metNames(metid))
 %% Trouble shooting
-% _*Error_*: "Combining Remaining Genetic Information: Reference to non-existent 
+% _*Error*_: "Combining Remaining Genetic Information: Reference to non-existent 
 % field 'rules'."
 % 
-% _*Solution_*: "Your model structure does not contain the rules field. The 
+% _*Solution*_: "Your model structure does not contain the rules field. The 
 % rules field specifies which genes encode for the reactions. You could create 
 % an array of the same length as the number of reactions in your model and empty 
 % fields."
 % 
 % 
 % 
-% _*Error_*: " I have downloaded the files and I am using the gurobi5 solver. 
+% _*Error*_: " I have downloaded the files and I am using the gurobi5 solver. 
 % When I am trying to run one of theirs runGapFill_example to check correct setup, 
 % this is what I am experiencing..
 % 
@@ -304,8 +305,8 @@ horzcat(model.mets(metid),model.metNames(metid))
 % 
 % |J|=386  Undefined function 'cplexlp' for input arguments of type 'double'."
 % 
-% _*Solution_*: "Fastgapfill requires ibm cplx to be installed. Academic 
-% licenses are free."
+% _*Solution*_: "Fastgapfill requires ibm cplx to be installed. Academic licenses 
+% are free."
 %% References
 % [1] fastGapFill.
 % 

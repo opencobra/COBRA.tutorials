@@ -11,14 +11,14 @@
 % bypassing the steady-state assumption for intracellular metabolites that are 
 % measured. 
 % 
-% We can model the flux through a metabolic network using a set of linear 
-% equations defined by
+% We can model the flux through a metabolic network using a set of linear equations 
+% defined by
 % 
 % $$\mathbf{S}\cdot \mathbf{v}=\mathbf{b}$$
 % 
 % where *S* is the stoichiometric matrix, *v* is a vector of fluxes through 
 % the chemical reactions defined in *S*, and *b* represents constraints on the 
-% change of metabolite concentrations; at steady-state, *b *= 0. If the metabolomics 
+% change of metabolite concentrations; at steady-state, *b* = 0. If the metabolomics 
 % measurements are non-linear (i.e., Fig. 1), then the first step of the uFBA 
 % workflow is to identify discrete time intervals which represent linearized metabolic 
 % states (Fig. 1). Once discrete states are identified (the raw data if linear), 
@@ -27,8 +27,8 @@
 % of each metabolite concentration. If the rate of change is significant, the 
 % model is updated by changing the steady-state constraint from 0 to 
 % 
-% $$\begin{array}{l}\mathbf{S}\cdot \mathbf{v}\text{ }\ge {\mathbf{b}}_1 
-% \\\mathbf{S}\cdot \mathbf{v}\text{ }\le {\mathbf{b}}_2 \end{array}$$
+% $$\begin{array}{l}\mathbf{S}\cdot \mathbf{v}\;\ge {\mathbf{b}}_1 \\\mathbf{S}\cdot 
+% \mathbf{v}\;\le {\mathbf{b}}_2 \end{array}$$
 % 
 % where [$\mathbf{b}_1$, $\mathbf{b}_2$] represents the 95% confidence interval 
 % for each significantly changing metabolite. All unmeasured metabolites are assumed 
@@ -36,8 +36,7 @@
 % 
 % 
 % 
-%                                                     Fig. 1 | Overview of 
-% the uFBA workflow.
+% Fig. 1 | Overview of the uFBA workflow.
 %% MATERIALS
 %% Equipment Setup
 % Running uFBA requires the installation of a mixed-integer linear programming 
@@ -49,20 +48,20 @@
 %% PROCEDURE 
 %% Initialize
 % Running uFBA requires the use of several functions from the COBRA Toolbox.
-%%
+
 initCobraToolbox(false) % no toolbox update, just init
 %% 
-% We first load in sample data. This data is absolutely quantified and has 
-% already been volume adjusted such that intracellular and extracellular metabolite 
-% concentrations have compatible units. 
-%%
+% We first load in sample data. This data is absolutely quantified and has already 
+% been volume adjusted such that intracellular and extracellular metabolite concentrations 
+% have compatible units. 
+
 tutorialPath = fileparts(which('tutorial_uFBA.mlx'));
 load([tutorialPath filesep 'sample_data.mat']);
 % We load the model by readCbModel to make sure it fits to the specifications.
 model = readCbModel([tutorialPath filesep 'sample_data.mat'],'modelName','model') 
 %% 
 % The |sample_data.mat| file contains the following variabels:
-% 
+%% 
 % * |met_data|: a matrix containing the exo- and endo-metabolomics data
 % * |met_IDs|: a cell array containing the BiGG ID for each of the metabolites 
 % in |met_data|
@@ -71,9 +70,9 @@ model = readCbModel([tutorialPath filesep 'sample_data.mat'],'modelName','model'
 % were measured
 % * |uFBAvariables|: a struct containing the variables necessary for input into 
 % the uFBA algorithm
-% 
+%% 
 % In this tutorial, the use of Gurobi is mandatory.
-%%
+
 solverLPOk = changeCobraSolver('gurobi', 'LP');
 solverMILPOk = changeCobraSolver('gurobi', 'MILP');
 %% 
@@ -81,7 +80,7 @@ solverMILPOk = changeCobraSolver('gurobi', 'MILP');
 %% Estimate Metabolite Rates of Change (<1 sec.)
 % Next, we run linear regression to find the rate of change for each metabolite 
 % concentration.
-%%
+
 changeSlopes = zeros(length(met_IDs), 1);
 changeIntervals = zeros(length(met_IDs), 1);
 for i = 1:length(met_IDs)
@@ -103,10 +102,10 @@ ignoreSlopes = double(tmp1 < 0 & tmp2 > 0);
 % in the function |buildUFBAmodel|. This function takes as input a COBRA model 
 % structure and a struct containing the required input variables (see Table 1). 
 % 
-% Ideally, all metabolites in the model would be measured, resulting in a 
-% feasible model. However, experimental limitations limit the number of metabolites 
-% that can measured. Thus, when the metabolite constraints are added, the model 
-% will most likely not simulate. The uFBA algorithm reconciles the measured metabolomics 
+% Ideally, all metabolites in the model would be measured, resulting in a feasible 
+% model. However, experimental limitations limit the number of metabolites that 
+% can measured. Thus, when the metabolite constraints are added, the model will 
+% most likely not simulate. The uFBA algorithm reconciles the measured metabolomics 
 % data and the network structure by parsimoniously allowing unmeasured metabolites 
 % concentrations to deviate from steady-state (i.e., $\mathbf{S \cdot v = b}$) 
 % in order to build a computable model. We refer to the method for deviating unmeasured 
@@ -126,14 +125,12 @@ ignoreSlopes = double(tmp1 < 0 & tmp2 > 0);
 % model to simulate. The minimimum value is then multiplied by a relaxation factor 
 % |lambda| (Table 1) and used as the bound for the sink reaction.
 % 
-% Full details for the algorithm are provided in the original publication 
-% [1]. 
+% Full details for the algorithm are provided in the original publication [1]. 
 % 
 % 
 % 
-%                                        Table 1 | Inputs and outputs of 
-% the |buildUFBAmodel| function.
-%%
+% Table 1 | Inputs and outputs of the |buildUFBAmodel| function.
+
 uFBAvariables.metNames = met_IDs;
 uFBAvariables.changeSlopes = changeSlopes;
 uFBAvariables.changeIntervals = changeIntervals;
@@ -147,7 +144,7 @@ model_ufba = optimizeCbModel(uFBAoutput.model)
 %% References
 % [1] A Bordbar*, JT Yurkovich*, G Paglia, O Rolfsson, O Sigurjonsson, and BO 
 % Palsson. "Elucidating dynamic metabolic physiology through network integration 
-% of quantitative time-course metabolomics." _Sci. Rep. _(2017). doi:10.1038/srep46249. 
+% of quantitative time-course metabolomics." _Sci. Rep._ (2017). doi:10.1038/srep46249. 
 % (* denotes equal contribution)
 % 
 % [2] A Bordbar, PI Johansson, G Paglia, SJ Harrison, K Wichuk, M Magnusdottir, 
