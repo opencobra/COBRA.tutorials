@@ -44,8 +44,8 @@ jobs:
 - name: Clone the destination repository
         run: |
           rm -rf cobratoolbox
-          echo "Cloning the destination repository: git@github.com:pavan-kumar-s/cobratoolbox.git"
-          git clone --depth 1 git@github.com:pavan-kumar-s/cobratoolbox.git
+          echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
+          git clone --depth 1 git@github.com:opencobra/cobratoolbox.git
 ```
 - Here cobratoolbox repo is cloned to push the generated .html pages in further steps 
 
@@ -61,7 +61,7 @@ jobs:
     for file in $changed_files; do
       if [[ $file != "" ]]; then
         echo "Processing: $file"
-        ./build.sh pavan-kumar-s/cobratoolbox $file
+        ./build.sh opencobra/cobratoolbox $file
       fi
     done
 ```
