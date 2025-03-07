@@ -34,8 +34,11 @@ echo "Destination repository name: $DEST_REPO_NAME"
 echo "Changing to the destination repository directory: $DEST_REPO_NAME"
 cd $DEST_REPO_NAME
 
+# checking out gh-pages branch
+git checkout gh-pages
+
 # Create the target directory in the destination repository
-TARGET_DIR="docs/tutorials/$(dirname "$FILE_PATH")"
+TARGET_DIR="stable/tutorials/$(dirname "$FILE_PATH")"
 echo "Creating the target directory: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
 
