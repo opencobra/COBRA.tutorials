@@ -49,7 +49,7 @@ jobs:
           git pull
           git add .
           git commit -m "Sync files from source repo" || echo "No changes to commit"
-          git push origin master
+          git push
           cd ..
           rm -rf cobratoolbox
           git add .
