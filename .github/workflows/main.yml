@@ -42,9 +42,9 @@ jobs:
               HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
               PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
-              matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
-              matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
-              matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
+              matlab -batch "export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
+              matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
+              matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
               cd cobratoolbox
               TARGET_DIR="stable/tutorials/$(dirname "$FILE_PATH")"
               mkdir -p "$TARGET_DIR"
