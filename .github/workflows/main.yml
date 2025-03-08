@@ -28,7 +28,7 @@ jobs:
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 --branch gh-pages git@github.com:$REPO_OWNER/cobratoolbox.git
+          git clone --depth 1 --branch gh-pages https://github.com/$REPO_OWNER/cobratoolbox.git
           
       - name: Get Changed mlx Files and sinc with destination repository
         id: getFile
