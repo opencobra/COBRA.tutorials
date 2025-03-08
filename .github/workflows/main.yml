@@ -8,7 +8,7 @@ on:
 
 jobs:
   copy-changes:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Repo
         uses: actions/checkout@v2
@@ -17,17 +17,21 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+        
       - name: Clone the destination repository
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 git@github.com:opencobra/cobratoolbox.git
+          git clone --depth 1 --branch gh-pages git@github.com:opencobra/cobratoolbox.git
           
       - name: Get Changed mlx Files and sinc with destination repository
         id: getFile
         run: |
           changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
           # Setup virtual frame buffer
+          chmod +x ./build.sh
           export DISPLAY=:100
           echo "Starting virtual frame buffer..."
           Xvfb -ac :100 -screen 0 1280x1024x24 > /dev/null &
