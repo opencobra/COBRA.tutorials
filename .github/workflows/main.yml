@@ -18,11 +18,11 @@ jobs:
           fetch-depth: 0
           
       - name: Set up MATLAB
-        uses: matlab-actions/setup-matlab@v1
+        uses: matlab-actions/setup-matlab@v2
 
       - name: Get the repository's owner name
         run: |
-          run: echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
+          echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
           
       - name: Clone the destination repository
         run: |
