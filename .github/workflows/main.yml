@@ -13,18 +13,22 @@ jobs:
       - name: Checkout Source Repo
         uses: actions/checkout@v2
         with:
-          repository: 'opencobra/COBRA.tutorials'
+          repository: '${{ github.repository_owner }}/COBRA.tutorials'
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v1
-        
+
+      - name: Get the repository's owner name
+        run: |
+          run: echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
+          
       - name: Clone the destination repository
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 --branch gh-pages git@github.com:opencobra/cobratoolbox.git
+          git clone --depth 1 --branch gh-pages git@github.com:$REPO_OWNER/cobratoolbox.git
           
       - name: Get Changed mlx Files and sinc with destination repository
         id: getFile
@@ -38,7 +42,7 @@ jobs:
           for file in $changed_files; do
             if [[ $file != "" ]]; then
               echo "Processing: $file"
-              ./build.sh opencobra/cobratoolbox $file
+              ./build.sh $REPO_OWNER/cobratoolbox $file
             fi
           done
         
