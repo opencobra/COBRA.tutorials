@@ -16,9 +16,6 @@ jobs:
           repository: '${{ github.repository_owner }}/COBRA.tutorials'
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-          
-      - name: Set up MATLAB
-        uses: matlab-actions/setup-matlab@v2
 
       - name: Get the repository's owner name
         run: |
