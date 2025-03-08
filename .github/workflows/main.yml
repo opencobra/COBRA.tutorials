@@ -38,7 +38,7 @@ jobs:
           for file in $changed_files; do
             if [[ $file != "" ]]; then
               echo "Processing: $file"
-              ABSOLUTE_FILE_PATH=$(realpath "$FILE_PATH")
+              ABSOLUTE_FILE_PATH=$(realpath "$file")
               HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
               PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
