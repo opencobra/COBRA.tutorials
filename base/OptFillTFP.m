@@ -1,6 +1,5 @@
 function [TICs,Direction] = OptFillTFP(model,database,mTFP)
 %% OPTFILLTFP OptFill
-%%
 % Enumerates all the Thermodynamically infeasible cycles in a given model
 % using OptFill's algorithm. This code is adapted based on codes written in 
 % GAMS and python in the paper "OptFill: A Tool for Infeasible Cycle-Free 
