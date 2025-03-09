@@ -102,25 +102,25 @@ Submit your changes and open a pull request
 
 .. |icon_analysis| raw:: html
 
-   <img src="https://github.com/pavan-kumar-s/cobratoolbox/tree/gh-pages/stable/_static/img/analysis.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/analysis.png" height="14px">
 
 .. |icon_base| raw:: html
 
-   <img src="https://github.com/pavan-kumar-s/cobratoolbox/tree/gh-pages/stable/_static/img/base.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/base.png" height="14px">
 
 .. |icon_dataIntegration| raw:: html
 
-   <img src="https://github.com/pavan-kumar-s/cobratoolbox/tree/gh-pages/stable/_static/img/dataIntegration.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/dataIntegration.png" height="14px">
 
 .. |icon_design| raw:: html
 
-   <img src="https://github.com/pavan-kumar-s/cobratoolbox/tree/gh-pages/stable/_static/img/design.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/design.png" height="14px">
 
 .. |icon_reconstruction| raw:: html
 
-   <img src="https://github.com/pavan-kumar-s/cobratoolbox/tree/gh-pages/stable/_static/img/reconstruction.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/reconstruction.png" height="14px">
 
 .. |icon_visualization| raw:: html
 
-   <img src="https://github.com/pavan-kumar-s/cobratoolbox/tree/gh-pages/stable/_static/img/visualization.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/visualization.png" height="14px">
 
