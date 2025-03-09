@@ -3,6 +3,9 @@ function [TICs,Direction] = OptFillTFP(model,database,mTFP)
 % using OptFill's algorithm. This code is adapted based on codes written in 
 % GAMS and python in the paper "OptFill: A Tool for Infeasible Cycle-Free 
 % Gapfilling of Stoichiometric Metabolic Models"
+%
+%
+%
 % USAGE: 
 %   [TICs,Direction] = OptFillTFP(model,database,mTFP)
 %
