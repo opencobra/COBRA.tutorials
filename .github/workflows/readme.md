@@ -42,44 +42,44 @@ jobs:
   
 ```
 - name: Get the repository's owner name
-        run: |
-          echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
+  run: |
+    echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
 ```
 - Here we are getting the repository's owner name and storing it in the variable, REPO_OWNER. This variable will be used in further jobs.
 
 ```
 - name: Clone the destination repository
-        run: |
-          rm -rf cobratoolbox
-          echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 --branch gh-pages ssh://git@github.com/$REPO_OWNER/cobratoolbox.git
+  run: |
+    rm -rf cobratoolbox
+    echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
+    git clone --depth 1 --branch gh-pages ssh://git@github.com/$REPO_OWNER/cobratoolbox.git
 ```
 - Here cobratoolbox repo (only gh-pages branch) is cloned to push the generated .html pages in further steps 
 
 ```
 - name: Get Changed mlx Files and sinc with destination repository
-        id: getFile
-        run: |
-          changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
-          # Setup virtual frame buffer
-          for file in $changed_files; do
-            if [[ $file != "" ]]; then
-              echo "Processing: $file"
-              ABSOLUTE_FILE_PATH=$(realpath "$file")
-              HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
-              PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
-              M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
-              /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
-              /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
-              /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
-              cd cobratoolbox
-              TARGET_DIR="stable/tutorials/$(dirname "$file")"
-              mkdir -p "$TARGET_DIR"
-              echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
-              cp "$HTML_FILE_PATH" "$TARGET_DIR/"
-              cd ../
-            fi
-          done
+  id: getFile
+  run: |
+    changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
+    # Setup virtual frame buffer
+    for file in $changed_files; do
+      if [[ $file != "" ]]; then
+        echo "Processing: $file"
+        ABSOLUTE_FILE_PATH=$(realpath "$file")
+        HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
+        PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
+        M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
+        /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
+        /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
+        /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
+        cd cobratoolbox
+        TARGET_DIR="stable/tutorials/$(dirname "$file")"
+        mkdir -p "$TARGET_DIR"
+        echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
+        cp "$HTML_FILE_PATH" "$TARGET_DIR/"
+        cd ../
+      fi
+    done
 ```
 - Here we actually do the conversions and copy the .HTML file to cobratoolbox repository. The fourth line in this picture (changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')) is used to find all the .mlx files that have been changed based on the most recent push.
 - Then for each modified .mlx file, an HTML file, a pdf file, and a Matlab code file are created and stored in the same directory where the .mlx file is located. We are using MATLAB R2024a here, if the king server has some other version, then this step has to be modified accordingly. Further, HTML file alone is copied to the cobratoolbox repo.
@@ -87,23 +87,23 @@ jobs:
 
 ```
 - name: Pushing the changes to both COBRA.tutorials and cobratoolbox repos
-        run: |
-          # Set up git config
-          echo "Setting up git config..."
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # Add, commit, and push the changes
-          cd cobratoolbox
-          git pull
-          git add .
-          git commit -m "Sync files from source repo" || echo "No changes to commit"
-          git push
-          cd ..
-          rm -rf cobratoolbox
-          git add .
-          git commit -m "created .HTML, .pdf and .m files"
-          git push origin master
-          echo "Script execution completed."
+  run: |
+    # Set up git config
+    echo "Setting up git config..."
+    git config --global user.name "github-actions[bot]"
+    git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    # Add, commit, and push the changes
+    cd cobratoolbox
+    git pull
+    git add .
+    git commit -m "Sync files from source repo" || echo "No changes to commit"
+    git push
+    cd ..
+    rm -rf cobratoolbox
+    git add .
+    git commit -m "created .HTML, .pdf and .m files"
+    git push origin master
+    echo "Script execution completed."
 ```
 
 The converted files are further pushed to the cobratoolbox and COBRA.tutorial repo. Note that only .html pages are pushed to cobratoolbox repository and all the other formats are stored in COBRA.tutorial repo
