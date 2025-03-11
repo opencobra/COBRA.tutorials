@@ -1,4 +1,4 @@
-%% _E.coli _Core Model for Beginners (PART 3)
+%% _E.coli_ Core Model for Beginners (PART 3)
 % (please run PART 2 of this tutorial first)
 %% 4.C. Pentose Phosphate Pathway 
 % The primary purpose of the pentose phosphate pathway (PPP) is to provide the 
@@ -8,18 +8,17 @@
 % is produced in the oxidative pathway by glucose-6-phosphate dehydrogenase (G6PDH2r) 
 % and phosphogluconate dehydrogenase (GND).
 % 
-% The location of the reactions associated with the PPP are shown below on 
-% the _E.coli _core map in Figure 16.
+% The location of the reactions associated with the PPP are shown below on the 
+% _E.coli_ core map in Figure 16.
 % 
 % 
 % 
-% *                                                                Figure 
-% 16.* Pentose phosphate pathway subsystem reactions highlighted in blue on the 
-% _E.coli_ core map [3].
+% *Figure 16.* Pentose phosphate pathway subsystem reactions highlighted in 
+% blue on the _E.coli_ core map [3].
 % 
-% The pentose phosphate pathway subsystem includes the following reactions 
-% derived from the core model. _[Timing: Seconds]_
-%%
+% The pentose phosphate pathway subsystem includes the following reactions derived 
+% from the core model. _[Timing: Seconds]_
+
 model = e_coli_core; % Starting with the original model
 model = changeRxnBounds(model,'EX_glc(e)',-10,'l');
 model = changeRxnBounds(model,'EX_o2(e)',-30,'l');
@@ -42,28 +41,26 @@ T = table(Reaction_Names,Reaction_Formulas,'RowNames',pppReactions)
 % 
 % 
 % 
-% *                                                                                              
-% Figure 17.* Pentose phosphate pathway reactions and precursors [3].
+% *Figure 17.* Pentose phosphate pathway reactions and precursors [3].
 % 
-% The direction of the flux flowing through the non-oxidative part of the 
-% pentose phosphate pathway changes based on aerobic versus anaerobic conditions. 
-% This variation in flux direction is shown below in Figure 18.
-% 
+% The direction of the flux flowing through the non-oxidative part of the pentose 
+% phosphate pathway changes based on aerobic versus anaerobic conditions. This 
+% variation in flux direction is shown below in Figure 18.
 % 
 % 
-% *                                                            Figure 18. 
-% *The flow of flux through the pentose phosphate pathway based on A) aerobic 
-% or B) anaerobic conditions. 
 % 
-% In this figure it can be seen that under (A) aerobic conditions the flux 
-% flows through the oxidative phase of the pentose phosphate pathway and then 
-% is directed downward through the non-oxidative phase and then works its way 
-% back to the glycolysis cycle. On the other hand, under (B) anaerobic conditions 
-% the flux enters the left side of reaction TKT2 of the pentose phosphate pathway 
-% from the glycolysis pathway operating under the condition of gluconeogenesis. 
-% The flux then splits to feed the needs of the three major precursors e4p[c], 
-% r5p[c], and s7p[c]. These specific flux values can be calculated using the COBRA 
-% Toolbox as follows. _[Timing: Seconds]_
+% *Figure 18.* The flow of flux through the pentose phosphate pathway based 
+% on A) aerobic or B) anaerobic conditions. 
+% 
+% In this figure it can be seen that under (A) aerobic conditions the flux flows 
+% through the oxidative phase of the pentose phosphate pathway and then is directed 
+% downward through the non-oxidative phase and then works its way back to the 
+% glycolysis cycle. On the other hand, under (B) anaerobic conditions the flux 
+% enters the left side of reaction TKT2 of the pentose phosphate pathway from 
+% the glycolysis pathway operating under the condition of gluconeogenesis. The 
+% flux then splits to feed the needs of the three major precursors e4p[c], r5p[c], 
+% and s7p[c]. These specific flux values can be calculated using the COBRA Toolbox 
+% as follows. _[Timing: Seconds]_
 
 % Obtain the rxnIDs for the pentose phosphate pathway reactions
 [~,glycolysis_rxnID] = ismember(glycolysisReactions,model.rxns); 
@@ -102,18 +99,17 @@ T = table(Glucose_Aerobic_Flux,Fructcose_Aerobic_Flux,Glucose_Anaerobic_Flux,...
 % nadph[c], cellular energy atp[c] through substrate phosphorylation, and carbon 
 % dioxide (co2[c]). While in the anaerobic condition, only part of the TCA cycle 
 % will be used to produce two of the three precursors and the reducing power nadph[c]. 
-% The location of the TCA cycle subsystem is shown on the following_ E.coli_ core 
+% The location of the TCA cycle subsystem is shown on the following _E.coli_ core 
 % map (Figure 19).
 % 
 % 
 % 
-% *                                                                                
-% Figure 19.* TCA pathway subsystem reactions highlighted in blue on _E.coli_ 
+% *Figure 19.* TCA pathway subsystem reactions highlighted in blue on _E.coli_ 
 % core map [3].
 % 
 % The reactions associated with the TCA cycle can be retrieved from the _E.coli_ 
 % core model as shown below. _[Timing: Seconds]_
-%%
+
 model = e_coli_core;
 TCA_Reactions = transpose({'CS','ACONTa','ACONTb','ICDHyr','AKGDH','SUCOAS',...
     'FRD7','SUCDi','FUM','MDH'});
@@ -122,8 +118,8 @@ Reaction_Names = model.rxnNames(TCA_rxnID);
 Reaction_Formulas = printRxnFormula(model,TCA_Reactions,0);
 T = table(Reaction_Names,Reaction_Formulas,'RowNames',TCA_Reactions)    
 %% 
-% The _E.coli _core model does not include the membrane reactions (FRD7 
-% and SUCDi) in the TCA cycle (Citric Acid Cycle) subsystem. They have been added 
+% The _E.coli_ core model does not include the membrane reactions (FRD7 and 
+% SUCDi) in the TCA cycle (Citric Acid Cycle) subsystem. They have been added 
 % to this discussion since they close the TCA loop and allow complete TCA operation.
 % 
 % The precursors associated with the TCA cyle are shown below in Figure 20.  
@@ -135,25 +131,24 @@ T = table(Reaction_Names,Reaction_Formulas,'RowNames',TCA_Reactions)
 % 
 % 
 % 
-% *                                                                                                
-% Figure 20.* TCA pathway reactions and precursors [3].
+% *Figure 20.* TCA pathway reactions and precursors [3].
 % 
-% The TCA cycle can be divided into an oxidative pathway and a reductive 
-% pathway as illustrated in Figure 19. The oxidative pathway of the TCA cycle 
-% runs counterclockwise in the lower part of the cycle, from oxaloacetate (oaa[c]), 
-% through 2-oxoglutarate (akg[c]). Under aerobic conditons the oxidative pathway 
-% can continue counterclockwise from 2-oxoglutarate (akg[c]) full circle to  oxaloacetate 
-% (oaa[c]). The full TCA cycle can totally oxidize acetyl-CoA (accoa[c]), but 
-% only during aerobic growth on acetate or fatty acids. 
+% The TCA cycle can be divided into an oxidative pathway and a reductive pathway 
+% as illustrated in Figure 19. The oxidative pathway of the TCA cycle runs counterclockwise 
+% in the lower part of the cycle, from oxaloacetate (oaa[c]), through 2-oxoglutarate 
+% (akg[c]). Under aerobic conditons the oxidative pathway can continue counterclockwise 
+% from 2-oxoglutarate (akg[c]) full circle to  oxaloacetate (oaa[c]). The full 
+% TCA cycle can totally oxidize acetyl-CoA (accoa[c]), but only during aerobic 
+% growth on acetate or fatty acids. 
 % 
-% Under anaerobic conditions, the TCA cycle functions not as a cycle, but 
-% as two separate pathways. The oxidative pathway, the counterclockwise lower 
-% part of the cycle, still forms the precursor 2-oxoglutarate. The reductive pathway, 
+% Under anaerobic conditions, the TCA cycle functions not as a cycle, but as 
+% two separate pathways. The oxidative pathway, the counterclockwise lower part 
+% of the cycle, still forms the precursor 2-oxoglutarate. The reductive pathway, 
 % the clockwise upper part of the cycle, can form the precursor succinyl-CoA.
 % 
-% Let's begin this exploration by visualizing the fluxes through the core 
-% model when pyruvate is used as the carbon source for both aerobic and anaerobic 
-% conditions. _[Timing: Seconds]_
+% Let's begin this exploration by visualizing the fluxes through the core model 
+% when pyruvate is used as the carbon source for both aerobic and anaerobic conditions. 
+% _[Timing: Seconds]_
 
 % Key parameters for TCA pathway section
 model = e_coli_core;
@@ -169,14 +164,13 @@ options.zeroFluxWidth = 0.1;
 options.rxnDirMultiplier = 10;
 drawFlux(map, model, FBAsolution.x, options);   
 %% 
-% A close-up on the TCA cycle for both the aerobic and anaerobic cases are 
-% shown in Figure 21.
+% A close-up on the TCA cycle for both the aerobic and anaerobic cases are shown 
+% in Figure 21.
 % 
 % 
 % 
-% *                                                          Figure 21.* 
-% A close-up of the TCA cycle with pyruvate as the carbon source for both aerobic 
-% and anaerobic conditions.
+% *Figure 21.* A close-up of the TCA cycle with pyruvate as the carbon source 
+% for both aerobic and anaerobic conditions.
 % 
 % The specific flux values for each of these conditions is calculated below. 
 % _[Timing: Seconds]_
@@ -202,26 +196,25 @@ T = table(Pyrvate_Aerobic_Flux,Pyrvate_Anaerobic_Flux,...
 % ACONTb and ICDHyr), the oxidative pathway, is used.
 %% *4.E. Glycoxylate Cycle, Gluconeogenesis, and Anapleurotic Reactions*
 % The glycoxylate cycle and gluconeogenic reactions are necessary to allow _E. 
-% coli _to grow on 3-carbon (pyruvate) and 4-carbon compounds (malate, fumarate, 
+% coli_ to grow on 3-carbon (pyruvate) and 4-carbon compounds (malate, fumarate, 
 % and succinate). This occurs by avoiding the loss of carbon to carbon dioxide 
 % in the TCA cycle (glycoxylate cycle), providing a pathway for generation of 
 % glycolytic intermediates from TCA intermediates (anapleurotic reactions), and 
 % reversing the carbon flux through glycolysis (gluconeogenesis) to produce essential 
 % precursors for biosynthesis.
 % 
-% The location of the glycoxylate cycle, gluconeogenesis, and anapleurotic 
-% reactions on the _E.coli_ core map is shown in Figure 22 below.
+% The location of the glycoxylate cycle, gluconeogenesis, and anapleurotic reactions 
+% on the _E.coli_ core map is shown in Figure 22 below.
 % 
 % 
 % 
-% *                                                        Figure 22.* Glycoxylate 
-% cycle, gluconeogenesis, and anapleurotic reactions highlighted in blue on the_ 
-% E.coli_ core map [3].
+% *Figure 22.* Glycoxylate cycle, gluconeogenesis, and anapleurotic reactions 
+% highlighted in blue on the _E.coli_ core map [3].
 % 
 % The reactions included in this section on the glycoxylate cycle, gluconeogenesis, 
 % and anapleurotic reactions are shown below.  This subsystem is referred to in 
 % the core model as the "anapleurotic reactions" subsystem.  _[Timing: Seconds]_
-%%
+
 % Set initial constraints for glycoxylate cycle, gluconeogenesis, and anapleurotic reactions section
 model = e_coli_core;
 ANA_Reactions = transpose({'ICL','MALS','ME1','ME2','PPS','PPCK',...
@@ -236,9 +229,8 @@ T = table(Reaction_Names,Reaction_Formulas,'RowNames',ANA_Reactions)
 % 
 % 
 % 
-%                                                          *Figure 23.* Reactions 
-% associated with the glycoxylate cycle, gluconeogenesis, and anapleurotic reactions 
-% [3].
+% *Figure 23.* Reactions associated with the glycoxylate cycle, gluconeogenesis, 
+% and anapleurotic reactions [3].
 % 
 % The anapleurotic reactions (PPC, PPS, PPCK, PPC, ME1, and ME2 ) are interconnecting, 
 % reversing and bypassing reactions that replenish TCA cycle intermediates. The 
@@ -252,13 +244,13 @@ T = table(Reaction_Names,Reaction_Formulas,'RowNames',ANA_Reactions)
 % There are two pathways able to fulfill these pep[c] demands. The first pathway 
 % involves the conversion of malate (mal[c]) to pyruvate (pyr[c]) by a malic enzyme 
 % (ME1 or ME2). This is followed by the synthesis of pep[c] from pyr[c] by phosphoenolpyruvate 
-% synthase (PPS)_. _Malic enzyme (ME1_) _reduces one molecule of nad[c] to nadh[c] 
+% synthase (PPS)_._ Malic enzyme (ME1_)_ reduces one molecule of nad[c] to nadh[c] 
 % while converting mal[c] to pyr[c]. A second parallel reaction, ME2 reduces one 
 % molecule of nadp[c]  to nadph[c].
 % 
-% Now it is time to explore the the impact on the cell of these pathways 
-% for different carbon sources. Let's begin by looking at the aerobic operation 
-% of the cell growing on acetate. _[Timing: Seconds]_
+% Now it is time to explore the the impact on the cell of these pathways for 
+% different carbon sources. Let's begin by looking at the aerobic operation of 
+% the cell growing on acetate. _[Timing: Seconds]_
 
 % Key parameters for TCA pathway section
 model = e_coli_core;
@@ -281,26 +273,24 @@ drawFlux(map, model, FBAsolution.x, options);
 % 
 % 
 % 
-% *                                                                    Figure 
-% 24. *Screenshot of the core model with acetate as the carbon source under aerobic 
-% conditions.
+% *Figure 24.* Screenshot of the core model with acetate as the carbon source 
+% under aerobic conditions.
 % 
 % The active fluxes for this simulaton are given below. _[Timing: Seconds]_
 
 printFluxVector(model,FBAsolution.x,true) % only prints nonzero fluxes
 %% 
-% It can be seen, using the map and the fluxes listed above, that acetate 
-% enters the network at the bottom and flows into the TCA cycle. From there it 
-% can be observed that not only is the full TCA cycle operational but so is the 
-% glycoxolate cycle. Part of the oaa[c] metabolite flux is then directed through 
-% the glycolysis pathway (gluconeogenesis) to the pentose phosphate pathway to 
-% create the 4-, 5- and 7-carbon precursors precursors. 
-% 
-% Using malate as a carbon source under aerobic conditions is another good 
-% example of the role of the glycoxylate cycle, gluconeogenesis, and anapleurotic 
-% reactions. The Matlab/COBRA Toolbox code for this example is shown below. _[Timing: 
-% Seconds]_
-%%
+% It can be seen, using the map and the fluxes listed above, that acetate enters 
+% the network at the bottom and flows into the TCA cycle. From there it can be 
+% observed that not only is the full TCA cycle operational but so is the glycoxolate 
+% cycle. Part of the oaa[c] metabolite flux is then directed through the glycolysis 
+% pathway (gluconeogenesis) to the pentose phosphate pathway to create the 4-, 
+% 5- and 7-carbon precursors precursors. 
+%% 
+% Using malate as a carbon source under aerobic conditions is another good example 
+% of the role of the glycoxylate cycle, gluconeogenesis, and anapleurotic reactions. 
+% The Matlab/COBRA Toolbox code for this example is shown below. _[Timing: Seconds]_
+
 model = e_coli_core;
 model = changeRxnBounds(model,'EX_glc(e)',-0,'l'); 
 model = changeRxnBounds(model,'EX_mal_L(e)',-10,'l'); 
@@ -320,34 +310,32 @@ drawFlux(map, model, FBAsolution.x, options);
 % 
 % 
 % 
-% *                                                                  Figure 
-% 25.* COBRA Toolbox produced map showing aerobic operation with malate as the 
-% carbon source.
+% *Figure 25.* COBRA Toolbox produced map showing aerobic operation with malate 
+% as the carbon source.
 % 
 % The active fluxes for this simulaton are given below. _[Timing: Seconds]_
 
 printFluxVector(model,FBAsolution.x,true) % only prints nonzero fluxes
 %% 
-% In this situation, the malate enters the network from the top and flows 
-% to the TCA cycle. Part of the malate metabolite flux is converted to be used 
-% as the pyruvate precursor while the rest enters the fully operational TCA cycle. 
+% In this situation, the malate enters the network from the top and flows to 
+% the TCA cycle. Part of the malate metabolite flux is converted to be used as 
+% the pyruvate precursor while the rest enters the fully operational TCA cycle. 
 % Note that the glycoxolate cycle is inactive. Part of the oaa[c] metabolite flux 
 % is then directed through the glycolysis pathway (gluconeogenesis), to the pentose 
 % phosphate pathway, to create the 4-, 5- and 7-carbon precursors.
 %% 4.F. Fermentation
 % Fermentation is the process of extracting energy from the oxidation of organic 
 % compounds without oxygen. The location of the fermentation reactions on the 
-% _E.coli _core map are shown in the Figure 26.
+% _E.coli_ core map are shown in the Figure 26.
 % 
 % 
 % 
-% *                                                                                    
-% Figure 26.* Fermentation reactions highlighted in blue on the_ E.coli_ core 
+% *Figure 26.* Fermentation reactions highlighted in blue on the _E.coli_ core 
 % map [3].
 % 
 % The reactions associated with the fermentation pathways include: _[Timing: 
 % Seconds]_
-%%
+
 % Set initial constraints for fermentation metabolism section
 model = e_coli_core;
 FERM_Reactions = transpose({'LDH_D','D_LACt2','PDH','PFL','FORti','FORt2',...
@@ -357,17 +345,16 @@ Reaction_Names = model.rxnNames(FERM_rxnID);
 Reaction_Formulas = printRxnFormula(model,FERM_Reactions,0);
 T = table(Reaction_Names,Reaction_Formulas,'RowNames',FERM_Reactions)   
 %% 
-% The reactions, GRPA relationships, and precursors for this section on 
-% fermentation are shown in Figure 27 below.
+% The reactions, GRPA relationships, and precursors for this section on fermentation 
+% are shown in Figure 27 below.
 %% 
-% *                                                                    Figure 
-% 27. *Reactions, GRPA relationships, and precursors for the fermentation metabolism 
-% [3].
+% *Figure 27.* Reactions, GRPA relationships, and precursors for the fermentation 
+% metabolism [3].
 % 
 % During aerobic respiration, oxygen is used as the terminal electron acceptor 
 % for the oxidative phosphorylation process yielding the bulk of atp[c] required 
 % for cells biosynthesis. Anaerobic respiration, on the other hand, refers to 
-% respiration without molecular oxygen. In this case, _E. coli _can only generate 
+% respiration without molecular oxygen. In this case, _E. coli_ can only generate 
 % atp[c] through substrate level phosphorylation which significantly reduces the 
 % amount of atp[c] that can be produced per molecule of glucose. In anaerobic 
 % conditions, glycolysis results in the net production of 2 atp[c] per glucose 
@@ -404,18 +391,18 @@ model = changeObjective(model,'Biomass_Ecoli_core_w_GAM');
 FBAsolution = optimizeCbModel(model,'max',0,0);
 printFluxVector(model,FBAsolution.x,true, true) % only prints nonzero fluxes
 %% 
-% With these results we can see that acetate, ethanol, and formate are the 
-% mixed fermentation products. Figure 12 shows the cell in this anaerobic condition. 
+% With these results we can see that acetate, ethanol, and formate are the mixed 
+% fermentation products. Figure 12 shows the cell in this anaerobic condition. 
 % Note the flux flow in the paths of the secreted mixed acid fermentation products. 
 % Now let's explore the producers and consumers of atp[c] in anaerobic conditions 
 % with a glucose carbon source using "surfNet". _[Timing: Seconds]_
 
 surfNet(model,'atp[c]',0,FBAsolution.x,1,1)
 %% 
-% Note that all the atp[c] is produced through substrate phosphorylation 
-% through PGK and PYK in the glycolysis pathway and ACKr in the fermentation pathway 
-% that produces acetate. Now let's check to see if the majority of the produced 
-% nadh[c] is reduced to nad[c] by the fermentation pathways. _[Timing: Seconds]_
+% Note that all the atp[c] is produced through substrate phosphorylation through 
+% PGK and PYK in the glycolysis pathway and ACKr in the fermentation pathway that 
+% produces acetate. Now let's check to see if the majority of the produced nadh[c] 
+% is reduced to nad[c] by the fermentation pathways. _[Timing: Seconds]_
 
 surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 %% 
@@ -446,13 +433,12 @@ drawFlux(map, model, FBAsolution.x, options);
 % 
 % 
 % 
-% *                                                                Figure 
-% 28. *Screenshot of the core network with pyruate as the carbon source in an 
-% anaerobic environment. 
+% *Figure 28.* Screenshot of the core network with pyruate as the carbon source 
+% in an anaerobic environment. 
 % 
-% From this map we can see that as the pyruvate enters the cell, part of 
-% the flux is directed upward through the glycolysis pathway (gluconeogenesis) 
-% to the pentose phosphate pathway to create the 4-, 5- and 7-carbon precursors. 
+% From this map we can see that as the pyruvate enters the cell, part of the 
+% flux is directed upward through the glycolysis pathway (gluconeogenesis) to 
+% the pentose phosphate pathway to create the 4-, 5- and 7-carbon precursors. 
 % Part of the flux is also directed to the TCA cycle to feed the nitrogen metabolism, 
 % with the remaining flux being directed through the fermentation pathways to 
 % produce formate, acetate, and some atp[c] through substrate phosphorylation. 
@@ -465,17 +451,16 @@ printFluxVector(model,FBAsolution.x,true) % only prints nonzero reactions
 % Nitrogen enters the cell as either ammonium ion (nh4[c]), or as a moiety within 
 % glutamine (glu-L[c]) or glutamate (gln-L[c]). The _E.coli_ core model covers 
 % the pathways between 2-oxoglutarate, L-glutamate, and L-glutamine. The location 
-% of the nitrogen metabolism reactions on the _E.coli _core map is shown in Figure 
+% of the nitrogen metabolism reactions on the _E.coli_ core map is shown in Figure 
 % 29.
 % 
 % 
 % 
-% *                                                                                
-% Figure 29.* Nitrogen metabolism reactions highlighted in blue on the_ E.coli_ 
+% *Figure 29.* Nitrogen metabolism reactions highlighted in blue on the _E.coli_ 
 % core map [3].
 % 
 % The reactions of the nitrogen metabolism include: _[Timing: Seconds]_
-%%
+
 % Set initial constraints for nitrogen metabolism section
 model = e_coli_core;
 NIT_Reactions = transpose({'GLNabc','GLUt2r','GLUDy','GLNS','GLUSy','GLUN'});
@@ -484,17 +469,15 @@ Reaction_Names = model.rxnNames(NIT_rxnID);
 Reaction_Formulas = printRxnFormula(model,NIT_Reactions,0);
 T = table(Reaction_Names,Reaction_Formulas,'RowNames',NIT_Reactions)   
 %% 
-% The reactions, GRPA relationships, and precursors for this section on 
-% the nitrogen metabolism are shown in the Figure 30 below.
+% The reactions, GRPA relationships, and precursors for this section on the 
+% nitrogen metabolism are shown in the Figure 30 below.
 % 
 % 
 % 
-% *                                                                    Figure 
-% 30.* Reactions GRPA relationships, and precursors associated with the nitrogen 
-% metabolism [3].
+% *Figure 30.* Reactions GRPA relationships, and precursors associated with 
+% the nitrogen metabolism [3].
 % 
-% Note that the precursors supported by nitrogen metaboism are proline and 
-% arginine. 
+% Note that the precursors supported by nitrogen metaboism are proline and arginine. 
 % 
 % In this simple model, one of the potential sources of nitrogen is through 
 % ammonium which is transported into the cell through a transporter (NH4t). Within 
@@ -532,8 +515,8 @@ drawFlux(map, model, FBAsolution.x, options);
 %% 
 % 
 % 
-% *                                                                                
-% Figure 31.* A screenshot of glutamate serving as both carbon and nitrogen source. 
+% *Figure 31.* A screenshot of glutamate serving as both carbon and nitrogen 
+% source. 
 % 
 % In this figure, it can be seen that glutamate enters the cell in the lower 
 % right. It passes through the nitrogen metabolism producing 2-oxogluarate (akg[c]) 
@@ -547,9 +530,9 @@ drawFlux(map, model, FBAsolution.x, options);
 
 printFluxVector(model,FBAsolution.x,true) % only prints nonzero reactions
 %% 
-% Since the normal source of nadh[c] from the glycolysis pathway is not 
-% availabe during gluconeogenesis, let's explore where the nadh[c] is produced 
-% and consumed. _[Timing: Seconds]_
+% Since the normal source of nadh[c] from the glycolysis pathway is not availabe 
+% during gluconeogenesis, let's explore where the nadh[c] is produced and consumed. 
+% _[Timing: Seconds]_
 
 surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 %% 
@@ -565,6 +548,7 @@ surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 % reconstruction using the core model as an example. Now with this beginning skill 
 % set you can start exploring the larger and more accurate network reconstructions!
 %% 6. *Reflective Questions*
+%% 
 % * What is the difference between glycolysis and gluconeogenesis?
 % * What reactions make-up the glycolysis pathway?
 % * What metabolites are created in the glycolysis pathway?
@@ -611,17 +595,19 @@ surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 % * What is the purpose of the "changeRxnBounds" function?
 % * What are the outputs produced by the "optimizeCbModel" function?
 %% *7. Tutorial Understanding Enhancement Problems*
+%% 
 % # Find the maximum atp[c], nadh[c], and nadph[c] that can be produced by the 
-% _E.coli _core model in an aerobic environment assuming a fixed glucose uptake 
-% rate of -1 $\text{mmol}\cdot {\text{gDW}}^{-1} \cdot {\text{hr}}^{-1}$. Hint: 
-% For atp[c] you can set ATPM as the objective function but for nadh[c] and nadph[c] 
-% you will need to create separate demand functions. See Chapter 19 of Palsson's 
-% book [1].
+% _E.coli_ core model in an aerobic environment assuming a fixed glucose uptake 
+% rate of -1 $\textrm{mmol}\cdot {\textrm{gDW}}^{-1} \cdot {\textrm{hr}}^{-1}$. 
+% Hint: For atp[c] you can set ATPM as the objective function but for nadh[c] 
+% and nadph[c] you will need to create separate demand functions. See Chapter 
+% 19 of Palsson's book [1].
 % # Compare the difference in the aerobic vs anaerobic flux rate through the 
 % glycolysis pathway by setting biomass function to a fixed rate of 0.8739 $h^{-1}$. 
 % Why is the anaerobic flux so much higher than the aerobic flux? Hint: Set the 
 % objective function to the glucose exchange reaction.
 %% References
+%% 
 % # Palsson, B. (2015). Systems biology : constraint-based reconstruction and 
 % analysis. Cambridge, United Kingdom, Cambridge University Press.
 % # Palsson, B. (2006). Systems biology : properties of reconstructed networks. 
@@ -657,5 +643,5 @@ surfNet(model,'nadh[c]',0,FBAsolution.x,1,1)
 % Press, Washington, D. C.
 % # Edwards, J. S. and B. O. Palsson (2000). "Robustness analysis of the Escherichia 
 % coli metabolic network." Biotechnology progress 16(6): 927-939.
-% 
+%% 
 %

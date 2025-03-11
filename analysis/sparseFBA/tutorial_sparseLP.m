@@ -15,14 +15,14 @@
 % 
 % The method is described in Le Thie et al. (2015)$^1$. The sparse LP solver 
 % contains one convex (one-norm) and 6 non-convex approximation of zero-norms
-% 
+%% 
 % * Capped-L1 norm
 % * Exponential function
 % * Logarithmic function
 % * SCAD (Smoothly Clipped Absolute Deviation) function
 % * p norm with    p<0    
 % * p norm with    0<p<1   
-% 
+%% 
 % The tutorial consist of two parts. Part 1 shows a basic usage of the solver. 
 % In part 2 provides an application of the code for finding the minimal set of 
 % reactions subject to a LP objective. Ready-made scripts are provided for both 
@@ -30,7 +30,7 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
@@ -38,7 +38,7 @@ initCobraToolbox(false) % false, as we don't want to update
 % can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
 % Metabolic Human> webpage. You can also select your own model to work with. Before 
 % proceeding with the simulations, the path for the model needs to be set up:      
-%%
+
 global CBTDIR
 modelFileName = 'Recon2.v04.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -52,7 +52,7 @@ model = readCbModel(modelFileName);
 % One randomly generates a matrix $A\in\mathcal{R}^{^{m\times n}}$   and a vector 
 % $x_{0}\in\mathcal{R}^{^{n}}$ . The right hand side vector $b=A\cdot x_{0}$. 
 % There are three optional inputs for the method.
-%%
+
 n = 100; 
 m = 50; 
 x0 = rand(n,1); 
@@ -66,7 +66,7 @@ constraint.csense = repmat('E', m, 1);
 % (_epsilon_) are stopping criterion conditions. _theta_ is the parameter of zero-norm 
 % approximation. The greater the value of _theta_, the better the approximation 
 % of the zero-norm. However, the greater the value of _theta_, the more local 
-% solutions the problem has. If the value of _theta _is not given then the algorithm 
+% solutions the problem has. If the value of _theta_ is not given then the algorithm 
 % will use a default value and update it gradually.
 
 params.nbMaxIteration = 100;    % stopping criteria
@@ -105,9 +105,8 @@ LPproblem = struct('c',-c,'osense',1,'A',S,'csense',csense,'b',b,'lb',lb,'ub',ub
 LPsolution = solveCobraLP(LPproblem);
 vFBA = LPsolution.full;
 %% 
-% We will now find the minimum number of reactions needed to achieve the 
-% same max objective found previously. Then one will add one more constraint: 
-% $$c^{T}v=c^{T}v_{FBA}=:f_{FBA}$$.
+% We will now find the minimum number of reactions needed to achieve the same 
+% max objective found previously. Then one will add one more constraint: $$c^{T}v=c^{T}v_{FBA}=:f_{FBA}$$.
 
 constraint.A = [S ; c']; 
 constraint.b = [b ; c'*vFBA]; 
@@ -177,7 +176,7 @@ if feasError>feasTol
     warning('Numerical issue with the sparseLP solution')
 end
 %% REFERENCES
-% _ _[1] Le Thi, H.A., Pham Dinh, T., Le, H.M., and Vo, X.T. (2015). DC approximation 
+% [1] Le Thi, H.A., Pham Dinh, T., Le, H.M., and Vo, X.T. (2015). DC approximation 
 % approaches for sparse optimization. European Journal of Operational Research 
 % 244, 26–46.
 % 

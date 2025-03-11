@@ -1,7 +1,7 @@
 %% Analyze Steady-State Community COBRA Models
 %% Author(s): Siu Hung Joshua Chan, Department of Chemical Engineering, The Pennsylvania State University
 %% Reviewer(s): Almut Heinken, Luxembourg Centre for Systems Biomedicine, University of Luxembourg
-% __
+% 
 %% INTRODUCTION
 % This tutorial demonstrates the use of SteadyCom to analyze a multi-organism 
 % COBRA model (e.g., for a microbial community) at a community steady-state [1]. 
@@ -24,11 +24,11 @@
 % \mu \geq 0, & \forall k \in \textbf{K} \\& V^k_j \in \Re, & \forall j \in \textbf{J}^k, 
 % k \in \textbf{K} \end{array}$$
 % 
-% where $S^k_{ij}$ is the stoichiometry of metabolite _i_ in reaction _j_ 
-% for organism _k_, $V^k_j$, $LB^k_j$ and $UB^k_j$ are respectively the flux (in 
-% mmol/h), lower bound (in mmol/h/gdw) and upper bound (in mmol/h/gdw) for reaction 
-% _j_ for organism _k_, $u^{com}_i$ is the community uptake bound for metabolite 
-% _i_, $X^k$ is the biomass (in gdw) of organism _k_, $\mu$ is the community growth 
+% where $S^k_{ij}$ is the stoichiometry of metabolite _i_ in reaction _j_ for 
+% organism _k_, $V^k_j$, $LB^k_j$ and $UB^k_j$ are respectively the flux (in mmol/h), 
+% lower bound (in mmol/h/gdw) and upper bound (in mmol/h/gdw) for reaction _j_ 
+% for organism _k_, $u^{com}_i$ is the community uptake bound for metabolite _i_, 
+% $X^k$ is the biomass (in gdw) of organism _k_, $\mu$ is the community growth 
 % rate, $\textbf{I}^k$ is the set of metabolites of organism _k_, $\textbf{I}^{com}$ 
 % is the set of community metabolites in the community exchange space, $\textbf{J}^k$ 
 % is the set of reactions for organism k, $\textbf{K}$ is the set of organisms 
@@ -54,14 +54,14 @@ initCobraToolbox(false) % false, as we don't want to update
 % for SteadyComFVA and SteadyComPOA for larger problems through calling the Cplex 
 % object in Matlab directly. 
 % 
-% Please note that parallelization requires a working installation of the 
-% Parallel Computing Toolbox.
+% Please note that parallelization requires a working installation of the Parallel 
+% Computing Toolbox.
 
 changeCobraSolver('ibm_cplex', 'LP');
 %% PROCEDURE
 %% Model Construction
 % Load the _E. coli_ iAF1260 model in the COBRA toolbox.
-%%
+
 global CBTDIR
 iAF1260 = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'iAF1260.mat']);
 %% 
@@ -93,8 +93,8 @@ lysO = {'LYSt3pp'};  % Distinct paths for basic amino acid export in Escherichia
 yjeH = {'METt3pp'};  % YjeH is a novel L-methionine and branched chain amino acids exporter in Escherichia coli
 yddG = {'PHEt2rpp'};  % YddG from Escherichia coli promotes export of aromatic amino acids.
 %% 
-% Now make four copies of the model with auxotrophy for different amino 
-% acids and inability to export amino acids:
+% Now make four copies of the model with auxotrophy for different amino acids 
+% and inability to export amino acids:
 
 % auxotrophic for Lys and Met, not exporting Phe
 Ec1 = iAF1260;
@@ -109,12 +109,12 @@ Ec3 = changeRxnBounds(Ec3, [argH; lysO; ilvE], 0, 'b');
 Ec4 = iAF1260;
 Ec4 = changeRxnBounds(Ec4, [argO; lysA; metA], 0, 'b');
 %% 
-% Now none of the four organisms can grow alone and they must cross feed 
-% each other to survive. See Figure 1 in ref. <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005539 
+% Now none of the four organisms can grow alone and they must cross feed each 
+% other to survive. See Figure 1 in ref. <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005539 
 % [1]> for the visualization of the community. 
 % 
-% Get the extracellular metabolites, the corresponding exchange reactions 
-% and the uptake rates for the _E. coli_ model, which are used later to constrain 
+% Get the extracellular metabolites, the corresponding exchange reactions and 
+% the uptake rates for the _E. coli_ model, which are used later to constrain 
 % the community model:
 
 % extracellular metabolites (met[e])
@@ -126,17 +126,17 @@ rxnEx = rxnExAll(rxnEx);
 % exchange rate
 lbEx = iAF1260.lb(rxnEx);
 %% 
-% Create a community model with the four _E. coli_ tagged as 'Ec1', 'Ec2', 
-% 'Ec3', 'Ec4' respectively by calling |createMultipleSpeciesModel|. 
+% Create a community model with the four _E. coli_ tagged as 'Ec1', 'Ec2', 'Ec3', 
+% 'Ec4' respectively by calling |createMultipleSpeciesModel|. 
 
 nameTagsModel = {'Ec1'; 'Ec2'; 'Ec3'; 'Ec4'};
 EcCom = createMultipleSpeciesModel({Ec1; Ec2; Ec3; Ec4}, nameTagsModel);
 EcCom.csense = char('E' * ones(1,numel(EcCom.mets)));  % correct the csense
 clear Ec1 Ec2 Ec3 Ec4
 %% 
-% The model |EcCom| contains a community compartment denoted by |[u]| to 
-% allow exchange between organisms. Each organism-specific reaction/metabolite 
-% is prepended with the corresponding tag.
+% The model |EcCom| contains a community compartment denoted by |[u]| to allow 
+% exchange between organisms. Each organism-specific reaction/metabolite is prepended 
+% with the corresponding tag.
 % 
 % Retreive the names and ids for organism/community exchange reactions/metabolites 
 % which are necessary for computation:
@@ -144,15 +144,15 @@ clear Ec1 Ec2 Ec3 Ec4
 [EcCom.infoCom, EcCom.indCom] = getMultiSpeciesModelId(EcCom, nameTagsModel);
 disp(EcCom.infoCom);
 %% 
-% |EcCom.infoCom |contains reaction/metabolite names (from |EcCom.rxns|/|EcCom.mets|) 
+% |EcCom.infoCom| contains reaction/metabolite names (from |EcCom.rxns|/|EcCom.mets|) 
 % for the community exchange reactions (|*.EXcom|), organism-community exchange 
 % reactions (|*.EXsp|), community metabolites (|*.Mcom|), organism-specific extracellular 
 % metabolite (|*.Msp|). If a host model is specified, there will also be non-empty 
-% |*.EXhost| and |*.Mhost |for the host-specific exchange reactions and metabolites. 
+% |*.EXhost| and |*.Mhost| for the host-specific exchange reactions and metabolites. 
 % The fields |*.rxnSps|/|*.metSps| give information on which organism a reaction/metabolite 
 % belongs to.
 % 
-% |indCom |has the same structure as |infoCom| but contains the indices rather 
+% |indCom| has the same structure as |infoCom| but contains the indices rather 
 % than names. |infoCom| and |indCom| are attached as fields of the model |EcCom| 
 % because SteadyCom requires this information from the input model for computation. 
 % Incorporate also the names and indices for the biomass reactions which are necessary 
@@ -167,15 +167,15 @@ EcCom.indCom.spBm = rxnBiomassId;
 %% Finding Maximum Growth Rate Using SteadyCom
 % Set community and organism-specific uptake rates to be the same as in the 
 % orginal iAF1260 model:
-%%
+
 [yn, id] = ismember(strrep(iAF1260.mets(metEx), '[e]', '[u]'), EcCom.infoCom.Mcom);  % map the metabolite name
 assert(all(yn));  % must be a 1-to-1 mapping
 EcCom.lb(EcCom.indCom.EXcom(:,1)) = lbEx(id);  % assign community uptake bounds
 EcCom.ub(EcCom.indCom.EXcom(:,1)) = 1e5;
 EcCom.lb(EcCom.indCom.EXsp) = repmat(lbEx(id), 1, 4);  % assign organism-specific uptake bounds
 %% 
-% Set maximum allowed organism-specific uptake rates for the cross-feeding 
-% amino acids:
+% Set maximum allowed organism-specific uptake rates for the cross-feeding amino 
+% acids:
 
 % only allow to take up the amino acids that one is auxotrophic for
 exRate = 1;  % maximum uptake rate for cross feeding AAs
@@ -194,18 +194,18 @@ EcCom = changeRxnBounds(EcCom, {'Ec4IEX_met__L[u]tr'; 'Ec4IEX_lys__L[u]tr'}, -ex
 % allow production of anything for each member
 EcCom.ub(EcCom.indCom.EXsp(:)) = 1000;
 %% 
-% Before the calculation, print the community uptake bounds for checking 
-% using |printUptakeBoundCom|:
+% Before the calculation, print the community uptake bounds for checking using 
+% |printUptakeBoundCom|:
 
 printUptakeBoundCom(EcCom, 1);
 %% 
-% Values under 'Comm.' are the community uptake bounds (+ve for uptake) 
-% and values under 'Ec1' are the Ec1-specific uptake bounds (-ve for uptake). 
+% Values under 'Comm.' are the community uptake bounds (+ve for uptake) and 
+% values under 'Ec1' are the Ec1-specific uptake bounds (-ve for uptake). 
 % 
-% Create an option structure for calling SteadyCom and call the function. 
-% There are a range of options available, including setting algorithmic parameters, 
+% Create an option structure for calling SteadyCom and call the function. There 
+% are a range of options available, including setting algorithmic parameters, 
 % fixing growth rates for members, adding additional linear constraints in a general 
-% format, e.g., for molecular crowding effect. See |help SteadyCom |for more options.
+% format, e.g., for molecular crowding effect. See |help SteadyCom| for more options.
 
 options = struct();
 options.GRguess = 0.5;  % initial guess for max. growth rate
@@ -213,38 +213,36 @@ options.GRtol = 1e-6;  % tolerance for final growth rate
 options.algorithm = 1;  % use the default algorithm (simple guessing for bounds, followed by matlab fzero)
 [sol, result] = SteadyCom(EcCom, options);
 %% 
-% The algorithm is an iterative procedure to find the maximum biomass at 
-% a given growth rate and to determine the maximum growth rate that is feasible 
-% for the required total biomass (default 1 gdw). Here the algorithm used is the 
-% simple guessing for find upper and lower bounds (Iter 1 to 4 in the output) 
-% followed by Matlab |fzero| (starting from the line '|Func-count|') to locate 
-% the root. The maximum growth rate calculated is 0.73599 /h, stored in |result.GRmax|._ 
-% _
+% The algorithm is an iterative procedure to find the maximum biomass at a given 
+% growth rate and to determine the maximum growth rate that is feasible for the 
+% required total biomass (default 1 gdw). Here the algorithm used is the simple 
+% guessing for find upper and lower bounds (Iter 1 to 4 in the output) followed 
+% by Matlab |fzero| (starting from the line '|Func-count|') to locate the root. 
+% The maximum growth rate calculated is 0.73599 /h, stored in |result.GRmax|. 
 % 
-% The biomass for each organism (in gdw) is given by_ |_result.BM|:
+% The biomass for each organism (in gdw) is given by |result.BM|:
 
 for jSp = 1:4
     fprintf('X_%s:  %.6f\n', EcCom.infoCom.spAbbr{jSp}, result.BM(jSp));
 end
 disp(result);
 %% 
-% |result.vBM| contains the biomass production rates (in gdw / h), equal 
-% to |result.BM * result.GRmax. |Since the total community biomass is defaulted 
-% to be 1 gdw, the biomass for each organism coincides with its relative abundance. 
+% |result.vBM| contains the biomass production rates (in gdw / h), equal to 
+% |result.BM * result.GRmax.| Since the total community biomass is defaulted to 
+% be 1 gdw, the biomass for each organism coincides with its relative abundance. 
 % Note that the community uptake bounds in this sense are normalized per gdw of 
 % the community biomass. So the lower bound for the exchange reaction |EX_glc__D[u]| 
 % being 8 can be interpreted as the maximum amount of glucose available to the 
 % community being at a rate of 8 mmol per hour for 1 gdw of community biomass. 
-% Similarly, all fluxes in |result.flux |($V^k_j$)| |has the unit mmol / h / [gdw 
+% Similarly, all fluxes in |result.flux| ($V^k_j$) has the unit mmol / h / [gdw 
 % of comm. biomass]. It differs from the specific rate (traditionally denoted 
 % by $v^k_j$) of an organism in the usual sense (in the unit of mmol / h / [gdw 
 % of organism biomass]) by $V^k_j=X^kv^k_j$ where $X^k$ is the biomass of the 
-% organism. |result.Ut|_ _and_ |_result.Ex |are the community uptake and export 
-% rates respectively, corresponding to the exchange reactions in |EcCom.infoCom.EXcom|.| 
-% |
+% organism. |result.Ut| and |result.Ex| are the community uptake and export rates 
+% respectively, corresponding to the exchange reactions in |EcCom.infoCom.EXcom|. 
 % 
-% |result.iter0 |is the info for solving the model at zero growth rate and 
-% |result.iter |records the info during iteration of the algorithm:
+% |result.iter0| is the info for solving the model at zero growth rate and |result.iter| 
+% records the info during iteration of the algorithm:
 
 
 iter = [0, result.iter0, NaN; result.iter];
@@ -258,22 +256,22 @@ end
 %% 
 % |mu * sum(X)| in the forth column is equal to the biomass production rate. 
 % 
-% The fifth column contains the maximum infeasibility of the solutions in 
-% each iteration.
+% The fifth column contains the maximum infeasibility of the solutions in each 
+% iteration.
 % 
-% Guess method in the last column represents the method used for guessing 
-% the growth rate solved in the current iteration:
+% Guess method in the last column represents the method used for guessing the 
+% growth rate solved in the current iteration:
 % 
-% 0: the default simple guess by $\mu_{next} =\mu_{current} \text{ }\sum_{k=1}^K 
-% X_k^{current}$ (_K_ is the total number of organisms)
+% 0: the default simple guess by $\mu_{\textrm{next}} =\mu_{\textrm{current}} 
+% \;\sum_{k=1}^K X_k^{\textrm{current}}$ (_K_ is the total number of organisms)
 % 
 % 1: bisection method
 % 
-% 2: bisection or at least 1% away from the bounds if the simple guess is 
-% too close to the bounds (<1%)
+% 2: bisection or at least 1% away from the bounds if the simple guess is too 
+% close to the bounds (<1%)
 % 
-% 3. 1% away from the current growth rate if the simple guess is too close 
-% to the current growth rate
+% 3. 1% away from the current growth rate if the simple guess is too close to 
+% the current growth rate
 % 
 % From the table, we can see that at the growth rate 0.742726 (iter 4), the 
 % max. biomass is 0, while at growth rate 0.735372, max. biomass = 1.0008 > 1. 
@@ -281,9 +279,9 @@ end
 % fzero is initiated to solve for the max. growth rate that gives max. biomass 
 % >= 1.
 % 
-% Two other algorithms for the iterative procedure are also implemented: 
-% simple guessing only and the bisection method. Compare their results with simple 
-% guessing + matlab fzero run above:
+% Two other algorithms for the iterative procedure are also implemented: simple 
+% guessing only and the bisection method. Compare their results with simple guessing 
+% + matlab fzero run above:
 
 options.algorithm = 2;  % use the simple guessing algorithm
 [sol2, result2] = SteadyCom(EcCom, options);
@@ -298,8 +296,8 @@ options.algorithm = 3;  % use the bisection algorithm
 % 
 % (3) bisection: 70 sec
 % 
-% Algorithm (1) appears to be the fastest in most case although the simple 
-% guess algorithm can sometimes also outperform it. The most conservative bisection 
+% Algorithm (1) appears to be the fastest in most case although the simple guess 
+% algorithm can sometimes also outperform it. The most conservative bisection 
 % method can already guarantee convergence within around 20 iterations, i.e., 
 % solving ~20 LPs for an optimality gap (|options.GRtol|) of 1e-6.
 % 
@@ -307,7 +305,7 @@ options.algorithm = 3;  % use the bisection algorithm
 %% Analyzing Flux Variability Using SteadyComFVA
 % Now we want to analyze the variability of the organism abundance at various 
 % growth rates. Choose more options and call |SteadyComFVA|:
-%%
+
 % percentage of maximum total biomass of the community required. 100 for sum(biomass) = 1 (1 is the default total biomass)
 options.optBMpercent = 100;  
 n = size(EcCom.S, 2);  % number of reactions in the model
@@ -325,8 +323,8 @@ options.optGRpercent = [89:0.2:99, 99.1:0.1:100];  % perform FVA at various perc
 % of flux/biomass variables in the columns of the matrix. See |help SteadyComFVA| 
 % for more details.
 % 
-% We would also like to compare the results against the direct use of FBA 
-% and FVA by calling |optimizeCbModel| and |fluxVariability|:
+% We would also like to compare the results against the direct use of FBA and 
+% FVA by calling |optimizeCbModel| and |fluxVariability|:
 
 optGRpercentFBA = [89:2:99 99.1:0.1:100];  % less dense interval to save time because the results are always the same for < 99%
 nGr = numel(optGRpercentFBA);
@@ -342,8 +340,7 @@ for jGr = 1:nGr
     [fvaFBAMin(:, jGr), fvaFBAMax(:, jGr)] = fluxVariability(EcCom, optGRpercentFBA(jGr), 'max', EcCom.infoCom.spBm, 2);
 end
 %% 
-% Plot the results to visualize the difference (see also Figure 2 in ref. 
-% [1]):
+% Plot the results to visualize the difference (see also Figure 2 in ref. [1]):
 
 grComV = result.GRmax * options.optGRpercent / 100;  % vector of growth rates tested
 lgLabel = {'{\itEc1 }';'{\itEc2 }';'{\itEc3 }';'{\itEc4 }'};
@@ -418,9 +415,9 @@ lg.Position = [0.65 0.65 0.1 0.27];
 % the dependent variable. |savePOA| options must be supplied with a non-empty 
 % string or a default name will be used for saving the POA results. By default, 
 % the function analyzes all possible pairs in |options.rxnNameList|. To analyze 
-% only particular pairs, use |options.pairList|. See |help SteadyComPOA |for more 
+% only particular pairs, use |options.pairList|. See |help SteadyComPOA| for more 
 % details.
-%%
+
 options.savePOA = ['POA' filesep 'EcCom'];  % directory and fila name for saving POA results
 options.optGRpercent = [99 90 70 50];  % analyze at these percentages of max. growth rate
 % Nstep is the number of intermediate steps that the independent variable will take different values
@@ -432,15 +429,15 @@ options.Nstep = sort([a (1-a)]);
 [POAtable, fluxRange, Stat, GRvector] = SteadyComPOA(EcCom, options);
 %% 
 % POAtable is a _n_-by-_n_ cell if there are _n_ targets in |options.rxnNameList|. 
-% |POAtable{i, i}| is a _Nstep_-by-1-by-_Ngr_ matrix where _Nstep _is the number 
-% of intermediate steps detemined by |options.Nstep| and _Ngr _is the number of 
+% |POAtable{i, i}| is a _Nstep_-by-1-by-_Ngr_ matrix where _Nstep_ is the number 
+% of intermediate steps detemined by |options.Nstep| and _Ngr_ is the number of 
 % growth rates analyzed. |POAtable{i, i}(:, :, k)| is the values at which the 
 % _i_-th target is fixed for the community growing at the growth rate |GRvector(k)|. 
 % POAtable{i, j} is a _Nstep_-by-2-by-_Ngr_ matrix where |POAtable{i, j}(:, 1, 
 % k)| and |POAtable{i, j}(:, 2, k)| are respectively the min. and max. values 
 % of the _j_-th target when fixing the _i_-th target at the corresponding values 
-% in |POAtable{i, i}(:, :, k)|. |fluxRange |contains the min. and max. values 
-% for each target (found by calling |SteadyComFVA|). |Stat |is a _n_-by-_n-by-Ngr_ 
+% in |POAtable{i, i}(:, :, k)|. |fluxRange| contains the min. and max. values 
+% for each target (found by calling |SteadyComFVA|). |Stat| is a _n_-by-_n-by-Ngr_ 
 % structure array, each containing two fields: |*.cor|, the correlatiion coefficient 
 % between the max/min values of the dependent variable and the independent variable, 
 % and |*.r2|, the R-squred of linear regression. They are also outputed in the 
@@ -518,7 +515,7 @@ end
 % SteadyComFVA and |spmd| for SteadyComPOA). 
 % 
 % Test SteadyComFVA with 2 threads:
-%%
+
 options.rxnNameList = EcCom.rxns(1:100);  % test FVA for the first 50 reactions
 options.optGRpercent = 99;
 options.algorithm = 1;
@@ -553,8 +550,8 @@ tic;
 [POAtable1, fluxRange1] = SteadyComPOA(EcCom, options);
 t3 = toc;
 %% 
-% The parallelization code uses |spmd| and will redistribute jobs once any 
-% of the workers has finished to maximize the computational efficiency.
+% The parallelization code uses |spmd| and will redistribute jobs once any of 
+% the workers has finished to maximize the computational efficiency.
 
 options.savePOA = 'POA/EcComSingeThread';  
 options.threads = 1;
@@ -571,18 +568,18 @@ end
 fprintf('Maximum difference between the two solutions: %.4e\n', dev);
 fprintf('\nSingle-thread computation: %.0f sec\nTwo-thread computation: %.0f sec\n', t4, t3);
 %% 
-% The advantage will be more significant for more targets to analyzed and 
-% more threads used. Similar to |SteadyComFVA|, |SteadyComPOA| also supports continuation 
+% The advantage will be more significant for more targets to analyzed and more 
+% threads used. Similar to |SteadyComFVA|, |SteadyComPOA| also supports continuation 
 % from previously interrupted computation by calling with the same |options.savePOA|.
 % 
-%  
+% 
 %% REFERENCES
-% _[1] _Chan SHJ, Simons MN, Maranas CD (2017) SteadyCom: Predicting microbial 
+% _[1]_ Chan SHJ, Simons MN, Maranas CD (2017) SteadyCom: Predicting microbial 
 % abundances while ensuring community stability. PLoS Comput Biol 13(5): e1005539. 
 % https://doi.org/10.1371/journal.pcbi.1005539
 % 
-% _[2] _Khandelwal RA, Olivier BG, Röling WFM, Teusink B, Bruggeman FJ (2013) 
+% _[2]_ Khandelwal RA, Olivier BG, Röling WFM, Teusink B, Bruggeman FJ (2013) 
 % Community Flux Balance Analysis for Microbial Consortia at Balanced Growth. 
 % PLoS ONE 8(5): e64567. https://doi.org/10.1371/journal.pone.0064567
 % 
-% __
+%

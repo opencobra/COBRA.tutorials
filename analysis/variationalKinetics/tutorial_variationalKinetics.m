@@ -38,26 +38,25 @@
 % 
 % $$f(x)=0.$$
 %% Moiety conserved steady state nonlinear system
-% Let us emphasize that a vector $c^\ast $ is a steady state of the biochemical 
+% Let us emphasize that a vector $c^*$ is a steady state of the biochemical 
 % system if and only if
 % 
 % $$s(k_{f},c^{*})-r(k_{r},c^{*})\in\mathcal{N}(N),$$
 % 
-% where $\mathcal{N}(N)$denotes the nul space of $N$. THerefore, the set 
-% of steady states $\Omega=\left\{ c\in R_{++}^{m},\,f(c)=0\right\}$ is unchanged 
-% if we replace the matrix $N$ with $\overline{N}$ with the same kernel. Suppose 
-% that $\bar{N}\in Z^{r\times n}$ is the submatrix of $N$ whose rows are linearly 
-% independent, then $\mathrm{rank}\left(\bar{N}\right)=\mathrm{rank}(N):=r$. If 
-% one replaces $N$ by $\overline{N}$ and considers the logarithmic scale, by setting 
-% $x=\ln(c)\in R^{m}$ and $k=[\ln(k_{f})^{T},\,\ln(k_{r})^{T}]^{T}\in R^{2n}$, 
-% then we have
+% where $\mathcal{N}(N)$denotes the nul space of $N$. THerefore, the set of 
+% steady states $\Omega=\left\{ c\in R_{++}^{m},\,f(c)=0\right\}$ is unchanged 
+% if we replace the matrix $N$ with $\bar{N}$ with the same kernel. Suppose that 
+% $\bar{N}\in Z^{r\times n}$ is the submatrix of $N$ whose rows are linearly independent, 
+% then $\mathrm{rank}\left(\bar{N}\right)=\mathrm{rank}(N):=r$. If one replaces 
+% $N$ by $\bar{N}$ and considers the logarithmic scale, by setting $x=\ln(c)\in 
+% R^{m}$ and $k=[\ln(k_{f})^{T},\,\ln(k_{r})^{T}]^{T}\in R^{2n}$, then we have
 % 
 % $$\bar{f}(x):=\left[\bar{N},-\bar{N}\right]\exp\left(k+[F,\,R]^{T}x\right).$$
 % 
-% Let also $L\in R^{m-r,m}$denote a basis for the left nullspace of $N$, 
-% which implies $N^TL=0$. We also have $\mathrm{rank}(L)=m-r$. WE say that the 
-% system satisfies moiety conservation if for any initial concentration $c_{0}\in 
-% R_{++}^{m}$, it holds 
+% Let also $L\in R^{m-r,m}$denote a basis for the left nullspace of $N$, which 
+% implies $N^TL=0$. We also have $\mathrm{rank}(L)=m-r$. WE say that the system 
+% satisfies moiety conservation if for any initial concentration $c_{0}\in R_{++}^{m}$, 
+% it holds 
 % 
 % $$L\,c=L\,\mathrm{exp}(x)=l_{0},$$
 % 
@@ -74,13 +73,13 @@
 %% METHODOLOGY
 % In order to solve above-mentioned nonlinear system, we here address three 
 % classes of methods, i.e.,
-% 
+%% 
 % # Levenberg-Marquardt methods [1,2,5,6,9.10],
 % # DC programming methods [3],
 % # derivative-free methods for duplomonotone mappings [4],
-% 
+%% 
 % where each class of solvers are described shortly as follows:  
-% 
+%% 
 % # The Levenberg-Marquardt methods are standard techniques used to solve nonlinear 
 % systems that each of which is a combination of the gradient descent and the 
 % Gauss-Newton methods. Therefore, knowing the first-order information (function 
@@ -99,8 +98,8 @@
 % derivative-free methods, namely, BDF, CSDF, and DBDF, see Algorithms 1-3 in 
 % [4] for more details. 
 %% MATERIALS
-% * _Please ensure that the COBRA Toolbox has been properly installed and initialised.  
-% _
+%% 
+% * _Please ensure that the COBRA Toolbox has been properly installed and initialised._  
 %% PROCEDURE 
 %% Computing steady states of biochemical systems
 % The mandatory inputs for computing steady states are a model involving F and 
@@ -108,7 +107,7 @@
 % and parameters for the considered solvers. We first need to load data from a 
 % ".mat" file involve $F$, $R$, and $kin$ (kinetic vector). For example, for "Ecoli 
 % core" model, we have
-%%
+
 global CBTDIR
 tutorialPath = fileparts(which('tutorial_variationalKinetics.mlx'));
 load([tutorialpath filesep 'Ecoli_core_data.mat']);
@@ -128,9 +127,8 @@ parms.MaxNumIter = 1000;
 parms.adaptive = 1;
 parms.kin = kin;
 %% 
-% otherwise, the selected algorithm will be run by the default parameters 
-% assigned in the codes. We finally need to run the function "optimizeVKmodel.m" 
-% like
+% otherwise, the selected algorithm will be run by the default parameters assigned 
+% in the codes. We finally need to run the function "optimizeVKmodel.m" like
 
 output = optimizeVKmodel(model, solver, x0, parms);
 %% 
@@ -147,7 +145,7 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % (kinetic vector). For example, for "Ecoli core" model, we have
 % 
 % Then, we need to make a struture "model" by
-%%
+
 model.F = F;
 model.R = R;
 model.L = L;
@@ -163,9 +161,8 @@ parms.MaxNumIter = 1000;
 parms.adaptive = 1;
 parms.kin = kin;
 %% 
-% otherwise, the selected algorithm will be run by the default parameters 
-% assigned in the codes. We finally need to run the function "optimizeVKmodel.m" 
-% like
+% otherwise, the selected algorithm will be run by the default parameters assigned 
+% in the codes. We finally need to run the function "optimizeVKmodel.m" like
 
 output = optimizeVKmodel(model, solver, x0, parms);
 %% 
@@ -183,7 +180,7 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % 
 % 
 % Parameters for all solvers:
-% 
+%% 
 % * |MaxNumIter|: is the maximum number of iterations;
 % * MaxNumMapEval:  is the maximum number of function evaluations;
 % * MaxNumGmapEval: is the maximum number of gradient evaluations;
@@ -198,11 +195,11 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % is needed (1) or not (0);
 % * flag_time: is a flag to specify if saving time in each iteration is needed 
 % (1) or not (0);
-% 
+%% 
 % Parameters for Levenberg-Marquardt solvers:
-% 
+%% 
 % * |solver|: is one of the solver; 
-% 
+%% 
 % # LLM_YF: the locally convergent Levenberg-Marquardt method of Yamashita and 
 % Fukushima [10];
 % # LLM_FY:  the locally convergent Levenberg-Marquardt method of Fan and Yuan 
@@ -220,12 +217,12 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % Artacho, Fleming, and Phan [2];
 % # LMTR:  the globally convergent Levenberg-Marquardt method of Ahookhosh, 
 % Artacho, Fleming, and Phan [2];
-% 
-% * |adaptive: |is a flag to specify lambda should be updated adaptively (1) 
+%% 
+% * |adaptive:| is a flag to specify lambda should be updated adaptively (1) 
 % or not (0);
 % * eta: is a constant for Levenberg-Marquardt parameter;
 % * Stopping_Crit: is a stopping criterion;
-% 
+%% 
 % # 1: stop if the norm of gradients is less or equal than epsilon;
 % # 2: stop if the norm of rhe mapping is less or equal than epsilon;
 % # 3: stop if maximum number of iterations is reached;
@@ -235,16 +232,16 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % # 7: stop if ||grad||<=max(epsilon,epsilon^2*ngradx0)
 % # 8: stop if ||nhxk||<=max(epsilon,epsilon^2*nhx0)
 % # 9: stop if ||hxk||<=epsilon or maximum number of iterations is reached                           
-% 
+%% 
 % Parameters for DC programming solvers:
-% 
+%% 
 % * |solver|: is one of the solver; 
-% 
+%% 
 % # DCA: DC programming algorithm of Artacho, Fleming, and Phan (Algorithm 1) 
 % [3];
 % # BDCA: DC programming algorithm of Artacho, Fleming, and Phan (Algorithm 
 % 2 and 3) [3];
-% 
+%% 
 % * alpha: is a constant for the line search;
 % * beta: is the backtarcking constant;
 % * lambda_bar: starting step-size for the line search;
@@ -252,44 +249,43 @@ output = optimizeVKmodel(model, solver, x0, parms);
 % * flag_line_search: is a flag determines either "Armijo" or "Quadratic_interpolation" 
 % should be used;
 % * Stopping_Crit: is a stopping criterion;
-% 
+%% 
 % # 1: stop if the norm of rhe mapping is less or equal than epsilon;
 % # 2: stop if maximum number of iterations is reached;
 % # 3: stop if maximum number of function evaluations is reached;
 % # 4: stop if time limit is reached;
 % # 5: stop if ||fxk||<=epsilon or maximum number of iterations is reached   
-% 
+%% 
 % Parameters for Derivative-free solvers:
-% 
+%% 
 % * |solver|: is one of the solver; 
-% 
+%% 
 % # BDF: backtracking derivative-free algorithm of Artacho and Fleming [4];
 % # CSDF: constant step derivative-free algorithm of Artacho and Fleming [4];
 % # DBDF: double backtracking derivative-free algorithm of Artacho and Fleming 
 % [4];
-% 
+%% 
 % * alpha: is a constant with alpha < 2 sigma;
 % * beta: is the backtarcking constant;
 % * lambda_min: lower bound of the step-size;
 % * lambda_max: upper bound of the step-size;
 % * Stopping_Crit: is a stopping criterion;
-% 
+%% 
 % # 1: stop if the norm of rhe mapping is less or equal than epsilon;
 % # 2: stop if maximum number of iterations is reached;
 % # 3: stop if maximum number of function evaluations is reached;
 % # 4: stop if time limit is reached;
 % # 5: stop if ||fxk||<=epsilon or maximum number of iterations is reached;   
-% 
+%% 
 % For a complete list of optional inputs and their definition, you can also 
 % run the following command.
-%%
+
 help optimizeVKmodel
 %% 
 % 
 %% Output
-% The output of optimizeVKmodel|.m |is a structure "output"| |involving the 
-% fields
-% 
+% The output of optimizeVKmodel|.m| is a structure "output" involving the fields
+%% 
 % * x_best: is the best approximation of the optimizer;
 % * psi_best: is the best approximation of the optimum;
 % * T: is the running time;
@@ -308,28 +304,27 @@ help optimizeVKmodel
 %% ANTICIPATED RESULTS
 % Finding steady states or moiety conserved steady state with one of the above-mentioned 
 % solvers (e.g., solver = 'LMTR') leads to the following results.
-%%
+
 output = optimizeVKmodel(model, solver, x0, parms)
 %% _TROUBLESHOOTING_
 % _In order to compute moiety conserved steady states, one should not use DC 
 % programming algorithms (DCA and BDCA) or derivative-free algorithms (BDF, CSDF, 
 % DBDF) because the current version of these codes are designed to deal with steady 
-% state of biochemical systems. _
+% state of biochemical systems._ 
 %% REFERENCES
 % [1] Ahookhosh, M., Artacho, F.J.R., Fleming, R.M.T., Phan V.T., Local convergence 
 % of Levenberg-Marquardt methods under Holder metric subregularity, Submitted, 
 % (2017).
 % 
-% [2] Ahookhosh, M., Artacho, F.J.R., Fleming, R.M.T., Phan V.T., Global 
-% convergence of Levenberg-Marquardt methods under Holder metric subregularity, 
-% Submitted, (2017).
+% [2] Ahookhosh, M., Artacho, F.J.R., Fleming, R.M.T., Phan V.T., Global convergence 
+% of Levenberg-Marquardt methods under Holder metric subregularity, Submitted, 
+% (2017).
 % 
 % [3] Artacho, F.J.R., Fleming, R.M.T., Phan V.T., Accelerating the DC algorithm 
 % for smooth functions, Mathematical Programming, (2017).
 % 
-% [4] Artacho, F.J.R., Fleming, R.M.T., Globally convergent algorithms for 
-% finding zeros of duplomonotone mappings, Optimization Letters, 9(3), 569--584 
-% (2015). 
+% [4] Artacho, F.J.R., Fleming, R.M.T., Globally convergent algorithms for finding 
+% zeros of duplomonotone mappings, Optimization Letters, 9(3), 569--584 (2015). 
 % 
 % [5] Fan,  J.,  Yuan,  Y.,   On  the  quadratic  convergence  of  the  Levenberg-Marquardt 
 % method without nonsingularity assumption, Computing, 74(1), 23--39 (2005).
@@ -342,13 +337,13 @@ output = optimizeVKmodel(model, solver, x0, parms)
 % is  sufficient for the existence of a non-equilibrium steady state concentration, 
 % Journal of Theoretical Biology, 314, 173--181 (2012).
 % 
-% [8] Fleming, R.M.T., Vlassis, N., Thiele, I., Saunders, M.A., Conditions 
-% for duality between fluxes and concentrations in biochemical networks, Journal 
-% of Theoretical Biology, 409, 1--10 (2016).
+% [8] Fleming, R.M.T., Vlassis, N., Thiele, I., Saunders, M.A., Conditions for 
+% duality between fluxes and concentrations in biochemical networks, Journal of 
+% Theoretical Biology, 409, 1--10 (2016).
 % 
-% [9] Ipsen, I., Kelley, C., and Pope, S., Rank-deficient nonlinear least 
-% squares problems and subset selection, SIAM Journal on Numerical Analysis, 49, 
-% 3, 1244--1266 (2011).
+% [9] Ipsen, I., Kelley, C., and Pope, S., Rank-deficient nonlinear least squares 
+% problems and subset selection, SIAM Journal on Numerical Analysis, 49, 3, 1244--1266 
+% (2011).
 % 
 % [10] Yamashita, N., Fukushima, M., On the rate of convergence of the Levenberg-Marquardt 
 % method, In: G. Alefeld, X. Chen (eds.) Topics in Numerical Analysis, vol. 15, 

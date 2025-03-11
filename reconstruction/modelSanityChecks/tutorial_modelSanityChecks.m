@@ -11,7 +11,7 @@
 % Recon2, as well as other metabolic models.
 %% Content:
 % The tests include:
-% 
+%% 
 % * leak test
 % * production of protons from nothing as well as from water, and/or oxygen 
 % alone
@@ -28,15 +28,15 @@
 % of demand reactions)
 % * consistency of model.rev, which defines reaction reversibility, and the 
 % set values for the lower bounds on reactions. 
-% 
+%% 
 % All results are stored in a table ('TableChecks').
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox:
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% 
-% For solving linear programming problems in FBA analysis, certain solvers 
-% are required:
+% For solving linear programming problems in FBA analysis, certain solvers are 
+% required:
 
 changeCobraSolver ('glpk', 'all', 1);
 %Uncomment if you don't want to use glpk.
@@ -53,7 +53,7 @@ warning off MATLAB:subscripting:noSubscriptsSpecified
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up. In this tutorial, the used model is the generic model of human metabolism, 
 % Recon 3 [1]. If Recon 3 is not available, please use Recon 2.
-%%
+
 modelFileName = 'Recon2.0model.mat'; %Replace if you want to load Recon3D
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
 modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
@@ -61,7 +61,7 @@ model = readCbModel(modelFileName);
 %% Model Harmonization
 % Replace reaction abbreviation for the ATP hydrolysis (DM_atp_c_) and Biomass 
 % reaction used differently in various models.
-%%
+
 model.rxns(find(ismember(model.rxns,'ATPM')))={'DM_atp_c_'};
 model.rxns(find(ismember(model.rxns,'ATPhyd')))={'DM_atp_c_'};
 model.rxns(find(ismember(model.rxns,'DM_atp(c)')))={'DM_atp_c_'};
@@ -88,12 +88,11 @@ model.rxns = regexprep(model.rxns,'-','_');
 cnt = 1;
 tol = 1e-6;
 %% 
-% Define the closed model. Here, we will set to zero the lower bounds of 
-% all reactions that represent exchange and siphon ('sink') reactions, or that 
-% contain only one entry in the column of the S matrix. The upper bound of those 
-% reactions is set to 1000 (i.e., infinity). Note that this overwrites any constraints 
-% on those reactions that may be present in a condition- and cell-type specific 
-% model.
+% Define the closed model. Here, we will set to zero the lower bounds of all 
+% reactions that represent exchange and siphon ('sink') reactions, or that contain 
+% only one entry in the column of the S matrix. The upper bound of those reactions 
+% is set to 1000 (i.e., infinity). Note that this overwrites any constraints on 
+% those reactions that may be present in a condition- and cell-type specific model.
 
 modelClosed = model;
 modelexchanges1 = strmatch('Ex_',modelClosed.rxns);
@@ -109,7 +108,7 @@ modelClosedOri = modelClosed;
 %% Start with tests.
 % Perform leak test, i.e., whether the closed model can produce any exchanged 
 % metabolite, as defined in the model, from nothing. 
-%%
+
 modelClosed = modelClosedOri;
 [LeakRxns,modelTested,LeakRxnsFluxVector] = fastLeakTest(modelClosed,modelClosed.rxns(selExc),'false');
 TableChecks{cnt,1} = 'fastLeakTest 1';
@@ -121,8 +120,8 @@ else
 end
 cnt = cnt + 1;
 %% 
-% Test if something leaks when demand reactions for each metabolite in the 
-% model are added. Note that this step is time consuming.
+% Test if something leaks when demand reactions for each metabolite in the model 
+% are added. Note that this step is time consuming.
 
 modelClosed = modelClosedOri;
 [LeakRxnsDM,modelTestedDM,LeakRxnsFluxVectorDM] = fastLeakTest(modelClosed,modelClosed.rxns(selExc),'true');
@@ -231,9 +230,9 @@ else
 end
 cnt = cnt + 1;
 %% 
-%     Test metabolic objective functions with open sinks. Note this step 
-% is time consuming and may only work reliably on Recon 3D derived models due 
-% to different usage of abbreviations.
+% Test metabolic objective functions with open sinks. Note this step is time 
+% consuming and may only work reliably on Recon 3D derived models due to different 
+% usage of abbreviations.
 
 TableChecks{cnt,1} = 'Test metabolic objective functions with open sinks';
 if 1 % perform test function
@@ -257,8 +256,8 @@ else
 end
 cnt =  cnt + 1;
 %% 
-% Compute ATP yield. This test is identical to the material covered in the 
-% tutorial testModelATPYield.
+% Compute ATP yield. This test is identical to the material covered in the tutorial 
+% testModelATPYield.
 
 TableChecks{cnt,1} = 'Compute ATP yield';
 if 1 % test ATP yield
@@ -340,5 +339,5 @@ TableChecks
 resultsFileName = 'TestResults';
 save(strcat(resultsFileName,'.mat'));
 %% References
-%  [1] Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view 
+% [1] Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view 
 % of gene variation in human metabolism. (submitted) 2017.
