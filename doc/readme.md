@@ -1,8 +1,9 @@
 ## Continuous Integration of Tutorials:
 ### High level Overview
-The whole idea of the continuous integration of the tutorials is that whenever a user contributes a tutorial in the format of a .mlx file on the [tutorials repo](https://github.com/opencobra/COBRA.tutorials) it should be converted to html and then rendered accordingly on the Cobratoolbox website in the tutorials section. This involves using MATLAB on a self-hosted server (King server) to generate the html file. This html is then pushed to the website's codebase repository which is the [./stable](https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable) folder of the gh-pages branch of the main cobratoolbox repository.
+The whole idea of the continuous integration of the tutorials is that whenever a user contributes a tutorial in the format of a .mlx file on the [tutorials repo](https://github.com/opencobra/COBRA.tutorials) it should be converted to html and then rendered accordingly on the Cobratoolbox website in the tutorials section. This process is explained in two parts, first part is explained here and second part is explained in [README.md](https://github.com/opencobra/cobratoolbox/blob/gh-pages/README.md) file at gh-pages branch of the cobratoolbox repository.
+First part involves using MATLAB on a self-hosted server (King server) to generate the html file. This html is then pushed to the website's codebase repository which is the [./stable](https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable) folder of the gh-pages branch of the main cobratoolbox repository.
 
-GitHub actions is used to detect when a push (specifically .mlx push) is made to the tutorials repo. Then once the .mlx has been converted it is pushed to the stable folder of the gh-pages branch. Again, GitHub actions can detect this push and configures the website to incorporate the extra tutorial. 
+GitHub actions is used to detect when a push (specifically .mlx push) is made to the tutorials repo. Then once the .mlx has been converted it is pushed to the stable folder of the gh-pages branch. Again, GitHub actions can detect this push and configures the website to incorporate the extra tutorial. Detailed documentation is given below.
 
 ### Detailed Documentation
 **Step 1: Pushing MLX files to the tutorials repository:**
@@ -118,3 +119,5 @@ Go to this page of the repo to create a new self-hosted runner:
 By pressing the green new runner button, we are given easy instructions on how to set it up. We should have access to a terminal on King for this. To run the self-hosted runner nagivate to the folder we created it in and run ./run.sh to run the self-hosted runner.
 
 We also need to make sure you have Matlab downloaded and working on the king server also.
+
+
