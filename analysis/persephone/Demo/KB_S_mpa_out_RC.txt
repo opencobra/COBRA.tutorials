@@ -1,0 +1,497 @@
+Taxon	CSM5MCXD	CSM5MCY2	CSM67U9J	CSM67UAW	CSM67UB9
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Enterocloster;s__clostridioformis	223046	1130	145250	1258	299225
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Enterocloster;s__bolteae	118846	1408	79403	764	20599
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Enterocloster;s__aspragiformis	8026	301	6135	273	842
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Enterocloster;s__citroniae	2412	99	1056	83	6329
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Enterocloster;s__aldenensis	3790	98	1966	189	1178
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Enterocloster;s__lavalensis	508	701	278	604	23957
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__;s__bacterium	688587	457526	420488	345289	153832
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__;s__bacterium 6_1_37FAA	318	0	99	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__;s__bacterium oral taxon 500	9	0	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__;s__bacterium 3_1_57FAA_CT1	55	58	55	117	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__;s__Lachnospraceae bacterium	75136	141405	43869	111421	51426
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__Blautia sp	52024	2756	19116	3744	5885
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__massiliensis 	8588	3331	1852	2436	682
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__obeum	597	368	96	1097	107
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__wexlerae	1518	433	600	91	48
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__luti	426	281	110	143	30
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__faecis	357	1070	131	954	28
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__glucerasea	369	633	63	1011	14
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__argi	220	0	181	0	16
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__coccoides	78	0	51	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__hansenii	81	0	71	0	15
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__producta	23	29	8	15	18
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Blautia;s__hydrogenotrophica	16	16	10	31	2097
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Anaerobutyricum;s__hallii	13402	837	2341	0	6
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Anaerostipes;s__hadrus	15325	251	4256	1410	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Anaerostipes;s__caccae	97	0	31	4	1617
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Dorea;s__Dorea sp	6711	269	1361	24	6
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Dorea;s__formicigenerans	236	438	111	17	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Dorea;s__longicatena	1247	1274	223	52	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Dorea;s__Dorea massiliensis	84	414	9	127	13
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Roseburia;s__faecis	5165	1577	1513	1176	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Roseburia;s__inulinivorans	5046	1552	943	2709	29
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Roseburia;s__Roseburia sp	628	2302	687	728	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Roseburia;s__hominis	639	1856	402	745	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Roseburia;s__intestinalis	1489	4627	417	4579	81
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Hungatella;s__hathewayi	4159	396	1966	1027	44695
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnospra;s__Lachnospra sp	5232	16387	2262	16861	396
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Mediterraneibacter;s__[Ruminococcus] torques	3656	1054	1158	1041	135777
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Mediterraneibacter;s__gnavus	860	50	493	51	1065
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Mediterraneibacter;s__[Ruminococcus] lactaris	2457	44	807	93	21
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Mediterraneibacter;s__faecis	253	306	85	0	6
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Mediterraneibacter;s__massiliensis	41	0	18	13	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnoclostridium;s__[Clostridium] scindens	989	7	125	25	5
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnoclostridium;s__[Clostridium] symbiosum	2876	580	1207	667	3709
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnoclostridium;s__[Clostridium] hylemonae	4	0	4	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Fusicatenibacter;s__saccharivorans	3580	894	1878	1340	16
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Fusicatenibacter;s__sp 2789STDY5834925	6408	1364	1397	1275	51
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Agathobacter;s__rectalis	4119	9017	2374	2194	140
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Eisenbergiella;s__tayi	2738	104	2037	206	28
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Cuneatibacter;s__caecimuris	304	0	76	0	15
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Tyzzerella;s__[Clostridium] nexile	2119	1136	752	903	413
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Coprococcus;s__sp HPP0074	187	0	252	32	6
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Coprococcus;s__catus	84	75	21	419	8
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Coprococcus;s__comes	98	456	14	943	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Coprococcus;s__eutactus	24	9	0	44	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Faecalicatena;s__contorta	110	45	26	962	21
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Faecalicatena;s__fissicatena	51	244	57	0	12
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Frisingicoccus;s__caecimuris	62	18	17	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Sellimonas;s__intestinalis	208	139	29	61	15
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Extibacter;s__muris	30	6	15	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Pseudobutyrivibrio;s__ruminis	29	0	15	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Johnsonella;s__ignava	18	0	15	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Oribacterium;s__sinus	8	0	0	13	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Marvinbryantia;s__formatexigens	6	31	5	10	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Murimonas;s__intestini	6	27	0	6	10
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnoanaerobaculum;s__saburreum	4	0	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Anaerotignaceae;g__Anaerotignum;s__lactatifermentans	46612	1389	19275	154	29
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Anaerotignaceae;g__Anaerotignum;s__propionicum	12	0	7	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__Oscillospraceae bacterium	316024	176158	138966	384034	23627
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__bacterium	136613	110906	195950	152388	23454
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__bacterium D16	837	1482	598	222	115
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Faecalibacterium;s__prausnitzii	57601	97659	21532	122317	32870
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Faecalibacterium;s__Faecalibacterium sp	5304	10173	1886	57575	11503
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Faecalibacterium;s__duncaniae	798	11771	407	1566	243
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Anaerotruncus;s__colihominis	30179	1716	17126	455	432
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Anaerotruncus;s__Anaerotruncus sp	50	3712	39	101	28
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Flavonifractor;s__Flavonifractor sp	11052	2280	13343	926	93
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Flavonifractor;s__plautii	28499	1838	26143	541	193
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Oscillibacter;s__Oscillibacter sp	29594	6471	19538	18563	1203
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__[Clostridium] leptum	30791	5558	6941	7073	11053
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__[Eubacterium] siraeum	1399	158342	578	21783	1843
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__[Clostridium] methylpentosum	184	81	74	22	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__Ruminococcus sp	2498	18299	3373	77067	599
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__sp 5_1_39BFAA	103	117	38	13	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__sp SR1_5	866	116	141	86	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__bromii	34	2525	0	1432	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__callidus	24	370	0	2211	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruthenibacterium;s__lactatiformans	9004	946	9521	13003	1190
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Subdoligranulum;s__sp 4_3_54A2FAA	7518	856	6056	5010	1847
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Subdoligranulum;s__variabile	63	98	45	426	5
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Neobittarella 	284	33	129	14	20
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Acetivibrio;s__ethanolgignens	99	24	42	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Pseudoflavonifractor;s__capillosus	103	4185	48	1657	12
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Neglectibacter;s__timonensis	51	236	48	467	72
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminiclostridium;s__Ruminiclostridium sp	32	825	23	223	42
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Allofournierella;s__massiliensis	36	935	23	115	13
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__Clostridium sp	56093	1877	41994	4258	1532
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__phoceensis	70653	5632	33057	1274	1356
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp ATCC BAA_442	52300	8453	99959	2992	568
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp SS2_1	8968	140	2536	694	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp 7_3_54FAA	8264	74	3544	355	4338
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp Marseille_P299	396	0	222	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp KLE 1755	6094	311	1455	318	531
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp AT4	5438	56	23782	49	1174
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp ATCC 29733	62	88	29	151	76
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp D5	6	45	0	39	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__sp HGF2	619	0	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__cadaveris	18	0	8	6	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__;s__Clostridiaceae bacterium	71676	23331	84290	83606	6623
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Massilioclostridium;s__coli	2159	19	1053	83	9
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Lactonifactor;s__longoviformis	166	11	62	41	77
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__;s__bacterium MS3	51	0	255	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__;g__Intestinimonas;s__massiliensis 	19905	12869	7675	6812	219
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__;g__Intestinimonas;s__butyriciproducens	15470	1952	3685	9060	1258
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriales Family XIII. Incertae Sedis;g__;s__[Eubacterium] brachy	77	0	31	20	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriales Family XIII. Incertae Sedis;g__;s__[Eubacterium] saphenum	60	5	21	4	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriales Family XIII. Incertae Sedis;g__;s__[Eubacterium] sulci	4	10	0	240	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__;g__;s__[Bacteroides] pectinophilus	221	112	157	616	13
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__;g__Gemmiger;s__formicilis	63	213	25	620	346
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__;s__bacterium	14784	8669	3191	9988	2021
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Eubacterium;s__Eubacterium sp	489	2469	294	10092	113
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Eubacterium;s__sp SB2	222	192	116	65	56
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Eubacterium;s__ramulus	505	103	88	84	6
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Eubacterium;s__ventriosum	95	2175	30	3799	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Anaerofustis;s__stercorihominis	18	0	8	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Butyricicoccaceae;g__Agathobaculum;s__desmolans	74	48	151	14	36
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Butyricicoccaceae;g__Butyricicoccus;s__pullicaecorum	68	124	59	61	6
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Acutalibacteraceae;g__Acutalibacter;s__muris	403	0	96	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__;s__bacterium	24340	0	19983	351	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Clostridioides;s__difficile	52	43	18	16	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Intestinibacter;s__bartlettii	16	46	6	294	15
+k__Bacteria;p__Bacillota;c__Clostridia;o__Monoglobales;f__Monoglobaceae;g__Monoglobus;s__pectinilyticus	2443	2196	1650	1923	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__Christensenella;s__massiliensis	7	6	10	0	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__Erysipelotrichaceae bacterium	190387	1798	168996	4116	5099
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__[Clostridium] innocuum	88487	32582	71729	25187	13040
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__bacterium	10187	35398	15704	59544	21915
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__bacterium 5_2_54FAA	1188	37	164	135	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__bacterium I46	1410	0	0	0	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__bacterium 21_3	203	11563	0	4381	470
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Holdemania;s__filiformis	1840	955	626	290	4
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Holdemanella;s__biformis	32	11	8	7	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Amedibacterium;s__intestinale	224	0	102	0	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Longicatena;s__caecimuris	42	85	17	212	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Merdibacter;s__massiliensis	12	73	0	19	46
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Amedibacillus;s__dolichus	5	14	0	0	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Faecalitalea;s__cylindroides	4	21	0	17	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Coprobacillus;s__Coprobacillus sp	3941	1176	4066	1076	1119
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Coprobacillus;s__sp 8_2_54BFAA	480	20	89	21	12
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Coprobacillus;s__sp K06	10	0	0	24	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Coprobacillus;s__cateniformis	42	11	18	0	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Thomasclavelia;s__ramosa	66	0	37	0	8
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Dialister;s__invisus	67967	4	34423	30707	91
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Dialister;s__succinatiphilus	5	0	0	0	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Dialister;s__micraerophilus	4	0	0	0	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__;s__bacterium	3423	763	2057	122	664
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__parvula	86	523	41	127	19
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__montpellierensis	51	0	13	0	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__sp oral taxon 158	32	126	0	17	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__sp ACP1	23	57	0	22	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__atypica	133	291	66	94	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__dispr	29	362	15	25	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Megaspaera;s__Megaspaera sp	119	19	88	100	1010
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Megaspaera;s__micronuciformis	9	6	0	0	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Anaeroglobus;s__geminatus	27	0	8	6	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Colibacter;s__massiliensis	12	0	0	0	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Acidaminococcales;f__Acidaminococcaceae;g__Phascolarctobacterium;s__faecium	8	37130	0	0	30861
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Selenomonadales;f__Selenomonadaceae;g__Mitsuokella;s__jalaludinii	5	0	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__Streptococcus sp	222	1472	95	669	34
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__equi	28	0	5	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__infantis	40	20	18	36	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__thermophilus	500	90	0	105	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__salivarius	12	1055	0	71	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__mitis	21	0	29	95	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__parasanguinis	7	503	0	71	13
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus;s__cremoris	183	12	9	66	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus;s__lactis	23	73	9	725	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus;s__raffinolactis	5	0	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__delbrueckii	40	0	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Fructilactobacillus;s__sanfranciscensis	29	0	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Leuconostoc;s__mesenteroides	5	0	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus;s__faecium	22	80	0	0	33
+k__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Gemellaceae;g__Gemella;s__haemolysans	4	0	0	0	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Murdochiella;s__massiliensis	11	0	0	0	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Murdochiella;s__vaginalis	9	0	23	15	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Parvimonas;s__sp oral taxon 110	5	0	0	0	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Coriobacteriaceae;g__;s__bacterium	44518	10333	12346	4326	13300
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Eggerthella;s__lenta	377	100	315	80	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Eggerthella;s__Eggerthella sp	61	0	22	10	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Eggerthella;s__sp 1_3_56FAA	99	0	102	52	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Adlercreutzia;s__equolifaciens	538	164	201	50	890
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Adlercreutzia;s__mucosicola	23	0	0	0	21
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Gordonibacter;s__urolithinfaciens	397	12	171	15	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Gordonibacter;s__pamelaeae	86	66	73	9	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Propionibacterium;s__sp 434_HC2	1398	354	0	316	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Cutibacterium;s__acnes	110	201	293	168	654
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Cutibacterium;s__namnetense	6	0	20	9	5
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__animalis	65	137	0	4	8
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__longum	71	242	2911	35	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__Bifidobacterium sp	33	38	8	81	27
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__boum	15	0	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__Actinomyces sp	20	93	17	537	37
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__naeslundii	10	0	0	21	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__graevenitzii	6	0	6	18	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__durum	9	0	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__afermentans	17	0	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Micrococcales;f__Micrococcaceae;g__Micrococcus;s__luteus	10	7	10	15	5
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__thetaiotaomicron	736799	145803	681761	34243	141130
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__uniformis	1070668	592065	2027931	231009	1008096
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__fragilis	107965	15493	214381	225548	10009
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__caccae	79008	94889	111908	129399	63307
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__sp HPS0048	44102	51375	19683	2065	7572
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__sp D22	81769	27005	123228	65917	32150
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__sp 3_1_33FAA	133692	133843	43239	8449	107405
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__sp f07	144	1276	178	450	557
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__sp 14	227	47307	285	570	23727
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__sp D2	52	7785	78	6420	42730
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__ovatus	15753	54095	30554	197554	2442142
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__rodentium	5531	3946	11295	432	5323
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__faecis	4107	4015	4281	2971	2400
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__stercoris	7563	44739	3222	5370	7965
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__intestinalis	2254	28688	1705	312	41091
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__fluxus	1095	48	1735	78	7605
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__caecimuris	1975	6968	1641	1033	10846
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__gallinarum	1070	103376	914	303	123
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__eggerthii	1254	14082	1085	921	24247
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__cellulosilyticus	1719	584031	2742	1001	45806
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__clarus	516	1948	183	49	1260
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__xylanisolvens	4382	133802	6714	199122	429391
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__finegoldii	382	15632	301	707	209100
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__salyersiae	301	3857	513	717	76290
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__oleiciplenus	206	1707	147	50	3578
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides avicola	123	92	32	17	10
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__acidifaciens	181	1788	180	1121	1650
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__pyogenes	87	67	54	104	142
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__nordii	221	51650	386	664	2100
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__graminisolvens	35	102	70	11	56
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__neonati	28	0	0	0	5
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__vicugnae	21	1703	72	3150	8019
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__helcogenes	18	42	13	9	124
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__vulgatus	3173625	1791115	2082675	1530037	5267217
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__dorei	552638	31164	222249	41997	218206
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__sartorii	28316	1153	12486	5653	21682
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__massiliensis	21927	11131	6346	30125	20140
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__coprophilus	3800	455	4653	160	502
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__coprocola	1921	10965	767	5481	5571
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__salanitronis	368	163	120	116	1061
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__barnesiae	372	732	120	293	18
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__plebeius	80	254	25	508	23379
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Paraprevotella;s__xylaniphila	8595	1736	2681	12	45
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Paraprevotella;s__clara	8	319	6	66	629
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotellamassilia;s__timonensis	16	109	7	6	39
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Segatella;s__buccae	33	0	9	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__johnsonii	4609	510	3992	4422	5942
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__merdae	12290	123589	10426	7206	10243
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__sp D26	3713	15735	697	13137	5769
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__distasonis	1733	80987	1744	68832	6508
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__chinchillae	113	102	78	26	114
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__goldsteinii	93	2019	104	1199	352
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__gordonii	25	2482	17	116	2292
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Tannerella;s__sp 6_1_58FAA_CT1	455	213	253	1146	43
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__finegoldii	9860	49319	2936	12700	17742
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__inops	2292	3781	727	335	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__onderdonkii	329	28104	145	195685	9879
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__shahii	9	57853	15	3076	29214
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__communis	4	3277	0	86711	630
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Barnesiellaceae;g__Barnesiella;s__Barnesiella sp	992	26085	458	249	43
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Barnesiellaceae;g__Coprobacter;s__fastidiosus	571	80	463	0	89
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Barnesiellaceae;g__Coprobacter;s__secundus	34	419	0	90	281
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Odoribacteraceae;g__Odoribacter;s__Odoribacter sp	45	13410	95	28014	359
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Odoribacteraceae;g__Odoribacter;s__laneus	19	15	16	0	17
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Odoribacteraceae;g__Odoribacter;s__spanchnicus	27	27752	35	34342	1842
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Odoribacteraceae;g__Culturomica;s__massiliensis	24	22	29	47	1109
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Odoribacteraceae;g__Butyricimonas;s__virosa	8	72	5	774	160
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Porphyromonadaceae;g__Gabonia;s__massiliensis	33	47	0	38	0
+k__Bacteria;p__Bacteroidota;c__;o__;f__;g__;s__bacterium	9	26	10	6	11
+k__Bacteria;p__Verrucomicrobiota;c__Verrucomicrobiia;o__Verrucomicrobiales;f__Akkermansiaceae;g__Akkermansia;s__muciniphila	15175	60	15270	0	5
+k__Bacteria;p__Verrucomicrobiota;c__Verrucomicrobiia;o__Verrucomicrobiales;f__Akkermansiaceae;g__Akkermansia;s__sp KLE1798	5984	0	5983	0	0
+k__Bacteria;p__Lentispaerota;c__Lentispaeria;o__Victivallales;f__Victivallaceae;g__Victivallis;s__vadensis	67	1053	34	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__coli	3566	2358	20769	13210	54
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella;s__pneumoniae	23	205	1851	53	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__;s__bacterium	26	146	63	11	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Sutterellaceae;g__Parasutterella;s__excrementihominis	14	16310	0	5	4
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Sutterellaceae;g__Sutterella;s__wadsworthensis	9	25	0	9	16
+k__Bacteria;p__Campylobacterota;c__Epsilonproteobacteria;o__Campylobacterales;f__Campylobacteraceae;g__Campylobacter;s__jejuni	103	0	38	0	24
+k__Bacteria;p__;c__;o__;f__;g__;s__bacterium	19734	87496	43902	82136	6254
+k__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Fusobacteriaceae;g__Fusobacterium;s__Fusobacterium sp	20	10	16	50	0
+k__Bacteria;p__Synergistota;c__Synergistia;o__Synergistales;f__Dethiosulfovibrionaceae;g__Pyramidobacter;s__piscolens	17	0	15	5	0
+k__Bacteria;p__Candidatus Saccharibacteria;c__;o__;f__;g__Candidatus Minimicrobia;s__Minimicrobia vallesae	13	0	8	29	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__putredinis	0	268410	108	47696	4896
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__provencensis	0	6413	0	113	4283
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__sp HGB5	0	9768	0	10293	13148
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__sp cv1	0	3918	0	103	535
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__senegalensis	0	1323	0	643	502303
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__indistinctus	0	956	0	5334	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__timonensis	0	445	0	190	18748
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__ihumii	0	13	0	5	22
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Rikenella;s__microfusus	0	205	0	19	215
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__sp HGS0025	0	613	0	162	62
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Barnesiellaceae;g__Barnesiella;s__intestinihominis	0	13493	0	0	20
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Barnesiellaceae;g__Barnesiella;s__viscericola	0	494	0	61	2220
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Odoribacteraceae;g__Butyricimonas;s__synergistica	0	14	0	6	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Alloprevotella;s__tannerae	0	282	0	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__disiens	0	70	96	0	3721
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__dentalis	0	28	0	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__corporis	0	10	0	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Leyella;s__stercorea	0	95	10	192	76
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Segatella;s__salivae	0	49	0	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Segatella;s__copri	0	7	0	107	350
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Segatella;s__baroniae	0	5	0	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Hoylesella;s__timonensis	0	13	398	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Muribaculaceae;g__Muribaculum;s__intestinale	0	132	0	19	108
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Porphyromonadaceae;g__Sanguibacteroides;s__justesenii	0	73	0	28	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Sutterellaceae;g__Turicimonas;s__muris	0	11	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Oxalobacteraceae;g__Oxalobacter;s__formigenes	0	709	0	1004	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Oxalobacteraceae;g__Oxalobacter;s__paraformigenes	0	5	0	7	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Alcaligenaceae;g__Alcaligenes;s__faecalis	0	10	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__parainfluenzae	0	3443	203	209	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__haemolyticus	0	28	109	14	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__sptorum	0	16	4	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__influenzae	0	29	15	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__pittmaniae	0	9	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__paraphrohaemolyticus	0	5	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Aggregatibacter;s__aphrophilus	0	10	0	4	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Aggregatibacter;s__segnis	0	7	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Raoultella;s__ornithinolytica	0	13	14	7	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter;s__ludwigii	0	32	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter;s__kobei	0	71	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter;s__hormaechei	0	40	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Citrobacter;s__sp FDAARGOS_156	0	4	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Erwiniaceae;g__Pantoea;s__agglomerans	0	32	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__fragi	0	9	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Ectopseudomonas;s__oleovorans	0	14	33	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Moraxellales;f__Moraxellaceae;g__Acinetobacter;s__lwoffii	0	6	0	0	0
+k__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingomonas;s__paucimobilis	0	50	0	0	0
+k__Bacteria;p__Thermodesulfobacteriota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__legallii	0	13496	0	0	0
+k__Bacteria;p__Thermodesulfobacteriota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__desulfuricans	0	114	0	0	0
+k__Bacteria;p__Thermodesulfobacteriota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Bilophila;s__wadsworthia	0	4719	5	270	80
+k__Bacteria;p__Campylobacterota;c__Epsilonproteobacteria;o__Campylobacterales;f__Campylobacteraceae;g__Campylobacter;s__concisus	0	5	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__bacterium KB18	0	19	11	26	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__gauvreauii	0	6	8	30	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Faecalispra;s__sprospaeroides	0	45	0	28	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnospra;s__eligens	0	250	0	472	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Dorea;s__sp D27	0	27	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Coprococcus;s__Coprococcus sp	0	306	0	1723	18
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Eshraghiella;s__crossota	0	36	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Stomatobaculum;s__longum	0	7	4	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Muricomes;s__intestini	0	8	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Anaerovoracaceae;g__Emergencia;s__timonensis	0	782	0	83	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Faecalimicrobium;s__dakarense	0	41	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Terrisprobacter;s__othiniensis	0	14	0	14	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Peptacetobacter;s__hiranonis	0	86	0	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__Candidatus Borkfalkia;s__Borkfalkia ceftriaxoniphila	0	310	0	16	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__Christensenella;s__hongkongensis	0	7	0	27	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__Christensenella;s__minuta	0	5	0	28	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__denticariosi	0	6	0	0	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella;s__seminalis	0	4	0	40	5
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Megaspaera;s__massiliensis	0	400	0	0	5926
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Holdemania;s__massiliensis	0	7	0	56	7
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Turicibacteraceae;g__Turicibacter;s__sp H121	0	43	0	45	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__vestibularis	0	242	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__anginosus	0	27	0	38	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__mutans	0	18	0	5	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__sanguinis	0	44	0	15	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__australis	0	31	0	18	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__sp 2_1_36FAA	0	20	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__gordonii	0	8	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__agalactiae	0	11	38	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__acidophilus	0	79	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__iners	0	5	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Weissella;s__cibaria	0	19	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Limosilactobacillus;s__fermentum	0	21	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus;s__casseliflavus	0	7	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus;s__faecalis	0	5	0	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Carnobacteriaceae;g__Granulicatella;s__adiacens	0	5	0	43	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Staphylococcaceae;g__Staphylococcus;s__epidermidis	0	23	9	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Gemellaceae;g__Gemella;s__sanguinis	0	5	0	0	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Peptoniphilus;s__Peptoniphilus sp	0	5	0	0	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__;g__;s__bacterium	0	6	0	0	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Enteroscipio;s__rubneri	0	6	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Nocardioidaceae;g__Nocardioides;s__massiliensis	0	10	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Nocardioidaceae;g__Aeromicrobium;s__massiliense	0	10	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Parascardovia;s__denticolens	0	12	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Alloscardovia;s__omnicolens	0	5	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Mobiluncus;s__curtisii	0	9	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Trueperella;s__pyogenes	0	7	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Micrococcales;f__Micrococcaceae;g__Rothia;s__mucilaginosa	0	77	0	39	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__kroppenstedtii	0	45	0	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__propinquum	0	12	6	0	0
+k__Bacteria;p__Synergistota;c__Synergistia;o__Synergistales;f__Synergistaceae;g__Synergistes;s__sp 3_1_syn1	0	111	0	490	0
+k__Bacteria;p__Synergistota;c__Synergistia;o__Synergistales;f__Synergistaceae;g__Cloacibacillus;s__evryensis	0	28	0	83	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__Ruminococcus;s__flavefaciens	0	0	4	24	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Oscillospraceae;g__;s__[Clostridium] viride	0	0	4	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__;g__Candidatus Soleaferrea;s__Soleaferrea massiliensis	0	0	8	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Desulfitobacteriaceae;g__Desulfitobacterium;s__hafniense	0	0	50	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Robinsoniella;s__peoriensis	0	0	83	0	22
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Peptostreptococcus;s__anaerobius	0	0	178	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Leuconostoc;s__gasicomitatum	0	0	6	0	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Staphylococcaceae;g__Staphylococcus;s__capitis	0	0	8	10	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Peptoniphilus;s__harei	0	0	15	0	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Finegoldia;s__magna	0	0	6	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Scardovia;s__wiggsiae	0	0	12	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Cutibacterium;s__modestum	0	0	10	0	51
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Cutibacterium;s__avidum	0	0	6	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__matruchotii	0	0	29	0	4
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__accolens	0	0	20	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__genitalium	0	0	6	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__kefirresidentii	0	0	11	7	7
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__simulans	0	0	10	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__johnsonii	0	0	7	0	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Micrococcales;f__Brevibacteriaceae;g__Brevibacterium;s__casei	0	0	8	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Hoylesella;s__buccalis	0	0	400	0	994
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__bivia	0	0	9	41	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__amnii	0	0	11	0	54
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__pallens	0	0	9	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Hallella;s__bergensis	0	0	9	0	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Porphyromonadaceae;g__Porphyromonas;s__uenonis	0	0	15	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__fergusonii	0	0	60	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__marmotae	0	0	415	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella;s__oxytoca	0	0	15	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella;s__sp 4_1_44FAA	0	0	205	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Salmonella;s__enterica	0	0	220	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Cronobacter;s__sakazakii	0	0	4	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Morganellaceae;g__Morganella;s__morganii	0	0	32	9	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pasteurellales;f__Pasteurellaceae;g__Haemophilus;s__aegyptius	0	0	35	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Ectopseudomonas;s__mendocina	0	0	53	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Stutzerimonas;s__stutzeri	0	0	21	0	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Lysobacterales;f__Lysobacteraceae;g__Stenotrophomonas;s__maltophilia	0	0	5	0	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Neisseriales;f__Neisseriaceae;g__Neisseria;s__flavescens	0	0	21	0	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Neisseriales;f__Neisseriaceae;g__Neisseria;s__mucosa	0	0	21	0	0
+k__Bacteria;p__Thermodesulfobacteriota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__piger	0	0	5	0	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Clostridiaceae;g__Clostridium;s__neonatale	0	0	0	9	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Eubacterium;s__limosum	0	0	0	34	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Eubacteriales;f__Butyricicoccaceae;g__Butyricicoccus;s__Butyricicoccus sp	0	0	0	6	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lachnoclostridium;s__Lachnoclostridium sp	0	0	0	38	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Oribacterium;s__parvum	0	0	0	5	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Lacrimispra;s__indolis	0	0	0	10	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__Acetatifactor;s__muris	0	0	0	4	4
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Terrisprobacter;s__glycolicus	0	0	0	12	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Peptostreptococcus;s__stomatis	0	0	0	26	0
+k__Bacteria;p__Bacillota;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__Christensenella;s__timonensis	0	0	0	12	0
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Dialister;s__pneumosintes	0	0	0	285	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__;s__bacterium 2_2_44A	0	0	0	7833	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Solobacterium;s__moorei	0	0	0	35	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Massilimicrobiota;s__timonensis	0	0	0	6	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Thomasclavelia;s__sproformis	0	0	0	62	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Coprobacillaceae;g__Thomasclavelia;s__sp	0	0	0	6	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Turicibacteraceae;g__Turicibacter;s__sp HGF1	0	0	0	32	0
+k__Bacteria;p__Bacillota;c__Erysipelotrichia;o__Erysipelotrichales;f__Turicibacteraceae;g__Turicibacter;s__sanguinis	0	0	0	59	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__intermedius	0	0	0	5	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__timonensis	0	0	0	10	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__oralis	0	0	0	9	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__ilei	0	0	0	8	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__parauberis	0	0	0	6	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus;s__garvieae	0	0	0	9	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Leuconostoc;s__lactis	0	0	0	10	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Leuconostoc;s__pseudomesenteroides	0	0	0	7	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Dellaglioa;s__algida	0	0	0	6	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Gemellaceae;g__Gemella;s__morbillorum	0	0	0	38	0
+k__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Staphylococcaceae;g__Staphylococcus;s__hominis	0	0	0	4	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Anaerococcus;s__vaginalis	0	0	0	25	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Anaerococcus;s__obesiensis	0	0	0	22	0
+k__Bacteria;p__Bacillota;c__Tissierellia;o__Tissierellales;f__Peptoniphilaceae;g__Peptoniphilus;s__lacrimalis	0	0	0	27	0
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Coriobacteriaceae;g__Collinsella;s__aerofaciens	0	0	0	78	12
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Coriobacteriaceae;g__Collinsella;s__sp 4_8_47FAA	0	0	0	58	29
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Coriobacteriaceae;g__Collinsella;s__Collinsella sp	0	0	0	9	10
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Lancefieldella;s__parvula	0	0	0	20	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__sp HPA0247	0	0	0	49	9
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__sp ph3	0	0	0	51	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces;s__sp ICM47	0	0	0	81	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Schaalia;s__odontolytica	0	0	0	122	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Schaalia;s__dentiphila	0	0	0	72	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Cutibacterium;s__granulosum	0	0	0	7	6
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__adolescentis	0	0	0	372	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__faecale	0	0	0	75	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium;s__pullorum	0	0	0	20	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Micrococcales;f__Micrococcaceae;g__Rothia;s__dentocariosa	0	0	0	5	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Micrococcales;f__Micrococcaceae;g__Rothia;s__aeria	0	0	0	4	0
+k__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Corynebacteriaceae;g__Corynebacterium;s__pseudogenitalium	0	0	0	14	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__melaninogenica	0	0	0	939	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Xylanibacter;s__brevis	0	0	0	4	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Citrobacter;s__freundii	0	0	0	38	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Citrobacter;s__portucalensis	0	0	0	5	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter;s__cloacae	0	0	0	6	0
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Shigella;s__flexneri	0	0	0	70	0
+k__Bacteria;p__Pseudomonadota;c__Betaproteobacteria;o__Burkholderiales;f__Comamonadaceae;g__Delftia;s__acidovorans	0	0	0	10	0
+k__Bacteria;p__Synergistota;c__Synergistia;o__Synergistales;f__Synergistaceae;g__Cloacibacillus;s__porcorum	0	0	0	30	0
+k__Bacteria;p__;c__;o__;f__;g__;s__OL_1	0	0	0	50	0
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__intermedia	0	0	0	0	482
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella;s__scopos	0	0	0	0	36
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Hallella;s__multisaccharivorax	0	0	0	0	773
+k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Porphyromonadaceae;g__Gabonibacter;s__massiliensis	0	0	0	0	185
+k__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Moraxellales;f__Moraxellaceae;g__Acinetobacter;s__johnsonii	0	0	0	0	14
+k__Bacteria;p__Bacillota;c__Clostridia;o__Lachnosprales;f__Lachnospraceae;g__;s__bacterium oral taxon 082	0	0	0	0	17
+k__Bacteria;p__Bacillota;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Allisonella;s__histaminiformans	0	0	0	0	3113
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Coriobacteriaceae;g__Collinsella;s__stercoris	0	0	0	0	15
+k__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Eggerthellales;f__Eggerthellaceae;g__Adlercreutzia;s__muris	0	0	0	0	18
