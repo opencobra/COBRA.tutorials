@@ -76,31 +76,31 @@ solver = 'gurobi'
 
 
 % Part 1: Prepare WBM model for analysis. 
-% The first step before we can begin solving a mWBM, is making sure that the appropriate constraints are set. First we have to load a mWBM, we will use model muWBM_DP305_female.mat created from the test dataset in MicrobiomeCreationtut. If the tutorial is followed it should be stored in the directory mWBMmodels. The model can also be found in the supplementary materials.
+% The first step before we can begin solving a mWBM, is making sure that the appropriate constraints are set. First we have to load a mWBM, we will use model muWBM_CSM5MCXD_female.mat created from the test dataset in MicrobiomeCreationtut. If the tutorial is followed it should be stored in the directory mWBMmodels. The model can also be found in the supplementary materials.
 % The model should be in the defined directory if resultPath indeed
-% contains the mWBMmodels folder and the DP305.mat file. If not you can set
+% contains the mWBMmodels folder and the CSM5MCXD.mat file. If not you can set
 % the path directly by entering the full path and the file name and
 % extensions within the load() function. Ensure quotation marks '' around
 % the path name.
-mWBM = load([paths.mWBM.mWBMPath, filesep, 'muWBM_DP305_female.mat']);
+mWBM = load([paths.mWBM.mWBMPath, filesep, 'muWBM_CSM5MCXD_female.mat']);
 
 % Part 1: Prepare WBM model for analysis. 
-% The first step before we can begin solving an mWBM, is making sure that the appropriate constraints are set. First we have to load a mWBM, we will use model HM_DP305.mat created from the test dataset in Tut_1_0_MicrobiomeCreation. If the tutorial is followed it should be stored in the folder HMmodels. The model can also be found in the supplementary materials.
+% The first step before we can begin solving an mWBM, is making sure that the appropriate constraints are set. First we have to load a mWBM, we will use model HM_CSM5MCXD.mat created from the test dataset in Tut_1_0_MicrobiomeCreation. If the tutorial is followed it should be stored in the folder HMmodels. The model can also be found in the supplementary materials.
 % Indicate the path to the mWBMs as created in the previous tutorial OR use download the HMmodels from the supplementary 
 % files from the paper and load the model
 
-pathToModel = which('HM_DP305.mat'); % Make sure that HM_DP305 is stored in a folder that is added to the Matlab path
+pathToModel = which('HM_CSM5MCXD.mat'); % Make sure that HM_CSM5MCXD is stored in a folder that is added to the Matlab path
 
 model = loadPSCMfile(pathToModel);
 
 % Part 1: Prepare WBM model for analysis. 
-% The first step before we can begin solving a mWBM, is making sure that the appropriate constraints are set. First we have to load a mWBM, we will use model muWBM_DP305_female.mat created from the test dataset in MicrobiomeCreationtut. If the tutorial is followed it should be stored in the directory mWBMmodels. The model can also be found in the supplementary materials.
+% The first step before we can begin solving a mWBM, is making sure that the appropriate constraints are set. First we have to load a mWBM, we will use model muWBM_CSM5MCXD_female.mat created from the test dataset in MicrobiomeCreationtut. If the tutorial is followed it should be stored in the directory mWBMmodels. The model can also be found in the supplementary materials.
 % The model should be in the defined directory if resultPath indeed
-% contains the mWBMmodels folder and the DP305.mat file. If not you can set
+% contains the mWBMmodels folder and the CSM5MCXD.mat file. If not you can set
 % the path directly by entering the full path and the file name and
 % extensions within the load() function. Ensure quotation marks '' around
 % the path name.
-mWBM = load([paths.mWBM.mWBMPath, filesep, 'muWBM_DP305_female.mat']);
+mWBM = load([paths.mWBM.mWBMPath, filesep, 'muWBM_CSM5MCXD_female.mat']);
 
 % Set "Whole_body_objective_rxn" flux bounds
 % The 'Whole_body_objective_rxn' is an artificial reaction that represents the total biomass being produced in the body. This reaction includes dummy duplicates of all organ biomass metabolites that are coupled to the organ biomass reactions. The dummy biomass metabolite stoichiometries are scaled by a coefficient corresponding to their relative organ weight. Thus, each organ's contribution to the whole-body biomass production is weighted according to its size or mass relative to the entire body. By default the constraints on this reaction are set to [1,1] mmol/day, which represents a 100% biomass production and maintenance throughout the body but it always good practice to reset in case of doubt. We set the bounds to [1,1] mmol/day to make sure we can compare different models with each other and that differences are not caused by changes in flux through the "Whole_body_objective_rxn". It is recommended keep the bounds to [1,1] mmol/day as that is an optimised value for modelling and changing can lead to unexpected flux values or errors. To change reaction bounds we use the changeRxnBounds function. changeRxnBounds changes the constraints on the upper and/or lower bounds of a specified reaction or set of reactions in the model and takes the following inputs:
@@ -192,7 +192,7 @@ mWBM.osenseStr = 'max';
 solution = optimizeWBModel(mWBM);
 % The "f" field in the FBA variable contains the maximised flux
 solution.f
-% When model muWBM_DP305_female.mat is solved for EX_trp_L[u] (urinary excretion of L-tryptophan) we see that the maximum flux value is 0.0062 mmol/day. Interesting is if we look at the bounds printed when we called the surfNet function is the the maximum allowed excretion value is only 0.000038 mmol/day highter than our optimised value. This means we are close to the maximum allowed flux value allowed by the model. It is thus alway good to check the bounds of a reaction you want to optimise if you obtain multiple duplicate values for different models.
+% When model muWBM_CSM5MCXD_female.mat is solved for EX_trp_L[u] (urinary excretion of L-tryptophan) we see that the maximum flux value is 0.0062 mmol/day. Interesting is if we look at the bounds printed when we called the surfNet function is the the maximum allowed excretion value is only 0.000038 mmol/day highter than our optimised value. This means we are close to the maximum allowed flux value allowed by the model. It is thus alway good to check the bounds of a reaction you want to optimise if you obtain multiple duplicate values for different models.
 
 % Example Two: Faecal excretion reactions
 % We can perform the same technique if we e.g., want to look at the exchange of L-proline in the faeces. Important that for faecal exchange reactions, 'Excretion' has to be added in front of the expected exchange reaction ID. First we need to check if the reaction exists in the model:
@@ -207,7 +207,7 @@ mWBM.osenseStr = 'max';
 solution = optimizeWBModel(mWBM);
 % Print the "f" field in the FBA variable
 solution.f
-% Using model HM_DP305 we see that the maximum exchange of feacal L-proline is 436.1846 mmol/day.
+% Using model HM_CSM5MCXD we see that the maximum exchange of feacal L-proline is 436.1846 mmol/day.
 
 % Example Three: Reactions in a particular organ
 % We can also solve reactions performing metabolic transformation in specific organs. Lets take the oxireductase reaction we mentioned earlier involving taurine and hypotaurine in the liver.
@@ -222,7 +222,7 @@ mWBM.osenseStr = 'max';
 solution = optimizeWBModel(mWBM);
 % Print the "f" field in the FBA variable
 solution.f
-% For model HM_DP305 we see that reaction r0381 has a maximum value of 308.4261 mmol/day in the liver. If we would to do this for multiple mWBMs and get the same results it could be that A) the microbiome does not influence this reaction or B) the bounds on the transporters of the metabolites involved are constrained that for mutliple mWBMs the maximum or minimum possible transported flux values are reached.
+% For model HM_CSM5MCXD we see that reaction r0381 has a maximum value of 308.4261 mmol/day in the liver. If we would to do this for multiple mWBMs and get the same results it could be that A) the microbiome does not influence this reaction or B) the bounds on the transporters of the metabolites involved are constrained that for mutliple mWBMs the maximum or minimum possible transported flux values are reached.
 
 % Example Four: Transport reaction
 % Finally we will look at optimising transport reactions. Usually transport reactions are not informative as there could be multiple transporters transporting the same compound resulting in skewed results. However transporter from the microbiome lumen to the lumen of the large intestine is interesting as they tell us something about the maximum transport of the microbiome to the intestines or vice versa. A microbiome transport reaction will always have the following pattern: Micro_EX_'metabolite ID'[luLI]_[luM]'. Here we will look at the the transport of L-tryptophan. First check if the reaction exists in the model.
@@ -237,7 +237,7 @@ mWBM.osenseStr = 'max';
 solution = optimizeWBModel(mWBM);
 % Print the "f" field in the FBA variable 
 solution.f
-% We see the for HM_DP305 the maximum value for the transport reactions is 5.4520 mmol/day. This means that the microbiome can maximally take up ~5.5 mmol/day from the large intestine per day.
+% We see the for HM_CSM5MCXD the maximum value for the transport reactions is 5.4520 mmol/day. This means that the microbiome can maximally take up ~5.5 mmol/day from the large intestine per day.
 % Now we will minimise the transport reaction
 % Set objective function to minimise for the reaction
 mWBM.osenseStr = 'min';
@@ -245,7 +245,7 @@ mWBM.osenseStr = 'min';
 solution = optimizeWBModel(mWBM);
 % Print the "f" field in the FBA variable 
 solution.f
-% We see now that for HM_DP305 the minimum value for the transporter is -323.1279 mmol/day. This means the microbiome can supply the large intestine with ~323 mmol/day of L-tryptophan. It is thus important to look at how a reaction is formulated if we want to minimise or maximise the problem. 
+% We see now that for HM_CSM5MCXD the minimum value for the transporter is -323.1279 mmol/day. This means the microbiome can supply the large intestine with ~323 mmol/day of L-tryptophan. It is thus important to look at how a reaction is formulated if we want to minimise or maximise the problem. 
 
 % Predicting metabolite pools (demand reactions)
 % There is also a possibility to solve the models for so called demand reactions. These reactions are formulated as exchange reactions, but operate from within the model instead of on the compartments that interact with the environment as normal exchange reactions do. By looking at these demand reactions within the model, we can gain an understanding of how much of a particular metabolite the model can "store" in a certain compartment which could give information on metabolic capabilities within the model instead of on the exchange reactions. Demand reaction usually need to be added to the model before they can be solved. The demand reaction is formulated as:
@@ -278,7 +278,7 @@ mWBMDemand.osenseStr = 'max';
 solution = optimizeWBModel(mWBMDemand);
 % Check maximised flux'
 solution.f
-% The value for the blood demand reaction with muWBM_DP305_female.mat of L-tryptophan in the blood is 328.5800 mmol/day. This is an indication of the storage capacity or pool of L-tryptophan in the blood and can be interpreted as the blood concentration or compared with blood metabolomics. Note the actual values of the demand reactions will most likely not corroborate with metabolomics, but trends across a cohort can be visualised to see if blood metabolomics and predictions match up.
+% The value for the blood demand reaction with muWBM_CSM5MCXD_female.mat of L-tryptophan in the blood is 328.5800 mmol/day. This is an indication of the storage capacity or pool of L-tryptophan in the blood and can be interpreted as the blood concentration or compared with blood metabolomics. Note the actual values of the demand reactions will most likely not corroborate with metabolomics, but trends across a cohort can be visualised to see if blood metabolomics and predictions match up.
 
 % Example six: Cerebrospinal fluid
 % Cerebrospinal fluid (csf)  metabolite pools can be investigated in the same way as example five and can be insightful for your investigation or again if you happen to have csf metabolomics are available. 
@@ -306,7 +306,7 @@ mWBMDemand.osenseStr = 'max';
 solution = optimizeWBModel(mWBMDemand);
 % Check maximised flux through 'DM_trp_L[csf]'
 solution.f
-% The value we obtain with HM_DP305 is 79.082 mmol/day.  This is lower than the value for the blood demand reaction. By looking at surfNet(modelHM, metabolite) command in line 91 we see that only 79.07822 mmol/day of L-tryptophan can cross the blood-brain barrier. This means that all the maximum allowed transport is reached - all from the blood. That also means that the brain and spine are not actively producing and transporting L-tryptophan into the csf.
+% The value we obtain with HM_CSM5MCXD is 79.082 mmol/day.  This is lower than the value for the blood demand reaction. By looking at surfNet(modelHM, metabolite) command in line 91 we see that only 79.07822 mmol/day of L-tryptophan can cross the blood-brain barrier. This means that all the maximum allowed transport is reached - all from the blood. That also means that the brain and spine are not actively producing and transporting L-tryptophan into the csf.
 
 % Example seven: compartments within an organ
 % We can also look at the storage capacity for certain organs. This could be helpful if we want to look the effect of diseases that target organs or if organ biopses have been made and metabolomics are available. Here we will look at the L-tryptophan demand reaction in the cytosol of the liver. Ofcourse any compartment can be used present in an organ. First we define our metabolite of interest. Important is that we add our organ abbreviation of intersest in front the metabolite ID. A list of organ abbreviations present in the WBMs can be found in [1].
@@ -333,13 +333,13 @@ mWBMDemand.osenseStr = 'max';
 solution = optimizeWBModel(mWBMDemand);
 % Check maximised flux through 'DM_taur(c)'
 solution.f
-% The value obtained with muWBM_DP305_female.mat is that the liver can store 328.5800 mmol/day of L-tryptophan in the cytosol.
+% The value obtained with muWBM_CSM5MCXD_female.mat is that the liver can store 328.5800 mmol/day of L-tryptophan in the cytosol.
 
 % Investigating the influence of the microbiome in WBM models
 % When investigating metabolic influences of the gut microbiome on the host, it is important to choose reactions and metabolites of interest that can be influenced by gut microbiota. Note that microbe-derived metabolites that enter the large intestinal lumen can either directly or indirectly contribute to availability of a metabolite. 
 % For example, L-tryptophan (trp_L) is an essential metabolite derived from diet and gut microbiota. The tryptophan availability in the host is directly influenced  by the microbial production of tryptophan. An example of indirect contributions is the neurotransmitter serotonin (VMHID: srtn). This compound is not produced by microbes, but is a downstream metabolite of tryptophan produced by human metabolic reactions. 
 
-% Lets investigate the impact of the microbiome on the maximum production of tryptophan. First we will load a germ-free WBM and constrain it with the Average European Diet. We choose the female WBM "Harvetta" as muWBM_DP305_female.mat is a combination with a Harvetta WBM and a microbiome. If we were to use Harvey the comparison will not work, as changes could either be due to sex or the microbiome.
+% Lets investigate the impact of the microbiome on the maximum production of tryptophan. First we will load a germ-free WBM and constrain it with the Average European Diet. We choose the female WBM "Harvetta" as muWBM_CSM5MCXD_female.mat is a combination with a Harvetta WBM and a microbiome. If we were to use Harvey the comparison will not work, as changes could either be due to sex or the microbiome.
 % Prepare a germ-free WBM model.
 modelGF = loadPSCMfile('Harvetta');
 modelGF = setDietConstraints(modelGF, 'EUAverageDiet');
@@ -358,7 +358,7 @@ solution_GF = optimizeWBModel(modelGF);
 % Check maximised flux through 'EX_tdechola[u]' 
 solution_GF.f
 % We see that the maximum flux for blood pool of L-tryptophan is 5.4520 mmol/day.
-% Now we will repeat the procedure for muWBM_DP305_female.mat. The same steps we performed in example five.
+% Now we will repeat the procedure for muWBM_CSM5MCXD_female.mat. The same steps we performed in example five.
 % Add demand reaction
 mWBMDemand = addDemandReaction(mWBM,'trp_L[bc]');
 
@@ -376,7 +376,7 @@ solution_mWBM = optimizeWBModel(mWBMDemand);
 
 % Check maximised flux through 'EX_tdechola[u]' 
 solution_mWBM.f
-% We see that again the value of 328.5800 mmol/day is reached for muWBM_DP305_female.mat. To see what the microbiome contribution, both direct and indirect is on the demand reaction of L-tryptophan in the blood we subtract the germ-free value from the human-microbiome value
+% We see that again the value of 328.5800 mmol/day is reached for muWBM_CSM5MCXD_female.mat. To see what the microbiome contribution, both direct and indirect is on the demand reaction of L-tryptophan in the blood we subtract the germ-free value from the human-microbiome value
 % solution_mWBM.f - solution_GF.f
 % And we see that the microbiome can maximally increase the blood pool of L-tryptophan by 323.1279 mmol/day
 % 

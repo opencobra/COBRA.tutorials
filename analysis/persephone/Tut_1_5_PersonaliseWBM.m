@@ -237,7 +237,7 @@ createBatchMWBM(microbiomeDir, ...
             'numWorkers', numWorkers);
 
 % Section 2: Adding or Removing Reactions to/from a Model
-% This tutorial will take you step by step through the process of adding reactions and removing specfic reactions from metabolic models. We will use the model HM_DP305.mat created in tutorial 1. If you did not run tutorial 1, HM_DP305.mat can be found in the supplementary materials as well.
+% This tutorial will take you step by step through the process of adding reactions and removing specfic reactions from metabolic models. We will use the model HM_CSM5MCXD.mat created in tutorial 1. If you did not run tutorial 1, HM_CSM5MCXD.mat can be found in the supplementary materials as well.
 % General Principles:
 % Why add or remove/silence reactions?
 % Adding reactions:
@@ -445,7 +445,7 @@ printFluxBounds(modelHMSilenced, {'Liver_RE1303C'})
 % genes:              string of single gene or cell array of multiple genes for which `rxns` are desired.
 % numericFlag:        1 if using Human Recon  (Default = 0)
 % ListResultsFlag:    1 if you want to output `ListResults` (Default = 0)
-% The most important thing to mention is that gpr rules cannot be found in the HM WMBs because they were removed to save space in the models. We have to thus load either Harvey or Harvetta, based on the sex of our sample and then find the associated reactions. We can then silence the reactions found in the HM WBM. Here we will demonstrate with Harvetta as HM_DP305.m is from a female sample.
+% The most important thing to mention is that gpr rules cannot be found in the HM WMBs because they were removed to save space in the models. We have to thus load either Harvey or Harvetta, based on the sex of our sample and then find the associated reactions. We can then silence the reactions found in the HM WBM. Here we will demonstrate with Harvetta as HM_CSM5MCXD.m is from a female sample.
 % Load the base-WBM
 baseWBM = loadPSCMfile('Harvetta');
 
@@ -521,7 +521,7 @@ findRxnIDs(modelRemoved, rxnToRemove)
 % To find out which metabolites are present in which organs and compartments are present in the model you can explore the model using:
 % surfNet, a function that allows you to explore the model. Or simply use the 'find' and 'contains' funciton in matlab to search the model.
 %Load model
-% load microbiota_model_diet_DC001.mat
+load microbiota_model_diet_CSM5MCXD.mat
 % As an example we will add a sink reaction for pyridoxal in the small intestinal epithelium  
 % Add reactions, defining all relevant fields
 modelNsink = addReactionsHH(modelHM, {'sIEC_sink_pydx[c]'}, {'Sink for pyridoxal, sIEC'},...
