@@ -1,0 +1,9 @@
+,Pre mapping,Post mapping,Mapping coverage,Description
+Total number of taxa,32.0,30.0,0.9375,The number of taxa across all samples. MappingCoverage = post mapping/pre mapping.
+Estimated total number of named taxa,32.0,30.0,,"The estimated number of taxa following standard nomenclature. Estimated by excluding all taxa whose names contain ""-"" &/or multiple uppercase letters in a row."
+Mean taxa richness,24.0,21.6,0.9,Mean number of taxa across samples (equals to species richness on species taxonomic level). MappingCoverage = post mapping/pre mapping.
+Std taxa richness,3.521363372331802,3.006659275674582,,Standard deviation of taxa richness.
+Mean pielous evenness,0.25583158326677974,0.14520530705415297,-0.11062627621262677,"Mean alpha-diversity (calc. by pielous evenness) in samples. Towards 0: low diversity, towards 1: high diversity, with 1: complete evenness. MappingCoverage = post mapping - pre mapping."
+Std pielous evenness,0.07101235911716859,0.032335510505420606,,Standard deviation of pielous evenness.
+Mean read counts,7935919.4,6337799.0,0.7986218962858922,Mean number of reads across samples. MappingCoverage = post mapping/pre mapping.
+Std read counts,2402703.3591303444,2677269.0076579154,,Standard deviation of read counts.

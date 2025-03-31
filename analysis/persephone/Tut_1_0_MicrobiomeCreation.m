@@ -296,7 +296,7 @@ numWorkersCreation = 10;
 % First we need to load a microbiome model and a WBM model. Here we will load the microbiome model corresponding to sample ID DP_305 and the female WBM.
 % Load microbiome model. As we load it into a variable, we also extract the
 % actual model
-modelM = load([paths.mgPipe.mgpipePath, filesep, 'Diet', filesep, 'microbiota_model_diet_DP305.mat']).model;
+modelM = load([paths.mgPipe.mgpipePath, filesep, 'Diet', filesep, 'microbiota_model_diet_CSM5MCXD.mat']).model;
 
 % Load the female WBM model 
 modelH = loadPSCMfile('Harvetta');
@@ -339,9 +339,9 @@ boundType = 'b';
 mWBM = changeRxnBounds(mWBM,rxnNameList, value, boundType);
 
 % Here we also define the diet that we want to use to simulate our human-microbiome models with. The default option is EUAverageDiet but other diet options are HighFiberDiet, HighProteinDiet, UnhealthyDiet and VegetarianDiet. If you want to change the diet use one of the afore-mentioned diet names and set that as the Diet variable istead of 'EUAverageDiet'. Using setDietConstraints we put the diet on the mWBM. The function also adds additional metabolites in small amounts (0.1-1 mmol/day). These extra metabolites are added as they are usually not present in the diet files, either pre-made or designed on vmh.life. The metabolites range from ions to small molecules required to ensure microbiome biomass production. The function takes the following inputs
-model - model structure, in our case mWBM
-diet - Diet option: 'EUAverageDiet' (default)
-factor - value between 0 and 1; default is 1, i.e, 100% of the provided diet
+%model - model structure, in our case mWBM
+%diet - Diet option: 'EUAverageDiet' (default)
+%factor - value between 0 and 1; default is 1, i.e, 100% of the provided diet
 % We will define our inputs and set the diet
 % Set the chosen diet
 diet = 'EUAverageDiet'
@@ -375,7 +375,7 @@ solution.f
 
 % If the sol.f value is 1, great! That means that the model can produce both enough microbiome biomass and can maitain the body maintanance reaction. To ensure we can use the model again we will also save it. The path to where mWBMs are saved was created in section 1 and saved in the paths variable.
 % Save the model
-save([paths.mWBM.mWBMPath,filesep,'mWBM_DP305_female.mat'],'-struct','mWBM')
+save([paths.mWBM.mWBMPath,filesep,'mWBM_CSM5MCXD_female.mat'],'-struct','mWBM')
 
 % If the output is not 1, it means that the model is unable to create 1 microbiome biomass per day. We will check if the model is able to do it if we open up all dietary reactions. To find all dietary reactions we use the find and contain function to obtain all the reaction indexes that have the prefix Diet_EX_, which indicates dietary exchange reactions. We then use changeRxnBounds to set the lower bound of each dietary exchange reaction to -100000 the unconstrained value used in the WBMs. Then we solve the model again to see if the diet was the problem. The upper bound does not have to be set to 0, as any unused metabolite can pass from the diet to the fecal exchange via various compartments.
 % Find all dietary reactions
@@ -408,7 +408,7 @@ missingDietComponents = getMissingDietModelHM(mWBM,dietExtensions,testInitialFea
 mWBM.lb(matches(mWBM.rxns,string(missingDietComponents)))=-0.1;
 
 % Save the updated mWBM
-save([paths.hmDir,filesep,'mWBM_DP305_female.mat'],'-struct','mWBM');
+save([paths.hmDir,filesep,'mWBM_CSM5MCXD_female.mat'],'-struct','mWBM');
 
 % Creating multiple mWBMs
 % In order to easily generate multiple HM models we need a file that matches the sex with the sample IDs. This will determine if the microbiome model created from that sample will be combined with a female (Harvetta) or male (Harvey) WBM. The diet we will use here is the EUAverageDiet. The metadata path, the path to the microbiome models and the path where the mWBMs should be stored were all defined at the beginning of this tutorial.
