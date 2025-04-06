@@ -30,7 +30,10 @@ jobs:
       - name: Get Changed mlx Files and sync with destination repository
         id: getFile
         run: |
-          changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
+          # Fetch the latest master branch
+          git fetch origin master
+          # Compare the remote master branch with the current HEAD to capture all changes
+          changed_files=$(git diff --name-only origin/master...HEAD | grep '\.mlx' | tr '\n' ' ')
           for file in $changed_files; do
             if [[ $file != "" ]]; then
               echo "Processing: $file"
@@ -41,10 +44,8 @@ jobs:
               
               # Export to HTML
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html')"
-              
               # Export to PDF
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf')"
-              
               # Export to M file
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
               
