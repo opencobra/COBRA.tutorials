@@ -62,7 +62,7 @@ jobs:
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
 
               cd cobratoolbox
-              TARGET_DIR="stable/tutorials/$(dirname \"$file\")"
+              TARGET_DIR="stable/tutorials/$(dirname "$file")"
               mkdir -p "$TARGET_DIR"
               echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
               cp "$HTML_FILE_PATH" "$TARGET_DIR/"
