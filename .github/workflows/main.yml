@@ -20,20 +20,35 @@ jobs:
       - name: Get the repository's owner name
         run: |
           echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
-          
+
       - name: Clone the destination repository
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
           git clone --depth 1 --branch gh-pages ssh://git@github.com/$REPO_OWNER/cobratoolbox.git
-          
-      - name: Get Changed mlx Files and sync with destination repository
+
+      - name: Get Changed mlx Files Since Last Sync Commit
         id: getFile
         run: |
-          # Fetch the latest master branch
-          git fetch origin master
-          # Compare the remote master branch with the current HEAD to capture all changes
-          changed_files=$(git diff --name-only origin/master...HEAD | grep '\.mlx' | tr '\n' ' ')
+          echo "Looking for last sync commit..."
+          last_sync_commit=$(git log --grep="created .HTML, .pdf, .mlx and .m files" -n 1 --pretty=format:"%H")
+
+          if [[ -z "$last_sync_commit" ]]; then
+            echo "No previous sync commit found. Exiting without processing."
+            exit 0
+          fi
+
+          echo "Found last sync commit: $last_sync_commit"
+          echo "Finding changed .mlx files since $last_sync_commit..."
+          changed_files=$(git diff --name-only "$last_sync_commit"..HEAD | grep '\.mlx$' || true)
+
+          if [[ -z "$changed_files" ]]; then
+            echo "No .mlx files changed since last sync. Exiting."
+            exit 0
+          fi
+
+          echo "Found changed files: $changed_files"
+
           for file in $changed_files; do
             if [[ $file != "" ]]; then
               echo "Processing: $file"
@@ -41,16 +56,13 @@ jobs:
               HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
               PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
-              
-              # Export to HTML
+
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html')"
-              # Export to PDF
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf')"
-              # Export to M file
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
-              
+
               cd cobratoolbox
-              TARGET_DIR="stable/tutorials/$(dirname "$file")"
+              TARGET_DIR="stable/tutorials/$(dirname \"$file\")"
               mkdir -p "$TARGET_DIR"
               echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
               cp "$HTML_FILE_PATH" "$TARGET_DIR/"
@@ -60,20 +72,23 @@ jobs:
               cd ../
             fi
           done
-        
+
       - name: Pushing the changes to both COBRA.tutorials and cobratoolbox repos
         run: |
           echo "Setting up git config..."
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
           cd cobratoolbox
           git pull
           git add .
           git commit -m "Sync files from source repo" || echo "No changes to commit"
           git push
           cd ..
+
           rm -rf cobratoolbox
           git add .
-          git commit -m "created .HTML, .pdf, .mlx and .m files"
+          git commit -m "created .HTML, .pdf, .mlx and .m files" || echo "No changes to commit"
           git push origin master
+
           echo "Script execution completed."
