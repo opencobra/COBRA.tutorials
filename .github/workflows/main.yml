@@ -25,7 +25,8 @@ jobs:
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 --branch gh-pages ssh://git@github.com/$REPO_OWNER/cobratoolbox.git
+          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.DEST_REPO_PAT }}@github.com/opencobra/cobratoolbox.git
+
 
       - name: Get Changed mlx Files Since Last Sync Commit
         id: getFile
@@ -73,22 +74,21 @@ jobs:
             fi
           done
 
-      - name: Pushing the changes to both COBRA.tutorials and cobratoolbox repos
+      - name: Pushing the changes
         run: |
-          echo "Setting up git config..."
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           cd cobratoolbox
-          git pull
           git add .
           git commit -m "Sync files from source repo" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.DEST_REPO_PAT }}@github.com/opencobra/cobratoolbox.git gh-pages
           cd ..
 
           rm -rf cobratoolbox
           git add .
           git commit -m "created .HTML, .pdf, .mlx and .m files" || echo "No changes to commit"
           git push origin master
+
 
           echo "Script execution completed."
