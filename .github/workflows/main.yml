@@ -25,7 +25,7 @@ jobs:
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git
+          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/pavan-kumar-s/cobratoolbox.git
 
       - name: Set up Python
         uses: actions/setup-python@v2
