@@ -71,8 +71,8 @@ jobs:
               cp "$PDF_FILE_PATH" "$TARGET_DIR/"
               cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
               cp "$M_FILE_PATH" "$TARGET_DIR/"
-              python ./stable/extract_info.py $ABSOLUTE_FILE_PATH
               cd ../
+              python ./stable/extract_info.py $file
             fi
           done
 
