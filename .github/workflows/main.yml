@@ -72,7 +72,7 @@ jobs:
               cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
               cp "$M_FILE_PATH" "$TARGET_DIR/"
               cd ../
-              python cobratoolbox/stable/extract_info.py $file
+              python cobratoolbox/stable/extract_info.py $(echo "$file" | sed 's/.mlx/.html/g')
             fi
           done
 
