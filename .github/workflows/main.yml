@@ -25,7 +25,7 @@ jobs:
         run: |
           rm -rf cobratoolbox
           echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/pavan-kumar-s/cobratoolbox.git
+          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -85,7 +85,7 @@ jobs:
           cd cobratoolbox
           git add .
           git commit -m "Sync files from source repo" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/pavan-kumar-s/cobratoolbox.git gh-pages
+          git push https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git gh-pages
           cd ..
 
           rm -rf cobratoolbox
