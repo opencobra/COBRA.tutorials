@@ -100,5 +100,8 @@ jobs:
           git commit -m "created .HTML, .pdf, .mlx and .m files" || echo "No changes to commit"
           git push origin master
 
+          cd ..
+          rm -rf COBRA.tutorials
+
 
           echo "Script execution completed."
