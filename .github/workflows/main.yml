@@ -63,16 +63,26 @@ jobs:
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf')"
               /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
 
+              echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
+
+              # Ensure target directory exists in COBRA.tutorials
+              mkdir -p "$(dirname "$file")"
+
+              # Copy .pdf, .mlx, .m to COBRA.tutorials
+              cp "$PDF_FILE_PATH" "$(dirname "$file")/"
+              cp "$ABSOLUTE_FILE_PATH" "$(dirname "$file")/"
+              cp "$M_FILE_PATH" "$(dirname "$file")/"
+              
               cd cobratoolbox
               TARGET_DIR="stable/tutorials/$(dirname "$file")"
               mkdir -p "$TARGET_DIR"
-              echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
+
+              # Copy .html to cobratoolbox
               cp "$HTML_FILE_PATH" "$TARGET_DIR/"
-              cp "$PDF_FILE_PATH" "$TARGET_DIR/"
-              cp "$ABSOLUTE_FILE_PATH" "$TARGET_DIR/"
-              cp "$M_FILE_PATH" "$TARGET_DIR/"
+
+              HTML_RELATIVE_PATH="stable/tutorials/$(echo "$file" | sed 's/.mlx/.html/')"
+              python stable/extract_info.py "$HTML_RELATIVE_PATH"
               
-              python stable/extract_info.py "stable/tutorials/$(echo "$file" | sed 's/.mlx/.html/g')"
               cd ../
             fi
           done
