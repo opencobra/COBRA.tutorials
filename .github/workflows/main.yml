@@ -59,9 +59,9 @@ jobs:
               PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
 
-              /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html')"
-              /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf')"
-              /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
+              /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.export.live.toHTML('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
+              /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.export.live.toPDF('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
+              /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.export.live.toCode('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
 
               echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
 
