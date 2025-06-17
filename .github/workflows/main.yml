@@ -61,7 +61,9 @@ jobs:
 
               # xvfb allows running functions that requires GUI
               xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html')"
+              sleep 5
               xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf')"
+              sleep 5
               xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
 
               echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
