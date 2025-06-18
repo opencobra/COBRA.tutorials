@@ -99,7 +99,5 @@ jobs:
           git push origin master
 
           cd ..
-          rm -rf COBRA.tutorials
-
 
           echo "Script execution completed."
