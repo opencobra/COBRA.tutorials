@@ -1,4 +1,4 @@
-name: Sync MLX Files
+name: Update Tutorial
 
 on:
   push:
@@ -36,14 +36,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install beautifulsoup4
-          
+
       - name: Get Changed mlx Files Since Last Sync Commit
         id: getFile
         run: |
           echo "Looking for last sync commit..."
           echo "Finding changed .mlx files since last commit"
           changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
-          
+
           if [[ -z "$changed_files" ]]; then
             echo "No .mlx files changed since last sync. Exiting."
             exit 0
@@ -55,30 +55,26 @@ jobs:
             if [[ $file != "" ]]; then
               echo "Processing: $file"
               ABSOLUTE_FILE_PATH=$(realpath "$file")
-              HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
+
+              # HTML will be written directly to cobratoolbox, NOT COBRA.tutorials
+              HTML_FILE_NAME=$(basename "$file" .mlx).html
+              HTML_FILE_PATH=$(realpath "cobratoolbox/stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME")
+              mkdir -p "$(dirname "$HTML_FILE_PATH")"
+
               PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
 
-              # xvfb allows running functions that requires GUI
+              # xvfb allows running functions that require GUI
               xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html')"
               sleep 5
               xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf')"
               sleep 5
               xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm')"
 
-              echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
-              
-              cd cobratoolbox
-              TARGET_DIR="stable/tutorials/$(dirname "$file")"
-              mkdir -p "$TARGET_DIR"
+              echo "Updating cobratoolbox index..."
 
-              # Copy .html to cobratoolbox
-              cp "$HTML_FILE_PATH" "$TARGET_DIR/"
-
-              HTML_RELATIVE_PATH="stable/tutorials/$(echo "$file" | sed 's/.mlx/.html/')"
+              HTML_RELATIVE_PATH="stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
               python stable/extract_info.py "$HTML_RELATIVE_PATH"
-              
-              cd ../
             fi
           done
 
@@ -95,7 +91,7 @@ jobs:
 
           rm -rf cobratoolbox
           git add .
-          git commit -m "created .HTML, .pdf, .mlx and .m files" || echo "No changes to commit"
+          git commit -m "created .pdf, .mlx and .m files" || echo "No changes to commit"
           git push origin master
 
           cd ..
