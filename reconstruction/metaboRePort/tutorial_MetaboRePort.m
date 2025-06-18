@@ -1,4 +1,4 @@
-%% MetaboRePort : 
+%% MetaboRePort Tutorial
 
 % Set path to the cobratoolbox
 global CBTDIR   
