@@ -68,8 +68,9 @@ jobs:
 
               # HTML will be written directly to cobratoolbox, NOT COBRA.tutorials
               HTML_FILE_NAME=$(basename "$file" .mlx).html
-              HTML_FILE_PATH=$(realpath "cobratoolbox/stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME")
+              HTML_FILE_PATH="cobratoolbox/stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
               mkdir -p "$(dirname "$HTML_FILE_PATH")"
+
 
               PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
