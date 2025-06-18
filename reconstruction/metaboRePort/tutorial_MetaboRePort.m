@@ -1,7 +1,7 @@
 %% MetaboRePort Tutorial
 
 % Set path to the cobratoolbox
-global CBTDIR   
+global CBTDIR 
 
 % Set root directory
 root = '';
