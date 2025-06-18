@@ -5,12 +5,12 @@ Tutorials are here to get you started with using `The COBRA
 Toolbox <https://opencobra.github.io/cobratoolbox>`__. The
 tutorials are grouped according to the ``src/`` folder structure:
 
-- |icon_analysis| `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
-- |icon_base| `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
-- |icon_dataIntegration| `dataIntegration <https://github.com/opencobra/COBRA.tutorials/tree/master/dataIntegration>`__
-- |icon_design| `design <https://github.com/opencobra/COBRA.tutorials/tree/master/design>`__
-- |icon_reconstruction| `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
-- |icon_visualization| `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
+- `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
+- `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
+- `dataIntegration <https://github.com/opencobra/COBRA.tutorials/tree/master/dataIntegration>`__
+- `design <https://github.com/opencobra/COBRA.tutorials/tree/master/design>`__
+- `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
+- `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
 
 All tutorials are provided in 4 formats: ``.mlx``, ``.m``, ``.pdf``, and ``.html``.
 
