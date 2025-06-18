@@ -41,8 +41,18 @@ jobs:
         id: getFile
         run: |
           echo "Looking for last sync commit..."
-          echo "Finding changed .mlx files since last commit"
-          changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
+
+          last_sync_commit=$(git log --grep="created .pdf, .mlx and .m files" -n 1 --pretty=format:%H)
+
+          if [[ -z "$last_sync_commit" ]]; then
+            echo "No previous sync commit found. Processing all .mlx files."
+            changed_files=$(git ls-files '*.mlx')
+          else
+            echo "Last sync commit: $last_sync_commit"
+            changed_files=$(git diff --name-only "$last_sync_commit"..HEAD | grep '\.mlx' || true)
+          fi
+
+          changed_files=$(echo "$changed_files" | tr '\n' ' ')
 
           if [[ -z "$changed_files" ]]; then
             echo "No .mlx files changed since last sync. Exiting."
