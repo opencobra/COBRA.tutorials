@@ -74,7 +74,9 @@ jobs:
               echo "Updating cobratoolbox index..."
 
               HTML_RELATIVE_PATH="stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
+              cd cobratoolbox
               python stable/extract_info.py "$HTML_RELATIVE_PATH"
+              cd ..
             fi
           done
 
