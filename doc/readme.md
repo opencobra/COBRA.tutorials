@@ -1,123 +1,182 @@
-## Continuous Integration of Tutorials:
-### High level Overview
-The whole idea of the continuous integration of the tutorials is that whenever a user contributes a tutorial in the format of a .mlx file on the [tutorials repo](https://github.com/opencobra/COBRA.tutorials) it should be converted to html and then rendered accordingly on the Cobratoolbox website in the tutorials section. This process is explained in two parts, first part is explained here and second part is explained in [README.md](https://github.com/opencobra/cobratoolbox/blob/gh-pages/README.md) file at gh-pages branch of the cobratoolbox repository.
-First part involves using MATLAB on a self-hosted server (King server) to generate the html file. This html is then pushed to the website's codebase repository which is the [./stable](https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable) folder of the gh-pages branch of the main cobratoolbox repository.
+# Continuous Integration for COBRA Tutorials
 
-GitHub actions is used to detect when a push (specifically .mlx push) is made to the tutorials repo. Then once the .mlx has been converted it is pushed to the stable folder of the gh-pages branch. Again, GitHub actions can detect this push and configures the website to incorporate the extra tutorial. Detailed documentation is given below.
+This document explains in detail how the CI/CD system works for automatically converting `.mlx` tutorial files into `.html`, `.pdf`, and `.m` formats, and then syncing them into the `gh-pages` branch of the `cobratoolbox` repository. This guide assumes zero background in CI/CD and is intended for future developers or contributors.
 
-### Detailed Documentation
-**Step 1: Pushing MLX files to the tutorials repository:**
-To understand GitHub actions you need to look for the github workflow folder where you will find a .yml which contains all the details about the github action. The worflows can be found by navigating to ./.github/workflows/. In the tutorials repo you will find a ‘[main.yml](https://github.com/opencobra/COBRA.tutorials/blob/master/.github/workflows/main.yml)’ file.
+---
 
-**What does main.yml do?**
-Here is an explanation of each section of the .yml file. Pictures of the sections are added and an explanation is given beneath the picture.
+## ✨ Objective
 
-```
+Whenever a `.mlx` tutorial file is pushed to the `master` branch of the `COBRA.tutorials` repository, this CI workflow:
+
+1. Converts the `.mlx` file into `.html`, `.pdf`, and `.m` formats using MATLAB.
+2. Saves the `.html` file to the `gh-pages` branch of the `cobratoolbox` repo (not COBRA.tutorials).
+3. Updates the index page to include or update the tutorial.
+4. Pushes updates to both repositories appropriately.
+
+---
+
+## 📄 Workflow Breakdown
+
+### 1. **Workflow Trigger**
+
+```yaml
 on:
   push:
     branches: [ master ]
     paths:
-    - '**.mlx'
+      - '**.mlx'
 ```
 
+This means the workflow runs whenever any `.mlx` file is changed or added to the `master` branch.
 
-This section of code basically means it will only run when a push is made to the master branch and one of the file types is a .mlx file. If not .mlx files are pushed, we don’t continue.
+### 2. **Checkout Source Repo**
 
-```
-jobs:
-  copy-changes:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout Source Repo
-        uses: actions/checkout@v2
-        with:
-          repository: '${{ github.repository_owner }}/COBRA.tutorials'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+```yaml
+- name: Checkout Source Repo
+  uses: actions/checkout@v2
+  with:
+    repository: '${{ github.repository_owner }}/COBRA.tutorials'
+    token: ${{ secrets.GITHUB_TOKEN }}
+    fetch-depth: 0
 ```
 
+This checks out the `COBRA.tutorials` repo to the self-hosted runner, with full history (needed for Git diff).
 
-- Next, we have a series of ‘jobs’ to compute.
-- The ‘runs-on’ parameter indicates where these jobs are computed. Here, it runs on ‘self-hosted’ because we need Matlab on King to run the .mlx to html. Generally, we should avoid using a self-hosted server but since Matlab is not an opensource programming language it needs to be ran a computer which has Matlab installed with a license.
-- There are several steps to do in the jobs section. Here the first step is to checkout the source repo i.e. get all the details about the repo and the pushes made to the repo.
-  
-```
+### 3. **Get Repository Owner**
+
+```yaml
 - name: Get the repository's owner name
   run: |
     echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
 ```
-- Here we are getting the repository's owner name and storing it in the variable, REPO_OWNER. This variable will be used in further jobs.
 
-```
+Stores the repo owner into an environment variable. Mostly for flexibility.
+
+### 4. **Clone Destination Repository (gh-pages)**
+
+```yaml
 - name: Clone the destination repository
   run: |
     rm -rf cobratoolbox
-    echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
-    git clone --depth 1 --branch gh-pages ssh://git@github.com/$REPO_OWNER/cobratoolbox.git
+    git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git
 ```
-- Here cobratoolbox repo (only gh-pages branch) is cloned to push the generated .html pages in further steps 
 
+This checks out the `gh-pages` branch of the `cobratoolbox` repo. This is where tutorials will be published as `.html`.
+
+### 5. **Setup Python**
+
+```yaml
+- name: Set up Python
+  uses: actions/setup-python@v2
+  with:
+    python-version: '3.x'
 ```
-- name: Get Changed mlx Files and sinc with destination repository
-  id: getFile
+
+Python is needed to run the `extract_info.py` script which updates the `index.html`.
+
+### 6. **Install Dependencies**
+
+```yaml
+- name: Install Dependencies
   run: |
-    changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')
-    # Setup virtual frame buffer
-    for file in $changed_files; do
-      if [[ $file != "" ]]; then
-        echo "Processing: $file"
-        ABSOLUTE_FILE_PATH=$(realpath "$file")
-        HTML_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.html/g')
-        PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
-        M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
-        /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH')"
-        /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH')"
-        /usr/local/MATLAB/R2024a/bin/matlab -batch "matlab.internal.liveeditor.openAndConvert('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH')"
-        cd cobratoolbox
-        TARGET_DIR="stable/tutorials/$(dirname "$file")"
-        mkdir -p "$TARGET_DIR"
-        echo "Copying the HTML, PDF, mlx and .m files to the target directory..."
-        cp "$HTML_FILE_PATH" "$TARGET_DIR/"
-        cd ../
-      fi
-    done
-```
-- Here we actually do the conversions and copy the .HTML file to cobratoolbox repository. The fourth line in this picture (changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.mlx' | tr '\n' ' ')) is used to find all the .mlx files that have been changed based on the most recent push.
-- Then for each modified .mlx file, an HTML file, a pdf file, and a Matlab code file are created and stored in the same directory where the .mlx file is located. We are using MATLAB R2024a here, if the king server has some other version, then this step has to be modified accordingly. Further, HTML file alone is copied to the cobratoolbox repo.
-
-
-```
-- name: Pushing the changes to both COBRA.tutorials and cobratoolbox repos
-  run: |
-    # Set up git config
-    echo "Setting up git config..."
-    git config --global user.name "github-actions[bot]"
-    git config --global user.email "github-actions[bot]@users.noreply.github.com"
-    # Add, commit, and push the changes
-    cd cobratoolbox
-    git pull
-    git add .
-    git commit -m "Sync files from source repo" || echo "No changes to commit"
-    git push
-    cd ..
-    rm -rf cobratoolbox
-    git add .
-    git commit -m "created .HTML, .pdf and .m files"
-    git push origin master
-    echo "Script execution completed."
+    python -m pip install --upgrade pip
+    pip install beautifulsoup4
 ```
 
-The converted files are further pushed to the cobratoolbox and COBRA.tutorial repo. Note that only .html pages are pushed to cobratoolbox repository and all the other formats are stored in COBRA.tutorial repo
+Installs Python dependencies used for parsing and modifying HTML.
 
-### Configuring the King Server
+### 7. **Determine Changed `.mlx` Files**
 
-Go to this page of the repo to create a new self-hosted runner:
+```yaml
+last_sync_commit=$(git log --grep="created .pdf, .mlx and .m files" -n 1 --pretty=format:%H)
+```
 
-![image](https://github.com/opencobra/cobratoolbox/assets/68754265/05535af0-9ccf-4c38-9e79-512f738cc0f0)
+This finds the most recent commit that pushed `.pdf`, `.mlx`, and `.m` files. It marks the last known successful sync.
 
+If that commit is found, we compare the current HEAD to that commit:
 
-By pressing the green new runner button, we are given easy instructions on how to set it up. We should have access to a terminal on King for this. To run the self-hosted runner nagivate to the folder we created it in and run ./run.sh to run the self-hosted runner.
+```bash
+changed_files=$(git diff --name-only "$last_sync_commit"..HEAD | grep '\.mlx' || true)
+```
 
-We also need to make sure you have Matlab downloaded and working on the king server also.
+If no such commit exists (first-time run), all `.mlx` files are considered.
 
+### 8. **Convert Files and Update Index**
 
+For each changed `.mlx` file:
+
+* Absolute path is resolved.
+* Converted to `.html`, `.pdf`, `.m` using MATLAB:
+
+```bash
+xvfb-run /usr/local/MATLAB/R2024a/bin/matlab -batch "export('$ABSOLUTE_FILE_PATH', '$OUTPUT_FILE_PATH', 'Format', '<html/pdf/m>')"
+```
+
+* HTML output goes directly into `cobratoolbox/stable/tutorials/...`
+* Then:
+
+```bash
+python stable/extract_info.py "$HTML_RELATIVE_PATH"
+```
+
+This Python script updates `index.html` to reflect the new tutorial or updates the entry.
+
+### 9. **Push Changes to Both Repos**
+
+```bash
+cd cobratoolbox
+# Commit to gh-pages
+cd ..
+rm -rf cobratoolbox
+# Commit to COBRA.tutorials (for .m/.pdf/.mlx)
+```
+
+The first commit updates the `gh-pages` (for web), the second commits changes in `COBRA.tutorials` itself (mostly PDF/M files).
+
+---
+
+## 🪧 Setup Requirements
+
+To make this CI work, you need:
+
+* A self-hosted GitHub runner with MATLAB and `xvfb` installed.
+* The token `DEST_REPO_TOKEN` as a secret in the GitHub repo settings for `COBRA.tutorials`, allowing write access to `cobratoolbox`.
+* The `stable/extract_info.py` script in the `gh-pages` branch of `cobratoolbox`, with `HOLDER_TEMPLATE.html` and `index.html` present and editable.
+* MATLAB must be licensed and accessible as `/usr/local/MATLAB/R2024a/bin/matlab` on the runner.
+
+---
+
+## ⚡ Recovery If CI Breaks
+
+* **Index not updating?**
+
+  * Check logs, especially the output of `extract_info.py`.
+  * Confirm `index.html` and `HOLDER_TEMPLATE.html` exist and are correct.
+
+* **Nothing runs?**
+
+  * Check if the `.mlx` file was committed to `master`.
+  * Confirm `.mlx` is inside a valid path and not excluded.
+
+* **MATLAB export failing?**
+
+  * Test manually with `xvfb-run matlab -batch ...`.
+  * Ensure all file paths are valid and writable.
+
+* **Workflow is skipping files?**
+
+  * Ensure the commit message `created .pdf, .mlx and .m files` exists in history.
+  * Push a `.mlx` change and monitor the CI.
+
+---
+
+## 🔗 Related Repositories
+
+* [COBRA.tutorials](https://github.com/opencobra/COBRA.tutorials): Source `.mlx` tutorials.
+* [cobratoolbox](https://github.com/opencobra/cobratoolbox): Published `.html` tutorials on `gh-pages` branch.
+
+---
+
+For any further questions, contact the COBRA Toolbox maintainers or check issues in the repositories.
+
+Happy modelling!
