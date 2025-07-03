@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Tut_2_SolveModel</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2025-03-28"><meta name="DC.source" content="Tut_2_SolveModel.m"><style type="text/css">
+      --><title>tut4_FBAandStatistics</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2025-07-03"><meta name="DC.source" content="tut4_FBAandStatistics.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -78,40 +78,33 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 solver = <span class="string">'ibm_cplex'</span>;
 
 changeCobraSolver(solver);
-<span class="comment">% Define the location of the required files, make sure you dont forget the file extensions where relevant!</span>
-resultPath = <span class="string">'D:\OneDrive - National University of Ireland, Galway\Protocal_Pipeline\Test20252701'</span>;
+<span class="comment">% Define the location of the required files, make sure you don't</span>
+<span class="comment">% forget the file extensions where relevant!</span>
+resultPath = <span class="string">''</span>;
 
-paths.General.metadataPath = <span class="string">'D:\OneDrive - National University of Ireland, Galway\Protocal_Pipeline\InputsTutorial\parkinsonSample5\metadataSubset5.xlsx'</span>;
+paths.General.metadataPath = <span class="string">''</span>;
 
 <span class="comment">% Leave as an empty string!</span>
 paths.Mars.readsTablePath = <span class="string">''</span>
 paths.seqC.outputPathSeqC = [resultPath, filesep, <span class="string">'resultSeqC'</span>];
-paths.Mars.outputPathMARS = [resultPath, filesep, <span class="string">'resultMars'</span>];
-paths.mgPipe.mgpipePath = [resultPath, filesep, <span class="string">'resultMgPipe'</span>];
-paths.persWBM.personalizeWBMPath = [resultPath, filesep, <span class="string">'personalisedWBMs'</span>];
-paths.mWBM.mWBMPath = [resultPath, filesep, <span class="string">'mWBMmodels'</span>];
-paths.fba.fluxPath = [resultPath, filesep, <span class="string">'resultFlux'</span>];
-paths.fba.fluxAnalysisPath = [paths.fba.fluxPath, filesep, <span class="string">'fluxAnalysis'</span>];
-paths.stats.statPath = [resultPath, filesep, <span class="string">'resultStatistics'</span>];
+paths.Mars.outputPathMars = [resultPath, filesep, <span class="string">'resultMars'</span>];
+paths.mgPipe.outputPathMgPipe = [resultPath, filesep, <span class="string">'resultMgPipe'</span>];
+paths.persWBM.outputPathPersonalisation = [resultPath, filesep, <span class="string">'personalisedWBMs'</span>];
+paths.mWBM.outputPathMWBM = [resultPath, filesep, <span class="string">'mWBMmodels'</span>];
+paths.fba.outputPathFluxResult = [resultPath, filesep, <span class="string">'resultFlux'</span>];
+paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxResult, filesep, <span class="string">'fluxAnalysis'</span>];
+paths.stats.outputPathStatistics = [resultPath, filesep, <span class="string">'resultStatistics'</span>];
+
 <span class="comment">% Create the file structure for the results of all the parts of the</span>
 <span class="comment">% tutorial (not just this tutorial)</span>
 [initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
 paths.General.metadataPath = updatedMetadataPath;
-solver = <span class="string">'gurobi'</span>
-
-<span class="comment">% Set solver</span>
-[solverOK, solverInstalled] = changeCobraSolver(solver);
-
-<span class="comment">% The model should be in the defined directory if resultPath indeed</span>
-<span class="comment">% contains the mWBMmodels folder and the CSM5MCXD.mat file. If not you can set</span>
-<span class="comment">% the path directly by entering the full path and the file name and</span>
-<span class="comment">% extensions within the load() function. Ensure quotation marks '' around</span>
-<span class="comment">% the path name.</span>
-mWBM = load([paths.mWBM.mWBMPath, filesep, <span class="string">'muWBM_CSM5MCXD_female.mat'</span>]);
-<span class="comment">% Indicate the path to the mWBMs as created in the previous tutorial OR use download the HMmodels from the supplementary</span>
+<span class="comment">% Indicate the path to the mWBMs as created in the previous tutorial</span>
+<span class="comment">% OR use download the mWBM models from the supplementary</span>
 <span class="comment">% files from the paper and load the model</span>
-
-pathToModel = which(<span class="string">'HM_CSM5MCXD.mat'</span>); <span class="comment">% Make sure that HM_CSM5MCXD is stored in a folder that is added to the Matlab path</span>
+pathToModel = which(<span class="string">'mWBM_CSM5MCXD_female.mat'</span>);
+<span class="comment">% Make sure that mWBM_CSM5MCXD is</span>
+<span class="comment">% stored in a folder that is added to the Matlab path</span>
 
 model = loadPSCMfile(pathToModel);
 <span class="comment">% The model should be in the defined directory if resultPath indeed</span>
@@ -119,7 +112,7 @@ model = loadPSCMfile(pathToModel);
 <span class="comment">% the path directly by entering the full path and the file name and</span>
 <span class="comment">% extensions within the load() function. Ensure quotation marks '' around</span>
 <span class="comment">% the path name.</span>
-mWBM = load([paths.mWBM.mWBMPath, filesep, <span class="string">'muWBM_CSM5MCXD_female.mat'</span>]);
+mWBM = load([paths.mWBM.outputPathMWBM, filesep, <span class="string">'mWBM_CSM5MCXD_female.mat'</span>]);
 <span class="comment">% Change the reaction bounds</span>
 mWBM = changeRxnBounds(mWBM, <span class="string">'Whole_body_objective_rxn'</span>, 1, <span class="string">'b'</span>);
 <span class="comment">% Display the flux bounds on the objective reaction</span>
@@ -230,7 +223,7 @@ mWBMDemand = changeObjective(mWBMDemand,[<span class="string">'DM_'</span> metab
 mWBMDemand.osenseStr = <span class="string">'max'</span>;
 <span class="comment">% Perform FBA</span>
 solution = optimizeWBModel(mWBMDemand);
-<span class="comment">% Check maximised flux through 'DM_taur(c)'</span>
+<span class="comment">% Check maximised flux through 'DM_tryp(c)'</span>
 solution.f
 <span class="comment">% Prepare a germ-free WBM model.</span>
 modelGF = loadPSCMfile(<span class="string">'Harvetta'</span>);
@@ -245,7 +238,7 @@ modelGF = changeObjective(modelGF, <span class="string">'DM_trp_L[bc]'</span>);
 modelGF.osenseStr = <span class="string">'max'</span>;
 <span class="comment">% Perform FBA</span>
 solution_GF = optimizeWBModel(modelGF);
-<span class="comment">% Check maximised flux through 'EX_tdechola[u]'</span>
+<span class="comment">% Check maximised flux through 'EX_trp_L[bc]'</span>
 solution_GF.f
 <span class="comment">% Add demand reaction</span>
 mWBMDemand = addDemandReaction(mWBM,<span class="string">'trp_L[bc]'</span>);
@@ -262,22 +255,25 @@ mWBMDemand.osenseStr = <span class="string">'max'</span>;
 <span class="comment">% Perform FBA</span>
 solution_mWBM = optimizeWBModel(mWBMDemand);
 
-<span class="comment">% Check maximised flux through 'EX_tdechola[u]'</span>
+<span class="comment">% Check maximised flux through 'EX_tryp_L[bc]]'</span>
 solution_mWBM.f
 solution_mWBM.f - solution_GF.f
 <span class="comment">% Predefined at the start</span>
 <span class="comment">% Set paths</span>
-resultPath = <span class="string">'D:\OneDrive - National University of Ireland, Galway\Projects_ANS_AnnaSheehy\NatureProtocol\Test tutorials'</span>;
-mWBMPath = fullfile(resultPath,<span class="string">'mWBMmodels'</span>); <span class="comment">% Path to mWBMs</span>
-fluxPath = fullfile(resultPath,<span class="string">'resultFlux'</span>); <span class="comment">% Output path for the flux results</span>
-fluxAnalysisPath = fullfile(resultPath,<span class="string">'resultStatistics'</span>); <span class="comment">% Output path for the flux descriptions</span>
+resultPath = <span class="string">''</span>;
+<span class="comment">% Path to mWBMs</span>
+mWBMPath = fullfile(resultPath,<span class="string">'mWBMmodels'</span>);
+<span class="comment">% Output path for the flux results</span>
+fluxPath = fullfile(resultPath,<span class="string">'resultFlux'</span>);
+<span class="comment">% Output path for the flux descriptions</span>
+fluxAnalysisPath = fullfile(resultPath,<span class="string">'resultFlux'</span>, <span class="string">'fluxAnalysis'</span>);
 
 <span class="comment">% Set which reactions have to be optimised for</span>
-rxnList = {<span class="string">'DM_glc_D[bc]'</span>
-    <span class="string">'DM_but[bc]'</span>
-    <span class="string">'DM_glu_L[bc]'</span>
-    <span class="string">'DM_HC02191[bc]'</span>
-    <span class="string">'Brain_DM_atp_c_'</span>};
+rxnList = {<span class="string">'DM_glc_D[bc]'</span>;
+    <span class="string">'DM_but[bc]'</span>}
+<span class="comment">%     'DM_glu_L[bc]';</span>
+<span class="comment">%     'DM_HC02191[bc]';</span>
+<span class="comment">%     'Brain_DM_atp_c_'};</span>
 
 <span class="comment">% Use the same diet as when you created the mWBMs. Otherwise change</span>
 <span class="comment">% EUAverageDiet to the diet you used in creating the mWBMs.</span>
@@ -309,39 +305,38 @@ paramFluxProcessing.NumericalRounding = {<span class="string">'fraction'</span>,
 paramFluxProcessing.RxnEquivalenceThreshold = 0.999;
 paramFluxProcessing.fluxMicrobeCorrelationType = <span class="string">'regression_r2'</span>;
 <span class="comment">% Call on the function</span>
-analyzeWBMs(hmDirectory, solutionDir, rxnList, <span class="string">'diet'</span>, diet, <span class="string">'numWorkers'</span>, numWorkersOptimisation, <span class="string">'saveFullRes'</span>, saveFullRes, <span class="string">'paramFluxProcessing'</span>, paramFluxProcessing, <span class="string">'saveDir'</span>, saveDir, <span class="string">'solver'</span>, solver);
-analyseWBMs(mWBMPath, <span class="keyword">...</span>
-        fluxPath, <span class="keyword">...</span>
-        rxnList,<span class="keyword">...</span>
-        <span class="string">'numWorkers'</span>, numWorkersOptimization, <span class="keyword">...</span>
-        <span class="string">'saveFullRes'</span>, saveFullRes,<span class="keyword">...</span>
-        <span class="string">'saveDir'</span>, fluxAnalysisPath,<span class="keyword">...</span>
-        <span class="string">'paramFluxProcessing'</span>, paramFluxProcessing,<span class="keyword">...</span>
-        <span class="string">'solver'</span>, solver);
+analyseWBMs(mWBMPath, paths.fba.outputPathFluxAnalysis, rxnList, <span class="string">'numWorkers'</span>,<span class="keyword">...</span>
+    numWorkersOptimisation, <span class="string">'saveFullRes'</span>, saveFullRes, <span class="string">'paramFluxProcessing'</span>, <span class="keyword">...</span>
+    paramFluxProcessing, <span class="string">'fluxAnalysisPath'</span>, fluxAnalysisPath, <span class="string">'solver'</span>, solver);
 outputPathStatistics = fullfile(resultPath,<span class="string">'resultStatistics'</span>);
 processedFluxPath = fullfile(resultPath,<span class="string">'fluxAnalysis'</span>, <span class="string">'processed_fluxes.csv'</span>);
 wbmRelAbunPath = fullfile(resultPath,<span class="string">'fluxAnalysis'</span>, <span class="string">'WBM_relative_abundances.csv'</span>);
-metadataPath = fullfile(resultPath,<span class="string">'metadataFAKE_processed.csv'</span>);
+metadataPath = fullfile(resultPath,<span class="string">'demo_metadata_processed.csv'</span>);
 metadata = readMetadataForPersephone(metadataPath);
 head(metadata)
 response = <span class="string">'diagnosis'</span>;
 
 <span class="comment">% Assess the number of samples for each diagnosis group</span>
 [groupIndices,categories] = findgroups(metadata.diagnosis);
-table(categories, histcounts(groupIndices)',<span class="string">'VariableNames'</span>,{<span class="string">'Diagnosis'</span>,<span class="string">'Number of samples'</span>})
+table(categories, histcounts(groupIndices)',<span class="string">'VariableNames'</span>,<span class="keyword">...</span>
+    {<span class="string">'Diagnosis'</span>,<span class="string">'Number of samples'</span>})
 metadata(matches(metadata.diagnosis,<span class="string">'nonIBD'</span>),:)=[];
 
 <span class="comment">% Save updated metadata file</span>
 updatedMetadataPath = erase(metadataPath,<span class="string">'.csv'</span>) + <span class="string">"_removedNonIBD.csv"</span>;
 writetable(metadata,updatedMetadataPath);
-confounders = {<span class="string">'age'</span>,<span class="string">'sex'</span>};
+confounders = {<span class="string">'age'</span>, <span class="string">'Sex'</span>};
 microbeCutoff = 0.1;
 <span class="comment">% Run statistics pipeline</span>
-results = performStatsPersephone(outputPathStatistics, processedFluxPath, wbmRelAbunPath, updatedMetadataPath,<span class="string">''</span>,response, <span class="keyword">...</span>
+<span class="comment">% We recommend that you copy and paste this and run it in the command</span>
+<span class="comment">% window because there can be a long output which is prone to cause issues</span>
+<span class="comment">% in live scripts.</span>
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, <span class="keyword">...</span>
+    updatedMetadataPath, response, <span class="string">'pathToWbmRelAbundances'</span>, wbmRelAbunPath, <span class="keyword">...</span>
     <span class="string">'confounders'</span>,confounders,<span class="string">'microbeCutoff'</span>,microbeCutoff);
 <span class="comment">% Run statistics pipeline</span>
-results = performStatsPersephone(outputPathStatistics, processedFluxPath, <span class="string">''</span>, updatedMetadataPath,<span class="string">''</span>,response, <span class="keyword">...</span>
-    <span class="string">'confounders'</span>,confounders);
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, <span class="keyword">...</span>
+    updatedMetadataPath, response, <span class="string">'confounders'</span>,confounders);
 </pre><pre class="codeoutput">
  &gt; changeCobraSolver: IBM ILOG CPLEX interface added to MATLAB path.
 
@@ -350,6 +345,7 @@ paths =
   struct with fields:
 
        seqC: [1&times;1 struct]
+       seqc: [1&times;1 struct]
        Mars: [1&times;1 struct]
     General: [1&times;1 struct]
      mgPipe: [1&times;1 struct]
@@ -358,16 +354,10 @@ paths =
         fba: [1&times;1 struct]
       stats: [1&times;1 struct]
 
-</pre><pre class="codeoutput error">Error using detectImportOptions (line 238)
-Unable to find or open 'D:\OneDrive - National University of Ireland, Galway\Protocal_Pipeline\InputsTutorial\parkinsonSample5\metadataSubset5.xlsx'. Check the path and filename or file permissions.
+</pre><pre class="codeoutput error">Error using initPersephone
+Invalid argument at position 1. Value must not be empty.
 
-Error in readMetadataForPersephone (line 40)
-opts = detectImportOptions(metadataPath, 'VariableNamingRule', 'preserve'); 
-
-Error in initPersephone (line 97)
-metadata = readMetadataForPersephone(paths.General.metadataPath);
-
-Error in Tut_2_SolveModel (line 29)
+Error in tut4_FBAandStatistics (line 31)
 [initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
 </pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
@@ -382,40 +372,33 @@ end
 solver = 'ibm_cplex';
 
 changeCobraSolver(solver);
-% Define the location of the required files, make sure you dont forget the file extensions where relevant!
-resultPath = 'D:\OneDrive - National University of Ireland, Galway\Protocal_Pipeline\Test20252701';
+% Define the location of the required files, make sure you don't 
+% forget the file extensions where relevant!
+resultPath = '';
 
-paths.General.metadataPath = 'D:\OneDrive - National University of Ireland, Galway\Protocal_Pipeline\InputsTutorial\parkinsonSample5\metadataSubset5.xlsx';
+paths.General.metadataPath = '';
 
 % Leave as an empty string!
 paths.Mars.readsTablePath = ''
 paths.seqC.outputPathSeqC = [resultPath, filesep, 'resultSeqC'];
-paths.Mars.outputPathMARS = [resultPath, filesep, 'resultMars'];
-paths.mgPipe.mgpipePath = [resultPath, filesep, 'resultMgPipe'];
-paths.persWBM.personalizeWBMPath = [resultPath, filesep, 'personalisedWBMs'];
-paths.mWBM.mWBMPath = [resultPath, filesep, 'mWBMmodels'];
-paths.fba.fluxPath = [resultPath, filesep, 'resultFlux'];
-paths.fba.fluxAnalysisPath = [paths.fba.fluxPath, filesep, 'fluxAnalysis'];
-paths.stats.statPath = [resultPath, filesep, 'resultStatistics'];
+paths.Mars.outputPathMars = [resultPath, filesep, 'resultMars'];
+paths.mgPipe.outputPathMgPipe = [resultPath, filesep, 'resultMgPipe'];
+paths.persWBM.outputPathPersonalisation = [resultPath, filesep, 'personalisedWBMs'];
+paths.mWBM.outputPathMWBM = [resultPath, filesep, 'mWBMmodels'];
+paths.fba.outputPathFluxResult = [resultPath, filesep, 'resultFlux'];
+paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxResult, filesep, 'fluxAnalysis'];
+paths.stats.outputPathStatistics = [resultPath, filesep, 'resultStatistics'];
+
 % Create the file structure for the results of all the parts of the
 % tutorial (not just this tutorial)
 [initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
 paths.General.metadataPath = updatedMetadataPath;
-solver = 'gurobi' 
-
-% Set solver
-[solverOK, solverInstalled] = changeCobraSolver(solver);
-
-% The model should be in the defined directory if resultPath indeed
-% contains the mWBMmodels folder and the CSM5MCXD.mat file. If not you can set
-% the path directly by entering the full path and the file name and
-% extensions within the load() function. Ensure quotation marks '' around
-% the path name.
-mWBM = load([paths.mWBM.mWBMPath, filesep, 'muWBM_CSM5MCXD_female.mat']);
-% Indicate the path to the mWBMs as created in the previous tutorial OR use download the HMmodels from the supplementary 
+% Indicate the path to the mWBMs as created in the previous tutorial 
+% OR use download the mWBM models from the supplementary 
 % files from the paper and load the model
-
-pathToModel = which('HM_CSM5MCXD.mat'); % Make sure that HM_CSM5MCXD is stored in a folder that is added to the Matlab path
+pathToModel = which('mWBM_CSM5MCXD_female.mat'); 
+% Make sure that mWBM_CSM5MCXD is 
+% stored in a folder that is added to the Matlab path
 
 model = loadPSCMfile(pathToModel);
 % The model should be in the defined directory if resultPath indeed
@@ -423,7 +406,7 @@ model = loadPSCMfile(pathToModel);
 % the path directly by entering the full path and the file name and
 % extensions within the load() function. Ensure quotation marks '' around
 % the path name.
-mWBM = load([paths.mWBM.mWBMPath, filesep, 'muWBM_CSM5MCXD_female.mat']);
+mWBM = load([paths.mWBM.outputPathMWBM, filesep, 'mWBM_CSM5MCXD_female.mat']);
 % Change the reaction bounds 
 mWBM = changeRxnBounds(mWBM, 'Whole_body_objective_rxn', 1, 'b');
 % Display the flux bounds on the objective reaction
@@ -534,7 +517,7 @@ mWBMDemand = changeObjective(mWBMDemand,['DM_' metabolite]);
 mWBMDemand.osenseStr = 'max';
 % Perform FBA
 solution = optimizeWBModel(mWBMDemand);
-% Check maximised flux through 'DM_taur(c)'
+% Check maximised flux through 'DM_tryp(c)'
 solution.f
 % Prepare a germ-free WBM model.
 modelGF = loadPSCMfile('Harvetta');
@@ -549,7 +532,7 @@ modelGF = changeObjective(modelGF, 'DM_trp_L[bc]');
 modelGF.osenseStr = 'max';
 % Perform FBA
 solution_GF = optimizeWBModel(modelGF);
-% Check maximised flux through 'EX_tdechola[u]' 
+% Check maximised flux through 'EX_trp_L[bc]' 
 solution_GF.f
 % Add demand reaction
 mWBMDemand = addDemandReaction(mWBM,'trp_L[bc]');
@@ -566,22 +549,25 @@ mWBMDemand.osenseStr = 'max';
 % Perform FBA
 solution_mWBM = optimizeWBModel(mWBMDemand);
 
-% Check maximised flux through 'EX_tdechola[u]' 
+% Check maximised flux through 'EX_tryp_L[bc]]' 
 solution_mWBM.f
 solution_mWBM.f - solution_GF.f
 % Predefined at the start
 % Set paths
-resultPath = 'D:\OneDrive - National University of Ireland, Galway\Projects_ANS_AnnaSheehy\NatureProtocol\Test tutorials';
-mWBMPath = fullfile(resultPath,'mWBMmodels'); % Path to mWBMs
-fluxPath = fullfile(resultPath,'resultFlux'); % Output path for the flux results
-fluxAnalysisPath = fullfile(resultPath,'resultStatistics'); % Output path for the flux descriptions
+resultPath = '';
+% Path to mWBMs
+mWBMPath = fullfile(resultPath,'mWBMmodels'); 
+% Output path for the flux results
+fluxPath = fullfile(resultPath,'resultFlux');
+% Output path for the flux descriptions
+fluxAnalysisPath = fullfile(resultPath,'resultFlux', 'fluxAnalysis'); 
 
 % Set which reactions have to be optimised for
-rxnList = {'DM_glc_D[bc]'
-    'DM_but[bc]'
-    'DM_glu_L[bc]'
-    'DM_HC02191[bc]'
-    'Brain_DM_atp_c_'};
+rxnList = {'DM_glc_D[bc]';
+    'DM_but[bc]'}
+%     'DM_glu_L[bc]';
+%     'DM_HC02191[bc]';
+%     'Brain_DM_atp_c_'};
 
 % Use the same diet as when you created the mWBMs. Otherwise change
 % EUAverageDiet to the diet you used in creating the mWBMs.
@@ -613,38 +599,37 @@ paramFluxProcessing.NumericalRounding = {'fraction',0.1};
 paramFluxProcessing.RxnEquivalenceThreshold = 0.999;
 paramFluxProcessing.fluxMicrobeCorrelationType = 'regression_r2';
 % Call on the function
-analyzeWBMs(hmDirectory, solutionDir, rxnList, 'diet', diet, 'numWorkers', numWorkersOptimisation, 'saveFullRes', saveFullRes, 'paramFluxProcessing', paramFluxProcessing, 'saveDir', saveDir, 'solver', solver);
-analyseWBMs(mWBMPath, ...
-        fluxPath, ...
-        rxnList,...
-        'numWorkers', numWorkersOptimization, ...
-        'saveFullRes', saveFullRes,...
-        'saveDir', fluxAnalysisPath,...
-        'paramFluxProcessing', paramFluxProcessing,...
-        'solver', solver);
+analyseWBMs(mWBMPath, paths.fba.outputPathFluxAnalysis, rxnList, 'numWorkers',...
+    numWorkersOptimisation, 'saveFullRes', saveFullRes, 'paramFluxProcessing', ...
+    paramFluxProcessing, 'fluxAnalysisPath', fluxAnalysisPath, 'solver', solver);
 outputPathStatistics = fullfile(resultPath,'resultStatistics');
 processedFluxPath = fullfile(resultPath,'fluxAnalysis', 'processed_fluxes.csv');
 wbmRelAbunPath = fullfile(resultPath,'fluxAnalysis', 'WBM_relative_abundances.csv');
-metadataPath = fullfile(resultPath,'metadataFAKE_processed.csv');
+metadataPath = fullfile(resultPath,'demo_metadata_processed.csv');
 metadata = readMetadataForPersephone(metadataPath);
 head(metadata)
 response = 'diagnosis';
 
 % Assess the number of samples for each diagnosis group
 [groupIndices,categories] = findgroups(metadata.diagnosis);
-table(categories, histcounts(groupIndices)','VariableNames',{'Diagnosis','Number of samples'})
+table(categories, histcounts(groupIndices)','VariableNames',...
+    {'Diagnosis','Number of samples'})
 metadata(matches(metadata.diagnosis,'nonIBD'),:)=[];
 
 % Save updated metadata file
 updatedMetadataPath = erase(metadataPath,'.csv') + "_removedNonIBD.csv";
 writetable(metadata,updatedMetadataPath);
-confounders = {'age','sex'};
+confounders = {'age', 'Sex'};
 microbeCutoff = 0.1;
 % Run statistics pipeline
-results = performStatsPersephone(outputPathStatistics, processedFluxPath, wbmRelAbunPath, updatedMetadataPath,'',response, ...
+% We recommend that you copy and paste this and run it in the command
+% window because there can be a long output which is prone to cause issues
+% in live scripts.
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, ...
+    updatedMetadataPath, response, 'pathToWbmRelAbundances', wbmRelAbunPath, ...
     'confounders',confounders,'microbeCutoff',microbeCutoff);
 % Run statistics pipeline
-results = performStatsPersephone(outputPathStatistics, processedFluxPath, '', updatedMetadataPath,'',response, ...
-    'confounders',confounders);
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, ...
+    updatedMetadataPath, response, 'confounders',confounders);
 ##### SOURCE END #####
 --></body></html>
