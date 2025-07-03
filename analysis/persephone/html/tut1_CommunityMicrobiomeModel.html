@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Tut_SeqC</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2025-03-28"><meta name="DC.source" content="Tut_SeqC.m"><style type="text/css">
+      --><title>tut1_CommunityMicrobiomeModel</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2025-07-03"><meta name="DC.source" content="tut1_CommunityMicrobiomeModel.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,7 +67,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">1.5 MARS inputs</a></li><li><a href="#3">Determine Operating System</a></li><li><a href="#4">Determine directory size and estimate usage exapansion</a></li><li><a href="#5">Initialize Paths</a></li><li><a href="#6">Convert Numeric Inputs to Strings</a></li><li><a href="#7">Build Docker Options</a></li><li><a href="#8">Append Optional Build Arguments - MARS</a></li><li><a href="#9">Build Docker Image command</a></li><li><a href="#10">Docker run commands</a></li><li><a href="#11">Set Database Assignment Command</a></li><li><a href="#12">Construct Command for Running SeqC</a></li></ul></div><pre class="codeinput"><span class="comment">%git clone git@gitlab.com:thielelab/wbm_modelingcode.git --branch master</span>
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">1.5 MARS inputs</a></li><li><a href="#3">Determine Operating System</a></li><li><a href="#4">Determine directory size and estimate usage exapansion</a></li><li><a href="#5">Initialize Paths</a></li><li><a href="#6">Convert Numeric Inputs to Strings</a></li><li><a href="#7">Build Docker Options</a></li><li><a href="#8">Append Optional Build Arguments - MARS</a></li><li><a href="#9">Build Docker Image command</a></li><li><a href="#10">Docker run commands</a></li><li><a href="#11">Set Database Assignment Command</a></li><li><a href="#12">Construct Command for Running SeqC</a></li></ul></div><pre class="codeinput"><span class="comment">% git clone git@gitlab.com:thielelab/wbm_modelingcode.git --branch master</span>
 <span class="comment">% Character array variable specifying the folder where seqC repository is stored</span>
 <span class="comment">% e.g., 'C:\Users\cobratoolbox\src\analysis\persephone\SeqC_pipeline'</span>
 paths.seqC.repoPathSeqC = <span class="string">''</span>;
@@ -96,6 +96,9 @@ paths.seqC.maxProcSeqC = 4;
 <span class="comment">% Logical variable indicating if additional debugging</span>
 <span class="comment">% messaging should be included in the log.</span>
 paths.seqC.debugSeqC = false;
+
+<span class="comment">% describe</span>
+paths.seqC.apptainer = false;
 </pre><h2 id="2">1.5 MARS inputs</h2><p>Logical variable indicating if taxonomic mapping by MARS is performed independently of SeqC.</p><pre class="codeinput">paths.Mars.flagMars = true;
 <span class="comment">% *REQUIRED*. Character array variable with path to the microbiome taxonomy</span>
 <span class="comment">% and read abundance file.</span>
@@ -109,7 +112,8 @@ paths.Mars.outputPathMars = [resultPath filesep, <span class="string">'ResultMar
 paths.Mars.outputExtensionMars = <span class="string">'csv'</span>;
 
 <span class="comment">% Path to relative abundance file</span>
-paths.Mars.relAbunFilePath = [paths.Mars.outputExtensionMars filesep <span class="string">'present'</span> filesep <span class="string">'present_species'</span> filesep paths.Mars.outputExtensionMars];
+paths.Mars.relAbunFilePath = [paths.Mars.outputExtensionMars filesep <span class="string">'present'</span><span class="keyword">...</span>
+    filesep <span class="string">'present_species'</span> filesep paths.Mars.outputExtensionMars];
 
 <span class="comment">% Numeric value for total read counts per sample under which samples are</span>
 <span class="comment">% excluded from analysis. Only applies when readsTable contains absolute</span>
@@ -157,6 +161,7 @@ runSeqC(<span class="keyword">...</span>
             paths.seqC.maxCpuSeqC, <span class="keyword">...</span>
             paths.seqC.maxProcSeqC, <span class="keyword">...</span>
             paths.seqC.debugSeqC, <span class="keyword">...</span>
+            paths.seqC.apptainer, <span class="keyword">...</span>
             paths.Mars.readsTablePath, <span class="keyword">...</span>
             paths.Mars.outputPathMars, <span class="keyword">...</span>
             paths.Mars.outputExtensionMars, <span class="keyword">...</span>
@@ -171,13 +176,10 @@ runSeqC(<span class="keyword">...</span>
             paths.Mars.userDbPath, <span class="keyword">...</span>
             paths.Mars.taxaTable <span class="keyword">...</span>
     );
-</pre><pre class="codeoutput error">Error using getDirectorySize (line 32)
-Directory does not exist: seqc_input\
+</pre><pre class="codeoutput error">Error using runSeqC
+Too many input arguments.
 
-Error in runSeqC (line 51)
-totalBytes = getDirectorySize(dirPath); % Function from previous response
-
-Error in Tut_SeqC (line 85)
+Error in tut1_CommunityMicrobiomeModel (line 89)
 runSeqC(...
 </pre><h2 id="3">Determine Operating System</h2><p>Some arguments are OS specific</p><pre class="codeinput"><span class="keyword">if</span> ismac
     vOS = <span class="string">'mac'</span>;
@@ -195,7 +197,8 @@ totalMB = totalBytes / (1024^2); <span class="comment">% Convert to MB</span>
 totalGB = totalBytes / (1024^3); <span class="comment">% Convert to GB</span>
 inflateRatio = 3.2; <span class="comment">% inflation term</span>
 inflateGB = totalGB * inflateRatio;
-msgDsize = sprintf(<span class="string">'Total size of directory: %.2f GB\nExpected inflation size: %.2f GB\n'</span>, totalGB, inflateGB);
+msgDsize = sprintf([<span class="string">'Total size of directory: %.2f GB\nExpected ...'</span> <span class="keyword">...</span>
+    <span class="string">'inflation size: %.2f GB\n'</span>], totalGB, inflateGB);
 </pre><h2 id="5">Initialize Paths</h2><pre class="codeinput">vdir_init = cd;
 vdir_out_seqc = <span class="string">'seqc_output'</span>;
 vdir_out_mars = fullfile(vdir_out_seqc, <span class="string">'mars_out'</span>);
@@ -207,8 +210,9 @@ maxProcSeqC = num2str(paths.seqC.maxProcSeqC);
 <span class="keyword">if</span> isnumeric(paths.Mars.cutoffMars)
     paths.Mars.cutoffMars = sprintf(<span class="string">'%f'</span>, paths.Mars.cutoffMars);
 <span class="keyword">end</span>
-</pre><h2 id="7">Build Docker Options</h2><p>Hardware params</p><pre class="codeinput">comm_build_opt_hw = sprintf(<span class="string">'--build-arg varg_cpu_max=%s --build-arg varg_mem_max=%s --build-arg varg_proc_max=%s'</span>, <span class="keyword">...</span>
-                            paths.seqC.maxCpuSeqC, paths.seqC.maxMemSeqC, paths.seqC.maxProcSeqC);
+</pre><h2 id="7">Build Docker Options</h2><p>Hardware params</p><pre class="codeinput">comm_build_opt_hw = sprintf([<span class="string">'--build-arg varg_cpu_max=%s --build-arg...'</span> <span class="keyword">...</span>
+    <span class="string">'  varg_mem_max=%s...'</span> <span class="string">' --build-arg varg_proc_max=%s'</span>], <span class="keyword">...</span>
+    paths.seqC.maxCpuSeqC, paths.seqC.maxMemSeqC, paths.seqC.maxProcSeqC);
 <span class="comment">% MARS params</span>
 comm_build_opt_mars = sprintf([<span class="string">'--build-arg varg_mars_outputExtensionMars=%s'</span> <span class="keyword">...</span>
 <span class="string">' --build-arg varg_mars_sample_read_counts_cutoff=%d'</span> <span class="keyword">...</span>
@@ -217,22 +221,27 @@ comm_build_opt_mars = sprintf([<span class="string">'--build-arg varg_mars_outpu
 <span class="string">' --build-arg varg_mars_taxaDelimiter="%s"'</span> <span class="keyword">...</span>
 <span class="string">' --build-arg varg_mars_removeClade =%s'</span> <span class="keyword">...</span>
 <span class="string">' --build-arg varg_mars_reconstructionDb=%s'</span>], <span class="keyword">...</span>
-paths.Mars.outputExtensionMars, paths.Mars.sample_read_counts_cutoff, paths.Mars.cutoffMars, <span class="keyword">...</span>
-string(paths.Mars.flagLoneSpecies), string(paths.Mars.taxaDelimiter), string(paths.Mars.removeClade), <span class="keyword">...</span>
-paths.Mars.reconstructionDb);
-</pre><h2 id="8">Append Optional Build Arguments - MARS</h2><p>exclude if empty</p><pre class="codeinput">optionalParams = {paths.Mars.OTUTable, paths.Mars.readsTablePath, paths.Mars.relAbunFilePath, paths.Mars.userDbPath, paths.Mars.taxaTable};
-paramNames = {<span class="string">'varg_mars_OTUTable'</span>, <span class="string">'varg_mars_readsTablePath'</span>, <span class="string">'varg_mars_relAbunFilePath'</span>, <span class="string">'varg_mars_userDbPath '</span>, <span class="string">'varg_mars_taxaTable'</span>};
+paths.Mars.outputExtensionMars, paths.Mars.sample_read_counts_cutoff, <span class="keyword">...</span>
+paths.Mars.cutoffMars, string(paths.Mars.flagLoneSpecies), <span class="keyword">...</span>
+string(paths.Mars.taxaDelimiter), string(paths.Mars.removeClade), paths.Mars.reconstructionDb);
+</pre><h2 id="8">Append Optional Build Arguments - MARS</h2><p>exclude if empty</p><pre class="codeinput">optionalParams = {paths.Mars.OTUTable, paths.Mars.readsTablePath, <span class="keyword">...</span>
+    paths.Mars.relAbunFilePath, paths.Mars.userDbPath, paths.Mars.taxaTable};
+paramNames = {<span class="string">'varg_mars_OTUTable'</span>, <span class="string">'varg_mars_readsTablePath'</span>, <span class="keyword">...</span>
+    <span class="string">'varg_mars_relAbunFilePath'</span>, <span class="string">'varg_mars_userDbPath '</span>, <span class="string">'varg_mars_taxaTable'</span>};
 <span class="keyword">for</span> vi = 1:length(optionalParams)
     <span class="keyword">if</span> ~ismissing(optionalParams{vi})
         <span class="keyword">if</span> ~isempty(optionalParams{vi}) &amp;&amp; ~strcmpi(optionalParams{vi}, <span class="string">""</span>)
-            comm_build_opt_mars = sprintf(<span class="string">'%s --build-arg %s=%s'</span>, comm_build_opt_mars, paramNames{vi}, optionalParams{vi});
+            comm_build_opt_mars = sprintf(<span class="string">'%s --build-arg %s=%s'</span>, <span class="keyword">...</span>
+                comm_build_opt_mars, paramNames{vi}, optionalParams{vi});
         <span class="keyword">end</span>
     <span class="keyword">end</span>
 <span class="keyword">end</span>
-</pre><h2 id="9">Build Docker Image command</h2><pre class="codeinput">comm_build = sprintf(<span class="string">'docker build -t dock_seqc --ulimit nofile=65536:65536 %s %s .'</span>, comm_build_opt_hw, comm_build_opt_mars);
+</pre><h2 id="9">Build Docker Image command</h2><pre class="codeinput">comm_build = sprintf(<span class="string">'docker build -t dock_seqc --ulimit nofile=65536:65536 %s %s .'</span>,<span class="keyword">...</span>
+    comm_build_opt_hw, comm_build_opt_mars);
 </pre><h2 id="10">Docker run commands</h2><p>core run command</p><pre class="codeinput">comm_run_core = <span class="string">'docker run --interactive --tty --user 0 --rm --mount'</span>;
 <span class="comment">% sans interactive</span>
-comm_run_core = sprintf(<span class="string">'docker run --tty --user 0 --rm --memory=%s --cpus=%s --mount'</span>,sprintf(<span class="string">'%sg'</span>,maxMemSeqC),maxCpuSeqC);
+comm_run_core = sprintf([<span class="string">'docker run --tty --user 0 --rm --memory=%s...'</span> <span class="keyword">...</span>
+    <span class="string">' --cpus=%s --mount'</span>],sprintf(<span class="string">'%sg'</span>,maxMemSeqC),maxCpuSeqC);
 </pre><h2 id="11">Set Database Assignment Command</h2><pre class="codeinput"><span class="keyword">switch</span> paths.Mars.reconstructionDb
     <span class="keyword">case</span> <span class="string">'AGORA'</span>
         comm_run_db_kb = <span class="string">'-s "tool_k2_agora"'</span>;
@@ -254,17 +263,32 @@ comm_mama_full = <span class="string">'BASH_seqc_mama.sh'</span>;
 <span class="keyword">if</span> paths.seqC.procKeepSeqC
     comm_mama_full = [comm_mama_full <span class="string">' -k'</span>];
 <span class="keyword">end</span>
-comm_mama_full = sprintf(<span class="string">'%s -i "step0_data_in/" -n "%s" -r "SR" -s 0'</span>, comm_mama_full, paths.seqC.fileIDSeqC);
+comm_mama_full = sprintf(<span class="string">'%s -i "step0_data_in/" -n "%s" -r "SR" -s 0'</span>, <span class="keyword">...</span>
+    comm_mama_full, paths.seqC.fileIDSeqC);
 <span class="comment">% Append volume mapping commands to core</span>
 <span class="comment">% OS sensitive</span>
 <span class="keyword">if</span> strcmp(vOS, <span class="string">'unix'</span>)
-    comm_run_main = sprintf(<span class="string">'%s "type=bind,src=$(pwd)/seqc_input,target=/home/seqc_user/seqc_project/step0_data_in" --mount "type=bind,src=$(pwd)/seqc_output,target=/home/seqc_user/seqc_project/final_reports" --mount "type=volume,dst=/DB,volume-driver=local,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=$(pwd)/seqc_proc" dock_seqc /bin/bash'</span>, comm_run_core);
+    comm_run_main = sprintf([<span class="string">'%s "type=bind,src=$(pwd)/seqc_input,target=/home/...'</span><span class="keyword">...</span>
+        <span class="string">'seqc_user/seqc_project/step0_data_in" --mount "type=bind,src=$(pwd)/...'</span> <span class="keyword">...</span>
+        <span class="string">'seqc_output,...'</span> <span class="string">'target=/home/seqc_user/seqc_project/final_reports" ...'</span> <span class="keyword">...</span>
+        <span class="string">'--mount "type=volume,...'</span> <span class="string">'dst=/DB,volume-driver=local,...'</span> <span class="keyword">...</span>
+        <span class="string">'volume-opt=type=none,volume-opt=o=bind,...'</span> <span class="string">'volume-opt=device=$(pwd)/...'</span> <span class="keyword">...</span>
+        <span class="string">'seqc_proc" dock_seqc /bin/bash'</span>], comm_run_core);
 <span class="comment">%    comm_exit_mv = 'mv -r $(pwd)/seqc_proc/DEPO_proc/* $(pwd)/seqc_output'</span>
 <span class="keyword">elseif</span> strcmp(vOS, <span class="string">'mac'</span>)
-    comm_run_main = sprintf(<span class="string">'%s "type=bind,src=$(pwd)/seqc_input,target=/home/seqc_user/seqc_project/step0_data_in" --mount "type=bind,src=$(pwd)/seqc_output,target=/home/seqc_user/seqc_project/final_reports" --mount "type=volume,dst=/DB,volume-driver=local,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=$(pwd)/seqc_proc" dock_seqc /bin/bash'</span>, comm_run_core);
+    comm_run_main = sprintf([<span class="string">'%s "type=bind,src=$(pwd)/seqc_input,target=/home/...'</span><span class="keyword">...</span>
+        <span class="string">'seqc_user/seqc_project/step0_data_in" --mount "type=bind,src=$(pwd)/...'</span> <span class="keyword">...</span>
+        <span class="string">'seqc_output,...'</span> <span class="string">'target=/home/seqc_user/seqc_project/final_reports" ...'</span> <span class="keyword">...</span>
+        <span class="string">'--mount "type=volume,....'</span> <span class="string">'dst=/DB,volume-driver=local,...'</span> <span class="keyword">...</span>
+        <span class="string">'volume-opt=type=none,volume-opt=o=bind,...'</span> <span class="string">'volume-opt=device=$(pwd)/...'</span> <span class="keyword">...</span>
+        <span class="string">'seqc_proc" dock_seqc /bin/bash'</span>], comm_run_core);
 <span class="comment">%    comm_exit_mv = 'mv -r $(pwd)/seqc_proc/DEPO_proc/* $(pwd)/seqc_output'</span>
 <span class="keyword">elseif</span> strcmp(vOS, <span class="string">'win'</span>)
-    comm_run_main = sprintf(<span class="string">'%s "type=bind,src=%s\\seqc_input,target=/home/seqc_user/seqc_project/step0_data_in" --mount "type=bind,src=%s\\seqc_output,target=/home/seqc_user/seqc_project/final_reports" --mount "type=bind,src=%s\\seqc_proc,target=/DB" dock_seqc /bin/bash'</span>, comm_run_core, pwd, pwd, pwd);
+    comm_run_main = sprintf([<span class="string">'%s "type=bind,src=%s\\seqc_input,target=/home/...'</span><span class="keyword">...</span>
+        <span class="string">'seqc_user/seqc_project/step0_data_in" --mount "type=bind,src=%s\\...'</span> <span class="keyword">...</span>
+        <span class="string">'seqc_output,....'</span> <span class="string">'target=/home/seqc_user/seqc_project/...'</span> <span class="keyword">...</span>
+        <span class="string">'final_reports" --mount "type=bind,...'</span> <span class="string">'src=%s\\seqc_proc,...'</span> <span class="keyword">...</span>
+        <span class="string">'target=/DB" dock_seqc /bin/bash'</span>], comm_run_core, pwd, pwd, pwd);
 <span class="comment">%    comm_exit_mv = 'mv -r .\seqc_proc\DEPO_proc\* .\seqc_output\'</span>
 <span class="keyword">end</span>
 <span class="comment">% check for preexisting image</span>
@@ -299,9 +323,143 @@ vdir_out_mars = fullfile(paths.seqC.outputPathSeqC, <span class="string">'mars_o
     movefile(fullfile(vdir_out_mars, <span class="string">'*'</span>), paths.Mars.outputPathMars);
     vdir_out_mars = fullfile(paths.seqC.outputPathSeqC);
 <span class="keyword">end</span>
+<span class="keyword">global</span> CBTDIR
+<span class="keyword">if</span> isempty(CBTDIR)
+    initCobraToolbox
+<span class="keyword">end</span>
+solver = <span class="string">'ibm_cplex'</span>;
+<span class="comment">% solver = 'gurobi';</span>
+
+changeCobraSolver(solver);
+<span class="comment">% Check the install of the parallel computing toolbox</span>
+parallelToolboxInstall = matlab.addons.isAddonEnabled(<span class="string">'Parallel Computing Toolbox'</span>)
+
+<span class="comment">% Check the install of the statistics and machine learning toolbox</span>
+statToolboxInstall = matlab.addons.isAddonEnabled(<span class="string">'Statistics and Machine Learning Toolbox'</span>)
+<span class="comment">%Define the location of the required files, make sure you dont forget the file extensions where relevant!</span>
+<span class="comment">% e.g., 'C:\Users\Owner\Persephone\Tutorials\Results'</span>
+resultPath = <span class="string">''</span>;
+
+<span class="comment">% e.g., 'C:\Users\Owner\cobratoolbox\tutorials\analysis\persephone\Demo\demo_metadata.csv'</span>
+paths.General.metadataPath = <span class="string">''</span>;
+
+<span class="comment">% e.g., 'C:\Users\Owner\cobratoolbox\tutorials\analysis\persephone\Demo\KB_mpa_out_RC.txt'</span>
+paths.Mars.readsTablePath = <span class="string">''</span>;
+paths.seqC.outputPathSeqC = [resultPath, filesep, <span class="string">'resultSeqC'</span>];
+paths.Mars.outputPathMars = [resultPath, filesep, <span class="string">'resultMars'</span>];
+paths.mgPipe.outputPathMgPipe = [resultPath, filesep, <span class="string">'resultMgPipe'</span>];
+paths.persWBM.outputPathPersonalisation = [resultPath, filesep, <span class="string">'personalisedWBMs'</span>];
+paths.mWBM.outputPathMWBM = [resultPath, filesep, <span class="string">'mWBMmodels'</span>];
+paths.fba.outputPathFluxResult = [resultPath, filesep, <span class="string">'resultFlux'</span>];
+paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxAnalysis, filesep, <span class="string">'fluxAnalysis'</span>];
+paths.stats.outputPathStatistics = [resultPath, filesep, <span class="string">'resultStatistics'</span>];
+<span class="comment">% Create the file structure for the results of all the parts of the</span>
+<span class="comment">% tutorial (not just this tutorial)</span>
+[initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
+paths.General.metadataPath = updatedMetadataPath;
+<span class="comment">% e.g., 'C:\Users\OwnerPG\AppData\Local\Programs\Python\Python38\python.exe'</span>
+pythonPath = <span class="string">''</span>;
+<span class="comment">% e.g., 'C:\Users\Owner\mars-pipeline'</span>
+marsRepoPath = <span class="string">''</span>;
+<span class="comment">% Check if Python is already coupled to MATLAB, otherwise couple it</span>
+pyStatus = pyenv(<span class="string">'Version'</span>,pythonPath);
+
+<span class="comment">% Enter the MARS folder</span>
+cd(marsRepoPath);
+
+<span class="comment">% Import the entire MARS repository so that the all scripts are on a path</span>
+<span class="comment">%that MATLAB recognises</span>
+MARS = py.importlib.import_module(<span class="string">'MARS'</span>);
+
+<span class="comment">% Enter folder that contains the "main.py" script</span>
+cd(fullfile(marsRepoPath, <span class="string">'MARS'</span>));
+<span class="comment">% Set the path the taxaTable. If you do not have a taxaTable file, put a %</span>
+<span class="comment">% infront of line 41 and remove % from line 42.</span>
+<span class="comment">% taxaTable = '';</span>
+taxaTable = string(missing)
+<span class="comment">% The output path stored in the paths variable</span>
+outputPathMars = paths.Mars.outputPathMars; <span class="comment">% This is the default path created by initPersephone</span>
+<span class="comment">% Numeric value for total read counts per sample under which samples are</span>
+<span class="comment">% excluded from analysis. Only applies when readsTable contains absolute</span>
+<span class="comment">% read counts (not relative abundances). Defaults to 1, with minimum of 1.</span>
+sample_read_counts_cutoff = 1;
+
+<span class="comment">% The cutoff value for relative abundances</span>
+cutoffMars = 1e-6;
+
+<span class="comment">% The file extension for the output files</span>
+outputExtensionMars = <span class="string">'csv'</span>;
+
+<span class="comment">% The flag if genus name is in the species name</span>
+flagLoneSpecies = true;
+
+<span class="comment">% The delimeter used to separate taxonomic levels</span>
+taxaSplit = <span class="string">';'</span>;
+
+<span class="comment">% A boolean specifying if one wants to remove clade name extensions from</span>
+<span class="comment">% all taxonomic levels of microbiome taxa. If set to false, MARS might find</span>
+<span class="comment">% significantly less models in AGORA2, as clade extensions are not included</span>
+<span class="comment">% there.</span>
+removeCladeExtensionsFromTaxa = true;
+
+<span class="comment">% A string defining if AGORA2, APOLLO, a combination of both or a user-defined</span>
+<span class="comment">% database should be used as model database to check presence in.</span>
+<span class="comment">% Allowed Input (case-insensitive): "AGORA2", "APOLLO", "full_db", "user_db".</span>
+<span class="comment">% Default: "full_db".</span>
+whichModelDatabase=<span class="string">"full_db"</span>;
+
+<span class="comment">% A string containing the full path to the user-defined database,</span>
+<span class="comment">% which should be in .csv, .txt, .parquet or .xlsx format and</span>
+<span class="comment">% have column names = taxonomic levels. Only required if whichModelDatabase</span>
+<span class="comment">% is set to "user_db".</span>
+userDatabase_path=<span class="string">""</span>;
+<span class="comment">% Set all optional inputs in Python readable format</span>
+marsOptArg = pyargs(<span class="string">'cutoff'</span>, cutoffMars, <span class="string">'output_format'</span>, string(outputExtensionMars),<span class="keyword">...</span>
+    <span class="string">'flagLoneSpecies'</span>,flagLoneSpecies, <span class="string">'taxaSplit'</span>, string(taxaSplit), <span class="keyword">...</span>
+    <span class="string">'removeCladeExtensionsFromTaxa'</span>, removeCladeExtensionsFromTaxa, <span class="keyword">...</span>
+    <span class="string">'whichModelDatabase'</span>, whichModelDatabase, <span class="keyword">...</span>
+    <span class="string">'sample_read_counts_cutoff'</span>, sample_read_counts_cutoff);
+<span class="comment">% Run MARS</span>
+py.main.process_microbial_abundances(paths.Mars.readsTablePath, taxaTable, outputPathMars, marsOptArg);
+<span class="comment">% return back to the result directory</span>
+cd(resultPath);
+
+<span class="comment">% Set the relative abundance file path to be used by other functions</span>
+relAbunFilePath = [paths.Mars.outputPathMars, filesep, <span class="string">'renormalized_mapped_forModelling'</span>, filesep,<span class="keyword">...</span>
+   <span class="string">'renormalized_mapped_forModelling_species.csv'</span>];
+<span class="comment">% The path to the pan-species directory</span>
+<span class="comment">% e.g., 'C:/Users/Owner/APOLLOAGORA/panSpecies'</span>
+panModelsPath = <span class="string">''</span>;
+
+<span class="comment">% If the relative abundance file is not in the correct MARS folder remove</span>
+<span class="comment">% the % in front of line 71 and set the correct path</span>
+<span class="comment">% relAbundFilePath = 'C:Users/User/folder/present/present_species.csv'</span>
+
+<span class="comment">% Set computeProfiles variable</span>
+computeProfiles = false;
+
+<span class="comment">% Set mgPipeRes variable</span>
+mgPipeResPath = paths.mgPipe.outputPathMgPipe;
+<span class="comment">% Find how many available cores you have</span>
+numCores = feature(<span class="string">'numcores'</span>)
+<span class="comment">% Set the number of workers manually. You can change this value.</span>
+numWorkersCreation = 10;
+
+<span class="comment">% Remove the % at line 106 if you want to use all cores. This will overwrite</span>
+<span class="comment">% the workers set in line 104.</span>
+<span class="comment">% numWorkersCreation = numCores;</span>
+
+<span class="comment">% Remove the % at line 108 if you want to use 80% of the cores. This will overwrite</span>
+<span class="comment">% the workers set in line 104 or 108 if active.</span>
+<span class="comment">% numWorkersCreation = floor(feature('numCores')*0.8);</span>
+<span class="comment">% Run MgPipe COPY IN THE COMMAND WINDOW AND RUN FROM THERE.</span>
+<span class="comment">% IF RUN IN MLX IT WILL FREEZE YOUR MLX FILE AND YOU WILL NEED TO RESTART MATLAB</span>
+<span class="comment">% AND COPY AND PASTE THE ENTIRE FILE TO A NEW.MLX VERSION</span>
+<span class="comment">% initMgPipe(panModelsPath, relAbunFilePath, computeProfiles, "numWorkers", numWorkersCreation, 'resPath', ...</span>
+<span class="comment">% paths.mgPipe.outputPathMgPipe, 'solver', solver);</span>
 </pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%git clone git@gitlab.com:thielelab/wbm_modelingcode.git REPLACE_WITH_DASH_DASHbranch master
+% git clone git@gitlab.com:thielelab/wbm_modelingcode.git REPLACE_WITH_DASH_DASHbranch master
 % Character array variable specifying the folder where seqC repository is stored
 % e.g., 'C:\Users\cobratoolbox\src\analysis\persephone\SeqC_pipeline'
 paths.seqC.repoPathSeqC = '';
@@ -330,6 +488,9 @@ paths.seqC.maxProcSeqC = 4;
 % Logical variable indicating if additional debugging
 % messaging should be included in the log.
 paths.seqC.debugSeqC = false;
+
+% describe
+paths.seqC.apptainer = false;
 %% 1.5 MARS inputs
 % Logical variable indicating if taxonomic mapping by MARS
 % is performed independently of SeqC.
@@ -346,7 +507,8 @@ paths.Mars.outputPathMars = [resultPath filesep, 'ResultMars'];
 paths.Mars.outputExtensionMars = 'csv';
 
 % Path to relative abundance file
-paths.Mars.relAbunFilePath = [paths.Mars.outputExtensionMars filesep 'present' filesep 'present_species' filesep paths.Mars.outputExtensionMars];
+paths.Mars.relAbunFilePath = [paths.Mars.outputExtensionMars filesep 'present'...
+    filesep 'present_species' filesep paths.Mars.outputExtensionMars];
 
 % Numeric value for total read counts per sample under which samples are
 % excluded from analysis. Only applies when readsTable contains absolute
@@ -394,6 +556,7 @@ runSeqC(...
             paths.seqC.maxCpuSeqC, ...
             paths.seqC.maxProcSeqC, ...
             paths.seqC.debugSeqC, ...
+            paths.seqC.apptainer, ...
             paths.Mars.readsTablePath, ...
             paths.Mars.outputPathMars, ...
             paths.Mars.outputExtensionMars, ...
@@ -427,7 +590,8 @@ totalMB = totalBytes / (1024^2); % Convert to MB
 totalGB = totalBytes / (1024^3); % Convert to GB
 inflateRatio = 3.2; % inflation term
 inflateGB = totalGB * inflateRatio;
-msgDsize = sprintf('Total size of directory: %.2f GB\nExpected inflation size: %.2f GB\n', totalGB, inflateGB);
+msgDsize = sprintf(['Total size of directory: %.2f GB\nExpected ...' ...
+    'inflation size: %.2f GB\n'], totalGB, inflateGB);
 
 %% Initialize Paths
 vdir_init = cd;
@@ -444,8 +608,9 @@ if isnumeric(paths.Mars.cutoffMars)
 end
 %% Build Docker Options
 % Hardware params
-comm_build_opt_hw = sprintf('REPLACE_WITH_DASH_DASHbuild-arg varg_cpu_max=%s REPLACE_WITH_DASH_DASHbuild-arg varg_mem_max=%s REPLACE_WITH_DASH_DASHbuild-arg varg_proc_max=%s', ...
-                            paths.seqC.maxCpuSeqC, paths.seqC.maxMemSeqC, paths.seqC.maxProcSeqC);
+comm_build_opt_hw = sprintf(['REPLACE_WITH_DASH_DASHbuild-arg varg_cpu_max=%s REPLACE_WITH_DASH_DASHbuild-arg...' ...
+    '  varg_mem_max=%s...' ' REPLACE_WITH_DASH_DASHbuild-arg varg_proc_max=%s'], ...
+    paths.seqC.maxCpuSeqC, paths.seqC.maxMemSeqC, paths.seqC.maxProcSeqC);
 % MARS params
 comm_build_opt_mars = sprintf(['REPLACE_WITH_DASH_DASHbuild-arg varg_mars_outputExtensionMars=%s' ...
 ' REPLACE_WITH_DASH_DASHbuild-arg varg_mars_sample_read_counts_cutoff=%d' ...
@@ -454,29 +619,34 @@ comm_build_opt_mars = sprintf(['REPLACE_WITH_DASH_DASHbuild-arg varg_mars_output
 ' REPLACE_WITH_DASH_DASHbuild-arg varg_mars_taxaDelimiter="%s"' ...
 ' REPLACE_WITH_DASH_DASHbuild-arg varg_mars_removeClade =%s' ...
 ' REPLACE_WITH_DASH_DASHbuild-arg varg_mars_reconstructionDb=%s'], ...
-paths.Mars.outputExtensionMars, paths.Mars.sample_read_counts_cutoff, paths.Mars.cutoffMars, ...
-string(paths.Mars.flagLoneSpecies), string(paths.Mars.taxaDelimiter), string(paths.Mars.removeClade), ...
-paths.Mars.reconstructionDb);
+paths.Mars.outputExtensionMars, paths.Mars.sample_read_counts_cutoff, ...
+paths.Mars.cutoffMars, string(paths.Mars.flagLoneSpecies), ...
+string(paths.Mars.taxaDelimiter), string(paths.Mars.removeClade), paths.Mars.reconstructionDb);
 %% Append Optional Build Arguments - MARS
 % exclude if empty
-optionalParams = {paths.Mars.OTUTable, paths.Mars.readsTablePath, paths.Mars.relAbunFilePath, paths.Mars.userDbPath, paths.Mars.taxaTable};
-paramNames = {'varg_mars_OTUTable', 'varg_mars_readsTablePath', 'varg_mars_relAbunFilePath', 'varg_mars_userDbPath ', 'varg_mars_taxaTable'};
+optionalParams = {paths.Mars.OTUTable, paths.Mars.readsTablePath, ...
+    paths.Mars.relAbunFilePath, paths.Mars.userDbPath, paths.Mars.taxaTable};
+paramNames = {'varg_mars_OTUTable', 'varg_mars_readsTablePath', ...
+    'varg_mars_relAbunFilePath', 'varg_mars_userDbPath ', 'varg_mars_taxaTable'};
 for vi = 1:length(optionalParams)
     if ~ismissing(optionalParams{vi})
         if ~isempty(optionalParams{vi}) && ~strcmpi(optionalParams{vi}, "")
-            comm_build_opt_mars = sprintf('%s REPLACE_WITH_DASH_DASHbuild-arg %s=%s', comm_build_opt_mars, paramNames{vi}, optionalParams{vi});
+            comm_build_opt_mars = sprintf('%s REPLACE_WITH_DASH_DASHbuild-arg %s=%s', ...
+                comm_build_opt_mars, paramNames{vi}, optionalParams{vi});
         end
     end
 end
 
 %% Build Docker Image command
-comm_build = sprintf('docker build -t dock_seqc REPLACE_WITH_DASH_DASHulimit nofile=65536:65536 %s %s .', comm_build_opt_hw, comm_build_opt_mars);
+comm_build = sprintf('docker build -t dock_seqc REPLACE_WITH_DASH_DASHulimit nofile=65536:65536 %s %s .',...
+    comm_build_opt_hw, comm_build_opt_mars);
 
 %% Docker run commands
 % core run command
 comm_run_core = 'docker run REPLACE_WITH_DASH_DASHinteractive REPLACE_WITH_DASH_DASHtty REPLACE_WITH_DASH_DASHuser 0 REPLACE_WITH_DASH_DASHrm REPLACE_WITH_DASH_DASHmount';
 % sans interactive
-comm_run_core = sprintf('docker run REPLACE_WITH_DASH_DASHtty REPLACE_WITH_DASH_DASHuser 0 REPLACE_WITH_DASH_DASHrm REPLACE_WITH_DASH_DASHmemory=%s REPLACE_WITH_DASH_DASHcpus=%s REPLACE_WITH_DASH_DASHmount',sprintf('%sg',maxMemSeqC),maxCpuSeqC);
+comm_run_core = sprintf(['docker run REPLACE_WITH_DASH_DASHtty REPLACE_WITH_DASH_DASHuser 0 REPLACE_WITH_DASH_DASHrm REPLACE_WITH_DASH_DASHmemory=%s...' ...
+    ' REPLACE_WITH_DASH_DASHcpus=%s REPLACE_WITH_DASH_DASHmount'],sprintf('%sg',maxMemSeqC),maxCpuSeqC);
 
 %% Set Database Assignment Command
 switch paths.Mars.reconstructionDb
@@ -502,17 +672,32 @@ end
 if paths.seqC.procKeepSeqC
     comm_mama_full = [comm_mama_full ' -k'];
 end
-comm_mama_full = sprintf('%s -i "step0_data_in/" -n "%s" -r "SR" -s 0', comm_mama_full, paths.seqC.fileIDSeqC);
+comm_mama_full = sprintf('%s -i "step0_data_in/" -n "%s" -r "SR" -s 0', ...
+    comm_mama_full, paths.seqC.fileIDSeqC);
 % Append volume mapping commands to core
 % OS sensitive
 if strcmp(vOS, 'unix')
-    comm_run_main = sprintf('%s "type=bind,src=$(pwd)/seqc_input,target=/home/seqc_user/seqc_project/step0_data_in" REPLACE_WITH_DASH_DASHmount "type=bind,src=$(pwd)/seqc_output,target=/home/seqc_user/seqc_project/final_reports" REPLACE_WITH_DASH_DASHmount "type=volume,dst=/DB,volume-driver=local,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=$(pwd)/seqc_proc" dock_seqc /bin/bash', comm_run_core);
+    comm_run_main = sprintf(['%s "type=bind,src=$(pwd)/seqc_input,target=/home/...'...
+        'seqc_user/seqc_project/step0_data_in" REPLACE_WITH_DASH_DASHmount "type=bind,src=$(pwd)/...' ...
+        'seqc_output,...' 'target=/home/seqc_user/seqc_project/final_reports" ...' ...
+        'REPLACE_WITH_DASH_DASHmount "type=volume,...' 'dst=/DB,volume-driver=local,...' ...
+        'volume-opt=type=none,volume-opt=o=bind,...' 'volume-opt=device=$(pwd)/...' ...
+        'seqc_proc" dock_seqc /bin/bash'], comm_run_core);
 %    comm_exit_mv = 'mv -r $(pwd)/seqc_proc/DEPO_proc/* $(pwd)/seqc_output'
 elseif strcmp(vOS, 'mac')
-    comm_run_main = sprintf('%s "type=bind,src=$(pwd)/seqc_input,target=/home/seqc_user/seqc_project/step0_data_in" REPLACE_WITH_DASH_DASHmount "type=bind,src=$(pwd)/seqc_output,target=/home/seqc_user/seqc_project/final_reports" REPLACE_WITH_DASH_DASHmount "type=volume,dst=/DB,volume-driver=local,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=$(pwd)/seqc_proc" dock_seqc /bin/bash', comm_run_core);
+    comm_run_main = sprintf(['%s "type=bind,src=$(pwd)/seqc_input,target=/home/...'...
+        'seqc_user/seqc_project/step0_data_in" REPLACE_WITH_DASH_DASHmount "type=bind,src=$(pwd)/...' ...
+        'seqc_output,...' 'target=/home/seqc_user/seqc_project/final_reports" ...' ...
+        'REPLACE_WITH_DASH_DASHmount "type=volume,....' 'dst=/DB,volume-driver=local,...' ...
+        'volume-opt=type=none,volume-opt=o=bind,...' 'volume-opt=device=$(pwd)/...' ...
+        'seqc_proc" dock_seqc /bin/bash'], comm_run_core);
 %    comm_exit_mv = 'mv -r $(pwd)/seqc_proc/DEPO_proc/* $(pwd)/seqc_output'
 elseif strcmp(vOS, 'win')
-    comm_run_main = sprintf('%s "type=bind,src=%s\\seqc_input,target=/home/seqc_user/seqc_project/step0_data_in" REPLACE_WITH_DASH_DASHmount "type=bind,src=%s\\seqc_output,target=/home/seqc_user/seqc_project/final_reports" REPLACE_WITH_DASH_DASHmount "type=bind,src=%s\\seqc_proc,target=/DB" dock_seqc /bin/bash', comm_run_core, pwd, pwd, pwd);
+    comm_run_main = sprintf(['%s "type=bind,src=%s\\seqc_input,target=/home/...'...
+        'seqc_user/seqc_project/step0_data_in" REPLACE_WITH_DASH_DASHmount "type=bind,src=%s\\...' ...
+        'seqc_output,....' 'target=/home/seqc_user/seqc_project/...' ...
+        'final_reports" REPLACE_WITH_DASH_DASHmount "type=bind,...' 'src=%s\\seqc_proc,...' ...
+        'target=/DB" dock_seqc /bin/bash'], comm_run_core, pwd, pwd, pwd);
 %    comm_exit_mv = 'mv -r .\seqc_proc\DEPO_proc\* .\seqc_output\'
 end
 % check for preexisting image
@@ -547,5 +732,139 @@ if ~strcmp(paths.seqC.outputPathSeqC, paths.Mars.outputPathMars)
     movefile(fullfile(vdir_out_mars, '*'), paths.Mars.outputPathMars);
     vdir_out_mars = fullfile(paths.seqC.outputPathSeqC);
 end
+global CBTDIR
+if isempty(CBTDIR)
+    initCobraToolbox
+end
+solver = 'ibm_cplex';
+% solver = 'gurobi';
+
+changeCobraSolver(solver);
+% Check the install of the parallel computing toolbox
+parallelToolboxInstall = matlab.addons.isAddonEnabled('Parallel Computing Toolbox')
+
+% Check the install of the statistics and machine learning toolbox
+statToolboxInstall = matlab.addons.isAddonEnabled('Statistics and Machine Learning Toolbox')
+%Define the location of the required files, make sure you dont forget the file extensions where relevant!
+% e.g., 'C:\Users\Owner\Persephone\Tutorials\Results'
+resultPath = '';
+
+% e.g., 'C:\Users\Owner\cobratoolbox\tutorials\analysis\persephone\Demo\demo_metadata.csv'
+paths.General.metadataPath = '';
+
+% e.g., 'C:\Users\Owner\cobratoolbox\tutorials\analysis\persephone\Demo\KB_mpa_out_RC.txt'
+paths.Mars.readsTablePath = '';
+paths.seqC.outputPathSeqC = [resultPath, filesep, 'resultSeqC'];
+paths.Mars.outputPathMars = [resultPath, filesep, 'resultMars'];
+paths.mgPipe.outputPathMgPipe = [resultPath, filesep, 'resultMgPipe'];
+paths.persWBM.outputPathPersonalisation = [resultPath, filesep, 'personalisedWBMs'];
+paths.mWBM.outputPathMWBM = [resultPath, filesep, 'mWBMmodels'];
+paths.fba.outputPathFluxResult = [resultPath, filesep, 'resultFlux'];
+paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxAnalysis, filesep, 'fluxAnalysis'];
+paths.stats.outputPathStatistics = [resultPath, filesep, 'resultStatistics'];
+% Create the file structure for the results of all the parts of the
+% tutorial (not just this tutorial)
+[initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
+paths.General.metadataPath = updatedMetadataPath;
+% e.g., 'C:\Users\OwnerPG\AppData\Local\Programs\Python\Python38\python.exe'
+pythonPath = '';
+% e.g., 'C:\Users\Owner\mars-pipeline'
+marsRepoPath = '';
+% Check if Python is already coupled to MATLAB, otherwise couple it
+pyStatus = pyenv('Version',pythonPath);
+
+% Enter the MARS folder
+cd(marsRepoPath);
+
+% Import the entire MARS repository so that the all scripts are on a path
+%that MATLAB recognises
+MARS = py.importlib.import_module('MARS');
+
+% Enter folder that contains the "main.py" script
+cd(fullfile(marsRepoPath, 'MARS'));
+% Set the path the taxaTable. If you do not have a taxaTable file, put a %
+% infront of line 41 and remove % from line 42.
+% taxaTable = '';
+taxaTable = string(missing)
+% The output path stored in the paths variable
+outputPathMars = paths.Mars.outputPathMars; % This is the default path created by initPersephone
+% Numeric value for total read counts per sample under which samples are
+% excluded from analysis. Only applies when readsTable contains absolute
+% read counts (not relative abundances). Defaults to 1, with minimum of 1.
+sample_read_counts_cutoff = 1;
+
+% The cutoff value for relative abundances
+cutoffMars = 1e-6;
+
+% The file extension for the output files
+outputExtensionMars = 'csv';
+
+% The flag if genus name is in the species name
+flagLoneSpecies = true;
+
+% The delimeter used to separate taxonomic levels
+taxaSplit = ';';
+
+% A boolean specifying if one wants to remove clade name extensions from
+% all taxonomic levels of microbiome taxa. If set to false, MARS might find
+% significantly less models in AGORA2, as clade extensions are not included
+% there.
+removeCladeExtensionsFromTaxa = true;
+
+% A string defining if AGORA2, APOLLO, a combination of both or a user-defined
+% database should be used as model database to check presence in. 
+% Allowed Input (case-insensitive): "AGORA2", "APOLLO", "full_db", "user_db".
+% Default: "full_db".
+whichModelDatabase="full_db";
+
+% A string containing the full path to the user-defined database,
+% which should be in .csv, .txt, .parquet or .xlsx format and
+% have column names = taxonomic levels. Only required if whichModelDatabase
+% is set to "user_db".
+userDatabase_path="";
+% Set all optional inputs in Python readable format
+marsOptArg = pyargs('cutoff', cutoffMars, 'output_format', string(outputExtensionMars),...
+    'flagLoneSpecies',flagLoneSpecies, 'taxaSplit', string(taxaSplit), ...
+    'removeCladeExtensionsFromTaxa', removeCladeExtensionsFromTaxa, ...
+    'whichModelDatabase', whichModelDatabase, ...
+    'sample_read_counts_cutoff', sample_read_counts_cutoff);
+% Run MARS
+py.main.process_microbial_abundances(paths.Mars.readsTablePath, taxaTable, outputPathMars, marsOptArg);
+% return back to the result directory
+cd(resultPath);
+
+% Set the relative abundance file path to be used by other functions
+relAbunFilePath = [paths.Mars.outputPathMars, filesep, 'renormalized_mapped_forModelling', filesep,...
+   'renormalized_mapped_forModelling_species.csv'];
+% The path to the pan-species directory
+% e.g., 'C:/Users/Owner/APOLLOAGORA/panSpecies'
+panModelsPath = '';
+
+% If the relative abundance file is not in the correct MARS folder remove
+% the % in front of line 71 and set the correct path
+% relAbundFilePath = 'C:Users/User/folder/present/present_species.csv'
+
+% Set computeProfiles variable
+computeProfiles = false;
+
+% Set mgPipeRes variable
+mgPipeResPath = paths.mgPipe.outputPathMgPipe;
+% Find how many available cores you have
+numCores = feature('numcores')
+% Set the number of workers manually. You can change this value.
+numWorkersCreation = 10;
+
+% Remove the % at line 106 if you want to use all cores. This will overwrite
+% the workers set in line 104.
+% numWorkersCreation = numCores;
+
+% Remove the % at line 108 if you want to use 80% of the cores. This will overwrite
+% the workers set in line 104 or 108 if active.
+% numWorkersCreation = floor(feature('numCores')*0.8);
+% Run MgPipe COPY IN THE COMMAND WINDOW AND RUN FROM THERE. 
+% IF RUN IN MLX IT WILL FREEZE YOUR MLX FILE AND YOU WILL NEED TO RESTART MATLAB
+% AND COPY AND PASTE THE ENTIRE FILE TO A NEW.MLX VERSION
+% initMgPipe(panModelsPath, relAbunFilePath, computeProfiles, "numWorkers", numWorkersCreation, 'resPath', ...
+% paths.mgPipe.outputPathMgPipe, 'solver', solver);
 ##### SOURCE END #####
 --></body></html>
