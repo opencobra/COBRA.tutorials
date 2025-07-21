@@ -1,0 +1,302 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>tut3_HumanMicrobiomeModels</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2025-07-03"><meta name="DC.source" content="tut3_HumanMicrobiomeModels.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">% If you have not just run tutorial 1 or 2, or you have cleared your</span>
+<span class="comment">% workspace, you will need to run the code below to define your directories</span>
+<span class="comment">% again:</span>
+<span class="comment">% resultPath = '';</span>
+<span class="comment">% paths.General.metadataPath = '';</span>
+<span class="comment">% paths.Mars.readsTablePath = '';</span>
+<span class="comment">%</span>
+<span class="comment">% paths.seqC.outputPathSeqC = [resultPath, filesep, 'resultSeqC'];</span>
+<span class="comment">% paths.Mars.outputPathMars = [resultPath, filesep, 'resultMars'];</span>
+<span class="comment">% paths.mgPipe.outputPathMgPipe = [resultPath, filesep, 'resultMgPipe'];</span>
+<span class="comment">% paths.persWBM.outputPathPersonalisation = [resultPath, filesep, 'personalisedWBMs'];</span>
+<span class="comment">% paths.mWBM.outputPathMWBM = [resultPath, filesep, 'mWBMmodels'];</span>
+<span class="comment">% paths.fba.outputPathFluxResult = [resultPath, filesep, 'resultFlux'];</span>
+<span class="comment">% paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxResult, filesep, 'fluxAnalysis'];</span>
+<span class="comment">% paths.stats.outputPathStatistics = [resultPath, filesep, 'resultStatistics'];</span>
+<span class="comment">% Load microbiome model. As we load it into a variable, we also extract the</span>
+<span class="comment">% actual model</span>
+modelM = load([paths.mgPipe.outputPathMgPipe, filesep, <span class="string">'Diet'</span>, filesep, <span class="string">'microbiota_model_diet_CSM5MCXD.mat'</span>]).model;
+
+<span class="comment">% Load the female WBM model</span>
+modelH = loadPSCMfile(<span class="string">'Harvetta'</span>);
+<span class="comment">% Set the coupling constraint to 400</span>
+couplingConstraint = 400;
+
+<span class="comment">% Combine the microbiome mdoel with harvey</span>
+mWBM = combineHarveyMicrotiota(modelH, modelM, couplingConstraint);
+<span class="comment">% Add additional fields to the HM model for more information</span>
+mWBM.sex = <span class="string">"female"</span>;
+mWBM.version = modelH.version;
+mWBM.name = modelM.name;
+<span class="comment">% The name of the exchange of faecal microbiome biomass</span>
+rxnNameList = <span class="string">'Excretion_EX_microbiota_LI_biomass[fe]'</span>;
+
+<span class="comment">% The value of the updated bounds</span>
+value = 1;
+
+<span class="comment">% Which bounds need to be adjusted, b for both</span>
+boundType = <span class="string">'b'</span>;
+
+<span class="comment">% Change the bounds of the microbiome biomass fecal excretion to [1,1]</span>
+mWBM = changeRxnBounds(mWBM,rxnNameList, value, boundType);
+<span class="comment">% Set the chosen diet</span>
+diet = <span class="string">'EUAverageDiet'</span>
+factor = 1;
+mWBM = setDietConstraints(mWBM, diet, factor);
+<span class="comment">% The name of the exchange of faecal microbiome biomass</span>
+rxnNameList = <span class="string">'Excretion_EX_microbiota_LI_biomass[fe]'</span>;
+
+<span class="comment">% The value of the updated bounds</span>
+value = 1;
+
+<span class="comment">% Which bounds need to be adjusted, b for both</span>
+boundType = <span class="string">'b'</span>;
+
+<span class="comment">% Change the bounds of the microbiome biomass fecal excretion to [1,1]</span>
+mWBM = changeRxnBounds(mWBM,rxnNameList, value, boundType);
+mWBM = changeRxnBounds(mWBM, <span class="string">'Whole_body_objective_rxn'</span>, 1, <span class="string">'b'</span>);
+<span class="comment">% Set the objective for excretion of microbiome biomass in the feces</span>
+mWBM = changeObjective(mWBM,<span class="string">'Excretion_EX_microbiota_LI_biomass[fe]'</span>);
+<span class="comment">% Solve the HM WBM</span>
+solution = optimizeWBModel(mWBM);
+<span class="comment">% Print the value of the solution</span>
+solution.f
+<span class="comment">% Save the model</span>
+save([paths.mWBM.outputPathMWBM,filesep,<span class="string">'mWBM_CSM5MCXD_female.mat'</span>],<span class="string">'-struct'</span>,<span class="string">'mWBM'</span>)
+<span class="comment">% Find all dietary reactions</span>
+idx = contains(mWBM.rxns,<span class="string">'Diet_EX'</span>);
+
+<span class="comment">% Open all dietary exchange reactions</span>
+modelHMOpen = changeRxnBounds(mWBM, mWBM.rxns(idx),-1000000,<span class="string">'l'</span>);
+modelHMOpen.osenseStr = <span class="string">'max'</span>;
+
+<span class="comment">% Solve the model</span>
+solOpen = optimizeWBModel(modelHMOpen);
+
+<span class="comment">% Print the solution value</span>
+solOpen.f
+<span class="comment">% Set inputs</span>
+dietExtensions = {};
+testInitialFeasibility = 0;
+
+<span class="comment">% Find missing diet component and add to the model</span>
+missingDietComponents = getMissingDietModelHM(mWBM,dietExtensions,testInitialFeasibility);
+<span class="comment">% Add the missing components to the diet</span>
+mWBM.lb(matches(mWBM.rxns,string(missingDietComponents)))=-0.1;
+
+<span class="comment">% Save the updated mWBM</span>
+save([paths.mWBM.outputPathMWBM,filesep,<span class="string">'mWBM_CSM5MCXD_female.mat'</span>],<span class="string">'-struct'</span>,<span class="string">'mWBM'</span>);
+<span class="comment">% Set the diet</span>
+diet = <span class="string">'EUAverageDiet'</span>;
+
+<span class="comment">% The microbiome path was created already in the beginning of the tutorial</span>
+<span class="comment">% and stored in the paths variable.</span>
+microbiomeDir = paths.mgPipe.outputPathMgPipe;
+
+<span class="comment">% The path where the HM models should be stored was already created in the</span>
+<span class="comment">% beginning of the tutorial and stored in the paths variable.</span>
+mWBMdir = paths.mWBM.outputPathMWBM;
+
+<span class="comment">% Set numWorkers if not done so before by removing the % you can alter the</span>
+<span class="comment">% value</span>
+<span class="comment">% numWorkersCreation = 1;</span>
+
+<span class="comment">% Set checkFeasibility to true</span>
+checkFeasibility = true;
+
+<span class="comment">% Set the number of workers for optimisation</span>
+numWorkersOptimisation = 2;
+
+<span class="comment">% Generate multiple mWBM models</span>
+createBatchMWBM(microbiomeDir, mWBMdir, paths.General.metadataPath, <span class="string">"diet"</span>,diet, <span class="string">'numWorkersCreation'</span>, <span class="keyword">...</span>
+    numWorkersCreation, <span class="string">'numWorkersOptimisation'</span>, numWorkersOptimisation, <span class="string">"checkFeasibility"</span>, checkFeasibility, <span class="string">"solver"</span>, solver);
+</pre><pre class="codeoutput error">Error using load
+Unable to read file '\resultMgPipe\Diet\microbiota_model_diet_CSM5MCXD.mat'. No such file or directory.
+
+Error in tut3_HumanMicrobiomeModels (line 18)
+modelM = load([paths.mgPipe.outputPathMgPipe, filesep, 'Diet', filesep, 'microbiota_model_diet_CSM5MCXD.mat']).model;
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% If you have not just run tutorial 1 or 2, or you have cleared your
+% workspace, you will need to run the code below to define your directories
+% again: 
+% resultPath = '';
+% paths.General.metadataPath = '';
+% paths.Mars.readsTablePath = '';
+% 
+% paths.seqC.outputPathSeqC = [resultPath, filesep, 'resultSeqC'];
+% paths.Mars.outputPathMars = [resultPath, filesep, 'resultMars'];
+% paths.mgPipe.outputPathMgPipe = [resultPath, filesep, 'resultMgPipe'];
+% paths.persWBM.outputPathPersonalisation = [resultPath, filesep, 'personalisedWBMs'];
+% paths.mWBM.outputPathMWBM = [resultPath, filesep, 'mWBMmodels'];
+% paths.fba.outputPathFluxResult = [resultPath, filesep, 'resultFlux'];
+% paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxResult, filesep, 'fluxAnalysis'];
+% paths.stats.outputPathStatistics = [resultPath, filesep, 'resultStatistics'];
+% Load microbiome model. As we load it into a variable, we also extract the
+% actual model
+modelM = load([paths.mgPipe.outputPathMgPipe, filesep, 'Diet', filesep, 'microbiota_model_diet_CSM5MCXD.mat']).model;
+
+% Load the female WBM model
+modelH = loadPSCMfile('Harvetta');
+% Set the coupling constraint to 400
+couplingConstraint = 400;
+
+% Combine the microbiome mdoel with harvey
+mWBM = combineHarveyMicrotiota(modelH, modelM, couplingConstraint);
+% Add additional fields to the HM model for more information
+mWBM.sex = "female";
+mWBM.version = modelH.version;
+mWBM.name = modelM.name;
+% The name of the exchange of faecal microbiome biomass
+rxnNameList = 'Excretion_EX_microbiota_LI_biomass[fe]';
+
+% The value of the updated bounds
+value = 1;
+
+% Which bounds need to be adjusted, b for both
+boundType = 'b';
+
+% Change the bounds of the microbiome biomass fecal excretion to [1,1]
+mWBM = changeRxnBounds(mWBM,rxnNameList, value, boundType);
+% Set the chosen diet
+diet = 'EUAverageDiet'
+factor = 1;
+mWBM = setDietConstraints(mWBM, diet, factor);
+% The name of the exchange of faecal microbiome biomass
+rxnNameList = 'Excretion_EX_microbiota_LI_biomass[fe]';
+
+% The value of the updated bounds
+value = 1;
+
+% Which bounds need to be adjusted, b for both
+boundType = 'b';
+
+% Change the bounds of the microbiome biomass fecal excretion to [1,1]
+mWBM = changeRxnBounds(mWBM,rxnNameList, value, boundType);
+mWBM = changeRxnBounds(mWBM, 'Whole_body_objective_rxn', 1, 'b');
+% Set the objective for excretion of microbiome biomass in the feces
+mWBM = changeObjective(mWBM,'Excretion_EX_microbiota_LI_biomass[fe]');
+% Solve the HM WBM
+solution = optimizeWBModel(mWBM);
+% Print the value of the solution
+solution.f
+% Save the model
+save([paths.mWBM.outputPathMWBM,filesep,'mWBM_CSM5MCXD_female.mat'],'-struct','mWBM')
+% Find all dietary reactions
+idx = contains(mWBM.rxns,'Diet_EX');
+
+% Open all dietary exchange reactions
+modelHMOpen = changeRxnBounds(mWBM, mWBM.rxns(idx),-1000000,'l');
+modelHMOpen.osenseStr = 'max';
+
+% Solve the model
+solOpen = optimizeWBModel(modelHMOpen);
+
+% Print the solution value
+solOpen.f
+% Set inputs
+dietExtensions = {};
+testInitialFeasibility = 0;
+
+% Find missing diet component and add to the model
+missingDietComponents = getMissingDietModelHM(mWBM,dietExtensions,testInitialFeasibility);
+% Add the missing components to the diet
+mWBM.lb(matches(mWBM.rxns,string(missingDietComponents)))=-0.1;
+
+% Save the updated mWBM
+save([paths.mWBM.outputPathMWBM,filesep,'mWBM_CSM5MCXD_female.mat'],'-struct','mWBM');
+% Set the diet
+diet = 'EUAverageDiet';
+
+% The microbiome path was created already in the beginning of the tutorial
+% and stored in the paths variable.
+microbiomeDir = paths.mgPipe.outputPathMgPipe;
+
+% The path where the HM models should be stored was already created in the
+% beginning of the tutorial and stored in the paths variable.
+mWBMdir = paths.mWBM.outputPathMWBM;
+
+% Set numWorkers if not done so before by removing the % you can alter the
+% value
+% numWorkersCreation = 1;
+
+% Set checkFeasibility to true
+checkFeasibility = true;
+
+% Set the number of workers for optimisation
+numWorkersOptimisation = 2;
+
+% Generate multiple mWBM models
+createBatchMWBM(microbiomeDir, mWBMdir, paths.General.metadataPath, "diet",diet, 'numWorkersCreation', ...
+    numWorkersCreation, 'numWorkersOptimisation', numWorkersOptimisation, "checkFeasibility", checkFeasibility, "solver", solver);
+##### SOURCE END #####
+--></body></html>
