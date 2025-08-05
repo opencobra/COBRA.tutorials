@@ -1,5 +1,5 @@
-%% Flux Balance Analysis
-%% Author(s): Ronan M.T. Fleming, Leiden University
+%% Flux Balance Analysis (examples and answers)
+%% Author(s): Ronan M.T. Fleming, Leiden University 
 %% Reviewer(s):
 %% INTRODUCTION
 % In this tutorial, Flux Balance Analysis (FBA) is introduced using the E. coli 
