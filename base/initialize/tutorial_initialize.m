@@ -6,7 +6,7 @@
 % Please ensure that all the required dependencies (e.g. , |git| and |curl|) 
 % of The COBRA Toolbox have been properly installed by following the installation 
 % guide <https://opencobra.github.io/cobratoolbox/stable/installation.html here>.
-%% PROCEDURE 
+%% PROCEDURE
 % At the start of each MATLAB session, The COBRA Toolbox should be initialised. 
 % Navigate to the directory where you installed The COBRA Toolbox and initialise, 
 % but without updating it.

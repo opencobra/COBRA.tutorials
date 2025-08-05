@@ -1,4 +1,4 @@
-%% *unsteady-state Flux Balance Analysis (uFBA)*
+%% *Unsteady-state Flux Balance Analysis (uFBA)*
 %% *James T. Yurkovich*
 % Department of Bioengineering and the Bioinformatics and Systems Biology Program, 
 % University of California, San Diego USA
