@@ -153,7 +153,7 @@ paths.Mars.reconstructionDb = "full_db";
 % have column names = taxonomic levels. Only required if reconstructionDb
 % is set to "user_db".
 paths.Mars.userDbPath  = "";
-paths.Mars.taxaTable = "";
+paths.Mars.taxaTablePath = "";
 %% Section 2: Running SeqC
 % The function runSeqC begins by setting the working directory to that of the 
 % SeqC repository, and assessing environmental variables and ensuring they are 
@@ -173,17 +173,17 @@ runSeqC(...
             paths.seqC.apptainer, ...
             paths.Mars.readsTablePath, ...
             paths.Mars.outputPathMars, ...
-            paths.Mars.outputExtensionMars, ...
             paths.Mars.relAbunFilePath, ...
-            paths.Mars.sample_read_counts_cutoff, ...
+            paths.Mars.sampleReadCountCutoff, ...
             paths.Mars.cutoffMars, ...
-            paths.Mars.OTUTable, ...
             paths.Mars.flagLoneSpecies, ...
             paths.Mars.taxaDelimiter, ...
             paths.Mars.removeClade, ... 
             paths.Mars.reconstructionDb, ...
             paths.Mars.userDbPath, ... 
-            paths.Mars.taxaTable ...
+            paths.Mars.taxaTablePath,...
+            paths.Mars.calculateBrayCurtis, ....
+            paths.Mars.compoundedDatabase ...
     );
 %% 
 % *Checking Your Operating System*
@@ -260,14 +260,13 @@ comm_build_opt_hw = sprintf(['--build-arg varg_cpu_max=%s --build-arg...' ...
 % for proper execution inside the container.
 
 % MARS params
-comm_build_opt_mars = sprintf(['--build-arg varg_mars_outputExtensionMars=%s' ...
-' --build-arg varg_mars_sample_read_counts_cutoff=%d' ...
+comm_build_opt_mars = sprintf([' --build-arg varg_mars_sampleReadCountCutoff=%d' ...
 ' --build-arg varg_mars_cutoffMars=%s' ...
 ' --build-arg varg_mars_flagLoneSpecies=%s' ...
 ' --build-arg varg_mars_taxaDelimiter="%s"' ...
 ' --build-arg varg_mars_removeClade =%s' ...
 ' --build-arg varg_mars_reconstructionDb=%s'], ...
-paths.Mars.outputExtensionMars, paths.Mars.sample_read_counts_cutoff, ...
+paths.Mars.outputExtensionMars, paths.Mars.sampleReadCountCutoff, ...
 paths.Mars.cutoffMars, string(paths.Mars.flagLoneSpecies), ...
 string(paths.Mars.taxaDelimiter), string(paths.Mars.removeClade), paths.Mars.reconstructionDb);
 %% 
@@ -649,96 +648,7 @@ paths.General.metadataPath = updatedMetadataPath;
 % (discussed in the next section) This ensures that we the MARS output file can 
 % still be found by the rest of the functions.
 % 
-% If we want to run MARS offline we need to make sure all of our dependencies 
-% are installed. Follow the code below to install your dependencies and obtain 
-% your python path.
-% 
-% Instructions on how prepare the python environment with 2 options: via miniconda, 
-% via user created environment. If you do not have a lot of (python) coding experience 
-% the mini-conda way is most user friendly Anaconda: Install Anaconda (https://docs.anaconda.com/miniconda/miniconda-install/)
-% 
-% open Anaconda Prompt (miniconda3)
-% 
-% >> pip install pandas
-% 
-% >> pip install numpy
-% 
-% >> pip install pyarrow==18.1.0 (latest version of pyarrow gives compatibility 
-% issues)
-% 
-% >> pip install fastparquet
-% 
-% >> pip install openpyxl
-% 
-% Find the path to the python.exe file in mini-conda(Windows):
-% 
-% -Anaconda Prompt (miniconda3)
-% 
-% -enter "where python" in the prompt
-% 
-% -If no new enivironment is made (the anaconda navigotor only has "base" in 
-% environments)
-% 
-% -enter "where python" in the prompt
-% 
-% For macOS and Linux run "which python"
-% 
-% The python.file exention file location to copy should be in \anaconda3\python.file 
-% extension. Paste this path in the pythonPath variable in line 19
-% 
-% For a user created environment: Make sure you have a working python.exe file 
-% on  your computer. Install from <https://www.python.org/downloads https://www.python.org/downloads/.> 
-% Follow the steps in <https://nl.mathworks.com/matlabcentral/answers/1750425-python-virtual-environments-with-matlab. 
-% https://nl.mathworks.com/matlabcentral/answers/1750425-python-virtual-environments-with-matlab.> 
-% Make sure you install
-% 
-% >> pip install pandas
-% 
-% >> pip install numpy
-% 
-% >> pip install pyarrow
-% 
-% >> pip install fastparquet
-% 
-% >> pip install openpyxl
-% 
-% Find the path of the executable of the virtual environment as described
-% 
-% >> import sys
-% 
-% >> sys.executable
-% 
-% The python.file exention file location to copy should be in \anaconda3\python.file 
-% extension. Paste this path in the pythonPath variable in line 19
-
-% e.g., 'C:\Users\OwnerPG\AppData\Local\Programs\Python\Python38\python.exe'
-pythonPath = '';
-%% 
-% Next we need to clone the MARS repository. Instructions can be found at <https://github.com/thielelab/mars-pipeline 
-% https://github.com/thielelab/mars-pipeline>. Set the path where the MARS repository 
-% was saved as marsRepoPath.
-
-% e.g., 'C:\Users\Owner\mars-pipeline'
-marsRepoPath = '';
-%% 
-% First we will test if Python is already coupled with Matlab. Then we enter 
-% the cloned MARS repository and add the MARS as a readable module. In order to 
-% call the apporiate function, we have to enter the MARS directory.
-
-% Check if Python is already coupled to MATLAB, otherwise couple it
-pyStatus = pyenv('Version',pythonPath);
-
-% Enter the MARS folder
-cd(marsRepoPath);
-
-% Import the entire MARS repository so that the all scripts are on a path
-%that MATLAB recognises
-MARS = py.importlib.import_module('MARS');
-
-% Enter folder that contains the "main.py" script
-cd(fullfile(marsRepoPath, 'MARS'));
-%% 
-% Now we can prepare for the actual MARS inputs
+% If we want to run MARS offline you must just prepare your MARS inputs
 % 
 % Required inputs
 %% 
@@ -747,17 +657,17 @@ cd(fullfile(marsRepoPath, 'MARS'));
 % file the first column needs to be called Taxon. If not the first column of the 
 % readsFile and the first column of taxaTable needs to have to same name. See 
 % the example files. (we set this already at the start)
-% * *taxaTable* - The path to the taxonomic assignments for the taxomomic unit 
-% name used in your taxonomic assignment software (e.g., OTU, ASV, OGU). This 
-% has to be set to string(missing) if your readsTable already has taxonomic assignment 
-% included. Otherwise it need to consists of a column with header similar to the 
-% first header in readsTable and the column header "Taxon".
+% * *taxaTablePath* - The path to the taxonomic assignments for the taxomomic 
+% unit name used in your taxonomic assignment software (e.g., OTU, ASV, OGU). 
+% This has to be set to string(missing) if your readsTable already has taxonomic 
+% assignment included. Otherwise it need to consists of a column with header similar 
+% to the first header in readsTable and the column header "Taxon".
 % * *outputPathMars* - The path where the MARS results should be stored. We 
 % created this directory in the section 1 and is stored in paths.mars.
 %% 
 % Optional inputs
 %% 
-% * *sample_read_counts_cutoff* - Numeric value for total read counts per sample 
+% * *sampleReadCountsCutoff* - Numeric value for total read counts per sample 
 % under which samples are excluded from analysis. Only applies when readsTable 
 % contains absolute read counts (not relative abundances). Defaults to 1, with 
 % minimum of 1.
@@ -767,33 +677,38 @@ cd(fullfile(marsRepoPath, 'MARS'));
 % below this value will most likely not have a noticable impact on the flux results 
 % as their contribution to fluxes is minimal due to their low relative abundance. 
 % Default is 1e-6.
-% * *outputExtensionMars* - The file type of your output. Default is csv
 % * *flagLoneSpecies* - A boolean, flagLoneSpecies, which is true if the species 
 % name does NOT have the genus name already there. False if otherwise. Defaults 
-% to false
-% * *taxaSplit* - A string,  taxaSplit, which indicates the delimiter used to 
-% separate taxonomic levels in the taxonomic assignment.Defaults to '; '
-% * *removeCladeExtensionsFromTaxa* - A boolean, removeCladeExtensionsFromTaxa, 
-% which removes all reads associated with a taxonomics identification that does 
-% not have information up to the specified taxonomic level that is looked at. 
-% Defaults to true.
-% * *whichModelDatabase*: A string defining if AGORA2, APOLLO, a combination 
-% of both or a user-defined database should be used as model database to check 
-% presence in.  Allowed Input (case-insensitive): "AGORA2", "APOLLO", "full_db", 
-% "user_db". Defaults to "full_db".
-% * *userDatabase_path*: A string containing the full path to the user-defined 
-% database, which should be in .csv, .txt, .parquet or .xlsx format and have column 
-% names = taxonomic levels. Only required if 'whichModelDatabase' is set to "user_db". 
+% to false.
+% * *taxaDelimiter* - A string,  taxaSplit, which indicates the delimiter used 
+% to separate taxonomic levels in the taxonomic assignment.Defaults to ';'. 
+% * *removeClade* - A boolean, removeClade, which removes all reads associated 
+% with a taxonomics identification that does not have information up to the specified 
+% taxonomic level that is looked at. Defaults to true.
+% * *reconstructionDb*: A string defining if AGORA2, APOLLO, a combination of 
+% both or a user-defined database should be used as model database to check presence 
+% in.  Allowed Input (case-insensitive): "AGORA2", "APOLLO", "full_db", "user_db". 
+% Defaults to "full_db".
+% * *userDbPath*: A string containing the full path to the user-defined database, 
+% which should be in .csv, .txt, .parquet or .xlsx format and have column names 
+% = taxonomic levels. Only required if 'whichModelDatabase' is set to "user_db". 
 % Note, that the user database needs to have the same structure as the integrated 
 % AGORA2 & APOLLO database to function properly!
+% * *calculateBrayCurtis*: Boolean to indicate if Bray Curtis should be calculated 
+% for microbiome samples. Defaults to false.
+% * *compoundedDatabase*: Boolean; specifies is the reads table is compounded 
+% or not. Compounded  here means that the reads for a specific taxonomic level 
+% are taking into  account the taxonomic level above it.
 %% 
 % We know now which inputs we need to define. Let us start with the required 
 % ones.
 
-% Set the path the taxaTable. If you do not have a taxaTable file, put a %
-% infront of line 41 and remove % from line 42.
-% taxaTable = '';
-taxaTable = string(missing)
+% Set the path to your reads table
+readsTablePath = paths.Mars.readsTablePath;
+
+% Set the path the taxaTablePath.
+taxaTablePath = '';
+
 % The output path stored in the paths variable
 outputPathMars = paths.Mars.outputPathMars; % This is the default path created by initPersephone
 %% 
@@ -803,136 +718,103 @@ outputPathMars = paths.Mars.outputPathMars; % This is the default path created b
 % Numeric value for total read counts per sample under which samples are
 % excluded from analysis. Only applies when readsTable contains absolute
 % read counts (not relative abundances). Defaults to 1, with minimum of 1.
-sample_read_counts_cutoff = 1;
+sampleReadCountsCutoff = 1;
 
 % The cutoff value for relative abundances
 cutoffMars = 1e-6;
-
-% The file extension for the output files
-outputExtensionMars = 'csv';
 
 % The flag if genus name is in the species name
 flagLoneSpecies = true;
 
 % The delimeter used to separate taxonomic levels
-taxaSplit = ';';
+taxaDelimiter = ';';
 
 % A boolean specifying if one wants to remove clade name extensions from
 % all taxonomic levels of microbiome taxa. If set to false, MARS might find
 % significantly less models in AGORA2, as clade extensions are not included
 % there.
-removeCladeExtensionsFromTaxa = true;
+removeClade = true;
 
 % A string defining if AGORA2, APOLLO, a combination of both or a user-defined
 % database should be used as model database to check presence in. 
 % Allowed Input (case-insensitive): "AGORA2", "APOLLO", "full_db", "user_db".
 % Default: "full_db".
-whichModelDatabase="full_db";
+reconstructionDb="full_db";
 
 % A string containing the full path to the user-defined database,
 % which should be in .csv, .txt, .parquet or .xlsx format and
 % have column names = taxonomic levels. Only required if whichModelDatabase
 % is set to "user_db".
-userDatabase_path="";
-%% 
-% We have now defined all our variables for MARS. In order to call the optional 
-% arguments, we need to convert them into paired arguments readable by Python 
-% through the pyargs function. We will store these converted inputs int he marsOptArg 
-% variable.
+userDbPath="";
 
-% Set all optional inputs in Python readable format
-marsOptArg = pyargs('cutoff', cutoffMars, 'output_format', string(outputExtensionMars),...
-    'flagLoneSpecies',flagLoneSpecies, 'taxaSplit', string(taxaSplit), ...
-    'removeCladeExtensionsFromTaxa', removeCladeExtensionsFromTaxa, ...
-    'whichModelDatabase', whichModelDatabase, ...
-    'sample_read_counts_cutoff', sample_read_counts_cutoff);
+% Boolean to indicate if Bray Curtis should be calculated for microbiome
+% samples. Defaults to false.
+calculateBrayCurtis = false;
+
+% Boolean; specifies is the reads table is compounded or not. Compounded 
+% here means that the reads for a specific taxonomic level are taking into 
+% account the taxonomic level above it
+compoundedDatabase = false;
 %% 
 % With the optional arguments set we can run MARS
 
-% Run MARS
-py.main.process_microbial_abundances(paths.Mars.readsTablePath, taxaTable, outputPathMars, marsOptArg);
+% Run MARS to perform metagenomic mapping
+    runMars(readsTablePath, ...
+        'cutoffMars', cutoffMars, ...
+        'flagLoneSpecies', flagLoneSpecies, ...
+        'taxaDelimiter', taxaDelimiter, ...
+        'removeClade', removeClade, ...
+        'reconstructionDb', reconstructionDb, ...
+        'userDbPath', userDbPath, ...
+        'sampleReadCountCutoff', sampleReadCountsCutoff, ...
+        'taxaTablePath', taxaTablePath, ...
+        'outputPathMars', outputPathMars, ...
+        'calculateBrayCurtis', calculateBrayCurtis, ...
+        'compoundedDatabase', compoundedDatabase...
+        );
+%%
 % return back to the result directory
-cd(resultPath);
+cd(outputPathMars);
 
 % Set the relative abundance file path to be used by other functions
-relAbunFilePath = [paths.Mars.outputPathMars, filesep, 'renormalized_mapped_forModelling', filesep,...
-   'renormalized_mapped_forModelling_species.csv'];
+relAbunFilePath = [paths.Mars.outputPathMars, filesep, 'mapped_forModelling', filesep,...
+   'mapped_forModelling_species.csv'];
 %% 
-% Follow the instructions if you get errors when running line 61:
-% 
-% *ERROR: Unable to resolve the name py.main.process microbial abundances.*
-% 
-% _Check if all you python dependencies are correctly installed. If you had 
-% to install them/update them restart MATLAB and rerun the section 1 and section 
-% 2 of this tutorial. Check if you have installed pyarrow 18.1.0. To degrade use 
-% >> pip uninstall pyarrow. >> pip install pyarrow==18.1.0. It could also be that 
-% the MATLAB version is incompatible with the Python version. Either upgrade your 
-% MATLAB version or downgrade your Python version._
-% 
-% *ERROR:* Python Error: *ValueError: Unsupported file type: not found*
-% 
-% _Double check the file extensions of your readsTable and taxaTable inputs. 
-% If taxaTable does not exist make sure to set it to string(missing)_
-% 
-% *ERROR* Python Error: ValueError: Length mismatch: Expected axis has 8 elements, 
-% new values have 7 elements or a variation on this
-% 
-% _Make sure that the taxaSplit is the one that can properly split the taxonomic 
-% assignments you have put in. MARS expects that every taxonomical level is defined. 
-% If you have only species information in the file, add blank taxonomical information 
-% infront in the style of the example (e.g., ; ; ; ; ; ;species name)_
-% 
-% *ERROR:* Python Error: OSError: Repetition level histogram size mismatch. 
-% 
-% There is an incompatibility reading parquet files with pyarrow 19.0. This 
-% is fixed by degrading to pyarrow 18.1.0. To see the current pyarrow version 
-% run
-% 
-% _>> pip show pyarrow_
-% 
-% in the terminal or prompt you used to install Python packages with. If the 
-% version is 19.0, degrade by running
-% 
-% _>> pip uninstall pyarrow_
-% 
-% _>> pip install pyarrow == 18.1.0_
-% 
-% 
-% 
 % If MARS finished succesfully then you can find the results in the resultMars 
 % directory. 
 %% 
 % * metrics - For each taxonomic level, various metric such as alpha and beta 
 % diversity are calculated.
-% * normalized_mapped - For each taxonomic level, only the mapped taxa, abundances 
-% are not renormalised and still have the values from the pre-mapping normalisation. 
+% * mapped - For each taxonomic level, only the mapped taxa, abundances are 
+% not renormalised and still have the values from the pre-mapping normalisation. 
 % Columns do not add up to 1
-% * normalized_preMapped - For each taxonomic level, all the taxa are normalised 
-% to the total reads. Columns add up to 1.
-% * normalized_unMapped - For each taxonomic level, only the unmapped taxa, 
-% abundances are not renormalised and still have the values from the pre-mapping 
-% normalisation. Columns do not add up to 1.
-% * renornmalized_mapped_forModelling - For  each taxonomic level, the mapped 
-% taxa are renormalised so that each column adds up to 1.
+% * processed - For each taxonomic level, all the taxa are normalised to the 
+% total reads. Columns add up to 1.
+% * unmapped - For each taxonomic level, only the unmapped taxa, abundances 
+% are not renormalised and still have the values from the pre-mapping normalisation. 
+% Columns do not add up to 1.
+% * mapped_forModelling - For  each taxonomic level, the mapped taxa are renormalised 
+% so that each column adds up to 1.
 %% 
-% The file renormalized_mapped_forModelling_species.csv (file extension can 
-% change based on user input) in the ”renormalized_mapped_forModelling” directory 
-% is used as input to create community microbiome models. We can expect for about 
-% 70-80% of the total reads to be able to be mapped to the AGORA2 database if 
-% you use whole-genome shotgun data. Using 16s sequencing, this can drop to 30-40%, 
-% mostly because many of the reads do not have information on the species level 
-% and are automatically discarded.
+% The file normalised_forModelling_species.csv (file extension can change based 
+% on user input) in the ”mapped_forModelling” directory is used as input to create 
+% community microbiome models. We can expect for about 70-80% of the total reads 
+% to be able to be mapped to the AGORA2 database if you use whole-genome shotgun 
+% data. Using 16s sequencing, this can drop to 30-40%, mostly because many of 
+% the reads do not have information on the species level and are automatically 
+% discarded.
 % 
-% NOTE: If in the normalised_unMappedfile_species file has many species absent 
-% it might be worthwile to see if homosynonyms can be found. You can either do 
-% this manually or run your list of absent species throught the MARS-ANT pipeline 
-% that checks for homosynonyms and presence in the AGORA2 resources. <https://mars-pipeline.streamlit.app. 
+% NOTE: If in the processed_Species file has many species absent it might be 
+% worthwile to see if homosynonyms can be found. You can either do this manually 
+% or run your list of absent species throught the MARS-ANT pipeline that checks 
+% for homosynonyms and presence in the AGORA2 resources. <https://mars-pipeline.streamlit.app. 
 % https://mars-pipeline.streamlit.app.> Again If the online app is used, please 
 % store the files in the appropriate location in your resultDir we defined at 
 % the beginning of this part of the tutorial. This allows for seemless integration 
 % with the other function and eliminates the need to generate new path variables. 
 % If you did fine homosynomys manually, you will need to adjust the names of your 
-% taxonomic assignments in either the readsTable or the taxaTable and rerun MARS.
+% taxonomic assignments in either the readsTable or the taxaTablePath and rerun 
+% MARS.
 %% Section 3: Creating microbiome community models
 % In this section we will create community microbiome models using the Microbiome 
 % Modelling Toolbox 2.0 [3]. We will use here pan-species models from the AGORA2 
