@@ -104,7 +104,7 @@ end
 % 
 % What reactions of oxidative phosphorylation are active in anaerobic conditions?
 % Hint: |printFluxVector| |drawFlux|
-%% Example 3:  Growth on alternate substrates
+%% Example 4:  Growth on alternate substrates
 % Just as FBA was used to calculate growth rates of E. coli on glucose, it can 
 % also be used to simulate growth on other substrates.  The core E. coli model 
 % contains exchange reactions for 13 different organic compounds, each of which 
