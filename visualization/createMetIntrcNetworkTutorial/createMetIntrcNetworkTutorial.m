@@ -2,7 +2,7 @@
 %% *Author(s):*
 % Kadir Kocabas, Bioinformaticss and Systems Biology, Gebze Technical University, 
 % Turkey.
-%% *INTRODUCTION*
+%% *INTRODUCTION* 
 % Visualization of metabolite interactions on graphs is a convenient way to 
 % trace of metabolites of interest. It provides significant advantages for  detecting 
 % produced and consumed metabolites with the help of colourization of edges based 

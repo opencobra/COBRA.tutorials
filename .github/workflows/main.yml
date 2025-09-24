@@ -60,9 +60,14 @@ jobs:
           fi
 
           echo "Found changed files: $changed_files"
-
+              
           for file in $changed_files; do
             if [[ $file != "" ]]; then
+            if [[ ! -f "$file" ]]; then
+              echo "WARNING: File does not exist: $file. Skipping."
+              continue
+            fi
+
               echo "Processing: $file"
               ABSOLUTE_FILE_PATH=$(realpath "$file")
 
