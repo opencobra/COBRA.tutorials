@@ -1,37 +1,28 @@
 %% COBRArrow Tutorial
+%%
+% 
 %  A tutorial for using the COBRArrow MATLAB API.
-
+%
 %% Author: Yixing Lei
-
 %% INTRODUCTION
-%
-% COBRArrow is a tool designed to handle large-scale biochemical reaction 
-% models through remote procedure calls (RPC). It facilitates the sharing 
-% of computational models within COBRA tools across different programming 
-% languages and provides efficient optimization services, streamlining the 
-% process of sharing and optimizing various models.
-%
-% In this tutorial, you will learn how to use COBRArrow MATLAB API to:
-% - Set up the COBRArrow environment
-% - Send models to a remote server
-% - Fetch models from the server
-% - Persist models to a database
-% - Optimize models and retrieve results
-
+% COBRArrow is a tool designed to handle large-scale biochemical reaction models 
+% through remote procedure calls (RPC). It facilitates the sharing of computational 
+% models within COBRA tools across different programming languages and provides 
+% efficient optimization services, streamlining the process of sharing and optimizing 
+% various models.
+% 
+% In this tutorial, you will learn how to use COBRArrow MATLAB API to: - Set 
+% up the COBRArrow environment - Send models to a remote server - Fetch models 
+% from the server - Persist models to a database - Optimize models and retrieve 
+% results
 %% Step 1: Environment Setup
-%
-% Before you begin, ensure that you have installed the necessary 
-% dependencies:
-% - MATLAB with the COBRA Toolbox installed and initialized.
-% - Python: A compatible version of Python as specified by MathWorks 
-% Python Compatibility:
-%   https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/support/sysreq/files/python-support.pdf
-
+% Before you begin, ensure that you have installed the necessary dependencies: 
+% - MATLAB with the COBRA Toolbox installed and initialized. - Python: A compatible 
+% version of Python as specified by MathWorks Python Compatibility:  <https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/support/sysreq/files/python-support.pdf 
+% https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/support/sysreq/files/python-support.pdf>
 %% Step 2: Setting Up COBRArrow
-%
-% Before running any model, you need to set up COBRArrow in MATLAB. 
-% This involves initializing the environment and establishing a connection 
-% to the remote server.
+% Before running any model, you need to set up COBRArrow in MATLAB. This involves 
+% initializing the environment and establishing a connection to the remote server.
 
 % Initialize COBRArrow
 initCobrarrow();
@@ -41,12 +32,10 @@ client = COBRArrow('cobrarrow.chatimd.org');
 
 % Login to use the service
 client = client.login('johndoe','123456');
-
 %% Step 3: Sending and Optimizing a Model
-%
-% COBRArrow allows you to send your biochemical model to a remote server, 
-% where you can run optimizations using remote resources, providing a faster 
-% and more efficient way of computation.
+% COBRArrow allows you to send your biochemical model to a remote server, where 
+% you can run optimizations using remote resources, providing a faster and more 
+% efficient way of computation.
 
 % Example: Sending a Model
 % First, load your model and send it to the remote server:
@@ -86,13 +75,12 @@ solver.setParameter('tol', 1e-9);
 
 % Run optimization
 result = client.optimizeModel(schemaName, solver);
-
 %% Additional Methods: Fetching and Persisting Models
-%
 % 1. Fetching the Model
-%
-% You can fetch a model that was uploaded by other users. The model can be
-% used in COBRA Toolbox for furthur analysis.
+% 
+% You can fetch a model that was uploaded by other users. The model can be used 
+% in COBRA Toolbox for furthur analysis.
+
 fetchedModel = client.fetchModel(schemaName);
 
 % For example, it can be used to do optimization locally.
@@ -162,23 +150,14 @@ allFlightsList = client.listAllFlights();
 
  %  Get all unique identifiers of the flights on the server
  allDescriptors = client.getAllDescriptors();
-
 %% _TROUBLESHOOTING_
-%
-% If you encounter issues with sending models or running optimizations, ensure:
-% 1. The COBRA Toolbox and dependencies are correctly installed and configured.
-% 2. The server is accessible and running the necessary services.
-% 3. Python and required package (PyArrow) is correctly installed.
-%
-%
+% If you encounter issues with sending models or running optimizations, ensure: 
+% 1. The COBRA Toolbox and dependencies are correctly installed and configured. 
+% 2. The server is accessible and running the necessary services. 3. Python and 
+% required package (PyArrow) is correctly installed.
 %% _Acknowledgments_
-%
-% 1. Currently, the remote optimization service supports solvers including:
-% CPLEX, GLPK, Gurobi. It hasn't supported parameter change yet.
-% 2. Always persist your model to the database to avoid losing your data in 
-% case of a service shutdown.
-% 3. The listAllFlights method and getAllDescriptors method can be used for
-% debugging and future extension purposes, they are not involved in general
-% use cases.
-%
-%
+% 1. Currently, the remote optimization service supports solvers including: 
+% CPLEX, GLPK, Gurobi. It hasn't supported parameter change yet. 2. Always persist 
+% your model to the database to avoid losing your data in case of a service shutdown. 
+% 3. The listAllFlights method and getAllDescriptors method can be used for debugging 
+% and future extension purposes, they are not involved in general use cases.
