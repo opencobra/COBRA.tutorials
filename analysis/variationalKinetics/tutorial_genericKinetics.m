@@ -1,4 +1,4 @@
-%% Variational Kinetics
+%% Generic algorithms to find kinetic steady states
 %% Author: Masoud Ahookhosh, Systems Biochemistry Group, Luxembourg Centre for Systems Biomedicine 
 %% Reviewers: Ronan Fleming, Sylvain Arreckx
 %% INTRODUCTION
@@ -109,7 +109,7 @@
 % core" model, we have
 
 global CBTDIR
-tutorialPath = fileparts(which('tutorial_variationalKinetics.mlx'));
+tutorialPath = fileparts(which('tutorial_genericKinetics.mlx'));
 load([tutorialpath filesep 'Ecoli_core_data.mat']);
 %% 
 % Then, we need to make a struture "model" by

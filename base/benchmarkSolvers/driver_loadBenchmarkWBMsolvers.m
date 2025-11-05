@@ -1,7 +1,7 @@
 %% Choose between different models. 
 % Add your own via the switch statement below.
 
-if ~exist(modelToUse,'var')
+if ~exist('modelToUse','var')
     %modelToUse  = 'iCoreED'; % medium - TODO could not compute extremePools -find out why.
     %modelToUse = 'iDopaNeuroC';
     % modelToUse = 'Recon3T';
@@ -34,7 +34,9 @@ switch modelToUse
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvey_1_04c_lifted.mat')
             model=male;
             model.osenseStr='max';
-            model.ub(model.c~=0)=inf;
+            %  Was -0.014285714285714 but rounded up makes it feasible.
+            model.S(ismember(model.mets,'Gall_biomass_maintenance_dummy_objective'),ismember(model.rxns,'Whole_body_objective_rxn'))=-0.0143;
+            model.ub(ismember(model.rxns,'BileDuct_EX_3bcrn[bd]_[luSI]'))=inf;
         else
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvey_1_04c.mat')
             %load('~/drive/sbgCloud/projects/variationalKinetics/data/WBM/Harvey_1_04c.mat')
@@ -58,7 +60,9 @@ switch modelToUse
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvetta_1_04c_lifted.mat')
             model=female;
             model.osenseStr='max';
-            model.ub(model.c~=0)=inf;
+            %  Was -0.014285714285714 but rounded up makes it feasible.
+            model.S(ismember(model.mets,'Gall_biomass_maintenance_dummy_objective'),ismember(model.rxns,'Whole_body_objective_rxn'))=-0.0143;
+            model.ub(ismember(model.rxns,'BileDuct_EX_3bcrn[bd]_[luSI]'))=inf;
         else
             load('~/drive/sbgCloud/code/wbm_modelingcode/WBM_reconstructions/Harvetta_1_04c.mat')
             %load('~/drive/sbgCloud/projects/variationalKinetics/data/WBM/Harvetta_1_04c.mat')
