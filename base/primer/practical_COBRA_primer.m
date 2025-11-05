@@ -48,7 +48,7 @@
 
 fileName = 'ecoli_core_model.mat';
 if ~exist('modelOri','var')
-modelOri = readCbModel(fileName);
+    modelOri = readCbModel(fileName);
 end
 %backward compatibility with primer requires relaxation of upper bound on
 %ATPM
@@ -80,39 +80,10 @@ model = modelOri;
 %% Checking the non-trivial constraints on a model
 % What are the default constraints on the model? 
 % Hint: |printConstraints|
-
-minInf=-1000;
-maxInf=1000;
-printConstraints(model, minInf, maxInf)
-printRxnFormula(model,'ATPM');
-ind = find(model.c~=0)
-model.c(ind)
-model.rxns{ind}
-%% 
-% Display the nonzero entries in a stoichiometric matrix
-
-spy(model.S)
-model.mets(model.S(:,model.c~=0)~=0);
-ind=find(model.c~=0);
-ind=find(model.S(:,ind)~=0);
-model.mets(ind)
-rxnAbbr=model.rxns{model.c~=0};
-printRxnFormula(model,rxnAbbr);
 %% Calculating growth rates
 % Growth of E. coli on glucose can be simulated under aerobic conditions.  
 % What is the growth rate of _E. coli_ on glucose (uptake rate = 18.5 mmol/gDW/h) under aerobic and anaerobic conditions?  
 % Hint: |changeRxnBounds, optimizeCbModel|
-
-minInf=-1000;
-maxInf=1000;
-printConstraints(model, minInf, maxInf)
-
-rxnNameList='EX_glc(e)';
-value=-18.5;
-boundType='l';
-model = changeRxnBounds(model, rxnNameList, value, boundType);
-printConstraints(model, minInf, maxInf)
-optimizeCbModel(model)
 %% Display an optimal flux vector on a metabolic map
 % Which reactions/pathways are in use (look at the flux vector and flux map)?
 % Hint: |drawFlux|
@@ -124,18 +95,25 @@ options.rxnDirMultiplier = 10;
 drawFlux(map, model, FBAsolution.v, options);
 % What reactions of oxidative phosphorylation are active in anaerobic conditions?
 % Hint: |printFluxVector| |drawFlux|
-% 
+
+fluxData = FBAsolutionAnaer.v;
+nonZeroFlag = 1;
+printFluxVector(model, fluxData, nonZeroFlag)
 %% Example 1.  Growth on alternate substrates
 % Just as FBA was used to calculate growth rates of E. coli on glucose, it can 
 % also be used to simulate growth on other substrates.  The core E. coli model 
 % contains exchange reactions for 13 different organic compounds, each of which 
 % can be used as the sole carbon source under aerobic conditions. 
+% 
 % What is the growth rate of _E. coli_ on succinate?
 % Hint: |changeRxnBounds|
-% 
+
+model = modelOri;
+
 %% Batch prediction of growth rates on different substrates
 % What is the growth rate of E. coli on all 13 substrates in the core model, aerobically and anaerobically?
 % Hint: Use a |for| loop, with |changeRxnBounds| and |optimizeCbModel|
+%% 
 % 
 % Example 2.  Production of cofactors and biomass precursors
 % FBA can also be used to determine the maximum yields of important cofactors 
@@ -144,8 +122,9 @@ drawFlux(map, model, FBAsolution.v, options);
 % Hint: use changeObjective to set the model to maximise the ATP hydrolysis reaction.
 % 
 % What is the maximum yield of NADH and NADPH per mol glucose in aerobic and anaerobic conditions?
-% Hint: check the default constraints on the model before proceeding.
-% 
+% Hint: Check the default constraints on the model before proceeding. Also, use:
+
+model = addReaction(model,'NADH_drain','nadh[c] -> nad[c] + h[c]');
 %% Sensitivity of a FBA solution
 % The sensitivity of an FBA solution is indicated by either shadow prices or 
 % reduced costs.  A shadow price is a derivative of the objective function with 
@@ -157,10 +136,18 @@ drawFlux(map, model, FBAsolution.v, options);
 % COBRA Toolbox, shadow prices and reduced costs are calculated by optimizeCbModel.  
 % The vector of m shadow prices is FBAsolution.dual and the vector of n reduced 
 % costs is FBAsolution.rcost.
-% In the E. coli core model, what is the shadow price of cytosolic protons? What is your biochemical interpretation of this value in the current context?
-% Hint: |FBAsolution.dual|
+% In the E. coli core model, when maximising ATP production, what is the shadow price of cytosolic protons? 
+% Hint: |FBAsolution.y|
 % 
-% In the E. coli core model, what is the shadow price of cytosolic protons at (a) maximum NADH yield, and (b) at maximum NADPH yield? What is your biochemical interpretation of these value in the current context?
+% What is your biochemical interpretation of this change in objective in the current context?
+% Hint: printFluxVector, drawFlux
+% 
+% In the E. coli core model, when maximising ATP production, what is the reduced cost of glucose exchange? 
+% Hint: FBAsolution.rcost
+% 
+% In the E. coli core model, what is the shadow price of cytosolic protons at (a) maximum NADH yield, and (b) at maximum NADPH yield? 
+% 
+% What is your biochemical interpretation of these value in the current context?
 % Hint: |drawFlux|
 % 
 %% Biosynthetic precursor yields
@@ -269,6 +256,9 @@ drawFlux(map, model, FBAsolution.v, options);
 % This tutorial was originally written by Jeff Orth and Ines Thiele for the 
 % publication "What is flux balance analysis?"
 %% REFERENCES
+% 0.    Orth. J., Thiele, I., Palsson, B.O., What is flux balance analysis? 
+% Nat Biotechnol. Mar; 28(3): 245–248 (2010).
+% 
 % 1.	Becker, S.A. et al. Quantitative prediction of cellular metabolism with 
 % constraint-based models: The COBRA Toolbox. Nat. Protocols 2, 727-738 (2007).
 % 

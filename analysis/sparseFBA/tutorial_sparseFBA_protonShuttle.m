@@ -7,16 +7,16 @@
 % matrix $S\in\mathcal{Z}^{m\times n}$. In standard notation, flux balance analysis 
 % (FBA) is the linear optimisation problem
 % 
-% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} 
-% & Sv=b,\\ & l\leq v\leq u,\end{array}$$
+% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} & 
+% Sv=b,\\ & l\leq v\leq u,\end{array}$$
 % 
-% where $$c\in\Re^{n}$$ is a parameter vector that linearly combines one 
-% or more reaction fluxes to form what is termed the objective function,  and 
-% where a $$b_{i}<0$$, or  $$b_{i}>0$$, represents some fixed output, or input, 
-% of the ith molecular species. A typical application of flux balance analysis 
-% is to predict an optimal non-equilibrium steady-state flux vector that optimises 
-% a linear objective function, such biomass production rate, subject to bounds 
-% on certain reaction rates. 
+% where $$c\in\Re^{n}$$ is a parameter vector that linearly combines one or 
+% more reaction fluxes to form what is termed the objective function,  and where 
+% a $$b_{i}<0$$, or  $$b_{i}>0$$, represents some fixed output, or input, of the 
+% ith molecular species. A typical application of flux balance analysis is to 
+% predict an optimal non-equilibrium steady-state flux vector that optimises a 
+% linear objective function, such biomass production rate, subject to bounds on 
+% certain reaction rates. 
 % 
 % In this tutorial, we demonstrate how to predict the minimal number of active 
 % reactions that are still consistent with an optimal objective derived from the 
@@ -27,15 +27,14 @@
 % $$\begin{array}{ll}\min\limits _{v} & \Vert v\Vert_{0}\\\text{s.t.} & Sv=b\\ 
 % & l\leq v\leq u\\ & c^{T}v=\rho^{\star}\end{array}$$
 % 
-% where the last constraint is optional and represents the requirement to 
-% satisfy an optimal objective value $\rho^{\star}$  derived from any solution 
-% to a flux balance analysis (FBA) problem. This approach is used to check for 
-% minimal sets of reactions that either should be active, or should not be active 
-% in a flux balance model that is representative of a biochemical network.
+% where the last constraint is optional and represents the requirement to satisfy 
+% an optimal objective value $\rho^{\star}$  derived from any solution to a flux 
+% balance analysis (FBA) problem. This approach is used to check for minimal sets 
+% of reactions that either should be active, or should not be active in a flux 
+% balance model that is representative of a biochemical network.
 % 
-% In particular, this tutoriall illustrates the use of sparse flux balance 
-% analysis to compute the minimal set of reactions that must be active to produce 
-% ATP
+% In particular, this tutoriall illustrates the use of sparse flux balance analysis 
+% to compute the minimal set of reactions that must be active to produce ATP
 %% TIMING
 % A minimal solution to sparse flux balance analysis problem can be obtained 
 % in < 10 seconds. The time consuming part is comparing the predictions with the 
@@ -102,7 +101,7 @@ maxInf =  1000;
 printConstraints(model, minInf, maxInf);
 %% 
 % Identify the exchange reactions(s) heuristically
-%%
+
 if ~isfield(model,'SIntRxnBool')
     model = findSExRxnInd(model,size(model.S,1),1);
 end
@@ -121,8 +120,8 @@ minNorm='zero';
 
 allowLoops=1;
 %% 
-% Select the approximate step functions when minimising the zero norm of 
-% the flux vector
+% Select the approximate step functions when minimising the zero norm of the 
+% flux vector
 
 % zeroNormApprox='cappedL1';% : Capped-L1 norm
 % zeroNormApprox='exp';%Exponential function
@@ -145,8 +144,8 @@ sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops
 
 fprintf('%g%s\n',sparseFBAsolutionBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -163,27 +162,28 @@ end
 % reaction bounds zero, then the bounds on one of the reactions in each of the 
 % minimal sets needs to be set to eliminate flux in one direction. Each of the 
 % minimal sets corresponds to net flux around a stoichiometrically balanced cycle, 
-% which is thermodynamically infeasible [<#LyXCite-fleming_variational_2012 fleming_variational_2012>]. 
-% Steady-state mass balance constraints do not enforce thermodynamic constraints. 
-% In lieu of such constraints, the bounds on reactions can be set based on the 
-% biochemical literature to eliminate net flux around a stoichiometrically balanced 
-% cycle. In a model, with all external reactions blocked (bounds are set to zero), 
-% maximising the ATP synthase reaction while minimising the cardinality of all 
-% internal reactions, using sparse flux balance analysis can be used to find any 
-% such cycle of minimal cardinality (minimal number of active reactions). By further 
-% constraining the bounds to convert one reversible reaction in each such cycle 
-% to an irreversible reaction, thermodynamically infeasible flux around cycles, 
-% such as those involving the ATP synthase reaction, can be eliminated. The following 
-% sections of this tutorial illustrate how to test different parts of the model 
-% for thermodynamically infeasible flux through the ATP synthase reaction.
+% which is thermodynamically infeasible [<about:blank<#LyXCite-fleming_variational_2012> 
+% fleming_variational_2012>]. Steady-state mass balance constraints do not enforce 
+% thermodynamic constraints. In lieu of such constraints, the bounds on reactions 
+% can be set based on the biochemical literature to eliminate net flux around 
+% a stoichiometrically balanced cycle. In a model, with all external reactions 
+% blocked (bounds are set to zero), maximising the ATP synthase reaction while 
+% minimising the cardinality of all internal reactions, using sparse flux balance 
+% analysis can be used to find any such cycle of minimal cardinality (minimal 
+% number of active reactions). By further constraining the bounds to convert one 
+% reversible reaction in each such cycle to an irreversible reaction, thermodynamically 
+% infeasible flux around cycles, such as those involving the ATP synthase reaction, 
+% can be eliminated. The following sections of this tutorial illustrate how to 
+% test different parts of the model for thermodynamically infeasible flux through 
+% the ATP synthase reaction.
 %% Testing for activity of ATP synthase with all exchanges closed and all internal reactions reversible
 % Fully open all internal reactions
 
 model.lb(model.SIntRxnBool)=-1000;
 model.ub(model.SIntRxnBool)=1000;
 %% 
-% Run sparse flux balance analysis on the model with all exchanges closed 
-% and all internal reactions reversible
+% Run sparse flux balance analysis on the model with all exchanges closed and 
+% all internal reactions reversible
 
 sparseFBAsolutionUnBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops, zeroNormApprox);
 %% 
@@ -191,8 +191,8 @@ sparseFBAsolutionUnBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoo
 
 fprintf('%g%s\n',sparseFBAsolutionUnBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -217,8 +217,8 @@ fprintf('%u%s\n',nnz(allTransportRxnBool),' transport reactions in total.');
 model.lb=modelOrig.lb;
 model.ub=modelOrig.ub;
 %% 
-% Open all transport reactions (which might include an external reaction, 
-% e.g., a  biomass reaction)
+% Open all transport reactions (which might include an external reaction, e.g., 
+% a  biomass reaction)
 
 model.lb(allTransportRxnBool)=-1000;
 model.ub(allTransportRxnBool)=1000;
@@ -236,8 +236,8 @@ sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops
 
 fprintf('%g%s\n',sparseFBAsolutionBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -261,8 +261,8 @@ fprintf('%u%s\n',nnz(cmTransportRxnBool),' transport reactions involving the cyt
 model.lb=modelOrig.lb;
 model.ub=modelOrig.ub;
 %% 
-% Open all transport reactions (which might include an external reaction, 
-% e.g., a  biomass reaction)
+% Open all transport reactions (which might include an external reaction, e.g., 
+% a  biomass reaction)
 
 model.lb(cmTransportRxnBool)=-1000;
 model.ub(cmTransportRxnBool)=1000;
@@ -280,8 +280,8 @@ sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops
 
 fprintf('%g%s\n',sparseFBAsolutionBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -304,8 +304,8 @@ fprintf('%u%s\n',nnz(ecTransportRxnBool),' transport reactions across the plasma
 model.lb=modelOrig.lb;
 model.ub=modelOrig.ub;
 %% 
-% Open all transport reactions (which might include an external reaction, 
-% e.g., a  biomass reaction)
+% Open all transport reactions (which might include an external reaction, e.g., 
+% a  biomass reaction)
 
 model.lb(ecTransportRxnBool)=-1000;
 model.ub(ecTransportRxnBool)=1000;
@@ -323,8 +323,8 @@ sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops
 
 fprintf('%g%s\n',sparseFBAsolutionBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -347,8 +347,8 @@ fprintf('%u%s\n',nnz(cxTransportRxnBool),' transport reactions across the peroxi
 model.lb=modelOrig.lb;
 model.ub=modelOrig.ub;
 %% 
-% Open all transport reactions (which might include an external reaction, 
-% e.g., a  biomass reaction)
+% Open all transport reactions (which might include an external reaction, e.g., 
+% a  biomass reaction)
 
 model.lb(cxTransportRxnBool)=-1000;
 model.ub(cxTransportRxnBool)=1000;
@@ -366,8 +366,8 @@ sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops
 
 fprintf('%g%s\n',sparseFBAsolutionBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -390,8 +390,8 @@ fprintf('%u%s\n',nnz(clTransportRxnBool),' transport reactions across the lysoso
 model.lb=modelOrig.lb;
 model.ub=modelOrig.ub;
 %% 
-% Open all transport reactions (which might include an external reaction, 
-% e.g., a  biomass reaction)
+% Open all transport reactions (which might include an external reaction, e.g., 
+% a  biomass reaction)
 
 model.lb(clTransportRxnBool)=-1000;
 model.ub(clTransportRxnBool)=1000;
@@ -409,8 +409,8 @@ sparseFBAsolutionBounded = optimizeCbModel(model, osenseStr, minNorm, allowLoops
 
 fprintf('%g%s\n',sparseFBAsolutionBounded.v(atpsynthaseBool),' flux through the ATP synthase reaction')
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified cutoff.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% cutoff.
 
 cutoff=feasTol;
 for n=1:nRxn
@@ -423,10 +423,10 @@ end
 % [fleming_cardinality_nodate] Fleming, R.M.T., et al., Cardinality optimisation 
 % in constraint-based modelling: illustration with Recon 3D (submitted), 2017.
 % 
-% [<#LyXCite-sparsePaper sparsePaper>] Le Thi, H.A., Pham Dinh, T., Le, H.M., 
-% and Vo, X.T. (2015). DC approximation approaches for sparse optimization. European 
-% Journal of Operational Research 244, 26–46.
+% [<about:blank<#LyXCite-sparsePaper> sparsePaper>] Le Thi, H.A., Pham Dinh, 
+% T., Le, H.M., and Vo, X.T. (2015). DC approximation approaches for sparse optimization. 
+% European Journal of Operational Research 244, 26–46.
 % 
-% __
 % 
-% __
+% 
+%

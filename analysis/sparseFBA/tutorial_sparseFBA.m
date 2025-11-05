@@ -7,19 +7,19 @@
 % matrix $S\in\mathcal{Z}^{m\times n}$. In standard notation, flux balance analysis 
 % (FBA) is the linear optimisation problem
 % 
-% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} 
-% & Sv=b,\\ & l\leq v\leq u,\end{array}$$
+% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} & 
+% Sv=b,\\ & l\leq v\leq u,\end{array}$$
 % 
-% where $$c\in\Re^{n}$$ is a parameter vector that linearly combines one 
-% or more reaction fluxes to form what is termed the objective function,  and 
-% where a $$b_{i}<0$$, or  $$b_{i}>0$$, represents some fixed output, or input, 
-% of the ith molecular species. A typical application of flux balance analysis 
-% is to predict an optimal non-equilibrium steady-state flux vector that optimises 
-% a linear objective function, such biomass production rate, subject to bounds 
-% on certain reaction rates. Herein we use sparse flux balance analysis to predict 
+% where $$c\in\Re^{n}$$ is a parameter vector that linearly combines one or 
+% more reaction fluxes to form what is termed the objective function,  and where 
+% a $$b_{i}<0$$, or  $$b_{i}>0$$, represents some fixed output, or input, of the 
+% ith molecular species. A typical application of flux balance analysis is to 
+% predict an optimal non-equilibrium steady-state flux vector that optimises a 
+% linear objective function, such biomass production rate, subject to bounds on 
+% certain reaction rates. Herein we use sparse flux balance analysis to predict 
 % a minimal number of active reactions$^1$, consistent with an optimal objective 
 % derived from the result of a standard flux balance analysis problem. In this 
-% context _sparse flux balance analysis _requires a solution to the following 
+% context _sparse flux balance analysis_ requires a solution to the following 
 % problem
 % 
 % $$\begin{array}{ll}\min\limits _{v} & \Vert v\Vert_{0}\\\text{s.t.} & Sv=b\\ 
@@ -31,7 +31,7 @@
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % If necessary, initialize The Cobra Toolbox using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% COBRA model. 
 % In this tutorial, the model used is the generic reconstruction of human metabolism, 
@@ -39,7 +39,7 @@ initCobraToolbox(false) % false, as we don't want to update
 % can also be downloaded from the <https://www.vmh.life/#downloadview Virtual 
 % Metabolic Human> webpage. You can also select your own model to work with. Before 
 % proceeding with the simulations, the path for the model needs to be set up:      
-%%
+
 global CBTDIR
 modelFileName = 'Recon2.v04.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
@@ -51,7 +51,7 @@ model = readCbModel(modelFileName);
 %% PROCEDURE
 % Set the tolerance to distinguish between zero and non-zero flux, based on 
 % the numerical tolerance of the currently installed optimisation solver.
-%%
+
 feasTol = getCobraSolverParams('LP', 'feasTol');
 %% 
 % Display the constraints
@@ -92,7 +92,7 @@ formulas = printRxnFormula(model, rxnAbbrList, printFlag);
 % 
 % First choose whether to maximize ('max') or minimize ('min') the FBA objective. 
 % Here we choose maximise
-%%
+
 osenseStr='max';
 %% 
 % Choose to minimize the zero norm of the optimal flux vector
@@ -133,7 +133,7 @@ fprintf('%u%s\n',nnz(v),' active reactions in the sparse flux balance analysis s
 % Build a linear programming problem structure (LPproblem) that is compatible 
 % with the interface function (solveCobraLP) to any installed linear optimisation 
 % solver.
-%%
+
 [c,S,b,lb,ub,csense] = deal(model.c,model.S,model.b,model.lb,model.ub,model.csense);
 [m,n] = size(S);
 
@@ -168,26 +168,26 @@ fprintf('%u%s\n',nnz(vFBA),' active reactions in the flux balance analysis solut
 % 
 % 
 % 
-% Depending on the application, and the biochemical network, one or other 
-% approximation may outperform the rest, therefore a pragmatic strategy is to 
-% try each and select the most sparse flux vector. The step set of function approximations$^4$ 
-% available are
+% Depending on the application, and the biochemical network, one or other approximation 
+% may outperform the rest, therefore a pragmatic strategy is to try each and select 
+% the most sparse flux vector. The step set of function approximations$^4$ available 
+% are
 % 
-%  * 'cappedL1' : Capped-L1 norm
+% * 'cappedL1' : Capped-L1 norm
 % 
-%  * 'exp'      : Exponential function
+% * 'exp'      : Exponential function
 % 
-%  * 'log'      : Logarithmic function
+% * 'log'      : Logarithmic function
 % 
-%  * 'SCAD'     : SCAD function
+% * 'SCAD'     : SCAD function
 % 
-%  * 'lp-'      : L_p norm with p<0
+% * 'lp-'      : L_p norm with p<0
 % 
-%  * 'lp+'      : L_p norm with 0<p<1
+% * 'lp+'      : L_p norm with 0<p<1
 % 
-% Here we prepare a cell array of strings which indicate the set of step 
-% function approximations we wish to compare.
-%%
+% Here we prepare a cell array of strings which indicate the set of step function 
+% approximations we wish to compare.
+
 approximations = {'cappedL1','exp','log','SCAD','lp-','lp+'};
 %% Run the sparse linear optimisation solver
 % First we must build a problem structure to pass to the sparse solver, by adding 
@@ -252,7 +252,7 @@ end
 % a combinatorial issue.
 % 
 % Identify the set of predicted active reactions
-%%
+
 activeRxnBool = abs(vBest)>feasTol;
 nActiveRnxs = nnz(activeRxnBool);
 activeRxns = false(n,1);
@@ -272,8 +272,8 @@ lbSub(~activeRxns) = 0;
 % Check if one still can achieve the same objective
 LPproblem = struct('c',-c,'osense',-1,'A',S,'csense',csense,'b',b,'lb',lbSub,'ub',ubSub);
 %% 
-% For each active reaction in the most sparse approximate flux vector, one 
-% by one, set the reaction bounds to zero, then test if the optimal flux balance 
+% For each active reaction in the most sparse approximate flux vector, one by 
+% one, set the reaction bounds to zero, then test if the optimal flux balance 
 % analysis objective value is still attained. If it is, then that reaction is 
 % not part of the minimal set. If it is not, then it is probably part of the minimal 
 % set.
@@ -299,9 +299,9 @@ for i=1:n
     end
 end
 %% 
-% Report the number of active reactions in the approximately most sparse 
-% flux vector, or the reduced approximately most sparse flux vector, if it is 
-% more sparse.
+% Report the number of active reactions in the approximately most sparse flux 
+% vector, or the reduced approximately most sparse flux vector, if it is more 
+% sparse.
 
 if nnz(minimalActiveRxns)<nnz(activeRxns)
     fprintf('%u%s',nnz(abs(vBestTested)>feasTol),' active reactions in the best sparseFBA solution (tested).');

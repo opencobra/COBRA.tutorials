@@ -13,6 +13,7 @@
 % of succinate? We will approach this problem in this tutorial.
 %% MATERIALS
 %% EQUIPMENT
+%% 
 % # MATLAB
 % # A solver for QP problems. For example, Gurobi. I encourage the users to 
 % use Gurobi since I've not obtained good results using glpk.
@@ -23,16 +24,15 @@
 % 
 % 1) Define contraints (manual task)
 % 
-% 2) Select a list of reactions or genes (manual task). Reactions or genes 
-% in this list could be deleted. Elements that are not in the list will no be 
-% deleted. 
+% 2) Select a list of reactions or genes (manual task). Reactions or genes in 
+% this list could be deleted. Elements that are not in the list will no be deleted. 
 % 
 % 3) Define some (manual task)
 % 
-% 4) Run optGene. *TIMING*: This task should take from a few minutes to a 
-% few days, depending on the size of your reconstruction and the criterion for 
-% stoping optGene
-%%
+% 4) Run optGene. *TIMING*: This task should take from a few minutes to a few 
+% days, depending on the size of your reconstruction and the criterion for stoping 
+% optGene
+
 global TUTORIAL_INIT_CB;
 if ~isempty(TUTORIAL_INIT_CB) && TUTORIAL_INIT_CB  ==  1
     initCobraToolbox(false) % false, as we don't want to update
@@ -106,11 +106,8 @@ end
 %% 
 % *I) SUCCINATE OVERPRODUCTION*
 % 
-% *EXAMPLE 1: finding reaction knockouts sets of large 2 or less, using a 
-% limit of time to stop optGene*
-%%
-
-EXAMPLE 1: finding reaction knockouts sets of large 2 or less
+% *EXAMPLE 1: finding reaction knockouts sets of large 2 or less, using a limit 
+% of time to stop optGene*
 
 fprintf('\n...EXAMPLE 1: Finding optGene sets\n\n')
 previousSolutions = cell(10, 1);
@@ -156,9 +153,9 @@ while nIter < threshold
     
 end
 %% 
-% *EXAMPLE 2: finding reaction knockouts sets of large 2 or less, using 
-% the number of generations to stop optGene*
-%%
+% *EXAMPLE 2: finding reaction knockouts sets of large 2 or less, using the 
+% number of generations to stop optGene*
+
 fprintf('\n...EXAMPLE 2: Finding optGene sets\n\n')
 previousSolutions = cell(10, 1);
 contPreviousSolutions = 1;
@@ -203,8 +200,9 @@ while nIter < threshold
     
 end
 %% 
-%  
+% 
 %% TIMING
+%% 
 % # EXAMPLE 1: ~ 6 minutes (2 minutes per iteration)
 % # EXAMPLE 2: ~ 7 minutes (2-3 minutes per iteration)
 %% TROUBLESHOOTING
@@ -235,6 +233,6 @@ end
 % programming as a platform for in silico metabolic engineering. _BMC bioinformatics_, 
 % _6_(1), 308.
 % 
-% [2] Orth, J. D., Conrad, T. M., Na, J., Lerman, J. A., Nam, H., Feist, 
-% A. M., & Palsson, B. Ø. (2011). A comprehensive genome‐scale reconstruction 
-% of Escherichia coli metabolism—2011. _Molecular systems biology_, _7_(1), 535.
+% [2] Orth, J. D., Conrad, T. M., Na, J., Lerman, J. A., Nam, H., Feist, A. 
+% M., & Palsson, B. Ø. (2011). A comprehensive genome‐scale reconstruction of 
+% Escherichia coli metabolism—2011. _Molecular systems biology_, _7_(1), 535.

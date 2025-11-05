@@ -37,7 +37,7 @@ threshold=1e-6;
 changeCobraSolver ('glpk', 'all', 1);
 %% Production of mthgxl from 12ppd-S
 % Add sink reactions for either end of the proposed pathway:
-%%
+
 model = addSinkReactions(model,{'12ppd_S[c]','mthgxl[c]'},[-100 -1; 0 100]);
 %% 
 % Change the objective to maximise the sink reaction for mthgxl[c]
@@ -55,8 +55,8 @@ if sol.stat==1
     fprintf('%g%s\n',sol.v(model.c~=0),' flux through the sink_mthgxl[c] reaction')
 end
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified threshold.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% threshold.
 
 if sol.stat==1
     for n=1:nRxn
@@ -67,14 +67,14 @@ if sol.stat==1
     end
 end
 %% 
-% * ANTICIPATED RESULTS*
+% *ANTICIPATED RESULTS*
 % 
 % If FBAsol.stat==1 then it is feasible to produce methylglyoxal from (S)-propane-1,2-diol. 
 % If FBAsol.stat==0, then this metabolic function is infeasible. This is not anticipated 
 % and indicates that further gap filling is required (cf Gap Filling Tutorial).
 %% Metabolic task: 4abut -> succ[m]
 % Add sink reactions for either end of the proposed pathway:
-%%
+
 model = addSinkReactions(model,{'4abut[c]','succ[m]'},[-100 -1; 0 100]);
 %% 
 % Change the objective to maximise the sink reaction for nh4[c]
@@ -92,8 +92,8 @@ if sol.stat==1
     fprintf('%g%s\n',sol.v(model.c~=0),' flux through the sink_succ[m] reaction')
 end
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified threshold.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% threshold.
 
 if sol.stat==1
     for n=1:nRxn
@@ -104,15 +104,15 @@ if sol.stat==1
     end
 end
 %% 
-% * ANTICIPATED RESULTS*
+% *ANTICIPATED RESULTS*
 % 
-% If FBAsol.stat==1 then it is feasible to produce mitochondrial succinate 
-% from 4-Aminobutanoate. If FBAsol.stat==0, then this metabolic function is infeasible. 
+% If FBAsol.stat==1 then it is feasible to produce mitochondrial succinate from 
+% 4-Aminobutanoate. If FBAsol.stat==0, then this metabolic function is infeasible. 
 % This is not anticipated and indicates that further gap filling is required (cf 
 % Gap Filling Tutorial).
 %% Metabolic task: gly -> co2 and nh4 (via glycine cleavage system)
 % Add sink reactions for either end of the proposed pathway:
-%%
+
 model = addSinkReactions(model,{'gly[c]','co2[c]','nh4[c]'},[-100 -1; 0.1 100; 0.1 100]);
 %% 
 % Change the objective to maximise the sink reaction for nh4[c]
@@ -130,8 +130,8 @@ if sol.stat==1
     fprintf('%g%s\n',sol.v(model.c~=0),' flux through the sink_nh4[c] reaction')
 end
 %% 
-% Display the sparse flux solution, but only the non-zero fluxes, above 
-% a specified threshold.
+% Display the sparse flux solution, but only the non-zero fluxes, above a specified 
+% threshold.
 
 if sol.stat==1
     for n=1:nRxn
@@ -142,7 +142,7 @@ if sol.stat==1
     end
 end
 %% 
-% * ANTICIPATED RESULTS*
+% *ANTICIPATED RESULTS*
 % 
 % If FBAsol.stat==1 then it is feasible to produce CO2 and NH4 from glycine. 
 % If FBAsol.stat==0, then this metabolic function is infeasible. This is not anticipated 
@@ -151,8 +151,8 @@ end
 % [fleming_cardinality_nodate] Fleming, R.M.T., et al., Cardinality optimisation 
 % in constraint-based modelling: illustration with Recon 3D (submitted), 2017.
 % 
-% _ _[<#LyXCite-sparsePaper sparsePaper>] Le Thi, H.A., Pham Dinh, T., Le, 
-% H.M., and Vo, X.T. (2015). DC approximation approaches for sparse optimization. 
+% [<about:blank<#LyXCite-sparsePaper> sparsePaper>] Le Thi, H.A., Pham Dinh, 
+% T., Le, H.M., and Vo, X.T. (2015). DC approximation approaches for sparse optimization. 
 % European Journal of Operational Research 244, 26–46.
 % 
-% __
+%

@@ -1,16 +1,16 @@
-%% *Find leakage and siphon modes in a reconstruction  *
-% **
+%% *Find leakage and siphon modes in a reconstruction*  
+% 
 % 
 % *Note: This tutorial is a draft and needs completion. Contributions welcome!*
 % 
-% **
+% 
 %% *Author: Ronan Fleming, University of Luxembourg*
-%% *Reviewers: *
+%% *Reviewers:* 
 %% INTRODUCTION
 % In standard notation, flux balance analysis is the linear optimisation (1)
 % 
-% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} 
-% & Sv=b,\\ & l\leq v\leq u,\end{array}$$
+% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} & 
+% Sv=b,\\ & l\leq v\leq u,\end{array}$$
 % 
 % 
 % 
@@ -33,21 +33,21 @@
 % steady states. One can identify all leaks in a network with the cardinality 
 % optimisation problem (2)
 % 
-% $$\begin{array}{ll}\min\limits _{v,y} & \Vert y\Vert_{0}\\\text{s.t.} & 
-% Sv-y=0,\\ & l\leq v\leq u,\\ & 0\le y,\end{array}$$
+% $$\begin{array}{ll}\min\limits _{v,y} & \Vert y\Vert_{0}\\\text{s.t.} & Sv-y=0,\\ 
+% & l\leq v\leq u,\\ & 0\le y,\end{array}$$
 % 
-% where  y_i   ≠ 0    indicates that the corresponding species is a leak 
-% and can be produced from nothing. To test for siphons, replace the equality 
-% constraint in with    Sv+y=0. This approach is useful when double checking stoichiometric 
+% where  y_i   ≠ 0    indicates that the corresponding species is a leak and 
+% can be produced from nothing. To test for siphons, replace the equality constraint 
+% in with    Sv+y=0. This approach is useful when double checking stoichiometric 
 % consistency, with the bounds for all reactions that are known to be stoichiometrically 
 % inconsistent set to zero. A minimal number of reactions required to be active 
 % and result in a leak of the species subset   Ω   can be found using the cardinality 
 % optimisation problem (3)
 % 
-% $$\begin{array}{ll}\min\limits _{v,y} & \Vert v\Vert_{0}\\\text{s.t.} & 
-% Sv-y=0,\\ & l\leq v\leq u,\\ & 0\le y,\\ & 1\le y_{i},\;i\in\Omega\end{array}$$
+% $$\begin{array}{ll}\min\limits _{v,y} & \Vert v\Vert_{0}\\\text{s.t.} & Sv-y=0,\\ 
+% & l\leq v\leq u,\\ & 0\le y,\\ & 1\le y_{i},\;i\in\Omega\end{array}$$
 % 
-% with the optimal v referred to as a minimal leakage mode [<#LyXCite-gevorgyan_detection_2008 
+% with the optimal v referred to as a minimal leakage mode [<about:blank<#LyXCite-gevorgyan_detection_2008> 
 % gevorgyan_detection_2008>]. A minimal siphon mode would be obtained if the equality 
 % constraint was replaced with    Sv+y=0. Similarly, a minimal number of reactions 
 % contributing to leakage of a minimal number of species can be found using the 
@@ -56,18 +56,19 @@
 % $$\begin{array}{ll}\min\limits _{v,y} & \Vert v\Vert_{0}+\Vert y\Vert_{0}\\\text{s.t.} 
 % & Sv-y=0,\\ & l\leq v\leq u,\\ & 1\le v_{j},\;j\in\Omega\\ & 0\le y,\end{array}$$
 % 
-% where the additional inequality enforces the rate of a subset reactions 
-% to be active. The utility of Problems <#eq_minimalLeakMet (3)> and <#eq_minimalLeakRxn 
-% (4)> is in the identification of reactions within the suspect stoichiometrically 
-% inconsistent set, to remove prior to reiteration of a test for stoichiometric 
-% consistency with a reduced network. This requires manual curation of the results 
-% of Problems <#eq_minimalLeakMet (3)> and <#eq_minimalLeakRxn (4)>, where the 
-% advantage is that they often narrow down significantly the search for stoichiometrically 
-% inconsistent reactions, especially in the context of genome-scale networks. 
-% This tutorial illustrates the methods to implement the aforementioned problems 
-% when debugging the source of stoichiometric inconsistency within a reconstruction 
-% as it can be used to find leak or siphon metabolites, as well as minimal cardinality 
-% leakage modes and minimal cardinality siphon modes, of various types. 
+% where the additional inequality enforces the rate of a subset reactions to 
+% be active. The utility of Problems <about:blank<#eq_minimalLeakMet> (3)> and 
+% <about:blank<#eq_minimalLeakRxn> (4)> is in the identification of reactions 
+% within the suspect stoichiometrically inconsistent set, to remove prior to reiteration 
+% of a test for stoichiometric consistency with a reduced network. This requires 
+% manual curation of the results of Problems <about:blank<#eq_minimalLeakMet> 
+% (3)> and <about:blank<#eq_minimalLeakRxn> (4)>, where the advantage is that 
+% they often narrow down significantly the search for stoichiometrically inconsistent 
+% reactions, especially in the context of genome-scale networks. This tutorial 
+% illustrates the methods to implement the aforementioned problems when debugging 
+% the source of stoichiometric inconsistency within a reconstruction as it can 
+% be used to find leak or siphon metabolites, as well as minimal cardinality leakage 
+% modes and minimal cardinality siphon modes, of various types. 
 %% TIMING
 % Hours to days, depending on how long it takes to biochemically interpret the 
 % minimal leakage and siphon modes.
@@ -75,7 +76,7 @@
 %% Select reconstruction to convert into a model and enter parameters
 % Load the ReconX reconstruction, and save the original reconstruction in the 
 % workspace, unless it is already loaded into the workspace. 
-%%
+
 clear model
 if ~exist('modelOrig','var')
     %select your own model, or use Recon2.0model instead
@@ -112,9 +113,9 @@ if ~exist(resultsPath,'dir')
 end
 cd(resultsPath)
 %% 
-% Optionally create a diary to save the output in case it is very long, 
-% this makes it easier to search, especially when debugging the process during 
-% the early stages.
+% Optionally create a diary to save the output in case it is very long, this 
+% makes it easier to search, especially when debugging the process during the 
+% early stages.
 
 if 0
     diary([resultsFileName '_diary.txt'])
@@ -122,20 +123,20 @@ end
 %% Overview some of the key properties of the reconstruction
 % Noting the initial size of the reconstruction is useful for comparisons later 
 % with subsets derived according to mathematical specifications.
-%%
+
 [nMet,nRxn]=size(model.S);
 fprintf('%6s\t%6s\n','#mets','#rxns')
 fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
 %% 
 % 
 %% Find leakage or siphons in heuristically internal part using the bounds given with the model
-%%
+
         if 1
             [leakMetBool,leakRxnBool,siphonMetBool,siphonRxnBool,leakY,siphonY,statp,statn]...
                 = findMassLeaksAndSiphons(model,model.SIntMetBool,model.SIntRxnBool,modelBoundsFlag,leakParams,printLevel);
         end
 %% For each leaking metabolite find a minimal cardinality leakage mode
-%%
+
         leakParams.epsilon=1e-4;
         minLeakParams.eta = getCobraSolverParams('LP', 'feasTol')*100;
         leakParams.method='dc';
@@ -146,28 +147,28 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
                 findMinimalLeakageModeMet(model,leakMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each siphon metabolite find a minimal cardinality siphon mode
-%%
+
         if 1
             minLeakParams.monoMetMode=1;
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] =...
                 findMinimalLeakageModeMet(model,siphonMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each leaking metabolite find a minimal cardinality leakage mode
-%%
+
         if 1
             minLeakParams.monoMetMode=0;
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] =...
                 findMinimalLeakageModeMet(model,leakMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each siphon metabolite find a minimal cardinality siphon mode
-%%
+
         if 1
             minLeakParams.monoMetMode=0;
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] =...
                 findMinimalLeakageModeMet(model,siphonMetBool,model.SIntRxnBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each heuristically internal but stoichiometrically inconsistent reaction (one at a time), find the min cardinality leakage mode
-%%
+
         if 1
             rxnBool=model.SIntRxnBool & model.SInConsistentRxnBool;
             metBool=true(nMet,1);
@@ -205,7 +206,7 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
         %
         %
 %% For each heuristically internal but stoichiometrically inconsistent reaction, find the min cardinality leakage mode
-%%
+
         if 1
             rxnBool=model.SIntRxnBool & model.SInConsistentRxnBool;
             metBool=true(nMet,1);
@@ -214,7 +215,7 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
                 findMinimalLeakageModeRxn(model,rxnBool,metBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each heuristically internal but unknown stoichiometric consistency reaction (one at a time), find a minimal cardinality leakage mode
-%%
+
         if 1
             rxnBool=model.SIntRxnBool & model.unknownSConsistencyRxnBool;
             metBool=true(nMet,1);
@@ -222,7 +223,7 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
             [minLeakMetBool,minLeakRxnBool,minSiphonMetBool,minSiphonRxnBool,leakY,siphonY,statp,statn] = findMinimalLeakageModeRxn(model,rxnBool,metBool,modelBoundsFlag,minLeakParams,printLevel);
         end
 %% For each heuristically internal but unknown stoichiometric consistency reaction, find a minimal cardinality leakage mode
-%%
+
         if 1
             rxnBool=model.SIntRxnBool & model.unknownSConsistencyRxnBool;
             metBool=true(nMet,1);
@@ -245,5 +246,5 @@ fprintf('%6u\t%6u\t%s\n',nMet,nRxn,' totals.')
 % Fleming, R.M.T., et al., Cardinality optimisation in constraint-based modelling: 
 % Application to Recon 3D (submitted), 2017.
 % 
-% Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view 
-% of gene variation in human metabolism. (submitted) 2017.
+% Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view of 
+% gene variation in human metabolism. (submitted) 2017.

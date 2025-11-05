@@ -1,5 +1,5 @@
 %% Uniform sampling a genome-scale model
-%% Author(s): *Hulda S. Haraldsdóttir,* Systems Biochemistry Group, University of Luxembourg. *and German A. Preciat Gonzalez,* Systems Biochemistry Group, Leiden University.  
+%% Author(s): *German A. Preciat Gonzalez, Hulda S. Haraldsdóttir,* Systems Biochemistry Group, Leiden University.  
 %% Reviewer(s): Almut Heinken, Molecular Systems Physiology Group, National University of Ireland, Galway.
 %% INTRODUCTION
 % The flux space $\Omega$ for a given set of biochemical and physiologic constraints 

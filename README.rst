@@ -5,12 +5,12 @@ Tutorials are here to get you started with using `The COBRA
 Toolbox <https://opencobra.github.io/cobratoolbox>`__. The
 tutorials are grouped according to the ``src/`` folder structure:
 
-- |icon_analysis| `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
-- |icon_base| `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
-- |icon_dataIntegration| `dataIntegration <https://github.com/opencobra/COBRA.tutorials/tree/master/dataIntegration>`__
-- |icon_design| `design <https://github.com/opencobra/COBRA.tutorials/tree/master/design>`__
-- |icon_reconstruction| `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
-- |icon_visualization| `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
+- `analysis <https://github.com/opencobra/COBRA.tutorials/tree/master/analysis>`__
+- `base <https://github.com/opencobra/COBRA.tutorials/tree/master/base>`__
+- `dataIntegration <https://github.com/opencobra/COBRA.tutorials/tree/master/dataIntegration>`__
+- `design <https://github.com/opencobra/COBRA.tutorials/tree/master/design>`__
+- `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
+- `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
 
 All tutorials are provided in 4 formats: ``.mlx``, ``.m``, ``.pdf``, and ``.html``.
 
@@ -102,25 +102,25 @@ Submit your changes and open a pull request
 
 .. |icon_analysis| raw:: html
 
-   <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_analysis.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/analysis.png" height="14px">
 
 .. |icon_base| raw:: html
 
-   <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_base.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/base.png" height="14px">
 
 .. |icon_dataIntegration| raw:: html
 
-   <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_di.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/dataIntegration.png" height="14px">
 
 .. |icon_design| raw:: html
 
-   <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_design.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/design.png" height="14px">
 
 .. |icon_reconstruction| raw:: html
 
-   <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_reconstruction.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/reconstruction.png" height="14px">
 
 .. |icon_visualization| raw:: html
 
-   <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_visualization.png" height="14px">
+   <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/visualization.png" height="14px">
 

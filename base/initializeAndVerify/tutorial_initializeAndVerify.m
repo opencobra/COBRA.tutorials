@@ -1,7 +1,7 @@
 %% *Initialise and verify The COBRA Toolbox*
 % *Authors: Sylvain Arreckx, Luxembourg Centre for Systems Biomedicine*
 % 
-% *Reviewers: *
+% *Reviewers:* 
 %% MATERIALS - EQUIPMENT SETUP
 % Please ensure that all the required dependencies of The COBRA Toolbox have 
 % been properly installed by following the installation guide <https://opencobra.github.io/cobratoolbox/stable/installation.html 
@@ -9,7 +9,7 @@
 %% PROCEDURE 
 % At the start of each MATLAB session, The COBRA Toolbox must be initialised. 
 % Navigate to the directory where you installed The COBRA Toolbox and initialise 
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% 
 % The user who primarily uses the official openCOBRA repository may automatically 
@@ -36,6 +36,7 @@ end
 % to be satisfied, e.g., dependency on a linear optimisation solver must be satisfied 
 % for any method that uses flux balance analysis. 
 %% TROUBLESHOOTING
+%% 
 % # Read the output of the initialisation script in the command window. Any 
 % warning or error messages, though often brief, will often point toward the source 
 % of the problem during initialisation if read literally. 
@@ -56,7 +57,7 @@ end
 % is printed to the user during initialisation. 
 % 
 % 2| Check the currently selected solvers with |changeCobraSolver|
-%%
+
 changeCobraSolver
 %% ANTICIPATED RESULTS 
 % A list of solvers assigned to solve each class of optimisation solver is returned. 				
@@ -69,7 +70,7 @@ changeCobraSolver
 % if one encounters an error running a function. The test suite runs tailored 
 % tests that verify the output and proper execution of core functions on the locally 
 % configured system. The full test suite can be invoked by typing:
-%%
+
 testAll
 %% ANTICIPATED RESULTS
 % The test suite starts by initialising The COBRA Toolbox and thereafter, all 

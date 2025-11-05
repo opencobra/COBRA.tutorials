@@ -1,52 +1,144 @@
-name: Sync MLX Files
+name: Update Tutorial
 
 on:
   push:
     branches: [ master ]
     paths:
-    - '**.mlx'
+      - '**.mlx'
 
 jobs:
   copy-changes:
     runs-on: self-hosted
     steps:
       - name: Checkout Source Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
-          repository: 'openCOBRA/COBRA.tutorials'
+          repository: '${{ github.repository_owner }}/COBRA.tutorials'
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Get All Changed Files
-        id: files
-        uses: jitterbit/get-changed-files@v1
-
-      - name: Find changed files
-        id: getfile
+      - name: Get the repository's owner name
+        shell: bash
         run: |
-            files=$(echo "${{ steps.files.outputs.all }}" | tr ' ' '\n' | grep -E '\.mlx$')
-            echo "::set-output name=file::$files"
-      
-      
-      - name: Give execute permission to the script
-        run: chmod +x build.sh
-        
-      - name: Give execute permission to the other script  
-        run: chmod +x setup.sh
+          echo "REPO_OWNER=${{ github.repository_owner }}" >> "$GITHUB_ENV"
 
-           
-      - name: Sync with Destination Repo
+      - name: Clone the destination repository
+        shell: bash
         run: |
-          counter=0
-          for file in ${{ steps.getfile.outputs.file }}; do
-            if [ $counter -eq 0 ]
-            then
-              # This is the first iteration, handle the file differently
-              ./setup.sh opencobra/cobratoolbox $file 
-              ./build.sh opencobra/cobratoolbox $file 
-            else
-              ./build.sh openCOBRA/cobratoolbox $file
+          rm -rf cobratoolbox
+          echo "Cloning the destination repository: git@github.com:opencobra/cobratoolbox.git"
+          git clone --depth 1 --branch gh-pages "https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4
+
+      - name: Locate MATLAB
+        id: locate_matlab
+        shell: bash
+        run: |
+          set -euo pipefail
+          if command -v matlab >/dev/null 2>&1; then
+            ML_BIN="$(command -v matlab)"
+          else
+            ML_BIN="$(ls -1d /usr/local/MATLAB/*/bin/matlab 2>/dev/null | sort -V | tail -n1 || true)"
+          fi
+          if [[ -z "${ML_BIN:-}" || ! -x "${ML_BIN}" ]]; then
+            echo "MATLAB executable not found on PATH or under /usr/local/MATLAB" >&2
+            exit 1
+          fi
+          echo "Using MATLAB at: ${ML_BIN}"
+          echo "ML_BIN=${ML_BIN}" >> "$GITHUB_ENV"
+
+      - name: Check Xvfb and MATLAB
+        shell: bash
+        run: |
+          which xvfb-run
+          xvfb-run -a "$ML_BIN" -batch "disp(version);"
+
+      - name: Get Changed mlx Files Since Last Sync Commit
+        id: getFile
+        shell: bash
+        run: |
+          echo "Looking for last sync commit..."
+
+          last_sync_commit=$(git log --grep="created .pdf, .mlx and .m files" -n 1 --pretty=format:%H)
+
+          if [[ -z "$last_sync_commit" ]]; then
+            echo "No previous sync commit found. Processing all .mlx files."
+            changed_files=$(git ls-files '*.mlx')
+          else
+            echo "Last sync commit: $last_sync_commit"
+            changed_files=$(git diff --name-only "$last_sync_commit"..HEAD | grep '\.mlx' || true)
+          fi
+
+          changed_files=$(echo "$changed_files" | tr '\n' ' ')
+
+          if [[ -z "$changed_files" ]]; then
+            echo "No .mlx files changed since last sync. Exiting."
+            exit 0
+          fi
+
+          echo "Found changed files: $changed_files"
+
+          for file in $changed_files; do
+            if [[ $file != "" ]]; then
+              if [[ ! -f "$file" ]]; then
+                echo "WARNING: File does not exist: $file. Skipping."
+                continue
+              fi
+
+              echo "Processing: $file"
+              ABSOLUTE_FILE_PATH=$(realpath "$file")
+
+              # HTML will be written directly to cobratoolbox, not COBRA.tutorials
+              HTML_FILE_NAME=$(basename "$file" .mlx).html
+              HTML_FILE_PATH="cobratoolbox/stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
+              mkdir -p "$(dirname "$HTML_FILE_PATH")"
+
+              PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
+              M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
+
+              # Run MATLAB under Xvfb
+              xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html'); catch e, disp(getReport(e,'extended')); exit(1); end"
+              sleep 5
+              xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf'); catch e, disp(getReport(e,'extended')); exit(1); end"
+              sleep 5
+              xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm'); catch e, disp(getReport(e,'extended')); exit(1); end"
+
+              echo "Updating cobratoolbox index..."
+
+              HTML_RELATIVE_PATH="stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
+              cd cobratoolbox
+              python stable/extract_info.py "$HTML_RELATIVE_PATH"
+              cd ..
             fi
-            counter=$((counter+1))
           done
-        if: steps.getfile.outputs.file != ''
+
+      - name: Pushing the changes
+        shell: bash
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          cd cobratoolbox
+          git add .
+          git commit -m "Sync files from source repo" || echo "No changes to commit"
+          git push "https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git" gh-pages
+          cd ..
+
+          rm -rf cobratoolbox
+          git add .
+          git commit -m "created .pdf, .mlx and .m files" || echo "No changes to commit"
+          git push origin master
+
+          cd ..
+
+          echo "Script execution completed."
