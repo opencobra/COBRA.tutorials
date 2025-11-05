@@ -12,7 +12,7 @@ tutorials are grouped according to the ``src/`` folder structure:
 - `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
 - `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
 
-All tutorials are provided in 4 formats: ``.mlx``, ``.m``, ``.pdf``, and ``.html``.
+All tutorials are provided in these formats: ``.mlx``, ``.m``, and ``.html``.
 
 - The interactive version ``.mlx`` is a MATLAB Live-script format and can be run using `the MATLAB Live-script editor <https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html>`__.
 - The static version ``.html`` can be visualized on the `tutorial section of the COBRA Toolbox documentation <https://opencobra.github.io/COBRA.tutorials>`__.
