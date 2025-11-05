@@ -1,5 +1,5 @@
-%% Thermodynamically constrain a Recon3D
-%% *Author: Ronan Fleming, Leiden University*
+%% Thermodynamically constrain Recon3D
+%% *Author: Ronan Fleming, Leiden University & National University of Ireland, Galway.*
 %% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 
@@ -310,7 +310,7 @@ end
 %% 
 %% Create the thermodynamic training model
 
-if 1
+if 0
     %use previously generated training model
     aPath = which('driver_createTrainingModel.mlx');
     aPath = strrep(aPath,['new' filesep 'driver_createTrainingModel.mlx'],['cache' filesep]);
@@ -346,19 +346,6 @@ param.debug=1;
 param.radius=2;
 %%
 combinedModel = createGroupIncidenceMatrix(model, trainingModel, param);
-%%
-fprintf('%u%s\n',nnz(combinedModel.trainingMetBool),' = number of training metabolites')
-fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
-fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
-fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
-fprintf('%u%s\n',nnz(combinedModel.testMetBool),' = number of test metabolites')
-fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.groupDecomposableBool),' ... of which are group decomposable.')
-fprintf('%u%s\n',nnz(combinedModel.testMetBool & ~combinedModel.inchiBool),' ... of which have no inchi.')
-fprintf('%u%s\n',nnz(combinedModel.testMetBool & combinedModel.inchiBool & ~combinedModel.groupDecomposableBool),' ... of which are not group decomposable.')
-fprintf('%u%s\n',size(combinedModel.S,1),' combined model metabolites.')
-fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & ~combinedModel.testMetBool),' ... of which are exclusively training metabolites.')
-fprintf('%u%s\n',nnz(combinedModel.trainingMetBool & combinedModel.testMetBool),' ... of which are both training and test metabolites.')
-fprintf('%u%s\n',nnz(~combinedModel.trainingMetBool & combinedModel.testMetBool),' ... of which are exclusively test metabolites.')
 save('data_prior_to_componentContribution','model','combinedModel')
 %% Apply component contribution method
 
@@ -367,38 +354,21 @@ if ~isfield(model,'DfG0')
 end
 %%
 figure
-histogram(solution.DfG0_rc)
-title('$\textrm{Reactant contribution } \Delta_{f} G^{0}_{rc}$','Interpreter','latex')
-ylabel('KJ/Mol')
-fprintf('%u%s\n',nnz(isnan(solution.DfG0_rc)),' formation energies')
-fprintf('%u%s\n',nnz(isnan(solution.DfG0_rc)),' of which DfG0_rc(j) are NaN. i.e., number of formation energies that cannot be estimated by reactant contribution')
-fprintf('%g%s\n',nnz(isnan(solution.DfG0_rc))/length(solution.DfG0_rc),' = fraction of DfG0_rc(j)==NaN')
-figure
-histogram(solution.DfG0_gc)
-title('$\textrm{Group formation energies } \Delta_{f} G^{0}_{gc}$','Interpreter','latex')
-ylabel('KJ/Mol')
-fprintf('%u%s\n',length(solution.DfG0_gc),' estimated group formation energies')
-fprintf('%u%s\n',nnz(isnan(solution.DfG0_gc)),' of which have DfG0_gc(j)==NaN. i.e., number of formation energies that cannot be estimated by group contribution')
-fprintf('%g%s\n',nnz(isnan(solution.DfG0_gc))/length(solution.DfG0_gc),' fraction of DfG0_gc(j)==NaN')
-figure
-histogram(solution.DfG0_cc)
-title('$\textrm{Component contribution } \Delta_{f} G^{0}_{cc}$','Interpreter','latex')
-ylabel('KJ/Mol')
-fprintf('%u%s\n',length(solution.DfG0_cc),' estimated reactant formation energies.')
-fprintf('%u%s\n',nnz(isnan(solution.DfG0_cc)),' of which have DfG0_cc(j)==NaN. i.e., number of formation energies that cannot be estimated by component contribution')
-fprintf('%g%s\n',nnz(isnan(solution.DfG0_cc))/length(solution.DfG0_cc),' = fraction of zero DfG0_cc')
-fprintf('%u%s\n',length(model.DfGt0),' model metabolites') 
-fprintf('%u%s\n',nnz(isnan(model.DfGt0)),' of which are DfG0_cc(j)==NaN. i.e., number of formation energies that cannot be estimated by component contribution')
-fprintf('%g%s\n',nnz(isnan(model.DfG0_cc))/length(model.DfG0_cc),' = fraction of zero DfG0_cc')
-
-figure
-histogram(model.DrG0)
+histogram(model.DrG0(~model.unconstrainedDrG0_cc))
 title('$\Delta_{r} G^{0}_{cc}$','Interpreter','latex')
 ylabel('KJ/Mol')
 fprintf('%u%s\n',length(model.DrG0),' model reactions') 
-fprintf('%u%s\n',nnz(isnan(model.DrG0)),' of which have DrG0(j)==NaN. i.e. estimated equilibrium constant equal to one') 
-formulas = printRxnFormula(model,model.rxns(isnan(model.DrG0)));
-
+fprintf('%u%s\n',nnz(model.unconstrainedDrG0_cc),' of which have partially unconstrained groups in DrG0_cc') 
+figure
+model.transportRxnBool = transportReactionBool(model);
+bool = model.SIntRxnBool & ~model.transportRxnBool & ~model.unconstrainedDrG0_cc;
+histogram(model.DrG0(bool))
+title('$\Delta_{r} G^{0}_{cc}$','Interpreter','latex')
+ylabel('KJ/Mol')
+fprintf('%u%s\n',length(model.DrG0),' model reactions') 
+fprintf('%u%s\n',nnz(model.unconstrainedDrG0_cc),' of which have partially unconstrained groups in DrG0_cc') 
+ind=find(model.unconstrainedDrG0_cc);
+formulas = printRxnFormula(model,model.rxns(ind(1:10)));
 %% Setup a thermodynamically constrained model
 
 save('debug_prior_to_setupThermoModel')

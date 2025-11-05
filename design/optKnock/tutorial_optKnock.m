@@ -9,9 +9,10 @@
 % of interest at a higher rate than the wild-type strain. 
 % 
 % For example, imagine that we would like to increase the production of succinate 
-% or lactate in_ Escherichia coli_. Which are the knock-outs needed to increase 
+% or lactate in _Escherichia coli_. Which are the knock-outs needed to increase 
 % the production of these products? We will approach these problems in this tutorial.
 %% MATERIALS & EQUIPMENT
+%% 
 % # MATLAB
 % # A solver for Mixed Integer Linear Programming (MILP) problems.Use changeCobraSolver 
 % to choose the solver for MILP problems (e.g., Gurobi).
@@ -23,17 +24,17 @@
 % 2) Define the set of reactions that will be used to search knockouts. Note 
 % : only reactions in this set will be deleted. 
 % 
-% 3) Define the number of reactions to be deleted, the target reaction and 
-% some constraints to be accomplish.
+% 3) Define the number of reactions to be deleted, the target reaction and some 
+% constraints to be accomplish.
 % 
 % 4) Run optKnock. 
 % 
-% *TIMING: *This task should take from a few seconds to a few hours depending 
+% *TIMING:* This task should take from a few seconds to a few hours depending 
 % on the size of your reconstruction.
 % 
 % Verify that cobratoolbox has been initialized and that the solver has been 
 % set.
-%%
+
 global TUTORIAL_INIT_CB;
 if ~isempty(TUTORIAL_INIT_CB) && TUTORIAL_INIT_CB==1
     initCobraToolbox(false) % false, as we don't want to update
@@ -47,7 +48,7 @@ cd(folder);
 
 %% 
 % Load the model of E. coli [2].
-%%
+
 modelFileName = 'iJO1366.mat';
 modelDirectory = getDistributedModelFolder(modelFileName); %Look up the folder for the distributed Models.
 modelFileName= [modelDirectory filesep modelFileName]; % Get the full path. Necessary to be sure, that the right model is loaded
@@ -55,13 +56,13 @@ model = readCbModel(modelFileName);
 
 biomass = 'BIOMASS_Ec_iJO1366_core_53p95M';
 %% 
-% Define the maximum number of solutions to find (i.e., maximum number of 
-% remvable reactions that lead to the overproduction of the metabolite of interest)
+% Define the maximum number of solutions to find (i.e., maximum number of remvable 
+% reactions that lead to the overproduction of the metabolite of interest)
 
 threshold = 5;
 %% 
-% Define the set of reactions that will be used to search knockouts. Note 
-% : only reactions in this set will be deleted
+% Define the set of reactions that will be used to search knockouts. Note : 
+% only reactions in this set will be deleted
 
 selectedRxnList = {'GLCabcpp'; 'GLCptspp'; 'HEX1'; 'PGI'; 'PFK'; 'FBA'; 'TPI'; 'GAPD'; ...
                    'PGK'; 'PGM'; 'ENO'; 'PYK'; 'LDH_D'; 'PFL'; 'ALCD2x'; 'PTAr'; 'ACKr'; ...
@@ -115,7 +116,7 @@ fprintf(['The production of other products such as ethanol, formate, lactate and
 % 
 % *Aim:* *finding optKnock reactions sets of size 2 for increasing production 
 % of succinate*
-%%
+
 fprintf('\n...EXAMPLE 1: Finding optKnock sets of size 2 or less...\n\n')
 % Set optKnock options
 % The exchange of succinate will be the objective of the outer problem
@@ -187,7 +188,7 @@ end
 % 
 % *Aim : finding optKnock reactions sets of size 3 for increasing production 
 % of succinate*
-%%
+
 fprintf('\n...EXAMPLE 1: Finding optKnock sets of size 3...\n\n')
 % Set optKnock options
 % The exchange of succinate will be the objective of the outer problem
@@ -257,7 +258,7 @@ end
 % 
 % *Aim: finding optKnock reactions sets of size 3 for increasing production 
 % of lactate*
-%%
+
 fprintf('\n...EXAMPLE 1: Finding optKnock sets of size 3...\n\n')
 % Set optKnock options
 % The exchange of lactate will be the objective of the outer problem
@@ -327,7 +328,7 @@ end
 % 
 % *Aim: finding optKnock reactions sets of size 6 for increasing production 
 % of lactate*
-%%
+
 fprintf('...EXAMPLE 3: Finding optKnock sets of size 6...\n')
 % Set optKnock options
 % The exchange of lactate will be the objective of the outer problem
@@ -392,6 +393,7 @@ while nIter < threshold
 end
 cd(currectDirectory);
 %% TIMING
+%% 
 % # Example 1 ~ 1-2 minutes
 % # Example 2 ~ 1-2 minutes
 % # Example 3 ~ 1-2 minutes
@@ -426,6 +428,6 @@ cd(currectDirectory);
 % Programming Framework for Identifying Gene Knockout Strategies for Microbial 
 % Strain Optimization. Biotechnology and Bioengineering, 84(6), 647–657. http://doi.org/10.1002/bit.10803.
 % 
-% [2] Orth, J. D., Conrad, T. M., Na, J., Lerman, J. A., Nam, H., Feist, 
-% A. M., & Palsson, B. Ø. (2011). A comprehensive genome‐scale reconstruction 
-% of Escherichia coli metabolism—2011. _Molecular systems biology_, _7_(1), 535.
+% [2] Orth, J. D., Conrad, T. M., Na, J., Lerman, J. A., Nam, H., Feist, A. 
+% M., & Palsson, B. Ø. (2011). A comprehensive genome‐scale reconstruction of 
+% Escherichia coli metabolism—2011. _Molecular systems biology_, _7_(1), 535.

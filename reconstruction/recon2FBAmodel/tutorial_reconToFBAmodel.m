@@ -1,6 +1,6 @@
 %% *Convert a reconstruction into a flux balance analysis model* 
 %% *Author: Ronan Fleming, Ines Thiele, National University of Ireland, Galway.*
-%% *Reviewers:* 
+%% *Reviewers:*
 %% INTRODUCTION
 % Even with quality control during the reconstruction process, it is not appropriate 
 % to assume that any reconstruction can be converted directly into a model and 

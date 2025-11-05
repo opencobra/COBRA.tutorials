@@ -1,7 +1,7 @@
 %% Test physiologically relevant ATP yields from different carbon sources for a metabolic model 
 % *Author(s): Ines Thiele, Ronan M. T. Fleming, LCSB, University of Luxembourg.*
 % 
-% *Reviewer(s): *
+% *Reviewer(s):* 
 %% INTRODUCTION
 % In this tutorial, we show how to compute the ATP yield from different carbon 
 % sources under aerobic or anaerobic conditions. The theoretical values for the 
@@ -10,18 +10,18 @@
 % models are still able to produce physiologically relevant ATP yields.
 %% EQUIPMENT SETUP
 % If necessary, initialize the cobra toolbox with
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% 
-% For solving linear programming problems in FBA analysis, certain solvers 
-% are required:
+% For solving linear programming problems in FBA analysis, certain solvers are 
+% required:
 
 changeCobraSolver ('glpk', 'all', 1);
 %% 
-% This tutorial can be run with GLPK package as linear programming solver, 
-% which does not require additional installation and configuration. However, for 
-% the analysis of large models, such as Recon 3, it is not recommended to use 
-% GLPK, but rather industrial-strength solvers, such as the GUROBI package. 
+% This tutorial can be run with GLPK package as linear programming solver, which 
+% does not require additional installation and configuration. However, for the 
+% analysis of large models, such as Recon 3, it is not recommended to use GLPK, 
+% but rather industrial-strength solvers, such as the GUROBI package. 
 %% PROCEDURE
 % Before proceeding with the simulations, the path for the model needs to be 
 % set up:
@@ -35,12 +35,12 @@ tol = 1e-6;
 % In this tutorial, the used model is the generic model of human metabolism, 
 % Recon 3$$^1$ or  Recon2.0 model.
 % 
-% The metabolites structures and reactions are from the Virtual Metabolic 
-% Human database (VMH, <http://vmh.life/ http://vmh.life>).
+% The metabolites structures and reactions are from the Virtual Metabolic Human 
+% database (VMH, <http://vmh.life/ http://vmh.life>).
 %% Harmonization of abbreviation usage
 % First, we will harmonize different bracket types used in different model versions, 
 % e.g., different version of the human metabolic reconstruction. 
-%%
+
 model.rxns = regexprep(model.rxns, '\(', '\[');
 model.rxns = regexprep(model.rxns, '\)', '\]');
 model.mets = regexprep(model.mets, '\(', '\[');
@@ -57,10 +57,10 @@ if length(strmatch('EX_glc[e]', model.rxns))>0
     model.rxns{find(ismember(model.rxns, 'EX_glc[e]'))} = 'EX_glc_D[e]';
 end
 %% 
-% Add ATP hydrolysis reaction to the model. If the reaction exist already, 
-% nothing will be added by the |rxnIDexists| variable will contain the index of 
-% the reaction that is present in the model. In this case, we will rename the 
-% reaction abbreviation to ensure that the tutorial works correctly.
+% Add ATP hydrolysis reaction to the model. If the reaction exist already, nothing 
+% will be added by the |rxnIDexists| variable will contain the index of the reaction 
+% that is present in the model. In this case, we will rename the reaction abbreviation 
+% to ensure that the tutorial works correctly.
 
 [model, rxnIDexists] = addReaction(model, 'DM_atp_c_', 'h2o[c] + atp[c]  -> adp[c] + h[c] + pi[c] ');
 if length(rxnIDexists) > 0
@@ -83,10 +83,10 @@ modelexchanges3 = strmatch('sink_', modelClosed.rxns);
 
 BM= (find(~cellfun(@isempty,strfind(lower(modelClosed.mets), 'bioma'))));
 %% 
-% As these measures may not identify all exchange and sink reactions in 
-% a model, depending on the used nomencalture, we will also grab all reactions 
-% based on stoichiomettry. Here, we will identify all reactions that contain only 
-% one non-zero entry in the |S| matrix (column).
+% As these measures may not identify all exchange and sink reactions in a model, 
+% depending on the used nomencalture, we will also grab all reactions based on 
+% stoichiomettry. Here, we will identify all reactions that contain only one non-zero 
+% entry in the |S| matrix (column).
 
 selExc = (find(full((sum(abs(modelClosed.S)==1, 1)==1) & (sum(modelClosed.S~=0) == 1))))';
 %% 
@@ -96,11 +96,11 @@ selExc = (find(full((sum(abs(modelClosed.S)==1, 1)==1) & (sum(modelClosed.S~=0) 
 modelexchanges = unique([modelexchanges1; modelexchanges2; modelexchanges3; modelexchanges4; selExc; BM]);
 modelClosed.lb(find(ismember(modelClosed.rxns, modelClosed.rxns(modelexchanges))))=0;
 %% 
-% Also, set all upper bounds t 1000 (representing infinity). This may be 
-% important if other constraints had been applied to the model, which may interfere 
-% with the newly set lower bound of lb=0 for all exchange reactions. Note that 
-% this may affect any constraints that had been applied, e.g., condition-specific 
-% constraints based on measured uptake or secretion rates.
+% Also, set all upper bounds t 1000 (representing infinity). This may be important 
+% if other constraints had been applied to the model, which may interfere with 
+% the newly set lower bound of lb=0 for all exchange reactions. Note that this 
+% may affect any constraints that had been applied, e.g., condition-specific constraints 
+% based on measured uptake or secretion rates.
 
 modelClosed.ub(selExc) = 1000; 
 %% 
@@ -110,8 +110,7 @@ modelClosed.ub(selExc) = 1000;
 
 modelClosed = changeObjective(modelClosed, 'DM_atp_c_');
 %% 
-% Store the original closed model setup for consequent use in the variable 
-% |modelClosedOri|.
+% Store the original closed model setup for consequent use in the variable |modelClosedOri|.
 
 modelClosedOri = modelClosed;
 %% Test for ATP yield from different carbon sources
@@ -127,7 +126,7 @@ modelClosedOri = modelClosed;
 % the option 'zero', which approximates the sparsest possible flux distribution 
 % with an maximal ATP yield.
 %% Carbon source: Glucose (VMH ID: <http://vmh.life/#metabolite/glc_D glc_D>), Oxygen: Yes
-%%
+
 modelClosed = modelClosedOri;
 modelClosed.lb(find(ismember(modelClosed.rxns, 'EX_o2[e]'))) = -1000;
 modelClosed.lb(find(ismember(modelClosed.rxns, 'EX_h2o[e]'))) = -1000;
@@ -155,8 +154,8 @@ end
 Table_csources{4, k} = '31';
 
 %% 
-% For this carbon source (glucose), we will also print all reactions that 
-% are non-zero in the sparse flux distribution and thus contribute to the maximale 
+% For this carbon source (glucose), we will also print all reactions that are 
+% non-zero in the sparse flux distribution and thus contribute to the maximale 
 % ATP yield.
 
 ReactionsInSparseSolution = modelClosed.rxns(find(FBA.x));
@@ -165,7 +164,7 @@ ReactionsInSparseSolution = modelClosed.rxns(find(FBA.x));
 
 k = k+1; clear FBA
 %% Carbon source: Glucose (VMH ID: <http://vmh.life/#metabolite/glc_D glc_D>), Oxygen: No
-%%
+
 modelClosed = modelClosedOri;
 modelClosed.lb(find(ismember(modelClosed.rxns,'EX_o2[e]'))) = 0;
 modelClosed.ub(find(ismember(modelClosed.rxns,'EX_o2[e]'))) = 0;
@@ -811,7 +810,7 @@ Table_csources = Table_csources'
 %% TIMING
 % This tutorial takes only a few minutes.
 %% REFERENCES
-%  [1] Brunk, E. et al. Recon 3D: A Three-Dimensional View of Human Metabolism 
+% [1] Brunk, E. et al. Recon 3D: A Three-Dimensional View of Human Metabolism 
 % and Disease. Submited
 % 
 %

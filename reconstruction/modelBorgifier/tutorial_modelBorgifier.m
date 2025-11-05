@@ -29,8 +29,8 @@
 % 
 % 1. Installation and set-up
 % 
-% Assuming you have succsessfully installed and tested the COBRA Toolbox 
-% for Matlab no additional configuration should be necessary. 
+% Assuming you have succsessfully installed and tested the COBRA Toolbox for 
+% Matlab no additional configuration should be necessary. 
 % 
 % 2. Load and verify the comparison model (Cmodel)
 % 
@@ -59,21 +59,21 @@
 % 
 % 6. Merge models 
 % 
-% Once all reactions and metabolites have been reviewed, Cmodel and Tmodel 
-% can be merged into a composite model. The composite model is the most direct 
-% way to return statistics on the similiarity between two models. 
+% Once all reactions and metabolites have been reviewed, Cmodel and Tmodel can 
+% be merged into a composite model. The composite model is the most direct way 
+% to return statistics on the similiarity between two models. 
 % 
 % 7. Extract a model
 % 
-% Models merged together or into an existing composite model can be later 
-% retrieved with readCbTmodel.m. This reproduces the initial model with additional 
-% annotation information. 
+% Models merged together or into an existing composite model can be later retrieved 
+% with readCbTmodel.m. This reproduces the initial model with additional annotation 
+% information. 
 % 
 % 8. Save work
 % 
 % As the composite model can be used as a template for future comparisions, 
 % save it. 
-% 
+%% 
 % *2. Load and verify the comparision model (Cmodel)*
 % 
 % We first load the model we wish to compare, "Cmodel." modelBorgifier requires 
@@ -83,24 +83,24 @@
 % 
 % i. Load the E. coli core model
 % 
-% We are going to use the E. coli core model located in the test/models/ 
-% directory of the Toolbox. We use this model for the tutorial because it is small 
-% and will require less time to match. 
-%%
+% We are going to use the E. coli core model located in the test/models/ directory 
+% of the Toolbox. We use this model for the tutorial because it is small and will 
+% require less time to match. 
+
 % Load the model using the Toolbox function
 Cmodel = readCbModel('ecoli_core_model.mat', ...
                      'modelDescription', 'Ecoli_core')
 %% 
 % ii. Verify the model 
 % 
-% modelBorgifier requires that both the comparison and template model have 
-% the proper data arrays before comparision. This function creates those arrays 
-% if they are absent and populates them when possible. You will also be prompted 
+% modelBorgifier requires that both the comparison and template model have the 
+% proper data arrays before comparision. This function creates those arrays if 
+% they are absent and populates them when possible. You will also be prompted 
 % to keep or edit the model name ("description"). Simply press 'y' in for this 
 % tutorial. 
 % 
-% Note that this verify function (verifyModelBorg) is different from the 
-% Toolbox function verifyModel.
+% Note that this verify function (verifyModelBorg) is different from the Toolbox 
+% function verifyModel.
 
 % Verify model has the necessary fields required for later processing
 Cmodel = verifyModelBorg(Cmodel, 'keepName', 'Verbose');
@@ -117,11 +117,11 @@ Cmodel = verifyModelBorg(Cmodel, 'keepName', 'Verbose');
 % 
 % i. Load the model iIT341
 % 
-% We will be using the _Heliobacter pylori_ model packaged with the Toobox 
-% as our template model. Load it the same way as any model. If you had previous 
-% combined two models using modelBorgifier, you could simply load that composite 
-% model as your Tmodel. 
-%%
+% We will be using the _Heliobacter pylori_ model packaged with the Toobox as 
+% our template model. Load it the same way as any model. If you had previous combined 
+% two models using modelBorgifier, you could simply load that composite model 
+% as your Tmodel. 
+
 global CBTDIR
 pth=which('initCobraToolbox.m');
 CBTDIR = pth(1:end-(length('initCobraToolbox.m')+1));
@@ -130,10 +130,10 @@ Tmodel = readCbModel([CBTDIR filesep 'test' filesep 'models' filesep 'iIT341.xml
 %% 
 % ii. Verify and convert Tmodel
 % 
-% Because we are just using an abritrary model as our template model, we 
-% need to verify it and convert it to a proper template model. You will be asked 
-% to confirm the name. Note that the final Tmodel, 'lb', 'ub', and 'Models are 
-% structures containing information specific to each model.
+% Because we are just using an abritrary model as our template model, we need 
+% to verify it and convert it to a proper template model. You will be asked to 
+% confirm the name. Note that the final Tmodel, 'lb', 'ub', and 'Models are structures 
+% containing information specific to each model.
 
 % If Tmodel is just another model, verify it as well and convert it to a
 % proper format for comparison. Also make sure it carries flux. 
@@ -142,19 +142,19 @@ Tmodel = buildTmodel(Tmodel);
 %% 
 % *4. Compare models*
 % 
-% compareCbModels scores all reactions in Cmodel against all reactions in 
-% Tmodel. It returns Score, a 3D matrix with size (# of reactions in Cmodel, # 
-% of reactions in Tmodel, # of scoring parameters per reaction). There are ~40 
-% scoring parameters, such as name, E.C. number, metabolite similiarity, and network 
-% topology. The returned Cmodel and Tmodel have some appendend information, but 
-% are functionally the same as the inputs. The structure Stats contains information 
-% about the best matches per each reaction. 
+% compareCbModels scores all reactions in Cmodel against all reactions in Tmodel. 
+% It returns Score, a 3D matrix with size (# of reactions in Cmodel, # of reactions 
+% in Tmodel, # of scoring parameters per reaction). There are ~40 scoring parameters, 
+% such as name, E.C. number, metabolite similiarity, and network topology. The 
+% returned Cmodel and Tmodel have some appendend information, but are functionally 
+% the same as the inputs. The structure Stats contains information about the best 
+% matches per each reaction. 
 % 
-% Additionally, the function outputs some graphs describing the reaction 
-% scores. In particular the bottom right graph shows a reaction by reaction matrix 
-% of the scores. Lighter colors indicate a higher matching score between any two 
+% Additionally, the function outputs some graphs describing the reaction scores. 
+% In particular the bottom right graph shows a reaction by reaction matrix of 
+% the scores. Lighter colors indicate a higher matching score between any two 
 % reactions. Note the transport reactions along the bottom and right of the graph. 
-%%
+
 [Cmodel, Tmodel, score, Stats] = compareCbModels(Cmodel, Tmodel, 'Verbose');
 %% 
 % *5. Match models*
@@ -163,9 +163,9 @@ Tmodel = buildTmodel(Tmodel);
 % a GUI that facilitates reaction-by-reaction comparision between Cmodel and Tmodel. 
 % This section will outline the different functions of the GUI. 
 % 
-% Note you must run reactionCompare in the Command Window, as GUIs are not 
-% proprely rendered within the Matlab Live script. 
-%%
+% Note you must run reactionCompare in the Command Window, as GUIs are not proprely 
+% rendered within the Matlab Live script. 
+
 if ~exist('rxnList', 'var') || ~exist('metList', 'var') || ~exist('Stats', 'var')
     rxnList = [];
     metList = [];
@@ -178,8 +178,8 @@ end
 % Subsequent comparisons and matching. 
 % [rxnList, metList, Stats] = reactionCompare(Cmodel, Tmodel, score, rxnList, metList, Stats);
 %% 
-% i. Comparing similarity of reactions. Reactions from Cmodel (Ecoli_core) 
-% are displayed 1-by-1 along with the best matches from Tmodel. Information about 
+% i. Comparing similarity of reactions. Reactions from Cmodel (Ecoli_core) are 
+% displayed 1-by-1 along with the best matches from Tmodel. Information about 
 % the current reaction (gapd, reaciton #46) can be seen in the red box labeled 
 % 1. Information about the best match from Tmodel (gapd, reaction #335) is the 
 % blue box labeled 2. The score of this reaction is indicated by the blue arrow. 
@@ -198,8 +198,8 @@ end
 % 
 % 
 % 
-% iii. Compare metabolites. When a reaction from Cmodel has been matched 
-% or declared as new, its metabolites are then reviewed in an analogous GUI. Choose 
+% iii. Compare metabolites. When a reaction from Cmodel has been matched or 
+% declared as new, its metabolites are then reviewed in an analogous GUI. Choose 
 % the best matching metabolite from the table (Match A, Match B, ...), with the 
 % radio buttons in the red box labeled 1. You are only allowed to declare a new 
 % metabolite if the reaction itself was delcared new. After all metabolites have 
@@ -210,8 +210,8 @@ end
 % 
 % 
 % 
-% iv. Finish/pause comparison. You can quit comparison and save your work 
-% at any time by pressing "Finish Comparison" in the red box labeled 1. The number 
+% iv. Finish/pause comparison. You can quit comparison and save your work at 
+% any time by pressing "Finish Comparison" in the red box labeled 1. The number 
 % of reactions which have been reviewed, matched, or declared new is located is 
 % presented in blue box labeled 2. Finishing comparision produces two arrays, 
 % "rxnList" and "metList," which indicated to which reaction or metabolite in 
@@ -220,8 +220,8 @@ end
 % numbers immediately (such numbers will be higher than the total number of metabolites 
 % in Tmodel). Unreviewed reactions and metabolites have the designation "0." 
 % 
-% When you resuming comparison, give rxnList and metList as arguments to 
-% reactionCompare (see above). 
+% When you resuming comparison, give rxnList and metList as arguments to reactionCompare 
+% (see above). 
 % 
 % 
 % 
@@ -236,8 +236,8 @@ end
 % 
 % 
 % 
-% vi. Automatch reactions and metabolites. High and low scoring reactions 
-% may be safely matched or declared new, respectively. This is done with the options 
+% vi. Automatch reactions and metabolites. High and low scoring reactions may 
+% be safely matched or declared new, respectively. This is done with the options 
 % in the red box labeled 1. Reactions or metabolites above the score in the box 
 % "High" will be matched with their best match from Tmodel, as long as the score 
 % of the best match from Tmodel is better than the second best match by the value 
@@ -257,7 +257,7 @@ end
 % should be used in conjunction with score weighting to reduce manual intervention. 
 % 
 % 
-% 
+%% 
 % *6. Merge models*
 % 
 % mergeModelsBorg will combine Cmodel into Tmodel and into a composite model 
@@ -265,14 +265,14 @@ end
 % and will prompt the user if errors are found. It will also produce a copy of 
 % Cmodel which has been extracted from TmodelC (see next step).
 %% Merge models and test results.
-%%
+
 if ~isempty(rxnList) && ~isempty(metList) && ~isempty(Stats)
     [TmodelC, Cspawn, Stats] = mergeModelsBorg(Cmodel, Tmodel, rxnList, metList, Stats, 'Verbose');
 end
 %% 
-% The structure Stats contains information about the number of unique and 
-% shared metabolites between the models, as well as the completeness of annotations. 
-%%
+% The structure Stats contains information about the number of unique and shared 
+% metabolites between the models, as well as the completeness of annotations. 
+
 if ~isempty(rxnList) && ~isempty(metList) && ~isempty(Stats)
     % Shared reaction between the models. Values along the diagonal how many reactions in the model are unique. 
     Stats.sharedRxns
@@ -307,7 +307,7 @@ end
 % to the model that went in, but will contain additional annotation information 
 % garnered from the comparison. For example, the extracted Ecoli_core model now 
 % contains KEGG IDs for its metabolites. 
-%%
+
 %% Extract both models 
 if ~isempty(rxnList) && ~isempty(metList) && ~isempty(Stats)
     Ecoli_core = readCbTmodel('Ecoli_core', TmodelC, 'Verbose');
@@ -318,9 +318,10 @@ end
 % 
 % Finally, you should save your combined model to be used for future comparison. 
 % Subsequent comparisons become easier a Tmodel gains information. 
-%%
+
 %     save([filesep 'Tmodel_' datestr(now,'yyyy.mm.dd') '.mat'], 'TmodelC')
 %% REFERENCES
+%% 
 % # Sauls, J. T., & Buescher, J. M. (2014). Assimilating genome-scale metabolic 
 % reconstructions with modelBorgifier. _Bioinformatics_ (Oxford, England), 30(7), 
 % 1036–8. <http://doi.org/10.1093/bioinformatics/btt747 http://doi.org/10.1093/bioinformatics/btt747>
@@ -328,5 +329,5 @@ end
 % reconstruction of _Helicobacter pylori_ (_i_IT341 GSM/GPR): an _in silico_ genome-scale 
 % characterization of single- and double-deletion mutants. _Journal of Bacteriology_, 
 % _187_(16), 5818–5830. http://doi.org/10.1128/JB.187.16.5818
-% 
-% __
+%% 
+%

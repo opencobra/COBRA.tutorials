@@ -1,6 +1,6 @@
 %% Thermodynamically constrain a metabolic model
 %% *Author: Ronan Fleming, Leiden University*
-%% *Reviewers: *
+%% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 
 % the principal constraints are uptake or secretion rates, the steady state mass 
@@ -13,7 +13,8 @@
 % context, and (iv) thermodynamically constrained flux balance analysis. The theoretical 
 % basis for each of these methods is detailed within the cited papers.
 % 
-% %% PROCEDURE
+% 
+%% PROCEDURE
 %% Configure the environment
 % All the installation instructions are in a separate .md file named vonBertalanffy.md 
 % in docs/source/installation

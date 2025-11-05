@@ -1,6 +1,6 @@
 %% *Metabolic visualisation of Recon3Map with Minerva*
-%% Authors: Ines Thiele, Ronan M.T. Fleming, Alberto Noronha, 
-%% *Affiliations: National University of Ireland, Galway; Leiden University; University of Luxembourg.*
+%% Authors: Ines Thiele*, Ronan M.T. Fleming*#, Alberto Noronha$, 
+%% *Affiliations: *National University of Ireland, Galway; *#Leiden University; $University of Luxembourg.*
 %% Reviewer(s): 
 %% INTRODUCTION
 % The visualisation of metabolic pathways is an essential tool to understand 
@@ -23,9 +23,11 @@
 load('minerva.mat')
 minerva.minervaURL = 'http://www.vmh.life/minerva/index.xhtml';
 minerva.map = 'ReconMap-3';
-if 0
-    minerva.login = 'user_name';
-    minerva.password = 'user_password';
+if 1
+    %minerva.login = 'user_name';
+    %minerva.password = 'user_password';
+    minerva.login = 'cobratoolbox-test';
+    minerva.password = 'test';
 else
     minerva.login = 'ronan.fleming';
     minerva.password = 'ronan.fleming1';

@@ -1,0 +1,634 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>tut4_FBAandStatistics</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2025-09-23"><meta name="DC.source" content="tut4_FBAandStatistics.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">global</span> CBTDIR
+<span class="keyword">if</span> isempty(CBTDIR)
+    initCobraToolbox
+<span class="keyword">end</span>
+
+<span class="comment">% Define and set the solver. The names defined in the bullet points above</span>
+<span class="comment">% are the names accepted in the changeCobraSolver function. To switch</span>
+<span class="comment">% solver just change ibm_cplex to the solver of your choice.</span>
+solver = <span class="string">'ibm_cplex'</span>;
+
+changeCobraSolver(solver);
+<span class="comment">% Define the location of the required files, make sure you don't</span>
+<span class="comment">% forget the file extensions where relevant!</span>
+resultPath = <span class="string">''</span>;
+
+paths.General.metadataPath = <span class="string">''</span>;
+
+<span class="comment">% Leave as an empty string!</span>
+paths.Mars.readsTablePath = <span class="string">''</span>
+paths.seqC.outputPathSeqC = [resultPath, filesep, <span class="string">'resultSeqC'</span>];
+paths.Mars.outputPathMars = [resultPath, filesep, <span class="string">'resultMars'</span>];
+paths.mgPipe.outputPathMgPipe = [resultPath, filesep, <span class="string">'resultMgPipe'</span>];
+paths.persWBM.outputPathPersonalisation = [resultPath, filesep, <span class="string">'personalisedWBMs'</span>];
+paths.mWBM.outputPathMWBM = [resultPath, filesep, <span class="string">'mWBMmodels'</span>];
+paths.fba.outputPathFluxResult = [resultPath, filesep, <span class="string">'resultFlux'</span>];
+paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxResult, filesep, <span class="string">'fluxAnalysis'</span>];
+paths.stats.outputPathStatistics = [resultPath, filesep, <span class="string">'resultStatistics'</span>];
+
+<span class="comment">% Create the file structure for the results of all the parts of the</span>
+<span class="comment">% tutorial (not just this tutorial)</span>
+[initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
+paths.General.metadataPath = updatedMetadataPath;
+<span class="comment">% Indicate the path to the mWBMs as created in the previous tutorial</span>
+<span class="comment">% OR use download the mWBM models from the supplementary</span>
+<span class="comment">% files from the paper and load the model</span>
+pathToModel = which(<span class="string">'mWBM_CSM5MCXD_female.mat'</span>);
+<span class="comment">% Make sure that mWBM_CSM5MCXD is</span>
+<span class="comment">% stored in a folder that is added to the Matlab path</span>
+
+model = loadPSCMfile(pathToModel);
+<span class="comment">% The model should be in the defined directory if resultPath indeed</span>
+<span class="comment">% contains the mWBMmodels folder and the CSM5MCXD.mat file. If not you can set</span>
+<span class="comment">% the path directly by entering the full path and the file name and</span>
+<span class="comment">% extensions within the load() function. Ensure quotation marks '' around</span>
+<span class="comment">% the path name.</span>
+mWBM = load([paths.mWBM.outputPathMWBM, filesep, <span class="string">'mWBM_CSM5MCXD_female.mat'</span>]);
+<span class="comment">% Change the reaction bounds</span>
+mWBM = changeRxnBounds(mWBM, <span class="string">'Whole_body_objective_rxn'</span>, 1, <span class="string">'b'</span>);
+<span class="comment">% Display the flux bounds on the objective reaction</span>
+printFluxBounds(mWBM,{<span class="string">'Whole_body_objective_rxn'</span>}, 0)
+<span class="comment">% Find reactions containing 'biomass'</span>
+biomassReactions = model.rxns(contains(model.rxns, <span class="string">'biomass'</span>))
+<span class="comment">% Print the reaction formula</span>
+wbmReaction = printRxnFormula(mWBM, <span class="string">'Whole_body_objective_rxn'</span>);
+<span class="comment">% Print flux bound of D-glucose in the diet</span>
+printFluxBounds(mWBM, {<span class="string">'Diet_EX_glc_D[d]'</span>}, 0)
+<span class="comment">% Change the reaction bounds</span>
+mWBM = changeRxnBounds(mWBM, <span class="string">'Excretion_EX_microbiota_LI_biomass[fe]'</span>, 1, <span class="string">'b'</span>);
+surfNet(mWBM, <span class="string">'EX_trp_L[u]'</span>)
+<span class="comment">% Update objective reaction</span>
+mWBM = changeObjective(mWBM, <span class="string">'EX_trp_L[u]'</span>);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBM.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBM);
+<span class="comment">% The "f" field in the FBA variable contains the maximised flux</span>
+solution.f
+<span class="comment">% Check if the reactions exists</span>
+surfNet(mWBM, <span class="string">'Excretion_EX_pro_L[fe]'</span>)
+<span class="comment">% Update objective reaction</span>
+mWBM = changeObjective(mWBM, <span class="string">'Excretion_EX_pro_L[fe]'</span>);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBM.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBM);
+<span class="comment">% Print the "f" field in the FBA variable</span>
+solution.f
+surfNet(mWBM, <span class="string">'Liver_r0381'</span>)
+<span class="comment">% Update objective reaction</span>
+mWBM = changeObjective(mWBM, <span class="string">'Liver_r0381'</span>);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBM.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBM);
+<span class="comment">% Print the "f" field in the FBA variable</span>
+solution.f
+surfNet(mWBM, <span class="string">'Micro_EX_trp_L[luLI]_[luM]'</span>)
+<span class="comment">% Update objective reaction</span>
+mWBM = changeObjective(mWBM, <span class="string">'Micro_EX_trp_L[luLI]_[luM]'</span>);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBM.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBM);
+<span class="comment">% Print the "f" field in the FBA variable</span>
+solution.f
+<span class="comment">% Set objective function to minimise for the reaction</span>
+mWBM.osenseStr = <span class="string">'min'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBM);
+<span class="comment">% Print the "f" field in the FBA variable</span>
+solution.f
+<span class="comment">% Define metabolite of interest</span>
+metabolite = <span class="string">'trp_L[bc]'</span>;
+<span class="comment">% Check if metabolite exists in the model</span>
+surfNet(mWBM, metabolite)
+<span class="comment">% Add a demand reaction for the metabolite of interest</span>
+mWBMDemand = addDemandReaction(mWBM,metabolite);
+surfNet(mWBMDemand, <span class="string">'DM_trp_L[bc]'</span>)
+<span class="comment">% Unconstrain the demand reaction's upper bound for analysis</span>
+mWBMDemand = changeRxnBounds(mWBMDemand,[<span class="string">'DM_'</span> metabolite],100000,<span class="string">'u'</span>);
+<span class="comment">% Set objective to demand reaction</span>
+mWBMDemand = changeObjective(mWBMDemand,[<span class="string">'DM_'</span> metabolite]);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBMDemand.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBMDemand);
+<span class="comment">% Check maximised flux'</span>
+solution.f
+<span class="comment">% For this example, L-tryptophan (trp_L) is our metabolite of interest:</span>
+metabolite = <span class="string">'trp_L[csf]'</span>;
+
+<span class="comment">% Check if the metabolite is present in the csf comparment</span>
+surfNet(mWBM, metabolite)
+<span class="comment">% Add a demand reaction for the metabolite of interest</span>
+mWBMDemand = addDemandReaction(mWBM,metabolite);
+
+<span class="comment">% Unconstrain dm reaction upper bound for further analysis</span>
+mWBMDemand = changeRxnBounds(mWBMDemand,[<span class="string">'DM_'</span> metabolite],100000,<span class="string">'u'</span>);
+<span class="comment">% Check if the reaction is created</span>
+surfNet(mWBMDemand,[<span class="string">'DM_'</span> metabolite])
+<span class="comment">% Set objective to demand reaction</span>
+mWBMDemand = changeObjective(mWBMDemand,[<span class="string">'DM_'</span> metabolite]);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBMDemand.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBMDemand);
+<span class="comment">% Check maximised flux through 'DM_trp_L[csf]'</span>
+solution.f
+<span class="comment">% Define metabolite of interest:</span>
+metabolite = <span class="string">'Liver_trp_L[c]'</span>;
+<span class="comment">% Check if the metabolite is present in the blood comparment</span>
+surfNet(mWBM, <span class="string">'Liver_EX_trp_L(e)_[bc]'</span>)
+<span class="comment">% Add a demand reaction for the metabolite of interest</span>
+mWBMDemand = addDemandReaction(mWBM,metabolite);
+
+<span class="comment">% Unconstrain dm reaction upper bound for further analysis</span>
+mWBMDemand = changeRxnBounds(mWBMDemand,[<span class="string">'DM_'</span> metabolite],100000,<span class="string">'u'</span>);
+
+<span class="comment">% Check if the demand reactions is added on correctly</span>
+surfNet(mWBMDemand, [<span class="string">'DM_'</span> metabolite])
+<span class="comment">% Set objective to demand reaction</span>
+mWBMDemand = changeObjective(mWBMDemand,[<span class="string">'DM_'</span> metabolite]);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBMDemand.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution = optimizeWBModel(mWBMDemand);
+<span class="comment">% Check maximised flux through 'DM_tryp(c)'</span>
+solution.f
+<span class="comment">% Prepare a germ-free WBM model.</span>
+modelGF = loadPSCMfile(<span class="string">'Harvetta'</span>);
+modelGF = setDietConstraints(modelGF, <span class="string">'EUAverageDiet'</span>);
+<span class="comment">% Add demand reaction</span>
+modelGF = addDemandReaction(modelGF,<span class="string">'trp_L[bc]'</span>);
+<span class="comment">% Unconstrain dm reaction upper bound for further analysis</span>
+modelGF = changeRxnBounds(modelGF,<span class="string">'DM_trp_L[bc]'</span>,100000,<span class="string">'u'</span>);
+<span class="comment">% Set the objective function</span>
+modelGF = changeObjective(modelGF, <span class="string">'DM_trp_L[bc]'</span>);
+<span class="comment">% Set objective function to maximise for the reaction</span>
+modelGF.osenseStr = <span class="string">'max'</span>;
+<span class="comment">% Perform FBA</span>
+solution_GF = optimizeWBModel(modelGF);
+<span class="comment">% Check maximised flux through 'EX_trp_L[bc]'</span>
+solution_GF.f
+<span class="comment">% Add demand reaction</span>
+mWBMDemand = addDemandReaction(mWBM,<span class="string">'trp_L[bc]'</span>);
+
+<span class="comment">% Unconstrain dm reaction upper bound for further analysis</span>
+mWBMDemand = changeRxnBounds(mWBMDemand,<span class="string">'DM_trp_L[bc]'</span>,100000,<span class="string">'u'</span>);
+
+<span class="comment">% Change the objective function</span>
+mWBMDemand = changeObjective(mWBMDemand, <span class="string">'DM_trp_L[bc]'</span>);
+
+<span class="comment">% Set objective function to maximise for the reaction</span>
+mWBMDemand.osenseStr = <span class="string">'max'</span>;
+
+<span class="comment">% Perform FBA</span>
+solution_mWBM = optimizeWBModel(mWBMDemand);
+
+<span class="comment">% Check maximised flux through 'EX_tryp_L[bc]]'</span>
+solution_mWBM.f
+solution_mWBM.f - solution_GF.f
+<span class="comment">% Predefined at the start</span>
+<span class="comment">% Set paths</span>
+resultPath = <span class="string">''</span>;
+<span class="comment">% Path to mWBMs</span>
+mWBMPath = fullfile(resultPath,<span class="string">'mWBMmodels'</span>);
+<span class="comment">% Output path for the flux results</span>
+fluxPath = fullfile(resultPath,<span class="string">'resultFlux'</span>);
+<span class="comment">% Output path for the flux descriptions</span>
+fluxAnalysisPath = fullfile(resultPath,<span class="string">'resultFlux'</span>, <span class="string">'fluxAnalysis'</span>);
+
+<span class="comment">% Set which reactions have to be optimised for</span>
+rxnList = {<span class="string">'DM_glc_D[bc]'</span>;
+    <span class="string">'DM_but[bc]'</span>}
+<span class="comment">%     'DM_glu_L[bc]';</span>
+<span class="comment">%     'DM_HC02191[bc]';</span>
+<span class="comment">%     'Brain_DM_atp_c_'};</span>
+
+<span class="comment">% Use the same diet as when you created the mWBMs. Otherwise change</span>
+<span class="comment">% EUAverageDiet to the diet you used in creating the mWBMs.</span>
+diet = <span class="string">'EUAverageDiet'</span>;
+<span class="comment">% We are not generating big solution files so it can be set to true.</span>
+saveFullRes = true;
+numWorkersOptimization = 1;
+<span class="comment">% Define structure for parameters</span>
+paramFluxProcessing = struct;
+
+<span class="comment">% Define the rounding factor of the FBA results</span>
+paramFluxProcessing.numericalRounding = 1e-6;
+
+<span class="comment">% Define when a reaction is removed for further statistical analysis. Here,</span>
+<span class="comment">% a reaction is set to be removed if the 10% or more of the flux results</span>
+<span class="comment">% are unique values. For small sample sizes, it is recommended to set this</span>
+<span class="comment">% value to 0.</span>
+paramFluxProcessing.rxnRemovalCutoff = {<span class="string">'fraction'</span>,0.1};
+
+<span class="comment">% Define how the predicted fluxes will be correlated against the microbial</span>
+<span class="comment">% relative abundances. Here, we chose to perform a spearman rank</span>
+<span class="comment">% correlations, but simple linear regressions are also supported.</span>
+paramFluxProcessing.fluxMicrobeCorrelationType = {<span class="string">'spearman_rho'</span>};
+
+<span class="comment">% We set these to their default values. If you want you can play around</span>
+<span class="comment">% with the settings and see how that changes the processed results you</span>
+<span class="comment">% obtain</span>
+paramFluxProcessing.NumericalRounding = {<span class="string">'fraction'</span>,0.1};
+paramFluxProcessing.RxnEquivalenceThreshold = 0.999;
+paramFluxProcessing.fluxMicrobeCorrelationType = <span class="string">'regression_r2'</span>;
+<span class="comment">% Call on the function</span>
+analyseWBMs(mWBMPath, paths.fba.outputPathFluxAnalysis, rxnList, <span class="string">'numWorkers'</span>,<span class="keyword">...</span>
+    numWorkersOptimisation, <span class="string">'saveFullRes'</span>, saveFullRes, <span class="string">'paramFluxProcessing'</span>, <span class="keyword">...</span>
+    paramFluxProcessing, <span class="string">'fluxAnalysisPath'</span>, fluxAnalysisPath, <span class="string">'solver'</span>, solver);
+outputPathStatistics = fullfile(resultPath,<span class="string">'resultStatistics'</span>);
+processedFluxPath = fullfile(resultPath,<span class="string">'fluxAnalysis'</span>, <span class="string">'processed_fluxes.csv'</span>);
+wbmRelAbunPath = fullfile(resultPath,<span class="string">'fluxAnalysis'</span>, <span class="string">'WBM_relative_abundances.csv'</span>);
+metadataPath = fullfile(resultPath,<span class="string">'demo_metadata_processed.csv'</span>);
+metadata = readMetadataForPersephone(metadataPath);
+head(metadata)
+response = <span class="string">'diagnosis'</span>;
+
+<span class="comment">% Assess the number of samples for each diagnosis group</span>
+[groupIndices,categories] = findgroups(metadata.diagnosis);
+table(categories, histcounts(groupIndices)',<span class="string">'VariableNames'</span>,<span class="keyword">...</span>
+    {<span class="string">'Diagnosis'</span>,<span class="string">'Number of samples'</span>})
+metadata(matches(metadata.diagnosis,<span class="string">'nonIBD'</span>),:)=[];
+
+<span class="comment">% Save updated metadata file</span>
+updatedMetadataPath = erase(metadataPath,<span class="string">'.csv'</span>) + <span class="string">"_removedNonIBD.csv"</span>;
+writetable(metadata,updatedMetadataPath);
+confounders = {<span class="string">'age'</span>, <span class="string">'Sex'</span>};
+microbeCutoff = 0.1;
+<span class="comment">% Run statistics pipeline</span>
+<span class="comment">% We recommend that you copy and paste this and run it in the command</span>
+<span class="comment">% window because there can be a long output which is prone to cause issues</span>
+<span class="comment">% in live scripts.</span>
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, <span class="keyword">...</span>
+    updatedMetadataPath, response, <span class="string">'pathToWbmRelAbundances'</span>, wbmRelAbunPath, <span class="keyword">...</span>
+    <span class="string">'confounders'</span>,confounders,<span class="string">'microbeCutoff'</span>,microbeCutoff);
+<span class="comment">% Run statistics pipeline</span>
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, <span class="keyword">...</span>
+    updatedMetadataPath, response, <span class="string">'confounders'</span>,confounders);
+</pre><pre class="codeoutput">
+ &gt; changeCobraSolver: IBM ILOG CPLEX interface added to MATLAB path.
+
+paths = 
+
+  struct with fields:
+
+       Mars: [1&times;1 struct]
+       seqC: [1&times;1 struct]
+    General: [1&times;1 struct]
+     mgPipe: [1&times;1 struct]
+    persWBM: [1&times;1 struct]
+       mWBM: [1&times;1 struct]
+        fba: [1&times;1 struct]
+      stats: [1&times;1 struct]
+
+</pre><pre class="codeoutput error">Error using initPersephone
+Invalid argument at position 1. Value must not be empty.
+
+Error in tut4_FBAandStatistics (line 31)
+[initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+global CBTDIR
+if isempty(CBTDIR)
+    initCobraToolbox
+end
+
+% Define and set the solver. The names defined in the bullet points above
+% are the names accepted in the changeCobraSolver function. To switch
+% solver just change ibm_cplex to the solver of your choice.
+solver = 'ibm_cplex';
+
+changeCobraSolver(solver);
+% Define the location of the required files, make sure you don't 
+% forget the file extensions where relevant!
+resultPath = '';
+
+paths.General.metadataPath = '';
+
+% Leave as an empty string!
+paths.Mars.readsTablePath = ''
+paths.seqC.outputPathSeqC = [resultPath, filesep, 'resultSeqC'];
+paths.Mars.outputPathMars = [resultPath, filesep, 'resultMars'];
+paths.mgPipe.outputPathMgPipe = [resultPath, filesep, 'resultMgPipe'];
+paths.persWBM.outputPathPersonalisation = [resultPath, filesep, 'personalisedWBMs'];
+paths.mWBM.outputPathMWBM = [resultPath, filesep, 'mWBMmodels'];
+paths.fba.outputPathFluxResult = [resultPath, filesep, 'resultFlux'];
+paths.fba.outputPathFluxAnalysis = [paths.fba.outputPathFluxResult, filesep, 'fluxAnalysis'];
+paths.stats.outputPathStatistics = [resultPath, filesep, 'resultStatistics'];
+
+% Create the file structure for the results of all the parts of the
+% tutorial (not just this tutorial)
+[initialised, statToolboxInstalled, updatedMetadataPath] = initPersephone(resultPath, paths)
+paths.General.metadataPath = updatedMetadataPath;
+% Indicate the path to the mWBMs as created in the previous tutorial 
+% OR use download the mWBM models from the supplementary 
+% files from the paper and load the model
+pathToModel = which('mWBM_CSM5MCXD_female.mat'); 
+% Make sure that mWBM_CSM5MCXD is 
+% stored in a folder that is added to the Matlab path
+
+model = loadPSCMfile(pathToModel);
+% The model should be in the defined directory if resultPath indeed
+% contains the mWBMmodels folder and the CSM5MCXD.mat file. If not you can set
+% the path directly by entering the full path and the file name and
+% extensions within the load() function. Ensure quotation marks '' around
+% the path name.
+mWBM = load([paths.mWBM.outputPathMWBM, filesep, 'mWBM_CSM5MCXD_female.mat']);
+% Change the reaction bounds 
+mWBM = changeRxnBounds(mWBM, 'Whole_body_objective_rxn', 1, 'b');
+% Display the flux bounds on the objective reaction
+printFluxBounds(mWBM,{'Whole_body_objective_rxn'}, 0)
+% Find reactions containing 'biomass'
+biomassReactions = model.rxns(contains(model.rxns, 'biomass'))
+% Print the reaction formula
+wbmReaction = printRxnFormula(mWBM, 'Whole_body_objective_rxn');
+% Print flux bound of D-glucose in the diet
+printFluxBounds(mWBM, {'Diet_EX_glc_D[d]'}, 0)
+% Change the reaction bounds
+mWBM = changeRxnBounds(mWBM, 'Excretion_EX_microbiota_LI_biomass[fe]', 1, 'b');
+surfNet(mWBM, 'EX_trp_L[u]')
+% Update objective reaction
+mWBM = changeObjective(mWBM, 'EX_trp_L[u]');
+% Set objective function to maximise for the reaction
+mWBM.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBM);
+% The "f" field in the FBA variable contains the maximised flux
+solution.f
+% Check if the reactions exists
+surfNet(mWBM, 'Excretion_EX_pro_L[fe]')
+% Update objective reaction
+mWBM = changeObjective(mWBM, 'Excretion_EX_pro_L[fe]');
+% Set objective function to maximise for the reaction
+mWBM.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBM);
+% Print the "f" field in the FBA variable
+solution.f
+surfNet(mWBM, 'Liver_r0381')
+% Update objective reaction
+mWBM = changeObjective(mWBM, 'Liver_r0381');
+% Set objective function to maximise for the reaction
+mWBM.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBM);
+% Print the "f" field in the FBA variable
+solution.f
+surfNet(mWBM, 'Micro_EX_trp_L[luLI]_[luM]')
+% Update objective reaction
+mWBM = changeObjective(mWBM, 'Micro_EX_trp_L[luLI]_[luM]');
+% Set objective function to maximise for the reaction
+mWBM.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBM);
+% Print the "f" field in the FBA variable 
+solution.f
+% Set objective function to minimise for the reaction
+mWBM.osenseStr = 'min';
+% Perform FBA
+solution = optimizeWBModel(mWBM);
+% Print the "f" field in the FBA variable 
+solution.f
+% Define metabolite of interest
+metabolite = 'trp_L[bc]';
+% Check if metabolite exists in the model
+surfNet(mWBM, metabolite)
+% Add a demand reaction for the metabolite of interest
+mWBMDemand = addDemandReaction(mWBM,metabolite);
+surfNet(mWBMDemand, 'DM_trp_L[bc]')
+% Unconstrain the demand reaction's upper bound for analysis
+mWBMDemand = changeRxnBounds(mWBMDemand,['DM_' metabolite],100000,'u');
+% Set objective to demand reaction
+mWBMDemand = changeObjective(mWBMDemand,['DM_' metabolite]);
+% Set objective function to maximise for the reaction
+mWBMDemand.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBMDemand);
+% Check maximised flux'
+solution.f
+% For this example, L-tryptophan (trp_L) is our metabolite of interest:
+metabolite = 'trp_L[csf]';
+
+% Check if the metabolite is present in the csf comparment
+surfNet(mWBM, metabolite)
+% Add a demand reaction for the metabolite of interest
+mWBMDemand = addDemandReaction(mWBM,metabolite);
+
+% Unconstrain dm reaction upper bound for further analysis
+mWBMDemand = changeRxnBounds(mWBMDemand,['DM_' metabolite],100000,'u');
+% Check if the reaction is created
+surfNet(mWBMDemand,['DM_' metabolite])
+% Set objective to demand reaction
+mWBMDemand = changeObjective(mWBMDemand,['DM_' metabolite]);
+% Set objective function to maximise for the reaction
+mWBMDemand.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBMDemand);
+% Check maximised flux through 'DM_trp_L[csf]'
+solution.f
+% Define metabolite of interest:
+metabolite = 'Liver_trp_L[c]';
+% Check if the metabolite is present in the blood comparment
+surfNet(mWBM, 'Liver_EX_trp_L(e)_[bc]')
+% Add a demand reaction for the metabolite of interest
+mWBMDemand = addDemandReaction(mWBM,metabolite);
+
+% Unconstrain dm reaction upper bound for further analysis
+mWBMDemand = changeRxnBounds(mWBMDemand,['DM_' metabolite],100000,'u');
+
+% Check if the demand reactions is added on correctly
+surfNet(mWBMDemand, ['DM_' metabolite])
+% Set objective to demand reaction
+mWBMDemand = changeObjective(mWBMDemand,['DM_' metabolite]);
+% Set objective function to maximise for the reaction
+mWBMDemand.osenseStr = 'max';
+% Perform FBA
+solution = optimizeWBModel(mWBMDemand);
+% Check maximised flux through 'DM_tryp(c)'
+solution.f
+% Prepare a germ-free WBM model.
+modelGF = loadPSCMfile('Harvetta');
+modelGF = setDietConstraints(modelGF, 'EUAverageDiet');
+% Add demand reaction
+modelGF = addDemandReaction(modelGF,'trp_L[bc]');
+% Unconstrain dm reaction upper bound for further analysis
+modelGF = changeRxnBounds(modelGF,'DM_trp_L[bc]',100000,'u');
+% Set the objective function
+modelGF = changeObjective(modelGF, 'DM_trp_L[bc]');
+% Set objective function to maximise for the reaction
+modelGF.osenseStr = 'max';
+% Perform FBA
+solution_GF = optimizeWBModel(modelGF);
+% Check maximised flux through 'EX_trp_L[bc]' 
+solution_GF.f
+% Add demand reaction
+mWBMDemand = addDemandReaction(mWBM,'trp_L[bc]');
+
+% Unconstrain dm reaction upper bound for further analysis
+mWBMDemand = changeRxnBounds(mWBMDemand,'DM_trp_L[bc]',100000,'u');
+
+% Change the objective function
+mWBMDemand = changeObjective(mWBMDemand, 'DM_trp_L[bc]');
+
+% Set objective function to maximise for the reaction
+mWBMDemand.osenseStr = 'max';
+
+% Perform FBA
+solution_mWBM = optimizeWBModel(mWBMDemand);
+
+% Check maximised flux through 'EX_tryp_L[bc]]' 
+solution_mWBM.f
+solution_mWBM.f - solution_GF.f
+% Predefined at the start
+% Set paths
+resultPath = '';
+% Path to mWBMs
+mWBMPath = fullfile(resultPath,'mWBMmodels'); 
+% Output path for the flux results
+fluxPath = fullfile(resultPath,'resultFlux');
+% Output path for the flux descriptions
+fluxAnalysisPath = fullfile(resultPath,'resultFlux', 'fluxAnalysis'); 
+
+% Set which reactions have to be optimised for
+rxnList = {'DM_glc_D[bc]';
+    'DM_but[bc]'}
+%     'DM_glu_L[bc]';
+%     'DM_HC02191[bc]';
+%     'Brain_DM_atp_c_'};
+
+% Use the same diet as when you created the mWBMs. Otherwise change
+% EUAverageDiet to the diet you used in creating the mWBMs.
+diet = 'EUAverageDiet';
+% We are not generating big solution files so it can be set to true.
+saveFullRes = true;
+numWorkersOptimization = 1;
+% Define structure for parameters
+paramFluxProcessing = struct;
+
+% Define the rounding factor of the FBA results
+paramFluxProcessing.numericalRounding = 1e-6; 
+
+% Define when a reaction is removed for further statistical analysis. Here,
+% a reaction is set to be removed if the 10% or more of the flux results
+% are unique values. For small sample sizes, it is recommended to set this
+% value to 0.
+paramFluxProcessing.rxnRemovalCutoff = {'fraction',0.1};
+
+% Define how the predicted fluxes will be correlated against the microbial
+% relative abundances. Here, we chose to perform a spearman rank
+% correlations, but simple linear regressions are also supported.
+paramFluxProcessing.fluxMicrobeCorrelationType = {'spearman_rho'};
+
+% We set these to their default values. If you want you can play around
+% with the settings and see how that changes the processed results you
+% obtain
+paramFluxProcessing.NumericalRounding = {'fraction',0.1};
+paramFluxProcessing.RxnEquivalenceThreshold = 0.999;
+paramFluxProcessing.fluxMicrobeCorrelationType = 'regression_r2';
+% Call on the function
+analyseWBMs(mWBMPath, paths.fba.outputPathFluxAnalysis, rxnList, 'numWorkers',...
+    numWorkersOptimisation, 'saveFullRes', saveFullRes, 'paramFluxProcessing', ...
+    paramFluxProcessing, 'fluxAnalysisPath', fluxAnalysisPath, 'solver', solver);
+outputPathStatistics = fullfile(resultPath,'resultStatistics');
+processedFluxPath = fullfile(resultPath,'fluxAnalysis', 'processed_fluxes.csv');
+wbmRelAbunPath = fullfile(resultPath,'fluxAnalysis', 'WBM_relative_abundances.csv');
+metadataPath = fullfile(resultPath,'demo_metadata_processed.csv');
+metadata = readMetadataForPersephone(metadataPath);
+head(metadata)
+response = 'diagnosis';
+
+% Assess the number of samples for each diagnosis group
+[groupIndices,categories] = findgroups(metadata.diagnosis);
+table(categories, histcounts(groupIndices)','VariableNames',...
+    {'Diagnosis','Number of samples'})
+metadata(matches(metadata.diagnosis,'nonIBD'),:)=[];
+
+% Save updated metadata file
+updatedMetadataPath = erase(metadataPath,'.csv') + "_removedNonIBD.csv";
+writetable(metadata,updatedMetadataPath);
+confounders = {'age', 'Sex'};
+microbeCutoff = 0.1;
+% Run statistics pipeline
+% We recommend that you copy and paste this and run it in the command
+% window because there can be a long output which is prone to cause issues
+% in live scripts.
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, ...
+    updatedMetadataPath, response, 'pathToWbmRelAbundances', wbmRelAbunPath, ...
+    'confounders',confounders,'microbeCutoff',microbeCutoff);
+% Run statistics pipeline
+results = performStatsPersephone(outputPathStatistics, processedFluxPath, ...
+    updatedMetadataPath, response, 'confounders',confounders);
+##### SOURCE END #####
+--></body></html>

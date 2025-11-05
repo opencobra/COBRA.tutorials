@@ -1,0 +1,7 @@
+ID,Project,Participant ID,sex,weight,height,age,glc_D,crtn,haematocrit,chsterol,lac_D,cl,na1,k,nh4,gln_L,cys_L,Age at diagnosis,diagnosis
+units,,,,lbs,ft,years,mg/dL,µmol/L,%,mmol/L,mg/dL,mmol/L,mmol/L,mmol/L,mmol/L,mg/dL,mg/dL,,
+CSM5MCXD,G110156,C3001,Male,145,5.86,43,100,79,38,4,14.8,104,216,92,30,6,13,28,Healthy
+CSM5MCY2,G110132,C3010,Female,131,5.71,51,70,83,40,3,8.1,105,71,81,37,7,18,30,Healthy
+CSM67U9J,G110049,C3001,Female,133,5.16,43,88,93,42,5,13.6,99,113,23,46,7,16,28,CD
+CSM67UAW,G110135,C3016,Female,179,5.61,32,85,63,38,4,13.4,96,50,78,30,10,12,12,CD
+CSM67UB9,G116699,C3017,Male,152,5.65,45,81,91,45,2,15.9,97,154,62,41,7,16,8,CD
