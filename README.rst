@@ -12,7 +12,7 @@ tutorials are grouped according to the ``src/`` folder structure:
 - `reconstruction <https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction>`__
 - `visualization <https://github.com/opencobra/COBRA.tutorials/tree/master/visualization>`__
 
-All tutorials are provided in 4 formats: ``.mlx``, ``.m``, ``.pdf``, and ``.html``.
+All tutorials are provided in these formats: ``.mlx``, ``.m``, and ``.html``.
 
 - The interactive version ``.mlx`` is a MATLAB Live-script format and can be run using `the MATLAB Live-script editor <https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html>`__.
 - The static version ``.html`` can be visualized on the `tutorial section of the COBRA Toolbox documentation <https://opencobra.github.io/COBRA.tutorials>`__.
@@ -26,12 +26,8 @@ A template for generating a new tutorial is provided `here
 
 There are two ways to contribute to the tutorials:
 
-A) Contribute using the ``MATLAB.devTools``
-----------------------------------------
 
-You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
-
-B) Contribute using ``git`` (via command line)
+A) Contribute using ``git`` (via command line)
 -------------------------------------------
 
 Fork and checkout your branch
@@ -43,31 +39,31 @@ Fork and checkout your branch
 
    .. code-block:: console
 
-      $ git clone git@github.com:<userName>/COBRA.tutorials.git fork-COBRA.tutorials.git
+      git clone git@github.com:<userName>/COBRA.tutorials.git fork-COBRA.tutorials.git
 
 3. Change to the directory:
 
    .. code-block:: console
 
-      $ cd fork-COBRA.tutorials.git/
+      cd fork-COBRA.tutorials.git/
 
 4. Set the upstream to the ``opencobra/COBRA.tutorials`` repository:
 
    .. code-block:: console
 
-      $ git remote add upstream git@github.com:opencobra/COBRA.tutorials.git
+      git remote add upstream git@github.com:opencobra/COBRA.tutorials.git
 
 5. Fetch from the upstream repository
 
    .. code-block:: console
 
-      $ git fetch upstream
+      git fetch upstream
 
-6. Checkout a new branch from ``develop``:
+6. Checkout a new branch from ``upstream/develop``:
 
    .. code-block:: console
 
-      $ git checkout -b <yourBranch> upstream/develop
+      git checkout -b develop upstream/develop
 
 7. Now, make your changes in the tutorial in MATLAB.
 
@@ -79,21 +75,21 @@ Submit your changes and open a pull request
 
    .. code-block:: console
 
-      $ git add tutorial_<yourFile>.m
-      $ git add tutorial_<yourFile>.mlx
-      $ git commit -m "Changes to tutorial_<yourFile>"
+      git add tutorial_<yourFile>.m
+      git add tutorial_<yourFile>.mlx
+      git commit -m "Changes to tutorial_<yourFile>"
 
 9. Push your commits on ``<yourBranch>`` to your fork:
 
    .. code-block:: console
 
-      $ git push origin <yourBranch>
+      git push origin <yourBranch>
 
 10. Browse to your fork on ``https://www.github.com/<yourUserName>/COBRA.tutorials``, where ``<yourUserName>`` is your Github username.
 
 11. Click on ``Compare & Pull Request``.
 
-12. Change the target branch ``develop``.
+12. Change the target branch ``develop``. You must do this because pull requests to the opencobra/master branch are not accepted, because we use that to build the tutorials on the website.
 
 13. Submit your pull request.
 
@@ -124,3 +120,7 @@ Submit your changes and open a pull request
 
    <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/visualization.png" height="14px">
 
+B) Contribute using the ``MATLAB.devTools``
+----------------------------------------
+
+You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
