@@ -59,11 +59,11 @@ Fork and checkout your branch
 
       git fetch upstream
 
-6. Checkout a new branch from ``upstream/develop``:
+6. Checkout a new branch from ``upstream/master``:
 
    .. code-block:: console
 
-      git checkout -b develop upstream/develop
+      git checkout -b master upstream/master
 
 7. Now, make your changes in the tutorial in MATLAB.
 
@@ -89,7 +89,7 @@ Submit your changes and open a pull request
 
 11. Click on ``Compare & Pull Request``.
 
-12. Change the target branch ``develop``. You must do this because pull requests to the opencobra/master branch are not accepted, because we use that to build the tutorials on the website.
+12. Change the target branch ``master``. 
 
 13. Submit your pull request.
 
