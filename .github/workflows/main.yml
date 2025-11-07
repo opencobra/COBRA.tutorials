@@ -6,6 +6,9 @@ on:
     paths:
       - '**.mlx'
 
+permissions:
+  contents: write
+  
 jobs:
   copy-changes:
     runs-on: self-hosted
