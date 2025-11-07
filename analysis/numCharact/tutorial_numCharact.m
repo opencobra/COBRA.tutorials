@@ -101,9 +101,9 @@ sparsityRatio = (1 - nNz / nElem) * 100.0  % [%]
 % determine the complementary sparsity ratio (in percent)
 compSparsityRatio = 100.0 - sparsityRatio  % [%]
 %% 
-% The* average column density *corresponds to a ratio of the number of nonzero 
-% elements in each column (i.e. reaction) and the total number of metabolites. 
-% The average column density corresponds to the arithmetic average of all the 
+% The *column density* corresponds to the number of nonzero 
+% elements in a column (i.e. reaction).
+% The *average column density* corresponds to the arithmetic average of all the 
 % column densities (sum of all the reaction densities divided by the number of 
 % reactions).
 
