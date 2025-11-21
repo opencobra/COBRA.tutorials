@@ -1,4 +1,4 @@
-%% Extract a thermodynamically consistent subnetwork from a given model
+%% Extract a thermodynamically consistent subnetwork from a given model (Part 2 _ 2025)
 %% 
 % # Identify the largest subset of a model that admits a thermodynamically consistent 
 % flux
