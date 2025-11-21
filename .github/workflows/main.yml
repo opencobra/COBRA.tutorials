@@ -79,7 +79,11 @@ jobs:
             changed_files=$(git ls-files '*.mlx')
           else
             echo "Last sync commit: $last_sync_commit"
-            changed_files=$(git diff --name-only "$last_sync_commit"..HEAD | grep '\.mlx' || true)
+            changed_files=$(
+              git diff --name-only "$last_sync_commit"..HEAD |
+              grep '\.mlx' |
+              grep -v '^deprecated/' || true
+                )
           fi
 
           changed_files=$(echo "$changed_files" | tr '\n' ' ')
