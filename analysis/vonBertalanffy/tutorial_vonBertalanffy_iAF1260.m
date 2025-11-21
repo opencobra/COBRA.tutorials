@@ -1,4 +1,4 @@
-%% Thermodynamically constrain a metabolic model
+%% Thermodynamically constrain iAF1260
 %% *Author: Ronan Fleming, Leiden University*
 %% *Reviewers:* 
 %% INTRODUCTION
