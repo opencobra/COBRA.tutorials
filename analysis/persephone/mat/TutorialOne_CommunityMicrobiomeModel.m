@@ -1,4 +1,4 @@
-%% Tutorial One: Creating Community Microbiome Models
+%% Persephone: Creating Community Microbiome Models
 % Authors: Anna Sheehy, Bram Nap, Wiley Barton
 % 
 % In this tutorial we will cover how to create community microbiome from metagenomic 
@@ -549,6 +549,7 @@ try
     % check for preexisting image
     imageName = 'dock_seqc';
     [status, cmdout] = system(['docker images -q ' imageName]);
+end
 
 if isempty(strtrim(cmdout))
     disp(['Image "' imageName '" does NOT exist. Now creating...']);
@@ -776,15 +777,13 @@ relAbunFilePath = [paths.Mars.outputPathMars, filesep, 'mapped_forModelling', fi
 %% 
 % * metrics - For each taxonomic level, various metric such as alpha and beta 
 % diversity are calculated.
-% * mapped - For each taxonomic level, only the mapped taxa, abundances are 
-% not renormalised and still have the values from the pre-mapping normalisation. 
-% Columns do not add up to 1
-% * processed - For each taxonomic level, all the taxa are normalised to the 
-% total reads. Columns add up to 1.
-% * unmapped - For each taxonomic level, only the unmapped taxa, abundances 
-% are not renormalised and still have the values from the pre-mapping normalisation. 
-% Columns do not add up to 1.
-% * mapped_forModelling - For  each taxonomic level, the mapped taxa are renormalised 
+% * mapped - For each taxonomic level, only the reads of the mapped taxa are 
+% reported.
+% * processed - For each taxonomic level, the reads are reported after processing. 
+% This can be used to understand the effect of processing on the original metagenomics. 
+% * unmapped - For each taxonomic level, only the reads of the unmapped taxa 
+% are reported.
+% * mapped_forModelling - For  each taxonomic level, the mapped taxa are normalised 
 % so that each column adds up to 1.
 %% 
 % The file mapped_forModellingSpecies.csv (file extension can change based on 
@@ -890,16 +889,11 @@ relAbunFilePath = [paths.Mars.outputPathMars, filesep, 'mapped_forModelling', fi
 % e.g., 'C:/Users/Owner/APOLLOAGORA/panSpecies'
 microbeReconstructionPath = '';
 
-% If the relative abundance file is not in the correct MARS folder remove
-% the % in front of line 71 and set the correct path
-% relAbundFilePath = 'C:Users/User/folder/present/present_species.csv'
-
 % Set computeProfiles variable
 computeProfiles = false;
 
 % Set mgPipeRes variable
 outputPathMgPipe = paths.mgPipe.outputPathMgPipe;
-
 
 % Set diet 
 Diet = 'EUAverageDiet'

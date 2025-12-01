@@ -1,4 +1,6 @@
-%% Tutorial 3 Creation human-microbiome whole-body models (mWBMs)
+%% Persephone: Creation of human-microbiome whole-body models (mWBMs)
+% Bram Nap, Tim Hensen, Anna Sheehy - 07-2024
+% 
 % In this section we combine the newly created microbiome community models with 
 % the previously developed WBMs [4].  We will show the code required to create 
 % one mWBM. Later on we will explain which functions to use to generate multiple 
@@ -148,7 +150,7 @@ mWBM = changeRxnBounds(mWBM,rxnNameList, value, boundType);
 %% 
 % The same goes for the human body maintanance reaction. We will reset it to 
 % one to ensure all models are comparable. More information on the 'Whole_body_objective_rxn' 
-% can be found in tutorial 2.
+% can be found in tutorial 4 FBAandStatistics.
 
 mWBM = changeRxnBounds(mWBM, 'Whole_body_objective_rxn', 1, 'b');
 %% 

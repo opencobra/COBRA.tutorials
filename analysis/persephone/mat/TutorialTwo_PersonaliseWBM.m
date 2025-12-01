@@ -1,4 +1,4 @@
-%% Tutorial 2 Whole Body Metabolic Model Personalisation
+%% Persephone: Whole Body Metabolic Model Personalisation
 % Authors: Anna Sheehy  08-2024
 % 
 % This tutorial takes you through the optional step of personalizing the WBM 
@@ -552,7 +552,7 @@ surfNet(modelMWBMdemand, 'DM_trp_L[bc]')
 %% 
 % Now the demand reaction has been added on to the model, it can be used as 
 % a modelling option. For more information on solving demand reactions please 
-% look at tutorial 2.
+% look at tutorial 4 FBAandStatistics.
 % Example two: Add a transport reaction
 % When might you want to add an exchange reaction? Perhaps you have found in 
 % literature that a particular metabolite is found in an organ that it is not 
@@ -815,7 +815,7 @@ solution.f
 % We see that the maximum uptake of 25-hydroxy vitamin D3 uptake in the cytosol 
 % of natural killer cells is ~70 mmol/day. This indicates that also the novel 
 % added reaction is able to carry flux. For more indepth explanation in the use 
-% of optimizeWBModel and solving models please look at tutorial 4.
+% of optimizeWBModel and solving models please look at tutorial 4 FBAandStatistics.
 % Example 4: Adding a excretion reaction
 % A excretion reaction is added to the model if there is a new compound created 
 % or an existing compound that has to be excreted. These can only be done in the 
@@ -1011,78 +1011,4 @@ findRxnIDs(modelRemoved, rxnToRemove)
 % And indeed we see that the reaction cannot be found anymore in the model and 
 % it has been succesfully removed.
 % 
-% Example Two: Add a sink reaction
-% Now lets define our reactions and run addReactionsHH. When adding a demand 
-% reaction for ATP, or in fact any reaction to the model there are a few formatting 
-% rules that need to be followed for consistnecy in the models. 
-% 
-% The format of reaction name should be as follows: 
-% 
-% "Organ_TYPE_metabolite_compartment abbreviation"
-% 
-% The reactions formula should then indicate the direction of the substrates 
-% and products and each substrate and product must start with organ and also denote 
-% the compartment: 
-% 
-% "*Organ_met[compartment] <-> Organ_met[compartment]" This is a transport reaction?*
-% 
-% To find the abbreviations for the metabolites you can visit:
-%% 
-% * Virtual Metabolic Human website: <https://www.vmh.life/ https://www.vmh.life/>
-%% 
-% The organs found in Harvey and Harvetta are:
-% 
-% add
-% 
-% The compartments in the model are:
-% 
-% add
-% 
-% To find out which metabolites are present in which organs and compartments 
-% are present in the model you can explore the model using:
-%% 
-% * surfNet, a function that allows you to explore the model. Or simply use 
-% the 'find' and 'contains' funciton in matlab to search the model
-%% 
-% As an example we will add a sink reaction for pyridoxal in the small intestinal 
-% epithelium  
-
-% Add reactions, defining all relevant fields
-modelNsink = addReactionsHH(modelMWBM, {'sIEC_sink_pydx[c]'}, {'Sink for pyridoxal, sIEC'},...
-                  {'glc_D[c]->'}, {''}, {'Exchange/demand reaction'}) 
-% Solve new model to ensure new reaction is present and model is still feasible
-
-% Check for reaction and bounds on reaction
-rxn = 'sIEC_sink_pydx[c]';
-idxN = find(contains(modelNsink.rxnNames, 'Sink for pyridoxal, sIEC'));
-idxR = find(contains(modelNsink.rxns, rxn));
-%% 
-% Print the reaction formula and bounds, rxnbounds can be printed with printRxnBounds 
-% function
-
-% check reaction formula
-wbmReaction = printRxnFormula(modelNsink, rxn)
-
-lb = modelNsink.lb(idxN);
-ub = modelNsink.ub(idxN);
-%% 
-% Solve model using any objective to check feasibility
-
-% Set objective
-modelAlt = changeObjective(modelNsink, 'Whole_body_objective_rxn');
-% Set model sense
-modelAlt.osenseStr = 'max';
-% Solve model
-FBA1 = optimizeWBModel(modelAlt);
-FBA1.f
-%% 
-% Solve for you new reaction to gain insights into the model in relation to 
-% your  metabolite of interest
-
-% Set objective
-modelAlt = changeObjective(modelNsink, rxn);
-% Set model sense
-modelAlt.osenseStr = 'min';
-% Solve model
-FBA2 = optimizeWBModel(modelAlt);
-FBA2.f
+% This is the end of tutorial 2.

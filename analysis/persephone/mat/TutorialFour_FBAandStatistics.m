@@ -1,4 +1,4 @@
-%% Tutorial on using Human-microbiome models
+%% Persephone: FBA and statistics on WBMs
 %% Solving Models
 % Bram Nap, Tim Hensen, Anna Sheehy - 07-2024
 % 
