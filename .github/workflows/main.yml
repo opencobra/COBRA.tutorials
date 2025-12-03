@@ -54,7 +54,7 @@ jobs:
             ML_BIN="$(ls -1d /usr/local/MATLAB/*/bin/matlab 2>/dev/null | sort -V | tail -n1 || true)"
           fi
           if [[ -z "${ML_BIN:-}" || ! -x "${ML_BIN}" ]]; then
-            echo "MATLAB executable not found on PATH or under /usr/local/MATLAB" >&2
+            echo "MATLAB executable not found" >&2
             exit 1
           fi
           echo "Using MATLAB at: ${ML_BIN}"
@@ -83,51 +83,52 @@ jobs:
               git diff --name-only "$last_sync_commit"..HEAD |
               grep '\.mlx' |
               grep -v '^deprecated/' || true
-                )
+            )
           fi
 
           changed_files=$(echo "$changed_files" | tr '\n' ' ')
 
           if [[ -z "$changed_files" ]]; then
-            echo "No .mlx files changed since last sync. Exiting."
-            exit 0
+            echo "No .mlx files changed since last sync."
+          else
+            echo "Changed .mlx files: $changed_files"
           fi
 
-          echo "Found changed files: $changed_files"
-
+          # Export only changed mlx files
           for file in $changed_files; do
-            if [[ $file != "" ]]; then
-              if [[ ! -f "$file" ]]; then
-                echo "WARNING: File does not exist: $file. Skipping."
-                continue
-              fi
+            if [[ -n "$file" && -f "$file" ]]; then
+              echo "Processing mlx: $file"
 
-              echo "Processing: $file"
               ABSOLUTE_FILE_PATH=$(realpath "$file")
-
-              # HTML will be written directly to cobratoolbox, not COBRA.tutorials
               HTML_FILE_NAME=$(basename "$file" .mlx).html
-              HTML_FILE_PATH="cobratoolbox/stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
-              mkdir -p "$(dirname "$HTML_FILE_PATH")"
+              HTML_OUTPUT_DIR="cobratoolbox/stable/tutorials/$(dirname "$file")"
+              HTML_FILE_PATH="$HTML_OUTPUT_DIR/$HTML_FILE_NAME"
+              mkdir -p "$HTML_OUTPUT_DIR"
 
-              PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/g')
-              M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/g')
+              PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/')
+              M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/')
 
-              # Run MATLAB under Xvfb
               xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html'); catch e, disp(getReport(e,'extended')); exit(1); end"
               sleep 5
               xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf'); catch e, disp(getReport(e,'extended')); exit(1); end"
               sleep 5
               xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm'); catch e, disp(getReport(e,'extended')); exit(1); end"
 
-              echo "Updating cobratoolbox index..."
-
-              HTML_RELATIVE_PATH="stable/tutorials/$(dirname "$file")/$HTML_FILE_NAME"
-              cd cobratoolbox
-              python stable/extract_info.py "$HTML_RELATIVE_PATH"
-              cd ..
+            else
+              echo "Skipping missing or invalid file: $file"
             fi
           done
+
+          echo "Rebuilding ALL tutorial wrapper pages (fast)..."
+          cd cobratoolbox
+
+          # Only process HTML files in subdirectories (raw MATLAB exports)
+          for raw_html in $(find stable/tutorials -mindepth 2 -type f -name "*.html"); do
+            echo "Wrapping tutorial: $raw_html"
+            python stable/extract_info.py "$raw_html"
+          done
+
+          cd ..
 
       - name: Pushing the changes
         shell: bash
@@ -137,7 +138,7 @@ jobs:
 
           cd cobratoolbox
           git add .
-          git commit -m "Sync files from source repo" || echo "No changes to commit"
+          git commit -m "Sync tutorial files" || echo "No changes to commit"
           git push "https://x-access-token:${{ secrets.DEST_REPO_TOKEN }}@github.com/opencobra/cobratoolbox.git" gh-pages
           cd ..
 
@@ -145,7 +146,5 @@ jobs:
           git add .
           git commit -m "created .pdf, .mlx and .m files" || echo "No changes to commit"
           git push origin master
-
-          cd ..
 
           echo "Script execution completed."
