@@ -147,7 +147,3 @@ Submit your changes and open a pull request to the ``master`` branch
 
    <img src="https://github.com/opencobra/cobratoolbox/tree/gh-pages/stable/_static/img/visualization.png" height="14px">
 
-B) Contribute using the ``MATLAB.devTools``
--------------------------------------------
-
-You can use the `MATLAB.devTools <https://github.com/opencobra/MATLAB.devTools>`__ to submit your tutorial.
