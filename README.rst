@@ -1,6 +1,12 @@
 COBRA Tutorials
 ===============
 
+Overview
+---------
+The COBRA.tutorials repository exists to collect and maintain tutorials for developed and published constraint-based genome-scale modelling methods and studies. Its purpose is to provide clear, reproducible instructional material that demonstrates how new algorithms, workflows, and analysis techniques can be applied within the COBRA modelling framework. By centralising these tutorials, the repository supports both new and experienced users in learning, comparing, and adopting state-of-the-art constraint-based modelling approaches.
+
+Repository structure
+---------------------
 Tutorials are here to get you started with using `The COBRA
 Toolbox <https://opencobra.github.io/cobratoolbox>`__. The
 tutorials are grouped according to the ``src/`` folder structure:
