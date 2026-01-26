@@ -1,5 +1,5 @@
-%% Apply updated component contribution method to Recon3D and analyse solution
-%% *Author: Ronan Fleming, NUI Galway, Leiden University*
+%% Component contribution: analysis of updated method applied to Recon3D
+%% *Author: Ronan Fleming,* School of Medicine, University of Galway
 %% *Reviewers:* 
 %% 
 % 

@@ -1,5 +1,5 @@
 %% *Convert a reconstruction into a flux balance analysis model* 
-%% *Author: Ronan Fleming, Ines Thiele, National University of Ireland, Galway.*
+%% *Author: Ronan Fleming, Ines Thiele, University of Galway.*
 %% *Reviewers:*
 %% INTRODUCTION
 % Even with quality control during the reconstruction process, it is not appropriate 

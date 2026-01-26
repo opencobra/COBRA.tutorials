@@ -1,5 +1,5 @@
-%% Thermodynamically constrain iAF1260
-%% *Author: Ronan Fleming, Leiden University*
+%% Thermodynamically constrain a metabolic model - iAF1260
+%% *Author: Ronan Fleming,* School of Medicine, University of Galway
 %% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 

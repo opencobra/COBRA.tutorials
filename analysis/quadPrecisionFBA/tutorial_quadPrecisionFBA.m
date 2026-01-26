@@ -1,5 +1,5 @@
 %% Quadruple precision Flux Balance Analysis
-%% Author(s): Ronan Fleming, Leiden University
+%% Author(s): Ronan M.T. Fleming, University of Galway
 %% Reviewer(s):
 %% INTRODUCTION
 % In this tutorial, Flux Balance Analysis (FBA) is introduced using the E. coli 

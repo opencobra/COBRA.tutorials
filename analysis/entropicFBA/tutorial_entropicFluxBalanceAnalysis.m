@@ -1,5 +1,6 @@
 %% Entropic flux balance analysis
-%% *Author: Ronan Fleming, University of Galway*
+%% *Author(s): Ronan Fleming, School of Medicine, University of Galway*
+%% *Reviewer(s):*
 %% INTRODUCTION
 % Entropic flux balance analysis [1] maximises the (unnormalised) entropy of 
 % unidirectional fluxes ($$v_f$$ and $$v_r$$) and optionally a linear function 

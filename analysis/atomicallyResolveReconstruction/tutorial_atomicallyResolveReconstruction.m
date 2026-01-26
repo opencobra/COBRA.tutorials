@@ -7,8 +7,8 @@
 % atom mappings opens the possibility for a broader range of biological, biomedical 
 % and biotechnological applications than with stoichiometry alone.
 % 
-% This tutorial will demonstrate how to use the chimoinformatic tools in the 
-% COBRA Toolbox. The tutorial is divided into three sections: first, the chimoinformatic 
+% This tutorial will demonstrate how to use the chemoinformatic tools in the 
+% COBRA Toolbox. The tutorial is divided into three sections: first, the chemoinformatic 
 % data of the metabolites in a COBRA model is processed generating metabolite 
 % structures in various chemoinfomatic formats; second, the atoms of their reactions 
 % are mapped; and finally, all of the tools demonstrated are used to generate 
@@ -127,7 +127,7 @@ cxcalcInstalled = ~cxcalcInstalled;
 % database identifiers.
 
 dataFile = which('tutorial_atomicallyResolveReconstruction.mlx');
-inputData = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'metaboliteIds.txt');
+inputData = which('metaboliteIds.txt');%fork-ctf/idMapping
 expectedResults = regexprep(dataFile, 'tutorial_atomicallyResolveReconstruction.mlx', 'expectedResults');
 replace = false;
 [model, hasEffect] = addMetInfoInCBmodel(model, inputData, replace);

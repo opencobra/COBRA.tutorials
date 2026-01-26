@@ -1,10 +1,10 @@
 %% Flux Balance Analysis: Alternate optimal solutions
-%% Author(s): Ronan M.T. Fleming, Leiden University
+%% Author(s): Ronan M.T. Fleming, School of Medicine, University of Galway
 %% Reviewer(s): 
 %% INTRODUCTION
-% In this tutorial, the existence of Alternate Optimal Solutions [2] to a Flux 
-% Balance Analysis (FBA) problem is introduced using the E. coli core model[1], 
-% with functions in the COBRA Toolbox v3.0 [3].
+% In this tutorial, the existence of Alternate Optimal Solutions [2,4] to a 
+% Flux Balance Analysis (FBA) problem is introduced using the E. coli core model[1], 
+% with functions in the COBRA Toolbox v3.0 [3].  
 %% E. coli core model
 % A map of the E. coli core model is shown in Figure 1. 
 % 
@@ -259,5 +259,10 @@ drawFlux(map, model, maxFlux - minFlux, options);
 % Ronan M.T. Fleming, *Creation and analysis of biochemical constraint-based models: 
 % the COBRA Toolbox v3.0*, Nature Protocols, volume 14, pages 639–702, 2019 <https://doi.org/10.1038/s41596-018-0098-2 
 % doi.org/10.1038/s41596-018-0098-2>.
+% 
+% 4. Thiele, I., Fleming, R. M. T., Bordbar, A., Schellenberger, J., & Palsson, 
+% B. Ø. (2010). Functional Characterization of Alternate Optimal Solutions of 
+% Escherichia coli’s Transcriptional and Translational Machinery. Biophysical 
+% Journal, 98(10), 2072–2081. https://doi.org/10.1016/j.bpj.2010.01.060
 % 
 %

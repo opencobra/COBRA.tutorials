@@ -1,5 +1,5 @@
 %% *Initialise the COBRA Toolbox*
-% *Authors: Ronan Fleming, Leiden University.*
+% *Authors: Ronan Fleming, School of Medicine, University of Galway*
 % 
 % *Reviewers:* 
 %% MATERIALS - EQUIPMENT SETUP

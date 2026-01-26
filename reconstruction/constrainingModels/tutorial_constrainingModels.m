@@ -1,6 +1,6 @@
 %% Adding biological constraints to a flux balance model
 % *Note: This tutorial is a draft and needs completion. Contributions welcome!*
-%% Authors: Diana C. El Assal and Ronan M.T. Fleming,  Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Luxembourg.
+%% Authors: Diana C. El Assal Luxembourg Centre for Systems Biomedicine, University of Luxembourg; Ronan M.T. Fleming, School of Medicine, University of Galway
 %% Reviewers: 
 % Anne Richelle, Systems Biology and Cell engineering, University of California 
 % San Diego
@@ -132,7 +132,7 @@ modelConstrained = addReaction(modelConstrained, 'biomasReactionLipids',  '20.65
 % matter and must therefore be imposed as a lower bound on the corresponding degradation 
 % reaction(s) of the different lipids, amino acids, and nucleic acids. 
 % 
-% <about:blank<#null> >
+% <about:blank<#null%3E >
 % 
 % *Table 1: The minimum metabolic maintenance requirement for neurons.* This 
 % is a coarse-grained approximation of neuronal lipid, amino acid, and nucleic 

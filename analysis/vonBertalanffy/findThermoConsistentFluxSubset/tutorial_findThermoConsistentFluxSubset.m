@@ -1,6 +1,6 @@
 %% Identify the thermodynamically flux consistent subset of a model
 % 
-%% *Author: Ronan Fleming, University of Galway*
+%% *Author: Ronan Fleming,* School of Medicine, University of Galway
 %% INTRODUCTION
 % The largest set of thermodynamically flux consistent reactions is defined 
 % by the cardinality optimisation problem [1]

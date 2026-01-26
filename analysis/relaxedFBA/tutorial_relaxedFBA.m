@@ -1,5 +1,5 @@
 %% Relaxed Flux Balance Analysis: Recon 3
-%% Author: Ronan Fleming, Systems Biochemistry Group, University of Luxembourg.
+%% Author: Ronan Fleming, School of Medicine, University of Galway
 %% Reviewer:
 %% Introduction
 % We consider a biochemical network of  m  molecular species and  n  biochemical 
@@ -7,13 +7,13 @@
 % matrix $S\in\mathcal{Z}^{m\times n}$. In standard notation, flux balance analysis 
 % (FBA) is the linear optimisation problem
 % 
-% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} 
-% & Sv=b,\\ & l\leq v\leq u,\end{array}$$
+% $$\begin{array}{ll}\min\limits _{v} & \rho(v)\equiv c^{T}v\\\text{s.t.} & 
+% Sv=b,\\ & l\leq v\leq u,\end{array}$$
 % 
-% where $$c\in\Re^{n}$$ is a parameter vector that linearly combines one 
-% or more reaction fluxes to form what is termed the objective function,  and 
-% where a $$b_{i}<0$$, or  $$b_{i}>0$$, represents some fixed output, or input, 
-% of the ith molecular species. 
+% where $$c\in\Re^{n}$$ is a parameter vector that linearly combines one or 
+% more reaction fluxes to form what is termed the objective function,  and where 
+% a $$b_{i}<0$$, or  $$b_{i}>0$$, represents some fixed output, or input, of the 
+% ith molecular species. 
 % 
 % Every FBA solution must satisfy the constraints, independent of any objective 
 % chosen to optimise over the set of constraints. It may occur that the constraints 
@@ -25,7 +25,7 @@
 % of bounds to relax, the number of fixed outputs to relax, the number of fixed 
 % inputs to relax, or a combination of all three, in order to render the problem 
 % feasible. The cardinality optimisation problem, termed _relaxed flux balance 
-% analysis, _is
+% analysis,_ is
 % 
 % $$\begin{array}{ll}\min\limits _{v,r,p,q} & \lambda\Vert r\Vert_{0}+\alpha\Vert 
 % p\Vert_{0}+\alpha\Vert q\Vert_{0}\\\text{s.t.} & Sv+r=b\\ & l-p\leq v\leq u+q\\ 
@@ -33,45 +33,45 @@
 % 
 % 
 % 
-%  where $$p,q\in\mathcal{R}^{n}$$ denote the relaxations of the lower and 
-% upper bounds on reaction rates of the reaction rates vector  v, and where $$r\in\mathcal{R}^{m}$$ 
+% where $$p,q\in\mathcal{R}^{n}$$ denote the relaxations of the lower and upper 
+% bounds on reaction rates of the reaction rates vector  v, and where $$r\in\mathcal{R}^{m}$$ 
 % denotes a relaxation of the mass balance constraint. Non-negative scalar parameters   
-% λ   and   $\alpha \text{ }$ can be used to trade off between relaxation of mass 
-% balance or bound constraints. A non-negative vector parameter   λ   can be used 
-% to prioritise relaxation of one mass balance constraint over another, e.g, to 
-% avoid relaxation of a mass balance constraint on a metabolite that is not desired 
-% to be exchanged across the boundary of the system. A non-negative vector parameter   
-% $\alpha \text{ }$  may be used to prioritise relaxation of bounds on some reactions 
-% rather than others, e.g., relaxation of bounds on exchange reactions rather 
-% than internal reactions. The optimal choice of parameters depends heavily on 
-% the biochemical context. A relaxation of the minimum number of constraints is 
-% desirable because ideally one should be able to justify the choice of bounds 
-% or choice of metabolites to be exchanged across the boundary of the system by 
-% recourse to experimental literature. This task is magnified by the number of 
-% constraints proposed to be relaxed.
-%% PROCEDURE: RelaxedFBA applied to Recon 3.0
+% λ   and   $\alpha \;$ can be used to trade off between relaxation of mass balance 
+% or bound constraints. A non-negative vector parameter   λ   can be used to prioritise 
+% relaxation of one mass balance constraint over another, e.g, to avoid relaxation 
+% of a mass balance constraint on a metabolite that is not desired to be exchanged 
+% across the boundary of the system. A non-negative vector parameter   $\alpha 
+% \;$  may be used to prioritise relaxation of bounds on some reactions rather 
+% than others, e.g., relaxation of bounds on exchange reactions rather than internal 
+% reactions. The optimal choice of parameters depends heavily on the biochemical 
+% context. A relaxation of the minimum number of constraints is desirable because 
+% ideally one should be able to justify the choice of bounds or choice of metabolites 
+% to be exchanged across the boundary of the system by recourse to experimental 
+% literature. This task is magnified by the number of constraints proposed to 
+% be relaxed.
+%% PROCEDURE: RelaxedFBA applied to Recon3.0model
 % TIMING: 20 seconds (computation), minutes - days (interpretation)
 % 
-% Recon 3D [<#LyXCite-brunk_recon_nodate brunk_recon_nodate>] is the latest, 
-% most comprehensive, manually curated, genome-scale reconstruction of human metabolism. 
-% Recon3D is a reconstruction which currently encompasses ~3300 open reading frames, 
-% ~8000 unique metabolites, as well as ~12000 biochemical and transport reactions 
-% distributed over nine cellular compartments: cytoplasm [c], lysosome [l], nucleus 
-% [n], mitochondrion [m], mitochondrial intermembrane space [i], peroxisome [x], 
-% extracellular space [e], Golgi apparatus [g], and endoplasmic reticulum [r] 
-% [<#LyXCite-thiele_protocol_2010 thiele_protocol_2010>, <#LyXCite-brunk_recon_nodate 
-% brunk_recon_nodate>]. Recon3.0model is a flux balance analysis model and the 
-% largest stoichiometrically and flux consistent subset of Recon3D. That is, no 
-% internal reaction in Recon3.0model is mass imbalanced and furthermore, every 
-% internal and every external reaction is admits a non-zero steady state flux. 
-% In this example, we take Recon3.0model, set the lower bound on the biomass reaction 
-% to require the synthesis of biomass yet close all of the external reactions 
-% in the model. The resulting model is therefore infeasible, that is, no steady 
-% state flux vector satisfies the steady state constraints and the bound constraints 
-% for the resulting flux balance analysis problem, irrespective of the objective 
-% coefficients, so we use relaxed flux balance analysis to identify the minimial 
-% set of external reaction bounds that are required to be relaxed in order to 
-% make biomass synthesis feasible.
+% Recon 3D [<about:blank<#LyXCite-brunk_recon_nodate%3E brunk_recon_nodate>] 
+% is the latest, most comprehensive, manually curated, genome-scale reconstruction 
+% of human metabolism. Recon3D is a reconstruction which currently encompasses 
+% ~3300 open reading frames, ~8000 unique metabolites, as well as ~12000 biochemical 
+% and transport reactions distributed over nine cellular compartments: cytoplasm 
+% [c], lysosome [l], nucleus [n], mitochondrion [m], mitochondrial intermembrane 
+% space [i], peroxisome [x], extracellular space [e], Golgi apparatus [g], and 
+% endoplasmic reticulum [r] [<about:blank<#LyXCite-thiele_protocol_2010%3E thiele_protocol_2010>, 
+% <about:blank<#LyXCite-brunk_recon_nodate%3E brunk_recon_nodate>]. Recon3.0model 
+% is a flux balance analysis model and the largest stoichiometrically and flux 
+% consistent subset of Recon3D. That is, no internal reaction in Recon3.0model 
+% is mass imbalanced and furthermore, every internal and every external reaction 
+% is admits a non-zero steady state flux. In this example, we take Recon3.0model, 
+% set the lower bound on the biomass reaction to require the synthesis of biomass 
+% yet close all of the external reactions in the model. The resulting model is 
+% therefore infeasible, that is, no steady state flux vector satisfies the steady 
+% state constraints and the bound constraints for the resulting flux balance analysis 
+% problem, irrespective of the objective coefficients, so we use relaxed flux 
+% balance analysis to identify the minimial set of external reaction bounds that 
+% are required to be relaxed in order to make biomass synthesis feasible.
 % 
 % Load Recon3.0model, unless it is already loaded into the workspace.
 
@@ -85,8 +85,8 @@ model = readCbModel(modelFileName);
 modelOrig = model;
 
 %% 
-% Identify the exchange reactions and biomass reaction(s) heuristically 
-% and close (a subset) of them
+% Identify the exchange reactions and biomass reaction(s) heuristically and 
+% close (a subset) of them
 
 model = findSExRxnInd(model,size(model.S,1),1);
 if ~any(model.biomassBool)
@@ -109,13 +109,11 @@ else
     disp('Relaxed model is infeasible');
 end
 %% 
-% Remove superflous biomass reactions and display the size of the reduced 
-% model
+% Remove superflous biomass reactions and display the size of the reduced model
 
 model = removeRxns(model,{'biomass_maintenance','biomass_maintenance_noTrTr'});
 [m,n] = size(model.S);
 fprintf('%6s\t%6s\n','#mets','#rxns'); fprintf('%6u\t%6u\t%s\n',m,n,' totals.')
-
 %% 
 % First close all exchange reactions, except the biomass reaction
 
@@ -196,18 +194,17 @@ relaxOption.steadyStateRelax = 0;
 feasTol = getCobraSolverParams('LP', 'feasTol');
 relaxOption.epsilon = feasTol/100;%*100;
 %% 
-% Set the trade-off parameter for relaxation of bounds (advanced user). 
-% A larger value of gamma will
+% Set the trade-off parameter for relaxation of bounds (advanced user). A larger 
+% value of gamma will
 
 relaxOption.gamma  = 10;  
 %% 
-% Set the trade-off parameter for relaxation on steady state constraint 
-% (advanced user)
+% Set the trade-off parameter for relaxation on steady state constraint (advanced 
+% user)
 
 relaxOption.lambda = 10;   
 %% 
-% Call the relaxedFBA function, deal the solution, and set small values 
-% to zero
+% Call the relaxedFBA function, deal the solution, and set small values to zero
 
 tic;
 solution = relaxedFBA(model,relaxOption);
@@ -272,7 +269,7 @@ end
 % 
 % $$\begin{array}{ll}& Sv=b,\\ & l\leq v\leq u,\end{array}$$
 % 
-% the _relaxed flux balance analysis _problem 
+% the _relaxed flux balance analysis_ problem 
 % 
 % $$\begin{array}{ll}\min\limits _{v,r,p,q} & \lambda\Vert r\Vert_{0}+\gamma\Vert 
 % p\Vert_{0}+\gamma\Vert q\Vert_{0}\\\text{s.t.} & Sv+r=b\\ & l-p\leq v\leq u+q\\ 
@@ -288,7 +285,7 @@ end
 
 %relaxOption.steadyStateRelax = 1;
 %% 
-%  If relaxedFBA does return a solution, but it is not biochemcially realistic, 
+% If relaxedFBA does return a solution, but it is not biochemcially realistic, 
 % then again review the fields of relaxOption, to allow or disallow relaxation 
 % of certain constraints. For example, to specifically disallow relaxation of 
 % the bounds on reaction with model.rxns abbreviation 'myReaction', use
@@ -296,8 +293,8 @@ end
 %relaxOption.excludedReactions=false(n,1);
 %relaxOption.excludedReactions(strcmp(model.rxns,'myReaction'))=1;
 %% 
-%  To specifically disallow relaxation of the steady state constraint on 
-% a molecualr species with model.mets abbreviation 'myMetabolite', then use:
+% To specifically disallow relaxation of the steady state constraint on a molecualr 
+% species with model.mets abbreviation 'myMetabolite', then use:
 
 %relaxOption.excludedMetabolite=false(m,1);
 %relaxOption.excludedMetabolite(strcmp(model.mets,'myMetabolite'))=1;
@@ -402,8 +399,7 @@ end
 
 %changeCobraSolver('dqqMinos','LP')
 %% REFERENCES
-% Fleming, R.M.T., et al., Cardinality optimisation in constraint-based modelling: 
-% Application to Recon 3D (submitted), 2017.
-% 
-% Brunk, E. et al. Recon 3D: A resource enabling a three-dimensional view 
-% of gene variation in human metabolism. (submitted) 2017.
+% Ronan M T Fleming, Hulda S Haraldsdottir, Le Hoai Minh, Phan Tu Vuong, Thomas 
+% Hankemeier, Ines Thiele, Cardinality optimization in constraint-based modelling: 
+% application to human metabolism, _Bioinformatics_, Volume 39, Issue 9, September 
+% 2023, btad450, <https://doi.org/10.1093/bioinformatics/btad450 https://doi.org/10.1093/bioinformatics/btad450>

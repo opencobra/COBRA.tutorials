@@ -1,5 +1,5 @@
 %% Sparse flux balance analysis test for a minimial stoichiometrically balanced cycle involving ATP hydrolysis
-%% Authors: Ronan Fleming, Ines Thiele, University of Luxembourg.
+%% Authors: Ronan Fleming, Ines Thiele, School of Medicine, University of Galway
 %% Reviewer: Francisco J. Planes, TECNUN, University of Navarra, Laurent Heirendt, University of Luxembourg.
 %% INTRODUCTION
 % We consider a biochemical network of  |m| molecular species and  |n|  biochemical 
@@ -43,16 +43,16 @@
 % where the products are adenosine diphosphate (adp[c]) and orthophosphate (pi[c]). 
 % In Recon 3D, the full corresponding reaction formula is 
 % 
-% h2o[c] + atp[c] -> h[c] + adp[c] + pi[c]  <about:blank<#eq_ATPhydrolysis> 
+% h2o[c] + atp[c] -> h[c] + adp[c] + pi[c]  <about:blank<#eq_ATPhydrolysis%3E 
 % (1)> 
 % 
 % In a flux balance model, a maintenance requirement for synthesis of adenosine 
-% triphosphate can be represented with a lower bound on reaction <about:blank<#eq_ATPhydrolysis> 
-% (1)> or inclusion of reaction <about:blank<#eq_ATPhydrolysis> (1)> within a 
-% composite biomass reaction, when cellular growth is being modelled [1]. In order 
-% for either of these approaches to result in a constraint on energy metabolism 
+% triphosphate can be represented with a lower bound on reaction <about:blank<#eq_ATPhydrolysis%3E 
+% (1)> or inclusion of reaction <about:blank<#eq_ATPhydrolysis%3E (1)> within 
+% a composite biomass reaction, when cellular growth is being modelled [1]. In 
+% order for either of these approaches to result in a constraint on energy metabolism 
 % within the model, no stoichiometrically balanced set of internal reactions that 
-% include reaction <about:blank<#eq_ATPhydrolysis> (1)> should admit isolated 
+% include reaction <about:blank<#eq_ATPhydrolysis%3E (1)> should admit isolated 
 % hydrolysis of ATP, given the reaction bounds supplied with the model. If such 
 % a set exists, sparse flux balance analysis can be used to find one such minimal 
 % cardinality set [4, 5]. 
@@ -179,9 +179,9 @@ end
 % In lieu of such constraints, the bounds on reactions can be set based on the 
 % biochemical literature to eliminate net flux around a stoichiometrically balanced 
 % cycle. In Recon3.0, with all external reactions blocked, maximising reaction 
-% <about:blank<#eq_ATPhydrolysis> (1)> while minimising the cardinality of all 
+% <about:blank<#eq_ATPhydrolysis%3E (1)> while minimising the cardinality of all 
 % internal reactions, using sparse flux balance analysis was used to find one 
-% such minimal cycle. The optimal solution involves reaction <about:blank<#eq_ATPhydrolysis> 
+% such minimal cycle. The optimal solution involves reaction <about:blank<#eq_ATPhydrolysis%3E 
 % (1)> in a set of nine stoichiometrically balanced reactions, with bounds that 
 % admit an arbitrary amount of isolated ATP hydrolysis. Recon3.0model contains 
 % no set of reactions that admit an arbitrary amount of isolated ATP hydrolysis.

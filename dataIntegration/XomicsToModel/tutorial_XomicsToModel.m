@@ -1,5 +1,6 @@
 %% Extraction of context-specific models via XomicsToModel
 %% Author: German Preciat, Analytical BioSciences, Leiden University
+%% *Reviewer(s): Ronan M.T. Fleming, School of Medicine, University of Galway*
 %% INTRODUCTION
 % The |XomicsToModel| pipeline${\;}^1$ of the COBRA Toolbox v3.4${\;}^2$, facilitates 
 % the generation a thermodynamic-flux-consistent, context-specific, genome-scale 
@@ -246,9 +247,10 @@ debugXomicsToModel(model, pwd, modelGenerationReport)
 % TIMING: 15 minutes to hours (computation) - days (interpretation)
 %% Bibliography
 %% 
-% # German Preciat, Agnieszka B. Wegrzyn, Ines Thiele, et al., "XomicsToModel: 
-% a COBRA Toolbox extension for generation of thermodynamic-flux-consistent, context-specific, 
-% genome-scale metabolic models", _bioRxiv_ (*2021*)
+% # Preciat, G., Wegrzyn, A. B., Luo, X., Thiele, I., Hankemeier, T., & Fleming, 
+% R. M. T. (2025). XomicsToModel: omics data integration and generation of thermodynamically 
+% consistent metabolic models. Nature Protocols. <https://doi.org/10.1038/s41596-025-01288-9 
+% https://doi.org/10.1038/s41596-025-01288-9> 
 % # Laurent Heirendt, Sylvain Arreckx, Thomas Pfau, et al., "Creation and analysis 
 % of biochemical constraint-based models using the COBRA Toolbox v. 3.0", _Nature 
 % protocols_ (*2019*).

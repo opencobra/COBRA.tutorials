@@ -1,5 +1,5 @@
 %% Thermodynamically constrain a metabolic model
-%% *Author: Ronan Fleming, Leiden University*
+%% *Author: Ronan Fleming,* School of Medicine, University of Galway
 %% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 

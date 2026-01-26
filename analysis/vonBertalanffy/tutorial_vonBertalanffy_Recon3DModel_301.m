@@ -1,5 +1,5 @@
 %% Thermodynamically constrain Recon3D
-%% *Author: Ronan Fleming, Leiden University & National University of Ireland, Galway.*
+%% *Author: Ronan Fleming,* School of Medicine, University of Galway
 %% *Reviewers:* 
 %% INTRODUCTION
 % In flux balance analysis of genome scale stoichiometric models of metabolism, 

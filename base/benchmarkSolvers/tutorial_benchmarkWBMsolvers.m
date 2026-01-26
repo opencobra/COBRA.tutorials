@@ -1,8 +1,6 @@
 %% Benchmark solvers for solving whole body metabolic models
-% *Authors: Ronan M.T. Fleming, University of Galway*
-% 
-% *Reviewers:* 
-% 
+%% *Author(s): Ronan M.T. Fleming, School of Medicine, University of Galway*
+%% *Reviewer(s):* 
 % 
 %% Introduction
 % Compare the time taken to solve different formulations of constraint-based 
@@ -496,4 +494,8 @@ if 1
             title('Successful QP solve times (lowest 50%)', 'Interpreter', 'none');
         end
     end
+%%
 end
+%% _Acknowledgments_
+% _Please note an acknowledgments section can be included._
+%% REFERENCES

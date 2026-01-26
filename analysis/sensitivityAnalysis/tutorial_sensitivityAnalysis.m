@@ -1,6 +1,6 @@
-%% Sensitivity of a flux balance analysis solution with respect to input data (Practices)
-%% Author(s): Ronan M.T. Fleming, Leiden University
-%% Reviewer(s):
+%% Sensitivity of a flux balance analysis solution with respect to input data
+%% Author(s): Ronan M.T. Fleming, School of Medicine, Universtity of Galway
+%% Reviewer(s): 
 %% INTRODUCTION
 % Consider an FBA problem
 % 

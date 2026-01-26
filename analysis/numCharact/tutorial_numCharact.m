@@ -1,6 +1,6 @@
 %% *Numerical properties of a reconstruction*
-% *Authors: Laurent Heirendt, Ronan M.T. Fleming, Luxembourg Centre for Systems 
-% Biomedicine*
+% *Authors: Laurent Heirendt, Luxembourg Centre for Systems Biomedicine; Ronan 
+% M.T. Fleming, University of Galway*
 % 
 % *Reviewers: Sylvain Arreckx, Thomas Pfau, and Catherine Fleming,  Luxembourg 
 % Centre for Systems Biomedicine*
@@ -10,28 +10,28 @@
 % the metabolic reconstruction at hand, to select the appropriate solver, or to 
 % determine incoherencies in the network. 
 % 
-% You will also be able to learn more about the definitions of the various 
-% numerical characteristics. This tutorial is particularly useful when you have 
-% a multi-scale model and are facing numerical issues when performing flux balance 
-% analysis or any other variants of FBA.
+% You will also be able to learn more about the definitions of the various numerical 
+% characteristics. This tutorial is particularly useful when you have a multi-scale 
+% model and are facing numerical issues when performing flux balance analysis 
+% or any other variants of FBA.
 %% EQUIPMENT SETUP
 %% *Initialize the COBRA Toolbox.*
 % Please ensure that The COBRA Toolbox has been properly installed, and initialized 
 % using the |initCobraToolbox| function.
-%%
+
 initCobraToolbox(false) % false, as we don't want to update
 %% PROCEDURE 
 % TIMING: 5 seconds - several hours (depending on the model size)
 % 
 % *Define the name of the model*
 % 
-% Throughout this tutorial, we will use the _E.coli core_ model [2]. It is 
-% generally good practice to define the name of the file that contains the model, 
-% the name of the model structure, and the name of the stoichiometric matrix, 
-% as separate variables. Therefore, we propose that within the |modelFile|, there 
-% is a structure named |modelName| with a field |matrixName| that contains the 
-% stoichiometric matrix |S| (or |A|).
-%%
+% Throughout this tutorial, we will use the _E.coli core_ model [2]. It is generally 
+% good practice to define the name of the file that contains the model, the name 
+% of the model structure, and the name of the stoichiometric matrix, as separate 
+% variables. Therefore, we propose that within the |modelFile|, there is a structure 
+% named |modelName| with a field |matrixName| that contains the stoichiometric 
+% matrix |S| (or |A|).
+
 % If this is a distributed model, get the folder for the model. Commonly if you use your own model, this is unnecessary
 % As the file would be in the current folder. But for this tutorial we need to make sure, that the right model is used, 
 % and that no other model with the same name is above it in the path.
@@ -48,9 +48,9 @@ matrixName = 'S';
 %% 
 % *Load the stoichiometric matrix*
 % 
-% In order to use the model, we need to read the |modelFile| that contains 
-% a COBRA model structure  |modelName|:
-%%
+% In order to use the model, we need to read the |modelFile| that contains a 
+% COBRA model structure  |modelName|:
+
 % load the modelName structure from the modelFile
 model = readCbModel(modelFile, 'modelName','model');
 %% 
@@ -65,21 +65,21 @@ end
 %% 
 % *Basic numerical characteristics*
 % 
-% The *number of elements* represents the total number of entries in the 
-% stoichiometric matrix (including zero elements). This number is equivalent to 
-% the product of the number of reactions and the number of metabolites.
+% The *number of elements* represents the total number of entries in the stoichiometric 
+% matrix (including zero elements). This number is equivalent to the product of 
+% the number of reactions and the number of metabolites.
 % 
 % The number of rows represents the *number of metabolites* in the metabolic 
 % network. The number of columns corresponds to the *number of biochemical reactions* 
 % in the network.
-%%
+
 % determine the number of reactions and metabolites in S
 [nMets, nRxns] = size(S)
 % determine the number of elements in S
 nElem = numel(S)  % Nmets * Nrxns
 %% 
-% The total number of nonzero elements corresponds to the total number of 
-% nonzero entries in the stoichiometric matrix (excluding zero elements).
+% The total number of nonzero elements corresponds to the total number of nonzero 
+% entries in the stoichiometric matrix (excluding zero elements).
 
 % determine the number of nonzero elements in S
 nNz = nnz(S)
@@ -90,7 +90,7 @@ nNz = nnz(S)
 % and the total number of elements. The sparser a stoichiometric matrix, the fewer 
 % metabolites participate in each reaction. The sparsity ratio is particularly 
 % useful to compare models by how many metabolites participate in each reaction.
-%%
+
 % determine the sparsity ratio of S (in percent)
 sparsityRatio = (1 - nNz / nElem) * 100.0  % [%]
 %% 
@@ -101,9 +101,9 @@ sparsityRatio = (1 - nNz / nElem) * 100.0  % [%]
 % determine the complementary sparsity ratio (in percent)
 compSparsityRatio = 100.0 - sparsityRatio  % [%]
 %% 
-% The *column density* corresponds to the number of nonzero 
-% elements in a column (i.e. reaction).
-% The *average column density* corresponds to the arithmetic average of all the 
+% The *average column density* corresponds to a ratio of the number of nonzero 
+% elements in each column (i.e. reaction) and the total number of metabolites. 
+% The average column density corresponds to the arithmetic average of all the 
 % column densities (sum of all the reaction densities divided by the number of 
 % reactions).
 
@@ -116,14 +116,14 @@ end
 % calculate the arithmetic average number of non-zeros in each column
 colDensityAv = colDensityAv / nRxns   % [-]
 %% 
-% The average column density provides a measure of how many stoichiometric 
-% coefficients participate in each biochemical reaction on average.
+% The average column density provides a measure of how many stoichiometric coefficients 
+% participate in each biochemical reaction on average.
 % 
-% The *relative column density* corresponds to the ratio of the number of 
-% nonzero elements in each column and the total number of metabolites. The relative 
-% column density corresponds to the average column density divided by the total 
-% number of metabolites (expressed in percent). The relative column density may 
-% also be expressed as parts-per-million [ppm] for large-scale or huge-scale models. 
+% The *relative column density* corresponds to the ratio of the number of nonzero 
+% elements in each column and the total number of metabolites. The relative column 
+% density corresponds to the average column density divided by the total number 
+% of metabolites (expressed in percent). The relative column density may also 
+% be expressed as parts-per-million [ppm] for large-scale or huge-scale models. 
 
 % determine the density proportional to the length of the column
 colDensityRel = colDensityAv / nMets * 100  % [%]
@@ -131,14 +131,14 @@ colDensityRel = colDensityAv / nMets * 100  % [%]
 % The relative column density indicates how many metabolites are being used 
 % on average in each reaction relative to the total number of metabolites in the 
 % metabolic network.
-% 
+%% 
 % *Sparsity Pattern (spy plot)*
 % 
 % The visualisation of the sparsity pattern is useful to explore the matrix, 
 % spot inconsistencies, or identify patterns visually. In addition to the standard 
 % sparsity pattern, the magnitude of the elements of the stoichiometric matrix 
 % (stoichiometric coefficients) is shown as proportional to the size of the dot.
-%%
+
 % print a colorful spy map of the S matrix
 spyc(S, colormap(advancedColormap('cobratoolbox')));
 
@@ -150,14 +150,13 @@ set(gca, 'fontsize', 14);
 % the column) and large coefficients (size of the dots). Also, the metabolites 
 % with large stoichiometric coefficients can be easily determined based on their 
 % dot size.
-% 
+%% 
 % *Rank*
 % 
-% The *rank* of a stoichiometric matrix is the maximum number of linearly 
-% independent rows, and is equivalent to the number of linearly independent columns. 
-% The rank is a measurement of how many reactions and metabolites are linearly 
-% independent. 
-%%
+% The *rank* of a stoichiometric matrix is the maximum number of linearly independent 
+% rows, and is equivalent to the number of linearly independent columns. The rank 
+% is a measurement of how many reactions and metabolites are linearly independent. 
+
 % determine the rank of the stoichiometric matrix
 if ispc
     rankS = rank(full(S))
@@ -165,9 +164,9 @@ else
     rankS = getRankLUSOL(S) % calculated using either the LUSOL solver [3]
 end
 %% 
-% The *rank deficiency* of the stoichiometric matrix is a measure of how 
-% many reactions and metabolites are not linearly dependent, and expressed as 
-% a ratio of the rank of the stoichiometric matrix to the theoretical full rank.
+% The *rank deficiency* of the stoichiometric matrix is a measure of how many 
+% reactions and metabolites are not linearly dependent, and expressed as a ratio 
+% of the rank of the stoichiometric matrix to the theoretical full rank.
 
 % calculate the rank deficiency (in percent)
 rankDeficiencyS = (1 - rankS / min(nMets, nRxns)) * 100  % [%]
@@ -177,18 +176,18 @@ rankDeficiencyS = (1 - rankS / min(nMets, nRxns)) * 100  % [%]
 % A singular value decomposition of the stoichiometric matrix is the decomposition 
 % into orthonormal matrices $U$ (of dimension |nMets| by |nMets|) and $V$ (of 
 % dimension |nRxns| by |nRxns|), and a matrix with nonnegative diagonal elements 
-% $D$ such that $S = UDV^T$.
+% $D$ such that $\textrm{S}\;\textrm{=}\;\textrm{UD}V^T$.
 % 
-% Note that the calculation of singular values is numerically expensive, 
-% especially for large stoichiometric matrices.
-%%
+% Note that the calculation of singular values is numerically expensive, especially 
+% for large stoichiometric matrices.
+
 % calculate the singular values
 svVect = svds(S, rankS);
 %% 
-% The |svds() |function returns the number of singular values specified 
-% in the second argument of the function. As most stoichiometric matrices are 
-% rank deficient, some singular values are zero (or within numerical tolerances). 
-% The cut-off is located at the rank of the stoichiometric matrix. 
+% The |svds()| function returns the number of singular values specified in the 
+% second argument of the function. As most stoichiometric matrices are rank deficient, 
+% some singular values are zero (or within numerical tolerances). The cut-off 
+% is located at the rank of the stoichiometric matrix. 
 
 % determine the vector with all singular values (including zeros)
 svVectAll = svds(S, min(nMets, nRxns));
@@ -216,8 +215,8 @@ ylabel('Magnitude of the singular value');
 
 hold off;
 %% 
-% The* maximum singular* value is* *the largest element on the diagonal 
-% matrix obtained from singular value decomposition. Similarly, the *minimum singular 
+% The *maximum singular* value is the largest element on the diagonal matrix 
+% obtained from singular value decomposition. Similarly, the *minimum singular 
 % value* is the smallest element on the diagonal matrix obtained from singular 
 % value decomposition. Only singular values greater than zero (numbered from |1| 
 % to |rank(S)|) are of interest.
@@ -232,8 +231,8 @@ minSingVal = svVect(rankS) % smallest non-zero singular value
 maxSingValBuiltIn = svds(S, 1)
 minSingValBuiltIn = svds(S, 1, 'smallestnz')
 %% 
-% The *condition number* of the stoichiometric matrix is a ratio of the 
-% maximum and minimum singular values. The higher this ratio, the more ill-conditioned 
+% The *condition number* of the stoichiometric matrix is a ratio of the maximum 
+% and minimum singular values. The higher this ratio, the more ill-conditioned 
 % the stoichiometric matrix is (numerical issues) and, generally, the longer the 
 % simulation time is.
 
@@ -243,7 +242,7 @@ condNumber = maxSingVal / minSingVal
 % *Summary of model characteristics*
 % 
 % The following numerical properties have been calculated:
-% 
+%% 
 % * *Number of elements*: represents the total number of entries in the stoichiometric 
 % matrix (including zero elements). This number is equivalent to the product of 
 % the number of reactions and the number of metabolites.
@@ -279,7 +278,7 @@ condNumber = maxSingVal / minSingVal
 % * *Condition number*: the condition number of the stoichiometric matrix is 
 % the ratio of the maximum and minimum singular values. The higher this ratio, 
 % the more ill-conditioned the stoichiometric matrix is (numerical issues).
-%%
+
 fprintf([' --- SUMMARY ---\n',...
     'Model file/Model name/Matrix name    %s/%s/%s\n',...
     'Size is [nMets, nRxns]               [%d, %d]\n',...
@@ -301,50 +300,50 @@ fprintf([' --- SUMMARY ---\n',...
 %% 
 % *Scaling*
 % 
-% The scaling estimate is based on the order of magnitude of the ratio of 
-% the maximum and minimum scaling coefficients, which are determined such that 
-% the scaled stoichiometric matrix has entries close to unity. In order to investigate 
+% The scaling estimate is based on the order of magnitude of the ratio of the 
+% maximum and minimum scaling coefficients, which are determined such that the 
+% scaled stoichiometric matrix has entries close to unity. In order to investigate 
 % the scaling of the stoichiometric matrix and provide an estimate of the most 
 % appropriate precision of the solver to be used, the following quantities should 
 % be calculated:
-% 
-% * *Estimation level: *The estimation level, defined by the parameter scltol 
+%% 
+% * *Estimation level:* The estimation level, defined by the parameter scltol 
 % provides a measure of how accurate the estimation is. The estimation level can 
 % be _crude_, _medium_, or _fine_.
-% * *Size of the matrix: *The size of the matrix indicates the size of the metabolic 
+% * *Size of the matrix:* The size of the matrix indicates the size of the metabolic 
 % network, and is broken down into number of metabolites and number of reactions.
 % * *Stoichiometric coefficients:* The maximum and minimum values of the stoichiometric 
 % matrix provide a range of the stoichiometric coefficients and are determined 
 % based on all elements of the stoichiometric matrix. Their ratio (and its order 
 % of magnitude) provides valuable information on the numerical difficulty to solve 
 % a linear program.
-% * *Lower bound coefficients: *The maximum and minimum values of the lower 
+% * *Lower bound coefficients:* The maximum and minimum values of the lower 
 % bound vector provide a range of the coefficients of the lower bound vector. 
 % Their ratio (and its order of magnitude) provides valuable information on the 
 % numerical difficulty to solve a linear program.
-% * *Upper bound coefficients: *The maximum and minimum values of the upper 
+% * *Upper bound coefficients:* The maximum and minimum values of the upper 
 % bound vector provide a range of the coefficients of the upper bound vector. 
 % Their ratio (and its order of magnitude) provides valuable information on the 
 % numerical difficulty to solve a linear program.
-% * *Row scaling coefficients: *The row scaling coefficients are the scaling 
+% * *Row scaling coefficients:* The row scaling coefficients are the scaling 
 % coefficients required to scale each row closer to unity. The maximum and minimum 
 % row scaling coefficients provide a range of row scaling coefficients required 
 % to scale the stoichiometric matrix row-wise. Their ratio (and its order of magnitude) 
 % provides valuable information on the numerical difficulty to solve a linear 
 % program. 
-% * *Column scaling coefficients: *The column scaling coefficients are the scaling 
+% * *Column scaling coefficients:* The column scaling coefficients are the scaling 
 % coefficients required to scale each column closer to unity. The maximum and 
 % minimum column scaling coefficients provide a range of column scaling coefficients 
 % required to scale the stoichiometric matrix column-wise. Their ratio (and its 
 % order of magnitude) provides valuable information on the numerical difficulty 
 % to solve a linear program.
-% 
+%% 
 % The scaling properties of the stoichiometric matrix can be determined using:
-%%
+
 [precisionEstimate, solverRecommendation] = checkScaling(model);
 %% 
-% The |precisionEstimate| yields a recommended estimate of the precision 
-% of the solver:
+% The |precisionEstimate| yields a recommended estimate of the precision of 
+% the solver:
 
 precisionEstimate
 %% 
@@ -369,9 +368,8 @@ modelGlcOAer_WT = readCbModel([modelFolder filesep 'ME_matrix_GlcAer_WT.mat'], '
 
 solverRecommendation
 %% 
-% The solver then can be set as suggested to use the quad-precision solver 
-% [5]:
-%%
+% The solver then can be set as suggested to use the quad-precision solver [5]:
+
 % changeCobraSolver('dqqMinos');
 %% 
 % Note that the timing for obtaining a solution using a quad-precision solver 
@@ -391,15 +389,15 @@ solverRecommendation
 % and a double precision solver might lead to inaccurate results. Try a quad precision 
 % solver in order to confirm the results when in doubt.
 % 
-% The |checkScaling()| function may be used on all operating systems, but 
-% the |'dqqMinos'| interface is only available on UNIX operating systems. If the 
-% |'dqqMinos'| interface is not working as intended, the binaries might not be 
-% compatible (raise an issue if they are not by providing the output of |generateSystemConfigReport|). 
+% The |checkScaling()| function may be used on all operating systems, but the 
+% |'dqqMinos'| interface is only available on UNIX operating systems. If the |'dqqMinos'| 
+% interface is not working as intended, the binaries might not be compatible (raise 
+% an issue if they are not by providing the output of |generateSystemConfigReport|). 
 % Make sure that all relevant system requirements are satisfied before trying 
 % to use the |'dqqMinos'| solver interface.
 % 
-% In case the |'dqqMinos' |interface reports an error when trying to solve 
-% the linear program, there might be an issue with the model itself.
+% In case the |'dqqMinos'| interface reports an error when trying to solve the 
+% linear program, there might be an issue with the model itself.
 %% References
 % [1] <http://www.nature.com/nbt/journal/v31/n5/full/nbt.2488.html Thiele et 
 % al., A community-driven global reconstruction of human metabolism, Nat Biotech, 
@@ -412,11 +410,11 @@ solverRecommendation
 % LU factors of a general sparse matrix, Linear Algebra and its Applications 88/89, 
 % 239-270.
 % 
-% [4] Multiscale modeling of metabolism and macromolecular synthesis in E. 
-% coli and its application to the evolution of codon usage, Thiele et al., PLoS 
-% One, 7(9):e45635 (2012).
+% [4] Multiscale modeling of metabolism and macromolecular synthesis in E. coli 
+% and its application to the evolution of codon usage, Thiele et al., PLoS One, 
+% 7(9):e45635 (2012).
 % 
-% [5] D. Ma, L. Yang, R. M. T. Fleming, I. Thiele, B. O. Palsson and M. A. 
-% Saunders, Reliable and efficient solution of genome-scale models of Metabolism 
-% and macromolecular Expression, Scientific Reports 7, 40863; doi: \url{10.1038/srep40863} 
-% (2017). <http://rdcu.be/oCpn http://rdcu.be/oCpn>.
+% [5] D. Ma, L. Yang, R. M. T. Fleming, I. Thiele, B. O. Palsson and M. A. Saunders, 
+% Reliable and efficient solution of genome-scale models of Metabolism and macromolecular 
+% Expression, Scientific Reports 7, 40863; doi: \url{10.1038/srep40863} (2017). 
+% <http://rdcu.be/oCpn http://rdcu.be/oCpn>.

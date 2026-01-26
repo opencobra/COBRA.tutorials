@@ -1,6 +1,6 @@
 %% Flux Balance Analysis (FBA) and its variants
-%% Author(s): *Ronan M.T. Fleming,* Leiden University;*Vanja Vlasov, LCSB, University of Luxembourg; Thomas Pfau, Systems Biology Group, LSRU, University of Luxembourg* 
-%% Reviewer(s): Ines Thiele, *Catherine Clancy, National University of Ireland, Galway. Thomas Pfau, Systems Biology Group, LSRU, University of Luxembourg.*
+%% Author(s): *Ronan M.T. Fleming,* *University of Galway*; *Vanja Vlasov, LCSB, University of Luxembourg; Thomas Pfau, Systems Biology Group, LSRU, University of Luxembourg* 
+%% Reviewer(s): Ines Thiele, *Catherine Clancy, University of Galway. Thomas Pfau, Systems Biology Group, LSRU, University of Luxembourg.* 
 %% INTRODUCTION
 % Flux balance analysis (FBA) evaluates the metabolic flux distribution$$^1$, 
 % and is one of the most used modelling approaches for metabolic systems. 

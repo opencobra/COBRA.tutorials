@@ -1,5 +1,5 @@
 %% Sparse Linear Optimisation
-%% Author: Ronan Fleming, Hoai Minh Le, Systems Biochemistry Group, University of Luxembourg.
+%% Author: Ronan Fleming, School of Medicine, University of Galway; Hoai Minh Le, Systems Biochemistry Group, University of Luxembourg.
 %% Reviewer: Stefania Magnusdottir, Molecular Systems Physiology Group, University of Luxembourg.
 %% INTRODUCTION
 % In this tutorial, we will show how to use the sparse LP solver. This solver 

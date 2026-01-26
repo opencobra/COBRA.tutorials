@@ -1,6 +1,5 @@
 %% Create an overview table with model properties
-% *Author(s): Ines Thiele, Ronan M. T. Fleming, Systems Biochemistry Group, 
-% LCSB, University of Luxembourg.*
+% *Author(s): Ines Thiele, Ronan M. T. Fleming, University of Galway.*
 % 
 % *Reviewer(s): Catherine Fleming, Stefania Magnusdottir, Molecular Systems 
 % Physiology Group, LCSB, University of Luxembourg.*

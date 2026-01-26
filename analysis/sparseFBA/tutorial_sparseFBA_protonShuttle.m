@@ -1,5 +1,5 @@
 %% Proton shuttle testing with sparse flux balance analysis
-%% Author: Ronan Fleming, Ines Thiele, University of Luxembourg.
+%% Author: Ronan Fleming, Ines Thiele, School of Medicine, University of Galway.
 %% Reviewer:
 %% INTRODUCTION
 % We consider a biochemical network of  m  molecular species and  n  biochemical 
@@ -162,7 +162,7 @@ end
 % reaction bounds zero, then the bounds on one of the reactions in each of the 
 % minimal sets needs to be set to eliminate flux in one direction. Each of the 
 % minimal sets corresponds to net flux around a stoichiometrically balanced cycle, 
-% which is thermodynamically infeasible [<about:blank<#LyXCite-fleming_variational_2012> 
+% which is thermodynamically infeasible [<about:blank<#LyXCite-fleming_variational_2012%3E 
 % fleming_variational_2012>]. Steady-state mass balance constraints do not enforce 
 % thermodynamic constraints. In lieu of such constraints, the bounds on reactions 
 % can be set based on the biochemical literature to eliminate net flux around 
@@ -423,7 +423,7 @@ end
 % [fleming_cardinality_nodate] Fleming, R.M.T., et al., Cardinality optimisation 
 % in constraint-based modelling: illustration with Recon 3D (submitted), 2017.
 % 
-% [<about:blank<#LyXCite-sparsePaper> sparsePaper>] Le Thi, H.A., Pham Dinh, 
+% [<about:blank<#LyXCite-sparsePaper%3E sparsePaper>] Le Thi, H.A., Pham Dinh, 
 % T., Le, H.M., and Vo, X.T. (2015). DC approximation approaches for sparse optimization. 
 % European Journal of Operational Research 244, 26–46.
 % 

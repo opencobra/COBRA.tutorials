@@ -1,5 +1,5 @@
 %% Sparse Flux Balance Analysis 
-%% Author: Ronan Fleming, Hoai Minh Le, Systems Biochemistry Group, University of Luxembourg.
+%% Author: Ronan Fleming, School of Medicine, University of Galway; Hoai Minh Le, Systems Biochemistry Group, University of Luxembourg.
 %% Reviewer: Stefania Magnusdottir, Molecular Systems Physiology Group, University of Luxembourg.
 %% INTRODUCTION
 % We consider a biochemical network of  m  molecular species and  n  biochemical 

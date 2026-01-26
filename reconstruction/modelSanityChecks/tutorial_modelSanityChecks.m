@@ -1,6 +1,5 @@
 %% Testing basic properties of a metabolic model (aka sanity checks)
-% *Author(s): Ines Thiele, Ronan M. T. Fleming, Systems Biochemistry Group, 
-% LCSB, University of Luxembourg.*
+% *Author(s): Ines Thiele, Ronan M. T. Fleming, University of Galway.*
 % 
 % *Reviewer(s): Almut Heinken, LCSB, University of Luxembourg.*
 % 
