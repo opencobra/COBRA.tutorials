@@ -4,7 +4,7 @@
 %% INTRODUCTION
 % In this tutorial, the existence of Alternate Optimal Solutions [2] to a Flux 
 % Balance Analysis (FBA) problem is introduced using the E. coli core model[1], 
-% with functions in the COBRA Toolbox v3.0 [3].  
+% with functions in the COBRA Toolbox v3.0 [3].
 %% E. coli core model
 % A map of the E. coli core model is shown in Figure 1. 
 % 

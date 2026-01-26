@@ -4,20 +4,18 @@
 % Cyrille C. Thinnes (University of Galway, Ireland)
 %% INTRODUCTION
 % This is a tutorial to show how to use the nutrition toolbox to a) find database 
-% equivalents in the USDA [1] or FRIDA [2] databases, b) use the database equivalents 
-% to create _in silico_ diets, c) how to set _in silico_ diet constraints on whole-body 
-% metabolic models[3], and d) how to connect to the nutrition algorithm[4] to 
-% predict dietary changes. A dietary food item is defined as the food items for 
-% which the user wants to find database equivalents. A database equivalent here 
-% means a food item in either the USDA or FRIDA database that matches the original 
-% dietary food item both on keyword and macronutrient composition.
+% food equivalents in the USDA [1] or FRIDA [2] databases, b) use the database 
+% food equivalents to create _in silico_ diets, c) how to set _in silico_ diet 
+% constraints on whole-body metabolic models[3], and d) how to connect to the 
+% nutrition algorithm[4] to predict dietary changes. A database food equivalent 
+% here means a food item in either the USDA or FRIDA database. 
 %% MATERIALS
 %% 
 % * MATLAB.
 % * COBRA toolbox [5]. For instruction on installing the COBRA toolbox see <https://opencobra.github.io/cobratoolbox/stable/installation.html 
 % https://opencobra.github.io/cobratoolbox/stable/installation.html>
-% * Dietary food items with corresponding macronutrient information (see template 
-% file in the nutrition toolbox paper).
+% * Food items with corresponding macronutrient information (see template file 
+% in the nutrition toolbox paper).
 % * Diet file with consumed dietary items per diet (see template file in the 
 % nutrition toolbox paper).
 % * Total macrocomposition of diets (optional) (see template file in the nutrition 
@@ -31,33 +29,33 @@
 % in the input files.
 % 
 % The nutrition toolbox uses three input files, one of which is optional. The 
-% first input file contains the macronutrient composition and associated reference 
-% weight of each dietary food item, referred to as the foodDescription file (you 
-% may also use the default values found on the packaging, in which case the reference 
-% weight is 100g or equivalent depending on the information available). An example 
-% can be found in the file demoFoodDescription.xlsx. We also provide a partially 
-% completed file with the macronutrient information already filled in (demoFoodDescriptionEmpty.xlsx), 
+% first input file contains the macronutrient composition and associated consumed 
+% weight of each food item, referred to as the foodDescription file (you may also 
+% use the default values found on the packaging, in which case the weight consumed 
+% is 100g or equivalent depending on the information available). An example can 
+% be found in the file demoFoodDescription.xlsx. We also provide a partially completed 
+% file with the macronutrient information already filled in (demoFoodDescriptionEmpty.xlsx), 
 % so you can test filling in keywords. The columns in the files are: 
 %% 
-% * OriginalFoodName - the original name of the dietary food item. This would 
-% be the name you, the user, would refer to the dietary food item. It has no influence 
-% on the results.
-% * KeyWords - semicolon (;) seperated list of words that describe the dietary 
-% food item. Ensure that the first keyword is the most descriptive or important 
-% as the code uses that in weighting potential database equivalents. E.g., for 
-% the dietary food item "red apple", the most descriptive word is apple, so we 
-% shall put this as the initial keyword. A method to quickly generate keywords 
-% is to separate each word in the original food name with a semicolon.
+% * OriginalFoodName - the original name of the food item. This would be the 
+% name you, the user, would refer to the food item. It has no influence on the 
+% results.
+% * KeyWords - semicolon (;) seperated list of words that describe the food 
+% item. Ensure that the first keyword is the most descriptive or important as 
+% the code uses that in weighting potential database food equivalents. E.g., for 
+% the food item "red apple", the most descriptive word is apple, so we shall put 
+% this as the initial keyword. A method to quickly generate keywords is to separate 
+% each word in the original food name with a semicolon.
 % * toExclude - semicolon (;) seperated list of key words that exclude results 
-% from the database equivalent search.
+% from the database food equivalent search.
 % * databaseID - semicolon (;) seperated list of database IDs already found 
 % through previous iterations of running the algorithm.
 % * databaseName - semicolon (;) seperated list of the name of the database 
 % corresponinding to the IDs filled in the databaseID column. This is either usda 
 % or frida and nothing else.
-% * ReferenceWeight(g) - Amount of food consumed (included water weight). It 
-% is important to check that the macronutrients you enter correspond to this reference 
-% weight. Always given in grams
+% * ReferenceWeight(g) - The reference amount of food that matches the reported 
+% marconutrient values. This would typically be 100g for most food labels. Always 
+% given in grams
 % * Alcohol(g) - Amount of alcohol reported on the food label.
 % * TotalEnergy(kcal) - Amount of energy reported on the food label. IMPORTANT 
 % given in KCAL.
@@ -79,44 +77,44 @@
 % carbohydrate components (i.e., sugars, fibre, and starch) are used where available.
 % 
 % If information for a macronutrient column is not available, leave the cell 
-% blank/empty.
+% blank.
 % 
-% If the label of your dietary food item is given as a volume instead of weight 
-% (e.g., /100mL) you will need to convert the volume into weight, e.g., by measuring 
-% how many grams the 100mL correspond to, or converting the volume into to grams 
-% by using the dietary food item density (if available).
+% If the label of your food is given as a volume instead of weight (e.g., /100mL) 
+% you will need to convert the volume into weight, e.g., by measuring how many 
+% grams the 100mL correspond to, or converting the volume into to grams by using 
+% the food item density (if available).
 % 
-% If a dietary food item is consumed in different quantaties across different 
-% diets, you only have to enter it once foodDescriptions file. IMPORTANT is that 
-% macronutrients input by the user correspond to the consumed weight (includes 
-% water weight)
+% If a food item is consumed in different quantaties across different diets, 
+% you only have to enter it once foodDescriptions file. IMPORTANT is that reported 
+% macronutrients correspond to the reference weight (includes water weight)
 % 
-% The weights consumed are used to to adjust the macronutrients from database 
-% equivalents to the same weight consumption as the macronutrients for database 
-% equivalents are all given per 100g of food consumed.
+% The reference weights are used to to adjust the macronutrients from database 
+% food equivalents to the same weight consumption as the macronutrients for database 
+% food equivalents are all given per 100g of food consumed.
 % 
-% Users should double-check that the macros correspond the reference weight 
-% of the dietary food item. I.e., make sure that if the reference wieght is 80g, 
-% the standard 100g macronutrient values as reported on food labels is NOT used.
+% Users should double-check that the reported macronutrients correspond the 
+% reference weight of the food item. I.e., make sure that if the reference weight 
+% is 80g, not the standard 100g of food on food labels is input in the various 
+% macronutrient columns.
 % 
-% *The second input file* contains the consumed weight of dietary food items 
-% per diet which will be used to create _in silico_ diets, referred to here as 
-% the foodsConsumed file. In the foodsConsumed file we will fill in the database 
-% equivalents found with the foodDescription file. If a dietary food item is not 
-% consumed in a diet, set the weight consumed to 0. A worked example can be found 
-% in demoFoodConsumed.xlsx, an example without the database equivalents can be 
-% found in demoFoodConsumedEmpty.xlsx. The following columns can be filled in:
+% *The second input file* contains the consumed weight of food items per diet 
+% which will be used to create _in silico_ diets, referred to here as the foodsConsumed 
+% file. In the foodsConsumed file we will fill in the database food equivalents 
+% found with the foodDescription file. If a food item is not consumed in a diet, 
+% set the weight consumed to 0. A worked example can be found in demoFoodConsumed.xlsx, 
+% an example without the database food equivalents can be found in demoFoodConsumedEmpty.xlsx. 
+% The following columns can be filled in:
 %% 
 % * originalName - The original food name. This is usefull to double check that 
-% the consumed weights per diet are correct and the correct database equivalents 
+% the consumed weights per diet are correct and the correct database food equivalents 
 % are put in place.
-% * foodName - The name of the database equivalent, serves as a control to make 
-% sure it matches with the original food.
-% * databaseID - The ID of the database equivalent - this will be given in the 
-% output of step 2 when we find and compare database equivalents.
-% * databaseUsed  - The name of the database where the database equivalent is 
-% found - this will be given in the output of step 2 when we find and compare 
-% database equivalents.
+% * foodName - The name of the database food equivalent, serves as a control 
+% to make sure it matches with the original food.
+% * databaseID - The ID of the database food equivalent - this will be given 
+% in the output of step 2 when we find and compare database food equivalents.
+% * databaseUsed  - The name of the database where the database food equivalent 
+% is found - this will be given in the output of step 2 when we find and compare 
+% database food equivalents.
 %% 
 % *The third input file* contains the macronutrient composition of the full 
 % diets and can found in demoOriginalMacroDiet. Each column is a diet with the 
@@ -128,13 +126,25 @@
 initCobraToolbox();
 % Change the solver, can be gurobi, ibm_cplex, tomlab_cplex, or mosek
 changeCobraSolver('gurobi');
-% _Step 2: Finding database equivalents_
-% The first step in making an _in silico_ diet is to find equivalents in databases 
-% that have metabolite compositions measured. Here we use both the the U.S. Department 
-% of Agriculture, FoodData Central (USDA) database and the National Food Institute, 
-% Technical University of Denmark FRIDA (FRIDA) database. The function we use 
-% to find database equivalents is _vmhFoodFinder.m_ and is available in the COBRA 
-% toolbox. The function takes the following inputs:
+%% 
+% Shortly on how the USDA and FRIDA databases were created. The functions createUSDAdatabase 
+% and createFridaDatabase are used to convert food items into VMH readable format 
+% but are not discussed here in this tutorial. The nutrients per food item are 
+% exctracted and converted to mmol. To obtain mmol/100g database food equivalent 
+% for the metabolite content of the databases, we have transformed the original 
+% database measurements. The databases contain measured metabolite weights in 
+% the format of g (or form thereof) /100g database food equivalent. We have converted 
+% them into g/100g of food item for easy manipulation and then divided them by 
+% the molecular weight (g/mol) of a metabolite to arrive at mol/100g. Finally, 
+% multiplication by a 1000 transforms the data into mmol/100g of database food 
+% equivalent.
+% _Step 2: Finding database food equivalents._
+% The first step in making an _in silico_ diet is to find food equivalents in 
+% databases that have metabolite compositions measured. Here we use both the the 
+% U.S. Department of Agriculture, FoodData Central (USDA) database and the National 
+% Food Institute, Technical University of Denmark FRIDA (FRIDA) database. The 
+% function we use to find database food equivalents is _vmhFoodFinder.m_ and is 
+% available in the COBRA toolbox. The function takes the following inputs:
 %% 
 % * templateFilePath *Required* - The full file path to where the input file 
 % is stored. IMPORTANT! remember to include a file extension. The demo file for 
@@ -142,49 +152,42 @@ changeCobraSolver('gurobi');
 % * searchType *Optional* - Method of searching keywords in the food database. 
 % Either sequential or cumulative. Explanation about the difference is given below.
 % * addStarch *Optional* - Boolean, indicates if additional starch should be 
-% added based on the database macronutrients. It will add on additional starch 
+% added based on the reported macronutrients. It will add on additional starch 
 % based on the equation starch = total carbohydrates - fibre - total sugars, as 
 % starch is often not measured in the USDA database. Defaults to false.
 % * databaseType *Optional* - Character, which database should be used either 
 % 'usda' for USDA FoodData database or 'frida' for the Danish food institute database. 
 % Can be 'mixed' if both databases should be used. Defaults to mixed.
 % * maxItems *Optional* - Numeric, value indicating the maximum amount of database 
-% equivalents to be analysed for macros. Defaults to 50.
+% food equivalents to be analysed for macronutrients. Defaults to 50.
 % * outputDir *Optional* - Path to where the output file will be stored. Defaults 
 % to [pwd filesep 'NT_Result'] 
 % * foodSources2Use *Optional* - Cell of strings, dictates which food sources 
-% from the USDA database will be used to find database equivalents. Defaults to 
-% {'sr_legacy_food'; 'foundation_food'; 'survey_fndds_food'};
+% from the USDA database will be used to find food items. Defaults to {'sr_legacy_food'; 
+% 'foundation_food'; 'survey_fndds_food'};
 %% 
-% There are two search methods employed to find potential database equivalents: 
+% There are two search methods employed to find potential database food equivalents: 
 % sequential and cumulative
 % 
 % In the sequential search method, the first keyword is used to identify database 
-% equivalents containing that keyword, resulting in sub-selection 1. The second 
-% keyword is then used to filter sub-selection 1, retaining only those entries 
-% that contain the second keyword, thereby producing sub-selection 2. This process 
-% continues until all keywords have been used. If the final sub-selection is empty, 
-% the results from the second to last sub-selection are used, if applicable.
+% food equivalents containing that keyword, resulting in sub-selection 1. The 
+% second keyword is then used to filter sub-selection 1, retaining only those 
+% entries that contain the second keyword, thereby producing sub-selection 2. 
+% This process continues until all keywords have been used. If the final sub-selection 
+% is empty, the results from the second to last sub-selection are used, if applicable.
 % 
 % In the cumulative search method, each keyword independently generates a sub-selection 
-% of database equivalents that contain the respective keyword. All resulting database 
-% equivalents are then tallied. Database equivalents with a total count of total 
-% number of keywords -1 or more are returned. If no database equivalents reach 
-% that threshold, the results for total number of keywords -2 matches are returned.
-% 
-% To obtain mmol/100g database equivalent for the metabolite content of the 
-% databases, we have transformed the original database measurements. These are 
-% done in createUSDAdatabase and createFridaDatabase but are not discussed here 
-% in this tutorial. The databases contain measured metabolite weights in the format 
-% of g (or form thereof) /100g database equivalent. We have converted them into 
-% g/100g of database equivalent for easy manipulation and then divided them by 
-% the molecular weight (g/mol) of a metabolite to arrive at mol/100g. Finally, 
-% multiplication by a 1000 transforms the data into mmol/100g of database equivalent.
+% of database food equivalents that contain the respective keyword. All resulting 
+% database food equivalents are then tallied. Database food equivalents with a 
+% total count of total number of keywords -1 or more are returned. If no database 
+% food equivalents reach that threshold, the results for total number of keywords 
+% -2 matches are returned.
 % 
 % First we will define some of the input arguments
 
 % Path to the input file, change to where the file is on your computer
 templateFilePath = 'C:\nutritionToolbox\demoFoodDescription.xlsx';
+
 % Path to where we want our results stored so we can easily find them,
 % change to an existing path on your computer
 outputDir = 'C:\nutritionToolbox\results';
@@ -215,81 +218,81 @@ vmhFoodFinder(templateFilePath, 'outputDir', outputDir);
 % Four output files will be stored in the NT_results folder
 %% 
 % * fullComparisonFoodItems.xlsx - The file contains the full comparison for 
-% each dietary food item. Dietary food items that had no, or too many, database 
-% equivalents have also been indicated. The file can be used to select database 
-% equivalents to create _in silico_ diets with.
-% * tooManyDatabaseHits.xlsx  - This file contains all the dietary food items 
-% that had more than the maximum allowed database equivalents to be compared (set 
-% in the maxItems input variable). The columns contain the dietary food items 
-% and the rows contain every database equivalent found for that food item. The 
-% file can be used to refine the key words used to describe dietary food items, 
-% or to populate the toExclude column in the input file.
-% * noDatabaseHits.txt  - A list of dietary food items for which no database 
-% equivalents were found. For these items, check the spelling of key words, alternative 
+% each food item. Food items that had no, or too many, database food equivalents 
+% have also been indicated. The file can be used to select database food equivalents 
+% to create _in silico_ diets with.
+% * tooManyDatabaseHits.xlsx  - This file contains all the food items that had 
+% more than the maximum allowed database food equivalents to be compared (set 
+% in the maxItems input variable). The columns contain the food items and the 
+% rows contain every database food equivalent found for that food item. The file 
+% can be used to refine the key words used to describe food items, or to populate 
+% the toExclude column in the input file.
+% * noDatabaseHits.txt  - A list of food items for which no database food equivalents 
+% were found. For these items, check the spelling of key words, food equivalents 
 % names, or reduce the amount of key words. If that does not help, try to find 
-% a database equivalent on VMH.life.
+% a database food equivalent on VMH.life.
 % * topResultsComparisonFoodItems.xlsx - Similar to fullComparisonFoodItems.xlsx, 
 % containing only the top 10 results for a more concise overview of the results.
 %% 
 % Either the fullComparisonFoodItemsn or topResutlsComparisonFoodItems can be 
-% used to select database equivalents. The code compares the macros provided by 
-% the user for each dietary food item and compares them to the given/measured 
-% macros from the database equivalents (so-called database macronutrients) and 
-% then uses Euclidean distance to evaluate how similar the two are. The Euclidean 
+% used to select database food equivalents. The code compares the macronutrients 
+% provided by the user for each food item and compares them to the given/measured 
+% macronutrients from the database food equivalents (so-called label macronutrients) 
+% and then uses Euclidean distance to evaluate how similar the two are. The Euclidean 
 % distance is given in the SimilarityScore column of these two files. Besides 
-% the Euclidean distance, the percentage of the macronutrients as caluted from 
-% the metabolites is reported. The measured metabolites are grouped into macronutrient 
-% groups and give an indication of how well the macronutrients are represented 
-% in measured metabolite content. Database equivalents less similar to dietary 
-% food items may be chosen if they have a higher measured metabolite representation 
-% in their macronutrients. By choosing the database equivalents that may be less 
-% similar to the dietary food item but with a higher measured metabolite representation, 
+% the Euclidean distance, the percentage of the macronutrients measured as metabolites 
+% is also reported. The measured metabolites are grouped into macronutrient groups 
+% and give an indication of how well the macronutrients are represented in measured 
+% metabolite content. Database food equivalents less similar to dietary food items 
+% may be chosen if they have a higher measured metabolite representation in their 
+% macronutrients. By choosing the database food equivalents that may be less similar 
+% to the dietary food item but with a higher measured metabolite representation, 
 % it increases the metabolic content of the _in silico_ diets and give more overall 
-% information as opposed to choosing database equivalents with lower metabolite 
+% information as opposed to choosing database food equivalents with lower metabolite 
 % representation that might be more similar to the dietary food item.
 % 
-% For example, if we were to compare  two database equivalents: "Dates, medjool" 
-% and "Date", both from the USDA database, the database macronutrient values are 
-% near identical. However, "Dates, medjool" has higher percentages of macronutrients 
-% covered by measured metabolites than "Date", making it a better choice due to 
-% its greater metabolite coverage.
+% For example, if we were to compare  two database food equivalents: "Dates, 
+% medjool" and "Date", both from the USDA database, the reported macronutrient 
+% values are near identical. However, "Dates, medjool" has higher percentages 
+% of macronutrients covered by measured metabolites than "Date", making it a better 
+% choice due to its greater metabolite coverage.
 % 
 % It is very likely that you will need to perform 2 or 3 runs with updated keywords 
-% to obtain suitable database equivalents for each dietary food item. To reduce 
-% time, it is recommended to fill in the column databaseID and databaseName for 
-% the dietary food items for which appropriate database equivalents have been 
-% identified. To improve keyword performance in subsequent runs, users may consider 
-% changing the number of keywords, exploring alternative spellings, or naming 
-% conventions. Additionally, looking at the tooManyDatabaseHits may help finding 
-% keywords for the toExclude column. Alternatively, you can increase the max items 
-% compared, set by putting ,'maxItems', x in the function call (where x is the 
-% new number of max items compared).
+% to obtain suitable database food equivalents for each dietary food item. To 
+% reduce time, it is recommended to fill in the column databaseID and databaseName 
+% for the dietary food items for which appropriate database food equivalents have 
+% been identified. To improve keyword performance in subsequent runs, users may 
+% consider changing the number of keywords, exploring alternative spellings, or 
+% naming conventions. Additionally, looking at the tooManyDatabaseHits may help 
+% finding keywords for the toExclude column. Alternatively, you can increase the 
+% max items compared, set by putting ,'maxItems', x in the function call (where 
+% x is the new number of max items compared).
 % _Step 3: Generating in silico diets_
 % With step 1 and step 2 performed, we can now prepare the second input file, 
-% referred to as "demoCreateDiet" here. In step 1,  we already filled in the dietary 
+% referred to as "demoCreateDiet" here. In step 1,  we already filled in the original 
 % food items and the consumed weight per diet in the "demoCreateDiet" file. Now 
-% we can fill in the database id and database name for each dietary food item. 
+% we can fill in the database id and database name for each dietary food iem. 
 % The two fields can be directly copied from fullComparisonFoodItemsn or topResutlsComparisonFoodItems 
-% where the relevant database equivalents were chosen. Once completed, we can 
-% use the function _generateInSilicoDiet.m_ to create our _in silico_ diets and 
-% do some quick analyses. The function takes the following inputs:
+% where the relevant database food equivalents were chosen. Once completed, we 
+% can use the function _generateInSilicoDiet.m_ to create our _in silico_ diets 
+% and do some quick analyses. The function takes the following inputs:
 %% 
 % * toCreateDiet *Required*:            Path to the file with the diets that 
 % need to be created. consist of column "originalName" where the orignal food 
 % names are set. "databaseID" the ID of the fooditem in their database. "databaseUsed" 
-% which database was used to find that database equivalent. Each column after 
-% is a diet where the values in gram show the dietary food items consumed for 
-% each diet. The demo file for this is called 'demoCreateDiet.xlsx'.
+% which database was used to find that database food equivalent. Each column after 
+% is a diet where the values in gram show the food items consumed for each diet. 
+% The demo file for this is called 'demoCreateDiet.xlsx'.
 % * outputDir *Optional*:                  Path to the directory where the results 
 % should be stored. Defaults to current working directory.
-% * originalDietMacros *Optional*:   Path to the file with the total macronutrient 
+% * originalDietMacros *Optional*:   Path to the file with the total macronutrients 
 % for the original diets. Should contain the rows lipids, carbohydrate, protein 
 % and energy. Defaults to an empty string, i.e., not provided. Template how the 
 % file should look like can be found with the name 'demoOriginalMacroDiet.xlsx'.
 % * analyseMacros *Optional*:         Boolean, indicates if analysis on macronutrients 
 % should be performed. Defaults to true.
 % * addStarch *Optional*:                 Boolean, indicates if additional starch 
-% should be added based on the database macronutrients. It will add on additional 
+% should be added based on the reported macronutrients. It will add on additional 
 % starch based on the equation starch = total carbohydrates - fibre - total sugars, 
 % as starch is often not measured in the USDA database. Defaults to false.
 %% 
@@ -298,6 +301,7 @@ vmhFoodFinder(templateFilePath, 'outputDir', outputDir);
 % The path to your diet file. The demo is called demoCreateDiet.xlsx.
 % Change to the path where the file is on your computer
 toCreateDiet = 'C:nutritionToolbox\demoCreateDiet.xlsx';
+
 % We initialised outputDir in step 2 already. If you want to store it in a
 % different directory, remove the % from the code below and put in the
 % desired location.
@@ -307,11 +311,12 @@ toCreateDiet = 'C:nutritionToolbox\demoCreateDiet.xlsx';
 % demoOriginalMacroDiet.xlsx file and give the path here. If you dont have
 % it leave it as is. Change to the path where the file is on your computer.
 originalDietMacros = 'C:\nutritionToolbox\demoOriginalMacroDiet.xlsx';
+
 % Put to false if you do not want analysis on the macronutrients
 analyseMacros = true;
 
 % Set to true if you want to add on additional starch for USDA based
-% database equivalents
+% database food equivalents
 addStarch = false;
 
 % Now we can the function
@@ -321,26 +326,26 @@ addStarch = false;
 %% 
 % The figure generated by the code will show you how well various macro-nutrients 
 % match the original diet. In blue are the macronutrients calculated from measured 
-% metabolites, in orange the macronutrients as measured from the database equivalents 
-% and in yellow the database macronutrients from the original diet. From the demo 
-% we can see that the database equivalents and the original diet match well in 
-% macronutrient composition, with only a slight overestimation of lipid content. 
-% We see that the macronutrients calculated from measured metabolites (blue bar) 
-% is lower. This is because the metabolite content for every database equivalent 
-% is not perfectly represented and some metabolites might be missed or not measured. 
-% There are also measurement errors that could play a small role in the deviations 
-% we see. 
+% metabolites, in orange the macronutrients as measured from the database food 
+% equivalents and in yellow the reported macronutrients from the original diet. 
+% From the demo we can see that the database food equivalents and the original 
+% diet match well in macronutrient composition, with only a slight overestimation 
+% of lipid content. We see that the macronutrients calculated from measured metabolites 
+% (blue bar) is lower. This is because the metabolite content for every database 
+% food equivalent is not perfectly represented and some metabolites might be missed 
+% or not measured. There are also measurement errors that could play a small role 
+% in the deviations we see.
 % 
-% Of note: caloric values for database equivalents are extracted from the database. 
-% Caloric values for metabolites are assigned based on which macronutrient category 
-% a metabolite falls into: lipids are assigned 9 kcal/g macronutrient, protein 
-% and sugars 4 kcal/g macronutrient, and alcohol 7 kcal/g macronutrient. Metabolites 
-% falling outside these categories are assigned a caloric value of 0 kcal/g macronutrient[6].
+% Caloric values for database equivalents are extracted from the database. Caloric 
+% values for metabolites are assigned based on which macronutrient category a 
+% metabolite falls into. lipids are assigned 9 kcal/g macronutrient, protein and 
+% sugars 4 kcal/g macronutrient, and alcohol 7 kcal/g macronutrient[6]. Metabolites 
+% falling outside these categories are assigned a caloric value of 0 kcal/g macronutrient.
 % 
 % We can look at the first 10 rows of dietFlux and see that indeed the dietary 
 % metabolites are returend for the diet that we created. It is normal that not 
 % all dietary metabolites have an asocciated flux value as not every metabolite 
-% is a) measured or b) found in every database equivalent. The flux values are 
+% is a) measured or b) found in every food item / database. The flux values are 
 % given in mmol/human/day
 
 dietFlux(1:10,:)
@@ -352,15 +357,15 @@ dietFlux(1:10,:)
 % for each diet.
 % * macrosCalculatedFromMetabolites.csv - The macronutrients as calculated from 
 % the measured metabolites for each diet.
-% * macrosAsReported.csv - The macronutrients as reported for all the dietary 
-% food items that make up each diet.
+% * macrosAsReported.csv - The macronutrients as reported for all the food items 
+% that make up each diet.
 % * macroComparison.png - The figure made output by MATLAB, showing the comparison 
 % for each diet between the various macronutrients and how well the metabolite 
-% macronutrients align with the database macronutrients and, if provided, the 
-% original diet macronutrients.
+% macronutrients align with the reported/label macronutrients and, if provided, 
+% the original diet macronutrients.
 % * energyFractionPerMacro.csv - For the lipids, carbohydrates and the proteins 
 % - the fraction of their contribution to the total energy of the diet. Calculated 
-% for the metabolite macronutrients, database macronutrients and, if provided, 
+% for the metabolite macronutrients, reported/label macronutrients and, if provided, 
 % the original macronutrients.
 %% 
 % These files can be used to gain a deeper understanding of diet. The total 
@@ -376,44 +381,41 @@ dietFlux(1:10,:)
 % the diet with all the correct checks and save them. The function can also check 
 % if the WBMs are feasible on the given diet and add on required micronutrients 
 % where required. Besides setting the diet altering the dietary exchange reactions, 
-% we can also have the WBMs "consume" the database equivalents themselves. In 
-% order to do that the toolbox adds in novel reactions to allow for food intake 
-% and food breakdown. The food intake is straightforward, as it will be an exchange 
-% reaction of the database equivalent (now treated as a metabolite) as in the 
-% novel food ([f]) compartment
+% we can also have the WBMs "consume" the food items themselves. In order to do 
+% that the toolbox adds in novel reactions to allow for food intake and food breakdown. 
+% The food intake is straightforward, as it will be an exchange reaction of the 
+% food item (now treated as a metabolite) as in the novel food ([f]) compartment
 % 
 % foodItem[f] <-
 % 
-% This allows for database equivalents to enter the WBMs. Then we to breakdown 
-% the database equivalent into its metabolite components.
+% This allows for food items to enter the WBMs. Then we to breakdown the food 
+% item into its metabolite components.
 % 
 % foodItem[f] -> met1[d] + ... + metx[d]
 % 
-% Where x is the number of metabolites measured for the database equivalent. 
-% We also incorporate macronutrients such as energy and total lipids so we can 
-% track them in the diet. The macronutrients here are treated as metabolites. 
-% In order to comply with mass balance rules, we need to remove the macronutrients 
-% we are treating as metabolites from the system. We do this by setting another 
-% exchange reaction.
+% Where x is the number of metabolites measured for the food item. We also incorporate 
+% macronutrients such as energy and total lipids so we can track them in the diet. 
+% The macronutrients here are treated as metabolites. In order to comply with 
+% mass balance rules, we need to remove the macronutrients we are treating as 
+% metabolites from the system. We do this by setting another exchange reaction.
 % 
 % macronutrient[d] ->
 % 
-% With these new reactions in place the WBMs can consume and breakdown databse 
-% equivalents into their metabolite components and we can track the total amount 
-% of various macronutrients in the diet. The WBM created with database equivalents 
-% is referred to as a food item-constrained WBM Important to note is that the 
-% food exchange, breakdown, and macronutrient exchange reactions are in g/person/day 
-% (kcal/person/day for energy consumption) instead of the usual (mmol/person/day). 
-% You can choose either or both options to constrain your WBMs with in _setInSilicoDiet.m_ 
-% but we advise to only use the food item-constrained WBMs in conjuction with 
-% the nutrition algorithm or to do simulation on diet composition. The additional 
-% database equivalent reactions can make the vastly increase the reaction content 
-% of the WBMs (by over 30.000 reactions) and make the WBM overly complex for questions 
-% that do not involve the optimisation of the actual database equivalents. To 
-% study the effect of diet on the various reactions in the human body - we suggest 
-% to just use metabolite-constrained WBMs. If no metadata is provided, the function 
-% will create both a female and a male WBM for each diet. If metadata is provided 
-% the diets will be matched to the corresponding sex-specific WBMs. You also have 
+% With these new reactions in place the WBMs can consume and breakdown food 
+% items into their metabolite components and we can track the total amount of 
+% various macronutrients in the diet. Important to note is that the food exchange, 
+% breakdown, and macronutrient exchange reactions are in g/person/day (kcal/person/day 
+% for energy consumption) instead of the usual (mmol/person/day). You can choose 
+% either or both options to constrain your WBMs with in _setInSilicoDiet.m_ but 
+% we advise to only use the food item-constrained WBMs in conjuction with the 
+% nutrition algorithm or to do simulation on diet composition. The additional 
+% food item reaction can make the vastly increase the reaction content of the 
+% WBMs (by over 30.000 reactions) and make the WBM overly complex for questions 
+% that do not involve the optimisation of the actual food items. To study the 
+% effect of diet on the various reactions in the human body - we suggest to just 
+% use metabolite-constrained WBMs. If no metadata is provided, the function will 
+% create both a female and a male WBM for each diet. If metadata is provided the 
+% diets will be matched to the corresponding sex-specific WBMs. You also have 
 % the possibility to give your own WBMs if you do not want to use the standard 
 % Harvey/Harvetta (e.g., community microbiome WBMs). If you have sample specific 
 % WBMs, ensure that the sample ID is in the file name of your WBM flanked by underscores. 
@@ -426,16 +428,16 @@ dietFlux(1:10,:)
 % * dietToSet *Required* - Path to the file with the diets that need to be created. 
 % Consists of column "originalName" where the orignal food names are set. "databaseID" 
 % the ID of the fooditem in a database. "databaseUsed" which database was used 
-% to find that database alternative. Each column after is a diet where the values 
-% in gram show the dietary food items consumed for each diet. The demo file for 
+% to find that database food equivalent. Each column after is a diet where the 
+% values in gram show the food items consumed for each diet. The demo file for 
 % this is called 'demoCreateDiet.xlsx'.
 % * metadataPath *Optional* - Path to the metadata file, should contain the 
 % columns ID, sex and diet. Defaults to an empty string, i.e., not provided.
 % * outputDir *Optional* - Path to the directory where the results should be 
 % stored. Defaults to an empty string, i.e., not provided.
 % * constrainFoodWBM *Optional* - Boolean, indicates if the code should alter 
-% WBMs  to 'consume' database equivalents and set the diet as database equivalents 
-% instead of dietary fluxes. Defaults to false.
+% WBMs  to 'consume' food items and set the diet as food items instead of dietary 
+% fluxes. Defaults to false.
 % * constrainFluxWBM *Optional* - Boolean, indicates if WBM should be constrained 
 % with the dietary exchange fluxes. Defaults to true.
 % * checkFeasibility *Optional* - Boolean, indicates if the newly constrained 
@@ -458,6 +460,7 @@ dietFlux(1:10,:)
 % This is the same as toCreateDiet set previously. Change to where the file
 % is on your computer.
 dietToSet = 'C:\nutritionToolbox\demoCreateDiet.xlsx';
+
 % The path to the metadata file if available. Otherwise standard female and
 % male WBMs will be constrained for each diet.
 metadataPath = '';
@@ -467,8 +470,7 @@ metadataPath = '';
 % desired location.
 % outputDir = '';
 
-% Change to false if you do not want the WBMs to be constrained with
-% database equivalents
+% Change to false if you do not want the WBMs to be constrained with food items
 constrainFoodWBM = true;
 
 % Change to false if you want to WBMs to be constrained with dietary flux
@@ -501,20 +503,40 @@ setInSilicoDiet(dietToSet, 'metadataPath', metadataPath, 'outputDir', outputDir,
 %% 
 % New directories will be created in the chosen output directory. One is called 
 % fluxDietWBMs, if you chose to constrain WBMs with dietary flux reactions, and 
-% one called foodDietWBMs, if you chose to constrain with database equivalents. 
-% In each folder, the various diet-constrained WBMs are stored. If the feasibilities 
-% were checked, an Excel file named  dietGrowthStats.xlsx is created. The dietGrowthStats 
-% file contains WBM feasibility on a rich diet (all dietary metabolites available) 
+% one called foodDietWBMs, if you chose to constrain with food items. In each 
+% folder, the various diet-constrained WBMs are stored. 
+% 
+% You can choose the check if the WBMs are feasible on the new _in silico_ diets. 
+% Feasibilty means that enough metabolites can are consumed and created to satisfy 
+% the whole-body maintenance reaction (usually set to [1,1] /day/person) Reaction 
+% ID "Whole_body_biomass_reaction" and if applicable to produce community microbiome 
+% biomass (usually set to [1,1] /day/person). If feasibilities are checked Excel 
+% file named  dietGrowthStats.xlsx is created. The dietGrowthStats file contains 
+% WBM feasibility on a unconstrained diet (all dietary metabolites available) 
 % and on the constrained diet, as well as the feasibility on the constrained diet 
-% with adjustments made try and make infeasibile WBMs feasible. Identified metabolites 
-% that restore feasibility in the WBMs are added to the diet in a range of 0.1-10 
-% mmol/day/person, depending on which value allows for feasibility. The added 
-% metabolites and the fully updated diet can be found in an Excel file called 
-% dietGrowthStats in the directory where the WBMs are stored.The feasible WBMs 
-% can now be used for modelling purposes. For an indepth tutorial on how to solve 
-% WBMs, we refer you to tutorial 2 of Persephone [7]. Here we will further demonstrate 
-% how to use WBMs in combination with the nutrition algorithm to predict changes 
-% in the diet to achieve desired adjusments in human metabolism.
+% with adjustments made try and make infeasibile WBMs feasible.
+% 
+% The attempt to make make infeasbile WBMs feasible again, the function _ensureWBMfeasibility.m_ 
+% is used. It first checks if the WBM is feasible on the given diet. WBMs that 
+% are infeasible on the given diet, are then given an unconstrained diet where 
+% all dietary exchange reactions have their lower bound set to -1000000. This 
+% is done to check if dietary adjustment might restore feasbility. If the WBM 
+% is feasible on an unconstrained diet two approaches are used to find adjustments 
+% to the diet to restore feasibility. 1) All the existing dietary exchange reactions 
+% have their lower bounds set to -1000000 to see if increasing metabolites in 
+% the existing diet might restore feasibility. If the WBM is feasible by unconstraining 
+% the existing diet, the lower bound of each dietary exchange reaction, in an 
+% iterative manner,  with a lower bound bigger than -0.1 is set to -0.1, 1, and 
+% 10. This will identify one by one, if increasing the availability of that metabolite 
+% can restore feasibility. 2) The function _getMissingDietPersephone.m_ is used 
+% to identify metabolites that could restore feasbility that are not yet part 
+% of the existing diet. If any are found, they are added to the diet with a lower 
+% bound of -1.
+% 
+% For an indepth tutorial on how to solve WBMs, we refer you to tutorial 2 of 
+% Persephone [7]. Here we will further demonstrate how to use WBMs in combination 
+% with the nutrition algorithm to predict changes in the diet to achieve desired 
+% adjusments in human metabolism.
 % _*Step 4: Using the nutrition algorithm*_
 % We can use either the food item-constrained WBMs or flux-constrained WBMs 
 % with the nutrition algorithm to ask for the minimum changes in diet to achieve 
@@ -553,8 +575,8 @@ setInSilicoDiet(dietToSet, 'metadataPath', metadataPath, 'outputDir', outputDir,
 % adjusted diet reaction optimisations of interest .
 % * pointsModelSln - The solution structure for the optimisation that found 
 % the dietary changes.
-% * menuChanges - A table with the changes in database equivalents or dietary 
-% metabolites as printed on the terminal.
+% * menuChanges - A table with the changes in diet food items or dietary metabolites 
+% as printed on the terminal.
 % * macroChanges - A table with the original and new macronutrient distrubutions 
 % and the relative changes between the two.
 % * roiChanges - A table with the range of the fluxes carried by the reactions 
@@ -577,11 +599,10 @@ setInSilicoDiet(dietToSet, 'metadataPath', metadataPath, 'outputDir', outputDir,
 % for us are:
 %% 
 % * options.foodOrMets - indicates if the dietary changes will be calculated 
-% through database equivalents or dietary metabolites. Accepted inputs are 'Food', 
-% 'allMets', and 'dietMets'. Food will enable database equivalent calculations. 
-% allMets will enable calculation of all dietary metabolites. dietMets will enable 
-% calculation of metabolites only found in the the given diets. The default is 
-% set to 'Food'.
+% through food items or dietary metabolites. Accepted inputs are 'Food', 'allMets', 
+% and 'dietMets'. Food will enable food item calculations. allMets will enable 
+% calculation of all dietary metabolites. dietMets will enable calculation of 
+% metabolites only found in the the given diets. The default is set to 'Food'.
 % * options.roiWeights - numeric array. Indicates the 'importance' of a reaction 
 % of interest. The higher the value, the more the dietary solution will be focused 
 % on the minimisation or maxisimation of that particular reactions. By default 
@@ -614,27 +635,25 @@ setInSilicoDiet(dietToSet, 'metadataPath', metadataPath, 'outputDir', outputDir,
 % set for sugars CANNOT be higher than the upper bound of the carboyhydrate range. 
 % Defaults to [0 1e6].
 % * options.foodAddedLimit - A numeric value, specifies how many units of an 
-% item (metabolite or food) are allowed to be added to the diet. For database 
-% equivalents the unit is in grams, for metabolites it is in mmol. Defaults to 
-% 1e6.
+% item (metabolite or food) are allowed to be added to the diet. For food items 
+% the unit is in grams, for metabolites it is in mmol. Defaults to 1e6.
 % * options.foodRemovedLimit - A numeric value, specifies how many units of 
-% an item (metabolite or food) are allowed to be removed from the diet. For database 
-% equivalents the unit is in grams, for metabolites it is in mmol. Defaults to 
-% 1e6.
+% an item (metabolite or food) are allowed to be removed from the diet. For food 
+% items the unit is in grams, for metabolites it is in mmol. Defaults to 1e6.
 % * options.removeFoodItem: A nx2 cell array with the first column being the 
-% database equivalent ID and the second column the name of the database of the 
-% database equivalents that shall be removed from the analysis.
-% * options.addPrice: a nx3 cell array with the first column being the database 
-% equivalent ID, the second column the name of the database, and the third column 
-% the price (any currency) associated with that database equivalent. Allows for 
-% optimising the price of a diet, but only if enough information is available.
+% food item ID and the second column the name of the database of the food items 
+% that shall be removed from the analysis.
+% * options.addPrice: a nx3 cell array with the first column being the food 
+% item ID, the second column the name of the database, and the third column the 
+% price (any currency) associated with that food item. Allows for optimising the 
+% price of a diet, but only if enough information is available.
 %% 
 % These constraints, especially the macronutrient ranges, are only interesting 
 % when looking at food item-constrained WBMs as metabolite dietary changes will 
 % not take those into account. In theory, it is be possible to set the macronutrient 
-% range contraints on flux-constrained WBMs where you calculate additional database 
-% equivalents. However, the ranges have to be lower as you can only calculate 
-% the added macronutrients from the new database equivalents.
+% range contraints on flux-constrained WBMs where you calculate additional food 
+% items. However, the ranges have to be lower as you can only calculate the added 
+% macronutrients from the new food items.
 %% 
 % Now that we know the various inputs and constraints we need to take into account 
 % let us put it into practice.
@@ -688,7 +707,7 @@ objMinMax = 'max';
 rois = {'glc_D[bc]', 'dopa[csf]', 'Diet_EX_lipid[d]'};
 roisMinMax = {'max', 'max', 'min'};
 
-% We want to calculate database equivalent dietary changes
+% We want to calculate food item dietary changes
 options.foodOrMets = 'Food';
 
 % We will not weight our reaction of interest more then our dietary
@@ -701,22 +720,22 @@ options.roiWeights=1*ones(1,length(rois));
 
  [newDietModel,pointsModel,roiFlux,pointsModelSln,menuChanges, macroChanges, roiChanges] = nutritionAlgorithmWBM(model,obj,objMinMax,rois,roisMinMax,options);
 %% 
-% As we can see from the printed output, the database equivalents that were 
-% added were: Alcoholic beverages, cherries, egg whites, sorbitol, cod liver oil 
-% and linseed oil and dried lactose powder. The total amount of food added to 
-% the diet is ~810g, which on top of an already normal diet is quite some extra 
-% food. When we look further in the dietary composition, 170g of egg white and 
-% 141g of dried lactose powder does not seem appetising to eat and difficult to 
-% incorporate in an already existing diet. This further asks for additional bounds 
-% on food intake and macro-nutrient composition. Interestingly, we see an increase 
-% of almost 30g of lipids in the diet, while we asked for the lipid conusmption 
-% to be as small as possible. This is likely because we asked for the maximal 
-% storage of glucose in the blood. That means that the points generated by adding 
-% more glucose in the blood outweigh the points generated to by limiting lipid 
-% consumption. This shows to highlight that various reactions of interest can 
-% counteract each other as long if one reaction can generate vastly more points 
-% than other reactions. A way to counteract this is by adjusting the reaction 
-% weights which we show in a section further down.
+% As we can see from the printed output, the food items that were added were: 
+% Alcoholic beverages, cherries, egg whites, sorbitol, cod liver oil and linseed 
+% oil and dried lactose powder. The total amount of food added to the diet is 
+% ~810g, which on top of an already normal diet is quite some extra food. When 
+% we look further in the dietary composition, 170g of egg white and 141g of dried 
+% lactose powder does not seem appetising to eat and difficult to incorporate 
+% in an already existing diet. This further asks for additional bounds on food 
+% intake and macro-nutrient composition. Interestingly, we see an increase of 
+% almost 30g of lipids in the diet, while we asked for the lipid conusmption to 
+% be as small as possible. This is likely because we asked for the maximal storage 
+% of glucose in the blood. That means that the points generated by adding more 
+% glucose in the blood outweigh the points generated to by limiting lipid consumption. 
+% This shows to highlight that various reactions of interest can counteract each 
+% other as long if one reaction can generate vastly more points than other reactions. 
+% A way to counteract this is by adjusting the reaction weights which we show 
+% in a section further down.
 % 
 % We do see that the maximum storage of glucose is blood is increased with ~3000 
 % mmol/person/day, the dopamine in the cerebral spine fluid with ~85 mmol/person/day 
@@ -739,19 +758,19 @@ options.roiWeights=1*ones(1,length(rois));
 % you put on the system.
 % 
 % Here we will set the constraints to keep more or less the same dietary composition, 
-% and we shall only add 150g of new database equivalents at maximum. We also demonstrate 
-% here the capability to remove database equivalents from the analysis. We saw 
-% in the previous calculation that we should add 130g of sorbitol to the diet, 
-% an item that is not typically consumed in its raw form. Here we remove the item 
-% with the option "removeFoodItems". To discard further items from analysis, add 
-% new rows with ;.
+% and we shall only add 150g of new food items at maximum. We also demonstrate 
+% here the capability to remove food items from the analysis. We saw in the previous 
+% calculation that we should add 130g of sorbitol to the diet, an item that is 
+% not typically consumed in its raw form. Here we remove the item with the option 
+% "removeFoodItems". To discard further items from analysis, add new rows with 
+% ;.
 
 % Let us clear the options from the previous run
 clear options
 
 % Set the new options for the new run
 
-% We want to calculate database equivalent dietary changes
+% We want to calculate food item dietary changes
 options.foodOrMets = 'Food';
 
 % We will not weight our reaction of interest more than our dietary
@@ -768,7 +787,7 @@ options.sugarsRange = [170 210];
 % Set the maximum amount of food addded
 options.foodAddedLimit=150;
 
-% Remove database equivalent sorbitol
+% Remove food item sorbitol
 options.removeFoodItem = {'1351', 'frida'};
 
 % Run the nutrition algorithm again
@@ -780,8 +799,8 @@ options.removeFoodItem = {'1351', 'frida'};
 % macronutrient constraints. We can also see that, indeed, sorbitol does no longer 
 % show up in the solution, as we removed it in the options. To double-check if 
 % it would show up in the solution with these new constraints you can comment 
-% out (put % in front of) the line where we set which database equivelants we 
-% want to have removed and rerun. 
+% out (put % in front of) the line where we set which food items we want to have 
+% removed and rerun. 
 % 
 % The main difference we see in our reactions of interest is for dopamine in 
 % the cerebrospinal fluid, where we now only see an increase of ~9 mmol/person/day. 
@@ -809,18 +828,18 @@ disp(macroChanges);
 % importance to minimising the lipid content in the diet to limit the effect glucose 
 % has on the solution.
 % 
-% To give the diets an addtional layer of realism, we can add on the price. 
-% This can be done through the options variable:
+% To give the diets an addtional layer of realism, we can add on the money food 
+% items costs. This can be done through the options variable:
 % 
-% options.addPrice: a nx3 cell array with the first column the database equivalent 
-% ID, the second column the name of the database, and in the third column the 
-% price (any currency) associated with that database equivalent. This allows for 
-% optimising the cost of a diet, but only if sufficient information is available.
+% options.addPrice: a nx3 cell array with the first column the food item ID, 
+% the second column the name of the database, and in the third column the price 
+% (any currency) associated with that food item. This allows for optimising the 
+% cost of a diet, but only if sufficient information is available.
 % 
-% Important is that you remove all other database equivalents that you do not 
-% have price information for. Otherwise the algorithm will include those items 
-% as they "do not cost anything". Note that this will be a time-intensive option 
-% as you will have to link price to the various database items of interest.
+% Important is that you remove all other food items that you do not have price 
+% information for. Otherwise the algorithm will include those items as they "do 
+% not cost anything". Note that this will be a time-intensive option as you will 
+% have to link price to the various database items of interest.
 % 
 % This concludes the tutorial on how to work with the nutrition toolbox. If 
 % more information is required on the nutrition algorithm, we recommened reading 
@@ -830,6 +849,8 @@ disp(macroChanges);
 % , the issues on the COBRA toolbox github, or contact us directly through the 
 % corresponding author from the publication associated with this tutorial.
 %% REFERENCES
+% 
+% 
 % 1. U.S. Department of Agriculture, Agricultural Research Service, Beltsville 
 % Human Nutrition Research Center. FoodData Central. Available from https://fdc.nal.usda.gov/.
 % 
