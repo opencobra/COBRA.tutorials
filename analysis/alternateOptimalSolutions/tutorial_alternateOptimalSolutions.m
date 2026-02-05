@@ -1,6 +1,6 @@
 %% Flux Balance Analysis: Alternate optimal solutions
 %% Author(s): Ronan M.T. Fleming, School of Medicine, University of Galway
-%% Reviewer(s): 
+%% Reviewer(s):
 %% INTRODUCTION
 % In this tutorial, the existence of Alternate Optimal Solutions [2,4] to a 
 % Flux Balance Analysis (FBA) problem is introduced using the E. coli core model[1], 
