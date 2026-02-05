@@ -105,12 +105,9 @@ jobs:
               HTML_FILE_PATH="$HTML_OUTPUT_DIR/$HTML_FILE_NAME"
               mkdir -p "$HTML_OUTPUT_DIR"
 
-              PDF_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.pdf/')
               M_FILE_PATH=$(echo "$ABSOLUTE_FILE_PATH" | sed 's/.mlx/.m/')
 
               xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$HTML_FILE_PATH', 'Format', 'html'); catch e, disp(getReport(e,'extended')); exit(1); end"
-              sleep 5
-              xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$PDF_FILE_PATH', 'Format', 'pdf'); catch e, disp(getReport(e,'extended')); exit(1); end"
               sleep 5
               xvfb-run -a "$ML_BIN" -batch "try, export('$ABSOLUTE_FILE_PATH', '$M_FILE_PATH', 'Format', 'm'); catch e, disp(getReport(e,'extended')); exit(1); end"
 
@@ -144,7 +141,7 @@ jobs:
 
           rm -rf cobratoolbox
           git add .
-          git commit -m "created .pdf, .mlx and .m files" || echo "No changes to commit"
+          git commit -m "created .mlx and .m files" || echo "No changes to commit"
           git push origin master
 
           echo "Script execution completed."
