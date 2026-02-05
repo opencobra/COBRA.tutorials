@@ -44,13 +44,7 @@ jobs:
         run: |
           echo "Looking for last sync commit..."
 
-          last_sync_commit=$(git log --grep="removed .pdf, .html and .m files" -n 1 --pretty=format:%H)
-
-          if [[ -z "$last_sync_commit" ]]; then
-            echo "No previous deletion sync commit found. Checking all history for deletions."
-            # Look back further for any sync commit
-            last_sync_commit=$(git log --grep="created .pdf, .mlx and .m files" -n 1 --pretty=format:%H)
-          fi
+          last_sync_commit=$(git log --grep="created .mlx and .m files" -n 1 --pretty=format:%H)
 
           if [[ -z "$last_sync_commit" ]]; then
             echo "No sync commit found. Cannot determine deletions. Exiting."
