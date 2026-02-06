@@ -1,5 +1,6 @@
 COBRA Tutorials
 ===============
+A template for generating a new tutorial is provided `here <https://github.com/opencobra/COBRA.tutorials/blob/master/.template/tutorial_template.mlx>`__.
 
 Overview
 ---------
