@@ -35,10 +35,22 @@
 
 %% 1. Environment check
 
-assert(~isempty(ver('optim')), ...
-    'Optimization Toolbox is required.')
+% tf = license('test','Statistics_Toolbox')
+% 
+% tf =
+% 
+%      0
+% 
+% tf = license('test','Optimization_Toolbox')
+% 
+% tf =
+% 
+%      0
 
-disp('Environment OK.')
+% assert(~isempty(ver('optim')), ...
+%     'Optimization Toolbox is required.')
+% 
+% disp('Environment OK.')
 %% 2. Load Model
 % We load a genome-scale metabolic model.
 
@@ -94,8 +106,7 @@ fprintf('Left null space dimension = %d\n', nullity);
 %% Configure tutorial paths
 
 % Get path of this live script
-fullScriptPath = matlab.desktop.editor.getActiveFilename;
-tutorialDir = fileparts(fullScriptPath);
+tutorialDir = fileparts(which('tutorial_conservedAndReactingMoieties'))
 
 % Move to tutorial folder
 cd(tutorialDir);
