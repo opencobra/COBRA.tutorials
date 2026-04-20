@@ -1,4 +1,4 @@
-%% Paint4Net: visualisation toolbox for COBRA
+%% Paint4Net: visualisation toolbox for COBRA (Biograph Version)
 %% Author(s):
 % Andrejs Kostromins, Biosystems Group, Department of Computer Systems, Latvia 
 % University of Agriculture, Liela iela 2, LV-3001 Jelgava, Latvia. 
