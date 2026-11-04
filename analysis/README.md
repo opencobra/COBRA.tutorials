@@ -1,5 +1,8 @@
 # <img src="https://king.nuigalway.ie/cobratoolbox/img/icon_analysis.png" height="22px">&nbsp;&nbsp;Tutorials - analysis
 
+- [Abundance-growth space of a bioleaching community: analysis of multiple scenarios (ecosystemBioleachingScenarios)](ecosystemBioleachingScenarios)
+- [Abundance-growth space of a microbial community: toy example (ecosystemToyExample)](ecosystemToyExample)
+- [Abundance-growth space of a synthetic community of two _E. coli_ auxotrophs (ecosystemEcoliSyntheticCommunity)](ecosystemEcoliSyntheticCommunity)
 - [Analyze Steady-State Community COBRA Models (steadyCom)](steadyCom)
 - [A step-by-step guide to parsimoneous enzyme usage Flux Balance Analysis (pFBA)](pFBA)
 - [Atomically resolve a metabolic reconstruction (atomicallyResolveReconstruction)](atomicallyResolveReconstruction)
